@@ -1,0 +1,511 @@
+{
+  "schema_version": 1,
+  "audit_on": "2026-10-05",
+  "units": "mm",
+  "coordinate_system": {
+    "x": "Derecha de la cámara",
+    "y": "Arriba",
+    "z": "Hacia delante por el eje óptico",
+    "origin": "Centro nominal de la envolvente del cuerpo",
+    "warning": "Todas las posiciones, componentes internos del gimbal y formas de soportes son aproximados. Las medidas exteriores verificadas no validan posiciones ni colisiones."
+  },
+  "nominal_rod_center_spacing_mm": 60,
+  "rod_spacing_status": "Separación entre centros de 60 mm verificada en el manual 1674; medir alineación de abrazaderas e inserción de varillas.",
+  "nodes": [
+    {
+      "id": "sony-fx3",
+      "label": "Sony FX3",
+      "kind": "camera",
+      "position_mm": [
+        0,
+        0,
+        0
+      ],
+      "size_xyz_mm": [
+        129.7,
+        77.8,
+        84.5
+      ],
+      "envelope": "verified",
+      "mass_domain": "moving",
+      "mount": "Fijación antitorsión a la jaula; base debajo.",
+      "placement": "Cuerpo centrado, horizontal por defecto; conexiones del lado izquierdo despejadas.",
+      "orientation": "Eje del objetivo +Z; conexiones en -X.",
+      "rationale": "Reducir el desplazamiento respecto a los ejes de balance de inclinación y rotación.",
+      "rejected": "Gran desplazamiento lateral: reduce la holgura del brazo.",
+      "explode_mm": [
+        0,
+        80,
+        0
+      ],
+      "dimension_source_url": "https://helpguide.sony.net/ilc/2210/v1/en/contents/TP1000886922.html",
+      "pose_status": "approximate_not_clearance_checked",
+      "parent_id": "smallrig-4770",
+      "rotation_deg": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "sony-fe-16-35-gm",
+      "label": "16-35 mm GM",
+      "kind": "lens",
+      "position_mm": [
+        0,
+        0,
+        103.05
+      ],
+      "size_xyz_mm": [
+        88.5,
+        88.5,
+        121.6
+      ],
+      "envelope": "verified",
+      "mass_domain": "moving",
+      "mount": "Montura Sony E.",
+      "placement": "Parte posterior del objetivo junto al frente nominal del cuerpo; referencia de montura/sensor aproximada.",
+      "orientation": "Eje óptico +Z.",
+      "rationale": "Mantener objetivo y cuerpo coaxiales.",
+      "rejected": "Subir el objetivo en modo vertical no representa una rotación real de la cámara.",
+      "explode_mm": [
+        0,
+        80,
+        75
+      ],
+      "pose_status": "approximate_not_clearance_checked",
+      "dimension_source_url": "https://electronics.sony.com/imaging/lenses/all-e-mount/p/sel1635gm",
+      "parent_id": "sony-fx3",
+      "rotation_deg": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "smallrig-4770",
+      "label": "Jaula HawkLock 4770",
+      "kind": "cage",
+      "position_mm": [
+        0,
+        0,
+        0
+      ],
+      "size_xyz_mm": [
+        160,
+        101.2,
+        66.2
+      ],
+      "envelope": "verified",
+      "mass_domain": "moving",
+      "mount": "Jaula en U, dos tornillos de cámara 1/4-20 y abrazadera HDMI izquierda. Riel NATO superior desmontable.",
+      "placement": "Alrededor del cuerpo, con acceso a las conexiones izquierdas.",
+      "orientation": "Misma orientación que la cámara.",
+      "rationale": "Sujeción del cable y núcleo antitorsión.",
+      "rejected": "Herrajes superiores adicionales en gimbal: altura innecesaria.",
+      "explode_mm": [
+        0,
+        190,
+        0
+      ],
+      "dimension_source_url": "https://static.smallrig.com/mall/img/public/1725874097334_.pdf",
+      "pose_status": "approximate_not_clearance_checked",
+      "parent_id": "smallrig-1674",
+      "rotation_deg": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "smallrig-1674",
+      "label": "Base 1674",
+      "kind": "baseplate",
+      "position_mm": [
+        0,
+        -65,
+        0
+      ],
+      "size_xyz_mm": [
+        80,
+        26,
+        80
+      ],
+      "envelope": "verified",
+      "mass_domain": "moving",
+      "mount": "Tornillo bajo la jaula; comprobar retención y longitud efectiva de rosca.",
+      "placement": "Inmediatamente debajo de la jaula.",
+      "orientation": "Abrazaderas de varillas paralelas al eje óptico.",
+      "rationale": "Soporte bajo del conjunto.",
+      "rejected": "No se ha verificado que HawkLock libere por sí solo una base 1674 atornillada.",
+      "explode_mm": [
+        0,
+        -20,
+        0
+      ],
+      "dimension_source_url": "https://static.smallrig.com/mall/img/public/vcqnxceuxol-1747621696364_.pdf",
+      "pose_status": "approximate_not_clearance_checked",
+      "parent_id": "dji-rs4-pro-combo",
+      "rotation_deg": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "smallrig-rods-8in",
+      "label": "Varillas de 15 mm / 8 pulgadas",
+      "kind": "rods",
+      "position_mm": [
+        0,
+        -66,
+        -4
+      ],
+      "size_xyz_mm": [
+        75,
+        15,
+        203.2
+      ],
+      "envelope": "verified",
+      "mass_domain": "moving",
+      "mount": "Abrazaderas dobles 1674 y 3203B; separación nominal LWS, conjunto real por medir.",
+      "placement": "Varillas cortas con prioridad trasera para base y batería; no garantizan soporte frontal del parasol.",
+      "orientation": "Paralelas a +Z; 203.2 mm de largo y 15 mm de diámetro.",
+      "rationale": "No usar barras ficticias de 410 mm.",
+      "rejected": "Afirmar que el par de 8 pulgadas alcanza a la vez parasol frontal y batería trasera sin medir.",
+      "explode_mm": [
+        0,
+        -68,
+        0
+      ],
+      "pose_status": "approximate_not_clearance_checked",
+      "dimension_source_url": "https://www.smallrig.com/15mm-Carbon-Fiber-Rods-Pair.html",
+      "parent_id": "smallrig-1674",
+      "rotation_deg": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "smallrig-3645",
+      "label": "Parasol Star-Trail VND",
+      "kind": "matte",
+      "position_mm": [
+        0,
+        0,
+        180
+      ],
+      "size_xyz_mm": [
+        156,
+        116,
+        32
+      ],
+      "envelope": "approximate",
+      "mass_domain": "moving",
+      "mount": "Aro incluido 82-95 mm; montaje al objetivo candidato, soporte de varillas condicionado.",
+      "placement": "Coaxial al frente del objetivo, con bandera plegada a un ángulo seguro.",
+      "orientation": "Parasol hacia delante; envolvente de holgura no certificada.",
+      "rationale": "Conservar el kit solicitado sin alargar arbitrariamente las varillas.",
+      "rejected": "Bandera alta o soporte frontal forzado sin alcance suficiente de varillas.",
+      "explode_mm": [
+        0,
+        80,
+        160
+      ],
+      "pose_status": "approximate_not_clearance_checked",
+      "dimension_source_url": "https://www.smallrig.com/global/SmallRig-Multifunctional-Modular-Matte-Box-95mm-VND-Kit-3645.html",
+      "parent_id": "sony-fe-16-35-gm",
+      "rotation_deg": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "smallrig-3203b",
+      "label": "Placa V-mount 3203B",
+      "kind": "batteryPlate",
+      "position_mm": [
+        0,
+        -138.35,
+        -70
+      ],
+      "size_xyz_mm": [
+        108,
+        168.7,
+        33
+      ],
+      "envelope": "verified",
+      "mass_domain": "moving",
+      "mount": "Abrazadera doble de 15 mm incluida atornillada al borde superior, manual oficial página 5, diagrama izquierdo; placa bajo varillas y batería sobre la cara posterior.",
+      "placement": "Bajo las varillas traseras, cerca de la jaula; abrazadera superior documentada en manual oficial, página 5. Posición aproximada.",
+      "orientation": "Placa bajo el plano de varillas y cara V-mount hacia atrás (-Z). Medir desplazamiento de abrazadera y reparto dimensional. La ubicación visual de abrazadera y orificios dentro de la envolvente publicada es aproximada, no una cota exacta.",
+      "rationale": "Evitar batería elevada o palanca trasera excesiva.",
+      "rejected": "Abrazadera inferior eleva la placa sobre varillas. Posición muy trasera añade inercia. Holgura del motor de giro no certificada.",
+      "explode_mm": [
+        0,
+        -70,
+        -80
+      ],
+      "dimension_source_url": "https://www.smallrig.com/jp/Advanced-V-Mount-Battery-Mount-Plate-with-Dual-15mm-Rod-Clamp-3203B.html",
+      "pose_status": "approximate_not_clearance_checked",
+      "parent_id": "smallrig-rods-8in",
+      "rotation_deg": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "smallrig-vb99-pro",
+      "label": "VB99 Pro",
+      "kind": "battery",
+      "position_mm": [
+        0,
+        -149.35,
+        -114.1
+      ],
+      "size_xyz_mm": [
+        73.2,
+        107.2,
+        55.2
+      ],
+      "envelope": "verified",
+      "mass_domain": "moving",
+      "mount": "Bloqueo V-mount en 3203B.",
+      "placement": "Bloqueada directamente en la placa baja trasera; centro nominal de envolvente a 114.1 mm detrás del origen del cuerpo. Posición candidata próxima, no CG medido ni prueba de barrido de motores.",
+      "orientation": "Cara de batería vertical y salidas accesibles.",
+      "rationale": "Mantener la batería bajo las varillas con abrazadera superior documentada, no sobre el eje de rotación.",
+      "rejected": "Batería elevada detrás del asa superior.",
+      "explode_mm": [
+        0,
+        -70,
+        -150
+      ],
+      "dimension_source_url": "https://static.smallrig.com/mall/img/public/1730100759046_.pdf",
+      "pose_status": "approximate_not_clearance_checked",
+      "parent_id": "smallrig-3203b",
+      "rotation_deg": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "dji-rs4-pro-combo",
+      "label": "DJI RS 4 Pro",
+      "kind": "gimbal",
+      "position_mm": [
+        0,
+        -155,
+        -25
+      ],
+      "size_xyz_mm": [
+        201.9,
+        415,
+        267.8
+      ],
+      "envelope": "approximate",
+      "mass_domain": "fixed",
+      "mount": "Placas de liberación rápida DJI; compatibilidad de la pila de bases pendiente de prueba física.",
+      "placement": "Representación estructural aproximada del gimbal; 201.9 de ancho × 415 de alto × 267.8 de fondo describen el conjunto estándar, NO los ejes internos ni el rig con BG70.",
+      "orientation": "Las formas de brazos y ejes son aproximaciones visuales.",
+      "rationale": "Zonas de motores y manos como comprobaciones medibles antes de uso.",
+      "rejected": "Tratar la carga nominal como garantía de encaje.",
+      "explode_mm": [
+        0,
+        -130,
+        0
+      ],
+      "pose_status": "approximate_not_clearance_checked",
+      "dimension_source_url": "https://www.dji.com/rs-4-pro/specs",
+      "parent_id": null,
+      "rotation_deg": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "dji-rs-bg70",
+      "label": "Empuñadura BG70",
+      "kind": "grip",
+      "position_mm": [
+        0,
+        -265,
+        -25
+      ],
+      "size_xyz_mm": [
+        43,
+        165,
+        43
+      ],
+      "envelope": "approximate",
+      "mass_domain": "fixed",
+      "mount": "Interfaz de empuñadura DJI; sustituye BG30.",
+      "placement": "Debajo del cuerpo RS; conservar libre la zona de agarre.",
+      "orientation": "Vertical, debajo de la carcasa de giro horizontal.",
+      "rationale": "Alimentación principal del gimbal independiente de V-mount.",
+      "rejected": "Contar BG30 y BG70 como dos empuñaduras instaladas.",
+      "explode_mm": [
+        0,
+        -165,
+        0
+      ],
+      "pose_status": "approximate_not_clearance_checked",
+      "dimension_source_url": "https://store.dji.com/product/dji-rs-bg70-high-capacity-battery-grip",
+      "parent_id": "dji-rs4-pro-combo",
+      "rotation_deg": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "smallrig-3026b",
+      "label": "Soporte NATO 3026B",
+      "kind": "monitorMount",
+      "position_mm": [
+        -119,
+        -134,
+        -25
+      ],
+      "size_xyz_mm": [
+        152.6,
+        38,
+        54.8
+      ],
+      "envelope": "verified",
+      "mass_domain": "fixed",
+      "mount": "Abrazadera NATO en riel lateral fijo RS; cabezal nativo inclinable con tornillo 1/4-20. Inclinación publicada de 170 grados; verificar orientación con la rosca real del Indie 7.",
+      "placement": "Soporte lateral corto fuera de la cámara; coordenadas de riel/cabezal por medir.",
+      "orientation": "Soporte nativo de 152.6 mm hacia la izquierda del operador, sin brazo extra. Articulación y tornillo con coordenadas aproximadas.",
+      "rationale": "Monitor fuera de la carga móvil de cámara.",
+      "rejected": "Monitor sobre cámara o brazo largo inventado.",
+      "explode_mm": [
+        -95,
+        -20,
+        0
+      ],
+      "dimension_source_url": "https://static.smallrig.com/mall/img/public/m1twezvd88j-1751250182064_.pdf",
+      "pose_status": "approximate_not_clearance_checked",
+      "parent_id": "dji-rs4-pro-combo",
+      "rotation_deg": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "smallhd-indie-7",
+      "label": "SmallHD Indie 7",
+      "kind": "monitor",
+      "position_mm": [
+        -185,
+        -205,
+        -25
+      ],
+      "size_xyz_mm": [
+        180.1,
+        118.6,
+        33.5
+      ],
+      "envelope": "verified",
+      "mass_domain": "fixed",
+      "mount": "Rosca inferior 1/4-20 del Indie 7 al tornillo del cabezal 3026B orientado hacia abajo; no se inventa una rosca superior.",
+      "placement": "Fuera de cámara, a la izquierda del operador. Posición candidata, no prueba de holgura de todos los ejes.",
+      "orientation": "Monitor bajo el cabezal nativo 3026B, invertido para que la rosca inferior 1/4-20 mire hacia arriba, según ejemplos del fabricante. Verificar inversión de imagen y lectura.",
+      "rationale": "Monitor fuera de cámara móvil, con visualización directa.",
+      "rejected": "Monitor flotante sin soporte o bloqueando la empuñadura.",
+      "explode_mm": [
+        -205,
+        10,
+        0
+      ],
+      "dimension_source_url": "https://www.bhphotovideo.com/c/product/1593398-REG/smallhd_mon_indie_7_indie_7_touchscreen_on_camera.html",
+      "pose_status": "approximate_not_clearance_checked",
+      "parent_id": "smallrig-3026b",
+      "rotation_deg": [
+        0,
+        0,
+        180
+      ]
+    },
+    {
+      "id": "sony-xlr-h1",
+      "label": "Sony XLR-H1",
+      "kind": "handle",
+      "position_mm": [
+        0,
+        83,
+        6
+      ],
+      "size_xyz_mm": [
+        65,
+        78,
+        128
+      ],
+      "envelope": "approximate",
+      "mass_domain": "moving",
+      "mount": "Zapata MI y tornillos Sony; comprobar retirada del riel superior de jaula.",
+      "placement": "Sólo cámara a mano o configuración estática por defecto.",
+      "orientation": "Asa longitudinal sobre cámara.",
+      "rationale": "Manejo de audio sin masa superior adicional en gimbal.",
+      "rejected": "Asa superior activa por defecto en gimbal.",
+      "explode_mm": [
+        0,
+        140,
+        0
+      ],
+      "pose_status": "approximate_not_clearance_checked",
+      "dimension_source_url": "https://electronics.sony.com/imaging/imaging-accessories/imaging-compact-camera-accessories/p/xlrh1",
+      "parent_id": "sony-fx3",
+      "rotation_deg": [
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "clearance_gates": [
+    {
+      "id": "battery-sweep",
+      "title": "Batería y recorrido de motores",
+      "detail": "Abrazadera superior 3203B documentada en manual, página 5. Placa bajo varillas cerca del motor de giro. Con motores apagados, medir la holgura mínima en extremos de inclinación/rotación. No operar hasta superar la prueba.",
+      "status": "bench_required"
+    },
+    {
+      "id": "hand-zone",
+      "title": "Espacio para las manos",
+      "detail": "Ajustar el monitor en el 3026B real. Usar empuñadura y controles con guantes sin tocar pantalla ni soporte.",
+      "status": "bench_required"
+    },
+    {
+      "id": "motion-boundary",
+      "title": "Cables entre partes móviles y fijas",
+      "detail": "HDMI y alimentación del monitor cruzan de cámara móvil a monitor lateral fijo. Prever bucles flexibles para los ejes; no se promete giro o rotación ilimitados.",
+      "status": "bench_required"
+    },
+    {
+      "id": "quick-release",
+      "title": "Interfaz de extracción",
+      "detail": "1674 está atornillada. HawkLock no garantiza extracción de cámara por sí sola a través de la pila. Desconectar todos los cables que cruzan partes móviles/fijas, liberar la placa DJI y retirar las varillas si hace falta.",
+      "status": "bench_required"
+    },
+    {
+      "id": "dual-video",
+      "title": "Doble salida HDMI",
+      "detail": "StarTech y RavenEye quedan en reserva para gimbal. Circuito completo de banco hasta verificar soporte, alimentación de 5 V y negociación EDID.",
+      "status": "conditional"
+    },
+    {
+      "id": "focus-calibration",
+      "title": "Calibración LiDAR y objetivo",
+      "detail": "No se ha demostrado calibración del motor con SEL1635GM. Sensor/motor Focus Pro y hub Transmission se conservan en inventario, sin simularlos operativos.",
+      "status": "conditional"
+    }
+  ],
+  "support_graph_note": "parent_id representa la cadena candidata de soporte mecánico, no una jerarquía de transformaciones. En cámara a mano se omiten soportes inactivos; no se inventan manos o soportes externos. Medir la pila de jaula, base y placa DJI."
+}
+

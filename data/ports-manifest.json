@@ -1,0 +1,348 @@
+{
+  "schema_version": 1,
+  "audit_on": "2026-10-05",
+  "warning": "Identidad de puertos documentada. Todas las coordenadas son anclajes visuales aproximados basados en fotografías, no CAD calibrado. Los dispositivos no modelados permanecen en el mapa de puertos 2D.",
+  "ports": [
+    {
+      "id": "fx3-hdmi",
+      "part_id": "sony-fx3",
+      "label": "Salida HDMI",
+      "connector": "HDMI tipo A hembra",
+      "local_position_mm": [
+        -65,
+        -3,
+        15
+      ],
+      "position_confidence": "approximate_photo_zone_not_measured",
+      "identity_source_url": "https://helpguide.sony.net/ilc/2210/v1/en/contents/TP1000886922.html",
+      "note": "Identidad y función eléctrica documentadas; coordenadas sólo para visualización, nunca cotas de perforación o corte de cable."
+    },
+    {
+      "id": "fx3-usbc",
+      "part_id": "sony-fx3",
+      "label": "USB-C / control",
+      "connector": "USB-C hembra",
+      "local_position_mm": [
+        -65,
+        -21,
+        -8
+      ],
+      "position_confidence": "approximate_photo_zone_not_measured",
+      "identity_source_url": "https://helpguide.sony.net/ilc/2210/v1/en/contents/TP1000886922.html",
+      "note": "Identidad y función eléctrica documentadas; coordenadas sólo para visualización, nunca cotas de perforación o corte de cable."
+    },
+    {
+      "id": "fx3-mic",
+      "part_id": "sony-fx3",
+      "label": "Entrada de micrófono",
+      "connector": "TRS de 3.5 mm hembra",
+      "local_position_mm": [
+        -65,
+        20,
+        -3
+      ],
+      "position_confidence": "approximate_photo_zone_not_measured",
+      "identity_source_url": "https://helpguide.sony.net/ilc/2210/v1/en/contents/TP1000886922.html",
+      "note": "Identidad y función eléctrica documentadas; coordenadas sólo para visualización, nunca cotas de perforación o corte de cable."
+    },
+    {
+      "id": "fx3-battery",
+      "part_id": "sony-fx3",
+      "label": "Batería / 4253B",
+      "connector": "Compartimento NP-FZ100",
+      "local_position_mm": [
+        45,
+        -39,
+        -4
+      ],
+      "position_confidence": "approximate_photo_zone_not_measured",
+      "identity_source_url": "https://helpguide.sony.net/ilc/2210/v1/en/contents/TP1000886922.html",
+      "note": "Identidad y función eléctrica documentadas; coordenadas sólo para visualización, nunca cotas de perforación o corte de cable."
+    },
+    {
+      "id": "rs4-rss",
+      "part_id": "dji-rs4-pro-combo",
+      "label": "RSS / control de cámara",
+      "connector": "USB-C hembra",
+      "local_position_mm": [
+        45,
+        90,
+        30
+      ],
+      "position_confidence": "approximate_photo_zone_not_measured",
+      "identity_source_url": "https://www.dji.com/rs-4-pro/specs",
+      "note": "Identidad y función eléctrica documentadas; coordenadas sólo para visualización, nunca cotas de perforación o corte de cable."
+    },
+    {
+      "id": "rs4-lidar",
+      "part_id": "dji-rs4-pro-combo",
+      "label": "Transmisión de vídeo / LiDAR",
+      "connector": "USB-C hembra",
+      "local_position_mm": null,
+      "position_confidence": "not_modeled",
+      "identity_source_url": "https://www.dji.com/rs-4-pro/specs",
+      "note": "Identidad y función eléctrica documentadas; coordenadas sólo para visualización, nunca cotas de perforación o corte de cable."
+    },
+    {
+      "id": "rs4-focus",
+      "part_id": "dji-rs4-pro-combo",
+      "label": "Motor de enfoque",
+      "connector": "USB-C hembra",
+      "local_position_mm": null,
+      "position_confidence": "not_modeled",
+      "identity_source_url": "https://www.dji.com/rs-4-pro/specs",
+      "note": "Identidad y función eléctrica documentadas; coordenadas sólo para visualización, nunca cotas de perforación o corte de cable."
+    },
+    {
+      "id": "rs4-grip-contacts",
+      "part_id": "dji-rs4-pro-combo",
+      "label": "Interfaz de empuñadura",
+      "connector": "Contactos de empuñadura DJI",
+      "local_position_mm": null,
+      "position_confidence": "not_modeled",
+      "identity_source_url": "https://www.dji.com/rs-4-pro/specs",
+      "note": "Identidad y función eléctrica documentadas; coordenadas sólo para visualización, nunca cotas de perforación o corte de cable."
+    },
+    {
+      "id": "bg70-contacts",
+      "part_id": "dji-rs-bg70",
+      "label": "Alimentación de empuñadura",
+      "connector": "Contactos de empuñadura DJI",
+      "local_position_mm": null,
+      "position_confidence": "not_modeled",
+      "identity_source_url": "https://store.dji.com/product/dji-rs-bg70-high-capacity-battery-grip",
+      "note": "Identidad y función eléctrica documentadas; coordenadas sólo para visualización, nunca cotas de perforación o corte de cable."
+    },
+    {
+      "id": "vb99-dtap",
+      "part_id": "smallrig-vb99-pro",
+      "label": "Salida D-Tap",
+      "connector": "D-Tap hembra",
+      "local_position_mm": [
+        -36.6,
+        32,
+        -5
+      ],
+      "position_confidence": "approximate_photo_zone_not_measured",
+      "identity_source_url": "https://www.smallrig.com/smallrig-VB99-Pro-mini-V-Mount-Battery-4292.html?sku=4292",
+      "note": "Identidad y función eléctrica documentadas; coordenadas sólo para visualización, nunca cotas de perforación o corte de cable."
+    },
+    {
+      "id": "vb99-vmount",
+      "part_id": "smallrig-vb99-pro",
+      "label": "Alimentación V-mount",
+      "connector": "Contactos V-mount",
+      "local_position_mm": null,
+      "position_confidence": "not_modeled",
+      "identity_source_url": "https://www.smallrig.com/smallrig-VB99-Pro-mini-V-Mount-Battery-4292.html?sku=4292",
+      "note": "Identidad y función eléctrica documentadas; coordenadas sólo para visualización, nunca cotas de perforación o corte de cable."
+    },
+    {
+      "id": "plate-vmount",
+      "part_id": "smallrig-3203b",
+      "label": "Entrada V-mount",
+      "connector": "Contactos V-mount",
+      "local_position_mm": null,
+      "position_confidence": "not_modeled",
+      "identity_source_url": "https://www.smallrig.com/jp/Advanced-V-Mount-Battery-Mount-Plate-with-Dual-15mm-Rod-Clamp-3203B.html",
+      "note": "Identidad y función eléctrica documentadas; coordenadas sólo para visualización, nunca cotas de perforación o corte de cable."
+    },
+    {
+      "id": "plate-dtap",
+      "part_id": "smallrig-3203b",
+      "label": "Salida D-Tap / 14.8 V nominales",
+      "connector": "D-Tap hembra",
+      "local_position_mm": [
+        -54,
+        -48,
+        0
+      ],
+      "position_confidence": "approximate_photo_zone_not_measured",
+      "identity_source_url": "https://static.smallrig.com/mall/img/public/1714289722871_.pdf",
+      "note": "Identidad y función eléctrica documentadas; coordenadas sólo para visualización, nunca cotas de perforación o corte de cable."
+    },
+    {
+      "id": "indie7-hdmi-in",
+      "part_id": "smallhd-indie-7",
+      "label": "J / entrada HDMI",
+      "connector": "HDMI tipo A hembra",
+      "local_position_mm": [
+        70,
+        -49,
+        16.75
+      ],
+      "position_confidence": "approximate_photo_zone_not_measured",
+      "identity_source_url": "https://guide.smallhd.com/a/1634747-indie-7-quick-start-guide",
+      "note": "Identidad y función eléctrica documentadas; coordenadas sólo para visualización, nunca cotas de perforación o corte de cable."
+    },
+    {
+      "id": "indie7-hdmi-out",
+      "part_id": "smallhd-indie-7",
+      "label": "K / salida HDMI",
+      "connector": "HDMI tipo A hembra",
+      "local_position_mm": [
+        48,
+        -49,
+        16.75
+      ],
+      "position_confidence": "approximate_photo_zone_not_measured",
+      "identity_source_url": "https://guide.smallhd.com/a/1634747-indie-7-quick-start-guide",
+      "note": "Identidad y función eléctrica documentadas; coordenadas sólo para visualización, nunca cotas de perforación o corte de cable."
+    },
+    {
+      "id": "indie7-dc",
+      "part_id": "smallhd-indie-7",
+      "label": "I / entrada DC",
+      "connector": "Barril DC del fabricante; cable de 5.5 mm de diámetro exterior",
+      "local_position_mm": [
+        -28,
+        -55,
+        16.75
+      ],
+      "position_confidence": "approximate_photo_zone_not_measured",
+      "identity_source_url": "https://guide.smallhd.com/a/1634747-indie-7-quick-start-guide",
+      "note": "Identidad y función eléctrica documentadas; coordenadas sólo para visualización, nunca cotas de perforación o corte de cable."
+    },
+    {
+      "id": "splitter-captive-input",
+      "part_id": "startech-st122hd4ku",
+      "label": "Entrada HDMI de cable cautivo",
+      "connector": "Cable integrado con HDMI tipo A macho",
+      "local_position_mm": null,
+      "position_confidence": "not_modeled",
+      "identity_source_url": "https://media.startech.com/cms/pdfs/st122hd4ku_datasheet.pdf",
+      "note": "Identidad y función eléctrica documentadas; coordenadas sólo para visualización, nunca cotas de perforación o corte de cable."
+    },
+    {
+      "id": "splitter-output1",
+      "part_id": "startech-st122hd4ku",
+      "label": "Salida HDMI 1",
+      "connector": "HDMI tipo A hembra",
+      "local_position_mm": null,
+      "position_confidence": "not_modeled",
+      "identity_source_url": "https://media.startech.com/cms/pdfs/st122hd4ku_datasheet.pdf",
+      "note": "Identidad y función eléctrica documentadas; coordenadas sólo para visualización, nunca cotas de perforación o corte de cable."
+    },
+    {
+      "id": "splitter-output2",
+      "part_id": "startech-st122hd4ku",
+      "label": "Salida HDMI 2",
+      "connector": "HDMI tipo A hembra",
+      "local_position_mm": null,
+      "position_confidence": "not_modeled",
+      "identity_source_url": "https://media.startech.com/cms/pdfs/st122hd4ku_datasheet.pdf",
+      "note": "Identidad y función eléctrica documentadas; coordenadas sólo para visualización, nunca cotas de perforación o corte de cable."
+    },
+    {
+      "id": "splitter-dc",
+      "part_id": "startech-st122hd4ku",
+      "label": "Entrada DC de 5 V",
+      "connector": "Barril DC del fabricante, medidas pendientes",
+      "local_position_mm": null,
+      "position_confidence": "not_modeled",
+      "identity_source_url": "https://media.startech.com/cms/pdfs/st122hd4ku_datasheet.pdf",
+      "note": "Identidad y función eléctrica documentadas; coordenadas sólo para visualización, nunca cotas de perforación o corte de cable."
+    },
+    {
+      "id": "startech-adapter",
+      "part_id": null,
+      "label": "Adaptador de corriente incluido",
+      "connector": "Fuente del fabricante de 5 V / 2 A",
+      "local_position_mm": null,
+      "position_confidence": "not_modeled",
+      "identity_source_url": "https://media.startech.com/cms/pdfs/st122hd4ku_datasheet.pdf",
+      "note": "Identidad y función eléctrica documentadas; coordenadas sólo para visualización, nunca cotas de perforación o corte de cable."
+    },
+    {
+      "id": "raveneye-hdmi",
+      "part_id": "dji-ronin-image-transmitter",
+      "label": "Entrada Mini HDMI",
+      "connector": "HDMI tipo C hembra",
+      "local_position_mm": null,
+      "position_confidence": "not_modeled",
+      "identity_source_url": "https://www.dji.com/rs-4-pro/specs",
+      "note": "Identidad y función eléctrica documentadas; coordenadas sólo para visualización, nunca cotas de perforación o corte de cable."
+    },
+    {
+      "id": "raveneye-battery",
+      "part_id": "dji-ronin-image-transmitter",
+      "label": "Batería interna",
+      "connector": "Interno",
+      "local_position_mm": null,
+      "position_confidence": "not_modeled",
+      "identity_source_url": "https://www.dji.com/rs-4-pro/specs",
+      "note": "Identidad y función eléctrica documentadas; coordenadas sólo para visualización, nunca cotas de perforación o corte de cable."
+    },
+    {
+      "id": "raveneye-internal",
+      "part_id": "dji-ronin-image-transmitter",
+      "label": "Alimentación interna",
+      "connector": "Interno",
+      "local_position_mm": null,
+      "position_confidence": "not_modeled",
+      "identity_source_url": "https://www.dji.com/rs-4-pro/specs",
+      "note": "Identidad y función eléctrica documentadas; coordenadas sólo para visualización, nunca cotas de perforación o corte de cable."
+    },
+    {
+      "id": "lidar-data",
+      "part_id": "dji-focus-pro-lidar",
+      "label": "Datos / alimentación",
+      "connector": "USB-C CVBS/CAN",
+      "local_position_mm": null,
+      "position_confidence": "not_modeled",
+      "identity_source_url": "https://www.dji.com/focus-pro/specs",
+      "note": "Identidad y función eléctrica documentadas; coordenadas sólo para visualización, nunca cotas de perforación o corte de cable."
+    },
+    {
+      "id": "motor-usbc",
+      "part_id": "dji-focus-pro-motor",
+      "label": "Control / alimentación de motor",
+      "connector": "USB-C DJI",
+      "local_position_mm": null,
+      "position_confidence": "not_modeled",
+      "identity_source_url": "https://www.dji.com/focus-pro/specs",
+      "note": "Identidad y función eléctrica documentadas; coordenadas sólo para visualización, nunca cotas de perforación o corte de cable."
+    },
+    {
+      "id": "mic2-rx-out",
+      "part_id": "dji-mic-2-kit",
+      "label": "Receptor / salida",
+      "connector": "TRS de 3.5 mm hembra",
+      "local_position_mm": null,
+      "position_confidence": "not_modeled",
+      "identity_source_url": "https://www.dji.com/mic-2/specs",
+      "note": "Identidad y función eléctrica documentadas; coordenadas sólo para visualización, nunca cotas de perforación o corte de cable."
+    },
+    {
+      "id": "mic2-tx-in",
+      "part_id": "dji-mic-2-kit",
+      "label": "Transmisor / entrada de micrófono",
+      "connector": "TRS de 3.5 mm hembra",
+      "local_position_mm": null,
+      "position_confidence": "not_modeled",
+      "identity_source_url": "https://www.dji.com/mic-2/specs",
+      "note": "Identidad y función eléctrica documentadas; coordenadas sólo para visualización, nunca cotas de perforación o corte de cable."
+    },
+    {
+      "id": "lav-mic",
+      "part_id": "dji-lavalier",
+      "label": "Micrófono de solapa",
+      "connector": "Cable integrado",
+      "local_position_mm": null,
+      "position_confidence": "not_modeled",
+      "identity_source_url": "https://store.dji.com/product/dji-lavalier-mic",
+      "note": "Identidad y función eléctrica documentadas; coordenadas sólo para visualización, nunca cotas de perforación o corte de cable."
+    },
+    {
+      "id": "xlrh1-input3",
+      "part_id": "sony-xlr-h1",
+      "label": "Entrada 3",
+      "connector": "TRS de 3.5 mm hembra",
+      "local_position_mm": null,
+      "position_confidence": "not_modeled",
+      "identity_source_url": "https://electronics.sony.com/imaging/imaging-accessories/imaging-compact-camera-accessories/p/xlrh1",
+      "note": "Identidad y función eléctrica documentadas; coordenadas sólo para visualización, nunca cotas de perforación o corte de cable."
+    }
+  ]
+}
+

@@ -1,0 +1,686 @@
+{
+  "generated_on": "2026-10-05T15:26:16.009Z",
+  "license_note": "Los medios de referencia del fabricante no son CAD de código abierto. Sólo para investigación e identificación local; conservar atribución y revisar derechos de redistribución antes de publicar en App Store.",
+  "parts": [
+    {
+      "id": "dji-rs4-pro-combo",
+      "name": "DJI RS 4 Pro Combo",
+      "page_url": "https://store.dji.com/product/dji-rs-4-pro",
+      "physical": true,
+      "resolved_page": "https://store.dji.com/product/dji-rs-4-pro",
+      "status": "downloaded_visual_identity_review_required",
+      "images": [
+        {
+          "url": "https://se-cdn.djiits.com/tpc/uploads/spu/cover/5924fa618ac9f4e60e2e459f119a0daa@ultra.png",
+          "local_path": "/references/dji-rs4-pro-combo-1.png",
+          "bytes": 113571,
+          "sha256": "6823d1ae273b1de77e22375d5b7fa280525a579b3899f17a1f01a35c379ba739",
+          "content_type": "image/png"
+        }
+      ]
+    },
+    {
+      "id": "dji-rs-bg70",
+      "name": "DJI RS BG70 High-Capacity Battery Grip",
+      "page_url": "https://store.dji.com/product/dji-rs-bg70-high-capacity-battery-grip",
+      "physical": true,
+      "resolved_page": "https://store.dji.com/product/dji-rs-bg70-high-capacity-battery-grip",
+      "status": "downloaded_visual_identity_review_required",
+      "images": [
+        {
+          "url": "https://se-cdn.djiits.com/tpc/uploads/spu/cover/91b3a6886e328235c99ae56ed425ba89@ultra.png",
+          "local_path": "/references/dji-rs-bg70-1.png",
+          "bytes": 196151,
+          "sha256": "f21464354afb1bd2d027726db512af9c002f8a1713910bf77d92a60a1510cb33",
+          "content_type": "image/png"
+        }
+      ]
+    },
+    {
+      "id": "sony-fx3",
+      "name": "Sony FX3 Full-Frame Cinema Line Camera",
+      "page_url": "https://www.sony.com.au/interchangeable-lens-cameras/products/ilme-fx3",
+      "physical": true,
+      "image_urls": [
+        "https://sony.scene7.com/is/image/sonyglobalsolutions/01_Primary_image?$S7Product$&fmt=png-alpha",
+        "https://sony.scene7.com/is/image/sonyglobalsolutions/02_Highlights_dimensions?$highlightsImages$&fmt=png-alpha"
+      ],
+      "resolved_page": "https://www.sony.com.au/interchangeable-lens-cameras/products/ilme-fx3",
+      "status": "downloaded_visual_identity_review_required",
+      "images": [
+        {
+          "url": "https://sony.scene7.com/is/image/sonyglobalsolutions/01_Primary_image?$S7Product$&fmt=png-alpha",
+          "local_path": "/references/sony-fx3-1.png",
+          "bytes": 199285,
+          "sha256": "78d2f9ed4a25483d280a850761508cfb3150c3704c42e89c859eb7ae9705625c",
+          "content_type": "image/png"
+        },
+        {
+          "url": "https://sony.scene7.com/is/image/sonyglobalsolutions/02_Highlights_dimensions?$highlightsImages$&fmt=png-alpha",
+          "local_path": "/references/sony-fx3-2.png",
+          "bytes": 50460,
+          "sha256": "25a987a03715ab3cff2b7a336d0132a05c289db69de2e421b056bd5087fd7b20",
+          "content_type": "image/png"
+        }
+      ]
+    },
+    {
+      "id": "sony-xlr-h1",
+      "name": "Sony XLR-H1 Top Handle Unit",
+      "page_url": "https://electronics.sony.com/imaging/imaging-accessories/all-accessories/p/xlrh1",
+      "physical": true,
+      "resolved_page": "https://electronics.sony.com/imaging/imaging-accessories/imaging-compact-camera-accessories/p/xlrh1",
+      "status": "downloaded_visual_identity_review_required",
+      "images": [
+        {
+          "url": "https://d1ncau8tqf99kp.cloudfront.net/converted/109109_original_local_1200x1050_v3_converted.webp",
+          "local_path": "/references/sony-xlr-h1-1.webp",
+          "bytes": 39168,
+          "sha256": "43358ebf5eb4e54e2c638e15a81825065fbdbbe61ca5e7cd57c231c6a59cf101",
+          "content_type": "image/webp"
+        },
+        {
+          "url": "https://d1ncau8tqf99kp.cloudfront.net/converted/109110_original_local_1200x1050_v3_converted.webp",
+          "local_path": "/references/sony-xlr-h1-2.webp",
+          "bytes": 34452,
+          "sha256": "cdb80abed18d9651ea55e7e8377c30ed28a9d63424cb5a69a926e975e65273fe",
+          "content_type": "image/webp"
+        },
+        {
+          "url": "https://d1ncau8tqf99kp.cloudfront.net/converted/109114_original_local_1200x1050_v3_converted.webp",
+          "local_path": "/references/sony-xlr-h1-3.webp",
+          "bytes": 36612,
+          "sha256": "2b3226a7521815336be8f0f692656ac87892d5ab98b39645fdd190ea2f2bc77a",
+          "content_type": "image/webp"
+        }
+      ]
+    },
+    {
+      "id": "sony-fe-16-35-gm",
+      "name": "Sony FE 16-35mm F2.8 GM",
+      "page_url": "https://electronics.sony.com/imaging/lenses/full-frame-e-mount/p/sel1635gm",
+      "physical": true,
+      "resolved_page": "https://electronics.sony.com/imaging/lenses/all-e-mount/p/sel1635gm",
+      "status": "downloaded_visual_identity_review_required",
+      "images": [
+        {
+          "url": "https://d1ncau8tqf99kp.cloudfront.net/converted/101338_original_local_1200x1050_v3_converted.webp",
+          "local_path": "/references/sony-fe-16-35-gm-1.webp",
+          "bytes": 44586,
+          "sha256": "b619cc7305d5fc86956c8ba8f47488ca56c2bb6c831992160b10004dd97fb964",
+          "content_type": "image/webp"
+        },
+        {
+          "url": "https://d1ncau8tqf99kp.cloudfront.net/converted/93970_original_local_1200x1050_v3_converted.webp",
+          "local_path": "/references/sony-fe-16-35-gm-2.webp",
+          "bytes": 43034,
+          "sha256": "d78c5e67ca05c09e04221fd4f2389323bc8596ae1f638f3760db7f6679c1baa9",
+          "content_type": "image/webp"
+        },
+        {
+          "url": "https://d1ncau8tqf99kp.cloudfront.net/converted/93974_original_local_1200x1050_v3_converted.webp",
+          "local_path": "/references/sony-fe-16-35-gm-3.webp",
+          "bytes": 70220,
+          "sha256": "4c313382f85c4c9ca91b870d1f0e62dd61429e8c1b9b78b2c4111b53a5b24498",
+          "content_type": "image/webp"
+        }
+      ]
+    },
+    {
+      "id": "smallrig-4770",
+      "name": "SmallRig HawkLock Quick Release Cage Kit for Sony FX3/FX30",
+      "page_url": "https://www.smallrig.com/de/HawkLock-Quick-Release-Cage-Kit-for-Sony-FX3-FX30-4770.html",
+      "physical": true,
+      "resolved_page": "https://www.smallrig.com/HawkLock-Quick-Release-Cage-Kit-for-Sony-FX3-FX30-4770.html",
+      "status": "downloaded_visual_identity_review_required",
+      "images": [
+        {
+          "url": "https://static.smallrig.com/mall/img/public/o147khtcrel-1753692659415_.JPG",
+          "local_path": "/references/smallrig-4770-1.jpg",
+          "bytes": 226954,
+          "sha256": "e644d023613c78b00dd07deabafab58bc2a39f1e5f019d78d715317a01822e2a",
+          "content_type": "image/jpeg"
+        },
+        {
+          "url": "https://static.smallrig.com/mall/img/public/1732607897862_.JPG",
+          "local_path": "/references/smallrig-4770-2.jpg",
+          "bytes": 163141,
+          "sha256": "cf3c9d66ec3f4ecb44aa64ba0081a0b6076920b716fed44399b80c3b3e5e4c2a",
+          "content_type": "image/jpeg"
+        },
+        {
+          "url": "https://static.smallrig.com/mall/img/public/1732607897827_.JPG",
+          "local_path": "/references/smallrig-4770-3.jpg",
+          "bytes": 220212,
+          "sha256": "db6e15474e963b0a756f25bd5aeee899e67700bcc8993f1e7ceb1e04ef3a007b",
+          "content_type": "image/jpeg"
+        }
+      ]
+    },
+    {
+      "id": "smallrig-1674",
+      "name": "SmallRig Baseplate with Dual 15 mm Rod Clamp",
+      "page_url": "https://www.smallrig.com/smallrig-baseplate-with-dual-15mm-rod-clamp-1674.html",
+      "physical": true,
+      "resolved_page": "https://www.smallrig.com/smallrig-baseplate-with-dual-15mm-rod-clamp-1674.html",
+      "status": "downloaded_visual_identity_review_required",
+      "images": [
+        {
+          "url": "https://static.smallrig.com/mall/img/public/hb1di0domdj-1773829491199_.jpg",
+          "local_path": "/references/smallrig-1674-1.jpg",
+          "bytes": 89972,
+          "sha256": "d3dcb8e0eb1a3c858490da38e964586ba0a90692f9f373b1ca25780d2e4265df",
+          "content_type": "image/jpeg"
+        },
+        {
+          "url": "https://static.smallrig.com/mall/img/public/9ux50suie5a-1773829491203_.jpg",
+          "local_path": "/references/smallrig-1674-2.jpg",
+          "bytes": 139382,
+          "sha256": "cd34b47d469c6821518d26859ca4923a7eaccaa316689f54fd0ba4f7a0d8b507",
+          "content_type": "image/jpeg"
+        },
+        {
+          "url": "https://static.smallrig.com/mall/img/public/i1l9fg4kovr-1773829491203_.jpg",
+          "local_path": "/references/smallrig-1674-3.jpg",
+          "bytes": 262616,
+          "sha256": "9a25c582dc619d98c97a35f40d41649f1d89eb28317c2829fd693c651c524377",
+          "content_type": "image/jpeg"
+        }
+      ]
+    },
+    {
+      "id": "smallrig-rods-8in",
+      "name": "SmallRig 15 mm Carbon Fiber Rods (Pair), 8 in",
+      "page_url": "https://www.smallrig.com/15mm-Carbon-Fiber-Rods-Pair.html",
+      "physical": true,
+      "resolved_page": "https://www.smallrig.com/15mm-Carbon-Fiber-Rods-Pair.html",
+      "status": "downloaded_visual_identity_review_required",
+      "images": [
+        {
+          "url": "https://static.smallrig.com/mall/img/public/7udtm6hcmz7-1747307666966_.JPG",
+          "local_path": "/references/smallrig-rods-8in-1.jpg",
+          "bytes": 102359,
+          "sha256": "b8920d851cffa91830361f1315205165e84698a0329e79de8f2521098ddca618",
+          "content_type": "image/jpeg"
+        },
+        {
+          "url": "https://static.smallrig.com/mall/img/public/s5qwc2ymz28-1747308830755_.JPG",
+          "local_path": "/references/smallrig-rods-8in-2.jpg",
+          "bytes": 127144,
+          "sha256": "62b6155b839ddb922f987e322aa346f65cd113c9abf7bfc49ba59f78ea4fa1dd",
+          "content_type": "image/jpeg"
+        },
+        {
+          "url": "https://static.smallrig.com/mall/img/public/x0dh3wyg68n-1747307706961_.JPG",
+          "local_path": "/references/smallrig-rods-8in-3.jpg",
+          "bytes": 102359,
+          "sha256": "b8920d851cffa91830361f1315205165e84698a0329e79de8f2521098ddca618",
+          "content_type": "image/jpeg"
+        }
+      ]
+    },
+    {
+      "id": "smallrig-3645",
+      "name": "SmallRig Multifunctional Modular Matte Box (95 mm) VND Kit",
+      "page_url": "https://www.smallrig.com/global/SmallRig-Multifunctional-Modular-Matte-Box-95mm-VND-Kit-3645.html",
+      "physical": true,
+      "resolved_page": "https://www.smallrig.com/SmallRig-Multifunctional-Modular-Matte-Box-95mm-VND-Kit-3645.html",
+      "status": "downloaded_visual_identity_review_required",
+      "images": [
+        {
+          "url": "https://static.smallrig.com/mall/img/public/1687919981042_.JPG",
+          "local_path": "/references/smallrig-3645-1.jpg",
+          "bytes": 297550,
+          "sha256": "0f4501152f92af7a45f51f0741a2cbfad76aaa0038ae82e80b4525127f8e5698",
+          "content_type": "image/jpeg"
+        },
+        {
+          "url": "https://static.smallrig.com/mall/img/public/1656411560017_.JPG",
+          "local_path": "/references/smallrig-3645-2.jpg",
+          "bytes": 405332,
+          "sha256": "2902cef69344b291e8abfeebba3565adbf2eb2bfb4830e866eff62569e822e62",
+          "content_type": "image/jpeg"
+        },
+        {
+          "url": "https://static.smallrig.com/mall/img/public/1656411559918_.JPG",
+          "local_path": "/references/smallrig-3645-3.jpg",
+          "bytes": 238397,
+          "sha256": "d1c1ae523f5513e04aa1e69fbab15cb415aa76abdb3174b389f55d0bbcd5af3c",
+          "content_type": "image/jpeg"
+        }
+      ]
+    },
+    {
+      "id": "smallrig-3026b",
+      "name": "SmallRig Monitor Mount with NATO Clamp for DJI RS Series",
+      "page_url": "https://www.smallrig.com/global/smallrig-monitor-mount-with-nato-clamp-for-dji-rs-2-rsc-2-3026.html",
+      "physical": true,
+      "resolved_page": "https://www.smallrig.com/smallrig-monitor-mount-with-nato-clamp-for-dji-rs-2-rsc-2-3026.html",
+      "status": "downloaded_visual_identity_review_required",
+      "images": [
+        {
+          "url": "https://static.smallrig.com/mall/img/public/1649334615527_3026-1.jpg",
+          "local_path": "/references/smallrig-3026b-1.jpg",
+          "bytes": 136316,
+          "sha256": "fed3725681a71c809b95746f5e903306b3ffff1af57ffcbaf0f4994c6ac4e686",
+          "content_type": "image/jpeg"
+        },
+        {
+          "url": "https://static.smallrig.com/mall/img/public/1649334615444_3026-7.jpg",
+          "local_path": "/references/smallrig-3026b-2.jpg",
+          "bytes": 158262,
+          "sha256": "d8a824827d87a48691cf86670fe93676951216a3d635af8db54e053c7040282f",
+          "content_type": "image/jpeg"
+        },
+        {
+          "url": "https://static.smallrig.com/mall/img/public/1649334615611_3026-6.jpg",
+          "local_path": "/references/smallrig-3026b-3.jpg",
+          "bytes": 183770,
+          "sha256": "f31f9229ea776169ec12f4f8dbf0a2510a3934d11dab565683a8ec88647a7a5d",
+          "content_type": "image/jpeg"
+        }
+      ]
+    },
+    {
+      "id": "smallhd-indie-7",
+      "name": "SmallHD Indie 7 Touchscreen On-Camera Monitor",
+      "page_url": "https://guide.smallhd.com/a/1634747-indie-7-quick-start-guide",
+      "physical": true,
+      "image_urls": [
+        "https://media.screensteps.com/image_assets/assets/006/135/899/original/Screen%20Shot%202022-12-13%20at%201.13.16%20PM.png",
+        "https://media.screensteps.com/image_assets/assets/006/136/465/original/Screen%20Shot%202022-12-13%20at%201.27.23%20PM.png",
+        "https://media.screensteps.com/image_assets/assets/006/136/484/original/Screen%20Shot%202022-12-13%20at%201.28.51%20PM.png"
+      ],
+      "resolved_page": "https://guide.smallhd.com/a/1634747-indie-7-quick-start-guide",
+      "status": "downloaded_visual_identity_review_required",
+      "images": [
+        {
+          "url": "https://media.screensteps.com/image_assets/assets/006/135/899/original/Screen%20Shot%202022-12-13%20at%201.13.16%20PM.png",
+          "local_path": "/references/smallhd-indie-7-1.png",
+          "bytes": 16876,
+          "sha256": "eadefaff9ca3139d36b279d47f617776dc950cd0b992686746d225cb5296b665",
+          "content_type": "image/png"
+        },
+        {
+          "url": "https://media.screensteps.com/image_assets/assets/006/136/465/original/Screen%20Shot%202022-12-13%20at%201.27.23%20PM.png",
+          "local_path": "/references/smallhd-indie-7-2.png",
+          "bytes": 2302307,
+          "sha256": "5223bd6c833a3852a6ba08adabfa88434b91cf75d24e418945e7ebe3f7f90959",
+          "content_type": "image/png"
+        },
+        {
+          "url": "https://media.screensteps.com/image_assets/assets/006/136/484/original/Screen%20Shot%202022-12-13%20at%201.28.51%20PM.png",
+          "local_path": "/references/smallhd-indie-7-3.png",
+          "bytes": 1389818,
+          "sha256": "1ffd28ad8d7ab58ff17ee1c81073acd12786947a54f690a1401f332dbdbae8d0",
+          "content_type": "image/png"
+        }
+      ]
+    },
+    {
+      "id": "smallrig-vb99-pro",
+      "name": "SmallRig VB99 Pro Mini V-Mount Battery",
+      "page_url": "https://www.smallrig.com/SmallRig-VB99-Pro-mini-V-Mount-Battery-4292.html",
+      "physical": true,
+      "resolved_page": "https://www.smallrig.com/SmallRig-VB99-Pro-mini-V-Mount-Battery-4292.html",
+      "status": "downloaded_visual_identity_review_required",
+      "images": [
+        {
+          "url": "https://static.smallrig.com/mall/img/public/xgvkoq24wxq-1785393891341_.png",
+          "local_path": "/references/smallrig-vb99-pro-1.png",
+          "bytes": 1166761,
+          "sha256": "45c4038816250382abf41079999028dbf6c9e1ca047c40615a6d385dc9540a7c",
+          "content_type": "image/png"
+        },
+        {
+          "url": "https://static.smallrig.com/mall/img/public/o1kfwnz7jzj-1766048336041_.jpg",
+          "local_path": "/references/smallrig-vb99-pro-2.jpg",
+          "bytes": 202196,
+          "sha256": "6267b1392b5e7f36b74389d1bfaf5e171380cb483f965a3044516a63f0e362dc",
+          "content_type": "image/jpeg"
+        },
+        {
+          "url": "https://static.smallrig.com/mall/img/public/1730970469884_.jpg",
+          "local_path": "/references/smallrig-vb99-pro-3.jpg",
+          "bytes": 349800,
+          "sha256": "b28a4301436ad4ee9da2eba89a28ee0df1458c46aa32f73072c2d08f4d763086",
+          "content_type": "image/jpeg"
+        }
+      ]
+    },
+    {
+      "id": "smallrig-3203b",
+      "name": "SmallRig V-Mount Battery Adapter Plate with Dual 15 mm Rod Clamp",
+      "page_url": "https://www.smallrig.com/Advanced-V-Mount-Battery-Mount-Plate-with-Dual-15mm-Rod-Clamp-3203B.html",
+      "physical": true,
+      "resolved_page": "https://www.smallrig.com/Advanced-V-Mount-Battery-Mount-Plate-with-Dual-15mm-Rod-Clamp-3203B.html",
+      "status": "downloaded_visual_identity_review_required",
+      "images": [
+        {
+          "url": "https://static.smallrig.com/mall/img/public/1702437722030_.JPG",
+          "local_path": "/references/smallrig-3203b-1.jpg",
+          "bytes": 158152,
+          "sha256": "6a431be206cff46501036023986a274044df4916adb167ba2ae0e8a364575865",
+          "content_type": "image/jpeg"
+        },
+        {
+          "url": "https://static.smallrig.com/mall/img/public/1702437731584_.JPG",
+          "local_path": "/references/smallrig-3203b-2.jpg",
+          "bytes": 143825,
+          "sha256": "763473c1789589ad09b45ad94d39aceb2b045dfd7abda4f837a2f1b4a7f353aa",
+          "content_type": "image/jpeg"
+        },
+        {
+          "url": "https://static.smallrig.com/mall/img/public/1702437737428_.JPG",
+          "local_path": "/references/smallrig-3203b-3.jpg",
+          "bytes": 330670,
+          "sha256": "3efc148591f67bc8c9f687afdd4c41de54e5152075fc50cc015203592db02a6a",
+          "content_type": "image/jpeg"
+        }
+      ]
+    },
+    {
+      "id": "smallrig-4253b",
+      "name": "SmallRig D-Tap to Sony NP-FZ100 Dummy Battery Power Cable",
+      "page_url": "https://www.smallrig.com/SmallRig-D-Tap-to-Sony-NP-FZ100-Dummy-Battery-Power-Cable-4253B.html",
+      "physical": true,
+      "resolved_page": "https://www.smallrig.com/SmallRig-D-Tap-to-Sony-NP-FZ100-Dummy-Battery-Power-Cable-4253B.html",
+      "status": "no_product_image_extracted",
+      "images": []
+    },
+    {
+      "id": "dji-focus-pro-lidar",
+      "name": "DJI Focus Pro LiDAR",
+      "page_url": "https://store.dji.com/product/dji-focus-pro-lidar",
+      "physical": true,
+      "resolved_page": "https://store.dji.com/product/dji-focus-pro-lidar",
+      "status": "downloaded_visual_identity_review_required",
+      "images": [
+        {
+          "url": "https://se-cdn.djiits.com/tpc/uploads/spu/cover/16269ddde616c1b928a64e63ebdce809@ultra.png",
+          "local_path": "/references/dji-focus-pro-lidar-1.png",
+          "bytes": 66594,
+          "sha256": "2f4677aef774c69a9250ccec68de32d0125cfbc450f58f1cddc741d87e7c29c1",
+          "content_type": "image/png"
+        }
+      ]
+    },
+    {
+      "id": "dji-focus-pro-motor",
+      "name": "DJI Focus Pro Motor",
+      "page_url": "https://store.dji.com/product/dji-focus-pro-motor",
+      "physical": true,
+      "resolved_page": "https://store.dji.com/product/dji-focus-pro-motor",
+      "status": "downloaded_visual_identity_review_required",
+      "images": [
+        {
+          "url": "https://se-cdn.djiits.com/tpc/uploads/spu/cover/27513067860b8e09abf48af14fc6b6f8@ultra.png",
+          "local_path": "/references/dji-focus-pro-motor-1.png",
+          "bytes": 91616,
+          "sha256": "672ea59e9d18b1fb414c7fd6f1a428bd12cfcc54f764755be977c6a8ac775947",
+          "content_type": "image/png"
+        }
+      ]
+    },
+    {
+      "id": "dji-lidar-transmission-hub",
+      "name": "DJI Focus Pro LiDAR to DJI Transmission Cable Hub",
+      "page_url": "https://store.dji.com/se/product/dji-focus-pro-lidar-dji-transmission-cable-hub?vid=168921",
+      "physical": true,
+      "resolved_page": "https://store.dji.com/product/dji-focus-pro-lidar-dji-transmission-cable-hub?vid=168921",
+      "status": "downloaded_visual_identity_review_required",
+      "images": [
+        {
+          "url": "https://se-cdn.djiits.com/tpc/uploads/spu/cover/20990e0bf983d94ba9aa2a660d4557b9@ultra.png",
+          "local_path": "/references/dji-lidar-transmission-hub-1.png",
+          "bytes": 16119,
+          "sha256": "c3dbb72eb3482bbbbd51707754d8f5f211774563f685afb10b7ffa7ec0760a57",
+          "content_type": "image/png"
+        }
+      ]
+    },
+    {
+      "id": "dji-mic-2-kit",
+      "name": "DJI Mic 2 (2 TX + 1 RX + Charging Case)",
+      "page_url": "https://www.dji.com/mic-2",
+      "physical": true,
+      "resolved_page": "https://www.dji.com/global/mic-2",
+      "status": "downloaded_visual_identity_review_required",
+      "images": [
+        {
+          "url": "https://www-cdn.djiits.com/cms/uploads/6e61a4668dd5cca507484a47a1260521@374*374.png",
+          "local_path": "/references/dji-mic-2-kit-1.png",
+          "bytes": 26212,
+          "sha256": "498a4ac067bd61ee3d81d425d8995630d9807cbf6bedf678790f41b0b90ac231",
+          "content_type": "image/png"
+        },
+        {
+          "url": "https://www-cdn.djiits.com/dps/288ee46101f0abd49f1992ab6ecbe5a7@origin.jpg",
+          "local_path": "/references/dji-mic-2-kit-2.jpg",
+          "bytes": 126796,
+          "sha256": "7a2a1eb35756623783c60f54c47fe5cd1f86f5e327bd1f5b7ba34a7ebbe7a022",
+          "content_type": "image/jpeg"
+        }
+      ]
+    },
+    {
+      "id": "dji-lavalier",
+      "name": "DJI Lavalier Mic",
+      "page_url": "https://store.dji.com/product/dji-lavalier-mic",
+      "physical": true,
+      "resolved_page": "https://store.dji.com/product/dji-lavalier-mic",
+      "status": "downloaded_visual_identity_review_required",
+      "images": [
+        {
+          "url": "https://se-cdn.djiits.com/tpc/uploads/spu/cover/12e31446bb8fb3cf62f2dc34cc13cbfe@ultra.png",
+          "local_path": "/references/dji-lavalier-1.png",
+          "bytes": 98673,
+          "sha256": "3cc8ec5ea304645128625ea9f177ae2d9e0c5dedea5a2ace4c458cf7cdccfbc0",
+          "content_type": "image/png"
+        }
+      ]
+    },
+    {
+      "id": "startech-st122hd4ku",
+      "name": "StarTech ST122HD4KU 1x2 UHD 4K HDMI Splitter",
+      "page_url": "https://www.startech.com/en-fr/audio-video-products/st122hd4ku",
+      "physical": true,
+      "status": "unavailable",
+      "error": "HTTP 403",
+      "images": []
+    },
+    {
+      "id": "kondor-blue-hdmi-aa",
+      "name": "Kondor Blue Full HDMI Cable for On-Camera Monitors, 12 to 24 in Braided Coiled",
+      "page_url": "https://kondorblue.com/products/12-to-24-coiled-braided-hdmi-cable-for-camera-mounted-monitors",
+      "physical": true,
+      "resolved_page": "https://kondorblue.com/products/12-to-24-coiled-braided-hdmi-cable-for-camera-mounted-monitors",
+      "status": "downloaded_visual_identity_review_required",
+      "images": [
+        {
+          "url": "http://kondorblue.com/cdn/shop/files/C19blue.png?v=1772829008",
+          "local_path": "/references/kondor-blue-hdmi-aa-1.png",
+          "bytes": 4211188,
+          "sha256": "e854bf7f3007974ca6a284ea432f91fbbce106c5b670f8b634c0cd3e63313cbe",
+          "content_type": "image/png"
+        },
+        {
+          "url": "https://kondorblue.com/cdn/shop/files/C19blue.png?v=1772829008",
+          "local_path": "/references/kondor-blue-hdmi-aa-2.png",
+          "bytes": 4211188,
+          "sha256": "e854bf7f3007974ca6a284ea432f91fbbce106c5b670f8b634c0cd3e63313cbe",
+          "content_type": "image/png"
+        },
+        {
+          "url": "https://kondorblue.com/cdn/shop/files/C19blue_grande.png?v=1772829008",
+          "local_path": "/references/kondor-blue-hdmi-aa-3.png",
+          "bytes": 213305,
+          "sha256": "5d2ab798b0efab6979bd481f643783fd9e86d175476ee9ef1d58e7f2439dd823",
+          "content_type": "image/png"
+        }
+      ]
+    },
+    {
+      "id": "dji-hdmi-a-to-c",
+      "name": "DJI RS Mini-HDMI to HDMI Cable (20 cm)",
+      "page_url": "https://store.dji.com/uk/product/r-mini-hdmi-to-hdmi-cable",
+      "physical": true,
+      "resolved_page": "https://store.dji.com/product/r-mini-hdmi-to-hdmi-cable",
+      "status": "downloaded_visual_identity_review_required",
+      "images": [
+        {
+          "url": "https://se-cdn.djiits.com/tpc/uploads/spu/cover/69060803e8c8438ced6ddd5d706a2ca0@ultra.png",
+          "local_path": "/references/dji-hdmi-a-to-c-1.png",
+          "bytes": 11227,
+          "sha256": "649c98939a182863cc3ae6dd500c57061f56e94b1c2cc81d13ee1218cbe431ea",
+          "content_type": "image/png"
+        }
+      ]
+    },
+    {
+      "id": "dji-r-usbc-control",
+      "name": "DJI R Multi-Camera Control Cable (USB-C)",
+      "page_url": "https://store.dji.com/ca/product/r-multi-camera-control-cable-usb-c",
+      "physical": true,
+      "resolved_page": "https://store.dji.com/product/r-multi-camera-control-cable-usb-c",
+      "status": "downloaded_visual_identity_review_required",
+      "images": [
+        {
+          "url": "https://se-cdn.djiits.com/tpc/uploads/spu/cover/ea92e89b67a43162162ff34818d01e3e@ultra.png",
+          "local_path": "/references/dji-r-usbc-control-1.png",
+          "bytes": 7126,
+          "sha256": "652cb851f3f55ab93b59ae641fca1e5cad99418e928296b1c46aab2b250db2d4",
+          "content_type": "image/png"
+        }
+      ]
+    },
+    {
+      "id": "smallhd-dtap-to-2mm-barrel",
+      "name": "SmallHD D-Tap to 5.5mm Male DC Barrel Power Cable (36in / 91cm)",
+      "page_url": "https://smallhd.com/products/dtap-barrel-36in",
+      "physical": true,
+      "image_urls": [
+        "https://smallhd.com/cdn/shop/files/CBL-PWR-DTAP-BAR-36_1200x1200.png?v=1767154127"
+      ],
+      "resolved_page": "https://smallhd.com/products/dtap-barrel-36in",
+      "status": "downloaded_visual_identity_review_required",
+      "images": [
+        {
+          "url": "https://smallhd.com/cdn/shop/files/CBL-PWR-DTAP-BAR-36_1200x1200.png?v=1767154127",
+          "local_path": "/references/smallhd-dtap-to-2mm-barrel-1.png",
+          "bytes": 115541,
+          "sha256": "dcaf19b55f7e3f13ee409cfed897d3554b2379bd51e277f2f9a7e549ce88c2fd",
+          "content_type": "image/png"
+        }
+      ]
+    },
+    {
+      "id": "dji-ronin-image-transmitter",
+      "name": "DJI Ronin Image Transmitter",
+      "page_url": "https://store.dji.com/product/ronin-raveneye-image-transmission-system",
+      "physical": true,
+      "resolved_page": "https://store.dji.com/product/ronin-raveneye-image-transmission-system",
+      "status": "downloaded_visual_identity_review_required",
+      "images": [
+        {
+          "url": "https://se-cdn.djiits.com/tpc/uploads/spu/cover/d3c388d2e5738ad715f59e65aa95c4da@ultra.png",
+          "local_path": "/references/dji-ronin-image-transmitter-1.png",
+          "bytes": 95635,
+          "sha256": "bdffae339f83bfd11202cf091aa711682086ba6feec1e4ea82c68966c32410c3",
+          "content_type": "image/png"
+        }
+      ]
+    },
+    {
+      "id": "dji-ronin-app",
+      "name": "DJI Ronin App",
+      "page_url": "https://www.dji.com/downloads/djiapp/dji-ronin",
+      "physical": false,
+      "status": "software_no_physical_model",
+      "images": []
+    },
+    {
+      "id": "sony-monitor-control-app",
+      "name": "Sony Monitor & Control App",
+      "page_url": "https://creatorscloud.sony.net/catalog/en-jo/monitorcontrol/index.html",
+      "physical": false,
+      "status": "software_no_physical_model",
+      "images": []
+    }
+  ],
+  "documents": [
+    {
+      "id": "smallrig-4770-manual",
+      "url": "https://static.smallrig.com/mall/img/public/1725874097334_.pdf",
+      "local_path": "/references/smallrig-4770-manual.pdf",
+      "bytes": 16734389,
+      "sha256": "ad06ed589ec6beb368bffddeef96827c835790b44fdffd444be5846eef0f7498",
+      "content_type": "application/pdf"
+    },
+    {
+      "id": "smallrig-1674-manual",
+      "url": "https://static.smallrig.com/mall/img/public/vcqnxceuxol-1747621696364_.pdf",
+      "local_path": "/references/smallrig-1674-manual.pdf",
+      "bytes": 9869519,
+      "sha256": "71d5674ab0df4030141f1d8762f9ba31cd071ca66cc255d8a86692d3ecd9f508",
+      "content_type": "application/pdf"
+    },
+    {
+      "id": "smallrig-3026b-manual",
+      "url": "https://static.smallrig.com/mall/img/public/m1twezvd88j-1751250182064_.pdf",
+      "local_path": "/references/smallrig-3026b-manual.pdf",
+      "bytes": 17790399,
+      "sha256": "cccac6b0d249220f27da3d629783f7c8f2845681fbb127659a10f0b1d8ae291b",
+      "content_type": "application/pdf"
+    },
+    {
+      "id": "smallrig-vb99-manual",
+      "url": "https://static.smallrig.com/mall/img/public/1730100759046_.pdf",
+      "local_path": "/references/smallrig-vb99-manual.pdf",
+      "bytes": 3293827,
+      "sha256": "29458e5ec63cc32e2ed00181d2945309a6dd68e67221abb130f209f216892741",
+      "content_type": "application/pdf"
+    },
+    {
+      "id": "smallrig-3645-manual",
+      "url": "https://static.smallrig.com/mall/img/public/1720407286655_.pdf",
+      "local_path": "/references/smallrig-3645-manual.pdf",
+      "bytes": 14213897,
+      "sha256": "a333300a7be4745b53b6a4205ff657296dabbb20e048f9ec8cef2cfe1dd57a0e",
+      "content_type": "application/pdf"
+    },
+    {
+      "id": "indie7-port-guide",
+      "url": "https://media.screensteps.com/image_assets/assets/006/136/465/original/Screen%20Shot%202022-12-13%20at%201.27.23%20PM.png",
+      "local_path": "/references/indie7-port-guide.png",
+      "bytes": 2302307,
+      "sha256": "5223bd6c833a3852a6ba08adabfa88434b91cf75d24e418945e7ebe3f7f90959",
+      "content_type": "image/png"
+    },
+    {
+      "id": "startech-specs",
+      "url": "https://media.startech.com/cms/pdfs/st122hd4ku_datasheet.pdf",
+      "local_path": "/references/startech-specs.pdf",
+      "bytes": 73277,
+      "sha256": "4a7652201365991cd49d51827afb8b48fa874e3f5f408dd71e7409a04f186917",
+      "content_type": "application/pdf"
+    },
+    {
+      "id": "smallrig-3203b-manual",
+      "url": "https://static.smallrig.com/mall/img/public/1714289722871_.pdf",
+      "local_path": "/references/smallrig-3203b-manual.pdf",
+      "bytes": 3429763,
+      "sha256": "5d8bd05e36c1561211e066d08f3958cedc116e86b21f955af48e3bf1d67c7027",
+      "content_type": "application/pdf"
+    },
+    {
+      "id": "smallrig-4253b-manual",
+      "url": "https://static.smallrig.com/mall/img/public/1706163303324_.pdf",
+      "local_path": "/references/smallrig-4253b-manual.pdf",
+      "bytes": 965793,
+      "sha256": "9f1d5dc8c3af2e32f66b811c80fa074ac72e14b26426102f92cd6d0e64c200b4",
+      "content_type": "application/pdf"
+    }
+  ]
+}
+

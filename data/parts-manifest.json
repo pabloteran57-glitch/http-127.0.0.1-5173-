@@ -1,0 +1,1034 @@
+{
+  "build_id": "rs4-pro-fx3-master-kit",
+  "build_name": "Sistema de rig DJI RS 4 Pro + Sony FX3 para un solo operador",
+  "verified_on": "2026-04-10",
+  "engineering_audit_on": "2026-10-05",
+  "release_status": "planning_candidate_not_field_certified",
+  "notes": [
+    "Conserva el inventario principal solicitado y separa las piezas activas en gimbal de las reservadas para cámara a mano, entrevistas o uso externo.",
+    "Los valores aproximados deben confirmarse con báscula y calibre antes de mecanizar maletas o encargar cables a medida.",
+    "Ronin Image Transmitter y Focus Pro Motor se incluyen como componentes del RS 4 Pro Combo por su impacto en cableado y masa.",
+    "2026-10-05: se distinguen las revisiones exactas 3026B, 3203B y 4253B. Las medidas nominales no verifican coordenadas de orificios ni holguras de movimiento."
+  ],
+  "parts": [
+    {
+      "id": "dji-rs4-pro-combo",
+      "exact_product_name": "DJI RS 4 Pro Combo",
+      "model_number": null,
+      "brand": "DJI",
+      "category": "gimbal bundle",
+      "verified_dimensions_mm": {
+        "length": 267.8,
+        "width": 201.9,
+        "height": 415,
+        "approximate": false,
+        "note": "DJI: largo × ancho × alto desplegado con empuñadura ESTÁNDAR; excluye cámara y trípode. No corresponde al conjunto instalado con BG70."
+      },
+      "verified_weight_g": {
+        "value": 1843,
+        "approximate": true,
+        "note": "Suma de componentes nominales aproximados de DJI: gimbal 1242 g + BG30 265 g + placas 110 g + trípode 226 g. NO es el peso del rig instalado con BG70."
+      },
+      "planning_weight_g": 1843,
+      "ports_interfaces": [
+        "USB-C de carga",
+        "USB-C RSS de control de cámara",
+        "USB-C de motor de enfoque",
+        "USB-C de transmisión de vídeo/LiDAR",
+        "Interfaces de expansión RSA/NATO",
+        "Orificio de montaje 1/4\"-20",
+        "Zapata sin contactos",
+        "Bluetooth 5.1"
+      ],
+      "mounting_method": "Plataforma estructural principal; la cámara se fija a la placa de liberación rápida DJI y a los ejes del gimbal.",
+      "likely_material": "Aleación de aluminio, brazos de eje de fibra de carbono y plásticos técnicos",
+      "mandatory_or_optional": "mandatory",
+      "rig_role": "Estabilización principal e interfaz de control",
+      "physical_constraints": [
+        "Carga nominal de 4.5 kg; el conjunto móvil debe mantenerse por debajo con margen para la resistencia del cableado.",
+        "Los accesorios deben conservar holgura con los motores de giro horizontal, inclinación y rotación.",
+        "El Combo incluye Ronin Image Transmitter y Focus Pro Motor."
+      ],
+      "primary_source_url": "https://www.dji.com/rs-4-pro/specs",
+      "secondary_source_url": "https://store.dji.com/product/dji-rs-4-pro-combo",
+      "confidence_level": "high",
+      "bundle_includes": [
+        "dji-ronin-image-transmitter",
+        "dji-focus-pro-motor"
+      ]
+    },
+    {
+      "id": "dji-rs-bg70",
+      "exact_product_name": "DJI RS BG70 High-Capacity Battery Grip",
+      "model_number": null,
+      "brand": "DJI",
+      "category": "gimbal power",
+      "verified_dimensions_mm": {
+        "length": null,
+        "width": null,
+        "height": null,
+        "approximate": true,
+        "note": "Las fuentes oficiales consultadas publican capacidad y tensión, pero no la envolvente física."
+      },
+      "verified_weight_g": {
+        "value": null,
+        "approximate": true,
+        "note": "Las fuentes oficiales consultadas no publican la masa de esta unidad."
+      },
+      "planning_weight_g": null,
+      "ports_interfaces": [
+        "Interfaz de empuñadura con el cuerpo RS",
+        "Salida USB-C inferior de hasta 18 W",
+        "Entrada USB-C de carga"
+      ],
+      "mounting_method": "Sustituye la empuñadura de batería estándar en la parte inferior del gimbal.",
+      "likely_material": "Plástico técnico y batería interna de ion-litio",
+      "mandatory_or_optional": "mandatory",
+      "rig_role": "Alimentación principal de autonomía ampliada para el gimbal",
+      "physical_constraints": [
+        "Según DJI, permite alimentar el RS 4 Pro hasta 29 horas.",
+        "La salida USB-C inferior de 18 W sirve para accesorios ligeros; no sustituye de forma directa la alimentación V-mount prevista para cámara y monitor."
+      ],
+      "primary_source_url": "https://store.dji.com/product/dji-rs-bg70-high-capacity-battery-grip",
+      "secondary_source_url": null,
+      "confidence_level": "medium"
+    },
+    {
+      "id": "sony-fx3",
+      "exact_product_name": "Sony FX3 Full-Frame Cinema Line Camera",
+      "model_number": "ILME-FX3",
+      "brand": "Sony",
+      "category": "camera body",
+      "verified_dimensions_mm": {
+        "length": 129.7,
+        "width": 77.8,
+        "height": 84.5,
+        "approximate": true,
+        "note": "Sony: ancho × alto × fondo = 129.7 × 77.8 × 84.5 mm. Los nombres históricos de los campos no representan los ejes de la escena; consultar layout-manifest.json. Sony considera estas medidas aproximadas y excluye salientes."
+      },
+      "verified_weight_g": {
+        "value": 640,
+        "approximate": true,
+        "note": "Masa aproximada del cuerpo: 640 g según Sony, sin batería, tarjeta ni asa. La configuración principal utiliza un adaptador NP-FZ100 alimentado externamente."
+      },
+      "planning_weight_g": 640,
+      "ports_interfaces": [
+        "Una salida HDMI de tamaño completo, tipo A",
+        "Un USB-C",
+        "Un Multi/Micro USB",
+        "Entrada de micrófono de 3.5 mm",
+        "Salida de auriculares de 3.5 mm",
+        "Zapata Multi Interface",
+        "Punto de montaje 1/4\"-20"
+      ],
+      "mounting_method": "Cuerpo con jaula, fijado a la base SmallRig y después a la placa de liberación rápida DJI.",
+      "likely_material": "Chasis de aleación de magnesio",
+      "mandatory_or_optional": "mandatory",
+      "rig_role": "Captura de imagen",
+      "physical_constraints": [
+        "Dispone de una sola salida HDMI de tamaño completo.",
+        "Las conexiones principales se concentran en el lado izquierdo de la cámara, zona crítica para ordenar el cableado.",
+        "La zapata superior Multi Interface admite el XLR-H1 u otros accesorios de zapata, pero no varios dispositivos superpuestos simultáneamente."
+      ],
+      "primary_source_url": "https://helpguide.sony.net/ilc/2210/v1/en/contents/TP1000886922.html",
+      "secondary_source_url": null,
+      "confidence_level": "high"
+    },
+    {
+      "id": "sony-xlr-h1",
+      "exact_product_name": "Sony XLR-H1 Top Handle Unit",
+      "model_number": "XLR-H1",
+      "brand": "Sony",
+      "category": "audio handle",
+      "verified_dimensions_mm": {
+        "length": null,
+        "width": null,
+        "height": null,
+        "approximate": true,
+        "note": "No se recuperó una envolvente física completa publicada por el fabricante en esta revisión."
+      },
+      "verified_weight_g": {
+        "value": 305,
+        "approximate": true,
+        "note": "Masa de planificación; comprobar antes de aprobar la carga final del gimbal."
+      },
+      "planning_weight_g": 305,
+      "ports_interfaces": [
+        "Dos entradas combinadas XLR/TRS",
+        "Una entrada estéreo de 3.5 mm",
+        "Conexión Sony Multi Interface"
+      ],
+      "mounting_method": "Se fija a la zapata Multi Interface de la FX3 y se estabiliza con los tornillos laterales.",
+      "likely_material": "Aluminio y plástico técnico",
+      "mandatory_or_optional": "optional",
+      "rig_role": "Entrada de audio para cámara a mano o entrevistas",
+      "physical_constraints": [
+        "Eleva el centro de gravedad sobre el eje de rotación y ocupa la zapata superior.",
+        "Dificulta una colocación superior despejada del LiDAR en el perfil principal de gimbal."
+      ],
+      "primary_source_url": "https://electronics.sony.com/imaging/imaging-accessories/imaging-compact-camera-accessories/p/xlrh1",
+      "secondary_source_url": null,
+      "confidence_level": "medium"
+    },
+    {
+      "id": "sony-fe-16-35-gm",
+      "exact_product_name": "Sony FE 16-35mm F2.8 GM",
+      "model_number": "SEL1635GM",
+      "brand": "Sony",
+      "category": "lens",
+      "verified_dimensions_mm": {
+        "length": 121.6,
+        "width": 88.5,
+        "height": 88.5,
+        "approximate": false,
+        "note": "Diámetro máximo y longitud publicados por Sony para este objetivo."
+      },
+      "verified_weight_g": {
+        "value": 680,
+        "approximate": false,
+        "note": "Sólo el objetivo."
+      },
+      "planning_weight_g": 680,
+      "ports_interfaces": [
+        "Montura Sony E",
+        "Rosca frontal de filtro de 82 mm",
+        "Selector AF/MF",
+        "Botón de retención de enfoque"
+      ],
+      "mounting_method": "Objetivo de montura E en la FX3; aro frontal del parasol y soporte de varillas opcional.",
+      "likely_material": "Aleación de magnesio, plástico técnico y grupos ópticos de vidrio",
+      "mandatory_or_optional": "mandatory",
+      "rig_role": "Objetivo zoom principal",
+      "physical_constraints": [
+        "Rosca frontal de 82 mm, compatible con el aro 82-95 mm del kit SmallRig.",
+        "El peso frontal exige distribuir cuidadosamente parasol, motor de enfoque y batería V-mount al equilibrar la inclinación."
+      ],
+      "primary_source_url": "https://electronics.sony.com/imaging/lenses/all-e-mount/p/sel1635gm",
+      "secondary_source_url": null,
+      "confidence_level": "high"
+    },
+    {
+      "id": "smallrig-4770",
+      "exact_product_name": "SmallRig HawkLock Quick Release Cage Kit for Sony FX3/FX30",
+      "model_number": "4770",
+      "brand": "SmallRig",
+      "category": "camera cage",
+      "verified_dimensions_mm": {
+        "length": 160,
+        "width": 101.2,
+        "height": 66.2,
+        "approximate": false,
+        "note": "Manual oficial 4770: 160.0 × 101.2 × 66.2 mm y 208 ±5 g. Jaula abierta en U con riel superior desmontable; no es una caja maciza."
+      },
+      "verified_weight_g": {
+        "value": 208,
+        "approximate": false,
+        "note": "Masa nominal publicada, con tolerancia del fabricante; no es una medición del conjunto instalado."
+      },
+      "planning_weight_g": 208,
+      "ports_interfaces": [
+        "Base integrada de tipo Arca",
+        "Roscas 1/4\"-20",
+        "Roscas de posicionamiento tipo ARRI 3/8\"-16",
+        "Zapatas sin contactos",
+        "Riel NATO superior desmontable",
+        "Abrazadera de cable HDMI"
+      ],
+      "mounting_method": "Jaula ajustada a FX3/FX30 con varios puntos de contacto antitorsión.",
+      "likely_material": "Aleación de aluminio, acero inoxidable y silicona, según el manual oficial",
+      "mandatory_or_optional": "mandatory",
+      "rig_role": "Protección de cámara, estructura antitorsión y sujeción del cableado",
+      "physical_constraints": [
+        "La anchura y altura añadidas deben incluirse en la comprobación de holgura del eje de rotación.",
+        "El riel NATO superior es desmontable; dejarlo fuera del perfil principal de gimbal salvo que sea necesario."
+      ],
+      "primary_source_url": "https://www.smallrig.com/de/HawkLock-Quick-Release-Cage-Kit-for-Sony-FX3-FX30-4770.html",
+      "secondary_source_url": "https://www.bhphotovideo.com/c/search?q=smallrig%204770",
+      "confidence_level": "medium"
+    },
+    {
+      "id": "smallrig-1674",
+      "exact_product_name": "SmallRig Baseplate with Dual 15 mm Rod Clamp",
+      "model_number": "1674",
+      "brand": "SmallRig",
+      "category": "baseplate",
+      "verified_dimensions_mm": {
+        "length": 80,
+        "width": 80,
+        "height": 26,
+        "approximate": false,
+        "note": "Manual oficial: 80 × 80 × 26 mm, 171 ±5 g; orificios de varillas de 15 mm con 60 mm entre centros."
+      },
+      "verified_weight_g": {
+        "value": 171,
+        "approximate": false,
+        "note": "Masa nominal publicada, con tolerancia del fabricante; no es una medición del conjunto instalado."
+      },
+      "planning_weight_g": 171,
+      "ports_interfaces": [
+        "Abrazadera doble para varillas de 15 mm",
+        "Ranura de montaje 1/4\"-20",
+        "Ranura de montaje 3/8\"-16"
+      ],
+      "mounting_method": "Atornillada debajo de la cámara con jaula; fija el par de varillas de 15 mm.",
+      "likely_material": "Aleación de aluminio y caucho, según el manual oficial",
+      "mandatory_or_optional": "mandatory",
+      "rig_role": "Anclaje de las varillas para parasol y placa de batería",
+      "physical_constraints": [
+        "Comprobar la sujeción antitorsión de los tornillos hacia la placa del gimbal antes de moverlo.",
+        "La altura de las varillas define el engrane del motor de enfoque y la alineación del parasol."
+      ],
+      "primary_source_url": "https://www.smallrig.com/smallrig-baseplate-with-dual-15mm-rod-clamp-1674.html",
+      "secondary_source_url": null,
+      "confidence_level": "medium"
+    },
+    {
+      "id": "smallrig-rods-8in",
+      "exact_product_name": "SmallRig 15 mm Carbon Fiber Rods (Pair), 8 in",
+      "model_number": null,
+      "brand": "SmallRig",
+      "category": "rods",
+      "verified_dimensions_mm": {
+        "length": 203.2,
+        "width": 15,
+        "height": 15,
+        "approximate": false,
+        "note": "Varillas de 8 pulgadas de largo y 15 mm de diámetro; la página oficial también indica pared de 2.0 mm."
+      },
+      "verified_weight_g": {
+        "value": 80,
+        "approximate": true,
+        "note": "La página oficial muestra actualmente el peso del paquete del par de 8 pulgadas; usarlo sólo para planificación."
+      },
+      "planning_weight_g": 80,
+      "ports_interfaces": [
+        "Estándar de varillas de 15 mm"
+      ],
+      "mounting_method": "Atraviesan las abrazaderas de la base 1674 y de la placa trasera 3203B.",
+      "likely_material": "Fibra de carbono",
+      "mandatory_or_optional": "mandatory",
+      "rig_role": "Soporte compartido para parasol, motor de enfoque y placa V-mount",
+      "physical_constraints": [
+        "La longitud de 8 pulgadas exige repartir cuidadosamente el alcance frontal hacia el parasol y el trasero hacia la batería.",
+        "Mantener mínima la prolongación trasera para evitar un brazo de palanca excesivo."
+      ],
+      "primary_source_url": "https://www.smallrig.com/15mm-Carbon-Fiber-Rods-Pair.html",
+      "secondary_source_url": null,
+      "confidence_level": "medium"
+    },
+    {
+      "id": "smallrig-3645",
+      "exact_product_name": "SmallRig Multifunctional Modular Matte Box (95 mm) VND Kit",
+      "model_number": "3645",
+      "brand": "SmallRig",
+      "category": "matte box",
+      "verified_dimensions_mm": {
+        "length": null,
+        "width": 95,
+        "height": null,
+        "approximate": true,
+        "note": "La página oficial confirma la arquitectura de 95 mm, pero no una envolvente exterior completa del conjunto montado."
+      },
+      "verified_weight_g": {
+        "value": null,
+        "approximate": true,
+        "note": "La página oficial publica actualmente el peso del paquete, no el del producto montado."
+      },
+      "planning_weight_g": 460,
+      "ports_interfaces": [
+        "Abertura de parasol de 95 mm",
+        "Aros adaptadores 67/72/77/82-95 mm",
+        "Marco de filtro magnético",
+        "Soporte doble para varillas de 15 mm"
+      ],
+      "mounting_method": "Aro de objetivo 82-95 mm; el soporte de varillas depende de medir su alcance. No asumir que las varillas de 8 pulgadas alcanzan a la vez el soporte frontal y la batería trasera.",
+      "likely_material": "Compuesto de fibra de carbono, aluminio y vidrio de filtro",
+      "mandatory_or_optional": "mandatory",
+      "rig_role": "Parasol frontal y filtro ND variable",
+      "physical_constraints": [
+        "Añade peso frontal y superficie expuesta al viento al usar el gimbal.",
+        "Comprobar la bandera superior durante todo el recorrido del motor de inclinación.",
+        "Probar el conjunto VND a 16 mm para detectar viñeteo y patrones en cruz. Revisar la carga del anclaje al objetivo y el recorrido del zoom."
+      ],
+      "primary_source_url": "https://www.smallrig.com/global/SmallRig-Multifunctional-Modular-Matte-Box-95mm-VND-Kit-3645.html",
+      "secondary_source_url": null,
+      "confidence_level": "medium"
+    },
+    {
+      "id": "smallrig-3026b",
+      "exact_product_name": "SmallRig Monitor Mount with NATO Clamp for DJI RS Series",
+      "model_number": "3026B",
+      "brand": "SmallRig",
+      "category": "monitor mount",
+      "verified_dimensions_mm": {
+        "length": 152.6,
+        "width": 54.8,
+        "height": 38,
+        "approximate": false,
+        "note": "Medidas nominales del manual oficial 3026B; 125 ±5 g. La envolvente de uso depende del ángulo del cabezal."
+      },
+      "verified_weight_g": {
+        "value": 125,
+        "approximate": false,
+        "note": "Masa nominal publicada, con tolerancia del fabricante; no es una medición del conjunto instalado."
+      },
+      "planning_weight_g": 125,
+      "ports_interfaces": [
+        "Abrazadera NATO",
+        "Roscas de accesorios 1/4\"-20",
+        "Zapata superior sin contactos",
+        "Zapata inferior sin contactos"
+      ],
+      "mounting_method": "Abrazadera directa en el riel NATO lateral del RS 4 Pro; cabezal de monitor regulable en inclinación.",
+      "likely_material": "Aleación de aluminio, acero inoxidable, latón y silicona; manual 3026B, página 8",
+      "mandatory_or_optional": "mandatory",
+      "rig_role": "Soporte de monitor fuera de la cámara, al lado del gimbal",
+      "physical_constraints": [
+        "Monitor y accesorios deben respetar la carga admitida y dejar libre el brazo de rotación durante todo el recorrido.",
+        "Su fijación NATO proporciona un punto documentado para el monitor de este conjunto.",
+        "Manual oficial, página 7: carga máxima de 1.5 kg. Los 737 g nominales del Indie 7 quedan por debajo del límite estático; aún deben probarse rosca, par del cable y retención dinámica."
+      ],
+      "primary_source_url": "https://www.smallrig.com/global/smallrig-monitor-mount-with-nato-clamp-for-dji-rs-2-rsc-2-3026.html",
+      "secondary_source_url": "https://www.bhphotovideo.com/c/product/1767617-REG/smallrig_3026b_monitor_mount_with_nato.html/specs",
+      "confidence_level": "high"
+    },
+    {
+      "id": "smallhd-indie-7",
+      "exact_product_name": "SmallHD Indie 7 Touchscreen On-Camera Monitor",
+      "model_number": "MON-INDIE-7",
+      "brand": "SmallHD",
+      "category": "monitor",
+      "verified_dimensions_mm": {
+        "length": 180.1,
+        "width": 118.6,
+        "height": 33.5,
+        "approximate": false,
+        "note": "B&H, modelo MON-INDIE-7: ancho × alto × fondo del cuerpo. No es la diagonal de la pantalla de siete pulgadas."
+      },
+      "verified_weight_g": {
+        "value": 737,
+        "approximate": false,
+        "note": "B&H: 26 oz / 737 g, sólo monitor, sin baterías ni soporte."
+      },
+      "planning_weight_g": 737,
+      "ports_interfaces": [
+        "Una entrada HDMI",
+        "Una salida HDMI; guía oficial: hasta 4Kp30",
+        "Dos conexiones 3G-SDI de entrada/salida",
+        "Entrada DC de barril: 10-34 V DC, capacidad de entrada de 2 A; diámetro interior no verificado",
+        "Conector de auriculares de 3.5 mm",
+        "Placa doble de batería Sony serie L",
+        "Micro USB de servicio"
+      ],
+      "mounting_method": "Rosca de monitor 1/4\"-20 fijada al soporte SmallRig 3026B.",
+      "likely_material": "Carcasa de aluminio, según la información del fabricante",
+      "mandatory_or_optional": "mandatory",
+      "rig_role": "Monitor principal del operador",
+      "physical_constraints": [
+        "Su masa importa en el lateral del gimbal; acercarlo al pivote NATO, sin brazo largo.",
+        "La guía oficial indica 2 A, no 2 mm. Usar el cable de barril D-Tap de SmallHD y comprobar polaridad y ajuste antes de alimentar."
+      ],
+      "primary_source_url": "https://guide.smallhd.com/a/1634747-indie-7-quick-start-guide",
+      "secondary_source_url": "https://www.bhphotovideo.com/c/product/1593398-REG/smallhd_mon_indie_7_indie_7_touchscreen_on_camera.html",
+      "confidence_level": "medium"
+    },
+    {
+      "id": "smallrig-vb99-pro",
+      "exact_product_name": "SmallRig VB99 Pro Mini V-Mount Battery",
+      "model_number": "4292",
+      "brand": "SmallRig",
+      "category": "battery",
+      "verified_dimensions_mm": {
+        "length": 107.2,
+        "width": 73.2,
+        "height": 55.2,
+        "approximate": false,
+        "note": "Manual oficial 4292: 107.2 × 73.2 × 55.2 mm, 644 ±10 g; sólo la batería."
+      },
+      "verified_weight_g": {
+        "value": 644,
+        "approximate": false,
+        "note": "Masa nominal publicada, con tolerancia del fabricante; no es una medición del conjunto instalado."
+      },
+      "planning_weight_g": 644,
+      "ports_interfaces": [
+        "V-mount",
+        "Una salida D-Tap de 14.8 V",
+        "Una salida DC de barril de 8 V",
+        "Una salida DC de barril de 12 V",
+        "Un USB-C PD de entrada/salida",
+        "Un USB-C de salida",
+        "Un USB-A de salida"
+      ],
+      "mounting_method": "Bloqueada en la placa V-mount 3203B, sobre el tramo trasero de varillas.",
+      "likely_material": "Aleación de aluminio y policarbonato resistente al fuego, según el manual oficial",
+      "mandatory_or_optional": "mandatory",
+      "rig_role": "Alimentación principal de cámara y accesorios",
+      "physical_constraints": [
+        "Mantener la masa baja y próxima al eje trasero de inclinación para evitar exceso de peso posterior.",
+        "No colocarla por encima del eje de rotación."
+      ],
+      "primary_source_url": "https://www.smallrig.com/smallrig-VB99-Pro-mini-V-Mount-Battery-4292.html?sku=4292",
+      "secondary_source_url": "https://www.bhphotovideo.com/c/product/803417427-USE/smallrig_4292_vb99_pro_mini_v_mount.html",
+      "confidence_level": "medium"
+    },
+    {
+      "id": "smallrig-3203b",
+      "exact_product_name": "SmallRig V-Mount Battery Adapter Plate with Dual 15 mm Rod Clamp",
+      "model_number": "3203B",
+      "brand": "SmallRig",
+      "category": "battery plate",
+      "verified_dimensions_mm": {
+        "length": 168.7,
+        "width": 108,
+        "height": 33,
+        "approximate": false,
+        "note": "Página oficial de la revisión 3203B: 168.7 × 108 × 33 mm, 337 ±5 g. Incluye abrazadera doble de 15 mm; no separa las envolventes del cuerpo y de la abrazadera."
+      },
+      "verified_weight_g": {
+        "value": 337,
+        "approximate": true,
+        "note": "La página oficial indica 337 ±5 g y el manual oficial 341 ±10 g. Se usan 351 g conservadores para planificación; pesar la revisión recibida."
+      },
+      "planning_weight_g": 351,
+      "ports_interfaces": [
+        "Contactos de batería V-mount",
+        "Una salida D-Tap de 14.8 V nominales",
+        "DC5521: 8 V / 3 A",
+        "Dos DC5525: 12 V / 3 A cada uno",
+        "USB-C PD de entrada/salida, hasta 65 W",
+        "USB-A QC de salida, hasta 36 W",
+        "Parte posterior: seis roscas 1/4-20 y diez M4",
+        "Bordes superior/inferior: cinco roscas 1/4-20"
+      ],
+      "mounting_method": "Abrazadera doble incluida de 15 mm atornillada al borde superior, según el diagrama izquierdo del manual oficial, página 5; la placa cuelga bajo las varillas y la batería se fija por detrás.",
+      "likely_material": "Aleación de aluminio, según el fabricante",
+      "mandatory_or_optional": "mandatory",
+      "rig_role": "Soporte trasero bajo de batería y distribución de alimentación",
+      "physical_constraints": [
+        "La propia placa añade masa trasera antes de instalar la batería.",
+        "Usar la salida D-Tap de la placa para SmallHD; no asumir un duplicador en la única salida D-Tap de la batería.",
+        "El manual, página 5, documenta la abrazadera en el borde SUPERIOR y la placa bajo las varillas. No se han medido las holguras con batería y motores de giro/inclinación."
+      ],
+      "primary_source_url": "https://www.smallrig.com/jp/Advanced-V-Mount-Battery-Mount-Plate-with-Dual-15mm-Rod-Clamp-3203B.html",
+      "secondary_source_url": null,
+      "confidence_level": "medium",
+      "weight_range_g": [
+        332,
+        351
+      ]
+    },
+    {
+      "id": "smallrig-4253b",
+      "exact_product_name": "SmallRig D-Tap to Sony NP-FZ100 Dummy Battery Power Cable",
+      "model_number": "4253B",
+      "brand": "SmallRig",
+      "category": "power cable",
+      "verified_dimensions_mm": {
+        "length": 580,
+        "width": 38.7,
+        "height": 22.7,
+        "approximate": false,
+        "note": "Medidas del cable montado publicadas por B&H."
+      },
+      "verified_weight_g": {
+        "value": 71,
+        "approximate": false,
+        "note": "Peso de producto publicado por B&H."
+      },
+      "planning_weight_g": 71,
+      "ports_interfaces": [
+        "D-Tap macho: entrada de 9.6-20 V, suministro mínimo de 2 A",
+        "Adaptador NP-FZ100 regulado: 8.0-8.4 V, máximo continuo de 2 A",
+        "Cable espiral: hasta 2 m ±50 mm extendido"
+      ],
+      "mounting_method": "Desde el sistema V-mount al compartimento de batería FX3, por la salida de cable de la puerta.",
+      "likely_material": "PVC, ABS y conductores de cobre",
+      "mandatory_or_optional": "mandatory",
+      "rig_role": "Alimentación regulada principal de la cámara",
+      "physical_constraints": [
+        "Entrada de 9.6-20 V y salida regulada de 8-8.4 V hacia el adaptador de cámara.",
+        "Sujetar la holgura del cable a la salida de la puerta para no tirar del adaptador al inclinar.",
+        "La salida es de 8.0-8.4 V regulados, NO la tensión directa V-mount. El manual fija 2 A continuos; comprobar la demanda de cámara durante grabación."
+      ],
+      "primary_source_url": "https://www.smallrig.com/SmallRig-D-Tap-to-Sony-NP-FZ100-Dummy-Battery-Power-Cable-4253B.html",
+      "secondary_source_url": "https://www.bhphotovideo.com/c/product/803319395-USE/smallrig_4253b_d_tap_to_sony_np_fz100.html/specs",
+      "confidence_level": "high"
+    },
+    {
+      "id": "dji-focus-pro-lidar",
+      "exact_product_name": "DJI Focus Pro LiDAR",
+      "model_number": null,
+      "brand": "DJI",
+      "category": "focus sensor",
+      "verified_dimensions_mm": {
+        "length": 68,
+        "width": 25,
+        "height": 57,
+        "approximate": true,
+        "note": "Especificaciones DJI Focus Pro; largo × ancho × alto aproximados."
+      },
+      "verified_weight_g": {
+        "value": 140,
+        "approximate": true,
+        "note": "Masa de planificación."
+      },
+      "planning_weight_g": 140,
+      "ports_interfaces": [
+        "USB-C de actualización de firmware/alimentación",
+        "USB-C de datos/alimentación/CVBS/CAN",
+        "Zapata sin contactos",
+        "Rosca de montaje 1/4-20"
+      ],
+      "mounting_method": "DJI permite retirar la zapata y fijar el tornillo de 1/4 pulgada incluido a una jaula. Posición superior delantera candidata; medir la distancia entre plano del sensor y vidrio LiDAR.",
+      "likely_material": "Aluminio y plástico técnico",
+      "mandatory_or_optional": "optional",
+      "rig_role": "Autofoco y medición de distancia del sujeto",
+      "physical_constraints": [
+        "Requiere campo de visión frontal despejado cerca del eje óptico.",
+        "Evitar un desplazamiento lateral grande si importa la precisión de enfoque.",
+        "En reserva por defecto: no se ha verificado la calibración repetible con SEL1635GM. Un aro de engranaje instalado no demuestra autofoco LiDAR operativo."
+      ],
+      "primary_source_url": "https://www.dji.com/focus-pro/specs",
+      "secondary_source_url": null,
+      "confidence_level": "medium"
+    },
+    {
+      "id": "dji-focus-pro-motor",
+      "exact_product_name": "DJI Focus Pro Motor",
+      "model_number": null,
+      "brand": "DJI",
+      "category": "focus motor",
+      "verified_dimensions_mm": {
+        "length": 100,
+        "width": 61,
+        "height": 34,
+        "approximate": true,
+        "note": "Especificaciones DJI Focus Pro; largo × ancho × alto aproximados."
+      },
+      "verified_weight_g": {
+        "value": 123,
+        "approximate": true,
+        "note": "Masa aproximada publicada del motor Focus Pro, no del motor Ronin anterior."
+      },
+      "planning_weight_g": 123,
+      "ports_interfaces": [
+        "USB-C de control/alimentación",
+        "Anclaje a varilla de 15 mm",
+        "Engrane con el aro del objetivo"
+      ],
+      "mounting_method": "Abrazadera a varilla de 15 mm y engrane con el aro del objetivo.",
+      "likely_material": "Aleación de aluminio",
+      "mandatory_or_optional": "optional",
+      "rig_role": "Accionamiento del enfoque para asistencia LiDAR",
+      "physical_constraints": [
+        "Elegir el lado de varilla que deje libres las conexiones de cámara.",
+        "Comprobar el engrane tras cambiar objetivo o altura de varillas.",
+        "En reserva hasta probar calibración del objetivo, aro, alcance de varillas y holgura durante todo el movimiento."
+      ],
+      "primary_source_url": "https://www.dji.com/focus-pro/specs",
+      "secondary_source_url": "https://www.dji.com/rs-4-pro/specs",
+      "confidence_level": "medium"
+    },
+    {
+      "id": "dji-lidar-transmission-hub",
+      "exact_product_name": "DJI Focus Pro LiDAR to DJI Transmission Cable Hub",
+      "model_number": null,
+      "brand": "DJI",
+      "category": "signal hub",
+      "verified_dimensions_mm": {
+        "length": null,
+        "width": null,
+        "height": null,
+        "approximate": true,
+        "note": "Las fuentes consultadas no permiten completar la envolvente física."
+      },
+      "verified_weight_g": {
+        "value": 139.3,
+        "approximate": false,
+        "note": "Masa publicada en la tienda oficial para el hub Focus Pro exacto; no corresponde al hub LiDAR Range Finder (RS) anterior."
+      },
+      "planning_weight_g": 139.3,
+      "ports_interfaces": [
+        "Conexiones específicas DJI de LiDAR/transmisión"
+      ],
+      "mounting_method": "Interfaz accesoria del sistema DJI Transmission.",
+      "likely_material": "Plástico técnico con cableado corto integrado",
+      "mandatory_or_optional": "optional",
+      "rig_role": "No activo en la configuración principal actual",
+      "physical_constraints": [
+        "Requiere DJI Video Transmitter / DJI Transmission, no incluidos en el conjunto solicitado.",
+        "No confundirlo con Ronin Image Transmitter incluido en RS 4 Pro Combo."
+      ],
+      "primary_source_url": "https://store.dji.com/se/product/dji-focus-pro-lidar-dji-transmission-cable-hub?vid=168921",
+      "secondary_source_url": null,
+      "confidence_level": "high"
+    },
+    {
+      "id": "dji-mic-2-kit",
+      "exact_product_name": "DJI Mic 2 (2 TX + 1 RX + Charging Case)",
+      "model_number": null,
+      "brand": "DJI",
+      "category": "wireless audio",
+      "verified_dimensions_mm": {
+        "length": null,
+        "width": null,
+        "height": null,
+        "approximate": true,
+        "note": "Las fuentes consultadas verifican mejor la composición del sistema que las dimensiones del kit completo."
+      },
+      "verified_weight_g": {
+        "value": null,
+        "approximate": true,
+        "note": "No se recuperó la masa del kit completo."
+      },
+      "planning_weight_g": null,
+      "ports_interfaces": [
+        "Salida TRS de 3.5 mm del receptor",
+        "USB-C de carga/datos",
+        "Micrófono integrado del transmisor",
+        "Entrada de micrófono lavalier compatible en el transmisor"
+      ],
+      "mounting_method": "El receptor puede fijarse a una zapata o permanecer fuera del rig; los transmisores se sujetan al participante.",
+      "likely_material": "Plástico técnico y herrajes de clip metálicos",
+      "mandatory_or_optional": "optional",
+      "rig_role": "Audio inalámbrico de diálogo y referencia para un solo operador",
+      "physical_constraints": [
+        "Preferible como sistema corporal o de zapata, no como carga permanente indiscriminada del gimbal.",
+        "La ubicación del receptor no debe competir con LiDAR o XLR-H1 por el punto superior."
+      ],
+      "primary_source_url": "https://www.dji.com/mic-2",
+      "secondary_source_url": null,
+      "confidence_level": "medium",
+      "subcomponents": [
+        {
+          "id": "receiver",
+          "model": "DMR02",
+          "dimensions_lwh_mm": [
+            54.2,
+            28.36,
+            22.49
+          ],
+          "weight_g": 28,
+          "mass_domain": "moving_when_shoe_mounted",
+          "source_url": "https://www.dji.com/mic-2/specs",
+          "note": "Sólo el receptor acompaña al rig; no contar transmisores ni estuche como carga móvil."
+        }
+      ]
+    },
+    {
+      "id": "dji-lavalier",
+      "exact_product_name": "DJI Lavalier Mic",
+      "model_number": null,
+      "brand": "DJI",
+      "category": "lavalier microphone",
+      "verified_dimensions_mm": {
+        "length": null,
+        "width": null,
+        "height": null,
+        "approximate": true,
+        "note": "La envolvente física exacta no es necesaria para la distribución actual del rig."
+      },
+      "verified_weight_g": {
+        "value": null,
+        "approximate": true,
+        "note": "No se recuperó el peso en las fuentes consultadas."
+      },
+      "planning_weight_g": null,
+      "ports_interfaces": [
+        "Conector TRS de 3.5 mm"
+      ],
+      "mounting_method": "Se sujeta a la ropa y se conecta a un transmisor DJI Mic.",
+      "likely_material": "Cable, clip metálico y cuerpo de micrófono de plástico",
+      "mandatory_or_optional": "optional",
+      "rig_role": "Micrófono discreto del participante",
+      "physical_constraints": [
+        "No es masa permanente del rig; sí debe planificarse el cable del receptor hacia cámara cuando se utiliza en directo."
+      ],
+      "primary_source_url": "https://store.dji.com/product/dji-lavalier-mic",
+      "secondary_source_url": null,
+      "confidence_level": "high"
+    },
+    {
+      "id": "startech-st122hd4ku",
+      "exact_product_name": "StarTech ST122HD4KU 1x2 UHD 4K HDMI Splitter",
+      "model_number": "ST122HD4KU",
+      "brand": "StarTech",
+      "category": "video splitter",
+      "verified_dimensions_mm": {
+        "length": 620,
+        "width": 50,
+        "height": 18,
+        "approximate": false,
+        "note": "Las medidas de la ficha StarTech incluyen el cable de entrada cautivo. Los 620 mm NO son la longitud de la carcasa; su geometría sigue siendo aproximada."
+      },
+      "verified_weight_g": {
+        "value": 72,
+        "approximate": false,
+        "note": "Masa del producto publicada por el fabricante, sin adaptador de corriente."
+      },
+      "planning_weight_g": 72,
+      "ports_interfaces": [
+        "Cable de entrada cautivo HDMI tipo A macho",
+        "Dos salidas HDMI tipo A hembra",
+        "Entrada DC de 5 V; adaptador de corriente y cable de alimentación USB incluidos",
+        "HDMI 1.4, hasta 4K a 30 Hz"
+      ],
+      "mounting_method": "No se ha verificado una interfaz de montaje al rig en las fuentes consultadas.",
+      "likely_material": "Plástico técnico",
+      "mandatory_or_optional": "optional",
+      "rig_role": "Producto solicitado conservado; uso externo o en banco en esta selección de hardware",
+      "physical_constraints": [
+        "No tiene un soporte limpio verificado entre las piezas listadas para uso dinámico en gimbal.",
+        "La doble salida solicitada se conserva en banco. Probar alimentación, EDID y compatibilidad 1080p; no se aprueba un montaje en gimbal."
+      ],
+      "primary_source_url": "https://www.startech.com/en-fr/audio-video-products/st122hd4ku",
+      "secondary_source_url": null,
+      "confidence_level": "medium"
+    },
+    {
+      "id": "kondor-blue-hdmi-aa",
+      "exact_product_name": "Kondor Blue Full HDMI Cable for On-Camera Monitors, 12 to 24 in Braided Coiled",
+      "model_number": "KB-FHDMI-12",
+      "brand": "Kondor Blue",
+      "category": "video cable",
+      "verified_dimensions_mm": {
+        "length": 304.8,
+        "width": null,
+        "height": null,
+        "approximate": false,
+        "note": "Longitud espiral de 12 a 24 pulgadas."
+      },
+      "verified_weight_g": {
+        "value": null,
+        "approximate": true,
+        "note": "No se publicó la masa del cable en las fuentes consultadas."
+      },
+      "planning_weight_g": 65,
+      "ports_interfaces": [
+        "HDMI tipo A macho",
+        "HDMI tipo A macho",
+        "HDMI 2.0, 18 Gbps"
+      ],
+      "mounting_method": "Tramo de cable entre cámara o monitor y el dispositivo HDMI correspondiente.",
+      "likely_material": "Cable trenzado con carcasas de conector reforzadas",
+      "mandatory_or_optional": "mandatory",
+      "rig_role": "Conexión HDMI corta principal del monitor del operador",
+      "physical_constraints": [
+        "Elegir el recorrido más corto adecuado para reducir la resistencia del cable.",
+        "La tensión de la espiral no debe tirar directamente de la salida HDMI de la FX3."
+      ],
+      "primary_source_url": "https://kondorblue.com/products/12-to-24-coiled-braided-hdmi-cable-for-camera-mounted-monitors",
+      "secondary_source_url": null,
+      "confidence_level": "high"
+    },
+    {
+      "id": "dji-hdmi-a-to-c",
+      "exact_product_name": "DJI RS Mini-HDMI to HDMI Cable (20 cm)",
+      "model_number": null,
+      "brand": "DJI",
+      "category": "video cable",
+      "verified_dimensions_mm": {
+        "length": 200,
+        "width": null,
+        "height": null,
+        "approximate": false,
+        "note": "Longitud de cable publicada por DJI."
+      },
+      "verified_weight_g": {
+        "value": null,
+        "approximate": true,
+        "note": "No se publicó la masa del cable en las fuentes consultadas."
+      },
+      "planning_weight_g": 35,
+      "ports_interfaces": [
+        "HDMI tipo A macho",
+        "Mini HDMI tipo C macho"
+      ],
+      "mounting_method": "Desde la salida del distribuidor en banco hacia Mini HDMI de Ronin Image Transmitter; la salida del monitor es una alternativa condicionada, no la ruta principal.",
+      "likely_material": "Cubierta de PVC y conductores de cobre",
+      "mandatory_or_optional": "optional",
+      "rig_role": "Cable de la salida secundaria de transmisión",
+      "physical_constraints": [
+        "Sólo necesario si Ronin Image Transmitter está activo.",
+        "Su recorrido debe dejar libre el eje de giro horizontal; el alcance se comprueba físicamente."
+      ],
+      "primary_source_url": "https://store.dji.com/uk/product/r-mini-hdmi-to-hdmi-cable",
+      "secondary_source_url": null,
+      "confidence_level": "high"
+    },
+    {
+      "id": "dji-r-usbc-control",
+      "exact_product_name": "DJI R Multi-Camera Control Cable (USB-C)",
+      "model_number": null,
+      "brand": "DJI",
+      "category": "control cable",
+      "verified_dimensions_mm": {
+        "length": 300,
+        "width": null,
+        "height": null,
+        "approximate": true,
+        "note": "La tienda oficial DJI publica una longitud de 30 cm; la envolvente de conectores no está completa."
+      },
+      "verified_weight_g": {
+        "value": null,
+        "approximate": true,
+        "note": "No se recuperó el peso en las fuentes consultadas."
+      },
+      "planning_weight_g": 30,
+      "ports_interfaces": [
+        "USB-C macho",
+        "USB-C macho"
+      ],
+      "mounting_method": "Tramo corto desde RSS del RS a USB-C de la FX3.",
+      "likely_material": "Cable de PVC y carcasas USB-C moldeadas",
+      "mandatory_or_optional": "mandatory",
+      "rig_role": "Control de cámara desde el gimbal",
+      "physical_constraints": [
+        "Dejar un bucle flexible de servicio durante la inclinación, sin engancharse al motor de rotación."
+      ],
+      "primary_source_url": "https://store.dji.com/ca/product/r-multi-camera-control-cable-usb-c",
+      "secondary_source_url": null,
+      "confidence_level": "high"
+    },
+    {
+      "id": "smallhd-dtap-to-2mm-barrel",
+      "exact_product_name": "SmallHD D-Tap to 5.5mm Male DC Barrel Power Cable (36in / 91cm)",
+      "model_number": "CBL-PWR-DTAP-BAR-36",
+      "brand": "SmallHD",
+      "category": "power cable",
+      "verified_dimensions_mm": {
+        "length": 914.4,
+        "width": null,
+        "height": null,
+        "approximate": true,
+        "note": "El fabricante indica 36 pulgadas / 91 cm; no publica toda la geometría del conector. Se conserva el ID histórico por compatibilidad de datos, no como especificación de diámetro."
+      },
+      "verified_weight_g": {
+        "value": null,
+        "approximate": true,
+        "note": "No se recuperó el peso en las fuentes consultadas."
+      },
+      "planning_weight_g": 95,
+      "ports_interfaces": [
+        "D-Tap macho",
+        "Barril DC macho de 5.5 mm de diámetro exterior; interior y polaridad por confirmar"
+      ],
+      "mounting_method": "Desde la salida D-Tap de la placa 3203B a la entrada DC del Indie 7.",
+      "likely_material": "Cable de PVC y carcasas de conector moldeadas",
+      "mandatory_or_optional": "mandatory",
+      "rig_role": "Alimentación del monitor; no se afirma regulación de tensión",
+      "physical_constraints": [
+        "Confirmar ajuste del barril, polaridad y tensión D-Tap medida antes de conectar; nunca conectar D-Tap directo a la FX3."
+      ],
+      "primary_source_url": "https://smallhd.com/products/dtap-barrel-36in",
+      "secondary_source_url": "https://www.bhphotovideo.com/c/product/1154925-REG/smallhd_cbl_pwr_dtap_bar_36_d_tap_adapter_cable.html",
+      "confidence_level": "medium"
+    },
+    {
+      "id": "dji-ronin-image-transmitter",
+      "exact_product_name": "DJI Ronin Image Transmitter",
+      "model_number": null,
+      "brand": "DJI",
+      "category": "video transmitter",
+      "verified_dimensions_mm": {
+        "length": 82,
+        "width": 63,
+        "height": 24,
+        "approximate": false,
+        "note": "Especificaciones publicadas por DJI."
+      },
+      "verified_weight_g": {
+        "value": 126,
+        "approximate": false,
+        "note": "Especificaciones publicadas por DJI."
+      },
+      "planning_weight_g": 126,
+      "ports_interfaces": [
+        "USB-C de alimentación/comunicación",
+        "Entrada Mini HDMI",
+        "USB-C RSS de control de cámara",
+        "Interfaz de expansión de zapata sin contactos"
+      ],
+      "mounting_method": "Accesorio incluido en el Combo; el montaje activo depende de disponer de zapata o herrajes 1/4\"-20 compatibles.",
+      "likely_material": "Plástico técnico y herrajes metálicos de montaje",
+      "mandatory_or_optional": "optional",
+      "rig_role": "Vídeo y control inalámbricos para la aplicación Ronin",
+      "physical_constraints": [
+        "La batería interna permite mantenerlo fuera del sistema de alimentación V-mount.",
+        "No confundirlo con el hardware DJI Transmission requerido por el hub LiDAR."
+      ],
+      "primary_source_url": "https://www.dji.com/rs-4-pro/specs",
+      "secondary_source_url": "https://store.dji.com/product/dji-rs-4-pro-combo",
+      "confidence_level": "high"
+    },
+    {
+      "id": "dji-ronin-app",
+      "exact_product_name": "DJI Ronin App",
+      "model_number": null,
+      "brand": "DJI",
+      "category": "software",
+      "verified_dimensions_mm": {
+        "length": null,
+        "width": null,
+        "height": null,
+        "approximate": false,
+        "note": "Sólo aplicación."
+      },
+      "verified_weight_g": {
+        "value": null,
+        "approximate": false,
+        "note": "Sólo aplicación."
+      },
+      "planning_weight_g": null,
+      "ports_interfaces": [
+        "Bluetooth",
+        "Vídeo/control por Wi-Fi con Ronin Image Transmitter"
+      ],
+      "mounting_method": "Se ejecuta en teléfono o tableta; el plan actual no incluye un montaje físico del dispositivo.",
+      "likely_material": "Aplicación",
+      "mandatory_or_optional": "optional",
+      "rig_role": "Configuración, ajuste y monitorización inalámbrica del gimbal",
+      "physical_constraints": [
+        "Requiere un dispositivo compatible y, para vídeo, Ronin Image Transmitter activo."
+      ],
+      "primary_source_url": "https://www.dji.com/downloads/djiapp/dji-ronin",
+      "secondary_source_url": null,
+      "confidence_level": "high"
+    },
+    {
+      "id": "sony-monitor-control-app",
+      "exact_product_name": "Sony Monitor & Control App",
+      "model_number": null,
+      "brand": "Sony",
+      "category": "software",
+      "verified_dimensions_mm": {
+        "length": null,
+        "width": null,
+        "height": null,
+        "approximate": false,
+        "note": "Sólo aplicación."
+      },
+      "verified_weight_g": {
+        "value": null,
+        "approximate": false,
+        "note": "Sólo aplicación."
+      },
+      "planning_weight_g": null,
+      "ports_interfaces": [
+        "Monitorización/control por cable o inalámbricos con un dispositivo compatible"
+      ],
+      "mounting_method": "Se ejecuta en teléfono, tableta o Mac.",
+      "likely_material": "Aplicación",
+      "mandatory_or_optional": "optional",
+      "rig_role": "Alternativa de monitorización/control de cámara en perfiles esenciales o verticales",
+      "physical_constraints": [
+        "Útil si se retira deliberadamente el monitor SmallHD o la transmisión Ronin para reducir peso."
+      ],
+      "primary_source_url": "https://creatorscloud.sony.net/catalog/en-jo/monitorcontrol/index.html",
+      "secondary_source_url": null,
+      "confidence_level": "high"
+    }
+  ]
+}
+

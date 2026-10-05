@@ -1,0 +1,211 @@
+import { readFileSync, writeFileSync } from "node:fs";
+const read=name=>JSON.parse(readFileSync(new URL(`../data/${name}.json`,import.meta.url),"utf8"));
+const parts=read("parts-manifest"),layout=read("layout-manifest"),cables=read("cables-manifest"),ports=read("ports-manifest"),assembly=read("assembly-guide"),variants=read("variants"),refs=read("geometry-references"),audit=read("geometry-audit");
+const ui=read("ui-content");
+const name=id=>ui.part_names[id]??parts.parts.find(p=>p.id===id)?.exact_product_name??id;
+const label=value=>ui.schema_labels[value]??value;
+const join=list=>list.length?list.join("; "):"Ninguno";
+const bullets=list=>list.map(item=>"- "+item).join("\n");
+const write=(file,content)=>writeFileSync(new URL("../docs/"+file,import.meta.url),content.trim()+"\n");
+const mass=v=>layout.nodes.filter(n=>n.mass_domain==="moving"&&v.active_part_ids.includes(n.id)).reduce((sum,n)=>sum+(parts.parts.find(p=>p.id===n.id).planning_weight_g??0),0);
+const disclaimer="Plan de ingeniería, no montaje certificado. Medidas publicadas no prueban forma exacta, enganche de tornillos, equilibrio, rigidez, holguras ni compatibilidad de toda la pila. Fotos y geometría aproximada no son CAD calibrado.";
+write("verified-build-manifest.md",`# Manifiesto verificado de piezas
+
+Generado desde \`data/parts-manifest.json\`. Auditoría 2026-10-05. 25 productos solicitados y 2 componentes del Combo, conservados.
+
+${disclaimer}
+
+${parts.parts.map(p=>`## ${name(p.id)}
+
+- ID: \`${p.id}\`
+- Nombre oficial del fabricante: ${p.exact_product_name}.
+- Modelo: ${p.model_number??"No publicado"}; fabricante: ${p.brand}; categoría: ${label(p.category)}.
+- Medidas publicadas L/W/H: ${[p.verified_dimensions_mm.length,p.verified_dimensions_mm.width,p.verified_dimensions_mm.height].map(v=>v??"pendiente").join(" / ")} mm. Aproximadas/incompletas: ${p.verified_dimensions_mm.approximate?"sí":"no"}.
+- Nota de dimensiones: ${p.verified_dimensions_mm.note}
+- Masa publicada: ${p.verified_weight_g.value??"pendiente"} g. Aproximada: ${p.verified_weight_g.approximate?"sí":"no"}.
+- Nota de masa: ${p.verified_weight_g.note}
+- Masa de planificación: ${p.planning_weight_g??"pendiente"} g; no sustituye pesaje del subconjunto instalado.
+- Interfaces: ${join(p.ports_interfaces)}
+- Montaje: ${p.mounting_method}
+- Material: ${p.likely_material}
+- Obligatorio/opcional: ${label(p.mandatory_or_optional)}; función: ${p.rig_role}.
+- Restricciones: ${join(p.physical_constraints)}
+- Confianza: ${label(p.confidence_level)}.
+- [Fuente principal](${p.primary_source_url})${p.secondary_source_url?"; [fuente secundaria]("+p.secondary_source_url+")":""}
+`).join("\n")}`);
+write("physical-layout-plan.md",`# Plan de distribución física
+
+Canónico: \`data/layout-manifest.json\`. X derecha de cámara; Y arriba; Z lente hacia delante. Origen: centro nominal de envolvente FX3, no datum de fabricación. **Todas las poses son aproximadas.**
+
+${disclaimer}
+
+Varillas: 15 mm de diámetro, 203.2 mm de largo, 60 mm entre centros según el manual 1674. No barras ficticias de 410 mm. 3203B: abrazadera al borde superior documentada en la página 5 del manual, placa bajo las varillas; barrido del giro horizontal pendiente.
+
+${layout.nodes.map(n=>`## ${n.label}
+
+- Posición candidata XYZ: ${n.position_mm.join(" / ")} mm; rotación XYZ: ${n.rotation_deg.join(" / ")} grados.
+- Envolvente XYZ: ${n.size_xyz_mm.join(" / ")} mm; estado: ${label(n.envelope)}. Una envolvente publicada no verifica los detalles internos.
+- Dominio de carga: ${label(n.mass_domain)}; soporte candidato: ${n.parent_id?name(n.parent_id):"raíz/sujeción externa no modelada"}.
+- Colocación: ${n.placement}
+- Orientación: ${n.orientation}
+- Montaje: ${n.mount}
+- Motivo: ${n.rationale}
+- Rechazado: ${n.rejected}
+- [Referencia de medidas](${n.dimension_source_url})
+`).join("\n")}
+
+## Componentes sin montaje 3D habilitado
+
+- Distribuidor StarTech: banco con fuente incluida; soporte dinámico no verificado. 620 mm es producto con cable cautivo, no largo del cuerpo.
+- RavenEye: banco, HDMI Mini-C; batería interna. No montaje ni ActiveTrack operativos prometidos.
+- LiDAR/motor: inventario condicional; calibración de SEL1635GM y fijación/barrido pendientes.
+- Interfaz Focus Pro a Transmission: estacionada; falta el sistema DJI Transmission. No se sustituye por una interfaz de otro modelo.
+- Mic 2 RX: 28 g publicados, sólo el RX podría ir en el rig. Estuche/TX fuera de la carga móvil; fijación del RX por confirmar.
+
+## Distribución de masa
+
+${variants.variants.map(v=>"- "+v.label+": "+(mass(v)/1000).toFixed(2)+" kg de piezas móviles modeladas.").join("\n")}
+
+Incluye masas de planificación aproximadas, especialmente varillas y parasol. Excluye cables, RX, tarjetas y tornillos adicionales. Monitor fijo fuera de la carga móvil. No sumar BG30 estándar al BG70 ni el Combo entero a sus subcomponentes. Peso total llevado y centro de gravedad reales no medidos.
+
+3026B: límite de carga publicado 1.5 kg, Indie 7 737 g sin accesorios. La comparación escalar no prueba rigidez, par de inclinación ni seguridad dinámica.
+
+## Pruebas de liberación
+
+${layout.clearance_gates.map(g=>"### "+g.title+"\n\n"+g.detail+"\n\nEstado: "+label(g.status)+".").join("\n\n")}`);
+write("cable-power-map.md",`# Mapa de cables y alimentación
+
+Canónicos: \`data/cables-manifest.json\` y \`data/ports-manifest.json\`. ${cables.cables.length} circuitos, ${ports.ports.length} puertos. Identidad de conectores documentada; coordenadas 3D y curvas aproximadas.
+
+## Arquitectura
+
+- BG70 -> contactos empuñadura -> RS 4 Pro, no cable externo ni segunda batería BG30.
+- VB99 D-Tap -> 4253B regulado -> NP-FZ100 adaptador de batería -> FX3.
+- VB99 contactos V-mount -> 3203B -> D-Tap -> SmallHD conector de barril 5.5 mm externo -> Indie 7 DC I.
+- RS RSS -> USB-C control -> FX3 USB-C.
+- Gimbal candidato: única FX3 HDMI A -> Indie 7 HDMI IN J.
+- Doble salida solicitada, en banco: FX3 HDMI -> entrada cautiva StarTech -> salida 1 A-A a Indie 7 / salida 2 A-C a RavenEye. Adaptador StarTech incluido de 5 V / 2 A. No distribuidor sin fuente ni montaje invisible.
+- RavenEye en banco con batería interna; no reclamar control gimbal/ActiveTrack por sólo tener vídeo.
+
+**Corrección eléctrica:** Cable SmallHD de 5.5 mm de diámetro exterior. El ID histórico \`smallhd-dtap-to-2mm-barrel\` se conserva por compatibilidad de datos, pero no afirma diámetro de 2 mm ni polaridad/diámetro interno desconocidos. Indie 7: 10-34 V DC, 2 A de corriente nominal de entrada, no consumo real medido. 4253B: entrada 9.6-20 V, salida 8.0-8.4 V, 2 A máximo continuo.
+
+## Colores
+
+${Object.entries(cables.color_coding).map(([type,color])=>"- "+label(type)+": \`"+color+"\`").join("\n")}
+
+## Recorridos
+
+${cables.cables.map(c=>`### ${c.cable_id}
+
+- Producto/fuente: ${name(c.source_part_id)}.
+- Origen: ${c.source}; puerto \`${c.from_port_id}\`.
+- Destino: ${c.destination}; puerto \`${c.to_port_id}\`.
+- Conector A: ${c.connector_a}; conector B: ${c.connector_b}.
+- Tipo: ${label(c.type)}; estándar/tensión: ${c.voltage_or_signal_standard}.
+- Longitud estimada: ${c.ideal_length_estimate}
+- Ruta candidata: ${c.routing_path}
+- Alivio de tensión: ${c.strain_relief_requirement}
+- Riesgos: ${join(c.risk_notes)}
+- Obligatorio/opcional: ${label(c.mandatory_or_optional)}; estado: ${label(c.status)}; visualización: ${label(c.display_kind)}.
+- Cruce de movimiento: ${label(c.motion_boundary)}; geometría: ${label(c.route_geometry)}.
+`).join("\n")}
+
+## Puertos identificados
+
+${ports.ports.map(p=>"- \`"+p.id+"\`: "+p.label+" / "+p.connector+"; "+(p.local_position_mm?"anclaje visual XYZ "+p.local_position_mm.join("/")+" mm aproximado":"sin pose habilitada")+"; [fuente]("+p.identity_source_url+").").join("\n")}
+
+## Lógica ensamblada
+
+${bullets(cables.assembled_routing_logic)}
+
+## Lógica en despiece
+
+${bullets(cables.exploded_routing_logic)}
+
+El trazado superpuesto 3D es una anotación de topología, no cable físico para cortar ni una prueba de colisión. Contactos e internos no se dibujan como cables. Aparatos sin pose siguen en el esquema 2D.
+`);
+write("assembly-guide.md",`# Guía de montaje
+
+Canónico: \`data/assembly-guide.json\`. 13 etapas, en orden. ${disclaimer}
+
+${assembly.steps.map(s=>`## ${s.number}. ${s.title}
+
+Montar: ${s.mount}
+
+Ubicación: ${s.where}
+
+${bullets(s.verify)}
+
+**Equilibrio:** ${s.rebalance}
+
+Aplicabilidad del perfil: ${s.applies_if_any_part_ids.length?join(s.applies_if_any_part_ids.map(name)):"guía general"}.
+`).join("\n")}
+
+La casilla de la app sólo registra lectura en la sesión, no una prueba física aprobada.
+`);
+write("variants.md",`# Plantillas de variantes
+
+Canónico: \`data/variants.json\`. Los cambios son frente al perfil principal \`${variants.master_variant_id}\`, no frente al inventario completo. Las piezas retiradas siguen disponibles en inventario. Los condicionales NO son activos.
+
+${variants.variants.map(v=>`## ${v.label}
+
+- ID: \`${v.id}\`; modo visual: ${label(v.viewer.mode)}; estado: ${v.operating_status}.
+- Activos: ${join(v.active_part_ids.map(name))}
+- Retirados del perfil principal: ${join(v.parts_removed.map(name))}
+- Añadidos al perfil principal: ${join(v.parts_added.map(name))}
+- En reserva/condicionales: ${join(v.conditional_part_ids.map(name))}
+- Cableado activo: ${join(v.cable_profile_ids)}
+- Conexiones retiradas: ${join(v.cables_removed)}
+- Conexiones añadidas: ${join(v.cables_added)}
+- Equilibrio: ${v.balance_impact}
+- Flujo de trabajo: ${v.workflow_impact}
+- Presupuesto: ${v.budget_impact}
+- Complejidad: ${v.complexity_impact}
+- Dependencias: ${join(v.dependencies)}
+- Subtotal móvil modelado: ${(mass(v)/1000).toFixed(2)} kg, incompleto/aproximado.
+`).join("\n")}
+
+Vertical: plataforma nativa DJI, no soporte de terceros inventado. La rotación en el visor no prueba la pila vertical de placas.
+`);
+write("rig-overview.md",`# Takegrid / Descripción del rig
+
+DJI RS 4 Pro + Sony FX3, objetivo SEL1635GM original. Perfil principal Comercial; Documental comparte el bloque pesado y añade audio; A mano separa cámara/audio y requiere NP-FZ100 interna confirmada.
+
+${disclaimer}
+
+## Correcciones verificadas
+
+- Combo contiene Focus Pro Motor y Ronin Image Transmitter. No todo el Combo se instala a la vez.
+- VB99 Pro 4292: 644 ±10 g, 107.2 ×73.2 ×55.2 mm.
+- 4770: 160 ×101.2 ×66.2 mm, 208 ±5 g.
+- 1674: 80 ×80 ×26 mm, 171 ±5 g; 60 mm entre varillas.
+- 3203B: 168.7 ×108 ×33 mm. Página 337 ±5 g frente a manual 341 ±10 g; 351 g conservadores. Abrazadera superior en manual p5 permite placa bajo varillas, no demuestra barrido del giro horizontal.
+- 3026B: 152.6 ×54.8 ×38 mm, 125 ±5 g, carga publicada 1.5 kg. Indie 7 bajo su cabezal nativo mediante rosca inferior invertida; verificar inversión de imagen y manos.
+- FX3 tiene una sola salida HDMI A. Doble salida con distribuidor presente sólo en banco; no brazo articulado ficticio ni fuente inexistente.
+- SmallHD cable D-Tap a conector de barril 5.5 mm externo; no especificación inventada de diámetro interno.
+- La interfaz Focus Pro a Transmission no pertenece a RavenEye; 139.3 g del modelo exacto.
+- XLR-H1 fuera del gimbal activo; cámara a mano/entrevista. LiDAR/motor sin calibración de este objetivo no se presentan operativos.
+
+## App
+
+Cuatro tareas: Rig, Conexiones, Montaje y Piezas. Visor 3D con aproximaciones basadas en fotos y cotas, ensamble/despiece, ángulos, etiquetas/cables, puertos A/B seleccionables, doble HDMI 2D en banco, fotos reales, 13 etapas y 7 perfiles. Criterios y límites se consultan bajo demanda, sin llenar la pantalla.
+
+## Referencias y fidelidad
+
+${refs.parts.reduce((n,p)=>n+p.images.length,0)} imágenes descargadas, ${refs.documents.filter(d=>d.local_path).length} documentos; ${audit.references.length} referencias de inventario seleccionadas tras revisión visual o técnica. La tabla eléctrica 4253B no sustituye una foto de producto. 3026B usa su manual de revisión B, no foto ambigua de versión anterior.
+
+Medios de fabricante para investigación local, no licencia abierta de redistribución. Escaneo FX3 comunitario identificado, sin licencia/descarga/escala verificadas: no se importa. Antes de usar CAD: comprobar revisión exacta, licencia, unidades, escala, referencias geométricas y distinguir malla visual de malla de colisión.
+
+## Entregables
+
+- [Manifiesto](verified-build-manifest.md)
+- [Distribución y masa](physical-layout-plan.md)
+- [Conexiones](cable-power-map.md)
+- [Montaje](assembly-guide.md)
+- [Variantes](variants.md)
+- [Identidad provisional](brand.md)
+
+No hay medición del conjunto físico ni certificación de producción. El plan conserva esos límites en datos, documentación e interfaz y exportación.
+`);
+console.log("Seis documentos técnicos regenerados desde los JSON canónicos.");
+

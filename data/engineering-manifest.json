@@ -1,0 +1,24 @@
+{
+  "audit_on": "2026-10-05",
+  "release_status": "planning_only",
+  "limits": {
+    "rs4_pro_tested_payload_g": 4500,
+    "rs4_source_url": "https://www.dji.com/rs-4-pro/specs",
+    "3026b_supported_load_g": 1500,
+    "3026b_source_url": "https://static.smallrig.com/mall/img/public/m1twezvd88j-1751250182064_.pdf"
+  },
+  "mass_policy": "Separar piezas móviles de accesorios fijos del lado de la empuñadura. No sumar empuñadura estándar del Combo al BG70 ni kit completo Mic 2 a cámara. Masas desconocidas pendientes; las de planificación no son pesajes de laboratorio.",
+  "centroid_policy": "Centros de envolventes ponderados por masa con posiciones aproximadas. NO son centros de gravedad internos medidos ni ajustes de equilibrio del gimbal. No calcular par sobre pivote o factor de seguridad sin medir ejes y centros de gravedad.",
+  "support_policy": "Cadena candidata de soporte. Las medidas no prueban longitud de rosca útil, rigidez de abrazadera, resistencia al par ni holgura de todos los ejes.",
+  "unknowns": [
+    "Masa y envolvente exactas de BG70",
+    "Masa instalada, filtro, bandera y envolvente exacta de 3645",
+    "Pila completa de cámara, jaula, base y placa de liberación DJI y su retención",
+    "Centros de gravedad internos de cámara, objetivo y batería V-mount",
+    "Posiciones de ejes de motores, rango de ajuste y holgura de barrido",
+    "Diámetro interior y polaridad DC; salientes de conectores HDMI/DC y radios de curvatura",
+    "Fijación del receptor Mic 2 y masa del cableado",
+    "Masa total transportada con BG70, monitor fijo, accesorios y cables"
+  ]
+}
+

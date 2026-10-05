@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <title>Takegrid</title>
+  <path d="M43 9H20C14 9 9 14 9 20V44C9 50 14 55 20 55H44C50 55 55 50 55 44V30" stroke="#eeeae0" stroke-width="6" stroke-linecap="square"/>
+  <path d="M22 23H43V29H36V45H29V29H22V23Z" fill="#eeeae0"/>
+  <path d="M49 9H55V21H49V9Z" fill="#d6a16b"/>
+</svg>
+

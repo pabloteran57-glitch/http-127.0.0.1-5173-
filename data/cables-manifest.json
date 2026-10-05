@@ -1,0 +1,700 @@
+{
+  "generated_on": "2026-10-05",
+  "color_coding": {
+    "power": "#efb365",
+    "video": "#89cfc8",
+    "control": "#a8c68c",
+    "focus_lidar": "#d4a5ff",
+    "caution": "#eb8b72"
+  },
+  "assembled_routing_logic": [
+    "La alimentación mediante adaptador NP-FZ100 queda en el conjunto móvil de cámara y varillas.",
+    "HDMI y alimentación del monitor cruzan de móvil a fijo. Medir bucles y recorrido permitido; no prometer rotación ilimitada.",
+    "BG70 se alimenta por contactos de empuñadura. Receptor/TRS y micrófono de solapa quedan locales a cámara o participante.",
+    "Doble HDMI reservado a banco hasta validar montaje, alimentación, EDID y movimiento."
+  ],
+  "exploded_routing_logic": [
+    "Apagar todos los aparatos antes de desconectar alimentación.",
+    "Desconectar los cables móvil-fijo antes de liberar la placa de cámara.",
+    "Las líneas discontinuas del despiece representan vínculos lógicos, no cables conectados que se estiran.",
+    "Conservar varillas/batería como subconjunto, salvo que la extracción de cámara exija desatornillar la pila."
+  ],
+  "profiles": {
+    "direct_gimbal": [
+      "ctrl-rs4-to-fx3-usbc",
+      "pwr-vmount-to-fx3-dummy",
+      "pwr-plate-to-smallhd",
+      "vid-fx3-to-smallhd",
+      "pwr-bg70-to-rs4",
+      "pwr-vmount-to-plate-contacts"
+    ],
+    "requested_dual_feed_bench": [
+      "vid-fx3-to-startech-splitter",
+      "vid-splitter-to-smallhd",
+      "vid-splitter-to-raveneye",
+      "pwr-ac-to-splitter",
+      "pwr-raveneye-internal",
+      "pwr-vmount-to-fx3-dummy",
+      "pwr-plate-to-smallhd",
+      "pwr-vmount-to-plate-contacts"
+    ],
+    "alternate_loopthrough_conditional": [
+      "vid-fx3-to-smallhd",
+      "vid-smallhd-to-ronin-transmitter"
+    ]
+  },
+  "cables": [
+    {
+      "cable_id": "ctrl-rs4-to-fx3-usbc",
+      "source": "Puerto RSS del RS 4 Pro",
+      "destination": "USB-C de FX3",
+      "connector_a": "USB-C macho",
+      "connector_b": "USB-C macho",
+      "type": "data",
+      "voltage_or_signal_standard": "Control de cámara DJI; confirmar ajustes FX3 y firmware.",
+      "ideal_length_estimate": "Cable DJI de 30 cm; alcance útil estimado de 250-350 mm por comprobar, no longitud para cortar.",
+      "routing_path": "Sujeción en el lado izquierdo de la jaula y bucle suave de inclinación hacia RSS. Configurar el modo USB de cámara compatible con DJI.",
+      "strain_relief_requirement": "Sujetar ambos extremos sin cargar los conectores; probar holgura y radio mínimo de curvatura.",
+      "risk_notes": [
+        "La forma USB-C no demuestra compatibilidad de protocolo DJI.",
+        "Comprobar tensión en cada ángulo permitido de inclinación y rotación."
+      ],
+      "mandatory_or_optional": "mandatory",
+      "source_part_id": "dji-r-usbc-control",
+      "from_part_id": "dji-rs4-pro-combo",
+      "to_part_id": "sony-fx3",
+      "status": "candidate",
+      "motion_boundary": "gimbal_port_to_camera",
+      "route_geometry": "schematic_only_not_port_CAD",
+      "from_port_id": "rs4-rss",
+      "to_port_id": "fx3-usbc",
+      "display_kind": "cable",
+      "geometry_confidence": "approximate",
+      "route_control_offsets_mm": {
+        "a": [
+          -50,
+          -45,
+          -30
+        ],
+        "b": [
+          -40,
+          0,
+          -65
+        ]
+      },
+      "route_control_status": "approximate_annotation_not_cable_cut_or_swept_clearance"
+    },
+    {
+      "cable_id": "pwr-vmount-to-fx3-dummy",
+      "source": "D-Tap de VB99 Pro",
+      "destination": "Compartimento FX3 mediante 4253B",
+      "connector_a": "D-Tap macho",
+      "connector_b": "Adaptador NP-FZ100 regulado",
+      "type": "power",
+      "voltage_or_signal_standard": "Manual 4253B: entrada de 9.6-20 V; salida regulada de 8.0-8.4 V, máximo continuo de 2 A.",
+      "ideal_length_estimate": "Espiral de fábrica: extensión de producto publicada de 580 mm; hasta 2 m ±50 mm según manual. Medir holgura útil.",
+      "routing_path": "Ambos extremos se mueven con la cámara. Sujetar sobrante en varilla/jaula trasera y utilizar la salida de puerta sin pellizcar.",
+      "strain_relief_requirement": "Sujetar ambos extremos sin cargar los conectores; probar holgura y radio mínimo de curvatura.",
+      "risk_notes": [
+        "Nunca D-Tap directo a cámara.",
+        "Apagar antes de retirar el adaptador; verificar salida del regulador y cierre de puerta."
+      ],
+      "mandatory_or_optional": "mandatory",
+      "source_part_id": "smallrig-4253b",
+      "from_part_id": "smallrig-vb99-pro",
+      "to_part_id": "sony-fx3",
+      "status": "candidate",
+      "motion_boundary": "same_subassembly",
+      "route_geometry": "schematic_only_not_port_CAD",
+      "from_port_id": "vb99-dtap",
+      "to_port_id": "fx3-battery",
+      "display_kind": "cable",
+      "geometry_confidence": "approximate",
+      "route_control_offsets_mm": {
+        "a": [
+          -40,
+          20,
+          -40
+        ],
+        "b": [
+          -40,
+          -35,
+          -35
+        ]
+      },
+      "route_control_status": "approximate_annotation_not_cable_cut_or_swept_clearance"
+    },
+    {
+      "cable_id": "pwr-plate-to-smallhd",
+      "source": "Salida D-Tap de 3203B",
+      "destination": "Entrada DC del Indie 7",
+      "connector_a": "D-Tap macho",
+      "connector_b": "Barril SmallHD macho, exterior 5.5 mm; interior y polaridad pendientes",
+      "type": "power",
+      "voltage_or_signal_standard": "D-Tap a tensión de batería; Indie 7 admite 10-34 V DC y entrada nominal de 2 A. El cable no regula.",
+      "ideal_length_estimate": "Cable de fábrica de 914.4 mm; alcance necesario aproximado.",
+      "routing_path": "De placa móvil trasera a monitor lateral fijo: sujetar en jaula, dejar bucles de servicio medidos en los ejes y retener sobrante en soporte de monitor, fuera de las manos.",
+      "strain_relief_requirement": "Sujetar ambos extremos sin cargar los conectores; probar holgura y radio mínimo de curvatura.",
+      "risk_notes": [
+        "Medir polaridad y tensión bajo carga antes de conectar.",
+        "Cruza de móvil a fijo: no admite giro/rotación ilimitados.",
+        "No unir batería móvil y monitor fijo con un cable tenso."
+      ],
+      "mandatory_or_optional": "mandatory",
+      "source_part_id": "smallhd-dtap-to-2mm-barrel",
+      "from_part_id": "smallrig-3203b",
+      "to_part_id": "smallhd-indie-7",
+      "status": "candidate",
+      "motion_boundary": "moving_to_fixed",
+      "route_geometry": "schematic_only_not_port_CAD",
+      "from_port_id": "plate-dtap",
+      "to_port_id": "indie7-dc",
+      "display_kind": "cable",
+      "geometry_confidence": "approximate",
+      "route_control_offsets_mm": {
+        "a": [
+          -50,
+          -45,
+          -30
+        ],
+        "b": [
+          -40,
+          -35,
+          -35
+        ]
+      },
+      "route_control_status": "approximate_annotation_not_cable_cut_or_swept_clearance"
+    },
+    {
+      "cable_id": "vid-fx3-to-smallhd",
+      "source": "Única salida HDMI de FX3",
+      "destination": "Entrada HDMI del Indie 7",
+      "connector_a": "HDMI tipo A macho",
+      "connector_b": "HDMI tipo A macho",
+      "type": "video",
+      "voltage_or_signal_standard": "Cable HDMI 2.0 / 18 Gbps; monitor hasta 4Kp30. Usar 1080p si se retransmite.",
+      "ideal_length_estimate": "Espiral de 304.8-609.6 mm; no equivale necesariamente a holgura útil.",
+      "routing_path": "Desde abrazadera HDMI izquierda a monitor fijo mediante bucles flexibles medidos. Comprobar fuerza de espiral con motores apagados.",
+      "strain_relief_requirement": "Sujetar ambos extremos sin cargar los conectores; probar holgura y radio mínimo de curvatura.",
+      "risk_notes": [
+        "No representa una segunda salida HDMI de cámara.",
+        "La fuerza de la espiral puede alterar el balance.",
+        "No asumir compatibilidad con 4K60 o visualización RAW."
+      ],
+      "mandatory_or_optional": "mandatory",
+      "source_part_id": "kondor-blue-hdmi-aa",
+      "from_part_id": "sony-fx3",
+      "to_part_id": "smallhd-indie-7",
+      "status": "candidate",
+      "motion_boundary": "moving_to_fixed",
+      "route_geometry": "schematic_only_not_port_CAD",
+      "from_port_id": "fx3-hdmi",
+      "to_port_id": "indie7-hdmi-in",
+      "display_kind": "cable",
+      "geometry_confidence": "approximate",
+      "route_control_offsets_mm": {
+        "a": [
+          -50,
+          -45,
+          -30
+        ],
+        "b": [
+          -40,
+          -35,
+          -35
+        ]
+      },
+      "route_control_status": "approximate_annotation_not_cable_cut_or_swept_clearance"
+    },
+    {
+      "cable_id": "vid-smallhd-to-ronin-transmitter",
+      "source": "Salida HDMI del Indie 7",
+      "destination": "Entrada Mini HDMI del Ronin Image Transmitter",
+      "connector_a": "HDMI tipo A macho",
+      "connector_b": "Mini HDMI tipo C macho",
+      "type": "video",
+      "voltage_or_signal_standard": "Alternativa de paso de señal: fuente progresiva 1080p compatible; no asumir conversión de resolución.",
+      "ideal_length_estimate": "Cable de fábrica de 200 mm; sólo alcanza si los aparatos están juntos.",
+      "routing_path": "Alternativa de banco tras probar EDID; no sustituye el circuito principal con distribuidor ni inventa soporte de transmisor al monitor.",
+      "strain_relief_requirement": "Sujetar ambos extremos sin cargar los conectores; probar holgura y radio mínimo de curvatura.",
+      "risk_notes": [
+        "Probar formato y frecuencia de imagen.",
+        "Alternativa, no topología solicitada con distribuidor.",
+        "Montaje del transmisor y uso simultáneo de puertos RS sin verificar."
+      ],
+      "mandatory_or_optional": "optional",
+      "source_part_id": "dji-hdmi-a-to-c",
+      "from_part_id": "smallhd-indie-7",
+      "to_part_id": "dji-ronin-image-transmitter",
+      "status": "conditional",
+      "motion_boundary": "same_subassembly",
+      "route_geometry": "schematic_only_not_port_CAD",
+      "from_port_id": "indie7-hdmi-out",
+      "to_port_id": "raveneye-hdmi",
+      "display_kind": "cable",
+      "geometry_confidence": "approximate",
+      "route_control_offsets_mm": {
+        "a": [
+          -50,
+          -45,
+          -30
+        ],
+        "b": [
+          -40,
+          -35,
+          -35
+        ]
+      },
+      "route_control_status": "approximate_annotation_not_cable_cut_or_swept_clearance"
+    },
+    {
+      "cable_id": "vid-fx3-to-startech-splitter",
+      "source": "Salida HDMI de FX3",
+      "destination": "Cable de entrada cautivo ST122HD4KU",
+      "connector_a": "HDMI tipo A macho del cable cautivo",
+      "connector_b": "Cable cautivo integrado en el distribuidor",
+      "type": "video",
+      "voltage_or_signal_standard": "HDMI 1.4; circuito de doble salida en banco a 1080p progresivo.",
+      "ideal_length_estimate": "620 mm publicados incluyen cuerpo y cable; alcance real del cable sin confirmar.",
+      "routing_path": "Distribuidor sujeto en banco; cable integrado directo a cámara. No añadir entrada hembra inexistente ni otro cable A-A.",
+      "strain_relief_requirement": "Sujetar ambos extremos sin cargar los conectores; probar holgura y radio mínimo de curvatura.",
+      "risk_notes": [
+        "No usar simultáneamente el cable directo cámara-monitor.",
+        "Sin soporte verificado en rig: sólo banco."
+      ],
+      "mandatory_or_optional": "optional",
+      "source_part_id": "startech-st122hd4ku",
+      "from_part_id": "sony-fx3",
+      "to_part_id": "startech-st122hd4ku",
+      "status": "bench",
+      "motion_boundary": "same_subassembly",
+      "route_geometry": "schematic_only_not_port_CAD",
+      "from_port_id": "fx3-hdmi",
+      "to_port_id": "splitter-captive-input",
+      "display_kind": "cable",
+      "geometry_confidence": "approximate",
+      "route_control_offsets_mm": {
+        "a": [
+          -50,
+          -45,
+          -30
+        ],
+        "b": [
+          -40,
+          -35,
+          -35
+        ]
+      },
+      "route_control_status": "approximate_annotation_not_cable_cut_or_swept_clearance"
+    },
+    {
+      "cable_id": "vid-splitter-to-smallhd",
+      "source": "Salida 1 del ST122HD4KU",
+      "destination": "Entrada HDMI del Indie 7",
+      "connector_a": "HDMI tipo A macho",
+      "connector_b": "HDMI tipo A macho",
+      "type": "video",
+      "voltage_or_signal_standard": "Señal progresiva 1080p compartida; probar negociación EDID.",
+      "ideal_length_estimate": "Kondor Blue de 304.8-609.6 mm; comprobar alcance estático.",
+      "routing_path": "En banco, salida 1 del distribuidor al monitor; no se aprueba cruce de ejes móviles.",
+      "strain_relief_requirement": "Sujetar ambos extremos sin cargar los conectores; probar holgura y radio mínimo de curvatura.",
+      "risk_notes": [
+        "Monitor y RavenEye deben aceptar la misma señal de cámara.",
+        "No hay conversión de resolución verificada en el distribuidor."
+      ],
+      "mandatory_or_optional": "optional",
+      "source_part_id": "kondor-blue-hdmi-aa",
+      "from_part_id": "startech-st122hd4ku",
+      "to_part_id": "smallhd-indie-7",
+      "status": "bench",
+      "motion_boundary": "same_subassembly",
+      "route_geometry": "schematic_only_not_port_CAD",
+      "from_port_id": "splitter-output1",
+      "to_port_id": "indie7-hdmi-in",
+      "display_kind": "cable",
+      "geometry_confidence": "approximate",
+      "route_control_offsets_mm": {
+        "a": [
+          -50,
+          -45,
+          -30
+        ],
+        "b": [
+          -40,
+          -35,
+          -35
+        ]
+      },
+      "route_control_status": "approximate_annotation_not_cable_cut_or_swept_clearance"
+    },
+    {
+      "cable_id": "vid-splitter-to-raveneye",
+      "source": "Salida 2 del ST122HD4KU",
+      "destination": "Entrada Mini HDMI de Ronin Image Transmitter",
+      "connector_a": "HDMI tipo A macho",
+      "connector_b": "Mini HDMI tipo C macho",
+      "type": "video",
+      "voltage_or_signal_standard": "1080p o 720p progresivos y frecuencia compatible, no entrelazada.",
+      "ideal_length_estimate": "Cable de fábrica de 200 mm; colocar juntos en banco.",
+      "routing_path": "Salida 2 del distribuidor a RavenEye en banco; verificar soporte de aparatos antes de uso móvil.",
+      "strain_relief_requirement": "Sujetar ambos extremos sin cargar los conectores; probar holgura y radio mínimo de curvatura.",
+      "risk_notes": [
+        "Comprobar EDID, pérdida de señal y reconexión.",
+        "No enviar 4K a RavenEye."
+      ],
+      "mandatory_or_optional": "optional",
+      "source_part_id": "dji-hdmi-a-to-c",
+      "from_part_id": "startech-st122hd4ku",
+      "to_part_id": "dji-ronin-image-transmitter",
+      "status": "bench",
+      "motion_boundary": "same_subassembly",
+      "route_geometry": "schematic_only_not_port_CAD",
+      "from_port_id": "splitter-output2",
+      "to_port_id": "raveneye-hdmi",
+      "display_kind": "cable",
+      "geometry_confidence": "approximate",
+      "route_control_offsets_mm": {
+        "a": [
+          -50,
+          -45,
+          -30
+        ],
+        "b": [
+          -40,
+          -35,
+          -35
+        ]
+      },
+      "route_control_status": "approximate_annotation_not_cable_cut_or_swept_clearance"
+    },
+    {
+      "cable_id": "pwr-ac-to-splitter",
+      "source": "Adaptador de corriente StarTech incluido",
+      "destination": "Entrada de alimentación ST122HD4KU",
+      "connector_a": "Enchufe regional del adaptador incluido",
+      "connector_b": "Conector DC del fabricante; medidas exactas pendientes",
+      "type": "power",
+      "voltage_or_signal_standard": "Adaptador incluido de 5 V DC / 2 A; nunca D-Tap directo.",
+      "ideal_length_estimate": "Fuente incluida; medir alcance hacia la toma del banco.",
+      "routing_path": "Adaptador y cable incluidos en banco, separados del rig móvil. USB alternativo no activo hasta probar carga y conector.",
+      "strain_relief_requirement": "Sujetar ambos extremos sin cargar los conectores; probar holgura y radio mínimo de curvatura.",
+      "risk_notes": [
+        "Una tensión incorrecta puede dañar el distribuidor.",
+        "La etiqueta USB de 5 V no valida una alimentación desde el gimbal."
+      ],
+      "mandatory_or_optional": "optional",
+      "source_part_id": "startech-st122hd4ku",
+      "from_part_id": null,
+      "to_part_id": "startech-st122hd4ku",
+      "status": "bench",
+      "motion_boundary": "same_subassembly",
+      "route_geometry": "schematic_only_not_port_CAD",
+      "from_port_id": "startech-adapter",
+      "to_port_id": "splitter-dc",
+      "display_kind": "cable",
+      "geometry_confidence": "approximate",
+      "route_control_offsets_mm": {
+        "a": [
+          -50,
+          -45,
+          -30
+        ],
+        "b": [
+          -40,
+          -35,
+          -35
+        ]
+      },
+      "route_control_status": "approximate_annotation_not_cable_cut_or_swept_clearance"
+    },
+    {
+      "cable_id": "focus-rs4-to-lidar",
+      "source": "Puerto de transmisión/LiDAR RS 4 Pro",
+      "destination": "Focus Pro LiDAR",
+      "connector_a": "Cable USB-C especificado por DJI",
+      "connector_b": "USB-C macho",
+      "type": "data",
+      "voltage_or_signal_standard": "Alimentación/datos de accesorio DJI; seguir asignación de cable y puerto del manual.",
+      "ideal_length_estimate": "Cable de fábrica; longitud exacta por confirmar.",
+      "routing_path": "Ruta superior delantera condicionada, con campo del objetivo despejado. No sustituir por USB genérico.",
+      "strain_relief_requirement": "Sujetar ambos extremos sin cargar los conectores; probar holgura y radio mínimo de curvatura.",
+      "risk_notes": [
+        "El uso del mismo puerto RS por LiDAR y RavenEye necesita una topología aprobada.",
+        "No se demostró calibración de enfoque con SEL1635GM."
+      ],
+      "mandatory_or_optional": "optional",
+      "source_part_id": "dji-focus-pro-lidar",
+      "from_part_id": "dji-rs4-pro-combo",
+      "to_part_id": "dji-focus-pro-lidar",
+      "status": "conditional",
+      "motion_boundary": "gimbal_port_to_camera",
+      "route_geometry": "schematic_only_not_port_CAD",
+      "from_port_id": "rs4-lidar",
+      "to_port_id": "lidar-data",
+      "display_kind": "cable",
+      "geometry_confidence": "approximate",
+      "route_control_offsets_mm": {
+        "a": [
+          -50,
+          -45,
+          -30
+        ],
+        "b": [
+          -40,
+          -35,
+          -35
+        ]
+      },
+      "route_control_status": "approximate_annotation_not_cable_cut_or_swept_clearance"
+    },
+    {
+      "cable_id": "focus-rs4-to-motor",
+      "source": "Puerto de motor de enfoque RS",
+      "destination": "Focus Pro Motor",
+      "connector_a": "Cable USB-C de motor DJI",
+      "connector_b": "USB-C macho",
+      "type": "data",
+      "voltage_or_signal_standard": "Control/alimentación de motor DJI.",
+      "ideal_length_estimate": "Cable de fábrica; longitud exacta por confirmar.",
+      "routing_path": "Ruta por varilla derecha condicionada a engrane y calibración; evitar el frente del objetivo.",
+      "strain_relief_requirement": "Sujetar ambos extremos sin cargar los conectores; probar holgura y radio mínimo de curvatura.",
+      "risk_notes": [
+        "No afirmar calibración del enfoque electrónico sin pruebas.",
+        "Comprobar de nuevo después de mover varillas."
+      ],
+      "mandatory_or_optional": "optional",
+      "source_part_id": "dji-focus-pro-motor",
+      "from_part_id": "dji-rs4-pro-combo",
+      "to_part_id": "dji-focus-pro-motor",
+      "status": "conditional",
+      "motion_boundary": "gimbal_port_to_camera",
+      "route_geometry": "schematic_only_not_port_CAD",
+      "from_port_id": "rs4-focus",
+      "to_port_id": "motor-usbc",
+      "display_kind": "cable",
+      "geometry_confidence": "approximate",
+      "route_control_offsets_mm": {
+        "a": [
+          -50,
+          -45,
+          -30
+        ],
+        "b": [
+          -40,
+          -35,
+          -35
+        ]
+      },
+      "route_control_status": "approximate_annotation_not_cable_cut_or_swept_clearance"
+    },
+    {
+      "cable_id": "audio-rx-to-fx3",
+      "source": "Salida de 3.5 mm del receptor Mic 2",
+      "destination": "Entrada de micrófono de 3.5 mm de FX3",
+      "connector_a": "TRS de 3.5 mm macho",
+      "connector_b": "TRS de 3.5 mm macho",
+      "type": "data",
+      "voltage_or_signal_standard": "Audio analógico a nivel de micrófono de cámara.",
+      "ideal_length_estimate": "Cable de audio incluido; longitud exacta por confirmar.",
+      "routing_path": "Receptor en zapata disponible de jaula; bucle corto local, lejos de objetivo y brazo de inclinación. Fijación por confirmar.",
+      "strain_relief_requirement": "Sujetar ambos extremos sin cargar los conectores; probar holgura y radio mínimo de curvatura.",
+      "risk_notes": [
+        "Usar TRS para cámara, no TRRS de teléfono.",
+        "Verificar ganancia, modo estéreo/seguridad y medidor de grabación.",
+        "La masa del kit no es la del receptor; pesar por separado."
+      ],
+      "mandatory_or_optional": "mandatory",
+      "source_part_id": "dji-mic-2-kit",
+      "from_part_id": "dji-mic-2-kit",
+      "to_part_id": "sony-fx3",
+      "status": "candidate",
+      "motion_boundary": "same_subassembly",
+      "route_geometry": "schematic_only_not_port_CAD",
+      "from_port_id": "mic2-rx-out",
+      "to_port_id": "fx3-mic",
+      "display_kind": "cable",
+      "geometry_confidence": "approximate",
+      "route_control_offsets_mm": {
+        "a": [
+          -50,
+          -45,
+          -30
+        ],
+        "b": [
+          -40,
+          -35,
+          -35
+        ]
+      },
+      "route_control_status": "approximate_annotation_not_cable_cut_or_swept_clearance"
+    },
+    {
+      "cable_id": "audio-rx-to-xlrhandle",
+      "source": "Salida de 3.5 mm del receptor Mic 2",
+      "destination": "Entrada de 3.5 mm del XLR-H1",
+      "connector_a": "TRS de 3.5 mm macho",
+      "connector_b": "TRS de 3.5 mm macho",
+      "type": "data",
+      "voltage_or_signal_standard": "Audio analógico al asa Sony; confirmar canales 3/4.",
+      "ideal_length_estimate": "Cable de audio incluido; longitud exacta por confirmar.",
+      "routing_path": "En estático o a mano: receptor en zapata disponible de asa/jaula, conectado al asa en lugar de la entrada del cuerpo.",
+      "strain_relief_requirement": "Sujetar ambos extremos sin cargar los conectores; probar holgura y radio mínimo de curvatura.",
+      "risk_notes": [
+        "No asumir grabación simultánea de entrada del cuerpo y del asa MI.",
+        "Comprobar asignación de canales y ganancia."
+      ],
+      "mandatory_or_optional": "mandatory",
+      "source_part_id": "dji-mic-2-kit",
+      "from_part_id": "dji-mic-2-kit",
+      "to_part_id": "sony-xlr-h1",
+      "status": "candidate",
+      "motion_boundary": "same_subassembly",
+      "route_geometry": "schematic_only_not_port_CAD",
+      "from_port_id": "mic2-rx-out",
+      "to_port_id": "xlrh1-input3",
+      "display_kind": "cable",
+      "geometry_confidence": "approximate",
+      "route_control_offsets_mm": {
+        "a": [
+          -50,
+          -45,
+          -30
+        ],
+        "b": [
+          -40,
+          -35,
+          -35
+        ]
+      },
+      "route_control_status": "approximate_annotation_not_cable_cut_or_swept_clearance"
+    },
+    {
+      "cable_id": "audio-lav-to-tx",
+      "source": "DJI Lavalier Mic",
+      "destination": "Entrada de micrófono del transmisor Mic 2",
+      "connector_a": "Cable integrado del micrófono",
+      "connector_b": "TRS de 3.5 mm macho",
+      "type": "data",
+      "voltage_or_signal_standard": "Micrófono de solapa analógico, colocado en el participante.",
+      "ideal_length_estimate": "Cable de fábrica; longitud por confirmar.",
+      "routing_path": "Ropa a transmisor, con sujeción de cable en la ropa; no conecta al rig. Enlace transmisor-receptor inalámbrico.",
+      "strain_relief_requirement": "Sujetar ambos extremos sin cargar los conectores; probar holgura y radio mínimo de curvatura.",
+      "risk_notes": [
+        "Mantener cable del participante fuera del modelo de rig.",
+        "Grabar respaldo y sincronizar cuando haga falta."
+      ],
+      "mandatory_or_optional": "mandatory",
+      "source_part_id": "dji-lavalier",
+      "from_part_id": "dji-lavalier",
+      "to_part_id": "dji-mic-2-kit",
+      "status": "candidate",
+      "motion_boundary": "same_subassembly",
+      "route_geometry": "schematic_only_not_port_CAD",
+      "from_port_id": "lav-mic",
+      "to_port_id": "mic2-tx-in",
+      "display_kind": "cable",
+      "geometry_confidence": "approximate",
+      "route_control_offsets_mm": {
+        "a": [
+          -50,
+          -45,
+          -30
+        ],
+        "b": [
+          -40,
+          -35,
+          -35
+        ]
+      },
+      "route_control_status": "approximate_annotation_not_cable_cut_or_swept_clearance"
+    },
+    {
+      "cable_id": "pwr-bg70-to-rs4",
+      "source": "Contactos eléctricos de BG70",
+      "destination": "Interfaz de empuñadura RS 4 Pro",
+      "connector_a": "Contactos de la empuñadura DJI",
+      "connector_b": "Contactos de la empuñadura DJI",
+      "type": "power",
+      "voltage_or_signal_standard": "Alimentación integrada del fabricante, sin cable externo.",
+      "ideal_length_estimate": "Sin cable externo.",
+      "routing_path": "Empuñadura colocada directamente bajo el cuerpo RS, sustituyendo la estándar.",
+      "strain_relief_requirement": "Sin cable externo: comprobar bloqueo y contactos.",
+      "risk_notes": [
+        "No contar ambas empuñaduras instaladas.",
+        "Confirmar bloqueo antes de levantar."
+      ],
+      "mandatory_or_optional": "mandatory",
+      "source_part_id": "dji-rs-bg70",
+      "from_part_id": "dji-rs-bg70",
+      "to_part_id": "dji-rs4-pro-combo",
+      "status": "candidate",
+      "motion_boundary": "same_subassembly",
+      "route_geometry": "schematic_only_not_port_CAD",
+      "from_port_id": "bg70-contacts",
+      "to_port_id": "rs4-grip-contacts",
+      "display_kind": "contacts",
+      "geometry_confidence": "approximate",
+      "route_control_offsets_mm": null,
+      "route_control_status": "approximate_annotation_not_cable_cut_or_swept_clearance"
+    },
+    {
+      "cable_id": "pwr-raveneye-internal",
+      "source": "Batería interna Ronin Image Transmitter",
+      "destination": "Ronin Image Transmitter",
+      "connector_a": "Batería interna",
+      "connector_b": "Circuito interno",
+      "type": "power",
+      "voltage_or_signal_standard": "Batería interna para vídeo en banco; probar autonomía.",
+      "ideal_length_estimate": "Sin cable externo durante la prueba de vídeo en banco.",
+      "routing_path": "Cargar antes de usar en banco. Comunicación/alimentación RS siguen siendo una función separada y condicionada.",
+      "strain_relief_requirement": "Sin cable externo: no aplica alivio de tensión en este circuito interno.",
+      "risk_notes": [
+        "El vídeo en banco no demuestra integración ActiveTrack.",
+        "No inventar duplicador de puerto RS ni usar el hub LiDAR sin su sistema."
+      ],
+      "mandatory_or_optional": "optional",
+      "source_part_id": "dji-ronin-image-transmitter",
+      "from_part_id": "dji-ronin-image-transmitter",
+      "to_part_id": "dji-ronin-image-transmitter",
+      "status": "bench",
+      "motion_boundary": "same_subassembly",
+      "route_geometry": "schematic_only_not_port_CAD",
+      "from_port_id": "raveneye-battery",
+      "to_port_id": "raveneye-internal",
+      "display_kind": "internal",
+      "geometry_confidence": "approximate",
+      "route_control_offsets_mm": null,
+      "route_control_status": "approximate_annotation_not_cable_cut_or_swept_clearance"
+    },
+    {
+      "cable_id": "pwr-vmount-to-plate-contacts",
+      "source": "Contactos V-mount de VB99 Pro",
+      "destination": "Contactos V-mount de 3203B",
+      "connector_a": "Contactos de la batería V-mount",
+      "connector_b": "Contactos de la placa V-mount",
+      "type": "power",
+      "voltage_or_signal_standard": "Batería de 14.54 V nominales; entrada de placa 11.0-16.8 V según manual.",
+      "ideal_length_estimate": "Sin cable.",
+      "routing_path": "Interfaz V-mount directa y bloqueada; contactos ocultos con la batería asentada.",
+      "strain_relief_requirement": "Sin cable externo: comprobar bloqueo y contactos.",
+      "risk_notes": [
+        "Apagar antes de retirar la batería. Comprobar limpieza de contactos."
+      ],
+      "mandatory_or_optional": "mandatory",
+      "source_part_id": "smallrig-3203b",
+      "from_part_id": "smallrig-vb99-pro",
+      "to_part_id": "smallrig-3203b",
+      "from_port_id": "vb99-vmount",
+      "to_port_id": "plate-vmount",
+      "status": "candidate",
+      "motion_boundary": "same_subassembly",
+      "route_geometry": "internal_mating_interface",
+      "geometry_confidence": "approximate",
+      "display_kind": "contacts",
+      "route_control_offsets_mm": null,
+      "route_control_status": "approximate_annotation_not_cable_cut_or_swept_clearance"
+    }
+  ],
+  "route_control_status": "Anotación aproximada; no determina longitudes para cortar ni valida holgura de barrido."
+}
+

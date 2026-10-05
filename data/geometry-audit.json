@@ -1,0 +1,206 @@
+{
+  "audit_on": "2026-10-05",
+  "publication_warning": "Las imágenes descargadas del fabricante son material de referencia, no una autorización de redistribución. Publicar en App Store requiere revisar los derechos de uso.",
+  "references": [
+    {
+      "part_id": "dji-rs4-pro-combo",
+      "display_image": "/references/dji-rs4-pro-combo-1.png",
+      "source_url": "https://se-cdn.djiits.com/tpc/uploads/spu/cover/5924fa618ac9f4e60e2e459f119a0daa@ultra.png",
+      "review": "visual_identity_checked",
+      "cad_status": "photo_based_proxy_not_manufacturer_CAD"
+    },
+    {
+      "part_id": "sony-fx3",
+      "display_image": "/references/sony-fx3-1.png",
+      "source_url": "https://sony.scene7.com/is/image/sonyglobalsolutions/01_Primary_image?$S7Product$&fmt=png-alpha",
+      "review": "visual_identity_checked",
+      "cad_status": "photo_based_proxy_not_manufacturer_CAD"
+    },
+    {
+      "part_id": "sony-fe-16-35-gm",
+      "display_image": "/references/sony-fe-16-35-gm-1.webp",
+      "source_url": "https://d1ncau8tqf99kp.cloudfront.net/converted/101338_original_local_1200x1050_v3_converted.webp",
+      "review": "visual_identity_checked",
+      "cad_status": "photo_based_proxy_not_manufacturer_CAD"
+    },
+    {
+      "part_id": "sony-xlr-h1",
+      "display_image": "/references/sony-xlr-h1-1.webp",
+      "source_url": "https://d1ncau8tqf99kp.cloudfront.net/converted/109109_original_local_1200x1050_v3_converted.webp",
+      "review": "visual_identity_checked",
+      "cad_status": "photo_based_proxy_not_manufacturer_CAD"
+    },
+    {
+      "part_id": "smallrig-4770",
+      "display_image": "/references/smallrig-4770-1.jpg",
+      "source_url": "https://static.smallrig.com/mall/img/public/o147khtcrel-1753692659415_.JPG",
+      "review": "visual_identity_checked",
+      "cad_status": "photo_based_proxy_not_manufacturer_CAD"
+    },
+    {
+      "part_id": "smallrig-1674",
+      "display_image": "/references/smallrig-1674-1.jpg",
+      "source_url": "https://static.smallrig.com/mall/img/public/hb1di0domdj-1773829491199_.jpg",
+      "review": "visual_identity_checked",
+      "cad_status": "photo_based_proxy_not_manufacturer_CAD"
+    },
+    {
+      "part_id": "smallrig-3026b",
+      "display_image": "/references/3026b-diagram-8.png",
+      "source_url": "https://static.smallrig.com/mall/img/public/m1twezvd88j-1751250182064_.pdf",
+      "review": "visual_identity_checked",
+      "cad_status": "photo_based_proxy_not_manufacturer_CAD"
+    },
+    {
+      "part_id": "smallhd-indie-7",
+      "display_image": "/references/smallhd-indie-7-1.png",
+      "source_url": "https://media.screensteps.com/image_assets/assets/006/135/899/original/Screen%20Shot%202022-12-13%20at%201.13.16%20PM.png",
+      "review": "visual_identity_checked",
+      "cad_status": "photo_based_proxy_not_manufacturer_CAD"
+    },
+    {
+      "part_id": "smallrig-vb99-pro",
+      "display_image": "/references/smallrig-vb99-pro-2.jpg",
+      "source_url": "https://static.smallrig.com/mall/img/public/xgvkoq24wxq-1785393891341_.png",
+      "review": "visual_identity_checked",
+      "cad_status": "photo_based_proxy_not_manufacturer_CAD"
+    },
+    {
+      "part_id": "smallrig-3203b",
+      "display_image": "/references/smallrig-3203b-1.jpg",
+      "source_url": "https://static.smallrig.com/mall/img/public/1702437722030_.JPG",
+      "review": "visual_identity_checked",
+      "cad_status": "photo_based_proxy_not_manufacturer_CAD"
+    },
+    {
+      "part_id": "smallhd-dtap-to-2mm-barrel",
+      "display_image": "/references/smallhd-dtap-to-2mm-barrel-1.png",
+      "source_url": "https://smallhd.com/cdn/shop/files/CBL-PWR-DTAP-BAR-36_1200x1200.png?v=1767154127",
+      "review": "visual_identity_checked",
+      "cad_status": "photo_based_proxy_not_manufacturer_CAD"
+    },
+    {
+      "part_id": "dji-rs-bg70",
+      "display_image": "/references/dji-rs-bg70-1.png",
+      "source_url": "https://store.dji.com/product/dji-rs-bg70-high-capacity-battery-grip",
+      "review": "visual_identity_checked",
+      "cad_status": "photo_based_proxy_not_calibrated_cad"
+    },
+    {
+      "part_id": "smallrig-rods-8in",
+      "display_image": "/references/smallrig-rods-8in-1.jpg",
+      "source_url": "https://www.smallrig.com/15mm-Carbon-Fiber-Rods-Pair.html",
+      "review": "visual_identity_checked",
+      "cad_status": "photo_based_proxy_not_calibrated_cad"
+    },
+    {
+      "part_id": "smallrig-3645",
+      "display_image": "/references/smallrig-3645-1.jpg",
+      "source_url": "https://www.smallrig.com/global/SmallRig-Multifunctional-Modular-Matte-Box-95mm-VND-Kit-3645.html",
+      "review": "visual_identity_checked",
+      "cad_status": "photo_based_proxy_not_calibrated_cad"
+    },
+    {
+      "part_id": "dji-focus-pro-lidar",
+      "display_image": "/references/dji-focus-pro-lidar-1.png",
+      "source_url": "https://store.dji.com/product/dji-focus-pro-lidar",
+      "review": "visual_identity_checked",
+      "cad_status": "photo_based_proxy_not_calibrated_cad"
+    },
+    {
+      "part_id": "dji-focus-pro-motor",
+      "display_image": "/references/dji-focus-pro-motor-1.png",
+      "source_url": "https://store.dji.com/product/dji-focus-pro-motor",
+      "review": "visual_identity_checked",
+      "cad_status": "photo_based_proxy_not_calibrated_cad"
+    },
+    {
+      "part_id": "dji-lidar-transmission-hub",
+      "display_image": "/references/dji-lidar-transmission-hub-1.png",
+      "source_url": "https://store.dji.com/se/product/dji-focus-pro-lidar-dji-transmission-cable-hub?vid=168921",
+      "review": "visual_identity_checked",
+      "cad_status": "photo_based_proxy_not_calibrated_cad"
+    },
+    {
+      "part_id": "dji-mic-2-kit",
+      "display_image": "/references/dji-mic-2-kit-1.png",
+      "source_url": "https://www.dji.com/mic-2",
+      "review": "visual_identity_checked",
+      "cad_status": "photo_based_proxy_not_calibrated_cad"
+    },
+    {
+      "part_id": "dji-lavalier",
+      "display_image": "/references/dji-lavalier-1.png",
+      "source_url": "https://store.dji.com/product/dji-lavalier-mic",
+      "review": "visual_identity_checked",
+      "cad_status": "photo_based_proxy_not_calibrated_cad"
+    },
+    {
+      "part_id": "dji-ronin-image-transmitter",
+      "display_image": "/references/dji-ronin-image-transmitter-1.png",
+      "source_url": "https://store.dji.com/product/ronin-raveneye-image-transmission-system",
+      "review": "visual_identity_checked",
+      "cad_status": "photo_based_proxy_not_calibrated_cad"
+    },
+    {
+      "part_id": "kondor-blue-hdmi-aa",
+      "display_image": "/references/kondor-blue-hdmi-aa-1.png",
+      "source_url": "https://kondorblue.com/products/12-to-24-coiled-braided-hdmi-cable-for-camera-mounted-monitors",
+      "review": "visual_identity_checked",
+      "cad_status": "photo_based_proxy_not_calibrated_cad"
+    },
+    {
+      "part_id": "dji-r-usbc-control",
+      "display_image": "/references/dji-r-usbc-control-1.png",
+      "source_url": "https://store.dji.com/ca/product/r-multi-camera-control-cable-usb-c",
+      "review": "visual_identity_checked",
+      "cad_status": "photo_based_proxy_not_calibrated_cad"
+    },
+    {
+      "part_id": "dji-hdmi-a-to-c",
+      "display_image": "/references/dji-hdmi-a-to-c-1.png",
+      "source_url": "https://store.dji.com/uk/product/r-mini-hdmi-to-hdmi-cable",
+      "review": "visual_identity_checked",
+      "cad_status": "photo_based_proxy_not_calibrated_cad"
+    },
+    {
+      "part_id": "startech-st122hd4ku",
+      "display_image": "/references/startech-product-0.jpg",
+      "source_url": "https://media.startech.com/cms/pdfs/st122hd4ku_datasheet.pdf",
+      "review": "visual_identity_checked",
+      "cad_status": "no_body_CAD_dimensions / captive_cable_not_body_620_mm",
+      "review_note": "Imagen sin modificar extraída de la página 1 de la ficha del fabricante."
+    },
+    {
+      "part_id": "smallrig-4253b",
+      "display_image": "/references/4253b-diagram-3.png",
+      "source_url": "https://static.smallrig.com/mall/img/public/1706163303324_.pdf",
+      "review": "technical_specification_reference",
+      "cad_status": "no_CAD / source_electrical_table_only",
+      "review_note": "Referencia de especificación técnica; fotografía del producto pendiente."
+    }
+  ],
+  "community_candidates": [
+    {
+      "part_id": "sony-fx3",
+      "url": "https://sketchfab.com/3d-models/sony-fx3-camera-scan-8eaae19fabce47daa5c0d031a1f0fc5e",
+      "author": "PunitSabnani",
+      "status": "not_imported_license_download_and_scale_unverified",
+      "note": "Escaneo de 2.5 millones de triángulos. Descarga gratuita, licencia y escala calibrada sin verificar; no es CAD para diseñar fijaciones."
+    },
+    {
+      "part_id": "dji-rs4-pro-combo",
+      "url": "https://cults3d.com/en/3d-model/tool/ultimate-dji-rs-4-carry-solution/makes",
+      "status": "rejected_wrong_product_and_geometry",
+      "note": "Pinzas para el estuche del RS 4, no geometría completa del RS 4 Pro."
+    }
+  ],
+  "geometry_upgrade_requirements": [
+    "Licencia verificada para redistribución",
+    "Identidad exacta del modelo y su revisión",
+    "Escala en milímetros comprobada contra la envolvente del fabricante",
+    "Al menos una referencia geométrica medida de montaje o puerto",
+    "Malla visual simplificada y envolvente precisa de colisión separada"
+  ]
+}
+

@@ -1,0 +1,15 @@
+node_modules
+dist
+dist-public
+public/references/
+public/previews/
+public/brand/*.png
+.netlify/
+.env
+.env.*
+!.env.example
+.DS_Store
+*.tsbuildinfo
+vite.config.js
+vite.config.d.ts
+

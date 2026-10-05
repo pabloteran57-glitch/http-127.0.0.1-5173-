@@ -1,0 +1,136 @@
+import { existsSync, readFileSync } from "node:fs";
+import assert from "node:assert/strict";
+
+const publicValidation = process.argv.includes("--public");
+const read = (name) => JSON.parse(readFileSync(new URL(`../data/${name}.json`, import.meta.url), "utf8"));
+const parts = read("parts-manifest");
+const cables = read("cables-manifest");
+const variants = read("variants");
+const layout = read("layout-manifest");
+const assembly = read("assembly-guide");
+const sources = read("sources");
+const ports = read("ports-manifest");
+const audit = read("geometry-audit");
+const references = read("geometry-references");
+const engineering = read("engineering-manifest");
+const partIds = new Set(parts.parts.map(p => p.id));
+const cableIds = new Set(cables.cables.map(c => c.cable_id));
+const portById=Object.fromEntries(ports.ports.map(p=>[p.id,p]));
+assert.equal(Object.keys(portById).length,ports.ports.length,"Duplicate port IDs");
+for(const port of ports.ports){
+  assert(port.part_id===null||partIds.has(port.part_id));
+  assert(port.connector&&port.identity_source_url.startsWith("https://"));
+  assert(port.local_position_mm===null||(port.local_position_mm.length===3&&port.local_position_mm.every(Number.isFinite)));
+  assert(!/verified_exact/.test(port.position_confidence),"No unsourced exact port geometry");
+}
+assert.equal(partIds.size, parts.parts.length, "Duplicate parts");
+assert.equal(cableIds.size, cables.cables.length, "Duplicate cables");
+assert.equal(parts.parts.length, 27, "Preserve 25 requested products and two Combo subcomponents");
+assert.equal(assembly.steps.length, 13, "All thirteen assembly stages required");
+assert.equal(variants.variants.length, 7, "All seven profiles required");
+assert(variants.variants.some(v => v.id === variants.master_variant_id));
+for (const part of parts.parts) {
+  assert(part.primary_source_url.startsWith("https://"), `Missing source: ${part.id}`);
+  assert(["high", "medium", "low"].includes(part.confidence_level));
+  assert(part.planning_weight_g === null || part.planning_weight_g > 0);
+}
+for (const node of layout.nodes) {
+  assert(partIds.has(node.id), `Unknown geometry: ${node.id}`);
+  for (const key of ["position_mm", "size_xyz_mm", "explode_mm"]) {
+    assert.equal(node[key].length, 3);
+    assert(node[key].every(Number.isFinite));
+  }
+  assert(node.size_xyz_mm.every(x => x > 0));
+  assert(node.parent_id===null||partIds.has(node.parent_id));
+  assert.equal(node.rotation_deg.length,3);
+  assert(node.rotation_deg.every(Number.isFinite));
+  assert(node.dimension_source_url.startsWith("https://"));
+  const seen=new Set([node.id]);
+  let parent=node.parent_id;
+  while(parent){
+    assert(!seen.has(parent),"Support graph cycle: "+node.id);
+    seen.add(parent);parent=layout.nodes.find(n=>n.id===parent)?.parent_id;
+  }
+}
+assert.equal(layout.nodes.find(n => n.kind === "rods").size_xyz_mm[2], 203.2);
+assert.equal(layout.nodes.find(n => n.kind === "rods").size_xyz_mm[1], 15);
+assert.equal(layout.nodes.find(n => n.kind === "monitor").mass_domain, "fixed");
+for (const cable of cables.cables) {
+  assert(portById[cable.from_port_id]&&portById[cable.to_port_id],"Unknown port: "+cable.cable_id);
+  assert.equal(portById[cable.from_port_id].part_id,cable.from_part_id,"Source port/part mismatch");
+  assert.equal(portById[cable.to_port_id].part_id,cable.to_part_id,"Destination port/part mismatch");
+  assert(["cable","contacts","internal"].includes(cable.display_kind));
+  assert(partIds.has(cable.source_part_id), `Unknown cable product: ${cable.cable_id}`);
+  for (const endpoint of [cable.from_part_id, cable.to_part_id]) {
+    assert(endpoint === null || partIds.has(endpoint), `Unknown endpoint: ${cable.cable_id}`);
+  }
+  assert(cable.risk_notes.length && cable.routing_path && cable.strain_relief_requirement);
+}
+for (const variant of variants.variants) {
+  const active = new Set(variant.active_part_ids);
+  for (const id of [...variant.active_part_ids, ...variant.conditional_part_ids, ...variant.parts_added, ...variant.parts_removed]) {
+    assert(partIds.has(id), `Unknown profile part ${variant.id}: ${id}`);
+  }
+  assert.equal(active.size, variant.active_part_ids.length);
+  assert(variant.conditional_part_ids.every(id=>!active.has(id)),"Conditional must not be active");
+  const master=variants.variants.find(v=>v.id===variants.master_variant_id);
+  assert.deepEqual(variant.parts_added,variant.active_part_ids.filter(id=>!master.active_part_ids.includes(id)),"Incorrect active part additions");
+  assert.deepEqual(variant.parts_removed,master.active_part_ids.filter(id=>!active.has(id)),"Incorrect part removals");
+  assert.deepEqual(variant.cables_added,variant.cable_profile_ids.filter(id=>!master.cable_profile_ids.includes(id)));
+  assert.deepEqual(variant.cables_removed,master.cable_profile_ids.filter(id=>!variant.cable_profile_ids.includes(id)));
+  for (const id of variant.cable_profile_ids) {
+    assert(cableIds.has(id), `Unknown profile cable ${variant.id}: ${id}`);
+    const cable = cables.cables.find(c => c.cable_id === id);
+    assert.equal(cable.status, "candidate", "Parked circuits cannot be active");
+    for (const endpoint of [cable.from_part_id, cable.to_part_id]) {
+      assert(endpoint === null || active.has(endpoint), `Inactive endpoint ${variant.id}: ${id}`);
+    }
+  }
+  assert(!active.has("startech-st122hd4ku"), "No unverified gimbal splitter mount");
+  assert(!active.has("dji-lidar-transmission-hub"), "No missing Transmission hardware");
+  if (active.has("dji-rs4-pro-combo")) {
+    assert(active.has("dji-rs-bg70"));
+    assert(!active.has("sony-xlr-h1"));
+  }
+  if (active.has("smallhd-indie-7")) {
+    assert(active.has("smallrig-3026b") && active.has("dji-rs4-pro-combo"));
+    assert(variant.cable_profile_ids.includes("pwr-plate-to-smallhd"));
+  }
+  if(active.has("smallrig-vb99-pro")){
+    for(const id of ["smallrig-3203b","smallrig-rods-8in","smallrig-1674"])assert(active.has(id),"Battery needs real rod support chain");
+    assert(variant.cable_profile_ids.includes("pwr-vmount-to-plate-contacts"));
+  }
+  assert(!(variant.cable_profile_ids.includes("vid-fx3-to-smallhd") && variant.cable_profile_ids.includes("vid-fx3-to-startech-splitter")), "One camera HDMI output");
+}
+assert(cables.profiles.requested_dual_feed_bench.includes("pwr-ac-to-splitter"));
+assert.equal(sources.sources.length, new Set(sources.sources.map(s => s.id)).size);
+assert.equal(audit.references.length,new Set(audit.references.map(r=>r.part_id)).size);
+for(const ref of audit.references){
+  assert(partIds.has(ref.part_id));
+  assert(ref.display_image.startsWith("/references/")&&!ref.display_image.includes(".."));
+  if (!publicValidation) assert(existsSync(new URL("../public"+ref.display_image,import.meta.url)),"Missing curated asset");
+}
+for(const ref of references.parts.flatMap(p=>p.images).concat(references.documents.filter(d=>d.local_path))){
+  assert(ref.sha256?.length===64);
+  if (!publicValidation) assert(existsSync(new URL("../public"+ref.local_path,import.meta.url)));
+}
+assert.equal(engineering.limits["3026b_supported_load_g"],1500);
+assert.equal(engineering.limits.rs4_pro_tested_payload_g,4500);
+assert.equal(parts.parts.find(p=>p.id==="smallrig-vb99-pro").planning_weight_g,644);
+assert.equal(parts.parts.find(p=>p.id==="smallrig-3203b").planning_weight_g,351);
+assert.equal(layout.nodes.find(n=>n.kind==="batteryPlate").size_xyz_mm[1],168.7);
+assert.equal(layout.nodes.find(n=>n.kind==="monitor").parent_id,"smallrig-3026b");
+const ui=JSON.parse(readFileSync(new URL("../data/ui-content.json",import.meta.url),"utf8"));
+assert.deepEqual(new Set(Object.keys(ui.part_names)),partIds,"Presentation labels must cover the canonical parts exactly");
+for(const variant of variants.variants)assert(ui.profile_hints[variant.id],"Missing profile hint");
+assert.equal(ui.language,"es","El idioma de presentación debe ser español");
+for(const cable of cables.cables){
+  assert(ui.connector_labels[cable.connector_a],"Missing connector A label: "+cable.cable_id);
+  assert(ui.connector_labels[cable.connector_b],"Missing connector B label: "+cable.cable_id);
+}
+const humanText=[...parts.notes,...parts.parts.flatMap(p=>[p.verified_dimensions_mm.note,p.verified_weight_g.note,p.mounting_method,p.likely_material,p.rig_role,...p.physical_constraints]),...layout.nodes.flatMap(n=>[n.label,n.placement,n.orientation,n.mount,n.rationale,n.rejected]),...layout.clearance_gates.flatMap(g=>[g.title,g.detail]),...cables.cables.flatMap(c=>[c.source,c.destination,c.connector_a,c.connector_b,c.voltage_or_signal_standard,c.ideal_length_estimate,c.routing_path,c.strain_relief_requirement,...c.risk_notes]),...assembly.steps.flatMap(s=>[s.title,s.mount,s.where,s.rebalance,...s.verify]),...variants.variants.flatMap(v=>[v.label,v.balance_impact,v.workflow_impact,v.budget_impact,v.complexity_impact,...v.dependencies])];
+humanText.push(...ports.ports.flatMap(p=>[p.label,p.connector,p.note]),...Object.values(ui.part_names),...Object.values(ui.profile_hints),...Object.values(ui.task_hints),...Object.values(ui.connector_labels),...Object.values(ui.schema_labels),...audit.community_candidates.map(c=>c.note),...audit.geometry_upgrade_requirements);
+const legacyEnglish=/\b(Not published|Handheld|Dummy|Baseplate|Labels On|Labels Off|Exploded View|Assembled View|Strain relief|Published nominal|Current source|Primary source|planning mass|source set|pending|not verified|splitter|Type-A|Type-C)\b/i;
+for(const text of humanText)assert(!legacyEnglish.test(text),"Texto sin localizar: "+text);
+console.log(`CORRECTO: ${partIds.size} piezas, ${cableIds.size} conexiones, ${layout.nodes.length} elementos geométricos, 13 etapas y 7 perfiles. Etiquetas en español comprobadas. No implica certificación mecánica.`);
+

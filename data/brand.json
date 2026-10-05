@@ -1,0 +1,18 @@
+{
+  "name": "Takegrid",
+  "slug": "takegrid",
+  "status": "provisional",
+  "descriptor": "Planificador de rigs",
+  "tagline": "Tu rig. Listo para rodar.",
+  "app_store_title_candidate": "Takegrid - Planificador de rigs",
+  "screening_on": "2026-10-05",
+  "screening_note": "Búsqueda exploratoria del nombre exacto en la web y resultados indexados de App Store, sin coincidencia directa de una app de cámaras/rigs. No es reserva, búsqueda completa de tiendas ni autorización de marca.",
+  "logo": "/brand/takegrid-mark.svg",
+  "app_icon_concept": "/brand/takegrid-app-icon.svg",
+  "colors": {
+    "ink": "#161b20",
+    "paper": "#eeeae0",
+    "copper": "#d6a16b"
+  }
+}
+

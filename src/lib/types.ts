@@ -1,0 +1,160 @@
+export interface WeightField {
+  value: number | null;
+  approximate: boolean;
+  note: string;
+}
+
+export interface DimensionField {
+  length: number | null;
+  width: number | null;
+  height: number | null;
+  approximate: boolean;
+  note: string;
+}
+
+export interface Part {
+  id: string;
+  exact_product_name: string;
+  model_number: string | null;
+  brand: string;
+  category: string;
+  verified_dimensions_mm: DimensionField;
+  verified_weight_g: WeightField;
+  planning_weight_g: number | null;
+  ports_interfaces: string[];
+  mounting_method: string;
+  likely_material: string;
+  mandatory_or_optional: "mandatory" | "optional";
+  rig_role: string;
+  physical_constraints: string[];
+  primary_source_url: string;
+  secondary_source_url: string | null;
+  confidence_level: "high" | "medium" | "low";
+  bundle_includes?: string[];
+}
+
+export interface PartsManifest {
+  build_id: string;
+  build_name: string;
+  verified_on: string;
+  notes: string[];
+  parts: Part[];
+}
+
+export interface Cable {
+  from_port_id: string;
+  to_port_id: string;
+  display_kind: "cable" | "contacts" | "internal";
+  route_control_offsets_mm: {a: number[]; b: number[]} | null;
+  cable_id: string;
+  source: string;
+  destination: string;
+  connector_a: string;
+  connector_b: string;
+  type: "power" | "video" | "data";
+  voltage_or_signal_standard: string;
+  ideal_length_estimate: string;
+  routing_path: string;
+  strain_relief_requirement: string;
+  risk_notes: string[];
+  mandatory_or_optional: "mandatory" | "optional";
+  source_part_id: string;
+  from_part_id: string | null;
+  to_part_id: string | null;
+  status: "candidate" | "conditional" | "bench";
+  motion_boundary: string;
+  route_geometry: string;
+}
+
+export interface CablesManifest {
+  profiles: {
+    direct_gimbal: string[];
+    requested_dual_feed_bench: string[];
+    alternate_loopthrough_conditional: string[];
+  };
+  generated_on: string;
+  color_coding: Record<string, string>;
+  assembled_routing_logic: string[];
+  exploded_routing_logic: string[];
+  cables: Cable[];
+}
+
+export interface VariantViewerPosition {
+  x: number;
+  y: number;
+  z: number;
+}
+
+export interface Variant {
+  id: string;
+  label: string;
+  parts_removed: string[];
+  parts_added: string[];
+  active_part_ids: string[];
+  conditional_part_ids: string[];
+  dependencies: string[];
+  operating_status: string;
+  cable_profile_ids: string[];
+  cables_removed: string[];
+  cables_added: string[];
+  balance_impact: string;
+  workflow_impact: string;
+  budget_impact: string;
+  complexity_impact: string;
+  viewer: {
+    mode: "assembled" | "exploded" | "vertical";
+    positions: Record<string, VariantViewerPosition>;
+  };
+}
+
+export type Vec3 = [number, number, number];
+export interface LayoutNode {
+  rotation_deg: Vec3;
+  parent_id: string | null;
+  dimension_source_url: string;
+  id: string;
+  label: string;
+  kind: "camera" | "lens" | "cage" | "baseplate" | "rods" | "matte" | "batteryPlate" | "battery" | "gimbal" | "grip" | "monitorMount" | "monitor" | "handle";
+  position_mm: Vec3;
+  size_xyz_mm: Vec3;
+  explode_mm: Vec3;
+  envelope: "verified" | "approximate";
+  mass_domain: "moving" | "fixed";
+  mount: string;
+  placement: string;
+  orientation: string;
+  rationale: string;
+  rejected: string;
+}
+export interface LayoutManifest {
+  units: string;
+  nominal_rod_center_spacing_mm: number;
+  nodes: LayoutNode[];
+  clearance_gates: { id: string; title: string; detail: string; status: string }[];
+}
+export interface AssemblyStep {
+  applies_if_any_part_ids: string[];
+  number: number;
+  title: string;
+  mount: string;
+  where: string;
+  verify: string[];
+  rebalance: string;
+}
+
+export interface VariantsManifest {
+  generated_on: string;
+  master_variant_id: string;
+  variants: Variant[];
+}
+
+export interface Port {
+  id: string;
+  part_id: string | null;
+  label: string;
+  connector: string;
+  local_position_mm: Vec3 | null;
+  position_confidence: string;
+  identity_source_url: string;
+}
+

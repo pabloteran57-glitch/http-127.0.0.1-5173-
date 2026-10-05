@@ -1,0 +1,532 @@
+{
+  "generated_on": "2026-04-10",
+  "verification_notes": [
+    "Se priorizan páginas oficiales de fabricantes cuando están disponibles.",
+    "B&H Photo es la fuente secundaria principal para medidas y datos eléctricos ausentes o incompletos en páginas oficiales.",
+    "Algunas páginas Sony y SmallRig no publican todas las medidas físicas; esos campos permanecen marcados como aproximados en el manifiesto."
+  ],
+  "sources": [
+    {
+      "id": "src-dji-rs4-pro-specs",
+      "brand": "DJI",
+      "type": "official",
+      "url": "https://www.dji.com/rs-4-pro/specs",
+      "notes": "Fuente principal de medidas, puertos, especificaciones de transmisor asociado, autonomía y carga del RS 4 Pro."
+    },
+    {
+      "id": "src-dji-rs4-pro-combo-store",
+      "brand": "DJI",
+      "type": "official",
+      "url": "https://store.dji.com/product/dji-rs-4-pro-combo",
+      "notes": "Confirma Ronin Image Transmitter y Focus Pro Motor incluidos en el Combo."
+    },
+    {
+      "id": "src-dji-bg70-store",
+      "brand": "DJI",
+      "type": "official",
+      "url": "https://store.dji.com/product/dji-rs-bg70-high-capacity-battery-grip",
+      "notes": "Autonomía, rango de tensión, energía y salida USB-C de accesorios del BG70."
+    },
+    {
+      "id": "src-dji-lidar",
+      "brand": "DJI",
+      "type": "official",
+      "url": "https://store.dji.com/product/dji-focus-pro-lidar",
+      "notes": "Identidad y función de autofoco de Focus Pro LiDAR; parte de la geometría sigue aproximada."
+    },
+    {
+      "id": "src-dji-lidar-hub",
+      "brand": "DJI",
+      "type": "official",
+      "url": "https://store.dji.com/product/dji-focus-pro-lidar-to-dji-transmission-cable-hub",
+      "notes": "Confirma que el hub pertenece a DJI Transmission, no a Ronin Image Transmitter."
+    },
+    {
+      "id": "src-dji-mic-2",
+      "brand": "DJI",
+      "type": "official",
+      "url": "https://www.dji.com/mic-2",
+      "notes": "Identidad y dispositivos compatibles del sistema DJI Mic 2."
+    },
+    {
+      "id": "src-dji-lavalier",
+      "brand": "DJI",
+      "type": "official",
+      "url": "https://store.dji.com/product/dji-lavalier-mic",
+      "notes": "Confirma compatibilidad con DJI Mic 2."
+    },
+    {
+      "id": "src-dji-ronin-app",
+      "brand": "DJI",
+      "type": "official",
+      "url": "https://www.dji.com/downloads/djiapp/dji-ronin",
+      "notes": "Disponibilidad de la aplicación Ronin y familia de productos compatibles."
+    },
+    {
+      "id": "src-sony-fx3",
+      "brand": "Sony",
+      "type": "official",
+      "url": "https://electronics.sony.com/imaging/interchangeable-lens-cameras/full-frame/p/ilmefx3",
+      "notes": "Página principal Sony FX3; las especificaciones del manifiesto proceden de la ficha Sony publicada."
+    },
+    {
+      "id": "src-sony-xlr-h1",
+      "brand": "Sony",
+      "type": "official",
+      "url": "https://electronics.sony.com/imaging/imaging-accessories/all-accessories/p/xlrh1",
+      "notes": "Página principal XLR-H1; parte de la geometría física sigue aproximada."
+    },
+    {
+      "id": "src-sony-sel1635gm",
+      "brand": "Sony",
+      "type": "official",
+      "url": "https://electronics.sony.com/imaging/lenses/full-frame-e-mount/p/sel1635gm",
+      "notes": "Página principal del FE 16-35mm F2.8 GM original."
+    },
+    {
+      "id": "src-sony-monitor-control",
+      "brand": "Sony",
+      "type": "official",
+      "url": "https://creatorscloud.sony.net/catalog/en-jo/monitorcontrol/index.html",
+      "notes": "Funciones de Monitor & Control y lista de cámaras compatibles."
+    },
+    {
+      "id": "src-smallrig-4770",
+      "brand": "SmallRig",
+      "type": "official",
+      "url": "https://www.smallrig.com/global/SmallRig-HawkLock-Quick-Release-Cage-Kit-for-Sony-FX3-FX30-4770.html",
+      "notes": "Página principal del kit de jaula HawkLock para FX3/FX30."
+    },
+    {
+      "id": "src-smallrig-1674",
+      "brand": "SmallRig",
+      "type": "official",
+      "url": "https://www.smallrig.com/smallrig-baseplate-with-dual-15mm-rod-clamp-1674.html",
+      "notes": "Página principal de la base 1674 con abrazadera doble de varillas."
+    },
+    {
+      "id": "src-smallrig-rods-8",
+      "brand": "SmallRig",
+      "type": "official",
+      "url": "https://www.smallrig.com/15mm-Carbon-Fiber-Rods-Pair.html",
+      "notes": "Dimensiones y espesor de pared del par de varillas de fibra de carbono de 15 mm."
+    },
+    {
+      "id": "src-smallrig-3645",
+      "brand": "SmallRig",
+      "type": "official",
+      "url": "https://www.smallrig.com/global/SmallRig-Multifunctional-Modular-Matte-Box-95mm-VND-Kit-3645.html",
+      "notes": "Identidad, aros incluidos y soporte del kit VND de 95 mm."
+    },
+    {
+      "id": "src-smallrig-3026b",
+      "brand": "SmallRig",
+      "type": "official",
+      "url": "https://www.smallrig.com/global/smallrig-monitor-mount-with-nato-clamp-for-dji-rs-2-rsc-2-3026.html",
+      "notes": "Soporte de monitor NATO lateral RS y familia de gimbals compatibles; consultar manual exacto de revisión B para medidas y orientación."
+    },
+    {
+      "id": "src-smallrig-4292",
+      "brand": "SmallRig",
+      "type": "official",
+      "url": "https://www.smallrig.com/SmallRig-VB99-Pro-mini-V-Mount-Battery-4292.html",
+      "notes": "Salidas eléctricas y capacidad de batería VB99 Pro."
+    },
+    {
+      "id": "src-smallrig-3203b",
+      "brand": "SmallRig",
+      "type": "official",
+      "url": "https://www.smallrig.com/eu/smallrig-v-mount-battery-adapter-plate-with-dual-15mm-rod-clamp-3203.html",
+      "notes": "Salidas y arquitectura de abrazadera de varillas de 3203B."
+    },
+    {
+      "id": "src-smallrig-4253b-bh",
+      "brand": "SmallRig",
+      "type": "secondary",
+      "url": "https://www.bhphotovideo.com/c/product/803319395-USE/smallrig_4253b_d_tap_to_sony_np_fz100.html/specs",
+      "notes": "Fuente secundaria de medidas, masa y rango de tensión del cable 4253B exacto."
+    },
+    {
+      "id": "src-smallrig-3026b-bh",
+      "brand": "SmallRig",
+      "type": "secondary",
+      "url": "https://www.bhphotovideo.com/c/product/1767617-REG/smallrig_3026b_monitor_mount_with_nato.html/specs",
+      "notes": "Confirmación secundaria de gimbals compatibles y fijación/orientación."
+    },
+    {
+      "id": "src-smallhd-indie7",
+      "brand": "SmallHD",
+      "type": "official",
+      "url": "https://guide.smallhd.com/a/1634747-indie-7-quick-start-guide",
+      "notes": "Entrada/salida HDMI, hasta 4Kp30, cuatro puntos de montaje y entrada DC de 10-34 V / 2 A. No afirma diámetro de 2 mm."
+    },
+    {
+      "id": "src-smallhd-indie7-bh",
+      "brand": "SmallHD",
+      "type": "secondary",
+      "url": "https://www.bhphotovideo.com/c/product/1593398-REG/smallhd_mon_indie_7_indie_7_touchscreen_on_camera.html",
+      "notes": "Fuente secundaria para envolvente del Indie 7 cuando la página oficial es incompleta."
+    },
+    {
+      "id": "src-kondor-blue-hdmi",
+      "brand": "Kondor Blue",
+      "type": "official",
+      "url": "https://kondorblue.com/products/12-to-24-coiled-braided-hdmi-cable-for-camera-mounted-monitors",
+      "notes": "Cable espiral HDMI tipo A-A de 12 a 24 pulgadas."
+    },
+    {
+      "id": "src-startech-st122hd4ku",
+      "brand": "StarTech",
+      "type": "official",
+      "url": "https://www.startech.com/en-us/audio-video-products/st122hd4ku",
+      "notes": "Identidad del distribuidor; no hay montaje dinámico verificado con las piezas seleccionadas."
+    },
+    {
+      "id": "src-dji-r-usbc",
+      "brand": "DJI",
+      "type": "official",
+      "url": "https://store.dji.com/product/dji-r-multi-camera-control-cable-usb-c",
+      "notes": "Cable DJI R USB-C de control de cámara."
+    },
+    {
+      "id": "src-dji-mini-hdmi-hdmi",
+      "brand": "DJI",
+      "type": "official",
+      "url": "https://store.dji.com/product/dji-rs-mini-hdmi-to-hdmi-cable-20cm",
+      "notes": "Cable corto HDMI tipo A a Mini HDMI de la ruta Ronin Image Transmitter."
+    },
+    {
+      "id": "src-smallhd-dtap-barrel",
+      "brand": "SmallHD",
+      "type": "official",
+      "url": "https://smallhd.com/products/dtap-barrel-36in",
+      "notes": "Cable del fabricante CBL-PWR-DTAP-BAR-36, 36 pulgadas. Diámetro interior y polaridad sin verificar."
+    },
+    {
+      "id": "src-vb99-bh",
+      "brand": "SmallRig",
+      "type": "secondary",
+      "url": "https://www.bhphotovideo.com/c/product/803417427-USE/smallrig_4292_vb99_pro_mini_v_mount.html",
+      "notes": "Fuente secundaria para la envolvente de VB99 Pro cuando la página oficial es incompleta."
+    },
+    {
+      "id": "src-startech-datasheet",
+      "brand": "StarTech",
+      "type": "official",
+      "url": "https://media.startech.com/cms/pdfs/st122hd4ku_datasheet.pdf",
+      "checked_on": "2026-10-05",
+      "notes": "Producto de 72 g, entrada HDMI cautiva, dos salidas y alimentación de 5 V. Los 620 mm incluyen el cable, no sólo la carcasa."
+    },
+    {
+      "id": "src-smallhd-cable-bh",
+      "brand": "SmallHD",
+      "type": "secondary",
+      "url": "https://www.bhphotovideo.com/c/product/1154925-REG/smallhd_cbl_pwr_dtap_bar_36_d_tap_adapter_cable.html",
+      "checked_on": "2026-10-05",
+      "notes": "Conector macho de barril de 5.5 mm para el cable específico del fabricante."
+    },
+    {
+      "id": "src-focus-faq",
+      "brand": "DJI",
+      "type": "official",
+      "url": "https://www.dji.com/focus-pro/faq",
+      "checked_on": "2026-10-05",
+      "notes": "Tornillo de montaje de 1/4 pulgada incluido con LiDAR y medición respecto al plano del sensor. Calibración SEL1635GM sin verificar."
+    },
+    {
+      "id": "src-raveneye-signal",
+      "brand": "DJI",
+      "type": "official",
+      "url": "https://repair.dji.com/help/content?customId=en-us03400007678&lang=en&re=US&spaceId=34",
+      "checked_on": "2026-10-05",
+      "notes": "Entrada de transmisor 1080p/720p, no 1080i. Probar frecuencia progresiva y EDID."
+    },
+    {
+      "id": "src-mic2-manual",
+      "brand": "DJI",
+      "type": "official",
+      "url": "https://dl.djicdn.com/downloads/DJI_Mic_2/20240426/UM/DJI_Mic_2_User_Manual_V1.2_EN.pdf",
+      "checked_on": "2026-10-05",
+      "notes": "Receptor en zapata y cable TRS de cámara incluido; transmisores y estuche no son carga de cámara."
+    },
+    {
+      "id": "audit-dji-rs4-pro-combo",
+      "brand": "DJI",
+      "type": "official",
+      "url": "https://www.dji.com/rs-4-pro/specs",
+      "notes": "Revisión de identidad y especificaciones; confianza y datos pendientes registrados por pieza."
+    },
+    {
+      "id": "audit-dji-rs-bg70",
+      "brand": "DJI",
+      "type": "official",
+      "url": "https://store.dji.com/product/dji-rs-bg70-high-capacity-battery-grip",
+      "notes": "Revisión de identidad y especificaciones; confianza y datos pendientes registrados por pieza."
+    },
+    {
+      "id": "audit-sony-fx3",
+      "brand": "Sony",
+      "type": "official",
+      "url": "https://helpguide.sony.net/ilc/2210/v1/en/contents/TP1000886922.html",
+      "notes": "Revisión de identidad y especificaciones; confianza y datos pendientes registrados por pieza."
+    },
+    {
+      "id": "audit-sony-xlr-h1",
+      "brand": "Sony",
+      "type": "official",
+      "url": "https://electronics.sony.com/imaging/imaging-accessories/imaging-compact-camera-accessories/p/xlrh1",
+      "notes": "Revisión de identidad y especificaciones; confianza y datos pendientes registrados por pieza."
+    },
+    {
+      "id": "audit-sony-fe-16-35-gm",
+      "brand": "Sony",
+      "type": "official",
+      "url": "https://electronics.sony.com/imaging/lenses/all-e-mount/p/sel1635gm",
+      "notes": "Revisión de identidad y especificaciones; confianza y datos pendientes registrados por pieza."
+    },
+    {
+      "id": "audit-smallrig-4770",
+      "brand": "SmallRig",
+      "type": "official",
+      "url": "https://www.smallrig.com/de/HawkLock-Quick-Release-Cage-Kit-for-Sony-FX3-FX30-4770.html",
+      "notes": "Revisión de identidad y especificaciones; confianza y datos pendientes registrados por pieza."
+    },
+    {
+      "id": "audit-smallrig-1674",
+      "brand": "SmallRig",
+      "type": "official",
+      "url": "https://www.smallrig.com/smallrig-baseplate-with-dual-15mm-rod-clamp-1674.html",
+      "notes": "Revisión de identidad y especificaciones; confianza y datos pendientes registrados por pieza."
+    },
+    {
+      "id": "audit-smallrig-rods-8in",
+      "brand": "SmallRig",
+      "type": "official",
+      "url": "https://www.smallrig.com/15mm-Carbon-Fiber-Rods-Pair.html",
+      "notes": "Revisión de identidad y especificaciones; confianza y datos pendientes registrados por pieza."
+    },
+    {
+      "id": "audit-smallrig-3645",
+      "brand": "SmallRig",
+      "type": "official",
+      "url": "https://www.smallrig.com/global/SmallRig-Multifunctional-Modular-Matte-Box-95mm-VND-Kit-3645.html",
+      "notes": "Revisión de identidad y especificaciones; confianza y datos pendientes registrados por pieza."
+    },
+    {
+      "id": "audit-smallrig-3026b",
+      "brand": "SmallRig",
+      "type": "official",
+      "url": "https://www.smallrig.com/global/smallrig-monitor-mount-with-nato-clamp-for-dji-rs-2-rsc-2-3026.html",
+      "notes": "Revisión de identidad y especificaciones; confianza y datos pendientes registrados por pieza."
+    },
+    {
+      "id": "audit-smallhd-indie-7",
+      "brand": "SmallHD",
+      "type": "official",
+      "url": "https://guide.smallhd.com/a/1634747-indie-7-quick-start-guide",
+      "notes": "Revisión de identidad y especificaciones; confianza y datos pendientes registrados por pieza."
+    },
+    {
+      "id": "audit-smallrig-vb99-pro",
+      "brand": "SmallRig",
+      "type": "official",
+      "url": "https://www.smallrig.com/smallrig-VB99-Pro-mini-V-Mount-Battery-4292.html?sku=4292",
+      "notes": "Revisión de identidad y especificaciones; confianza y datos pendientes registrados por pieza."
+    },
+    {
+      "id": "audit-smallrig-3203b",
+      "brand": "SmallRig",
+      "type": "official",
+      "url": "https://www.smallrig.com/jp/Advanced-V-Mount-Battery-Mount-Plate-with-Dual-15mm-Rod-Clamp-3203B.html",
+      "notes": "Revisión de identidad y especificaciones; confianza y datos pendientes registrados por pieza."
+    },
+    {
+      "id": "audit-smallrig-4253b",
+      "brand": "SmallRig",
+      "type": "official",
+      "url": "https://www.smallrig.com/SmallRig-D-Tap-to-Sony-NP-FZ100-Dummy-Battery-Power-Cable-4253B.html",
+      "notes": "Revisión de identidad y especificaciones; confianza y datos pendientes registrados por pieza."
+    },
+    {
+      "id": "audit-dji-focus-pro-lidar",
+      "brand": "DJI",
+      "type": "official",
+      "url": "https://www.dji.com/focus-pro/specs",
+      "notes": "Revisión de identidad y especificaciones; confianza y datos pendientes registrados por pieza."
+    },
+    {
+      "id": "audit-dji-focus-pro-motor",
+      "brand": "DJI",
+      "type": "official",
+      "url": "https://www.dji.com/focus-pro/specs",
+      "notes": "Revisión de identidad y especificaciones; confianza y datos pendientes registrados por pieza."
+    },
+    {
+      "id": "audit-dji-lidar-transmission-hub",
+      "brand": "DJI",
+      "type": "official",
+      "url": "https://store.dji.com/se/product/dji-focus-pro-lidar-dji-transmission-cable-hub?vid=168921",
+      "notes": "Revisión de identidad y especificaciones; confianza y datos pendientes registrados por pieza."
+    },
+    {
+      "id": "audit-dji-mic-2-kit",
+      "brand": "DJI",
+      "type": "official",
+      "url": "https://www.dji.com/mic-2",
+      "notes": "Revisión de identidad y especificaciones; confianza y datos pendientes registrados por pieza."
+    },
+    {
+      "id": "audit-dji-lavalier",
+      "brand": "DJI",
+      "type": "official",
+      "url": "https://store.dji.com/product/dji-lavalier-mic",
+      "notes": "Revisión de identidad y especificaciones; confianza y datos pendientes registrados por pieza."
+    },
+    {
+      "id": "audit-startech-st122hd4ku",
+      "brand": "StarTech",
+      "type": "official",
+      "url": "https://www.startech.com/en-fr/audio-video-products/st122hd4ku",
+      "notes": "Revisión de identidad y especificaciones; confianza y datos pendientes registrados por pieza."
+    },
+    {
+      "id": "audit-kondor-blue-hdmi-aa",
+      "brand": "Kondor Blue",
+      "type": "official",
+      "url": "https://kondorblue.com/products/12-to-24-coiled-braided-hdmi-cable-for-camera-mounted-monitors",
+      "notes": "Revisión de identidad y especificaciones; confianza y datos pendientes registrados por pieza."
+    },
+    {
+      "id": "audit-dji-hdmi-a-to-c",
+      "brand": "DJI",
+      "type": "official",
+      "url": "https://store.dji.com/uk/product/r-mini-hdmi-to-hdmi-cable",
+      "notes": "Revisión de identidad y especificaciones; confianza y datos pendientes registrados por pieza."
+    },
+    {
+      "id": "audit-dji-r-usbc-control",
+      "brand": "DJI",
+      "type": "official",
+      "url": "https://store.dji.com/ca/product/r-multi-camera-control-cable-usb-c",
+      "notes": "Revisión de identidad y especificaciones; confianza y datos pendientes registrados por pieza."
+    },
+    {
+      "id": "audit-smallhd-dtap-to-2mm-barrel",
+      "brand": "SmallHD",
+      "type": "official",
+      "url": "https://smallhd.com/products/dtap-barrel-36in",
+      "notes": "Revisión de identidad y especificaciones; confianza y datos pendientes registrados por pieza."
+    },
+    {
+      "id": "audit-dji-ronin-image-transmitter",
+      "brand": "DJI",
+      "type": "official",
+      "url": "https://www.dji.com/rs-4-pro/specs",
+      "notes": "Revisión de identidad y especificaciones; confianza y datos pendientes registrados por pieza."
+    },
+    {
+      "id": "audit-dji-ronin-app",
+      "brand": "DJI",
+      "type": "official",
+      "url": "https://www.dji.com/downloads/djiapp/dji-ronin",
+      "notes": "Revisión de identidad y especificaciones; confianza y datos pendientes registrados por pieza."
+    },
+    {
+      "id": "audit-sony-monitor-control-app",
+      "brand": "Sony",
+      "type": "official",
+      "url": "https://creatorscloud.sony.net/catalog/en-jo/monitorcontrol/index.html",
+      "notes": "Revisión de identidad y especificaciones; confianza y datos pendientes registrados por pieza."
+    },
+    {
+      "id": "audit-doc-smallrig-4770-manual",
+      "brand": "SmallRig",
+      "type": "official",
+      "url": "https://static.smallrig.com/mall/img/public/1725874097334_.pdf",
+      "local_path": "/references/smallrig-4770-manual.pdf",
+      "sha256": "ad06ed589ec6beb368bffddeef96827c835790b44fdffd444be5846eef0f7498",
+      "notes": "Documento del fabricante descargado; especificaciones y diagramas de montaje revisados, sin certificación CAD de holguras."
+    },
+    {
+      "id": "audit-doc-smallrig-1674-manual",
+      "brand": "SmallRig",
+      "type": "official",
+      "url": "https://static.smallrig.com/mall/img/public/vcqnxceuxol-1747621696364_.pdf",
+      "local_path": "/references/smallrig-1674-manual.pdf",
+      "sha256": "71d5674ab0df4030141f1d8762f9ba31cd071ca66cc255d8a86692d3ecd9f508",
+      "notes": "Documento del fabricante descargado; especificaciones y diagramas de montaje revisados, sin certificación CAD de holguras."
+    },
+    {
+      "id": "audit-doc-smallrig-3026b-manual",
+      "brand": "SmallRig",
+      "type": "official",
+      "url": "https://static.smallrig.com/mall/img/public/m1twezvd88j-1751250182064_.pdf",
+      "local_path": "/references/smallrig-3026b-manual.pdf",
+      "sha256": "cccac6b0d249220f27da3d629783f7c8f2845681fbb127659a10f0b1d8ae291b",
+      "notes": "Documento del fabricante descargado; especificaciones y diagramas de montaje revisados, sin certificación CAD de holguras."
+    },
+    {
+      "id": "audit-doc-smallrig-vb99-manual",
+      "brand": "SmallRig",
+      "type": "official",
+      "url": "https://static.smallrig.com/mall/img/public/1730100759046_.pdf",
+      "local_path": "/references/smallrig-vb99-manual.pdf",
+      "sha256": "29458e5ec63cc32e2ed00181d2945309a6dd68e67221abb130f209f216892741",
+      "notes": "Documento del fabricante descargado; especificaciones y diagramas de montaje revisados, sin certificación CAD de holguras."
+    },
+    {
+      "id": "audit-doc-smallrig-3645-manual",
+      "brand": "SmallRig",
+      "type": "official",
+      "url": "https://static.smallrig.com/mall/img/public/1720407286655_.pdf",
+      "local_path": "/references/smallrig-3645-manual.pdf",
+      "sha256": "a333300a7be4745b53b6a4205ff657296dabbb20e048f9ec8cef2cfe1dd57a0e",
+      "notes": "Documento del fabricante descargado; especificaciones y diagramas de montaje revisados, sin certificación CAD de holguras."
+    },
+    {
+      "id": "audit-doc-indie7-port-guide",
+      "brand": "SmallHD",
+      "type": "official",
+      "url": "https://media.screensteps.com/image_assets/assets/006/136/465/original/Screen%20Shot%202022-12-13%20at%201.27.23%20PM.png",
+      "local_path": "/references/indie7-port-guide.png",
+      "sha256": "5223bd6c833a3852a6ba08adabfa88434b91cf75d24e418945e7ebe3f7f90959",
+      "notes": "Documento del fabricante descargado; especificaciones y diagramas de montaje revisados, sin certificación CAD de holguras."
+    },
+    {
+      "id": "audit-doc-startech-specs",
+      "brand": "StarTech",
+      "type": "official",
+      "url": "https://media.startech.com/cms/pdfs/st122hd4ku_datasheet.pdf",
+      "local_path": "/references/startech-specs.pdf",
+      "sha256": "4a7652201365991cd49d51827afb8b48fa874e3f5f408dd71e7409a04f186917",
+      "notes": "Documento del fabricante descargado; especificaciones y diagramas de montaje revisados, sin certificación CAD de holguras."
+    },
+    {
+      "id": "audit-doc-smallrig-3203b-manual",
+      "brand": "SmallRig",
+      "type": "official",
+      "url": "https://static.smallrig.com/mall/img/public/1714289722871_.pdf",
+      "local_path": "/references/smallrig-3203b-manual.pdf",
+      "sha256": "5d8bd05e36c1561211e066d08f3958cedc116e86b21f955af48e3bf1d67c7027",
+      "notes": "Documento del fabricante descargado; especificaciones y diagramas de montaje revisados, sin certificación CAD de holguras."
+    },
+    {
+      "id": "audit-doc-smallrig-4253b-manual",
+      "brand": "SmallRig",
+      "type": "official",
+      "url": "https://static.smallrig.com/mall/img/public/1706163303324_.pdf",
+      "local_path": "/references/smallrig-4253b-manual.pdf",
+      "sha256": "9f1d5dc8c3af2e32f66b811c80fa074ac72e14b26426102f92cd6d0e64c200b4",
+      "notes": "Documento del fabricante descargado; especificaciones y diagramas de montaje revisados, sin certificación CAD de holguras."
+    },
+    {
+      "id": "audit-indie-port-guide",
+      "brand": "SmallHD",
+      "type": "official",
+      "url": "https://guide.smallhd.com/a/1634747-indie-7-quick-start-guide",
+      "notes": "Mapa de conectores: I entrada DC, J entrada HDMI, K salida HDMI. Entrada de 10-34 V DC y 2 A; interior y polaridad del barril por verificar."
+    }
+  ],
+  "audit_on": "2026-10-05"
+}
+
