@@ -7,6 +7,7 @@ import assemblyManifest from "../../data/assembly-guide.json";
 import portsManifest from "../../data/ports-manifest.json";
 import referenceManifest from "../../data/geometry-references.json";
 import geometryAudit from "../../data/geometry-audit.json";
+import plannerRules from "../../data/planner-rules.json";
 import type {
   CablesManifest,
   PartsManifest,
@@ -16,9 +17,11 @@ import type {
   LayoutNode,
   Vec3,
   Port,
+  PlannerRules,
 } from "../lib/types";
 
 export const partsData = partsManifest as PartsManifest;
+export const plannerData = plannerRules as PlannerRules;
 export const cablesData = cablesManifest as CablesManifest;
 export const variantsData = variantsManifest as VariantsManifest;
 export const sourcesData = sourcesManifest;
@@ -51,4 +54,3 @@ export const partById = Object.fromEntries(
 export const cableById = Object.fromEntries(
   cablesData.cables.map((cable) => [cable.cable_id, cable]),
 );
-

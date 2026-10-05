@@ -42,6 +42,7 @@
 - `data/geometry-references.json`: atribución y huellas de referencias descargadas.
 - `data/geometry-audit.json`: referencias visualmente revisadas.
 - `data/brand.json`: identidad provisional Takegrid.
+- `data/planner-rules.json`: cadenas conservadoras para rigs propios y etapas del montaje visual; no ampliar el catálogo ni activar accesorios pendientes sin nueva verificación.
 - Después de editar datos, ejecutar `node scripts/sync-docs.mjs`, validar y compilar.
 
 ## Fidelidad y carga
@@ -55,4 +56,7 @@
 - No redistribuir imágenes del fabricante ni importar CAD comunitario sin verificar derechos, revisión exacta y escala.
 - Netlify debe ejecutar `build:public` y publicar sólo `dist-public`; nunca subir el `dist` local completo ni `public/references`.
 - No sustituir referencias retiradas de la demo pública por imágenes inventadas: enlazar a su fuente oficial.
-
+- Preservar la identidad Takegrid, las cuatro tareas y las plantillas. Los rigs propios son copias/selecciones del usuario, no modificaciones del catálogo canónico.
+- El guardado local no es sincronización de cuenta. No afirmar guardado si falla el almacenamiento; no sobrescribir cambios de otra pestaña ni añadir piezas implícitas a una selección.
+- Conservar los planes en Mis rigs. No reintroducir exportación de archivos en la interfaz sin una petición explícita del usuario.
+- Ejecutar `npm run test:planner`; las transiciones de montaje son ilustrativas, nunca trayectorias físicas verificadas.

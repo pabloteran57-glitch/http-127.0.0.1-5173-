@@ -148,6 +148,29 @@ export interface VariantsManifest {
   variants: Variant[];
 }
 
+export interface CustomRig {
+  schema_version: 1;
+  id: string;
+  name: string;
+  context: "gimbal" | "handheld" | "static";
+  orientation: "landscape" | "vertical";
+  part_ids: string[];
+  updated_at: string;
+}
+
+export interface PlannerRules {
+  version: number;
+  max_saved_rigs: number;
+  parked_part_ids: string[];
+  mount_dependencies: Record<string, string[]>;
+  gimbal_only_part_ids: string[];
+  gimbal_excluded_part_ids: string[];
+  vertical_excluded_part_ids: string[];
+  categories: {id: string; label: string; part_ids: string[]}[];
+  assembly_frames: {step: number; add_part_ids: string[]; add_cable_ids: string[]; context_part_ids: string[]; note: string}[];
+  extraction_keep_part_ids: string[];
+}
+
 export interface Port {
   id: string;
   part_id: string | null;
@@ -157,4 +180,3 @@ export interface Port {
   position_confidence: string;
   identity_source_url: string;
 }
-

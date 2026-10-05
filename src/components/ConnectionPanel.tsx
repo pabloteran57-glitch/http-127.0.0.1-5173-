@@ -22,7 +22,7 @@ export default function ConnectionPanel({variant,bench,selectedId,onSelect}:{var
       {!bench&&hasVisualRoute&&<button className="show-route-button" onClick={()=>document.querySelector(".rig-stage")?.scrollIntoView({block:"start"})}>Ver ruta en el rig<Icon name="arrow"/></button>}
       <details><summary>Especificaciones y seguridad</summary><p><b>Señal / tensión:</b> {selected.voltage_or_signal_standard}</p><p><b>Longitud:</b> {selected.ideal_length_estimate}</p><p><b>Recorrido:</b> {selected.routing_path}</p><p><b>Alivio de tensión:</b> {selected.strain_relief_requirement}</p><p className="risk-text">{selected.risk_notes.join(" ")}</p><a href={partById[selected.source_part_id].primary_source_url} target="_blank" rel="noreferrer">Referencia de fabricante</a></details>
     </div>}
-    <p className="connection-list-heading">Elegir otra conexión</p>
+    {ids.length===0?<div className="connection-empty"><Icon name="connect"/><h3>Aún no hay conexiones</h3><p>Elige componentes y sus cables en Editar piezas. Sólo aparecen circuitos con ambos extremos disponibles.</p></div>:<p className="connection-list-heading">Elegir otra conexión</p>}
     <div className="connection-list">{ids.map(id=>{
       const c=cableById[id];const color=cablesData.color_coding[c.type==="data"?"control":c.type];
       return <button key={id} className={selected?.cable_id===id?"connection-choice chosen":"connection-choice"} onClick={()=>choose(id)} aria-pressed={selected?.cable_id===id} style={{borderLeftColor:color}}>
@@ -42,4 +42,3 @@ export function SplitFeedDiagram({selectedId,onSelect}:{selectedId:string;onSele
     <a href="https://guide.smallhd.com/a/1634747-indie-7-quick-start-guide" target="_blank" rel="noreferrer">Referencia de puertos SmallHD</a>
   </div>;
 }
-

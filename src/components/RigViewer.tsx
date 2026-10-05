@@ -5,7 +5,7 @@ import { Edges } from "@react-three/drei/core/Edges";
 import { Line } from "@react-three/drei/core/Line";
 import { OrbitControls } from "@react-three/drei/core/OrbitControls";
 import { RoundedBox } from "@react-three/drei/core/RoundedBox";
-import { Euler, Group, Path, Shape, Vector3 } from "three";
+import { Euler, Group, Mesh, Path, Shape, Vector3 } from "three";
 import type { OrbitControls as OrbitControlsImpl } from "three-stdlib";
 import { cableById, cablesData, layoutData, portById } from "../data";
 import type { LayoutNode, Variant, Vec3 } from "../lib/types";
@@ -22,6 +22,9 @@ interface Props {
   angle: ViewAngle;
   selectedCableId: string | null;
   resetKey: number;
+  highlightIds?: string[];
+  contextIds?: string[];
+  reveal?: boolean;
 }
 const scale = (v: number) => v / 100;
 const vector = (values: Vec3): Vec3 => values.map(scale) as Vec3;
@@ -166,18 +169,25 @@ function Geometry({node,selected}:{node:LayoutNode;selected:boolean}){
  }
 }
 
-function AnimatedNode({ node, exploded, vertical, selected, onSelect }: {
-  node: LayoutNode; exploded: boolean; vertical: boolean; selected: boolean; onSelect: (id: string) => void;
+function AnimatedNode({ node, exploded, vertical, selected, onSelect, context, reveal }: {
+  node: LayoutNode; exploded: boolean; vertical: boolean; selected: boolean; onSelect: (id: string) => void; context:boolean; reveal:boolean;
 }) {
   const group = useRef<Group>(null);
   const pos = vector(node.position_mm.map((v, i) => v + (exploded ? node.explode_mm[i] : 0)) as Vec3);
   const target = new Vector3(...pos);
-  useFrame((_, delta) => group.current?.position.lerp(target, Math.min(delta * 8, 1)));
+  const initialScale=useRef(reveal&&!window.matchMedia("(prefers-reduced-motion:reduce)").matches?0.01:1);
+  useFrame((_, delta) => {group.current?.position.lerp(target, Math.min(delta * 8, 1));group.current?.scale.lerp(new Vector3(1,1,1),Math.min(delta*7,1));});
+  useEffect(()=>{
+    if(!context)return;
+    const restore:(()=>void)[]=[];
+    group.current?.traverse(object=>{if(object instanceof Mesh){for(const material of Array.isArray(object.material)?object.material:[object.material]){const opacity=material.opacity,transparent=material.transparent,depthWrite=material.depthWrite;material.opacity=opacity*.18;material.transparent=true;material.depthWrite=false;restore.push(()=>{material.opacity=opacity;material.transparent=transparent;material.depthWrite=depthWrite;});}}});
+    return ()=>restore.forEach(reset=>reset());
+  },[context,selected]);
   const click = (event: ThreeEvent<MouseEvent>) => { event.stopPropagation(); onSelect(node.id); };
   const rotated = vertical && ["camera", "cage"].includes(node.kind);
   const rotation = node.rotation_deg.map(v=>v*Math.PI/180) as Vec3;
   if(rotated) rotation[2]+=Math.PI/2;
-  return <group ref={group} position={pos} onClick={click}>
+  return <group ref={group} position={pos} scale={initialScale.current} onClick={click}>
     <group rotation={rotation}>
       <Geometry node={node} selected={selected} />
     </group>
@@ -228,7 +238,7 @@ function PortProjection({anchors,elements}:{anchors:{id:string;position:Vec3}[];
  useFrame(({camera,size})=>anchors.forEach(a=>{const el=elements.current[a.id];if(!el)return;point.set(...a.position).project(camera);el.style.transform=`translate(-50%,-50%) translate(${(point.x*.5+.5)*size.width}px,${(-point.y*.5+.5)*size.height}px)`;el.style.visibility=point.z>1||point.z< -1?"hidden":"visible";}));
  return null;
 }
-export default function RigViewer({exploded,showCables,showLabels,variant,selectedId,onSelect,angle,selectedCableId,resetKey}:Props){
+export default function RigViewer({exploded,showCables,showLabels,variant,selectedId,onSelect,angle,selectedCableId,resetKey,highlightIds=[],contextIds=[],reveal=false}:Props){
  const labels=useRef<Record<string,HTMLButtonElement|null>>({});const portLabels=useRef<Record<string,HTMLSpanElement|null>>({});
  const nodes=layoutData.nodes.filter(n=>variant.active_part_ids.includes(n.id));
  const handheld=!variant.active_part_ids.includes("dji-rs4-pro-combo");
@@ -245,12 +255,12 @@ export default function RigViewer({exploded,showCables,showLabels,variant,select
  const focus=links.find(l=>l.cable.cable_id===selectedCableId);
  const anchors=focus?[{id:"a",position:focus.a!},{id:"b",position:focus.b!}]:[];
  const route=cableById[selectedCableId??""];
- return <div className="rig-stage" aria-label="Visor 3D del rig, geometría aproximada">
+ return <div className="rig-stage" aria-label="Visor 3D del rig, geometría aproximada" data-visible-parts={nodes.map(n=>n.id).join(",")} data-context-parts={contextIds.join(",")}>
   <div className="stage-corner">MODELO DE PLANIFICACIÓN <span>Geometría aproximada</span></div>
   <ViewerBoundary><Suspense fallback={<div className="viewer-fallback">Iniciando visor...</div>}><Canvas camera={{position:[-6,2.2,-7.5],fov:36}} dpr={[1,1.5]} gl={{antialias:true,alpha:true}}>
    <ambientLight intensity={1.6}/><directionalLight position={[-3,7,-6]} intensity={4.5} color="#f1f2ff"/><directionalLight position={[5,3,5]} intensity={3} color="#aec3d8"/><pointLight position={[-3,-2,-3]} intensity={14} color="#7cacae"/>
    <gridHelper args={[20,40,"#3d434c","#242933"]} position={[0,handheld?-.8:-3.6,0]}/>
-   {nodes.map(n=><AnimatedNode key={n.id} node={n} exploded={exploded} vertical={variant.viewer.mode==="vertical"} selected={selectedId===n.id&&!selectedCableId} onSelect={onSelect}/>)}
+   {nodes.map(n=><AnimatedNode key={n.id} node={n} exploded={exploded} vertical={variant.viewer.mode==="vertical"} selected={(selectedId===n.id&&!selectedCableId)||highlightIds.includes(n.id)} onSelect={onSelect} context={contextIds.includes(n.id)} reveal={reveal}/>)}
    {showCables&&links.map(({cable:c,a,b})=>{
     const focused=c.cable_id===selectedCableId;const color=cablesData.color_coding[c.type==="data"?"control":c.type];
     const opacity=selectedCableId&&!focused ? .18 : 1;
@@ -269,4 +279,3 @@ export default function RigViewer({exploded,showCables,showLabels,variant,select
   <div className="stage-footer"><span>ARRASTRA PARA GIRAR / ACERCA O ALEJA</span><span>Forma reconstruida con fotos y cotas, no CAD</span></div>
  </div>;
 }
-

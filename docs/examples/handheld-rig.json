@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "rig": {
+    "schema_version": 1,
+    "id": "rig-example-handheld",
+    "name": "Rodaje compacto / a mano",
+    "context": "handheld",
+    "orientation": "landscape",
+    "part_ids": ["sony-fx3", "sony-fe-16-35-gm", "smallrig-4770"],
+    "updated_at": "2026-10-05T00:00:00.000Z"
+  }
+}

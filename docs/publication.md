@@ -33,7 +33,7 @@ Netlify devuelve 404 para `/references/*` y sirve la app para las demás rutas. 
 
 Los cambios enviados a la rama de producción se despliegan automáticamente. Las solicitudes de cambio pueden generar una vista previa para revisión antes de integrarse.
 
-La app no ofrece todavía cuentas, proyectos sincronizados, comentarios persistentes ni edición simultánea. Compartir la URL permite revisar la misma versión, no una sesión de trabajo compartida.
+La app permite guardar rigs propios dentro de Mis rigs, en el navegador y origen actuales. No ofrece todavía cuentas, proyectos sincronizados, comentarios persistentes ni edición simultánea. Compartir la URL permite revisar la misma versión, no la biblioteca privada ni una sesión de trabajo compartida. No hay exportación de planos en la interfaz.
 
 ## Verificación de salida
 

@@ -5,9 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite --config vite.config.ts",
-    "validate": "node scripts/validate-data.mjs",
+    "validate": "node scripts/validate-data.mjs && node scripts/test-planner.mjs",
+    "test:planner": "node scripts/test-planner.mjs",
     "build": "npm run validate && tsc --noEmit && vite build --config vite.config.ts",
-    "build:public": "node scripts/validate-data.mjs --public && tsc --noEmit && vite build --config vite.config.ts --mode public-demo && node scripts/check-public-build.mjs",
+    "build:public": "node scripts/validate-data.mjs --public && node scripts/test-planner.mjs && tsc --noEmit && vite build --config vite.config.ts --mode public-demo && node scripts/check-public-build.mjs",
     "preview:public": "vite preview --config vite.config.ts --mode public-demo",
     "preview": "vite preview --config vite.config.ts"
   },
@@ -32,4 +33,3 @@
     "vite": "^6.2.1"
   }
 }
-

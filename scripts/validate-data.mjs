@@ -132,5 +132,17 @@ const humanText=[...parts.notes,...parts.parts.flatMap(p=>[p.verified_dimensions
 humanText.push(...ports.ports.flatMap(p=>[p.label,p.connector,p.note]),...Object.values(ui.part_names),...Object.values(ui.profile_hints),...Object.values(ui.task_hints),...Object.values(ui.connector_labels),...Object.values(ui.schema_labels),...audit.community_candidates.map(c=>c.note),...audit.geometry_upgrade_requirements);
 const legacyEnglish=/\b(Not published|Handheld|Dummy|Baseplate|Labels On|Labels Off|Exploded View|Assembled View|Strain relief|Published nominal|Current source|Primary source|planning mass|source set|pending|not verified|splitter|Type-A|Type-C)\b/i;
 for(const text of humanText)assert(!legacyEnglish.test(text),"Texto sin localizar: "+text);
-console.log(`CORRECTO: ${partIds.size} piezas, ${cableIds.size} conexiones, ${layout.nodes.length} elementos geométricos, 13 etapas y 7 perfiles. Etiquetas en español comprobadas. No implica certificación mecánica.`);
-
+const planner=JSON.parse(readFileSync(new URL("../data/planner-rules.json",import.meta.url),"utf8"));
+assert.equal(planner.version,1);
+assert.equal(planner.assembly_frames.length,13);
+const categorized=planner.categories.flatMap(c=>c.part_ids);
+assert.equal(new Set(categorized).size,categorized.length);
+assert.deepEqual(new Set(categorized),partIds);
+for(const [id,deps] of Object.entries(planner.mount_dependencies)){
+  assert(partIds.has(id));deps.forEach(dep=>assert(partIds.has(dep)));
+  const visit=(part,seen)=>{assert(!seen.has(part),"Ciclo de dependencias: "+part);for(const dep of planner.mount_dependencies[part]??[])visit(dep,new Set([...seen,part]));};
+  visit(id,new Set());
+}
+for(const key of ["parked_part_ids","gimbal_only_part_ids","gimbal_excluded_part_ids","vertical_excluded_part_ids","extraction_keep_part_ids"])planner[key].forEach(id=>assert(partIds.has(id)));
+planner.assembly_frames.forEach((frame,i)=>{assert.equal(frame.step,i+1);[...frame.add_part_ids,...frame.context_part_ids].forEach(id=>assert(partIds.has(id)));frame.add_cable_ids.forEach(id=>assert(cableIds.has(id)));});
+console.log(`CORRECTO: ${partIds.size} piezas, ${cableIds.size} conexiones, ${layout.nodes.length} elementos geométricos, 13 etapas, 7 plantillas y reglas de perfiles propios. Etiquetas en español comprobadas. No implica certificación mecánica.`);

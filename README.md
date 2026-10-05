@@ -2,7 +2,7 @@
 
 Planificador local React/TypeScript/Tailwind/React Three Fiber para DJI RS 4 Pro + Sony FX3. **Prototipo de planificación, no montaje certificado.** Nombre y logo provisionales.
 
-Interfaz, descripciones, avisos, guías y notas de exportación en español. Se conservan los nombres oficiales de productos, las siglas técnicas y los identificadores de datos. Fotografías y manuales del fabricante mantienen su contenido original, con explicación en español.
+Interfaz, descripciones, avisos y guías en español. Se conservan los nombres oficiales de productos, las siglas técnicas y los identificadores de datos. Fotografías y manuales del fabricante mantienen su contenido original, con explicación en español.
 
 ## Usar
 
@@ -19,9 +19,15 @@ En PowerShell usar `npm.cmd` si la política bloquea npm.ps1. Vite anuncia el pu
 
 Cuatro tareas: **Rig**, **Conexiones**, **Montaje** y **Piezas**. El visor abre sin cableado superpuesto; Conexiones activa las rutas y resalta un circuito con sus extremos A/B. En móvil, navegación inferior fija y selector de conexión junto al visor. El doble HDMI es un circuito de banco independiente del perfil, no un montaje aprobado en el rig.
 
-La ficha usa referencias del fabricante y despliega medidas, materiales y restricciones bajo demanda. Montaje conserva trece etapas y separa las revisiones de lectura por perfil durante la sesión. Piezas conserva las veintisiete entradas, con búsqueda y filtro de perfil. Detalles del perfil contiene siete plantillas, desglose de peso, distribución aproximada y pruebas pendientes. Exportar genera un plano técnico JSON con fuentes, criterios de ingeniería y advertencias.
+La ficha usa referencias del fabricante y despliega medidas, materiales y restricciones bajo demanda. Montaje conserva trece etapas y separa las revisiones de lectura por configuración durante la sesión. Piezas conserva las veintisiete entradas, con búsqueda y filtro de perfil. Detalles del perfil contiene siete plantillas, desglose de peso, distribución aproximada y pruebas pendientes. Los planes se guardan y abren dentro de la app, sin exportar archivos.
 
 Vista de marca: `/brand/preview.html`. SVG reutilizables en `public/brand`; nombre en `data/brand.json`.
+
+## Rigs Propios
+
+**Crear rig** abre una selección vacía. **Personalizar** crea una copia editable de la plantilla actual. Elige productos, revisa dependencias y guarda el perfil en **Mis rigs**. **Guardar rig** también puede guardar directamente una copia de una plantilla. El guardado es local a este navegador, no una cuenta sincronizada. Las piezas pendientes se conservan sin inventar un montaje.
+
+**Montaje** ahora incluye un visor acumulativo de trece etapas, reproducción y controles anterior/siguiente. Cada etapa conserva sus comprobaciones. La animación es ilustrativa, no una trayectoria de acople medida. Reglas, esquema y límites en [rigs propios](docs/custom-rigs.md).
 
 ## Datos Canónicos
 
@@ -32,6 +38,7 @@ Vista de marca: `/brand/preview.html`. SVG reutilizables en `public/brand`; nomb
 - `data/engineering-manifest.json`: límites publicados y políticas de masa/centros ponderados.
 - `data/sources.json`, `data/geometry-references.json`, `data/geometry-audit.json`: atribución, descargas SHA-256 y referencias revisadas.
 - `data/ui-content.json`: nombres cortos y traducciones de presentación; no reemplaza especificaciones ni interfaces canónicas.
+- `data/planner-rules.json`: dependencias conservadoras del catálogo actual y fotogramas de montaje; no certifica compatibilidad universal.
 
 Documentación completa en `docs/`. Regenerar con `node scripts/sync-docs.mjs` después de cambiar datos; no editar especificaciones sólo en la interfaz.
 
