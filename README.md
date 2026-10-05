@@ -53,5 +53,6 @@ No se importó CAD comunitario no verificado. Toda forma 3D interna y pose es ap
 
 ## Publicación
 
-Usar `npm run build:public` para publicar: genera `dist-public` sin redistribuir las fotografías, manuales ni capturas de investigación. La demo conserva los datos y las funciones de planificación y utiliza enlaces oficiales para consultar referencias. El archivo local completo se mantiene separado. Configuración automática de Netlify en `netlify.toml`; proceso y límites en [publicación](docs/publication.md).
+Demo pública: [Abrir Takegrid](https://takegrid.netlify.app/). Código de despliegue: [repositorio en GitHub](https://github.com/pabloteran57-glitch/http-127.0.0.1-5173-). Netlify publica los cambios enviados a `main`; el servidor local no necesita permanecer encendido. Compartir el enlace no crea una sesión de edición colaborativa.
 
+Usar `npm run build:public` para publicar: genera `dist-public` sin redistribuir las fotografías, manuales ni capturas de investigación. La demo conserva los datos y las funciones de planificación y utiliza enlaces oficiales para consultar referencias. El archivo local completo se mantiene separado. Configuración automática de Netlify en `netlify.toml`; proceso y límites en [publicación](docs/publication.md).

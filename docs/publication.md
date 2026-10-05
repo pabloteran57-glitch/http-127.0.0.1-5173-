@@ -1,5 +1,16 @@
 # Publicación web
 
+## Despliegue activo
+
+- Demo pública HTTPS: [Takegrid](https://takegrid.netlify.app/).
+- Repositorio público: [pabloteran57-glitch/http-127.0.0.1-5173-](https://github.com/pabloteran57-glitch/http-127.0.0.1-5173-).
+- Proyecto Netlify: `takegrid`; producción desde `main`, comando `npm run build:public`, salida `dist-public`, Node 22.
+- Primer despliegue verificado el 5 de octubre de 2026, commit `f6e7f3b0e9bdcebaabfd5fed65c2ad7dd4d833f2`. Compilación remota: 27 piezas, 17 conexiones, 13 etapas y 7 perfiles; salida propia de 1.41 MB.
+- Comprobados visor, despiece, circuitos A/B, doble HDMI de banco, siete perfiles, inventario, búsqueda, estado vacío y navegación móvil. No son pruebas mecánicas ni eléctricas del equipo físico.
+- Comprobación HTTP: portada 200, solicitud bajo `/references/` 404 y CSS 200 con caché inmutable. Cabeceras de HTTPS, `nosniff`, protección de marcos y restricciones de cámara/micrófono/geolocalización presentes.
+
+La insignia superpuesta del proveedor se desactivó desde la configuración del proyecto para evitar tapar la navegación inferior en móvil. No se añadió un dominio de pago ni se cambió el plan contratado.
+
 ## Dos modos separados
 
 - `npm run build`: archivo local completo en `dist`, con fotografías y manuales de investigación. No subirlo a alojamiento público.
@@ -33,4 +44,3 @@ Fuentes de configuración: [Vite](https://vite.dev/config/shared-options.html#pu
 ## Dependencias
 
 Auditoría del 5 de octubre de 2026: `npm audit --omit=dev` devuelve cero alertas. La auditoría completa informa cinco alertas de gravedad alta en la cadena de compilación de Tailwind 3 (`braces`, `chokidar`, `micromatch` y `fast-glob`). No son un servicio de servidor expuesto en esta web estática, pero requieren seguimiento. No ejecutar `npm audit fix --force`: propone una migración mayor de Tailwind que debe probarse por separado.
-
