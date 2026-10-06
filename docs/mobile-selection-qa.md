@@ -1,6 +1,6 @@
 # Selección móvil y audio 0.2.3
 
-Revisión: 6 de octubre de 2026. Demo pública: https://takegrid.netlify.app/. Commit funcional: `0edf6c425b146f05d7419b3ca0fad57545fd553c`.
+Revisión: 6 de octubre de 2026. Demo pública: https://takegrid.netlify.app/. Corrección inicial: `0edf6c425b146f05d7419b3ca0fad57545fd553c`; continuación publicada: `9bc0306b0fa32d20a20c5ea2fa6baa53a1ee98cc`.
 
 ## Incidencias y resultado
 
@@ -35,3 +35,12 @@ Se usaron perfiles de prueba separados. No se borró la biblioteca ni se recarg�
 - [DJI Mic 2, especificaciones](https://www.dji.com/mic-2/specs): RX 54,20 × 28,36 × 22,49 mm y 28 g.
 
 Capturas locales de evidencia en `public/previews/`, excluidas de publicación. Persisten: aceptación observada, rendimiento en equipos reales, derechos de miniaturas/modelos y ensayos mecánicos/eléctricos. Esta corrección no libera la beta.
+
+## Continuación: modelos y despliegue
+
+- Compilación local y pública aprobadas. 119 pruebas automáticas: las 99 anteriores y 20 sintéticas para identidad, derechos, GLB autocontenido, índices, triángulos, hash y escala. No son ensayos de una malla real ni mediciones de GPU.
+- Salida pública de 14 archivos permitidos, 1,61 MB, sin PDF de reunión, fotos privadas, recursos de investigación ni GLB sin aprobar. Recursos observados en producción: `index-CEuQy2P6.js`, `index-Bh-oL0EQ.css` y `RigViewer-BRSJyPb-.js`.
+- Sony publica 630 g de cuerpo FX3 y 715 g con batería/tarjeta. El manifiesto y la ficha pública usan ahora 630 g, no los 640 g anteriores sin respaldo. El subtotal del perfil de prueba es ~1,55 kg y sigue incompleto.
+- Repetidos en el despliegue: categoría Jaulas y accesorios con siete referencias, búsqueda global de Mic 2, quitar/reponer sin salir del catálogo, diez elegidas, guardado con historial, recarga con las mismas diez, monitor y RX en visor, extremos de audio A/B y nueve etapas propias. Reproducción 2× termina en etapa 9 de 9 con Reproducir de nuevo, ocho nodos y cero comprobaciones físicas marcadas; no entra en extracción opcional. Consola capturada sin errores ni advertencias.
+- La repetición final del editor se midió a 1280 × 900. Aunque se solicitó 390 × 844 al control de viewport, la pestaña conservó el tamaño de escritorio; una pestaña aislada tampoco aplicó la reducción. No se contabiliza como una nueva prueba móvil. Los tamaños de la revisión previa se conservan como registro histórico; sigue pendiente comprobar teléfonos físicos y repetir la emulación con un control efectivo.
+- El registro GLB está vacío: la infraestructura preparada no equivale a renders nuevos. La fotografía FX3 con licencia revisada sigue local y muestra otra óptica; no basta para reconstrucción multivista. Meshy espera sesión y referencias adecuadas autorizadas.
