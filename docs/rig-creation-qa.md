@@ -24,7 +24,7 @@ Se consultaron [condiciones SmallRig](https://www.smallrig.com/contentpage/terms
 
 ## Pruebas
 
-87 pruebas automáticas: 54 planificador/persistencia, 26 evidencia/visibilidad y siete worker simulado; además de 300 selecciones y 300 guías reproducibles. Casos nuevos: vertical con monitor y sin fuente implícita, quitar NATO, selección completa sin geometría, sugerencias por contexto, montaje acumulativo, retorno a horizontal y recuperación del rig. TypeScript y compilación pública comprobados.
+88 pruebas automáticas: 55 planificador/persistencia, 26 evidencia/visibilidad y siete worker simulado; además de 300 selecciones y 300 guías reproducibles. Casos nuevos: vertical con monitor y sin fuente implícita, quitar NATO, selección completa sin geometría, recuentos que particionan las elecciones, sugerencias por contexto, montaje acumulativo, retorno a horizontal y recuperación del rig. TypeScript y compilación pública comprobados.
 
 La vista local anunció `http://127.0.0.1:5173/`; el navegador de prueba agotó el tiempo de conexión. No se registra como prueba visual aprobada. Revisión interactiva publicada y pantallas aún por registrar en esta iteración.
 

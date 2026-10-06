@@ -7,7 +7,8 @@ export function officialVisualLink(id: string) {
   const reference = referenceById[id];
   const media = referencesData.parts.find(part => part.id === id)?.images.find(image => image.url === reference?.source_url && image.local_path === reference?.display_image && image.content_type.startsWith("image/"));
   const photo = reference?.review === "visual_identity_checked" && !!media;
-  return {href: photo ? reference.source_url : partById[id].primary_source_url, label: photo ? "Ver foto oficial" : "Ver producto oficial"};
+  const href = reference?.source_url ?? partById[id].primary_source_url;
+  return {href, label: photo ? "Ver foto oficial" : /\.pdf(?:\?|$)/i.test(href) ? "Ver referencia oficial" : "Ver producto oficial"};
 }
 
 // Pictogramas de categoría: no contienen cotas, roscas ni anclajes de producto.
