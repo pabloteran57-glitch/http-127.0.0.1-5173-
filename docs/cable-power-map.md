@@ -279,7 +279,7 @@ Revisión por circuito y fuentes: [comprobaciones de conexiones](connection-revi
 - `vb99-dtap`: Salida D-Tap / D-Tap hembra; anclaje visual XYZ -36.6/32/-5 mm aproximado; [fuente](https://www.smallrig.com/smallrig-VB99-Pro-mini-V-Mount-Battery-4292.html?sku=4292).
 - `vb99-vmount`: Alimentación V-mount / Contactos V-mount; sin pose habilitada; [fuente](https://www.smallrig.com/smallrig-VB99-Pro-mini-V-Mount-Battery-4292.html?sku=4292).
 - `plate-vmount`: Entrada V-mount / Contactos V-mount; sin pose habilitada; [fuente](https://www.smallrig.com/jp/Advanced-V-Mount-Battery-Mount-Plate-with-Dual-15mm-Rod-Clamp-3203B.html).
-- `plate-dtap`: Salida D-Tap / 14.8 V nominales / D-Tap hembra; anclaje visual XYZ -54/-48/0 mm aproximado; [fuente](https://static.smallrig.com/mall/img/public/1714289722871_.pdf).
+- `plate-dtap`: Salida D-Tap / tensión efectiva pendiente / D-Tap hembra; anclaje visual XYZ -54/-48/0 mm aproximado; [fuente](https://static.smallrig.com/mall/img/public/1714289722871_.pdf).
 - `indie7-hdmi-in`: J / entrada HDMI / HDMI tipo A hembra; anclaje visual XYZ 70/-49/16.75 mm aproximado; [fuente](https://guide.smallhd.com/a/1634747-indie-7-quick-start-guide).
 - `indie7-hdmi-out`: K / salida HDMI / HDMI tipo A hembra; anclaje visual XYZ 48/-49/16.75 mm aproximado; [fuente](https://guide.smallhd.com/a/1634747-indie-7-quick-start-guide).
 - `indie7-dc`: I / entrada DC / Barril DC del fabricante; cable de 5.5 mm de diámetro exterior; anclaje visual XYZ -28/-55/16.75 mm aproximado; [fuente](https://guide.smallhd.com/a/1634747-indie-7-quick-start-guide).

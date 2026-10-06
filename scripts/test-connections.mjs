@@ -101,6 +101,12 @@ test("Un dato sin fuente de campo no puede probar coincidencia", () => {
   const c = clone(context); c.ports.find(p => p.id === "indie7-dc").electrical.input_polarity = "center_positive";
   assert.equal(check(assess(monitor, manifest, c), "monitor-polarity").state, "pending");
 });
+test("Entrada 3203B y capacidad de batería no inventan una salida", () => {
+  const port = context.ports.find(p => p.id === "plate-dtap");
+  assert.equal(port.electrical.output_nominal_v, undefined);
+  assert.equal(port.electrical.output_range_v, null);
+  assert.equal(check(assess(monitor), "monitor-voltage").state, "pending");
+});
 test("Evaluar conexiones no modifica datos, selección ni evidencia", () => {
   const before = JSON.stringify({manifest, context, cables}); cables.forEach(c => assess(c.cable_id)); assert.equal(JSON.stringify({manifest, context, cables}), before);
 });

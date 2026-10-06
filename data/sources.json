@@ -507,12 +507,13 @@
     {
       "id": "audit-doc-smallrig-3203b-manual",
       "review_subject_part_ids": ["smallrig-3203b"],
+      "checked_on": "2026-10-06",
       "brand": "SmallRig",
       "type": "official",
       "url": "https://static.smallrig.com/mall/img/public/1714289722871_.pdf",
       "local_path": "/references/smallrig-3203b-manual.pdf",
       "sha256": "5d8bd05e36c1561211e066d08f3958cedc116e86b21f955af48e3bf1d67c7027",
-      "notes": "Documento del fabricante descargado; especificaciones y diagramas de montaje revisados, sin certificación CAD de holguras."
+      "notes": "Página 4 revisada visualmente: entrada D-Tap 11.0-16.8 V; 14.8 V en capacidad nominal de batería, no rango de salida. Salida efectiva pendiente. Montaje de abrazadera revisado; no certifica holguras."
     },
     {
       "id": "audit-doc-smallrig-4253b-manual",

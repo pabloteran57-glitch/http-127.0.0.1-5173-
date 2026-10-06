@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "reviewed_on": "2026-10-05",
+  "reviewed_on": "2026-10-06",
   "status": "prototype_hardening_in_progress",
-  "progress_report": "docs/iteration-qa.md",
+  "progress_report": "docs/connection-review-qa.md",
   "user_decisions": [{"date":"2026-10-05","decision":"Mantener guardado local por ahora","effect":"Cuentas, sincronización y revisión privada aplazadas; no se creó un backend ni se eliminan del alcance futuro."}],
   "scope": "Hoja de ruta de producto; no contiene nuevas especificaciones de equipo ni certifica montajes.",
   "recommendation": "Estabilizar rigs propios y montaje, preparar reglas extensibles y ampliar el catálogo por lotes verificados antes de abrir una beta pública.",

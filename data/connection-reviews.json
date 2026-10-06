@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "connection-review-2026-10-05-1",
+  "revision": "connection-review-2026-10-06-1",
   "catalog_revision": "fx3-rs4-2026-10-05",
   "policy": "Revisión documental limitada a modelos, puertos y revisión vinculados. No es autorización para energizar ni ensayo físico. Fuentes de valores eléctricos en cables-manifest y ports-manifest; ausencia de rango, pinout o protocolo mantiene el resultado pendiente.",
   "reviews": [
@@ -52,7 +52,7 @@
     {
       "cable_id":"pwr-plate-to-smallhd",
       "catalog_revision":"fx3-rs4-2026-10-05",
-      "reviewed_on":"2026-10-05",
+      "reviewed_on":"2026-10-06",
       "action":"Antes de energizar, confirma que el pinout de entrada del Indie 7 coincide con el centro positivo del cable, comprueba ajuste del barril y mide la salida de la placa bajo carga.",
       "binding": {
         "source_part_id":"smallhd-dtap-to-2mm-barrel","from_port_id":"plate-dtap","to_port_id":"indie7-dc",
@@ -60,18 +60,18 @@
         "signal_standard":"D-Tap a tensión de batería; Indie 7 admite 10-34 V DC y entrada nominal de 2 A. El cable no regula.",
         "electrical_revision":"2026-10-05-1",
         "models":[{"part_id":"smallrig-3203b","model_number":"3203B","exact_product_name":"SmallRig V-Mount Battery Adapter Plate with Dual 15 mm Rod Clamp"},{"part_id":"smallhd-indie-7","model_number":"MON-INDIE-7","exact_product_name":"SmallHD Indie 7 Touchscreen On-Camera Monitor"},{"part_id":"smallhd-dtap-to-2mm-barrel","model_number":"CBL-PWR-DTAP-BAR-36","exact_product_name":"SmallHD D-Tap to 5.5mm Male DC Barrel Power Cable (36in / 91cm)"}],
-        "ports":[{"id":"plate-dtap","connector":"D-Tap hembra","electrical_revision":"2026-10-05-1"},{"id":"indie7-dc","connector":"Barril DC del fabricante; cable de 5.5 mm de diámetro exterior","electrical_revision":"2026-10-05-1"}]
+        "ports":[{"id":"plate-dtap","connector":"D-Tap hembra","electrical_revision":"2026-10-06-1"},{"id":"indie7-dc","connector":"Barril DC del fabricante; cable de 5.5 mm de diámetro exterior","electrical_revision":"2026-10-05-1"}]
       },
       "citations": {
         "cable":{"source_id":"src-smallhd-dtap-barrel","source_url":"https://smallhd.com/products/dtap-barrel-36in","locator":"SKU CBL-PWR-DTAP-BAR-36; Tech Specs > Cable > Pinout; diámetro de producto 5.5 mm","claim":"Cable con centro positivo publicado y exterior de barril 5.5 mm. No establece el pinout de entrada del monitor ni el diámetro interior.","part_ids":["smallhd-dtap-to-2mm-barrel"]},
         "monitor":{"source_id":"audit-indie-port-guide","source_url":"https://guide.smallhd.com/a/1634747-indie-7-quick-start-guide","locator":"Indie 7 Quick Start Guide > Connectors > I: Barrel connector for power","claim":"Entrada Indie 7 de 10-34 V DC y 2 A publicados; no se identifican diámetro interior ni pinout en esta guía.","part_ids":["smallhd-indie-7"]},
-        "plate":{"source_id":"audit-doc-smallrig-3203b-manual","source_url":"https://static.smallrig.com/mall/img/public/1714289722871_.pdf","locator":"Tabla de especificaciones eléctricas: D-Tap output","claim":"Placa 3203B: salida D-Tap de 14.8 V nominales. No usar el nominal como un rango de salida verificado bajo carga.","part_ids":["smallrig-3203b"]}
+        "plate":{"source_id":"audit-doc-smallrig-3203b-manual","source_url":"https://static.smallrig.com/mall/img/public/1714289722871_.pdf","locator":"Página 4, Specifications: D-Tap Input Voltage y Battery Rated Capacity","claim":"La tabla publica entrada D-Tap de 11.0-16.8 V; 14.8 V aparece en capacidad nominal de batería, no como rango de salida D-Tap. La salida efectiva queda pendiente.","part_ids":["smallrig-3203b"]}
       },
       "checks": [
         {"id":"monitor-input","kind":"specification","label":"Entrada del Indie 7","subject_part_ids":["smallhd-indie-7"],"citation_ids":["monitor"],"detail":"10-34 V DC y 2 A de entrada publicados. Los 2 A no son una medición de consumo del rig."},
         {"id":"monitor-cable","kind":"specification","label":"Cable SmallHD exacto","subject_part_ids":["smallhd-dtap-to-2mm-barrel"],"citation_ids":["cable"],"detail":"CBL-PWR-DTAP-BAR-36: exterior 5.5 mm y centro positivo documentados."},
         {"id":"monitor-polarity","kind":"polarity","label":"Coincidencia de polaridad","source":{"owner":"cable","field":"output_polarity"},"receiver":{"owner":"to_port","field":"input_polarity"},"citation_ids":["cable","monitor"],"detail":"El cable tiene centro positivo; falta confirmar el pinout de entrada del monitor. No asumir coincidencia."},
-        {"id":"monitor-voltage","kind":"voltage_range","label":"Rango de la salida D-Tap","source":{"owner":"from_port","field":"output_range_v"},"receiver":{"owner":"to_port","field":"input_range_v"},"citation_ids":["plate","monitor"],"detail":"14.8 V es nominal, no el rango completo bajo carga. Confirmar la salida de la placa para este conjunto."},
+        {"id":"monitor-voltage","kind":"voltage_range","label":"Rango de la salida D-Tap","source":{"owner":"from_port","field":"output_range_v"},"receiver":{"owner":"to_port","field":"input_range_v"},"citation_ids":["plate","monitor"],"detail":"El manual de la placa publica el rango de entrada D-Tap, no un rango completo de salida. Confirmar la salida efectiva de este conjunto bajo carga."},
         {"id":"monitor-fit-route","kind":"operational","label":"Ajuste y recorrido","citation_ids":[],"detail":"Diámetro interior, retención, carga compartida y bucles entre cámara móvil y monitor fijo pendientes de verificación física."}
       ]
     }

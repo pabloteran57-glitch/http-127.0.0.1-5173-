@@ -1,6 +1,6 @@
 # Revisión de conexiones
 
-Fuente: `data/connection-reviews.json`, revisión `connection-review-2026-10-05-1`. Valores eléctricos canónicos en cables y puertos, con fuente por campo. 3 de 17 circuitos con revisión ampliada.
+Fuente: `data/connection-reviews.json`, revisión `connection-review-2026-10-06-1`. Valores eléctricos canónicos en cables y puertos, con fuente por campo. 3 de 17 circuitos con revisión ampliada.
 
 Revisión documental limitada a modelos, puertos y revisión vinculados. No es autorización para energizar ni ensayo físico. Fuentes de valores eléctricos en cables-manifest y ports-manifest; ausencia de rango, pinout o protocolo mantiene el resultado pendiente.
 
@@ -46,12 +46,12 @@ Antes de conectar: Antes de energizar, confirma que el pinout de entrada del Ind
 - **Entrada del Indie 7:** 10-34 V DC y 2 A de entrada publicados. Los 2 A no son una medición de consumo del rig.
 - **Cable SmallHD exacto:** CBL-PWR-DTAP-BAR-36: exterior 5.5 mm y centro positivo documentados.
 - **Coincidencia de polaridad:** El cable tiene centro positivo; falta confirmar el pinout de entrada del monitor. No asumir coincidencia.
-- **Rango de la salida D-Tap:** 14.8 V es nominal, no el rango completo bajo carga. Confirmar la salida de la placa para este conjunto.
+- **Rango de la salida D-Tap:** El manual de la placa publica el rango de entrada D-Tap, no un rango completo de salida. Confirmar la salida efectiva de este conjunto bajo carga.
 - **Ajuste y recorrido:** Diámetro interior, retención, carga compartida y bucles entre cámara móvil y monitor fijo pendientes de verificación física.
 
 - [SmallHD](https://smallhd.com/products/dtap-barrel-36in): SKU CBL-PWR-DTAP-BAR-36; Tech Specs > Cable > Pinout; diámetro de producto 5.5 mm. Cable con centro positivo publicado y exterior de barril 5.5 mm. No establece el pinout de entrada del monitor ni el diámetro interior.
 - [SmallHD](https://guide.smallhd.com/a/1634747-indie-7-quick-start-guide): Indie 7 Quick Start Guide > Connectors > I: Barrel connector for power. Entrada Indie 7 de 10-34 V DC y 2 A publicados; no se identifican diámetro interior ni pinout en esta guía.
-- [SmallRig](https://static.smallrig.com/mall/img/public/1714289722871_.pdf): Tabla de especificaciones eléctricas: D-Tap output. Placa 3203B: salida D-Tap de 14.8 V nominales. No usar el nominal como un rango de salida verificado bajo carga.
+- [SmallRig](https://static.smallrig.com/mall/img/public/1714289722871_.pdf): Página 4, Specifications: D-Tap Input Voltage y Battery Rated Capacity. La tabla publica entrada D-Tap de 11.0-16.8 V; 14.8 V aparece en capacidad nominal de batería, no como rango de salida D-Tap. La salida efectiva queda pendiente.
 
 
 ## Alcance pendiente

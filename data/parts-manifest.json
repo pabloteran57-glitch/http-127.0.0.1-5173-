@@ -493,7 +493,7 @@
       "planning_weight_g": 351,
       "ports_interfaces": [
         "Contactos de batería V-mount",
-        "Una salida D-Tap de 14.8 V nominales",
+        "Puerto D-Tap de entrada/salida; entrada publicada de 11.0-16.8 V. Salida efectiva por comprobar",
         "DC5521: 8 V / 3 A",
         "Dos DC5525: 12 V / 3 A cada uno",
         "USB-C PD de entrada/salida, hasta 65 W",

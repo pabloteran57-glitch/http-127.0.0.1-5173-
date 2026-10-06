@@ -230,7 +230,7 @@ Plan de ingeniería, no montaje certificado. Medidas publicadas no prueban forma
 - Masa publicada: 337 g. Aproximada: sí.
 - Nota de masa: La página oficial indica 337 ±5 g y el manual oficial 341 ±10 g. Se usan 351 g conservadores para planificación; pesar la revisión recibida.
 - Masa de planificación: 351 g; no sustituye pesaje del subconjunto instalado.
-- Interfaces: Contactos de batería V-mount; Una salida D-Tap de 14.8 V nominales; DC5521: 8 V / 3 A; Dos DC5525: 12 V / 3 A cada uno; USB-C PD de entrada/salida, hasta 65 W; USB-A QC de salida, hasta 36 W; Parte posterior: seis roscas 1/4-20 y diez M4; Bordes superior/inferior: cinco roscas 1/4-20
+- Interfaces: Contactos de batería V-mount; Puerto D-Tap de entrada/salida; entrada publicada de 11.0-16.8 V. Salida efectiva por comprobar; DC5521: 8 V / 3 A; Dos DC5525: 12 V / 3 A cada uno; USB-C PD de entrada/salida, hasta 65 W; USB-A QC de salida, hasta 36 W; Parte posterior: seis roscas 1/4-20 y diez M4; Bordes superior/inferior: cinco roscas 1/4-20
 - Montaje: Abrazadera doble incluida de 15 mm atornillada al borde superior, según el diagrama izquierdo del manual oficial, página 5; la placa cuelga bajo las varillas y la batería se fija por detrás.
 - Material: Aleación de aluminio, según el fabricante
 - Obligatorio/opcional: Obligatorio; función: Soporte trasero bajo de batería y distribución de alimentación.
