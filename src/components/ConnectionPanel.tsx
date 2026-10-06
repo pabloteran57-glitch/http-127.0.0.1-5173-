@@ -19,6 +19,8 @@ export default function ConnectionPanel({variant,bench,selectedId,onSelect}:{var
     {selected&&<div ref={focus} tabIndex={-1} className="connection-focus" aria-live="polite">
       <p className="connection-category" style={{color:cablesData.color_coding[selected.type==="data"?"control":selected.type]}}>{connectionKind(selected.type)} <span>{selected.display_kind==="cable"?"Cable":selected.display_kind==="contacts"?"Contactos":"Batería interna"}</span></p>
       <h3>{connectionName(selected.cable_id)}</h3>
+      <div className="endpoint-card"><span className="endpoint-letter">A</span><div><strong>{partName(selected.from_part_id)}</strong><p>{portById[selected.from_port_id].label}</p><small>{connectorName(selected.connector_a)}</small></div></div>
+      <div className="endpoint-card"><span className="endpoint-letter">B</span><div><strong>{partName(selected.to_part_id)}</strong><p>{portById[selected.to_port_id].label}</p><small>{connectorName(selected.connector_b)}</small></div></div>
       {review&&<section className={`connection-review ${review.state}`} aria-label="Revisión de la conexión">
         <div className="review-heading"><strong>{review.state==="blocked"?"No conectar":review.reviewed?"Requiere comprobación":"Revisión pendiente"}</strong>{review.reviewed&&<span>{documentedCount} {documentedCount===1?"dato documentado":"datos documentados"}</span>}</div>
         <p>{review.action}</p>
@@ -31,8 +33,6 @@ export default function ConnectionPanel({variant,bench,selectedId,onSelect}:{var
           <p className="review-limit">Revisión documental, no ensayo físico ni autorización para energizar.</p>
         </details>}
       </section>}
-      <div className="endpoint-card"><span className="endpoint-letter">A</span><div><strong>{partName(selected.from_part_id)}</strong><p>{portById[selected.from_port_id].label}</p><small>{connectorName(selected.connector_a)}</small></div></div>
-      <div className="endpoint-card"><span className="endpoint-letter">B</span><div><strong>{partName(selected.to_part_id)}</strong><p>{portById[selected.to_port_id].label}</p><small>{connectorName(selected.connector_b)}</small></div></div>
       {!bench&&hasVisualRoute&&<button className="show-route-button" onClick={()=>document.querySelector(".rig-stage")?.scrollIntoView({block:"start"})}>Ver ruta en el rig<Icon name="arrow"/></button>}
       <details><summary>Especificaciones y seguridad</summary><p><b>Señal / tensión:</b> {selected.voltage_or_signal_standard}</p><p><b>Longitud:</b> {selected.ideal_length_estimate}</p><p><b>Recorrido:</b> {selected.routing_path}</p><p><b>Alivio de tensión:</b> {selected.strain_relief_requirement}</p><p className="risk-text">{selected.risk_notes.join(" ")}</p><a href={partById[selected.source_part_id].primary_source_url} target="_blank" rel="noreferrer">Referencia de fabricante</a></details>
     </div>}

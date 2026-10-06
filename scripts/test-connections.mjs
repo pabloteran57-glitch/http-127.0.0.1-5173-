@@ -7,6 +7,8 @@ const manifest = read("connection-reviews"), cables = read("cables-manifest").ca
 const context = {catalog_revision: read("planner-rules").catalog_revision, parts: read("parts-manifest").parts, ports: read("ports-manifest").ports, sources: read("sources").sources};
 const compiled = ts.transpileModule(readFileSync(new URL("../src/lib/connections.ts", import.meta.url), "utf8"), {compilerOptions: {target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.ES2022}}).outputText;
 const {assessConnection, compareVoltageRanges, comparePolarities} = await import(`data:text/javascript;base64,${Buffer.from(compiled).toString("base64")}`);
+const viewerCode = ts.transpileModule(readFileSync(new URL("../src/lib/viewer.ts", import.meta.url), "utf8"), {compilerOptions: {target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.ES2022}}).outputText;
+const {visibleCableIds} = await import(`data:text/javascript;base64,${Buffer.from(viewerCode).toString("base64")}`);
 const assess = (id, m = manifest, c = context, link = cables.find(link => link.cable_id === id)) => assessConnection(link, m, c);
 const check = (result, id) => result.checks.find(check => check.id === id);
 const clone = value => structuredClone(value);
@@ -110,4 +112,21 @@ test("Entrada 3203B y capacidad de batería no inventan una salida", () => {
 test("Evaluar conexiones no modifica datos, selección ni evidencia", () => {
   const before = JSON.stringify({manifest, context, cables}); cables.forEach(c => assess(c.cable_id)); assert.equal(JSON.stringify({manifest, context, cables}), before);
 });
-console.log(`CORRECTO: ${count} pruebas de evidencia, límites e incertidumbre. Los valores sintetizados sólo existen en pruebas, nunca en el catálogo.`);
+test("La ruta seleccionada se ve aunque el cableado general esté oculto", () => {
+  assert.deepEqual(visibleCableIds([control, monitor], false, monitor), [monitor]);
+});
+test("Todos los cables conserva los circuitos con geometría disponibles", () => {
+  assert.deepEqual(visibleCableIds([control, monitor], true, monitor), [control, monitor]);
+});
+test("Una selección sin geometría no inventa una ruta visible", () => {
+  assert.deepEqual(visibleCableIds([control], false, "pwr-ac-to-splitter"), []);
+});
+test("La vista sin selección respeta ocultar cableado", () => {
+  assert.deepEqual(visibleCableIds([control, monitor], false, null), []);
+});
+test("Cambiar el cable resaltado no modifica ni añade circuitos", () => {
+  const ids = [control, monitor], snapshot = [...ids];
+  assert.deepEqual(visibleCableIds(ids, false, control), [control]);
+  assert.deepEqual(ids, snapshot);
+});
+console.log(`CORRECTO: ${count} pruebas de evidencia y visibilidad. Los valores sintetizados sólo existen en pruebas, nunca en el catálogo.`);

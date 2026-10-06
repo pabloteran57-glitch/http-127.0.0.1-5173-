@@ -6,6 +6,6 @@
   "catalog_revision":"fx3-rs4-2026-10-05",
   "storage":"local_only",
   "account_sync":"deferred_by_user",
-  "updates":["Revisión documental por modelo, puerto y circuito exactos", "Comprobaciones pendientes de tensión, polaridad y firmware visibles", "Fuentes oficiales por comprobación", "Recuperación local, historial y selecciones conservados"],
+  "updates":["Conexión seleccionada siempre visible; resto del cableado optativo", "Extremos A/B antes de las comprobaciones desplegables", "Revisión documental por modelo, puerto y circuito exactos", "Fuentes oficiales y pendientes eléctricos visibles", "Recuperación local, historial y selecciones conservados"],
   "limitations":["No validado con un rig físico completo", "Diez altas en investigación, no instalables", "Sin cuenta, nube ni enlaces privados", "Instalación web depende del navegador; no es una publicación en App Store"]
 }

@@ -10,6 +10,7 @@ import type { OrbitControls as OrbitControlsImpl } from "three-stdlib";
 import { cableById, cablesData, layoutData, portById } from "../data";
 import type { LayoutNode, Variant, Vec3 } from "../lib/types";
 import { connectionName } from "../lib/ui";
+import { visibleCableIds } from "../lib/viewer";
 import PerformanceProbe from "./PerformanceProbe";
 import type { PerformanceResult, PerformanceRun } from "../lib/performance";
 
@@ -287,15 +288,17 @@ export default function RigViewer({exploded,showCables,showLabels,variant,select
  };
  const links=variant.cable_profile_ids.map(id=>({cable:cableById[id],a:endpoint(cableById[id].from_port_id),b:endpoint(cableById[id].to_port_id)})).filter(l=>l.a&&l.b&&l.cable.display_kind==="cable");
  const focus=links.find(l=>l.cable.cable_id===selectedCableId);
+ const visibleIds=visibleCableIds(links.map(link=>link.cable.cable_id),showCables,selectedCableId);
+ const visibleLinks=links.filter(link=>visibleIds.includes(link.cable.cable_id));
  const anchors=focus?[{id:"a",position:focus.a!},{id:"b",position:focus.b!}]:[];
  const route=cableById[selectedCableId??""];
- return <div className="rig-stage" aria-label="Visor 3D del rig, geometría aproximada" data-visible-parts={nodes.map(n=>n.id).join(",")} data-context-parts={contextIds.join(",")}>
+ return <div className="rig-stage" aria-label="Visor 3D del rig, geometría aproximada" data-visible-parts={nodes.map(n=>n.id).join(",")} data-visible-cables={visibleIds.join(",")} data-context-parts={contextIds.join(",")}>
   <div className="stage-corner">MODELO DE PLANIFICACIÓN <span>Geometría aproximada</span></div>
   <ViewerBoundary onUnavailable={onUnavailable}><Suspense fallback={<div className="viewer-fallback">Iniciando visor...</div>}><Canvas frameloop={performanceRun?.policy??"demand"} camera={{position:[-6,2.2,-7.5],fov:36}} dpr={[1,1.5]} gl={{antialias:true,alpha:true}}>
    <ambientLight intensity={1.6}/><directionalLight position={[-3,7,-6]} intensity={4.5} color="#f1f2ff"/><directionalLight position={[5,3,5]} intensity={3} color="#aec3d8"/><pointLight position={[-3,-2,-3]} intensity={14} color="#7cacae"/>
    <gridHelper args={[20,40,"#3d434c","#242933"]} position={[0,handheld?-.8:-3.6,0]}/>
    {nodes.map(n=><AnimatedNode key={n.id} node={n} exploded={exploded} vertical={variant.viewer.mode==="vertical"} selected={(selectedId===n.id&&!selectedCableId)||highlightIds.includes(n.id)} onSelect={onSelect} context={contextIds.includes(n.id)} reveal={reveal}/>)}
-   {showCables&&links.map(({cable:c,a,b})=>{
+   {visibleLinks.map(({cable:c,a,b})=>{
     const focused=c.cable_id===selectedCableId;const color=cablesData.color_coding[c.type==="data"?"control":c.type];
     const opacity=selectedCableId&&!focused ? .18 : 1;
     const midA=a!.map((v,i)=>v+scale(c.route_control_offsets_mm!.a[i])) as Vec3;

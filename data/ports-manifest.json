@@ -152,7 +152,7 @@
       "id": "plate-dtap",
       "electrical": {"revision":"2026-10-06-1","output_range_v":null,"field_sources":{}},
       "part_id": "smallrig-3203b",
-      "label": "Salida D-Tap / tensión efectiva pendiente",
+      "label": "Salida D-Tap",
       "connector": "D-Tap hembra",
       "local_position_mm": [
         -54,

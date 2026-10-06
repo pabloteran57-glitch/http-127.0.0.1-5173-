@@ -10,6 +10,7 @@ Primero se actualizaron fuentes y campos canónicos; después guía, motor e int
 
 - 46 pruebas de planificador/persistencia y 300 selecciones + 300 guías reproducibles.
 - 21 pruebas de evidencia: modelos/nombres exactos, puertos, conectores, fuente con alcance, catálogo, firmware, valores ausentes, rangos completos, polaridad, entrada/salida y ausencia de mutaciones.
+- Cinco pruebas de visibilidad: la conexión seleccionada se muestra aunque el cableado general esté oculto; no se crean rutas para circuitos sin geometría. El control Todos los cables sólo añade las rutas disponibles. Los extremos A/B preceden a los detalles extensos.
 - Siete pruebas simuladas del worker; no certifican desconexión o instalación en un dispositivo físico.
 - Compilaciones local y pública comprobadas. TypeScript y validación de manifiestos incluidos.
 - Paquete público sin medios de fabricantes, capturas de investigación ni credenciales. El bloque 3D de aproximadamente 928 kB sin comprimir conserva la advertencia de tamaño; no se atribuye una mejora de GPU a este cambio.

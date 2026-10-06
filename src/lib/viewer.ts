@@ -1,5 +1,9 @@
 import type { LayoutManifest, Part, Variant } from "./types";
 
+export function visibleCableIds(availableIds: string[], showAll: boolean, selectedId: string | null): string[] {
+  return availableIds.filter(id => showAll || id === selectedId);
+}
+
 // Sólo piezas móviles modeladas; no es una carga completa ni certificada.
 export function movingMass(variant: Variant, layout: LayoutManifest, parts: Record<string, Part>) {
   const moving = layout.nodes.filter(n => n.mass_domain === "moving" && variant.active_part_ids.includes(n.id));
@@ -13,4 +17,3 @@ export function movingMass(variant: Variant, layout: LayoutManifest, parts: Reco
     excluded: "Leads, RX-only mass, fasteners and plate-stack additions must be weighed. Gimbal and fixed side monitor excluded.",
   };
 }
-
