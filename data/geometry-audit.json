@@ -1,5 +1,6 @@
 {
-  "audit_on": "2026-10-05",
+  "audit_on": "2026-10-06",
+  "interface_reviews": [{"part_ids":["smallrig-4770","dji-mic-2-kit"],"reviewed_on":"2026-10-06","sources":["https://static.smallrig.com/mall/img/public/1725874097334_.pdf","https://dl.djicdn.com/downloads/DJI_Mic_2/20240426/UM/DJI_Mic_2_User_Manual_V1.2_EN.pdf"],"locators":["4770 página 4, llamada 5 y fotografía oficial 1","Mic 2 v1.2 página 8, llamadas 5/6 y página 13"],"status":"documented_interfaces_approximate_pose_not_physical_test","note":"Zapata inclinada 4770 y zapata integrada RX identificadas. El modelo propio no reproduce CAD calibrado; asiento, ángulo, retención y barrido por medir."}],
   "publication_warning": "Las imágenes descargadas del fabricante son material de referencia, no una autorización de redistribución. Publicar en App Store requiere revisar los derechos de uso.",
   "references": [
     {
@@ -203,4 +204,3 @@
     "Malla visual simplificada y envolvente precisa de colisión separada"
   ]
 }
-

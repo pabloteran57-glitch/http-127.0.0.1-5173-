@@ -45,6 +45,8 @@ for (const node of layout.nodes) {
   assert.equal(node.rotation_deg.length,3);
   assert(node.rotation_deg.every(Number.isFinite));
   assert(node.dimension_source_url.startsWith("https://"));
+  if(node.subcomponent_id){const p=parts.parts.find(p=>p.id===node.id),c=p.subcomponents?.find(c=>c.id===node.subcomponent_id);assert(c&&c.weight_g>0&&c.source_url.startsWith("https://"),"Subcomponente sin evidencia: "+node.id);}
+  if(node.mount_point_id){const parent=layout.nodes.find(n=>n.id===node.parent_id);assert(parent?.mounting_points?.some(p=>p.id===node.mount_point_id&&p.source_url.startsWith("https://")),"Interfaz de montaje ausente: "+node.id);}
   const seen=new Set([node.id]);
   let parent=node.parent_id;
   while(parent){

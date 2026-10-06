@@ -18,7 +18,7 @@
       "blocks": [
         {"part_ids":["smallrig-4770"],"mount":"Fijar la jaula elegida.","where":"Anclajes de cámara y anti-giro documentados por el fabricante.","verify":["Seguir el manual sin inventar pares de apriete; comprobar fijaciones y abrazadera HDMI."]},
         {"part_ids":["sony-xlr-h1"],"mount":"Instalar el asa de audio elegida.","where":"Zapata MI y tornillos Sony; sólo a mano o en cámara estática.","verify":["Comprobar comunicación y retención. Revisar interferencias con el accesorio NATO superior de la jaula si está presente."]},
-        {"part_ids":["dji-mic-2-kit"],"mount":"Preparar el sistema de audio elegido; no se instala un receptor ficticio.","where":"Fijación del receptor pendiente de confirmar.","verify":["Comprobar señal y niveles. El RX no tiene soporte ni masa instalada confirmados en este plan."]},
+        {"part_ids":["dji-mic-2-kit"],"require_all":["smallrig-4770"],"mount":"Deslizar y asegurar sólo el receptor Mic 2 mediante su zapata integrada.","where":"Zapata inclinada de la esquina superior izquierda del HawkLock 4770; sin brazo ni adaptador Sony MI.","verify":["Comprobar asiento, retención, acceso a pantalla y barrido con motores apagados. La pose del visor es aproximada; RX: 28 g publicados, cable por pesar.","Conectar OUT TRS al MIC FX3 o al INPUT3 del XLR-H1 si el asa está activa, nunca ambas rutas a la vez. Probar niveles y escucha; TX y estuche fuera del rig."]},
         {"part_ids":["dji-lavalier"],"mount":"Preparar el micrófono elegido.","where":"Entrada del transmisor correspondiente.","verify":["Verificar el conector y probar audio antes de rodaje."]}
       ]
     },

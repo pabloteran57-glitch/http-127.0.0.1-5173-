@@ -44,13 +44,13 @@ const vector = (values: number[]): Vec3 => {
   if (values.length !== 3 || !values.every(Number.isFinite)) throw new Error("Invalid layout vector");
   return [values[0], values[1], values[2]];
 };
-const kinds: LayoutNode["kind"][] = ["camera", "lens", "cage", "baseplate", "rods", "matte", "batteryPlate", "battery", "gimbal", "grip", "monitorMount", "monitor", "handle"];
+const kinds: LayoutNode["kind"][] = ["camera", "lens", "cage", "baseplate", "rods", "matte", "batteryPlate", "battery", "gimbal", "grip", "monitorMount", "monitor", "handle", "audioReceiver"];
 export const layoutData: LayoutManifest = {
   ...layoutManifest,
   nodes: layoutManifest.nodes.map(node => {
     const kind = kinds.find(kind => kind === node.kind);
     if (!kind) throw new Error(`Invalid layout kind: ${node.kind}`);
-    return { ...node, kind, position_mm: vector(node.position_mm), size_xyz_mm: vector(node.size_xyz_mm), explode_mm: vector(node.explode_mm), rotation_deg: vector(node.rotation_deg),
+    return { ...node, kind, mounting_points: "mounting_points" in node ? node.mounting_points?.map(point=>({...point,local_position_mm:vector(point.local_position_mm),rotation_deg:vector(point.rotation_deg),size_xyz_mm:vector(point.size_xyz_mm)})) : undefined, position_mm: vector(node.position_mm), size_xyz_mm: vector(node.size_xyz_mm), explode_mm: vector(node.explode_mm), rotation_deg: vector(node.rotation_deg),
       envelope: node.envelope === "verified" ? "verified" : "approximate",
       mass_domain: node.mass_domain === "moving" ? "moving" : "fixed" };
   }),

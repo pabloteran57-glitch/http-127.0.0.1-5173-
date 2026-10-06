@@ -689,13 +689,14 @@
         "Micrófono integrado del transmisor",
         "Entrada de micrófono lavalier compatible en el transmisor"
       ],
-      "mounting_method": "El receptor puede fijarse a una zapata o permanecer fuera del rig; los transmisores se sujetan al participante.",
+      "mounting_method": "Zapata integrada del receptor DMR02 a la zapata inclinada del HawkLock 4770: interfaces documentadas, montaje candidato. Los transmisores se sujetan al participante; estuche fuera del rig.",
       "likely_material": "Plástico técnico y herrajes de clip metálicos",
       "mandatory_or_optional": "optional",
       "rig_role": "Audio inalámbrico de diálogo y referencia para un solo operador",
       "physical_constraints": [
         "Preferible como sistema corporal o de zapata, no como carga permanente indiscriminada del gimbal.",
-        "La ubicación del receptor no debe competir con LiDAR o XLR-H1 por el punto superior."
+        "Verificar retención, acceso a HDMI/MIC, lectura del RX y barrido de motores con la zapata inclinada real; posición y ángulo del visor aproximados.",
+        "El receptor utiliza su batería interna; no se presupone alimentación por la zapata sin contactos ni el adaptador Sony MI opcional."
       ],
       "primary_source_url": "https://www.dji.com/mic-2",
       "secondary_source_url": null,

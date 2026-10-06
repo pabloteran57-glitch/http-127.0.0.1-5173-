@@ -511,7 +511,7 @@
       "type": "data",
       "voltage_or_signal_standard": "Audio analógico a nivel de micrófono de cámara.",
       "ideal_length_estimate": "Cable de audio incluido; longitud exacta por confirmar.",
-      "routing_path": "Receptor en zapata disponible de jaula; bucle corto local, lejos de objetivo y brazo de inclinación. Fijación por confirmar.",
+      "routing_path": "RX en zapata inclinada HawkLock 4770 -> OUT TRS -> MIC FX3, con el cable de cámara incluido. Bucle local sobre el lateral izquierdo; no cruza hacia la base fija del gimbal. Coordenadas y curva aproximadas; comprobar puertas, pinzamiento y barrido.",
       "strain_relief_requirement": "Sujetar ambos extremos sin cargar los conectores; probar holgura y radio mínimo de curvatura.",
       "risk_notes": [
         "Usar TRS para cámara, no TRRS de teléfono.",
@@ -552,7 +552,7 @@
       "type": "data",
       "voltage_or_signal_standard": "Audio analógico al asa Sony; confirmar canales 3/4.",
       "ideal_length_estimate": "Cable de audio incluido; longitud exacta por confirmar.",
-      "routing_path": "En estático o a mano: receptor en zapata disponible de asa/jaula, conectado al asa en lugar de la entrada del cuerpo.",
+      "routing_path": "En estático o a mano: RX en zapata inclinada 4770 -> OUT TRS -> INPUT3 del XLR-H1, no a la entrada del cuerpo. Bucle local y acceso al asa por comprobar físicamente.",
       "strain_relief_requirement": "Sujetar ambos extremos sin cargar los conectores; probar holgura y radio mínimo de curvatura.",
       "risk_notes": [
         "No asumir grabación simultánea de entrada del cuerpo y del asa MI.",

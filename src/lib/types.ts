@@ -31,6 +31,7 @@ export interface Part {
   secondary_source_url: string | null;
   confidence_level: "high" | "medium" | "low";
   bundle_includes?: string[];
+  subcomponents?: {id:string;model:string;dimensions_lwh_mm:Vec3;weight_g:number;source_url:string;note:string}[];
 }
 
 export interface PartsManifest {
@@ -110,12 +111,15 @@ export interface Variant {
 
 export type Vec3 = [number, number, number];
 export interface LayoutNode {
+  subcomponent_id?: string;
+  mount_point_id?: string;
+  mounting_points?: {id:string;local_position_mm:Vec3;rotation_deg:Vec3;size_xyz_mm:Vec3;source_url:string;confidence:string;note:string}[];
   rotation_deg: Vec3;
   parent_id: string | null;
   dimension_source_url: string;
   id: string;
   label: string;
-  kind: "camera" | "lens" | "cage" | "baseplate" | "rods" | "matte" | "batteryPlate" | "battery" | "gimbal" | "grip" | "monitorMount" | "monitor" | "handle";
+  kind: "camera" | "lens" | "cage" | "baseplate" | "rods" | "matte" | "batteryPlate" | "battery" | "gimbal" | "grip" | "monitorMount" | "monitor" | "handle" | "audioReceiver";
   position_mm: Vec3;
   size_xyz_mm: Vec3;
   explode_mm: Vec3;

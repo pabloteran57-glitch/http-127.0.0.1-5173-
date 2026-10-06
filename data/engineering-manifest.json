@@ -17,7 +17,7 @@
     "Centros de gravedad internos de cámara, objetivo y batería V-mount",
     "Posiciones de ejes de motores, rango de ajuste y holgura de barrido",
     "Diámetro interior del barril y pinout de entrada DC del Indie 7; el cable CBL-PWR-DTAP-BAR-36 sí publica centro positivo. Salientes HDMI/DC y radios de curvatura pendientes",
-    "Fijación del receptor Mic 2 y masa del cableado",
+    "Retención y holgura física del RX Mic 2 en zapata inclinada HawkLock 4770; 28 g publicados incluidos en la carga modelada, masa del cableado pendiente",
     "Masa total transportada con BG70, monitor fijo, accesorios y cables"
   ]
 }

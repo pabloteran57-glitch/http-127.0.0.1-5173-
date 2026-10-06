@@ -12,7 +12,8 @@ const label=value=>ui.schema_labels[value]??value;
 const join=list=>list.length?list.join("; "):"Ninguno";
 const bullets=list=>list.map(item=>"- "+item).join("\n");
 const write=(file,content)=>writeFileSync(new URL("../docs/"+file,import.meta.url),content.trim()+"\n");
-const mass=v=>layout.nodes.filter(n=>n.mass_domain==="moving"&&v.active_part_ids.includes(n.id)).reduce((sum,n)=>sum+(parts.parts.find(p=>p.id===n.id).planning_weight_g??0),0);
+const weight=n=>{const p=parts.parts.find(p=>p.id===n.id);return n.subcomponent_id?p.subcomponents?.find(c=>c.id===n.subcomponent_id)?.weight_g??0:p.planning_weight_g??0;};
+const mass=v=>layout.nodes.filter(n=>n.mass_domain==="moving"&&v.active_part_ids.includes(n.id)).reduce((sum,n)=>sum+weight(n),0);
 const disclaimer="Plan de ingeniería, no montaje certificado. Medidas publicadas no prueban forma exacta, enganche de tornillos, equilibrio, rigidez, holguras ni compatibilidad de toda la pila. Fotos y geometría aproximada no son CAD calibrado.";
 write("verified-build-manifest.md",`# Manifiesto verificado de piezas
 
@@ -65,13 +66,13 @@ ${layout.nodes.map(n=>`## ${n.label}
 - RavenEye: banco, HDMI Mini-C; batería interna. No montaje ni ActiveTrack operativos prometidos.
 - LiDAR/motor: inventario condicional; calibración de SEL1635GM y fijación/barrido pendientes.
 - Interfaz Focus Pro a Transmission: estacionada; falta el sistema DJI Transmission. No se sustituye por una interfaz de otro modelo.
-- Mic 2 RX: 28 g publicados, sólo el RX podría ir en el rig. Estuche/TX fuera de la carga móvil; fijación del RX por confirmar.
+- Mic 2: sólo RX de 28 g modelado en la zapata inclinada 4770 como candidato. Estuche/TX fuera de cámara. La selección sin jaula permanece pendiente; no se añade el soporte sin autorización.
 
 ## Distribución de masa
 
 ${variants.variants.map(v=>"- "+v.label+": "+(mass(v)/1000).toFixed(2)+" kg de piezas móviles modeladas.").join("\n")}
 
-Incluye masas de planificación aproximadas, especialmente varillas y parasol. Excluye cables, RX, tarjetas y tornillos adicionales. Monitor fijo fuera de la carga móvil. No sumar BG30 estándar al BG70 ni el Combo entero a sus subcomponentes. Peso total llevado y centro de gravedad reales no medidos.
+Incluye masas de planificación aproximadas, especialmente varillas y parasol, y 28 g publicados del RX Mic 2 cuando está activo. Excluye cables, TX, estuche, tarjetas y tornillos adicionales. Monitor fijo fuera de la carga móvil. No sumar BG30 estándar al BG70 ni el Combo entero a sus subcomponentes. Peso total llevado y centro de gravedad reales no medidos.
 
 3026B: límite de carga publicado 1.5 kg, Indie 7 737 g sin accesorios. La comparación escalar no prueba rigidez, par de inclinación ni seguridad dinámica.
 

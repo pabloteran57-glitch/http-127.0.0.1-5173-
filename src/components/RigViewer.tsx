@@ -10,7 +10,7 @@ import type { OrbitControls as OrbitControlsImpl } from "three-stdlib";
 import { cableById, cablesData, layoutData, portById } from "../data";
 import type { LayoutNode, Variant, Vec3 } from "../lib/types";
 import { connectionName } from "../lib/ui";
-import { visibleCableIds } from "../lib/viewer";
+import { nodePose, visibleCableIds } from "../lib/viewer";
 import PerformanceProbe from "./PerformanceProbe";
 import type { PerformanceResult, PerformanceRun } from "../lib/performance";
 
@@ -38,7 +38,7 @@ interface Props {
 }
 const scale = (v: number) => v / 100;
 const vector = (values: Vec3): Vec3 => values.map(scale) as Vec3;
-const primaryLabels = new Set(["sony-fx3", "sony-fe-16-35-gm", "smallrig-3645", "smallrig-vb99-pro", "smallhd-indie-7", "dji-rs-bg70"]);
+const primaryLabels = new Set(["sony-fx3", "sony-fe-16-35-gm", "smallrig-3645", "smallrig-vb99-pro", "smallhd-indie-7", "dji-rs-bg70", "dji-mic-2-kit"]);
 const graphite = "#252b2c";
 
 function Block({ size, at = [0, 0, 0], color = graphite, selected = false, radius = 0.025 }: {
@@ -104,6 +104,19 @@ function Geometry({node,selected}:{node:LayoutNode;selected:boolean}){
    <Bolt at={[-w/2-.015,.19,.23]}/>
    {[-.45,-.2,.05].map(x=><Cylinder key={x} radius={.029} length={.011} axis="y" at={[x,h/2,.055]} color="#121518"/>)}
    <Block size={[.57,.055,.53]} at={[.04,-h/2-.02,-.02]} color="#383b40" radius={.008}/>
+   {node.mounting_points?.map(point=>{const [sw,sh,sd]=vector(point.size_xyz_mm);return <group key={point.id} position={vector(point.local_position_mm)} rotation={point.rotation_deg.map(v=>v*Math.PI/180) as Vec3}>
+    <Block size={[sw,sh/2,sd]} at={[0,-sh/4,0]} selected={selected} color="#62656b" radius={.005}/>
+    {[-1,1].map(s=><Block key={s} size={[sw*.14,sh/2,sd]} at={[s*sw*.43,sh/4,0]} color="#85898f" radius={.004}/>)}
+   </group>})}
+  </group>;
+  case "audioReceiver":return <group>
+   <Block size={[w,h-.032,d]} at={[0,.016,0]} selected={selected} color="#171d23" radius={.025}/>
+   <Block size={[.22,.032,.16]} at={[0,-h/2+.016,0]} color="#666e78" radius={.005}/>
+   <Block size={[w*.62,.008,d*.64]} at={[-w*.12,h/2,d*.02]} color="#162f37" radius={.012}/>
+   <Cylinder radius={.058} length={.018} axis="y" at={[w*.33,h/2-.009,0]} color="#555f6b"/>
+   <Cylinder radius={.041} length={.019} axis="y" at={[w*.33,h/2-.008,0]} color="#1b2026"/>
+   {[-.07,.045].map(z=><Cylinder key={z} radius={.018} length={.007} axis="x" at={[-w/2,0,z]} color="#080c11"/>)}
+   {[-.16,-.11].map(x=><Block key={x} size={[.018,.009,.06]} at={[x,h/2+.001,.02]} color="#8bbb98" radius={.003}/>)}
   </group>;
   case "baseplate":return <group><RodClamp w={w} h={h} d={d} selected={selected}/>{[-.24,.24].map(x=><Block key={x} size={[.2,.015,.64]} at={[x,h/2+.007,0]} color="#191a1c" radius={.008}/>)}</group>;
   case "rods":return <group>{[-.3,.3].map(x=><Cylinder key={x} radius={.075} length={d} at={[x,0,0]} color={selected?"#638d8f":"#25282c"}/>)}</group>;
@@ -183,7 +196,8 @@ function AnimatedNode({ node, exploded, vertical, selected, onSelect, context, r
   node: LayoutNode; exploded: boolean; vertical: boolean; selected: boolean; onSelect: (id: string) => void; context:boolean; reveal:boolean;
 }) {
   const group = useRef<Group>(null);
-  const pos = vector(node.position_mm.map((v, i) => v + (exploded ? node.explode_mm[i] : 0)) as Vec3);
+  const pose = nodePose(node,vertical,exploded);
+  const pos = vector(pose.position_mm);
   const target = useRef(new Vector3());
   const unitScale = useRef(new Vector3(1, 1, 1));
   const invalidate = useThree(state => state.invalidate);
@@ -203,26 +217,25 @@ function AnimatedNode({ node, exploded, vertical, selected, onSelect, context, r
     return ()=>restore.forEach(reset=>reset());
   },[context,selected]);
   const click = (event: ThreeEvent<MouseEvent>) => { event.stopPropagation(); onSelect(node.id); };
-  const rotated = vertical && ["camera", "cage"].includes(node.kind);
-  const rotation = node.rotation_deg.map(v=>v*Math.PI/180) as Vec3;
-  if(rotated) rotation[2]+=Math.PI/2;
+  const rotation = pose.rotation_deg.map(v=>v*Math.PI/180) as Vec3;
   return <group ref={group} position={pos} scale={initialScale.current} onClick={click}>
     <group rotation={rotation}>
       <Geometry node={node} selected={selected} />
     </group>
   </group>;
 }
-function LabelProjector({ nodes, exploded, elements }: { nodes: LayoutNode[]; exploded: boolean; elements: React.RefObject<Record<string, HTMLButtonElement | null>> }) {
+function LabelProjector({ nodes, exploded, vertical, elements }: { nodes: LayoutNode[]; exploded: boolean; vertical:boolean; elements: React.RefObject<Record<string, HTMLButtonElement | null>> }) {
   const point = new Vector3();
   useFrame(({ camera, size }) => {
     for (const node of nodes) {
       const element = elements.current[node.id];
       if (!element) continue;
-      const pos = node.position_mm.map((v, i) => scale(v + (exploded ? node.explode_mm[i] : 0))) as Vec3;
+      const pos = vector(nodePose(node,vertical,exploded).position_mm);
       point.set(pos[0], pos[1] + node.size_xyz_mm[1] / 200 + 0.24, pos[2]);
       if (node.kind === "matte") point.y += 0.36;
       if (node.kind === "lens") { point.x += 0.26; point.y += 0.13; }
       if (node.kind === "camera") { point.x -= 0.45; point.y += 0.1; }
+      if (node.kind === "audioReceiver") { point.x -= .25; point.y += .32; }
       point.project(camera);
       element.style.transform = `translate(-50%, -100%) translate(${(point.x * 0.5 + 0.5) * size.width}px, ${(-point.y * 0.5 + 0.5) * size.height}px)`;
       element.style.visibility = point.z > 1 || point.z < -1 ? "hidden" : "visible";
@@ -276,13 +289,13 @@ function PortProjection({anchors,elements}:{anchors:{id:string;position:Vec3}[];
 export default function RigViewer({exploded,showCables,showLabels,variant,selectedId,onSelect,angle,selectedCableId,resetKey,highlightIds=[],contextIds=[],reveal=false,framing,sceneKey,onSceneReady,onUnavailable,onInteract,performanceRun,onPerformanceResult}:Props){
  const labels=useRef<Record<string,HTMLButtonElement|null>>({});const portLabels=useRef<Record<string,HTMLSpanElement|null>>({});
  const nodes=layoutData.nodes.filter(n=>variant.active_part_ids.includes(n.id));
+ const vertical=variant.viewer.mode==="vertical";
  const handheld=framing?framing==="handheld":!variant.active_part_ids.includes("dji-rs4-pro-combo");
- const positions=Object.fromEntries(nodes.map(n=>[n.id,vector(n.position_mm.map((v,i)=>v+(exploded?n.explode_mm[i]:0)) as Vec3)]));
+ const positions=Object.fromEntries(nodes.map(n=>[n.id,vector(nodePose(n,vertical,exploded).position_mm)]));
  const endpoint=(portId:string):Vec3|null=>{
    const port=portById[portId]; const node=nodes.find(n=>n.id===port?.part_id);
    if(!node||!port.local_position_mm)return null;
-   const r=node.rotation_deg.map(v=>v*Math.PI/180) as Vec3;
-   if(variant.viewer.mode==="vertical"&&["camera","cage"].includes(node.kind))r[2]+=Math.PI/2;
+   const r=nodePose(node,vertical,exploded).rotation_deg.map(v=>v*Math.PI/180) as Vec3;
    const p=new Vector3(...vector(port.local_position_mm)).applyEuler(new Euler(...r)).add(new Vector3(...positions[node.id]));
    return [p.x,p.y,p.z];
  };
@@ -307,7 +320,7 @@ export default function RigViewer({exploded,showCables,showLabels,variant,select
      {(focused||!selectedCableId)&&[a!,b!].map((point,i)=><mesh key={i} position={point}><sphereGeometry args={[focused ? .04 : .025,20,16]}/><meshBasicMaterial color={color} depthTest={false}/></mesh>)}
     </group>;
    })}
-   <CameraControls angle={angle} exploded={exploded} handheld={handheld} resetKey={resetKey} onInteract={onInteract}/><LabelProjector nodes={nodes} exploded={exploded} elements={labels}/><PortProjection anchors={anchors} elements={portLabels}/><SceneReady sceneKey={sceneKey} onReady={onSceneReady}/>
+   <CameraControls angle={angle} exploded={exploded} handheld={handheld} resetKey={resetKey} onInteract={onInteract}/><LabelProjector nodes={nodes} exploded={exploded} vertical={vertical} elements={labels}/><PortProjection anchors={anchors} elements={portLabels}/><SceneReady sceneKey={sceneKey} onReady={onSceneReady}/>
    {performanceRun&&onPerformanceResult&&<PerformanceProbe key={performanceRun.id} run={performanceRun} onResult={onPerformanceResult}/>}
   </Canvas></Suspense></ViewerBoundary>
   <div className="label-layer">{nodes.filter(n=>showLabels&&primaryLabels.has(n.id)||(!selectedCableId&&n.id===selectedId)).map(n=><button key={n.id} ref={el=>{labels.current[n.id]=el}} className={n.id===selectedId?"part-label selected":"part-label"} onClick={()=>onSelect(n.id)}>{n.label}</button>)}

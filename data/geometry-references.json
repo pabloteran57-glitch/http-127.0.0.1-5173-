@@ -674,6 +674,14 @@
       "content_type": "application/pdf"
     },
     {
+      "id": "dji-mic-2-manual",
+      "url": "https://dl.djicdn.com/downloads/DJI_Mic_2/20240426/UM/DJI_Mic_2_User_Manual_V1.2_EN.pdf",
+      "local_path": "/references/dji-mic-2-manual.pdf",
+      "bytes": 3762372,
+      "sha256": "3152b7874f075a59c9ac83a47030a65a10081cf36484495b937a87eba32f357c",
+      "content_type": "application/pdf"
+    },
+    {
       "id": "smallrig-4253b-manual",
       "url": "https://static.smallrig.com/mall/img/public/1706163303324_.pdf",
       "local_path": "/references/smallrig-4253b-manual.pdf",
@@ -683,4 +691,3 @@
     }
   ]
 }
-

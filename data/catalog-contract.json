@@ -223,8 +223,8 @@
       "record_revision": "fx3-rs4-2026-10-05",
       "model_number": null,
       "identity_source_url": "https://www.dji.com/mic-2",
-      "geometry_profile_id": null,
-      "geometry_status": "not_modeled",
+      "geometry_profile_id": "dji-mic-2-kit",
+      "geometry_status": "approximate",
       "assembly_steps": [
         2
       ],
