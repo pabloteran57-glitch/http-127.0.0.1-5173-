@@ -44,3 +44,7 @@ La cohorte real, dispositivos de referencia, ensayos de rig, tablas del lote, de
 La compilación conserva el aviso de tamaño del módulo 3D. No se oculta elevando artificialmente el umbral de Vite.
 
 Compilaciones local y pública correctas: 53 pruebas automatizadas y 600 casos reproducibles. La pública contiene 12 archivos propios, aproximadamente 1.45 MB sin comprimir; no redistribuye referencias. La comprobación estricta de preparación devuelve código 1 deliberadamente porque la beta y la financiación aún tienen puertas pendientes, incluidas privacidad y soporte.
+
+## Publicación comprobada
+
+[Takegrid](https://takegrid.netlify.app/) sirve la compilación 0.2.0 del commit funcional `9f5b0e539b759eca77c0dba0fd9fe9fb4f665795`. Se contrastaron los nombres de JS/CSS con el paquete local validado y el encabezado de versión en Ayuda. La consola de esa pestaña no registra errores ni advertencias. Captura de evidencia local: `public/previews/takegrid-02-publicado.jpg`; no forma parte del paquete público.

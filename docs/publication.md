@@ -8,6 +8,7 @@
 - Primer despliegue verificado el 5 de octubre de 2026, commit `f6e7f3b0e9bdcebaabfd5fed65c2ad7dd4d833f2`. Compilación remota: 27 piezas, 17 conexiones, 13 etapas y 7 perfiles; salida propia de 1.41 MB.
 - Comprobados visor, despiece, circuitos A/B, doble HDMI de banco, siete perfiles, inventario, búsqueda, estado vacío y navegación móvil. No son pruebas mecánicas ni eléctricas del equipo físico.
 - Comprobación HTTP: portada 200, solicitud bajo `/references/` 404 y CSS 200 con caché inmutable. Cabeceras de HTTPS, `nosniff`, protección de marcos y restricciones de cámara/micrófono/geolocalización presentes.
+- Versión 0.2.0 comprobada en la web pública el 5 de octubre de 2026; commit funcional `9f5b0e539b759eca77c0dba0fd9fe9fb4f665795`. Scripts `/assets/index-Dux3rZiz.js` y estilos `/assets/index-_UtD2f6F.css` coinciden con la compilación pública validada. Ayuda muestra la versión y las opciones de recuperación y uso sin conexión; consola de la pestaña de verificación sin errores ni advertencias capturados. No implica beta aprobada.
 
 La insignia superpuesta del proveedor se desactivó desde la configuración del proyecto para evitar tapar la navegación inferior en móvil. No se añadió un dominio de pago ni se cambió el plan contratado.
 
