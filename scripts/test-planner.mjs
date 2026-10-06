@@ -14,12 +14,13 @@ const moduleOf=async name=>{
 };
 const {assemblyTimeline,nextPlaybackIndex}=await moduleOf("assembly");
 const {inventoryEntries,builderEntries}=await moduleOf("inventory");
-const {movingMass,nodeWeight,nodePose}=await moduleOf("viewer");
+const {movingMass,nodeWeight,nodePose,routeOffset}=await moduleOf("viewer");
 const content=read("assembly-profile-content");
 const rig=(ids=[],context="gimbal",orientation="landscape")=>({schema_version:1,id:"rig-qa",name:"Plan de prueba",context,orientation,part_ids:ids,updated_at:"2026-10-05T00:00:00.000Z"});
 const resolve=r=>resolveRig(r,rules,cables,master,id=>id);
 let checks=0;
 function test(name,run){run();checks++;console.log(`CORRECTO: ${name}`);}
+test("El bucle TRS vertical gira con el núcleo; los cruces fijos no heredan la rotación",()=>{for(const id of ["audio-rx-to-fx3","audio-rx-to-xlrhandle"]){const c=cables.find(c=>c.cable_id===id),a=c.route_control_offsets_mm.a;assert.equal(c.route_control_frame,"camera");assert.deepEqual(routeOffset(a,true,true),[-a[1],a[0],a[2]]);assert.deepEqual(routeOffset(a,true,false),a);assert.deepEqual(routeOffset(a,false,true),a);assert(a.every(v=>Math.abs(v)<=18));}});
 
 test("Un rig vacío no añade piezas ni cables",()=>{const r=resolve(rig());assert.equal(r.variant.active_part_ids.length,0);assert.equal(r.variant.cable_profile_ids.length,0);assert(r.issues.length>0);});
 test("Las dependencias no modifican elecciones del usuario",()=>{const input=rig(["smallrig-vb99-pro"]),snapshot=JSON.stringify(input);const r=resolve(input);assert.deepEqual(r.parked_ids,["smallrig-vb99-pro"]);assert.equal(JSON.stringify(input),snapshot);assert.equal(r.variant.active_part_ids.length,0);});

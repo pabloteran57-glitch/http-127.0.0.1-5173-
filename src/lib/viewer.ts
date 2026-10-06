@@ -23,6 +23,10 @@ export function nodePose(node:LayoutNode,vertical:boolean,exploded=false) {
   return {position_mm:position,rotation_deg:rotation};
 }
 
+export function routeOffset(offset:Vec3,cameraFrame:boolean,vertical:boolean):Vec3 {
+  return cameraFrame&&vertical?[-offset[1],offset[0],offset[2]]:[...offset];
+}
+
 // Sólo piezas móviles modeladas; no es una carga completa ni certificada.
 export function movingMass(variant: Variant, layout: LayoutManifest, parts: Record<string, Part>) {
   const moving = layout.nodes.filter(n => n.mass_domain === "moving" && variant.active_part_ids.includes(n.id));

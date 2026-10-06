@@ -10,7 +10,7 @@ import type { OrbitControls as OrbitControlsImpl } from "three-stdlib";
 import { cableById, cablesData, layoutData, portById } from "../data";
 import type { LayoutNode, Variant, Vec3 } from "../lib/types";
 import { connectionName } from "../lib/ui";
-import { nodePose, visibleCableIds } from "../lib/viewer";
+import { nodePose, routeOffset, visibleCableIds } from "../lib/viewer";
 import PerformanceProbe from "./PerformanceProbe";
 import type { PerformanceResult, PerformanceRun } from "../lib/performance";
 
@@ -314,8 +314,10 @@ export default function RigViewer({exploded,showCables,showLabels,variant,select
    {visibleLinks.map(({cable:c,a,b})=>{
     const focused=c.cable_id===selectedCableId;const color=cablesData.color_coding[c.type==="data"?"control":c.type];
     const opacity=selectedCableId&&!focused ? .18 : 1;
-    const midA=a!.map((v,i)=>v+scale(c.route_control_offsets_mm!.a[i])) as Vec3;
-    const midB=b!.map((v,i)=>v+scale(c.route_control_offsets_mm!.b[i])) as Vec3;
+    const offsetA=routeOffset(c.route_control_offsets_mm!.a as Vec3,c.route_control_frame==="camera",vertical);
+    const offsetB=routeOffset(c.route_control_offsets_mm!.b as Vec3,c.route_control_frame==="camera",vertical);
+    const midA=a!.map((v,i)=>v+scale(offsetA[i])) as Vec3;
+    const midB=b!.map((v,i)=>v+scale(offsetB[i])) as Vec3;
     return <group key={c.cable_id}>{exploded?<Line points={[a!,b!]} dashed dashSize={.1} gapSize={.06} color={color} lineWidth={focused?4:2.5} transparent opacity={opacity} depthTest={false}/>:<CubicBezierLine start={a!} end={b!} midA={midA} midB={midB} color={color} lineWidth={focused?4.5:2.7} transparent opacity={opacity} depthTest={false}/>}
      {(focused||!selectedCableId)&&[a!,b!].map((point,i)=><mesh key={i} position={point}><sphereGeometry args={[focused ? .04 : .025,20,16]}/><meshBasicMaterial color={color} depthTest={false}/></mesh>)}
     </group>;

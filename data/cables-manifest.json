@@ -529,16 +529,17 @@
       "to_port_id": "fx3-mic",
       "display_kind": "cable",
       "geometry_confidence": "approximate",
+      "route_control_frame": "camera",
       "route_control_offsets_mm": {
         "a": [
-          -50,
-          -45,
-          -30
+          -18,
+          8,
+          -12
         ],
         "b": [
-          -40,
-          -35,
-          -35
+          -15,
+          12,
+          -10
         ]
       },
       "route_control_status": "approximate_annotation_not_cable_cut_or_swept_clearance"
@@ -569,16 +570,17 @@
       "to_port_id": "xlrh1-input3",
       "display_kind": "cable",
       "geometry_confidence": "approximate",
+      "route_control_frame": "camera",
       "route_control_offsets_mm": {
         "a": [
-          -50,
-          -45,
-          -30
+          -18,
+          8,
+          -12
         ],
         "b": [
-          -40,
-          -35,
-          -35
+          -15,
+          12,
+          -10
         ]
       },
       "route_control_status": "approximate_annotation_not_cable_cut_or_swept_clearance"

@@ -43,6 +43,7 @@ export interface PartsManifest {
 }
 
 export interface Cable {
+  route_control_frame?: "camera" | "world";
   electrical?: ElectricalProperties;
   from_port_id: string;
   to_port_id: string;
