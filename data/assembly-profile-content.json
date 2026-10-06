@@ -55,7 +55,7 @@
       "rebalance": "El monitor está fuera de la carga móvil; revisar tensión de los cables al conectar.",
       "blocks": [
         {"part_ids":["smallrig-3026b"],"mount":"Fijar la abrazadera NATO al lateral fijo del estabilizador.","where":"Lateral del gimbal, sin bloquear la mano.","verify":["Comprobar retención y orientación documentada. Los 1.5 kg publicados no certifican seguridad dinámica."]},
-        {"part_ids":["smallhd-indie-7"],"mount":"Fijar el monitor al cabezal nativo del soporte.","where":"Rosca inferior 1/4-20; no sobre la cámara.","verify":["Comprobar acceso a conectores y espacio de la mano. La alimentación y señal deben verificarse en sus etapas."]}
+        {"part_ids":["smallhd-indie-7"],"mount":"Fijar el monitor al cabezal nativo del soporte.","where":"Rosca inferior 1/4-20; no sobre la cámara.","verify":["Comprobar acceso a conectores y espacio de la mano. En vertical el monitor permanece en el lateral fijo: medir de nuevo todos los ejes y el bucle HDMI.","La alimentación y señal deben verificarse en sus etapas; representación no significa monitor energizado."]}
       ]
     },
     {

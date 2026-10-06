@@ -78,6 +78,6 @@ El presupuesto requiere cotizar desarrollo, investigación, derechos, validació
 
 No se promete éxito en una campaña. No se comprometen fechas de beta hasta medir la primera fase y definir capacidad del equipo.
 
-## Próximo bloque
+## Avance actual
 
-Ejecutar la fase 1 antes de añadir productos o publicar nuevas promesas. Esta revisión entrega diagnóstico y plan; todavía no corrige los fallos observados ni cambia la versión pública de Takegrid.
+El diagnóstico anterior es histórico. Las versiones 0.2.0/0.2.1 corrigieron inventario, guía filtrada, persistencia y visibilidad de rutas. La iteración 0.2.2 reabre el flujo de creación ante la observación del usuario: editor guiado, selección íntegra y monitor lateral candidato en vertical. Evidencia y límites en [Creación de rigs](rig-creation-qa.md). La aceptación observada y las puertas físicas permanecen abiertas; no se activa el lote ampliado ni se declara beta aprobada.

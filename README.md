@@ -27,6 +27,8 @@ Vista de marca: `/brand/preview.html`. SVG reutilizables en `public/brand`; nomb
 
 **Crear rig** abre una selección vacía. **Personalizar** crea una copia editable de la plantilla actual. Elige productos, revisa dependencias y guarda el perfil en **Mis rigs**. **Guardar rig** también puede guardar directamente una copia de una plantilla. El guardado es local a este navegador, no una cuenta sincronizada. Las piezas pendientes se conservan sin inventar un montaje.
 
+Versión 0.2.2: editor en tres pasos, tarjetas visuales y bandeja completa de elecciones. Un rig propio vertical conserva el monitor lateral candidato con 3026B, pero no activa la pila V-mount ni presupone alimentación. Pictogramas públicos de categoría etiquetados; fotos reales locales y enlaces oficiales, sin redistribución no autorizada. Las siete plantillas mantienen sus listas originales.
+
 **Montaje** incluye visor acumulativo, guía condicionada a la selección, reproducción, pausa, reinicio, anterior/siguiente, deslizador de etapas y ritmo. Espera a la escena antes de avanzar; la extracción a mano es opcional y nunca automática. La animación es ilustrativa, no una trayectoria de acople medida. Reglas, esquema y límites en [rigs propios](docs/custom-rigs.md).
 
 Versión 0.2.0: borradores recuperables, historial de cinco versiones y restauración como copia en Mis rigs. Web Locks coordina guardado entre pestañas; sin esa API no se confirma la escritura. Biblioteca v2 separada de la antigua v1, que se conserva para migrar sin afectar pestañas viejas. Revisar cambios de otra pestaña protege los planes distintos como copias. No hay copia externa ni cuenta. [Persistencia y límites](docs/durable-projects.md).

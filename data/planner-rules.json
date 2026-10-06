@@ -9,7 +9,8 @@
     {"id":"lens","condition":{"all":["sony-fx3"]},"required_any":["sony-fe-16-35-gm"],"message":"Falta una óptica para completar el núcleo de cámara."},
     {"id":"gimbal","condition":{"context":"gimbal"},"required_all":["dji-rs4-pro-combo","dji-rs-bg70"],"message":"Este perfil necesita RS 4 Pro y BG70. La capacidad nominal no certifica equilibrio."},
     {"id":"monitor-video","condition":{"all":["smallhd-indie-7"]},"required_all":["kondor-blue-hdmi-aa"],"message":"Monitor sin enlace de vídeo seleccionado."},
-    {"id":"monitor-power","condition":{"all":["smallhd-indie-7"]},"required_all":["smallhd-dtap-to-2mm-barrel","smallrig-vb99-pro"],"message":"Falta la cadena documentada de alimentación del monitor; no se presupone batería interna."},
+    {"id":"monitor-power","condition":{"all":["smallhd-indie-7"]},"required_all":["smallhd-dtap-to-2mm-barrel","smallrig-vb99-pro"],"message":"Monitor en el plan, pero sin una cadena de alimentación activa. No se presupone batería interna ni una fuente no elegida."},
+    {"id":"vertical-monitor","condition":{"all":["smallhd-indie-7"],"context":"gimbal","orientation":"vertical"},"message":"Monitor lateral conservado en vertical como montaje candidato. Medir soporte, manos, holguras y bucle HDMI; la alimentación sigue pendiente sin una cadena activa. La pila V-mount vertical no está documentada."},
     {"id":"camera-power","condition":{"all":["smallrig-vb99-pro","sony-fx3"]},"required_all":["smallrig-4253b"],"message":"V-mount elegida sin adaptador regulado para la FX3."},
     {"id":"internal-battery","condition":{"all":["sony-fx3"],"none":["smallrig-4253b"]},"message":"Planifica una NP-FZ100 interna cargada: disponibilidad y masa no incluidas en el catálogo actual."},
     {"id":"rx-mount","condition":{"all":["dji-mic-2-kit"]},"message":"El receptor Mic 2 no tiene fijación confirmada. Audio documentado, montaje y masa del RX pendientes."},
@@ -39,7 +40,15 @@
   },
   "gimbal_only_part_ids": ["dji-rs4-pro-combo", "dji-rs-bg70", "smallrig-3026b", "smallhd-indie-7", "dji-r-usbc-control", "dji-ronin-app"],
   "gimbal_excluded_part_ids": ["sony-xlr-h1"],
-  "vertical_excluded_part_ids": ["smallrig-1674","smallrig-rods-8in","smallrig-3645","smallrig-3203b","smallrig-vb99-pro","smallrig-4253b","smallrig-3026b","smallhd-indie-7","kondor-blue-hdmi-aa","smallhd-dtap-to-2mm-barrel"],
+  "vertical_excluded_part_ids": ["smallrig-1674","smallrig-rods-8in","smallrig-3645","smallrig-3203b","smallrig-vb99-pro","smallrig-4253b","smallhd-dtap-to-2mm-barrel"],
+  "vertical_monitor_review": {
+    "reviewed_on": "2026-10-06",
+    "part_ids": ["dji-rs4-pro-combo", "smallrig-3026b", "smallhd-indie-7", "kondor-blue-hdmi-aa"],
+    "source_urls": ["https://dl.djicdn.com/downloads/DJI_RS_4_Pro/UM/DJI_RS_4_User_Manual__v1.0__EN.pdf", "https://static.smallrig.com/mall/img/public/m1twezvd88j-1751250182064_.pdf"],
+    "status": "documented_interfaces_candidate_not_physical_validation",
+    "rationale": "El cambio vertical de DJI afecta a la plataforma de cámara; 3026B usa el NATO lateral fijo del RS 4 Pro. Se permite representar la misma cadena candidata de monitor lateral, no certificar holguras, rigidez, antitorsión o alimentación.",
+    "pending": "Medir puertos, recorrido HDMI, manos y todos los ejes en vertical; la alimentación del Indie 7 queda pendiente sin una cadena activa. No se activa V-mount en vertical ni se modifica la plantilla vertical existente."
+  },
   "categories": [
     {"id":"core","label":"Cámara y óptica","part_ids":["sony-fx3","sony-fe-16-35-gm","smallrig-4770","smallrig-3645"]},
     {"id":"support","label":"Estabilización y soporte","part_ids":["dji-rs4-pro-combo","dji-rs-bg70","smallrig-1674","smallrig-rods-8in","smallrig-3026b","sony-xlr-h1"]},

@@ -33,6 +33,20 @@ export function dependencyClosure(ids: string[], rules: PlannerRules): string[] 
   return [...result];
 }
 
+export function selectionPresentation(chosenIds: string[], variant: Variant, modeledIds: string[]) {
+  const active = new Set(variant.active_part_ids), modeled = new Set(modeledIds);
+  return chosenIds.map(id => ({id, state: !active.has(id) ? "pending" as const : modeled.has(id) ? "visual" as const : "list" as const}));
+}
+
+export function availableSupportIds(ids: string[], rig: CustomRig, rules: PlannerRules): string[] {
+  const allowed = (id: string) => !rules.parked_part_ids.includes(id)
+    && !(rig.context !== "gimbal" && rules.gimbal_only_part_ids.includes(id))
+    && !(rig.context === "gimbal" && rules.gimbal_excluded_part_ids.includes(id))
+    && !(rig.context === "gimbal" && rig.orientation === "vertical" && rules.vertical_excluded_part_ids.includes(id));
+  // No ofrecer una cadena a medias si uno de sus soportes no puede activarse en este contexto.
+  return [...new Set(ids.filter(id => dependencyClosure([id], rules).every(allowed)).flatMap(id => dependencyClosure([id], rules)))].filter(id => !rig.part_ids.includes(id));
+}
+
 export function resolveRig(rig: CustomRig, rules: PlannerRules, cables: Cable[], master: Variant, nameOf: (id: string) => string): RigResolution {
   const selected = new Set(rig.part_ids);
   const active = new Set(rig.part_ids);

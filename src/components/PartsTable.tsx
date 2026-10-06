@@ -1,10 +1,10 @@
 import { useDeferredValue, useState } from "react";
-import { layoutData, partsData, referenceById } from "../data";
+import { layoutData, partsData } from "../data";
 import type { Variant } from "../lib/types";
 import Icon from "./Icon";
 import { partName } from "../lib/ui";
 import { formatNumber } from "../lib/format";
-import { publicDemo } from "../lib/publication";
+import ProductVisual from "./ProductVisual";
 import { inventoryEntries, normalizeSearch } from "../lib/inventory";
 
 export default function PartsTable({variant, chosenIds, selectedId, onSelect, onEdit}: {
@@ -26,7 +26,7 @@ export default function PartsTable({variant, chosenIds, selectedId, onSelect, on
       <span className="inventory-count" aria-live="polite">{entries.length} {entries.length === 1 ? "elemento" : "elementos"}</span>
     </div>
     <div className="inventory-grid">{entries.map(({part, state}) => <button key={part.id} data-part-id={part.id} data-part-state={state} className={selectedId === part.id ? "inventory-item selected-row" : "inventory-item"} onClick={() => onSelect(part.id)}>
-      <div className="inventory-thumb">{!publicDemo && referenceById[part.id] ? <img src={referenceById[part.id].display_image} alt="" loading="lazy"/> : <span>{part.category === "software" ? "APLICACIÓN" : part.model_number ?? part.brand}</span>}</div>
+      <div className="inventory-thumb"><ProductVisual id={part.id}/></div>
       <div><small>{part.brand} / {part.model_number ?? "Producto"}</small><strong>{partName(part.id)}</strong><span>{part.category === "software" ? "Aplicación" : part.verified_weight_g.value === null ? "Peso pendiente" : `${part.verified_weight_g.approximate ? "~" : ""}${formatNumber(part.verified_weight_g.value)} g`}</span>{state === "active" && !layoutData.nodes.some(node => node.id === part.id) && <small>Sin modelo 3D de montaje</small>}</div>
       <span className={`status ${state === "active" ? "active" : state === "pending" ? "parked" : "unchosen"}`}>{state === "active" ? "EN PLAN" : state === "pending" ? "PENDIENTE" : "NO ELEGIDO"}</span>
     </button>)}</div>

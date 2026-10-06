@@ -3,8 +3,8 @@
 ## Flujo de trabajo
 
 1. Elegir **Crear rig** para una selección vacía, o **Personalizar** para copiar una plantilla sin modificarla.
-2. Definir nombre, uso y encuadre. Seleccionar cada producto del catálogo por categoría o búsqueda.
-3. Revisar los pendientes. **Añadir dependencias disponibles** requiere una acción explícita; no agrega soportes ni productos externos al catálogo.
+2. **Define tu uso**: nombre, rodaje con gimbal/a mano/estático y encuadre. **Elige piezas**: tarjetas visuales por categoría o búsqueda, papel de cada producto y referencia oficial accesible. El editor abre el catálogo, no una selección cerrada.
+3. **Revisa tu rig**: todas las elecciones, en su orden, con estados En visor / En tu lista / Montaje pendiente. Añadir soportes o conexiones requiere un botón explícito y muestra los nombres que añadirá. No se sugieren cadenas parciales excluidas por contexto.
 4. Abrir el rig para inspeccionarlo, comprobar sus conexiones y recorrer **Montaje**.
 5. Elegir **Guardar rig** y abrirlo después desde **Mis rigs**. En una plantilla, el botón guarda una copia propia sin modificar el original. No es necesario descargar ni abrir archivos.
 
@@ -22,9 +22,11 @@ La interfaz no ofrece exportación de planos ni transferencia de archivos. El fo
 - La V-mount necesita la cadena 3203B, varillas, 1674 y jaula documentada. La masa de planificación del 3203B sigue siendo 351 g.
 - El monitor requiere el soporte lateral del gimbal. Para cámara estática o a mano no se inventa un soporte alternativo.
 - Distribuidor, RavenEye, foco y hub de Transmission permanecen en reserva. El doble HDMI de banco conserva su diagrama separado.
-- XLR-H1 no se activa en gimbal. La configuración vertical sólo utiliza la base ligera documentada; otras selecciones permanecen pendientes.
+- XLR-H1 no se activa en gimbal. En rigs propios verticales, 3026B e Indie 7 pueden conservar la cadena candidata lateral fija; no se gira el monitor con la cámara. La pila de varillas/V-mount vertical sigue pendiente y no se activa. No se cambia la plantilla vertical original.
 - Los circuitos se derivan de los extremos y del producto de cable seleccionado. No se añade una segunda salida HDMI a la FX3 ni un cable implícito.
 - NP-FZ100 interna, fijación del RX, masas incompletas, holguras y pruebas eléctricas siguen siendo dependencias explícitas.
+
+La vista Rig conserva una bandeja de todas las piezas elegidas; seleccionar una pendiente abre su ficha sin instalarla artificialmente. Un monitor lateral candidato puede tener alimentación pendiente: dibujarlo no significa que funcione. En la demo pública, las tarjetas muestran pictogramas de categoría identificados como esquemas, no fotos o CAD. La foto real revisada se consulta por enlace oficial; cuando sólo hay manual o tabla técnica se enlaza al producto. Las fotografías locales revisadas no se redistribuyen sin permiso.
 
 ## Ensamblaje visual
 

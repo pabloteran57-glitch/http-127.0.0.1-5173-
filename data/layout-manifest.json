@@ -379,7 +379,7 @@
       "envelope": "verified",
       "mass_domain": "fixed",
       "mount": "Abrazadera NATO en riel lateral fijo RS; cabezal nativo inclinable con tornillo 1/4-20. Inclinación publicada de 170 grados; verificar orientación con la rosca real del Indie 7.",
-      "placement": "Soporte lateral corto fuera de la cámara; coordenadas de riel/cabezal por medir.",
+      "placement": "Soporte lateral corto fuera de la cámara; coordenadas de riel/cabezal por medir. Cadena candidata conservada en rigs propios verticales: el NATO lateral fijo no gira con la plataforma de cámara. Medir holguras y manos en ambos encuadres.",
       "orientation": "Soporte nativo de 152.6 mm hacia la izquierda del operador, sin brazo extra. Articulación y tornillo con coordenadas aproximadas.",
       "rationale": "Monitor fuera de la carga móvil de cámara.",
       "rejected": "Monitor sobre cámara o brazo largo inventado.",
@@ -508,4 +508,3 @@
   ],
   "support_graph_note": "parent_id representa la cadena candidata de soporte mecánico, no una jerarquía de transformaciones. En cámara a mano se omiten soportes inactivos; no se inventan manos o soportes externos. Medir la pila de jaula, base y placa DJI."
 }
-

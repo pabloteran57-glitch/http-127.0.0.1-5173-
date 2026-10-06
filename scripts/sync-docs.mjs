@@ -173,6 +173,8 @@ ${variants.variants.map(v=>`## ${v.label}
 `).join("\n")}
 
 Vertical: plataforma nativa DJI, no soporte de terceros inventado. La rotación en el visor no prueba la pila vertical de placas.
+
+Rigs propios con monitor lateral: ${planner.vertical_monitor_review.rationale} ${planner.vertical_monitor_review.pending} Fuentes: ${planner.vertical_monitor_review.source_urls.map(url=>`[Fabricante](${url})`).join("; ")}.
 `);
 write("rig-overview.md",`# Takegrid / Descripción del rig
 

@@ -138,5 +138,43 @@
     "gimbal_port_to_camera": "De puerto del gimbal a cámara",
     "schematic_only_not_port_CAD": "Esquema, no CAD de puertos"
   },
+  "builder": {
+    "steps": ["Define tu uso", "Elige piezas", "Revisa tu rig"],
+    "image_policy": "Versión pública: esquemas propios de categoría, no fotografías ni geometría exacta. Consulta la foto real en la fuente oficial. Las fotos revisadas sólo se muestran en investigación local; redistribución pendiente de permiso.",
+    "contexts": [
+      {"id":"gimbal","label":"Con gimbal","detail":"Cámara estabilizada y monitor lateral.","icon":"design"},
+      {"id":"handheld","label":"A mano","detail":"Núcleo de cámara y accesorios seleccionados.","icon":"assemble"},
+      {"id":"static","label":"Cámara estática","detail":"El soporte de trípode queda por documentar.","icon":"inventory"}
+    ],
+    "roles": {
+      "dji-rs4-pro-combo":"Estabilizador; accesorios del Combo por separado",
+      "dji-rs-bg70":"Alimentación del gimbal",
+      "sony-fx3":"Cuerpo de cámara",
+      "sony-xlr-h1":"Asa y entradas XLR",
+      "sony-fe-16-35-gm":"Óptica Sony E",
+      "smallrig-4770":"Jaula y sujeción HDMI",
+      "smallrig-1674":"Base para las varillas",
+      "smallrig-rods-8in":"Par de varillas de 15 mm",
+      "smallrig-3645":"Parasol con filtro VND",
+      "smallrig-3026b":"Fija el monitor al lateral del gimbal",
+      "smallhd-indie-7":"Pantalla externa de 7 pulgadas",
+      "smallrig-vb99-pro":"Batería V-mount",
+      "smallrig-3203b":"Placa V-mount sobre varillas",
+      "smallrig-4253b":"Alimenta la cámara por adaptador regulado",
+      "dji-focus-pro-lidar":"Sensor; montaje y calibración pendientes",
+      "dji-focus-pro-motor":"Motor; calibración pendiente",
+      "dji-lidar-transmission-hub":"Requiere el sistema DJI Transmission",
+      "dji-mic-2-kit":"Dos transmisores, receptor y estuche",
+      "dji-lavalier":"Micrófono para el transmisor Mic 2",
+      "startech-st122hd4ku":"Doble HDMI; sólo circuito de banco",
+      "kondor-blue-hdmi-aa":"Vídeo de cámara a monitor",
+      "dji-hdmi-a-to-c":"Enlace de vídeo para RavenEye",
+      "dji-r-usbc-control":"Control de cámara desde el gimbal",
+      "smallhd-dtap-to-2mm-barrel":"Cable de alimentación del monitor",
+      "dji-ronin-image-transmitter":"RavenEye; soporte pendiente",
+      "dji-ronin-app":"Control desde un dispositivo compatible",
+      "sony-monitor-control-app":"Monitorización en un dispositivo compatible"
+    }
+  },
   "language": "es"
 }

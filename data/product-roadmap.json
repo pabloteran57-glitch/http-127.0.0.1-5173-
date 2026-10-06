@@ -2,7 +2,7 @@
   "version": 1,
   "reviewed_on": "2026-10-06",
   "status": "prototype_hardening_in_progress",
-  "progress_report": "docs/connection-review-qa.md",
+  "progress_report": "docs/rig-creation-qa.md",
   "user_decisions": [{"date":"2026-10-05","decision":"Mantener guardado local por ahora","effect":"Cuentas, sincronización y revisión privada aplazadas; no se creó un backend ni se eliminan del alcance futuro."}],
   "scope": "Hoja de ruta de producto; no contiene nuevas especificaciones de equipo ni certifica montajes.",
   "recommendation": "Estabilizar rigs propios y montaje, preparar reglas extensibles y ampliar el catálogo por lotes verificados antes de abrir una beta pública.",
@@ -23,6 +23,12 @@
     "assessment": "Prototipo funcional; no liberado como beta de uso profesional"
   },
   "findings": [
+    {
+      "id": "custom-vertical-monitor",
+      "status": "corrected_software_pending_observed_acceptance",
+      "evidence": ["data/planner-rules.json", "src/components/RigBuilder.tsx", "src/components/RigSelection.tsx", "scripts/test-planner.mjs", "docs/rig-creation-qa.md"],
+      "description": "La exclusión vertical agrupaba el monitor lateral fijo con la pila móvil. Se conservan 3026B/Indie 7 candidatos con su soporte elegido; alimentación y pruebas físicas permanecen pendientes. Editor guiado y bandeja de todas las elecciones, sin adiciones implícitas."
+    },
     {
       "id": "inventory-scope",
       "status": "corrected_software",
@@ -60,7 +66,7 @@
       "title": "Rigs propios y montaje fiable",
       "status": "in_progress",
       "verification_report": "docs/stabilization-qa.md",
-      "remaining": ["Medición sostenida en dispositivos físicos de referencia", "Comparación reproducible y objetivos de fluidez", "Aceptación observada del flujo con usuarios"],
+      "remaining": ["Medición sostenida en dispositivos físicos de referencia", "Comparación reproducible y objetivos de fluidez", "Aceptación observada del editor guiado con usuarios", "Permisos o fotografías propias de cada producto para miniaturas públicas reales"],
       "depends_on": [],
       "deliverables": [
         "Mi equipo muestra exactamente las elecciones del perfil, incluidos pendientes separados; Catálogo es una vista explícita",

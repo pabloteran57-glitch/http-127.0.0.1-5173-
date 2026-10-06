@@ -183,6 +183,15 @@ const reviews=JSON.parse(readFileSync(new URL("../data/connection-reviews.json",
 assert.equal(reviews.version,1);assert(reviews.revision);assert.equal(reviews.catalog_revision,planner.catalog_revision);
 assert.equal(new Set(reviews.reviews.map(r=>r.cable_id)).size,reviews.reviews.length);
 const sourceById=new Map(sources.sources.map(s=>[s.id,s]));
+assert.deepEqual(new Set(Object.keys(ui.builder.roles)),partIds,"Las tarjetas deben identificar todas las piezas, sin catálogo paralelo");
+assert.equal(ui.builder.steps.length,3);
+assert.deepEqual(ui.builder.contexts.map(c=>c.id),["gimbal","handheld","static"]);
+ui.builder.contexts.forEach(c=>assert(["design","assemble","inventory"].includes(c.icon)));
+const verticalReview=planner.vertical_monitor_review;
+assert(verticalReview.reviewed_on&&verticalReview.rationale&&verticalReview.pending);
+assert.equal(verticalReview.status,"documented_interfaces_candidate_not_physical_validation");
+verticalReview.part_ids.forEach(id=>assert(partIds.has(id)&&!planner.vertical_excluded_part_ids.includes(id)));
+verticalReview.source_urls.forEach(url=>assert(sources.sources.some(s=>s.type==="official"&&s.url===url)));
 const electricalFields=new Set(["input_range_v","output_range_v","input_polarity","output_polarity","output_nominal_v","input_min_current_a","output_max_current_a","nominal_input_current_a","barrel_outer_mm","barrel_inner_mm"]);
 for(const owner of [...ports.ports,...cables.cables]){
   const e=owner.electrical;if(!e)continue;assert(e.revision&&e.field_sources);

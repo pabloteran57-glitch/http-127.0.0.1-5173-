@@ -131,7 +131,7 @@ Varillas: 15 mm de diámetro, 203.2 mm de largo, 60 mm entre centros según el m
 - Posición candidata XYZ: -119 / -134 / -25 mm; rotación XYZ: 0 / 0 / 0 grados.
 - Envolvente XYZ: 152.6 / 38 / 54.8 mm; estado: Medidas exteriores publicadas. Una envolvente publicada no verifica los detalles internos.
 - Dominio de carga: Carga fija; soporte candidato: RS 4 Pro.
-- Colocación: Soporte lateral corto fuera de la cámara; coordenadas de riel/cabezal por medir.
+- Colocación: Soporte lateral corto fuera de la cámara; coordenadas de riel/cabezal por medir. Cadena candidata conservada en rigs propios verticales: el NATO lateral fijo no gira con la plataforma de cámara. Medir holguras y manos en ambos encuadres.
 - Orientación: Soporte nativo de 152.6 mm hacia la izquierda del operador, sin brazo extra. Articulación y tornillo con coordenadas aproximadas.
 - Montaje: Abrazadera NATO en riel lateral fijo RS; cabezal nativo inclinable con tornillo 1/4-20. Inclinación publicada de 170 grados; verificar orientación con la rosca real del Indie 7.
 - Motivo: Monitor fuera de la carga móvil de cámara.
@@ -222,4 +222,3 @@ Estado: Condicionado.
 No se ha demostrado calibración del motor con SEL1635GM. Sensor/motor Focus Pro y hub Transmission se conservan en inventario, sin simularlos operativos.
 
 Estado: Condicionado.
-

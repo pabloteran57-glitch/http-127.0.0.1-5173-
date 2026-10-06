@@ -7,6 +7,30 @@
   ],
   "sources": [
     {
+      "id": "src-dji-rs4-pro-vertical-manual",
+      "brand": "DJI",
+      "type": "official",
+      "url": "https://dl.djicdn.com/downloads/DJI_RS_4_Pro/UM/DJI_RS_4_User_Manual__v1.0__EN.pdf",
+      "checked_on": "2026-10-06",
+      "notes": "Diagramas y procedimiento de plataforma horizontal/vertical, puertos RSA/NATO. No certifica el conjunto de terceros ni su holgura con monitor."
+    },
+    {
+      "id": "src-smallrig-image-terms",
+      "brand": "SmallRig",
+      "type": "official",
+      "url": "https://www.smallrig.com/contentpage/terms.html",
+      "checked_on": "2026-10-06",
+      "notes": "La página reserva derechos sobre fotografías y gráficos; no se encontró autorización de redistribución para Takegrid. Se conserva enlace oficial y referencia local, sin publicación de medios."
+    },
+    {
+      "id": "src-dji-image-terms",
+      "brand": "DJI",
+      "type": "official",
+      "url": "https://www.dji.com/terms?from=footer&site=pro",
+      "checked_on": "2026-10-06",
+      "notes": "No se encontró permiso de redistribución de medios para esta aplicación. Los esquemas propios de categoría no sustituyen las referencias oficiales."
+    },
+    {
       "id": "src-dji-rs4-pro-specs",
       "brand": "DJI",
       "type": "official",
