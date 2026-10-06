@@ -58,16 +58,18 @@ Fuentes canónicas: `data/model-production.json` y `data/model-assets.json`. Rev
 
 ## Recursos investigados
 
+- [dji-rs4-pro-official-ar](https://www.dji.com/global/rs-4-pro?site=brandsite): `downloaded_quarantine_rights_component_separation_and_draco_pending`. URL expuesta por model-viewer en la sección 3D oficial, no extraída de buffers privados. Archivo descargado únicamente para referencia local, fuera del paquete público. Grafo incluye CAMERA_CINE_DFM, óptica 50 F1P2, motor y cables; no es el componente RS 4 Pro aislado. DJI advierte que las dimensiones de esa vista pueden diferir del producto real. Permiso de modificación/redistribución y separación BG30/BG70 pendientes; no usar su cámara como Sony FX3. No se relajó el importador ni se movieron puertos para admitir esta escena. Descargado: sí; licencia: sin confirmar.
+- [yeggi-fx3-accessories-search](https://www.yeggi.com/q/sony%2Bfx3/): `search_reviewed_no_matching_body_asset_confirmed`. Resultados revisados: bandejas, protectores, jaulas de terceros y rigs DIY, no cuerpo ILME-FX3 autorizado confirmado. Yeggi es un índice: descarga y licencia deben comprobarse en la página del creador. No se usaron cotas de un accesorio imprimible como cotas de cámara o de HawkLock 4770. Descargado: no; licencia: sin confirmar.
 - [sketchfab-fx3-scan-punitsabnani](https://sketchfab.com/3d-models/sony-fx3-camera-scan-8eaae19fabce47daa5c0d031a1f0fc5e): `quarantine_permission_download_scale_pending`. Página visible sin descarga directa ni licencia reutilizable explícita; autor pide contacto. Escaneo declarado por autor, no CAD Sony. Visor de origen avisó modelo demasiado pesado para el dispositivo de revisión. No se contactó al autor ni se extrajeron buffers del visor. Descargado: no; licencia: sin confirmar.
 - [cults-sel1635gm-focus-ring](https://cults3d.com/en/3d-model/gadget/seamless-follow-focus-ring-sony-16-35-2-8-gm): `rejected_wrong_asset_scope`. Modelo de anillo accesorio; sus cotas no son la geometría ni dimensiones completas del objetivo. Descargado: no; licencia: sin confirmar.
 
 ## Reconstrucción IA
 
-Correspondencia probable con Mesi/Meshi de las notas; no identidad confirmada por la grabación. Estado: `awaiting_sufficient_authorized_views_and_connected_account`.
+Meshy confirmado expresamente por el usuario; Yeggi y Sketchfab para búsqueda de recursos existentes. Estado: `awaiting_sufficient_authorized_views_and_connected_account`.
 
 Descarga oficial no equivale a permiso de IA ni de redistribución. No subir referencias sin prueba de permiso. No contratar planes, comprar créditos ni usar servicios de pago sin autorización específica Reconstrucción visual aproximada; no CAD ni evidencia de tornillería, roscas, masa, pinout o tolerancias.
 
-Workspace de Meshy abierto sin sesión conectada; muestra Iniciar sesión. No se cargaron fotos ni se generaron modelos/créditos. La interfaz mostraba Meshy 7.1; confirmar plan y condiciones de esa cuenta antes de generar.
+Formulario de registro gratuito abierto: pide correo o proveedor y avisa aceptación de términos al continuar. Usuario autoriza registro; pendiente correo y aceptación explícita de términos en este paso. No se creó cuenta, cargó foto ni consumió crédito.
 
 - [Documentación de Meshy](https://help.meshy.ai/en/articles/9996860-how-to-use-meshy-image-to-3d): Conversión de foto a malla y exportación.
 - [Documentación de Meshy](https://help.meshy.ai/en/articles/12634481-how-to-use-multi-view): Multi-View usa una imagen principal y hasta tres adicionales; requiere plan de pago.

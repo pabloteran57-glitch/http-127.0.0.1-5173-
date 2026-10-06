@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { assemblyContent, cablesData, layoutData, plannerData, referencesData } from "../data";
 import { assemblyFrame } from "../lib/planner";
 import { assemblyTimeline, nextPlaybackIndex } from "../lib/assembly";
@@ -7,8 +7,7 @@ import { publicDemo } from "../lib/publication";
 import type { Variant } from "../lib/types";
 import type { ViewAngle } from "./RigViewer";
 import Icon from "./Icon";
-
-const RigViewer = lazy(() => import("./RigViewer"));
+import RigViewer from "./RigViewerLoader";
 type Timeline = ReturnType<typeof assemblyTimeline>;
 interface Props { variant: Variant; chosenIds: string[]; active: boolean; onEdit: () => void }
 
@@ -87,7 +86,7 @@ function AssemblySession({ variant, chosenIds, active, onEdit, timeline, checks,
     </aside>
     <div className="assembly-main"><section id="assembly-visual" className="assembly-visual" aria-label="Ensamblaje visual por etapas">
       <div className="assembly-view-toolbar"><span><b>{step.playable ? String(cursor.index + 1).padStart(2, "0") : "+"}</b>{step.title}</span><div><select aria-label="Vista del ensamblaje" value={angle} onChange={e => { setPlaying(false); setAngle(e.target.value as ViewAngle); }}><option value="iso">Vista 3/4</option><option value="side">Lateral</option><option value="front">Frontal</option></select><button className="icon-button" aria-label="Recentrar ensamblaje" onClick={() => { setPlaying(false); setResetKey(k => k + 1); }}><Icon name="reset"/></button></div></div>
-      {!active ? <div className="viewer-fallback">Visor en pausa mientras configuras el plan.</div> : visualCount ? <Suspense fallback={<div className="viewer-fallback"><span className="loading-ring"/>Preparando tu montaje...</div>}><RigViewer variant={frame.variant} exploded={false} showLabels={false} showCables selectedId={focusId} onSelect={id => { setPlaying(false); setSelectedCableId(null); setSelectedId(id); }} angle={angle} selectedCableId={selectedCableId} resetKey={resetKey} highlightIds={frame.new_ids} contextIds={frame.context_ids} reveal framing={variant.active_part_ids.includes("dji-rs4-pro-combo") ? "gimbal" : "handheld"} sceneKey={token} onSceneReady={() => setReady({ token, ms: Math.round(performance.now() - cursor.started) })} onUnavailable={() => { setUnavailable(true); setPlaying(false); }} onInteract={() => setPlaying(false)}/></Suspense> : <div className="rig-empty-canvas"><Icon name="assemble"/><h3>Comprobación sin modelo adicional</h3><p>Esta etapa no añade geometría de accesorios no elegidos.</p></div>}
+      {!active ? <div className="viewer-fallback">Visor en pausa mientras configuras el plan.</div> : visualCount ? <RigViewer loadingMessage="Preparando tu montaje..." variant={frame.variant} exploded={false} showLabels={false} showCables selectedId={focusId} onSelect={id => { setPlaying(false); setSelectedCableId(null); setSelectedId(id); }} angle={angle} selectedCableId={selectedCableId} resetKey={resetKey} highlightIds={frame.new_ids} contextIds={frame.context_ids} reveal framing={variant.active_part_ids.includes("dji-rs4-pro-combo") ? "gimbal" : "handheld"} sceneKey={token} onScenePreparing={() => { setReady(null); setUnavailable(false); }} onSceneReady={() => { setUnavailable(false); setReady({ token, ms: Math.round(performance.now() - cursor.started) }); }} onUnavailable={() => { setUnavailable(true); setPlaying(false); }} onInteract={() => setPlaying(false)}/> : <div className="rig-empty-canvas"><Icon name="assemble"/><h3>Comprobación sin modelo adicional</h3><p>Esta etapa no añade geometría de accesorios no elegidos.</p></div>}
       <div className="assembly-stage-note"><span className="new-parts-dot"/>{newVisible ? "Nuevas piezas resaltadas" : step.cable_ids.length ? "Conexiones añadidas · elige una ruta para verla" : "Comprobación · sin añadir piezas"}{frame.context_ids.length > 0 && <span> · Soporte translúcido: sólo contexto</span>}<small>{visualCount} piezas representadas · Transición ilustrativa, no inserción física</small></div>
       <div className="assembly-playback"><button className="quiet-button" disabled={!active || cursor.index === 0} onClick={() => go(cursor.index - 1)}>Anterior</button><button className="primary-button playback-button" disabled={!active || unavailable} aria-pressed={playing} onClick={() => {
         if (playing) setPlaying(false);

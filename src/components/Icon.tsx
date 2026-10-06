@@ -1,7 +1,8 @@
 import type { CSSProperties } from "react";
 
-export type IconName = "design" | "connect" | "assemble" | "inventory" | "reset" | "settings" | "download" | "arrow" | "search" | "close" | "info" | "check" | "plus" | "play" | "pause";
+export type IconName = "design" | "connect" | "assemble" | "inventory" | "reset" | "settings" | "download" | "arrow" | "search" | "close" | "info" | "check" | "plus" | "play" | "pause" | "person";
 const paths: Record<IconName, string> = {
+  person: "M16 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0ZM4 21v-2a8 8 0 0 1 16 0v2",
   design: "M12 3 21 8v8l-9 5-9-5V8l9-5ZM3 8l9 5 9-5M12 13v8",
   connect: "M6 3v6m12 6v6M3 9h6v3a3 3 0 0 1-6 0V9Zm12 3a3 3 0 0 1 6 0v3h-6v-3ZM6 15v2a3 3 0 0 0 3 3h1m8-11V7a3 3 0 0 0-3-3h-1",
   assemble: "M9 4h6v3H9V4Zm-2 2H5v15h14V6h-2M8 11l1 1 2-2m2 1h3M8 16l1 1 2-2m2 1h3",

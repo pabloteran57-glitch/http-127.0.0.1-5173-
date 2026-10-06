@@ -1,7 +1,7 @@
 {
   "version": 1,
   "release_status": "engineering_prototype",
-  "software_reports": ["docs/stabilization-qa.md", "docs/iteration-qa.md"],
+  "software_reports": ["docs/stabilization-qa.md", "docs/iteration-qa.md", "docs/viewer-profiles-qa.md"],
   "observations": [],
   "physical_trials": [],
   "reference_devices": [],

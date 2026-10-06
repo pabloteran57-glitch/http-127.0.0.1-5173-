@@ -1,4 +1,4 @@
-import { Component, Suspense, lazy, useEffect, useRef, type ReactNode } from "react";
+import { Component, Suspense, lazy, useEffect, useRef, useState, type ReactNode } from "react";
 import { Canvas, useFrame, useThree, type ThreeEvent } from "@react-three/fiber";
 import { CubicBezierLine } from "@react-three/drei/core/CubicBezierLine";
 import { Edges } from "@react-three/drei/core/Edges";
@@ -14,6 +14,7 @@ import { nodePose, routeOffset, visibleCableIds } from "../lib/viewer";
 import PerformanceProbe from "./PerformanceProbe";
 import type { PerformanceResult, PerformanceRun } from "../lib/performance";
 import { approvedModelFor } from "../lib/model-assets";
+import { modelReadiness, modelSessionKey, updateModelReports, type ModelLoadReport, type ModelReports } from "../lib/model-runtime";
 
 const ApprovedModel = lazy(() => import("./ApprovedModel"));
 
@@ -34,6 +35,7 @@ interface Props {
   framing?: "gimbal" | "handheld";
   sceneKey?: string;
   onSceneReady?: () => void;
+  onScenePreparing?: () => void;
   onUnavailable?: () => void;
   onInteract?: () => void;
   performanceRun?: PerformanceRun;
@@ -195,8 +197,9 @@ function Geometry({node,selected}:{node:LayoutNode;selected:boolean}){
  }
 }
 
-function AnimatedNode({ node, exploded, vertical, selected, onSelect, context, reveal }: {
+function AnimatedNode({ node, exploded, vertical, selected, onSelect, context, reveal, attempt, scene, onModelReport }: {
   node: LayoutNode; exploded: boolean; vertical: boolean; selected: boolean; onSelect: (id: string) => void; context:boolean; reveal:boolean;
+  attempt: number; scene: string; onModelReport: (report: ModelLoadReport) => void;
 }) {
   const group = useRef<Group>(null);
   const pose = nodePose(node,vertical,exploded);
@@ -224,7 +227,7 @@ function AnimatedNode({ node, exploded, vertical, selected, onSelect, context, r
   const rotation = pose.rotation_deg.map(v=>v*Math.PI/180) as Vec3;
   return <group ref={group} position={pos} scale={initialScale.current} onClick={click}>
     <group rotation={rotation}>
-      {asset ? <Suspense fallback={<Geometry node={node} selected={selected} />}><ApprovedModel asset={asset} selected={selected} context={context} fallback={<Geometry node={node} selected={selected} />} /></Suspense> : <Geometry node={node} selected={selected} />}
+      {asset ? <Suspense fallback={<Geometry node={node} selected={selected} />}><ApprovedModel key={`${asset.id}:${asset.artifact.sha256}:${attempt}`} asset={asset} selected={selected} context={context} reportKey={modelSessionKey(asset, attempt, scene)} onReport={onModelReport} fallback={<Geometry node={node} selected={selected} />} /></Suspense> : <Geometry node={node} selected={selected} />}
     </group>
   </group>;
 }
@@ -263,26 +266,28 @@ function CameraControls({ angle, exploded, handheld, resetKey, onInteract }: { a
   }, [angle, camera, exploded, handheld, resetKey, invalidate]);
   return <OrbitControls ref={controls} onStart={onInteract} minDistance={3} maxDistance={18} maxPolarAngle={Math.PI * 0.9} enableDamping dampingFactor={0.08} />;
 }
-function SceneReady({ sceneKey, onReady }: { sceneKey?: string; onReady?: () => void }) {
+function SceneReady({ sceneKey, settled, onReady, onPreparing }: { sceneKey?: string; settled: boolean; onReady?: () => void; onPreparing?: () => void }) {
   const invalidate = useThree(state => state.invalidate);
   const frames = useRef(0);
   const callback = useRef(onReady);
+  const preparing = useRef(onPreparing);
   callback.current = onReady;
-  useEffect(() => { frames.current = 0; invalidate(); }, [sceneKey, invalidate]);
+  preparing.current = onPreparing;
+  useEffect(() => { frames.current = 0; preparing.current?.(); invalidate(); }, [sceneKey, settled, invalidate]);
   useFrame(() => {
-    if (frames.current >= 2) return;
+    if (!settled || frames.current >= 2) return;
     frames.current += 1;
     if (frames.current === 2) callback.current?.();
     else invalidate();
   });
   return null;
 }
-class ViewerBoundary extends Component<{ children: ReactNode; onUnavailable?: () => void }, { failed: boolean }> {
+class ViewerBoundary extends Component<{ children: ReactNode; onUnavailable?: () => void; onRetry: () => void }, { failed: boolean }> {
   state = { failed: false };
   static getDerivedStateFromError() { return { failed: true }; }
   componentDidCatch() { this.props.onUnavailable?.(); }
   render() {
-    return this.state.failed ? <div className="viewer-fallback">El navegador no pudo iniciar WebGL. El manifiesto, las conexiones y el inspector siguen disponibles.</div> : this.props.children;
+    return this.state.failed ? <div className="viewer-fallback viewer-recovery" role="status"><p>No se pudo abrir el visor 3D. Tu selección y la guía siguen disponibles.</p><button className="quiet-button" onClick={this.props.onRetry}>Reintentar visor</button></div> : this.props.children;
   }
 }
 function PortProjection({anchors,elements}:{anchors:{id:string;position:Vec3}[];elements:React.RefObject<Record<string,HTMLSpanElement|null>>}){
@@ -290,9 +295,16 @@ function PortProjection({anchors,elements}:{anchors:{id:string;position:Vec3}[];
  useFrame(({camera,size})=>anchors.forEach(a=>{const el=elements.current[a.id];if(!el)return;point.set(...a.position).project(camera);el.style.transform=`translate(-50%,-50%) translate(${(point.x*.5+.5)*size.width}px,${(-point.y*.5+.5)*size.height}px)`;el.style.visibility=point.z>1||point.z< -1?"hidden":"visible";}));
  return null;
 }
-export default function RigViewer({exploded,showCables,showLabels,variant,selectedId,onSelect,angle,selectedCableId,resetKey,highlightIds=[],contextIds=[],reveal=false,framing,sceneKey,onSceneReady,onUnavailable,onInteract,performanceRun,onPerformanceResult}:Props){
+export default function RigViewer({exploded,showCables,showLabels,variant,selectedId,onSelect,angle,selectedCableId,resetKey,highlightIds=[],contextIds=[],reveal=false,framing,sceneKey,onSceneReady,onScenePreparing,onUnavailable,onInteract,performanceRun,onPerformanceResult}:Props){
  const labels=useRef<Record<string,HTMLButtonElement|null>>({});const portLabels=useRef<Record<string,HTMLSpanElement|null>>({});
+ const [attempt,setAttempt]=useState(0),[unavailable,setUnavailable]=useState(false);
+ const [modelReports,setModelReports]=useState<ModelReports>({});
  const nodes=layoutData.nodes.filter(n=>variant.active_part_ids.includes(n.id));
+ const session=sceneKey??`${variant.id}:${nodes.map(n=>n.id).join(",")}`;
+ const modelEntries=nodes.flatMap(node=>{const asset=approvedModelFor(node,partById[node.id],modelAssets);return asset?[{asset,key:modelSessionKey(asset,attempt,session)}]:[];});
+ const modelKeys=modelEntries.map(entry=>entry.key),readiness=modelReadiness(modelKeys,modelReports);
+ const reportModel=(report:ModelLoadReport)=>setModelReports(previous=>updateModelReports(previous,modelKeys,report));
+ const retry=()=>{onInteract?.();setUnavailable(false);setAttempt(value=>value+1);onScenePreparing?.();};
  const vertical=variant.viewer.mode==="vertical";
  const handheld=framing?framing==="handheld":!variant.active_part_ids.includes("dji-rs4-pro-combo");
  const positions=Object.fromEntries(nodes.map(n=>[n.id,vector(nodePose(n,vertical,exploded).position_mm)]));
@@ -309,12 +321,12 @@ export default function RigViewer({exploded,showCables,showLabels,variant,select
  const visibleLinks=links.filter(link=>visibleIds.includes(link.cable.cable_id));
  const anchors=focus?[{id:"a",position:focus.a!},{id:"b",position:focus.b!}]:[];
  const route=cableById[selectedCableId??""];
- return <div className="rig-stage" aria-label="Visor 3D del rig, geometría aproximada" data-visible-parts={nodes.map(n=>n.id).join(",")} data-visible-cables={visibleIds.join(",")} data-context-parts={contextIds.join(",")}>
+ return <div className="rig-stage" aria-label="Visor 3D del rig, geometría aproximada" data-visible-parts={nodes.map(n=>n.id).join(",")} data-visible-cables={visibleIds.join(",")} data-context-parts={contextIds.join(",")} data-models-loading={readiness.loading.length} data-models-failed={readiness.failed.length} data-viewer-unavailable={unavailable}>
   <div className="stage-corner">MODELO DE PLANIFICACIÓN <span>Geometría aproximada</span></div>
-  <ViewerBoundary onUnavailable={onUnavailable}><Suspense fallback={<div className="viewer-fallback">Iniciando visor...</div>}><Canvas frameloop={performanceRun?.policy??"demand"} camera={{position:[-6,2.2,-7.5],fov:36}} dpr={[1,1.5]} gl={{antialias:true,alpha:true}}>
+  <ViewerBoundary key={attempt} onRetry={retry} onUnavailable={()=>{setUnavailable(true);onUnavailable?.();}}><Suspense fallback={<div className="viewer-fallback">Iniciando visor...</div>}><Canvas frameloop={performanceRun?.policy??"demand"} camera={{position:[-6,2.2,-7.5],fov:36}} dpr={[1,1.5]} gl={{antialias:true,alpha:true}}>
    <ambientLight intensity={1.6}/><directionalLight position={[-3,7,-6]} intensity={4.5} color="#f1f2ff"/><directionalLight position={[5,3,5]} intensity={3} color="#aec3d8"/><pointLight position={[-3,-2,-3]} intensity={14} color="#7cacae"/>
    <gridHelper args={[20,40,"#3d434c","#242933"]} position={[0,handheld?-.8:-3.6,0]}/>
-   {nodes.map(n=><AnimatedNode key={n.id} node={n} exploded={exploded} vertical={variant.viewer.mode==="vertical"} selected={(selectedId===n.id&&!selectedCableId)||highlightIds.includes(n.id)} onSelect={onSelect} context={contextIds.includes(n.id)} reveal={reveal}/>)}
+   {nodes.map(n=><AnimatedNode key={n.id} node={n} exploded={exploded} vertical={variant.viewer.mode==="vertical"} selected={(selectedId===n.id&&!selectedCableId)||highlightIds.includes(n.id)} onSelect={onSelect} context={contextIds.includes(n.id)} reveal={reveal} attempt={attempt} scene={session} onModelReport={reportModel}/>)}
    {visibleLinks.map(({cable:c,a,b})=>{
     const focused=c.cable_id===selectedCableId;const color=cablesData.color_coding[c.type==="data"?"control":c.type];
     const opacity=selectedCableId&&!focused ? .18 : 1;
@@ -326,13 +338,14 @@ export default function RigViewer({exploded,showCables,showLabels,variant,select
      {(focused||!selectedCableId)&&[a!,b!].map((point,i)=><mesh key={i} position={point}><sphereGeometry args={[focused ? .04 : .025,20,16]}/><meshBasicMaterial color={color} depthTest={false}/></mesh>)}
     </group>;
    })}
-   <CameraControls angle={angle} exploded={exploded} handheld={handheld} resetKey={resetKey} onInteract={onInteract}/><LabelProjector nodes={nodes} exploded={exploded} vertical={vertical} elements={labels}/><PortProjection anchors={anchors} elements={portLabels}/><SceneReady sceneKey={sceneKey} onReady={onSceneReady}/>
+   <CameraControls angle={angle} exploded={exploded} handheld={handheld} resetKey={resetKey} onInteract={onInteract}/><LabelProjector nodes={nodes} exploded={exploded} vertical={vertical} elements={labels}/><PortProjection anchors={anchors} elements={portLabels}/><SceneReady sceneKey={`${session}:${attempt}`} settled={readiness.settled} onReady={onSceneReady} onPreparing={onScenePreparing}/>
    {performanceRun&&onPerformanceResult&&<PerformanceProbe key={performanceRun.id} run={performanceRun} onResult={onPerformanceResult}/>}
   </Canvas></Suspense></ViewerBoundary>
-  <div className="label-layer">{nodes.filter(n=>showLabels&&primaryLabels.has(n.id)||(!selectedCableId&&n.id===selectedId)).map(n=><button key={n.id} ref={el=>{labels.current[n.id]=el}} className={n.id===selectedId?"part-label selected":"part-label"} onClick={()=>onSelect(n.id)}>{n.label}</button>)}
+  {!unavailable&&<div className="label-layer">{nodes.filter(n=>showLabels&&primaryLabels.has(n.id)||(!selectedCableId&&n.id===selectedId)).map(n=><button key={n.id} ref={el=>{labels.current[n.id]=el}} className={n.id===selectedId?"part-label selected":"part-label"} onClick={()=>onSelect(n.id)}>{n.label}</button>)}
    {focus&&anchors.map((a,i)=><span key={a.id} ref={el=>{portLabels.current[a.id]=el}} className="port-marker"><b>{i?"B":"A"}</b>{portById[i?focus.cable.to_port_id:focus.cable.from_port_id].label}</span>)}
-  </div>
-  {selectedCableId&&<div className="route-hud" style={{"--route-color":route?cablesData.color_coding[route.type==="data"?"control":route.type]:undefined} as React.CSSProperties}><span className="eyebrow">{focus?"RECORRIDO RESALTADO":route?.display_kind==="contacts"?"CONTACTOS / SIN CABLE":route?.display_kind==="internal"?"ALIMENTACIÓN INTERNA":"CONEXIÓN SIN GEOMETRÍA VALIDADA"}</span><strong>{connectionName(selectedCableId)}</strong><p>{exploded?"En despiece: vínculo lógico, cable desconectado.":"Anclajes y bucles aproximados. No valida radios ni despejes."}</p></div>}
-  <div className="stage-footer"><span>ARRASTRA PARA GIRAR / ACERCA O ALEJA</span><span>Forma reconstruida con fotos y cotas, no CAD</span></div>
+  </div>}
+  {!unavailable&&modelEntries.length>0&&(readiness.loading.length>0||readiness.failed.length>0)&&<div className="model-load-status" role="status"><span>{readiness.loading.length>0?`Cargando ${readiness.loading.length} ${readiness.loading.length===1?"modelo":"modelos"}. Geometría aproximada de respaldo visible.`:`${readiness.failed.length} ${readiness.failed.length===1?"modelo no disponible":"modelos no disponibles"}. Mostrando geometría aproximada de respaldo.`}</span>{readiness.failed.length>0&&<button className="quiet-button" onClick={retry}>Reintentar modelos</button>}</div>}
+  {!unavailable&&selectedCableId&&<div className="route-hud" style={{"--route-color":route?cablesData.color_coding[route.type==="data"?"control":route.type]:undefined} as React.CSSProperties}><span className="eyebrow">{focus?"RECORRIDO RESALTADO":route?.display_kind==="contacts"?"CONTACTOS / SIN CABLE":route?.display_kind==="internal"?"ALIMENTACIÓN INTERNA":"CONEXIÓN SIN GEOMETRÍA VALIDADA"}</span><strong>{connectionName(selectedCableId)}</strong><p>{exploded?"En despiece: vínculo lógico, cable desconectado.":"Anclajes y bucles aproximados. No valida radios ni despejes."}</p></div>}
+  <div className="stage-footer"><span>{unavailable?"GUÍA Y PIEZAS DISPONIBLES SIN 3D":"ARRASTRA PARA GIRAR / ACERCA O ALEJA"}</span><span>{unavailable?"VISOR NO DISPONIBLE":"Forma reconstruida con fotos y cotas, no CAD"}</span></div>
  </div>;
 }

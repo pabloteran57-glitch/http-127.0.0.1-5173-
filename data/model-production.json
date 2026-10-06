@@ -48,6 +48,31 @@
   ],
   "candidates": [
     {
+      "id": "dji-rs4-pro-official-ar",
+      "part_id": "dji-rs4-pro-combo",
+      "source_url": "https://www.dji.com/global/rs-4-pro?site=brandsite",
+      "artifact_url": "https://www-cdn.djiits.com/reactor/assets/_next/static/3d/a1c4ed07-37b3-4227-ba05-bfd041596970.glb",
+      "author": "DJI",
+      "status": "downloaded_quarantine_rights_component_separation_and_draco_pending",
+      "downloaded": true,
+      "bytes": 8791748,
+      "sha256": "4bca5abbb94becfa5ef6bae5d6b05de2b318dd932b5132c03f7ad3bc18518568",
+      "license": null,
+      "reviewed_on": "2026-10-06",
+      "structural_inspection": {"meshes":192,"nodes":200,"embedded_images":4,"triangles_from_accessors":457909,"required_decoder":"KHR_draco_mesh_compression","web_audit":"rejected_unsupported_extension"},
+      "observations": ["URL expuesta por model-viewer en la sección 3D oficial, no extraída de buffers privados", "Archivo descargado únicamente para referencia local, fuera del paquete público", "Grafo incluye CAMERA_CINE_DFM, óptica 50 F1P2, motor y cables; no es el componente RS 4 Pro aislado", "DJI advierte que las dimensiones de esa vista pueden diferir del producto real", "Permiso de modificación/redistribución y separación BG30/BG70 pendientes; no usar su cámara como Sony FX3", "No se relajó el importador ni se movieron puertos para admitir esta escena"]
+    },
+    {
+      "id": "yeggi-fx3-accessories-search",
+      "part_id": "sony-fx3",
+      "source_url": "https://www.yeggi.com/q/sony%2Bfx3/",
+      "author": null,
+      "status": "search_reviewed_no_matching_body_asset_confirmed",
+      "downloaded": false,
+      "license": null,
+      "observations": ["Resultados revisados: bandejas, protectores, jaulas de terceros y rigs DIY, no cuerpo ILME-FX3 autorizado confirmado", "Yeggi es un índice: descarga y licencia deben comprobarse en la página del creador", "No se usaron cotas de un accesorio imprimible como cotas de cámara o de HawkLock 4770"]
+    },
+    {
       "id": "sketchfab-fx3-scan-punitsabnani",
       "part_id": "sony-fx3",
       "source_url": "https://sketchfab.com/3d-models/sony-fx3-camera-scan-8eaae19fabce47daa5c0d031a1f0fc5e",
@@ -71,9 +96,9 @@
   ],
   "ai": {
     "candidate_platform": "Meshy",
-    "platform_identification": "Correspondencia probable con Mesi/Meshi de las notas; no identidad confirmada por la grabación",
+    "platform_identification": "Meshy confirmado expresamente por el usuario; Yeggi y Sketchfab para búsqueda de recursos existentes",
     "status": "awaiting_sufficient_authorized_views_and_connected_account",
-    "access_check": "Workspace de Meshy abierto sin sesión conectada; muestra Iniciar sesión. No se cargaron fotos ni se generaron modelos/créditos. La interfaz mostraba Meshy 7.1; confirmar plan y condiciones de esa cuenta antes de generar.",
+    "access_check": "Formulario de registro gratuito abierto: pide correo o proveedor y avisa aceptación de términos al continuar. Usuario autoriza registro; pendiente correo y aceptación explícita de términos en este paso. No se creó cuenta, cargó foto ni consumió crédito.",
     "source_images_policy": "Descarga oficial no equivale a permiso de IA ni de redistribución. No subir referencias sin prueba de permiso.",
     "method": "Image to 3D; Multi-View sólo si la cuenta/plan confirmado lo permite",
     "payment_policy": "No contratar planes, comprar créditos ni usar servicios de pago sin autorización específica",
@@ -85,5 +110,5 @@
     ]
   },
   "release_gates": ["Identidad/revisión y componente correctos","Licencia, modificación y distribución web comercial verificadas","Derechos de imágenes/IA comprobados si aplica","GLB autocontenido, hash y límites auditados","Escala uniforme, base de referencia y revisión visual documentadas","Puertos, soporte, masa y cables siguen en manifiestos","Atribución visible, regresiones y comparación móvil"],
-  "not_claimed": ["Archivo 3D real descargado o generado","Permiso del fabricante","Réplica mecánica certificada","Rendimiento GPU medido","Prueba física de montaje"]
+  "not_claimed": ["Modelo 3D generado por IA o integrado como pieza aprobada","Permiso del fabricante","Réplica mecánica certificada","Rendimiento GPU medido","Prueba física de montaje"]
 }

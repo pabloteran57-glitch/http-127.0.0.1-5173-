@@ -3,7 +3,7 @@
   "reviewed_on": "2026-10-06",
   "status": "prototype_hardening_in_progress",
   "progress_report": "docs/mobile-selection-qa.md",
-  "user_decisions": [{"date":"2026-10-05","decision":"Mantener guardado local por ahora","effect":"Cuentas, sincronización y revisión privada aplazadas; no se creó un backend ni se eliminan del alcance futuro."}],
+  "user_decisions": [{"date":"2026-10-05","decision":"Mantener guardado local por ahora","effect":"Cuentas, sincronización y revisión privada aplazadas; no se creó un backend ni se eliminan del alcance futuro."},{"date":"2026-10-06","decision":"Perfiles locales ahora, sin contraseña ni nube","effect":"Bibliotecas, historial y borradores independientes por perfil del navegador. Perfil inicial conserva claves v1/v2 anteriores. No se interpreta como autorización para cuentas o nube."}],
   "scope": "Hoja de ruta de producto; no contiene nuevas especificaciones de equipo ni certifica montajes.",
   "recommendation": "Estabilizar rigs propios y montaje, preparar reglas extensibles y ampliar el catálogo por lotes verificados antes de abrir una beta pública.",
   "preserve": [
@@ -56,8 +56,8 @@
     {
       "id": "playback-performance",
       "status": "instrumented_pending_reference_devices",
-      "evidence": ["src/components/RigViewer.tsx", "src/components/AssemblyWizard.tsx"],
-      "description": "Encuadre estable, vectores reutilizados y demanda implementados. Laboratorio A/B de la misma versión, no GPU ni una mejora porcentual contra la versión anterior. Dispositivos y aceptación pendientes."
+      "evidence": ["src/components/RigViewer.tsx", "src/components/AssemblyWizard.tsx", "src/lib/model-runtime.ts", "docs/viewer-profiles-qa.md"],
+      "description": "Encuadre estable y demanda implementados. Carga auditada, espera acotada, reintento de módulo/escena y montaje coordinado con cargas. Prueba local de fallo deliberado y recuperación sin recargar; no benchmark GPU ni mejora porcentual. Dispositivos y aceptación pendientes."
     },
     {
       "id": "catalog-coupling",
@@ -144,6 +144,7 @@
       "depends_on": ["stabilize-core", "extensible-engineering"],
       "deliverables": [
         "Guardado automático de borradores, historial, recuperación y tratamiento visible de conflictos",
+        "Perfiles locales autorizados por el usuario: bibliotecas y borradores separados sin autenticación ni nube; conservan planes anteriores",
         "Cuenta y sincronización entre equipos con datos privados aislados del catálogo público",
         "Enlace de revisión de sólo lectura con permisos y revocación; colaboración editable sólo tras probar conflictos",
         "Uso instalable y sin conexión para los planes y recursos propios autorizados",

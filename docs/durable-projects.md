@@ -2,6 +2,8 @@
 
 Decisión del usuario: mantener almacenamiento local por ahora. Cuentas, sincronización, revisión privada y eliminación de cuenta están aplazadas, no implementadas. No se creó un servicio ni se contrataron planes.
 
+Versión 0.2.4: perfiles locales autorizados, sin contraseña ni nube. El botón de perfil crea bibliotecas independientes con historial y borradores propios. El perfil inicial conserva todas las claves anteriores; no se migran ni mezclan al crear otro. El índice se confirma bajo Web Locks; la elección es por pestaña y se recuerda en sessionStorage si el navegador lo permite. Cambiar confirma primero borradores pendientes o se bloquea sin abandonar el perfil. [Pruebas](viewer-profiles-qa.md).
+
 ## Confirmación y recuperación
 
 - Guardar rig confirma biblioteca e historial en una escritura. Hasta cinco versiones por rig; abrir una anterior crea una copia y no reemplaza el plan.
@@ -17,6 +19,8 @@ Biblioteca actual en `takegrid.rigs.v2`; el archivo histórico `takegrid.rigs.v1
 La copia heredada, respaldos y borradores anteriores pueden conservar datos de rigs eliminados de la biblioteca actual. El borrado completo requiere eliminar los datos del sitio en el navegador; no hay una cuenta ni una copia externa. El historial actual se elimina con su rig, pero no se borran sin autorización datos de otras sesiones.
 
 Almacenar localmente no es cifrado de extremo a extremo ni garantía de permanencia. Una sesión privada, limpieza de navegador, pérdida de equipo o cuota puede eliminar datos. No se promete colaboración ni disponibilidad desde otro dispositivo.
+
+La separación de perfiles no es una barrera de seguridad: quien use este navegador puede abrir cualquier perfil local. Hasta 20 perfiles incluyendo el inicial; no hay eliminación masiva ni borrado automático por alcanzar límites. Bibliotecas ajenas no aparecen en listas, historial o recuperación del perfil elegido.
 
 ## Sin conexión
 

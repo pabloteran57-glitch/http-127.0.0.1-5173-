@@ -33,6 +33,8 @@ Versión 0.2.3: selección directa en **Catálogo**, **Elegidas** y **Datos del 
 
 Versión 0.2.0: borradores recuperables, historial de cinco versiones y restauración como copia en Mis rigs. Web Locks coordina guardado entre pestañas; sin esa API no se confirma la escritura. Biblioteca v2 separada de la antigua v1, que se conserva para migrar sin afectar pestañas viejas. Revisar cambios de otra pestaña protege los planes distintos como copias. No hay copia externa ni cuenta. [Persistencia y límites](docs/durable-projects.md).
 
+Versión 0.2.4: el botón de perfil junto a **Mis rigs** crea bibliotecas locales independientes. El perfil inicial conserva rigs, historial y borradores anteriores sin moverlos ni borrar v1. La elección se recuerda por pestaña; cambiar confirma primero los borradores recuperables. Sin contraseña, privacidad frente a otras personas del navegador ni sincronización. El visor permite reintentar un fallo de carga sin recargar toda la app; montaje espera a modelos listos o respaldo comunicado. [Pruebas y límites](docs/viewer-profiles-qa.md).
+
 **Ayuda y versión** conserva una orientación de tres pasos, preparación optativa sin conexión, privacidad y descripción local de incidencias. No añade una quinta tarea ni reintroduce exportar planes. Instalación web según navegador, no App Store.
 
 Laboratorio optativo: `/?laboratorio=1`. Compara reposo/giro y demanda/continuo en la misma escena. Intervalos JavaScript, no tiempos GPU ni mejora porcentual contra la versión anterior. `npm run check:beta` muestra criterios y evidencia pendientes; `--strict` no permite declarar beta lista.
@@ -73,7 +75,7 @@ El subtotal móvil depende del perfil; incluye los 28 g del RX cuando está acti
 
 No se importó CAD comunitario no verificado. Toda forma 3D interna y pose es aproximada, incluso donde se conocen cotas exteriores. Pendientes explícitos: BG70, parasol completo, pila de placas, retención y posición exacta del RX, longitudes, radios de curvatura y holguras reales.
 
-Primero fidelidad del catálogo actual, después ampliaciones: la malla visual no decide puertos, masas ni soportes. `npm run test:models` añade veinte pruebas sintéticas de identidad, licencia, escala, hash/rutas y GLB; no genera permisos ni un escaneo real. La masa de cuerpo FX3 se corrigió a 630 g con fuente Sony US; 715 g incluye batería/tarjeta.
+Primero fidelidad del catálogo actual, después ampliaciones: la malla visual no decide puertos, masas ni soportes. `npm run test:models` ejecuta 39 pruebas de contrato y carga, incluida cancelación y liberación de recursos compartidos; no genera permisos ni un escaneo real. `npm run test:planner` incluye 17 pruebas de perfiles locales. La masa de cuerpo FX3 se corrigió a 630 g con fuente Sony US; 715 g incluye batería/tarjeta. GLB oficial DJI descargado bajo `research/model-incoming/`, en cuarentena por permisos, componentes fusionados y Draco; no forma parte de la web pública.
 
 ## Verificación
 

@@ -134,5 +134,6 @@ export function writeLibrary(storage:Pick<Storage,"getItem"|"setItem">,expected:
   const serialized=JSON.stringify({version:2,catalog_revision:CATALOG_REVISION,legacy_fingerprint:libraryFingerprint(storage.getItem(LEGACY_LIBRARY_KEY)),rigs,history});
   parseLibrary(serialized,catalogIds,limit);
   storage.setItem(LIBRARY_KEY,serialized);
+  if(storage.getItem(LIBRARY_KEY)!==serialized)throw new Error("No se pudo confirmar el guardado local. Tu borrador sigue abierto.");
   return serialized;
 }
