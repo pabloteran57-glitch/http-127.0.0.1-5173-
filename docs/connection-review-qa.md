@@ -17,7 +17,18 @@ Primero se actualizaron fuentes y campos canónicos; después guía, motor e int
 
 ## Verificación de interfaz
 
-La vista previa local anunció 127.0.0.1:4174, pero el navegador de comprobación agotó el tiempo de conexión. Esto no se registra como prueba visual aprobada. Revisión de la interfaz pública de esta versión pendiente de completar tras el despliegue.
+La vista previa local anunció 127.0.0.1:4174, pero el navegador de comprobación agotó el tiempo de conexión. Esto no se registra como prueba visual local aprobada. La interfaz se comprobó directamente en https://takegrid.netlify.app/ el 6 de octubre de 2026.
+
+- Ayuda muestra Takegrid 0.2.1, prototipo de ingeniería. Recursos publicados `/assets/index-uLPCfuAT.js`, `/assets/index-DMaJzg_Y.css` y `/assets/RigViewer-Cjcte4LK.js`, correspondientes a la compilación pública validada. Commit funcional `80ef04d2d202c41fd6f1512b97ebc694f17272e0`.
+- Escritorio y anchos móviles simulados de 390 y 320 píxeles. Anchos útiles observados de 375 y 305 píxeles; ancho del documento igual al útil, sin desbordamiento horizontal. No son ensayos de móviles físicos.
+- Control Todos los cables: cuatro rutas con geometría en el perfil Comercial; al desactivarlo permanece sólo la seleccionada. Cambiar a control USB-C, adaptador 4253B o monitor cambia esa ruta. BG70 por contactos no genera un cable externo.
+- Extremos A/B antes del aviso y las comprobaciones extensas. Entrada del monitor documentada; polaridad de entrada y salida efectiva de placa pendientes. Fuentes oficiales y matriz de control desplegadas y comprobadas en la web.
+- Guía Comercial: doce etapas reproducibles y extracción opcional separada. Etapa 11 muestra mínimo de entrada del 4253B y límites/pinout pendientes del monitor. Cambio de tarea y regreso al visor comprobados; no se modificó el historial de lectura del usuario.
+- Sin errores ni advertencias capturados en la consola de esta pestaña durante estas comprobaciones. No sustituye prueba sostenida de rendimiento ni ausencia universal de errores.
+
+Capturas de la interfaz pública conservadas sólo como evidencia local en `public/previews/takegrid-conexiones-021.png` y `public/previews/takegrid-conexiones-movil-021.png`; fuera del paquete público. No se guardaron perfiles de prueba ni se recargó un borrador del usuario.
+
+Total: 79 pruebas automáticas, además de las 300 selecciones y 300 guías reproducibles. El control `check-beta-readiness --strict` sigue rechazando la liberación: no hay participantes observados, dispositivos de referencia ni ensayos físicos. Es el resultado esperado, no un criterio aprobado.
 
 ## Límites
 
