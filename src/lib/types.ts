@@ -142,6 +142,28 @@ export interface AssemblyStep {
   rebalance: string;
 }
 
+export interface AssemblyContentBlock {
+  part_ids: string[];
+  require_all?: string[];
+  unless_any?: string[];
+  cable_ids?: string[];
+  mount: string;
+  where: string;
+  verify: string[];
+}
+export interface AssemblyProfileContent {
+  version: number;
+  steps: {
+    number: number;
+    title: string;
+    note: string;
+    kind: "mount" | "check" | "optional";
+    requires_any: string[];
+    rebalance: string;
+    blocks: AssemblyContentBlock[];
+  }[];
+}
+
 export interface VariantsManifest {
   generated_on: string;
   master_variant_id: string;

@@ -8,6 +8,7 @@ import portsManifest from "../../data/ports-manifest.json";
 import referenceManifest from "../../data/geometry-references.json";
 import geometryAudit from "../../data/geometry-audit.json";
 import plannerRules from "../../data/planner-rules.json";
+import assemblyProfileContent from "../../data/assembly-profile-content.json";
 import type {
   CablesManifest,
   PartsManifest,
@@ -18,10 +19,12 @@ import type {
   Vec3,
   Port,
   PlannerRules,
+  AssemblyProfileContent,
 } from "../lib/types";
 
 export const partsData = partsManifest as PartsManifest;
 export const plannerData = plannerRules as PlannerRules;
+export const assemblyContent = assemblyProfileContent as AssemblyProfileContent;
 export const cablesData = cablesManifest as CablesManifest;
 export const variantsData = variantsManifest as VariantsManifest;
 export const sourcesData = sourcesManifest;

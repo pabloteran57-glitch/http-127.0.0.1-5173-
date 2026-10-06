@@ -19,7 +19,7 @@ En PowerShell usar `npm.cmd` si la política bloquea npm.ps1. Vite anuncia el pu
 
 Cuatro tareas: **Rig**, **Conexiones**, **Montaje** y **Piezas**. El visor abre sin cableado superpuesto; Conexiones activa las rutas y resalta un circuito con sus extremos A/B. En móvil, navegación inferior fija y selector de conexión junto al visor. El doble HDMI es un circuito de banco independiente del perfil, no un montaje aprobado en el rig.
 
-La ficha usa referencias del fabricante y despliega medidas, materiales y restricciones bajo demanda. Montaje conserva trece etapas y separa las revisiones de lectura por configuración durante la sesión. Piezas conserva las veintisiete entradas, con búsqueda y filtro de perfil. Detalles del perfil contiene siete plantillas, desglose de peso, distribución aproximada y pruebas pendientes. Los planes se guardan y abren dentro de la app, sin exportar archivos.
+La ficha despliega medidas, materiales y restricciones bajo demanda. Montaje deriva sólo las etapas pertinentes de las trece referencias canónicas y separa las revisiones de lectura por configuración durante la sesión. Piezas abre **Mi equipo**, incluyendo elecciones pendientes; las veintisiete referencias se consultan en **Catálogo**. Detalles del perfil conserva siete plantillas, desglose de peso y pruebas pendientes. Los planes se guardan y abren dentro de la app, sin exportar archivos.
 
 Vista de marca: `/brand/preview.html`. SVG reutilizables en `public/brand`; nombre en `data/brand.json`.
 
@@ -27,14 +27,17 @@ Vista de marca: `/brand/preview.html`. SVG reutilizables en `public/brand`; nomb
 
 **Crear rig** abre una selección vacía. **Personalizar** crea una copia editable de la plantilla actual. Elige productos, revisa dependencias y guarda el perfil en **Mis rigs**. **Guardar rig** también puede guardar directamente una copia de una plantilla. El guardado es local a este navegador, no una cuenta sincronizada. Las piezas pendientes se conservan sin inventar un montaje.
 
-**Montaje** ahora incluye un visor acumulativo de trece etapas, reproducción y controles anterior/siguiente. Cada etapa conserva sus comprobaciones. La animación es ilustrativa, no una trayectoria de acople medida. Reglas, esquema y límites en [rigs propios](docs/custom-rigs.md).
+**Montaje** incluye visor acumulativo, guía condicionada a la selección, reproducción, pausa, reinicio, anterior/siguiente, deslizador de etapas y ritmo. Espera a la escena antes de avanzar; la extracción a mano es opcional y nunca automática. La animación es ilustrativa, no una trayectoria de acople medida. Reglas, esquema y límites en [rigs propios](docs/custom-rigs.md).
 
 ## Datos Canónicos
+
+Ruta hacia beta: [plan de avance](docs/beta-roadmap.md), con fases, criterios y diagnóstico. `data/product-roadmap.json` distingue correcciones implementadas de trabajo pendiente; no sustituye los manifiestos técnicos. Evidencia de esta iteración en [estabilización](docs/stabilization-qa.md).
 
 - `data/parts-manifest.json`: 25 productos + dos componentes del Combo, con fuente y confianza por campo.
 - `data/layout-manifest.json`: envolventes XYZ, poses candidatas, soporte y pruebas pendientes.
 - `data/cables-manifest.json`, `data/ports-manifest.json`: 17 circuitos, puertos reales, coordenadas sólo aproximadas.
 - `data/assembly-guide.json`, `data/variants.json`: 13 pasos y 7 perfiles.
+- `data/assembly-profile-content.json`: bloques de instrucciones condicionados a las piezas y circuitos existentes; no añade especificaciones ni compatibilidades.
 - `data/engineering-manifest.json`: límites publicados y políticas de masa/centros ponderados.
 - `data/sources.json`, `data/geometry-references.json`, `data/geometry-audit.json`: atribución, descargas SHA-256 y referencias revisadas.
 - `data/ui-content.json`: nombres cortos y traducciones de presentación; no reemplaza especificaciones ni interfaces canónicas.

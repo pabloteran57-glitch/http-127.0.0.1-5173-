@@ -6,8 +6,8 @@ Idioma de los textos propios: español, incluidos desplegables técnicos, mensaj
 
 - Rig: modelo ensamblado o despiece, selección de pieza y ficha del fabricante.
 - Conexiones: una ruta resaltada, extremos A/B y especificación bajo demanda.
-- Montaje: una etapa a la vez, trece pasos conservados y progreso de lectura por perfil.
-- Piezas: inventario completo con búsqueda, filtro y recuperación de resultados vacíos.
+- Montaje: una etapa relevante a la vez, con guía condicionada y progreso de lectura por configuración.
+- Piezas: Mi equipo por defecto, con elegidos y pendientes; Catálogo separado y búsqueda dentro del ámbito.
 
 El modo de rodaje permanece separado de la tarea. Cambiarlo actualiza piezas, circuitos y subtotal juntos, sin diferir la selección controlada. Los nombres cortos son presentación; los manifiestos conservan nombres exactos, fuentes y restricciones.
 
@@ -29,11 +29,11 @@ En móvil, cuatro destinos en una barra inferior fija, zona segura y controles t
 
 Se conserva la identidad Takegrid, el visor y las cuatro tareas. Crear rig inicia una selección vacía; Personalizar copia una plantilla; Guardar rig conserva el plan en Mis rigs. No hay botones de exportación ni archivos necesarios para abrir un plan. El editor organiza el catálogo existente por categorías, muestra elegidos y pendientes con palabras además de color, y no instala accesorios sin una cadena de soporte documentada.
 
-La biblioteca distingue borradores de rigs guardados y permite abrir, duplicar y eliminar con confirmación. El guardado local se explica sin presentarlo como cuenta o sincronización. Montaje añade piezas y circuitos de forma acumulativa en trece etapas, con reproducción opcional; las revisiones de lectura no se marcan automáticamente ni se reutilizan después de cambiar la configuración.
+La biblioteca distingue borradores de rigs guardados y permite abrir, duplicar y eliminar con confirmación. El guardado local se explica sin presentarlo como cuenta o sincronización. Montaje filtra instrucciones y navegación, sin eliminar comprobaciones relevantes. Ofrece pausa, reinicio, ritmo y búsqueda de etapa; la extracción es opcional. La reproducción no desplaza automáticamente la página; navegar manualmente o elegir una ruta devuelve el visor al área visible. Las revisiones no se marcan automáticamente y pertenecen a la configuración revisada durante la sesión.
 
 ## Verificación
 
-Rigs propios: selección desde cero, guardado, recuperación después de recargar, copia directa de plantilla y biblioteca interna comprobados en la compilación pública local. En 390x844 no hay desbordamiento horizontal ni botones de exportación. Montaje muestra una sola escena activa; las etapas 1, 3, 6 y 11 conservan las piezas acumulativas y distinguen el soporte de referencia translúcido. Las siete plantillas mantienen sus piezas y subtotales. Las compilaciones local y pública y las 21 pruebas del planificador pasan, junto con 300 combinaciones reproducibles.
+Las comprobaciones anteriores cubrían selección desde cero, guardado, recuperación, copia de plantilla, biblioteca y vistas acumulativas. No cubrían suficientemente el filtrado de los textos del montaje. La estabilización actual incorpora esas regresiones y separa su evidencia en `docs/stabilization-qa.md`: 29 pruebas, 300 selecciones y 300 guías reproducibles. No extrapolar los ensayos previos como medición de fluidez de esta versión.
 
 Comprobado en el navegador local: cuatro tareas, búsqueda 4253B, estado vacío y recuperación, siete perfiles con piezas y subtotales coherentes, progreso aislado por perfil, doble HDMI con ocho enlaces, puertos A/B, despiece y recentrado. Pantallas 320x740, 390x844, 768x1024 y 1280x720 sin desbordamiento horizontal. En 390x844 no hay imágenes rotas ni botones visibles sin nombre. Consola de la pestaña nueva sin errores o advertencias de ejecución. TypeScript y validación de datos pasan; Vite avisa de un módulo 3D grande, cargado de forma diferida.
 

@@ -40,8 +40,8 @@ export default function App(){
  const remove=(id:string)=>{if(saved.some(r=>r.id===id)&&!persist(saved.filter(r=>r.id!==id)))return;setRigs(previous=>previous.filter(r=>r.id!==id));if(variantId===id)setVariantId(master.id);};
  const duplicate=(rig:CustomRig)=>{const copy={...newRig(`${rig.name} / copia`),context:rig.context,orientation:rig.orientation,part_ids:[...rig.part_ids]};setRigs(previous=>[...previous,copy]);open(copy.id);setBuilderOpen(true);};
  return <>
-  <RigPlannerPage variant={variant} customRig={custom??null} resolution={resolution} savedRigs={rigs} dirty={dirty} message={message} onDismissMessage={()=>setMessage("")} onNewRig={()=>create()} onLibrary={()=>setLibraryOpen(true)} onEditRig={()=>custom?setBuilderOpen(true):create(variant)} onSaveRig={save} exploded={exploded} onExplodedChange={setExploded} showLabels={showLabels} onShowLabelsChange={setShowLabels} showCables={showCables} onShowCablesChange={setShowCables} onVariantChange={open}/>
+  <RigPlannerPage variant={variant} customRig={custom??null} resolution={resolution} savedRigs={rigs} dirty={dirty} message={message} viewerPaused={builderOpen||libraryOpen} onDismissMessage={()=>setMessage("")} onNewRig={()=>create()} onLibrary={()=>setLibraryOpen(true)} onEditRig={()=>custom?setBuilderOpen(true):create(variant)} onSaveRig={save} exploded={exploded} onExplodedChange={setExploded} showLabels={showLabels} onShowLabelsChange={setShowLabels} onShowCablesChange={setShowCables} showCables={showCables} onVariantChange={open}/>
   <RigLibrary open={libraryOpen} onClose={()=>setLibraryOpen(false)} rigs={rigs} saved={saved} onOpen={open} onCreate={()=>create()} onTemplate={create} onDuplicate={duplicate} onDelete={remove}/>
-  {custom&&resolution&&<RigBuilder open={builderOpen} onClose={()=>setBuilderOpen(false)} rig={custom} resolution={resolution} onChange={update} onSave={save} dirty={dirty} message={message}/>}
+  {custom&&resolution&&<RigBuilder key={custom.id} open={builderOpen} onClose={()=>setBuilderOpen(false)} rig={custom} resolution={resolution} onChange={update} onSave={save} dirty={dirty} message={message}/>}
  </>;
 }

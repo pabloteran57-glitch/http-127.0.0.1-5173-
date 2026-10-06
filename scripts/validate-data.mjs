@@ -145,4 +145,18 @@ for(const [id,deps] of Object.entries(planner.mount_dependencies)){
 }
 for(const key of ["parked_part_ids","gimbal_only_part_ids","gimbal_excluded_part_ids","vertical_excluded_part_ids","extraction_keep_part_ids"])planner[key].forEach(id=>assert(partIds.has(id)));
 planner.assembly_frames.forEach((frame,i)=>{assert.equal(frame.step,i+1);[...frame.add_part_ids,...frame.context_part_ids].forEach(id=>assert(partIds.has(id)));frame.add_cable_ids.forEach(id=>assert(cableIds.has(id)));});
+const profileContent=JSON.parse(readFileSync(new URL("../data/assembly-profile-content.json",import.meta.url),"utf8"));
+assert.equal(profileContent.version,1);
+assert.equal(profileContent.steps.length,13);
+profileContent.steps.forEach((step,i)=>{
+  assert.equal(step.number,i+1);assert(["mount","check","optional"].includes(step.kind));
+  assert(step.title&&step.note&&step.rebalance&&step.blocks.length);
+  step.requires_any.forEach(id=>assert(partIds.has(id)));
+  for(const block of step.blocks){
+    assert(block.part_ids.length&&block.mount&&block.where&&block.verify.length);
+    [...block.part_ids,...(block.require_all??[]),...(block.unless_any??[])].forEach(id=>assert(partIds.has(id)));
+    (block.cable_ids??[]).forEach(id=>assert(cableIds.has(id)));
+    for(const text of [step.title,step.note,step.rebalance,block.mount,block.where,...block.verify])assert(!legacyEnglish.test(text),"Texto sin localizar: "+text);
+  }
+});
 console.log(`CORRECTO: ${partIds.size} piezas, ${cableIds.size} conexiones, ${layout.nodes.length} elementos geométricos, 13 etapas, 7 plantillas y reglas de perfiles propios. Etiquetas en español comprobadas. No implica certificación mecánica.`);

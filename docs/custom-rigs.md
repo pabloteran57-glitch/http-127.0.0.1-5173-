@@ -28,11 +28,15 @@ La interfaz no ofrece exportación de planos ni transferencia de archivos. El fo
 
 ## Ensamblaje visual
 
-Las trece etapas conservan las verificaciones y fuentes originales. Cada fotograma muestra una intersección entre la selección activa y los elementos introducidos hasta esa etapa. Las conexiones de vídeo, control y alimentación aparecen sólo en su etapa, con ambos extremos disponibles.
+Las trece etapas canónicas conservan las verificaciones y fuentes originales. `data/assembly-profile-content.json` contiene bloques condicionados a las piezas y circuitos activos; `src/lib/assembly.ts` deriva la secuencia relevante. Un núcleo de cámara, óptica y jaula recorre cuatro etapas: núcleo, jaula, alimentación y revisión final. Las comprobaciones necesarias se mantienen aunque no añadan geometría. Los pendientes se explican aparte, nunca como instalación ficticia.
+
+Cada fotograma muestra la intersección entre la selección activa y los elementos introducidos hasta esa etapa. Las conexiones de vídeo, control y alimentación aparecen sólo en su etapa, con ambos extremos disponibles. Elegir una pieza o ruta pausa la reproducción y lleva al visor sin modificar el perfil.
 
 En la etapa del monitor, el estabilizador translúcido identifica el soporte de referencia, no un acople de la cámara ya verificado. La extracción elimina el bloque de gimbal y energía externa; no añade un asa que el usuario no haya seleccionado. Las aplicaciones, el receptor sin soporte confirmado y los productos sin geometría no reciben modelos ficticios.
 
-El usuario puede recorrer las etapas o reproducirlas automáticamente, pausar y elegir el ángulo. La reproducción se detiene al salir de Montaje, no avanza en una pestaña oculta y no marca verificaciones como realizadas. La aparición animada no es una trayectoria de inserción, ni simula equilibrio, torque, tornillería o energizado. Se respeta la preferencia de movimiento reducido.
+El usuario puede reproducir, pausar, reiniciar, avanzar, retroceder, elegir etapa, ángulo y ritmo (0,5×, 1×, 2×). El temporizador espera a que el visor notifique preparación; usa 4,5 segundos por etapa a 1×. Se detiene al salir de Montaje, abrir el editor o biblioteca, interactuar con la escena o esconder la pestaña. Termina en la revisión final, nunca en extracción automática. No marca comprobaciones como realizadas.
+
+El encuadre depende del conjunto completo, no de si el gimbal ya apareció en la etapa. Renderizado bajo demanda cuando la escena está quieta; las transiciones continúan solicitando fotogramas. No se declara una mejora cuantificada de FPS. La aparición animada no es una trayectoria de inserción, ni simula equilibrio, par, tornillería o energizado. Se respeta la preferencia de movimiento reducido.
 
 ## Extensión futura
 
@@ -42,4 +46,4 @@ El objetivo de producto es apoyar al 1AC y al filmmaker en preproducción y prep
 
 ## Pruebas
 
-`npm run test:planner`: 21 pruebas y 300 selecciones reproducibles sobre dependencias, contextos, cables, montaje progresivo, extracción, formato de biblioteca, escritura obsoleta, cuota y recuperación. Estas pruebas se ejecutan en las compilaciones local y pública.
+`npm run test:planner`: 29 pruebas, 300 selecciones y 300 guías reproducibles sobre dependencias, contextos, cables, montaje progresivo, textos condicionados, inventario, extracción, biblioteca, escritura obsoleta, cuota y recuperación. Estas pruebas se ejecutan en las compilaciones local y pública. Registro de interacción de esta iteración en `docs/stabilization-qa.md`.

@@ -1,0 +1,127 @@
+{
+  "version": 1,
+  "scope": "Presentación condicionada de las trece etapas verificadas. No añade equipo, geometría, puertos ni certificación física.",
+  "steps": [
+    {
+      "number": 1, "title": "Cámara y óptica", "kind": "mount", "requires_any": [],
+      "note": "Posiciones finales aproximadas, no una trayectoria de acople medida.",
+      "rebalance": "El equilibrio inicial se comprueba después de completar la carga móvil.",
+      "blocks": [
+        {"part_ids":["sony-fx3"],"mount":"Preparar el cuerpo elegido.","where":"Núcleo de cámara.","verify":["Revisar firmware, tarjetas y modo de grabación."]},
+        {"part_ids":["sony-fe-16-35-gm"],"mount":"Instalar la óptica elegida.","where":"Montura Sony E del cuerpo.","verify":["Comprobar el bloqueo de la bayoneta y el recorrido del zoom."]}
+      ]
+    },
+    {
+      "number": 2, "title": "Accesorios del núcleo", "kind": "mount", "requires_any": [],
+      "note": "Sólo se incluyen los accesorios elegidos que tienen una cadena de soporte documentada.",
+      "rebalance": "Revisar equilibrio si cambia la carga superior.",
+      "blocks": [
+        {"part_ids":["smallrig-4770"],"mount":"Fijar la jaula elegida.","where":"Anclajes de cámara y anti-giro documentados por el fabricante.","verify":["Seguir el manual sin inventar pares de apriete; comprobar fijaciones y abrazadera HDMI."]},
+        {"part_ids":["sony-xlr-h1"],"mount":"Instalar el asa de audio elegida.","where":"Zapata MI y tornillos Sony; sólo a mano o en cámara estática.","verify":["Comprobar comunicación y retención. Revisar interferencias con el accesorio NATO superior de la jaula si está presente."]},
+        {"part_ids":["dji-mic-2-kit"],"mount":"Preparar el sistema de audio elegido; no se instala un receptor ficticio.","where":"Fijación del receptor pendiente de confirmar.","verify":["Comprobar señal y niveles. El RX no tiene soporte ni masa instalada confirmados en este plan."]},
+        {"part_ids":["dji-lavalier"],"mount":"Preparar el micrófono elegido.","where":"Entrada del transmisor correspondiente.","verify":["Verificar el conector y probar audio antes de rodaje."]}
+      ]
+    },
+    {
+      "number": 3, "title": "Soporte inferior elegido", "kind": "mount", "requires_any": [],
+      "note": "La pila y el enganche de tornillos necesitan comprobación física.",
+      "rebalance": "Reequilibrar si cambia la posición longitudinal o la carga de la base.",
+      "blocks": [
+        {"part_ids":["smallrig-1674"],"mount":"Instalar la base elegida.","where":"Bajo la jaula documentada.","verify":["Medir enganche y retención de los tornillos de la pila real."]},
+        {"part_ids":["smallrig-rods-8in"],"mount":"Instalar el par de varillas elegido.","where":"Abrazadera de la base; orientación trasera del plan.","verify":["Confirmar paralelismo y retención. El manual de la base documenta 60 mm entre centros; medir el espacio útil sin inventar extensiones."]}
+      ]
+    },
+    {
+      "number": 4, "title": "Parasol elegido", "kind": "mount", "requires_any": [],
+      "note": "Montaje candidato mediante el anillo y la abrazadera; medir antes de aprobar.",
+      "rebalance": "Reequilibrar al cambiar parasol, filtro o bandera.",
+      "blocks": [
+        {"part_ids":["smallrig-3645"],"mount":"Preparar el kit elegido y su anillo 82-95 mm incluido.","where":"Frente de la óptica seleccionada.","verify":["Verificar carga sobre el objetivo, zoom y bandera; probar el VND a 16 mm.","No asumir soporte por varillas sin medir el alcance real."]}
+      ]
+    },
+    {
+      "number": 5, "title": "Batería y soporte elegidos", "kind": "mount", "requires_any": [],
+      "note": "Montar con la alimentación apagada. Las holguras aún requieren comprobación.",
+      "rebalance": "Reequilibrar tras instalar o desplazar la carga trasera.",
+      "blocks": [
+        {"part_ids":["smallrig-3203b"],"mount":"Instalar la placa con su abrazadera original en el borde superior.","where":"Bajo las varillas; página 5 del manual 3203B.","verify":["Usar sólo agujeros y tornillos documentados. Mantener 351 g conservadores de planificación por discrepancia de fuentes.","Medir el barrido de la placa contra los elementos realmente presentes."]},
+        {"part_ids":["smallrig-vb99-pro"],"mount":"Retener la batería elegida en su placa.","where":"Enganche V-mount, bajo el sistema de varillas.","verify":["Comprobar bloqueo y barrido de la batería sin añadir extensiones ni soportes."]},
+        {"part_ids":["smallrig-4253b"],"mount":"Preparar el adaptador regulado elegido, sin energizar.","where":"Compartimiento de batería de la cámara.","verify":["Instalar con alimentación apagada y verificar la salida del cable por la puerta de batería."]}
+      ]
+    },
+    {
+      "number": 6, "title": "Soporte lateral elegido", "kind": "mount", "requires_any": [],
+      "note": "El estabilizador translúcido es contexto de soporte, no cámara ya acoplada.",
+      "rebalance": "El monitor está fuera de la carga móvil; revisar tensión de los cables al conectar.",
+      "blocks": [
+        {"part_ids":["smallrig-3026b"],"mount":"Fijar la abrazadera NATO al lateral fijo del estabilizador.","where":"Lateral del gimbal, sin bloquear la mano.","verify":["Comprobar retención y orientación documentada. Los 1.5 kg publicados no certifican seguridad dinámica."]},
+        {"part_ids":["smallhd-indie-7"],"mount":"Fijar el monitor al cabezal nativo del soporte.","where":"Rosca inferior 1/4-20; no sobre la cámara.","verify":["Comprobar acceso a conectores y espacio de la mano. La alimentación y señal deben verificarse en sus etapas."]}
+      ]
+    },
+    {
+      "number": 7, "title": "Montaje en estabilizador", "kind": "mount", "requires_any": [],
+      "note": "No se anima una inserción ni una liberación cuya geometría no esté medida.",
+      "rebalance": "Equilibrar el conjunto real antes de encender motores.",
+      "blocks": [
+        {"part_ids":["dji-rs4-pro-combo"],"mount":"Retener el núcleo elegido en las placas del estabilizador.","where":"Placas y retenciones DJI documentadas.","verify":["Comprobar retención con motores apagados. Revisar la pila real y espacio para ejes y manos."]},
+        {"part_ids":["dji-rs-bg70"],"mount":"Instalar la empuñadura primaria elegida.","where":"Interfaz nativa de empuñadura DJI.","verify":["Confirmar bloqueo, contactos y carga; no se dibuja un cable externo para esos contactos."]}
+      ]
+    },
+    {
+      "number": 8, "title": "Comprobar equilibrio", "kind": "check", "requires_any":["dji-rs4-pro-combo"],
+      "note": "Comprobación física necesaria, aunque no añada piezas a la escena.",
+      "rebalance": "Repetir tras cambios de carga, posición o cableado.",
+      "blocks": [
+        {"part_ids":["dji-rs4-pro-combo"],"mount":"Equilibrar manualmente los ejes.","where":"Conjunto real, según el procedimiento DJI.","verify":["No sustituir la prueba por el subtotal de masa: capacidad nominal no demuestra equilibrio, inercia ni holguras.","El visor no mide centro de gravedad real, par ni ajuste de motores."]}
+      ]
+    },
+    {
+      "number": 9, "title": "Conectar vídeo elegido", "kind": "mount", "requires_any": [],
+      "note": "Conexión directa del perfil; no se añade una segunda salida HDMI.",
+      "rebalance": "Revisar cualquier sesgo o tirón causado por el bucle.",
+      "blocks": [
+        {"part_ids":["kondor-blue-hdmi-aa"],"cable_ids":["vid-fx3-to-smallhd"],"mount":"Conectar el cable HDMI elegido.","where":"Salida HDMI de cámara a entrada HDMI del monitor.","verify":["Verificar formato de señal, alivio de tensión y bucle al cruzar al lado fijo.","Los anclajes y radios dibujados son aproximados; medir antes de operar."]}
+      ]
+    },
+    {
+      "number": 10, "title": "Conectar control elegido", "kind": "mount", "requires_any": [],
+      "note": "Recorrido aproximado; comprobar la respuesta real del equipo.",
+      "rebalance": "Revisar sesgo y holgura del bucle.",
+      "blocks": [
+        {"part_ids":["dji-r-usbc-control"],"cable_ids":["ctrl-rs4-to-fx3-usbc"],"mount":"Conectar el cable de control elegido.","where":"Interfaz de control del estabilizador a USB-C de la cámara.","verify":["Comprobar REC/STOP y alivio de tensión sin limitar pan, tilt o roll."]}
+      ]
+    },
+    {
+      "number": 11, "title": "Comprobar alimentación", "kind": "check", "requires_any":["sony-fx3","smallrig-vb99-pro","smallhd-indie-7"],
+      "note": "No es un orden de energizado. Conectar apagado y comprobar la cadena real antes de encender.",
+      "rebalance": "Revisar los bucles y reequilibrar si alteran la carga móvil.",
+      "blocks": [
+        {"part_ids":["smallrig-4253b"],"cable_ids":["pwr-vmount-to-fx3-dummy"],"mount":"Verificar el adaptador regulado elegido.","where":"Cadena V-mount a alimentación de cámara.","verify":["4253B: entrada 9.6-20 V; salida regulada 8.0-8.4 V; máximo continuo 2 A. Comprobar cable y regulación antes de energizar."]},
+        {"part_ids":["smallhd-dtap-to-2mm-barrel"],"cable_ids":["pwr-plate-to-smallhd"],"mount":"Verificar el cable específico elegido para el monitor.","where":"D-Tap de la placa a entrada DC del monitor.","verify":["Indie 7: DC 10-34 V, diámetro exterior 5.5 mm. Interior y polaridad pendientes: comprobar el cable específico antes de energizar.","El cable cruza al lado fijo; mantener bucles sin tensión en los puertos."]},
+        {"part_ids":["smallrig-vb99-pro"],"require_all":["smallrig-3203b"],"mount":"Verificar batería y contactos de la placa elegida.","where":"Interfaz V-mount, sin cable externo entre contactos.","verify":["Comprobar bloqueo y salidas de la cadena real; no confundir contacto mecánico con circuito probado."]},
+        {"part_ids":["sony-fx3"],"unless_any":["smallrig-4253b"],"mount":"Confirmar alimentación interna antes de grabar.","where":"Compartimiento de batería; dependencia fuera del catálogo actual.","verify":["Comprobar una NP-FZ100 interna cargada. No se añade como pieza elegida, su masa no se incluye y no se representa instalada."]},
+        {"part_ids":["smallhd-indie-7"],"unless_any":["smallhd-dtap-to-2mm-barrel"],"mount":"Resolver alimentación del monitor antes de encender.","where":"Cadena de alimentación pendiente.","verify":["No presuponer batería interna ni una alimentación no seleccionada. Revisar los pendientes del plan."]}
+      ]
+    },
+    {
+      "number": 12, "title": "Revisión final del rig", "kind": "check", "requires_any": [],
+      "note": "El ensamblaje visual termina aquí. No marca comprobaciones físicas como realizadas.",
+      "rebalance": "Revisar tras cualquier cambio de posición, pieza o conexión.",
+      "blocks": [
+        {"part_ids":["sony-fx3"],"mount":"Revisar el conjunto realmente elegido.","where":"Recorridos previstos de cámara, manos y conexiones presentes.","verify":["Pesar la configuración completa y comprobar fijaciones, conectores y holguras reales. Las masas de planificación son incompletas."]},
+        {"part_ids":["dji-rs4-pro-combo"],"mount":"Comprobar motores y barrido real.","where":"Ejes del estabilizador con las piezas presentes.","verify":["Sólo tras aprobar mecánica, ejecutar comprobación de equilibrio y ajuste automático DJI. Limitar el recorrido a lo demostrado."]},
+        {"part_ids":["dji-ronin-app"],"mount":"Preparar la aplicación elegida.","where":"Dispositivo compatible del operador; no se inventa soporte de teléfono.","verify":["Comprobar conexión y funciones compatibles con el equipo real."]},
+        {"part_ids":["sony-monitor-control-app"],"mount":"Preparar la aplicación elegida.","where":"Dispositivo y firmware compatibles; no se añade soporte físico.","verify":["Verificar compatibilidad y conexión antes de depender del control remoto."]}
+      ]
+    },
+    {
+      "number": 13, "title": "Extracción a mano", "kind": "optional", "requires_any":["dji-rs4-pro-combo"],
+      "note": "Modo opcional después del ensamblaje. La reproducción no extrae automáticamente tu rig.",
+      "rebalance": "Al volver al estabilizador, repetir equilibrio y holguras.",
+      "blocks": [
+        {"part_ids":["dji-rs4-pro-combo"],"mount":"Separar el núcleo elegido del sistema fijo.","where":"Retenciones reales de la pila, con alimentación apagada.","verify":["Desconectar los enlaces que cruzan al lado fijo antes de liberar el núcleo. La geometría aproximada no garantiza extracción en un clic.","Sólo se conservan las piezas del núcleo ya elegidas; no se añade un asa ni otro soporte."]},
+        {"part_ids":["smallrig-4253b"],"mount":"Resolver la alimentación del núcleo extraído.","where":"Compartimiento de batería de cámara.","verify":["Tras desconectar energía externa, confirmar una batería interna cargada antes de usar cámara a mano. Es una dependencia fuera del catálogo actual."]}
+      ]
+    }
+  ]
+}

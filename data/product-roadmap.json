@@ -1,0 +1,196 @@
+{
+  "version": 1,
+  "reviewed_on": "2026-10-05",
+  "status": "phase_1_in_progress",
+  "scope": "Hoja de ruta de producto; no contiene nuevas especificaciones de equipo ni certifica montajes.",
+  "recommendation": "Estabilizar rigs propios y montaje, preparar reglas extensibles y ampliar el catálogo por lotes verificados antes de abrir una beta pública.",
+  "preserve": [
+    "Identidad Takegrid, idioma español y cuatro tareas principales",
+    "Manifiestos canónicos y siete plantillas originales",
+    "Guardar y abrir planes dentro de la app; sin exportación de archivos",
+    "Distinción entre elegido, montable, pendiente y sin geometría",
+    "Fuentes oficiales, derechos de uso y aproximaciones explícitas"
+  ],
+  "baseline": {
+    "part_entries": 27,
+    "geometry_nodes": 13,
+    "canonical_assembly_steps": 13,
+    "templates": 7,
+    "storage": "Local al navegador y origen; no sincronizado",
+    "performance": "Preparación de escena instrumentada con muestras limitadas; FPS sostenidos y comparación reproducible pendientes",
+    "assessment": "Prototipo funcional; no liberado como beta de uso profesional"
+  },
+  "findings": [
+    {
+      "id": "inventory-scope",
+      "status": "corrected_software",
+      "evidence": ["src/components/PartsTable.tsx", "src/views/RigPlannerPage.tsx", "Interfaz pública revisada el 2026-10-05"],
+      "description": "Corregido: Mi equipo abre con elecciones exactas, incluidos pendientes; Catálogo es explícito. Regresión de búsqueda y cuatro elecciones comprobada en navegador."
+    },
+    {
+      "id": "assembly-scope",
+      "status": "corrected_software",
+      "evidence": ["src/components/AssemblyWizard.tsx", "src/lib/planner.ts", "Interfaz pública revisada el 2026-10-05"],
+      "description": "Corregido: guía, bloques y navegación condicionados a las piezas activas. Comprobaciones pertinentes conservadas. Extracción opcional excluida de reproducción automática."
+    },
+    {
+      "id": "playback-performance",
+      "status": "partially_instrumented",
+      "evidence": ["src/components/RigViewer.tsx", "src/components/AssemblyWizard.tsx"],
+      "description": "Encuadre estable, vectores reutilizados y renderizado bajo demanda implementados. Preparación de escena instrumentada; muestras en docs/stabilization-qa.md. No hay comparación de FPS ni mejora porcentual demostrada."
+    },
+    {
+      "id": "catalog-coupling",
+      "status": "confirmed",
+      "evidence": ["src/lib/planner.ts", "data/planner-rules.json", "src/components/RigViewer.tsx"],
+      "description": "Los manifiestos son reutilizables, pero selección, dependencias, geometría y montaje todavía contienen reglas específicas de FX3/RS 4 Pro. Añadir filas no habilita un nuevo ecosistema coherente."
+    }
+  ],
+  "improvement_loop": {
+    "sequence": ["Reproducir y registrar", "Definir criterio de aceptación", "Corregir una causa", "Ejecutar regresiones", "Medir y probar escritorio/móvil", "Comparar con la línea base", "Publicar sólo si pasa"],
+    "stop_rule": "Cerrar cada incidencia sólo con evidencia. Reabrirla ante regresión. No ejecutar un bucle infinito ni afirmar mejora sin medición.",
+    "privacy": "No modificar, guardar ni recargar borradores del usuario durante el diagnóstico; usar perfiles de prueba separados."
+  },
+  "phases": [
+    {
+      "id": "stabilize-core",
+      "order": 1,
+      "title": "Rigs propios y montaje fiable",
+      "status": "in_progress",
+      "verification_report": "docs/stabilization-qa.md",
+      "remaining": ["Medición sostenida en dispositivos físicos de referencia", "Comparación reproducible y objetivos de fluidez", "Aceptación observada del flujo con usuarios"],
+      "depends_on": [],
+      "deliverables": [
+        "Mi equipo muestra exactamente las elecciones del perfil, incluidos pendientes separados; Catálogo es una vista explícita",
+        "Guía dinámica con etapas relevantes, textos condicionados a las piezas y pendientes sin montaje ficticio",
+        "Reproducción con inicio, pausa, reinicio, anterior/siguiente y velocidad; sin tramos vacíos ni saltos arbitrarios de encuadre",
+        "Regresiones de interfaz: crear, editar, quitar soportes, guardar, recargar, cambiar perfil y recorrer montaje",
+        "Mediciones de latencia y fluidez con configuraciones y dispositivos de referencia documentados"
+      ],
+      "exit_criteria": [
+        "Ninguna pieza no elegida aparece como parte del rig propio ni en instrucciones aplicables",
+        "Las siete plantillas y los rigs guardados mantienen sus elecciones",
+        "Reproducción, pausa, fin y navegación son coherentes al cambiar configuración o pestaña",
+        "Sin incidencias críticas de datos, seguridad de representación o navegación"
+      ]
+    },
+    {
+      "id": "extensible-engineering",
+      "order": 2,
+      "title": "Base de ingeniería extensible",
+      "status": "pending",
+      "depends_on": ["stabilize-core"],
+      "deliverables": [
+        "Reglas declarativas por montura, interfaz mecánica, soporte, señal y alimentación, con evidencia y revisión exacta",
+        "Identidad y versión de producto separadas de geometría, presentación y reglas de montaje",
+        "Procesamiento de alta: manifiesto, distribución, cables, guía, representación y variantes, en ese orden",
+        "Migraciones de datos y pruebas de compatibilidad positivas, negativas e inciertas"
+      ],
+      "exit_criteria": [
+        "Un producto de prueba puede incorporarse sin editar casos específicos de cámara en la interfaz",
+        "Compatibilidad desconocida nunca equivale a compatible",
+        "La versión anterior de un rig guardado se migra sin perder elecciones"
+      ]
+    },
+    {
+      "id": "verified-catalog-pilot",
+      "order": 3,
+      "title": "Primer lote de catálogo ampliado",
+      "status": "pending",
+      "depends_on": ["extensible-engineering"],
+      "deliverables": [
+        "Lote piloto propuesto de 10-20 piezas, priorizado por necesidades de usuarios; sin lista de modelos aún aprobada",
+        "Segundo ecosistema coherente o configuraciones adicionales completas, no una colección de fichas aisladas",
+        "Fuentes por campo, pesos, dimensiones, conectores, cadenas de montaje y licencias revisados",
+        "Pruebas físicas registradas para los conjuntos que se anuncien como comprobados"
+      ],
+      "exit_criteria": [
+        "Cada pieza utilizable tiene una cadena trazable de soporte y conexiones; lo incompleto queda pendiente",
+        "Ningún modelo aproximado se anuncia como CAD exacto o montaje físicamente validado",
+        "Crear y recorrer un rig nuevo no empeora el flujo actual"
+      ]
+    },
+    {
+      "id": "durable-projects",
+      "order": 4,
+      "title": "Proyectos seguros para trabajo real",
+      "status": "pending",
+      "depends_on": ["stabilize-core", "extensible-engineering"],
+      "deliverables": [
+        "Guardado automático de borradores, historial, recuperación y tratamiento visible de conflictos",
+        "Cuenta y sincronización entre equipos con datos privados aislados del catálogo público",
+        "Enlace de revisión de sólo lectura con permisos y revocación; colaboración editable sólo tras probar conflictos",
+        "Uso instalable y sin conexión para los planes y recursos propios autorizados",
+        "Privacidad, eliminación de cuenta, copias de seguridad y migración de la biblioteca local"
+      ],
+      "exit_criteria": [
+        "Cerrar, desconectarse o cambiar de dispositivo no pierde un plan confirmado como guardado",
+        "No hay acceso cruzado a bibliotecas ni sobrescrituras silenciosas",
+        "Los estados local, sincronizando, sin conexión y conflicto son inequívocos"
+      ]
+    },
+    {
+      "id": "closed-beta",
+      "order": 5,
+      "title": "Beta cerrada con 1AC y solo filmmakers",
+      "status": "pending",
+      "depends_on": ["verified-catalog-pilot", "durable-projects"],
+      "deliverables": [
+        "Cohorte propuesta de 10-15 participantes, no reclutada todavía",
+        "Tareas observadas: crear desde cero, corregir incompatibilidad, guardar, volver y seguir montaje",
+        "Tiempo de preparación, finalización sin ayuda, errores, retorno y disposición a pagar medidos",
+        "Pruebas de escritorio/móvil, accesibilidad, degradación sin WebGL y uso sin conexión",
+        "Registro de incidencias, versiones y pruebas físicas independiente de las pruebas de software"
+      ],
+      "exit_criteria": [
+        "Objetivo propuesto: al menos 90% de finalización sin asistencia en las tareas principales",
+        "Cero incidencias críticas o altas abiertas en pérdida de datos, representación insegura o flujo bloqueado",
+        "Objetivos de fluidez fijados tras la línea base y cumplidos en dispositivos de referencia",
+        "Evidencia de utilidad recurrente; las métricas no se inventan ni se extrapolan como cuota de mercado"
+      ]
+    },
+    {
+      "id": "public-beta",
+      "order": 6,
+      "title": "Beta pública operable",
+      "status": "pending",
+      "depends_on": ["closed-beta"],
+      "deliverables": [
+        "Publicación versionada con despliegue de prueba, reversión y monitorización de errores respetuosa de la privacidad",
+        "Inicio guiado breve, ayuda contextual, reporte de problemas y soporte definidos",
+        "Alcance y límites visibles por ecosistema; ampliaciones de catálogo en lotes auditables",
+        "Coste operativo, modelo de acceso y ruta a distribución móvil evaluados con uso real"
+      ],
+      "exit_criteria": [
+        "Un usuario nuevo completa el flujo principal sin demostración del desarrollador",
+        "Catálogo, guardado y visor tienen procedimientos de mantenimiento y recuperación",
+        "La beta puede demostrarse con funciones reales, no únicamente renders"
+      ]
+    },
+    {
+      "id": "funding-readiness",
+      "order": 7,
+      "title": "Preparación para financiación",
+      "status": "pending",
+      "depends_on": ["closed-beta"],
+      "deliverables": [
+        "Demo real, presentación, evidencia de usuarios y diferenciación frente a tutoriales, listas y herramientas actuales",
+        "Presupuesto cotizado de desarrollo, investigación, derechos, validación física, infraestructura, soporte y contingencia",
+        "Versión financiable concreta, hitos, alcance de recompensas y compromiso de entrega sostenibles",
+        "Elegibilidad de plataforma, titularidad, marca, permisos de recursos y condiciones revisados profesionalmente",
+        "Separación entre financiación por recompensas y propuesta de inversión con participación"
+      ],
+      "exit_criteria": [
+        "No se prometen compatibilidad universal, seguridad certificada ni funciones no implementadas",
+        "Las recompensas y costes tienen sustento; no se fija meta financiera sin presupuesto",
+        "Creador o entidad, país y cuenta cumplen la plataforma elegida antes de lanzar"
+      ]
+    }
+  ],
+  "sources": [
+    {"id":"kickstarter-rules","url":"https://www.kickstarter.com/rules?country=82","verified_on":"2026-10-05","note":"Apps: prototipo real, presentación honesta, derechos de recursos y transparencia sobre IA. No admite equity."},
+    {"id":"kickstarter-eligibility","url":"https://help.kickstarter.com/en-us/articles/16236650-who-can-use-kickstarter","verified_on":"2026-10-05","note":"País, identidad, entidad y cuenta bancaria verificables. Ecuador no figura actualmente entre los países habilitados para creadores."},
+    {"id":"kickstarter-funding-model","url":"https://updates.kickstarter.com/how-crowdfunding-works-a-guide-for-creators/","verified_on":"2026-10-05","note":"Financiación por recompensas, no participación de inversores; no garantiza éxito de campaña."}
+  ],
+  "timing_policy": "Sin fechas ni coste total comprometidos. Estimar tras medir la fase 1 y definir capacidad del equipo; avanzar por criterios de salida, no por volumen de funcionalidades."
+}
