@@ -17,12 +17,13 @@ Aplicabilidad del perfil: guía general.
 
 ## 2. Jaula y audio superior
 
-Montar: SmallRig 4770; XLR-H1 sólo con cámara a mano o estática.
+Montar: SmallRig 4770; RX Mic 2 opcional en su zapata inclinada. XLR-H1 sólo con cámara a mano o estática.
 
-Ubicación: Tornillos de cámara anti-giro; zapata MI y tornillos Sony para el asa.
+Ubicación: Tornillos de cámara anti-giro; RX en zapata inclinada 4770. Zapata MI y tornillos Sony para el asa, no para alimentar el RX.
 
 - Seguir manuales sin inventar pares de apriete.
 - Retirar NATO superior si interfiere; comprobar fijaciones y abrazadera HDMI.
+- RX: verificar retención y holgura de motores, conectar OUT TRS al MIC del cuerpo o INPUT3 del asa. Sólo RX en cámara; TX y estuche fuera.
 
 **Equilibrio:** Volver a equilibrar si cambia cualquier accesorio superior.
 

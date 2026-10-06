@@ -11,8 +11,11 @@ const walk = path => readdirSync(path, { withFileTypes: true }).flatMap(entry =>
 });
 const files = walk(root);
 const names = files.map(path => relative(root, path).replaceAll("\\", "/"));
+const registry=JSON.parse(readFileSync(new URL("../data/model-assets.json",import.meta.url),"utf8"));
+const modelPaths=new Set(registry.assets.filter(a=>a.status==="approved").map(a=>a.artifact.path.slice(1)));
 const allowed = /^(?:index\.html|404\.html|sw\.js|manifest\.webmanifest|brand\/(?:takegrid-mark\.svg|takegrid-app-icon\.svg|preview\.html)|assets\/[a-zA-Z0-9_-]+\.(?:js|css))$/;
-for (const name of names) assert(allowed.test(name), "Archivo no autorizado para publicación: " + name);
+for (const name of names) assert(allowed.test(name)||modelPaths.has(name), "Archivo no autorizado para publicación: " + name);
+for(const path of modelPaths)assert(names.includes(path),"Malla auditada no publicada: "+path);
 assert(names.includes("index.html"));
 assert(names.includes("brand/takegrid-app-icon.svg"));
 assert(names.includes("sw.js")&&names.includes("manifest.webmanifest"));
@@ -26,4 +29,4 @@ const html = readFileSync(join(root, "index.html"), "utf8");
 assert(html.includes('lang="es"'));
 const total = files.reduce((sum, file) => sum + statSync(file).size, 0);
 assert(total < 5_000_000, "La demo pública superó el presupuesto de 5 MB sin comprimir");
-console.log(`PUBLICACIÓN VERIFICADA: ${names.length} archivos propios, ${(total / 1_000_000).toFixed(2)} MB; sin fotos, manuales, capturas de investigación ni credenciales.`);
+console.log(`PUBLICACIÓN VERIFICADA: ${names.length} archivos permitidos, ${(total / 1_000_000).toFixed(2)} MB; ${modelPaths.size} mallas auditadas, sin fotos, manuales, capturas de investigación ni credenciales.`);

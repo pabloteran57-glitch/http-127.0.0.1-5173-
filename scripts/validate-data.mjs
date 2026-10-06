@@ -33,6 +33,7 @@ for (const part of parts.parts) {
   assert(part.primary_source_url.startsWith("https://"), `Missing source: ${part.id}`);
   assert(["high", "medium", "low"].includes(part.confidence_level));
   assert(part.planning_weight_g === null || part.planning_weight_g > 0);
+  if(part.verified_weight_g.source_url)assert(sources.sources.some(s=>s.url===part.verified_weight_g.source_url&&s.type==="official"),"Fuente de masa sin registro oficial: "+part.id);
 }
 for (const node of layout.nodes) {
   assert(partIds.has(node.id), `Unknown geometry: ${node.id}`);

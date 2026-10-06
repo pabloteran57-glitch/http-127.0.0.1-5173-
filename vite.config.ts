@@ -2,6 +2,8 @@ import { readFileSync } from "node:fs";
 import { createHash } from "node:crypto";
 import { defineConfig, type Plugin } from "vite";
 import react from "@vitejs/plugin-react";
+import modelRegistry from "./data/model-assets.json";
+import type { ModelAsset } from "./src/lib/model-assets";
 
 const publicBrandFiles = ["takegrid-mark.svg", "takegrid-app-icon.svg", "preview.html"];
 const publicAssets: Plugin = {
@@ -10,6 +12,9 @@ const publicAssets: Plugin = {
   generateBundle(_,bundle) {
     for (const name of publicBrandFiles) {
       this.emitFile({ type: "asset", fileName: `brand/${name}`, source: readFileSync(new URL(`./public/brand/${name}`, import.meta.url)) });
+    }
+    for (const asset of (modelRegistry.assets as ModelAsset[]).filter(a => a.status === "approved")) {
+      this.emitFile({ type: "asset", fileName: asset.artifact.path.slice(1), source: readFileSync(new URL("./public" + asset.artifact.path, import.meta.url)) });
     }
     this.emitFile({ type: "asset", fileName: "404.html", source: '<!doctype html><html lang="es"><meta charset="utf-8"><title>Referencia no publicada</title><h1>Referencia no publicada</h1><p>Los medios del fabricante permanecen en el archivo de investigación local. Consulta los enlaces oficiales desde la ficha de la pieza.</p><a href="/">Volver a Takegrid</a></html>' });
     this.emitFile({type:"asset",fileName:"manifest.webmanifest",source:readFileSync(new URL("./public/manifest.webmanifest",import.meta.url))});

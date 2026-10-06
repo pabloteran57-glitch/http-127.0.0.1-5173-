@@ -41,6 +41,7 @@
 - `data/engineering-manifest.json`: límites publicados y políticas de incertidumbre.
 - `data/geometry-references.json`: atribución y huellas de referencias descargadas.
 - `data/geometry-audit.json`: referencias visualmente revisadas.
+- `data/model-production.json`: cola de reconstrucción del catálogo actual; candidatos no activos. `data/model-assets.json`: únicamente mallas visuales auditadas, sin sustituir datos mecánicos. Ejecutar auditoría GLB y `npm run test:models`; nunca convertir un fixture en producto.
 - `data/brand.json`: identidad provisional Takegrid.
 - `data/planner-rules.json`: cadenas conservadoras para rigs propios y etapas del montaje visual; no ampliar el catálogo ni activar accesorios pendientes sin nueva verificación.
 - `data/catalog-intake.json`: investigación en cuarentena; no confundirla con piezas seleccionables.
@@ -55,9 +56,11 @@
 - El límite publicado de 1.5 kg del 3026B no certifica seguridad dinámica.
 - El manual 3203B, página 5, documenta abrazadera de varillas en el borde superior; no inventar adaptadores.
 - Las masas publicadas del 3203B discrepan; conservar fuentes y masa conservadora de planificación de 351 g.
+- Mic 2: representar sólo el RX DMR02 (28 g publicados), no la masa del kit ni los TX sobre cámara. Zapata 4770 documentada en manual página 4; asiento/pose/retención aproximados. Sin jaula elegida, conservar RX pendiente. Los offsets TRS en marco de cámara giran con el núcleo vertical, no con el monitor fijo.
 - El centro ponderado de envolventes es una aproximación etiquetada, no CG medido ni par de motores.
 - El ID histórico SmallHD que contiene `2mm` no es una especificación de conector: cable CBL-PWR-DTAP-BAR-36 de exterior 5.5 mm y centro positivo publicado. Diámetro interior y pinout de entrada del monitor siguen pendientes; no extrapolar la polaridad del cable a la entrada.
 - No redistribuir imágenes del fabricante ni importar CAD comunitario sin verificar derechos, revisión exacta y escala.
+- Generar con IA no elimina derechos de fotos. No subir referencias sin autorización ni contratar planes/créditos sin permiso. Conservar entradas y notas de reunión bajo `research/private/` o `research/model-incoming/`, fuera del repositorio público. GLB sólo autocontenido, escala uniforme y coincidencia exacta; no mover puertos por aspecto de la malla.
 - Netlify debe ejecutar `build:public` y publicar sólo `dist-public`; nunca subir el `dist` local completo ni `public/references`.
 - No sustituir referencias retiradas de la demo pública por imágenes inventadas: enlazar a su fuente oficial.
 - Preservar la identidad Takegrid, las cuatro tareas y las plantillas. Los rigs propios son copias/selecciones del usuario, no modificaciones del catálogo canónico.

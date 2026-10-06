@@ -4,6 +4,7 @@ const parts=read("parts-manifest"),layout=read("layout-manifest"),cables=read("c
 const ui=read("ui-content");
 const planner=read("planner-rules"),intake=read("catalog-intake");
 const roadmap=read("product-roadmap");
+const modelProduction=read("model-production"),modelAssets=read("model-assets");
 const connectionReviews=read("connection-reviews"),sourceList=read("sources").sources;
 const contract={version:1,catalog_revision:planner.catalog_revision,scope:"Índice derivado; identidad en parts-manifest, forma en layout-manifest y guía en assembly-profile-content.",products:parts.parts.map(p=>({part_id:p.id,record_revision:planner.catalog_revision,model_number:p.model_number,identity_source_url:p.primary_source_url,geometry_profile_id:layout.nodes.find(n=>n.id===p.id)?.id??null,geometry_status:layout.nodes.some(n=>n.id===p.id)?"approximate":"not_modeled",assembly_steps:planner.assembly_frames.filter(f=>f.add_part_ids.includes(p.id)).map(f=>f.step),release_status:planner.parked_part_ids.includes(p.id)?"reserve":"planning_candidate",physically_tested:false}))};
 writeFileSync(new URL("../data/catalog-contract.json",import.meta.url),JSON.stringify(contract,null,2)+"\n");
@@ -17,7 +18,7 @@ const mass=v=>layout.nodes.filter(n=>n.mass_domain==="moving"&&v.active_part_ids
 const disclaimer="Plan de ingeniería, no montaje certificado. Medidas publicadas no prueban forma exacta, enganche de tornillos, equilibrio, rigidez, holguras ni compatibilidad de toda la pila. Fotos y geometría aproximada no son CAD calibrado.";
 write("verified-build-manifest.md",`# Manifiesto verificado de piezas
 
-Generado desde \`data/parts-manifest.json\`. Auditoría 2026-10-05. 25 productos solicitados y 2 componentes del Combo, conservados.
+Generado desde \`data/parts-manifest.json\`. Auditoría ${parts.engineering_audit_on??parts.verified_on}. 25 productos solicitados y 2 componentes del Combo, conservados.
 
 ${disclaimer}
 
@@ -30,6 +31,7 @@ ${parts.parts.map(p=>`## ${name(p.id)}
 - Nota de dimensiones: ${p.verified_dimensions_mm.note}
 - Masa publicada: ${p.verified_weight_g.value??"pendiente"} g. Aproximada: ${p.verified_weight_g.approximate?"sí":"no"}.
 - Nota de masa: ${p.verified_weight_g.note}
+- Fuente de masa: [${p.brand}](${p.verified_weight_g.source_url??p.primary_source_url}).
 - Masa de planificación: ${p.planning_weight_g??"pendiente"} g; no sustituye pesaje del subconjunto instalado.
 - Interfaces: ${join(p.ports_interfaces)}
 - Montaje: ${p.mounting_method}
@@ -248,4 +250,46 @@ ${Object.values(r.citations).map(c=>"- ["+sourceList.find(s=>s.id===c.source_id)
 
 Los otros ${cables.cables.length-connectionReviews.reviews.length} circuitos conservan especificaciones y riesgos, pero no se califican como compatibles por defecto. Las revisiones no añaden piezas, no cambian las siete plantillas y no modifican las selecciones guardadas. Cadenas mecánicas universales, revisión del resto del catálogo y ensayos físicos siguen pendientes.
 `);
-console.log("Documentos técnicos, revisiones de conexiones, índice, lote y avance regenerados desde los JSON canónicos.");
+write("model-production.md",`# Producción de modelos realistas
+
+Fuentes canónicas: \`data/model-production.json\` y \`data/model-assets.json\`. Revisión ${modelProduction.reviewed_on}. Estado: \`${modelProduction.status}\`. **${modelAssets.assets.filter(a=>a.status==="approved").length} mallas aprobadas. No se ha sustituido ninguna forma por un recurso sin auditar.**
+
+## Acción por acción
+
+${modelProduction.sequence.map((s,i)=>`${i+1}. ${s}.`).join("\n")}
+
+## Primer lote, mismo catálogo
+
+| Orden | Producto | Subcomponente | Estado | Referencias necesarias |
+|---|---|---|---|---|
+${modelProduction.priorities.map(p=>`| ${p.order} | ${name(p.part_id)} | ${p.subcomponent_id??"Producto"} | \`${p.status}\` | ${p.required_views.join("; ")} |`).join("\n")}
+
+${modelProduction.priorities.map(p=>`### ${name(p.part_id)}\n\n${bullets(p.constraints)}`).join("\n\n")}
+
+## Recursos investigados
+
+${modelProduction.candidates.map(c=>`- [${c.id}](${c.source_url}): \`${c.status}\`. ${c.observations.join(". ")}. Descargado: ${c.downloaded?"sí":"no"}; licencia: ${c.license??"sin confirmar"}.`).join("\n")}
+
+## Reconstrucción IA
+
+${modelProduction.ai.platform_identification}. Estado: \`${modelProduction.ai.status}\`.
+
+${modelProduction.ai.source_images_policy} ${modelProduction.ai.payment_policy} ${modelProduction.ai.output_accuracy}.
+
+${modelProduction.ai.access_check}
+
+${modelProduction.ai.sources.map(s=>`- [Documentación de Meshy](${s.url}): ${s.claim}.`).join("\n")}
+
+## Fotografías con licencia revisada
+
+${modelProduction.licensed_references.map(r=>`- [${r.id}](${r.source_url}): ${r.review} ${r.attribution} [Licencia](${r.license_url}). Descarga ${r.bytes} bytes; SHA-256 \`${r.sha256}\`.`).join("\n")}
+
+## Puertas de liberación
+
+${bullets(modelProduction.release_gates)}
+
+${modelProduction.remaining_policy}
+
+El contrato técnico y los comandos se explican en [Integración GLB](model-asset-contract.md). La reunión exploratoria se mantiene privada, no se cuenta como ensayo puntuado de beta ni concede permisos de fotos.
+`);
+console.log("Documentos técnicos, modelos, revisiones de conexiones, índice, lote y avance regenerados desde los JSON canónicos.");

@@ -3,6 +3,8 @@ dist
 dist-public
 public/references/
 public/previews/
+research/private/
+research/model-incoming/
 public/brand/*.png
 .netlify/
 .env
@@ -12,4 +14,3 @@ public/brand/*.png
 *.tsbuildinfo
 vite.config.js
 vite.config.d.ts
-

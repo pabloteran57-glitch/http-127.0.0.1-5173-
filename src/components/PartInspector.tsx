@@ -1,9 +1,10 @@
-import { layoutData, partById, referenceById } from "../data";
+import { layoutData, modelAssets, partById, referenceById } from "../data";
 import type { Variant } from "../lib/types";
 import { partName } from "../lib/ui";
 import { formatNumber } from "../lib/format";
 import { publicDemo } from "../lib/publication";
 import { officialVisualLink } from "./ProductVisual";
+import { approvedModelFor } from "../lib/model-assets";
 
 export default function PartInspector({ selectedId, variant }: { selectedId: string; variant: Variant }) {
   const part = partById[selectedId];
@@ -11,6 +12,7 @@ export default function PartInspector({ selectedId, variant }: { selectedId: str
   const ref = referenceById[selectedId];
   if (!part) return null;
   const active = variant.active_part_ids.includes(part.id);
+  const model = node ? approvedModelFor(node, part, modelAssets) : null;
   const component=part.subcomponents?.find(c=>c.id===node?.subcomponent_id);
   const visualLink = officialVisualLink(part.id);
   const dimensions = component?.dimensions_lwh_mm??[part.verified_dimensions_mm.length,part.verified_dimensions_mm.width,part.verified_dimensions_mm.height];
@@ -22,8 +24,9 @@ export default function PartInspector({ selectedId, variant }: { selectedId: str
     <p className="dimension-note">{part.category==="software" ? "Sin geometría física" : dimensions.some(v=>v===null) ? "Dimensiones completas pendientes" : `${dimensions.map(v=>v===null?"?":formatNumber(v)).join(" × ")} mm${!component&&part.verified_dimensions_mm.approximate?" aprox.":""}`}<br />Envolvente publicada; forma y posición 3D aproximadas.</p>
     {!active&&<p className="piece-inspector-pending">Elegida y conservada en tu rig. El montaje actual no tiene una cadena activa; revisa soporte, contexto y pendientes antes de instalarla.</p>}
     {component&&<p className="dimension-note">{component.model}: sólo el receptor se representa sobre la jaula. Transmisores, lavalier y estuche fuera de cámara; batería interna del RX. Cable y retención pendientes de comprobar.</p>}
+    {model&&<details className="inspector-details"><summary>Modelo 3D y atribución</summary><p>Malla visual auditada; mecánica aproximada. Si no se puede cargar, se conserva la forma de planificación. Los puertos y pesos no se extraen de la malla.</p><p>{model.rights.attribution}</p><a href={model.source.url} target="_blank" rel="noreferrer">Origen de la malla</a><a href={model.rights.evidence_url} target="_blank" rel="noreferrer">Licencia y permiso</a></details>}
     {node && <div className="mount-summary"><span className="eyebrow">{active?"MONTAJE CANDIDATO":"MONTAJE POR RESOLVER"}</span>{active&&node.parent_id && variant.active_part_ids.includes(node.parent_id) && <p className="mount-parent">Sobre {partName(node.parent_id)}</p>}<details><summary>Interfaz y orientación</summary><p>{node.mount}</p></details></div>}
-    <details className="inspector-details"><summary>Medidas, materiales y fuentes</summary><p><b>Nombre oficial del fabricante:</b> {part.exact_product_name}</p><p>{part.verified_dimensions_mm.note}</p><p>{part.verified_weight_g.note}</p><p><b>Material:</b> {part.likely_material}</p><a href={node?.dimension_source_url??part.primary_source_url} target="_blank" rel="noreferrer">Medidas publicadas</a><a href={part.primary_source_url} target="_blank" rel="noreferrer">Fabricante</a>{part.secondary_source_url && <a href={part.secondary_source_url} target="_blank" rel="noreferrer">Confirmación secundaria</a>}</details>
+    <details className="inspector-details"><summary>Medidas, materiales y fuentes</summary><p><b>Nombre oficial del fabricante:</b> {part.exact_product_name}</p><p>{part.verified_dimensions_mm.note}</p><p>{part.verified_weight_g.note}</p><p><b>Material:</b> {part.likely_material}</p><a href={node?.dimension_source_url??part.primary_source_url} target="_blank" rel="noreferrer">Medidas publicadas</a>{part.verified_weight_g.source_url&&<a href={part.verified_weight_g.source_url} target="_blank" rel="noreferrer">Peso publicado</a>}<a href={part.primary_source_url} target="_blank" rel="noreferrer">Fabricante</a>{part.secondary_source_url && <a href={part.secondary_source_url} target="_blank" rel="noreferrer">Confirmación secundaria</a>}</details>
     <details className="inspector-details"><summary>Puertos y restricciones</summary><ul>{part.ports_interfaces.map(port=><li key={port}>{port}</li>)}</ul><p>{part.physical_constraints.join(" ")}</p>{node && <p>Evitar: {node.rejected}</p>}</details>
   </aside>;
 }

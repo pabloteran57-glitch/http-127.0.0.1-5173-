@@ -1,4 +1,4 @@
-import { Component, Suspense, useEffect, useRef, type ReactNode } from "react";
+import { Component, Suspense, lazy, useEffect, useRef, type ReactNode } from "react";
 import { Canvas, useFrame, useThree, type ThreeEvent } from "@react-three/fiber";
 import { CubicBezierLine } from "@react-three/drei/core/CubicBezierLine";
 import { Edges } from "@react-three/drei/core/Edges";
@@ -7,12 +7,15 @@ import { OrbitControls } from "@react-three/drei/core/OrbitControls";
 import { RoundedBox } from "@react-three/drei/core/RoundedBox";
 import { Euler, Group, Mesh, Path, Shape, Vector3 } from "three";
 import type { OrbitControls as OrbitControlsImpl } from "three-stdlib";
-import { cableById, cablesData, layoutData, portById } from "../data";
+import { cableById, cablesData, layoutData, modelAssets, partById, portById } from "../data";
 import type { LayoutNode, Variant, Vec3 } from "../lib/types";
 import { connectionName } from "../lib/ui";
 import { nodePose, routeOffset, visibleCableIds } from "../lib/viewer";
 import PerformanceProbe from "./PerformanceProbe";
 import type { PerformanceResult, PerformanceRun } from "../lib/performance";
+import { approvedModelFor } from "../lib/model-assets";
+
+const ApprovedModel = lazy(() => import("./ApprovedModel"));
 
 export type ViewAngle = "iso" | "side" | "front";
 interface Props {
@@ -197,6 +200,7 @@ function AnimatedNode({ node, exploded, vertical, selected, onSelect, context, r
 }) {
   const group = useRef<Group>(null);
   const pose = nodePose(node,vertical,exploded);
+  const asset = approvedModelFor(node, partById[node.id], modelAssets);
   const pos = vector(pose.position_mm);
   const target = useRef(new Vector3());
   const unitScale = useRef(new Vector3(1, 1, 1));
@@ -211,16 +215,16 @@ function AnimatedNode({ node, exploded, vertical, selected, onSelect, context, r
     if (group.current.position.distanceToSquared(target.current) > .000001 || group.current.scale.distanceToSquared(unitScale.current) > .000001) invalidate();
   });
   useEffect(()=>{
-    if(!context)return;
+    if(!context||asset)return;
     const restore:(()=>void)[]=[];
     group.current?.traverse(object=>{if(object instanceof Mesh){for(const material of Array.isArray(object.material)?object.material:[object.material]){const opacity=material.opacity,transparent=material.transparent,depthWrite=material.depthWrite;material.opacity=opacity*.18;material.transparent=true;material.depthWrite=false;restore.push(()=>{material.opacity=opacity;material.transparent=transparent;material.depthWrite=depthWrite;});}}});
     return ()=>restore.forEach(reset=>reset());
-  },[context,selected]);
+  },[context,selected,asset]);
   const click = (event: ThreeEvent<MouseEvent>) => { event.stopPropagation(); onSelect(node.id); };
   const rotation = pose.rotation_deg.map(v=>v*Math.PI/180) as Vec3;
   return <group ref={group} position={pos} scale={initialScale.current} onClick={click}>
     <group rotation={rotation}>
-      <Geometry node={node} selected={selected} />
+      {asset ? <Suspense fallback={<Geometry node={node} selected={selected} />}><ApprovedModel asset={asset} selected={selected} context={context} fallback={<Geometry node={node} selected={selected} />} /></Suspense> : <Geometry node={node} selected={selected} />}
     </group>
   </group>;
 }

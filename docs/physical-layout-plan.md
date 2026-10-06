@@ -37,7 +37,7 @@ Varillas: 15 mm de diámetro, 203.2 mm de largo, 60 mm entre centros según el m
 - Dominio de carga: Carga móvil; soporte candidato: Base 1674.
 - Colocación: Alrededor del cuerpo, con acceso a las conexiones izquierdas.
 - Orientación: Misma orientación que la cámara.
-- Montaje: Jaula en U, dos tornillos de cámara 1/4-20 y abrazadera HDMI izquierda. Riel NATO superior desmontable.
+- Montaje: Jaula en U, dos tornillos de cámara 1/4-20 y abrazadera HDMI izquierda. Riel NATO superior desmontable y zapata inclinada en esquina superior izquierda, manual página 4, llamada 5.
 - Motivo: Sujeción del cable y núcleo antitorsión.
 - Rechazado: Herrajes superiores adicionales en gimbal: altura innecesaria.
 - [Referencia de medidas](https://static.smallrig.com/mall/img/public/1725874097334_.pdf)
@@ -150,6 +150,18 @@ Varillas: 15 mm de diámetro, 203.2 mm de largo, 60 mm entre centros según el m
 - Rechazado: Monitor flotante sin soporte o bloqueando la empuñadura.
 - [Referencia de medidas](https://www.bhphotovideo.com/c/product/1593398-REG/smallhd_mon_indie_7_indie_7_touchscreen_on_camera.html)
 
+## DJI Mic 2 / receptor RX
+
+- Posición candidata XYZ: -64.247 / 58.191 / 8 mm; rotación XYZ: 0 / 0 / -25 grados.
+- Envolvente XYZ: 54.2 / 22.49 / 28.36 mm; estado: Medidas exteriores publicadas. Una envolvente publicada no verifica los detalles internos.
+- Dominio de carga: Carga móvil; soporte candidato: Jaula HawkLock.
+- Colocación: Esquina superior izquierda de la jaula. Sólo RX; TX, lavalier y estuche permanecen fuera de cámara. Posición aproximada desde el punto candidato de zapata.
+- Orientación: Pantalla hacia el operador y hacia arriba, paralela a la zapata inclinada. Ángulo -25 grados ilustrativo, no medición del fabricante. En vertical gira con la jaula y mantiene el vínculo de soporte.
+- Montaje: Zapata integrada DMR02 en zapata inclinada 4770, sin brazo ni adaptador adicional. Interfaces documentadas; asiento y retención reales por comprobar.
+- Motivo: Representar el audio elegido usando una interfaz existente documentada. Se cuentan 28 g publicados del RX, nunca el kit completo.
+- Rechazado: RX flotante, transmisores/estuche en cámara, adaptador MI no elegido, zapata tratada como alimentación y ángulo presentado como cota exacta.
+- [Referencia de medidas](https://www.dji.com/mic-2/specs)
+
 ## Sony XLR-H1
 
 - Posición candidata XYZ: 0 / 83 / 6 mm; rotación XYZ: 0 / 0 / 0 grados.
@@ -169,23 +181,29 @@ Varillas: 15 mm de diámetro, 203.2 mm de largo, 60 mm entre centros según el m
 - RavenEye: banco, HDMI Mini-C; batería interna. No montaje ni ActiveTrack operativos prometidos.
 - LiDAR/motor: inventario condicional; calibración de SEL1635GM y fijación/barrido pendientes.
 - Interfaz Focus Pro a Transmission: estacionada; falta el sistema DJI Transmission. No se sustituye por una interfaz de otro modelo.
-- Mic 2 RX: 28 g publicados, sólo el RX podría ir en el rig. Estuche/TX fuera de la carga móvil; fijación del RX por confirmar.
+- Mic 2: sólo RX de 28 g modelado en la zapata inclinada 4770 como candidato. Estuche/TX fuera de cámara. La selección sin jaula permanece pendiente; no se añade el soporte sin autorización.
 
 ## Distribución de masa
 
-- Documental / solo: 3.23 kg de piezas móviles modeladas.
-- Comercial / contenido de marca: 3.23 kg de piezas móviles modeladas.
-- A mano / extracción: 1.83 kg de piezas móviles modeladas.
-- Esencial / menor presupuesto: 1.53 kg de piezas móviles modeladas.
-- Vertical / 9:16: 1.53 kg de piezas móviles modeladas.
-- Entrevista corporativa: 1.83 kg de piezas móviles modeladas.
-- Cine / narrativa: 3.23 kg de piezas móviles modeladas.
+- Documental / solo: 3.25 kg de piezas móviles modeladas.
+- Comercial / contenido de marca: 3.22 kg de piezas móviles modeladas.
+- A mano / extracción: 1.85 kg de piezas móviles modeladas.
+- Esencial / menor presupuesto: 1.55 kg de piezas móviles modeladas.
+- Vertical / 9:16: 1.55 kg de piezas móviles modeladas.
+- Entrevista corporativa: 1.85 kg de piezas móviles modeladas.
+- Cine / narrativa: 3.25 kg de piezas móviles modeladas.
 
-Incluye masas de planificación aproximadas, especialmente varillas y parasol. Excluye cables, RX, tarjetas y tornillos adicionales. Monitor fijo fuera de la carga móvil. No sumar BG30 estándar al BG70 ni el Combo entero a sus subcomponentes. Peso total llevado y centro de gravedad reales no medidos.
+Incluye masas de planificación aproximadas, especialmente varillas y parasol, y 28 g publicados del RX Mic 2 cuando está activo. Excluye cables, TX, estuche, tarjetas y tornillos adicionales. Monitor fijo fuera de la carga móvil. No sumar BG30 estándar al BG70 ni el Combo entero a sus subcomponentes. Peso total llevado y centro de gravedad reales no medidos.
 
 3026B: límite de carga publicado 1.5 kg, Indie 7 737 g sin accesorios. La comparación escalar no prueba rigidez, par de inclinación ni seguridad dinámica.
 
 ## Pruebas de liberación
+
+### Receptor Mic 2 y zapata HawkLock
+
+Verificar asiento y retención del RX en la zapata inclinada 4770, acceso a MIC/HDMI, pantalla y holgura en todos los ejes con motores apagados. Pesar el cable TRS y rebalancear con RX instalado; no inferir holgura por los 28 g publicados.
+
+Estado: Prueba física pendiente.
 
 ### Batería y recorrido de motores
 

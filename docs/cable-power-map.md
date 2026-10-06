@@ -188,7 +188,7 @@ Revisión por circuito y fuentes: [comprobaciones de conexiones](connection-revi
 - Conector A: TRS de 3.5 mm macho; conector B: TRS de 3.5 mm macho.
 - Tipo: Datos/control; estándar/tensión: Audio analógico a nivel de micrófono de cámara..
 - Longitud estimada: Cable de audio incluido; longitud exacta por confirmar.
-- Ruta candidata: Receptor en zapata disponible de jaula; bucle corto local, lejos de objetivo y brazo de inclinación. Fijación por confirmar.
+- Ruta candidata: RX en zapata inclinada HawkLock 4770 -> OUT TRS -> MIC FX3, con el cable de cámara incluido. Bucle local sobre el lateral izquierdo; no cruza hacia la base fija del gimbal. Coordenadas y curva aproximadas; comprobar puertas, pinzamiento y barrido.
 - Alivio de tensión: Sujetar ambos extremos sin cargar los conectores; probar holgura y radio mínimo de curvatura.
 - Riesgos: Usar TRS para cámara, no TRRS de teléfono.; Verificar ganancia, modo estéreo/seguridad y medidor de grabación.; La masa del kit no es la del receptor; pesar por separado.
 - Obligatorio/opcional: Obligatorio; estado: Candidato; visualización: Cable.
@@ -202,7 +202,7 @@ Revisión por circuito y fuentes: [comprobaciones de conexiones](connection-revi
 - Conector A: TRS de 3.5 mm macho; conector B: TRS de 3.5 mm macho.
 - Tipo: Datos/control; estándar/tensión: Audio analógico al asa Sony; confirmar canales 3/4..
 - Longitud estimada: Cable de audio incluido; longitud exacta por confirmar.
-- Ruta candidata: En estático o a mano: receptor en zapata disponible de asa/jaula, conectado al asa en lugar de la entrada del cuerpo.
+- Ruta candidata: En estático o a mano: RX en zapata inclinada 4770 -> OUT TRS -> INPUT3 del XLR-H1, no a la entrada del cuerpo. Bucle local y acceso al asa por comprobar físicamente.
 - Alivio de tensión: Sujetar ambos extremos sin cargar los conectores; probar holgura y radio mínimo de curvatura.
 - Riesgos: No asumir grabación simultánea de entrada del cuerpo y del asa MI.; Comprobar asignación de canales y ganancia.
 - Obligatorio/opcional: Obligatorio; estado: Candidato; visualización: Cable.
@@ -293,7 +293,7 @@ Revisión por circuito y fuentes: [comprobaciones de conexiones](connection-revi
 - `raveneye-internal`: Alimentación interna / Interno; sin pose habilitada; [fuente](https://www.dji.com/rs-4-pro/specs).
 - `lidar-data`: Datos / alimentación / USB-C CVBS/CAN; sin pose habilitada; [fuente](https://www.dji.com/focus-pro/specs).
 - `motor-usbc`: Control / alimentación de motor / USB-C DJI; sin pose habilitada; [fuente](https://www.dji.com/focus-pro/specs).
-- `mic2-rx-out`: Receptor / salida / TRS de 3.5 mm hembra; sin pose habilitada; [fuente](https://www.dji.com/mic-2/specs).
+- `mic2-rx-out`: Receptor / salida / TRS de 3.5 mm hembra; anclaje visual XYZ -27.1/0/-6 mm aproximado; [fuente](https://dl.djicdn.com/downloads/DJI_Mic_2/20240426/UM/DJI_Mic_2_User_Manual_V1.2_EN.pdf).
 - `mic2-tx-in`: Transmisor / entrada de micrófono / TRS de 3.5 mm hembra; sin pose habilitada; [fuente](https://www.dji.com/mic-2/specs).
 - `lav-mic`: Micrófono de solapa / Cable integrado; sin pose habilitada; [fuente](https://store.dji.com/product/dji-lavalier-mic).
 - `xlrh1-input3`: Entrada 3 / TRS de 3.5 mm hembra; sin pose habilitada; [fuente](https://electronics.sony.com/imaging/imaging-accessories/imaging-compact-camera-accessories/p/xlrh1).

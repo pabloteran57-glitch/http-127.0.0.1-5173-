@@ -2,7 +2,7 @@
   "build_id": "rs4-pro-fx3-master-kit",
   "build_name": "Sistema de rig DJI RS 4 Pro + Sony FX3 para un solo operador",
   "verified_on": "2026-04-10",
-  "engineering_audit_on": "2026-10-05",
+  "engineering_audit_on": "2026-10-06",
   "release_status": "planning_candidate_not_field_certified",
   "notes": [
     "Conserva el inventario principal solicitado y separa las piezas activas en gimbal de las reservadas para cámara a mano, entrevistas o uso externo.",
@@ -107,11 +107,13 @@
         "note": "Sony: ancho × alto × fondo = 129.7 × 77.8 × 84.5 mm. Los nombres históricos de los campos no representan los ejes de la escena; consultar layout-manifest.json. Sony considera estas medidas aproximadas y excluye salientes."
       },
       "verified_weight_g": {
-        "value": 640,
+        "value": 630,
         "approximate": true,
-        "note": "Masa aproximada del cuerpo: 640 g según Sony, sin batería, tarjeta ni asa. La configuración principal utiliza un adaptador NP-FZ100 alimentado externamente."
+        "source_url": "https://www.sony.com/electronics/support/camcorders-and-video-cameras-interchangeable-lens-camcorders/ilme-fx3/specifications",
+        "checked_on": "2026-10-06",
+        "note": "Sony US, ILME-FX3, sección de tamaño y peso: 630 g cuerpo solo; 715 g con batería/tarjeta. Corrige 640 g no sustentados por la guía enlazada, que sólo publica 715 g con batería/tarjeta. Sin asa, batería interna ni tarjeta en este valor; adaptador de batería y cable deben pesarse aparte."
       },
-      "planning_weight_g": 640,
+      "planning_weight_g": 630,
       "ports_interfaces": [
         "Una salida HDMI de tamaño completo, tipo A",
         "Un USB-C",

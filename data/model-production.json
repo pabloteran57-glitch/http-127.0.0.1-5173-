@@ -1,0 +1,89 @@
+{
+  "version": 1,
+  "reviewed_on": "2026-10-06",
+  "status": "pipeline_prepared_assets_pending",
+  "scope": "Mejorar fidelidad de productos ya canónicos, no ampliar catálogo ni activar accesorios en reserva.",
+  "authority": {
+    "identity_dimensions_mass": "parts-manifest.json",
+    "pose_envelope_support": "layout-manifest.json",
+    "ports_connections": ["ports-manifest.json", "cables-manifest.json"],
+    "visual_references": ["geometry-references.json", "geometry-audit.json"],
+    "approved_meshes": "model-assets.json"
+  },
+  "sequence": [
+    "Verificar identidad exacta, revisión y alcance de dimensiones",
+    "Buscar CAD oficial autorizado y después malla comunitaria con licencia verificable",
+    "Si no hay recurso reutilizable, recopilar fotos propias/autorizadas para reconstrucción manual o IA",
+    "Reconstruir sin lente/asa/accesorios fusionados, respetando pieza o subcomponente elegido",
+    "Calibrar con escala uniforme y referencias trazables; nunca deformar XYZ para fingir exactitud",
+    "Comparar frontal, lateral, superior y posterior, interfaces y envolvente",
+    "Optimizar malla/materiales para web y validar archivo GLB autocontenido",
+    "Registrar hash, autor, licencia, evidencia y atribución antes de integrar",
+    "Probar ensamble, despiece, vertical, audio y montaje móvil sin mover puertos canónicos"
+  ],
+  "priorities": [
+    {"order":1,"part_id":"sony-fx3","subcomponent_id":null,"status":"reference_ready_rights_and_mesh_pending","required_views":["frontal sin óptica","posterior","lateral de puertos","lateral de empuñadura","superior","inferior"],"constraints":["ILME-FX3, no FX30 ni FX3A","Cotas publicadas excluyen salientes: no asumir bounding box del escaneo equivalente","Cuerpo separado de lente, XLR y jaula","630 g cuerpo solo según Sony US; 715 g con batería/tarjeta. 640 g anteriores sin respaldo corregidos en manifiesto"]},
+    {"order":2,"part_id":"smallrig-4770","subcomponent_id":null,"status":"reference_ready_rights_and_mesh_pending","required_views":["frontal sin cámara","posterior","superior con zapata inclinada","inferior con placa","lateral con abrazadera HDMI"],"constraints":["4770, no 4183 ni 4771","Conservar huecos y zapata; no cerrar la jaula como bloque sólido","Fotografías no verifican posición/tolerancia de roscas ni asiento"]},
+    {"order":3,"part_id":"sony-fe-16-35-gm","subcomponent_id":null,"status":"reference_ready_rights_and_mesh_pending","required_views":["lateral completo","frontal sin tapa","montura","lado de controles"],"constraints":["SEL1635GM primera generación, no GM II","Separar parasol de óptica si no se incluye en la configuración","Un anillo de follow focus imprimible no es el modelo del objetivo"]},
+    {"order":4,"part_id":"dji-mic-2-kit","subcomponent_id":"receiver","status":"reference_ready_rights_and_mesh_pending","required_views":["pantalla/dial","zapata integrada","lado OUT y auriculares","lado USB-C"],"constraints":["DMR02, sólo RX; no fusionar TX ni estuche","28 g y envolvente de receptor publicados","Posición de puertos y asiento conservan incertidumbre canónica"]},
+    {"order":5,"part_id":"dji-rs4-pro-combo","subcomponent_id":null,"status":"reference_ready_rights_and_mesh_pending","required_views":["frontal desplegado","posterior","ambos laterales","interfaces de placas y NATO"],"constraints":["RS 4 Pro, no RS 4","Separar BG30 y usar BG70 elegido","Dimensiones DJI desplegado con grip estándar no certifican rig con BG70","Malla decorativa no aporta cinemática ni límites de motores"]}
+  ],
+  "remaining_policy": "Después del piloto, recorrer todas las piezas físicas canónicas por prioridad de uso. Software sin objeto 3D y cables flexibles sin ruta fija inventada. Cada alta repite los mismos controles.",
+  "licensed_references": [
+    {
+      "id": "fx3-henry-ccby2-front",
+      "part_id": "sony-fx3",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Sony_FX3_with_Sony_FE_24mm_F1.4_GM_-_by_Henry_S%C3%B6derlund_(51061907312).jpg",
+      "author": "Henry Söderlund",
+      "license": "CC-BY-2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0/",
+      "downloaded": true,
+      "bytes": 10015183,
+      "sha256": "967d94ebc1196911acc75ba5998e3cbddc12434b87e87f73e03c688442e8d19d",
+      "status": "licensed_reference_not_generation_ready",
+      "reviewed_on": "2026-10-06",
+      "review": "Foto original revisada visualmente: FX3 frontal con FE 24mm F1.4 GM distinto de SEL1635GM; no basta para cuerpo aislado/multivista, puertos ni jaula. Conservada localmente, sin publicación ni carga IA.",
+      "attribution": "Sony FX3 with Sony FE 24mm F1.4 GM, Henry Söderlund, 9 de marzo de 2021, CC BY 2.0. Original sin modificaciones; sin respaldo implícito del autor/Sony."
+    }
+  ],
+  "candidates": [
+    {
+      "id": "sketchfab-fx3-scan-punitsabnani",
+      "part_id": "sony-fx3",
+      "source_url": "https://sketchfab.com/3d-models/sony-fx3-camera-scan-8eaae19fabce47daa5c0d031a1f0fc5e",
+      "author": "PunitSabnani",
+      "status": "quarantine_permission_download_scale_pending",
+      "downloaded": false,
+      "published_triangles_approx": 2500000,
+      "license": null,
+      "observations": ["Página visible sin descarga directa ni licencia reutilizable explícita; autor pide contacto","Escaneo declarado por autor, no CAD Sony","Visor de origen avisó modelo demasiado pesado para el dispositivo de revisión","No se contactó al autor ni se extrajeron buffers del visor"]
+    },
+    {
+      "id": "cults-sel1635gm-focus-ring",
+      "part_id": "sony-fe-16-35-gm",
+      "source_url": "https://cults3d.com/en/3d-model/gadget/seamless-follow-focus-ring-sony-16-35-2-8-gm",
+      "author": "douth",
+      "status": "rejected_wrong_asset_scope",
+      "downloaded": false,
+      "license": null,
+      "observations": ["Modelo de anillo accesorio; sus cotas no son la geometría ni dimensiones completas del objetivo"]
+    }
+  ],
+  "ai": {
+    "candidate_platform": "Meshy",
+    "platform_identification": "Correspondencia probable con Mesi/Meshi de las notas; no identidad confirmada por la grabación",
+    "status": "awaiting_sufficient_authorized_views_and_connected_account",
+    "access_check": "Workspace de Meshy abierto sin sesión conectada; muestra Iniciar sesión. No se cargaron fotos ni se generaron modelos/créditos. La interfaz mostraba Meshy 7.1; confirmar plan y condiciones de esa cuenta antes de generar.",
+    "source_images_policy": "Descarga oficial no equivale a permiso de IA ni de redistribución. No subir referencias sin prueba de permiso.",
+    "method": "Image to 3D; Multi-View sólo si la cuenta/plan confirmado lo permite",
+    "payment_policy": "No contratar planes, comprar créditos ni usar servicios de pago sin autorización específica",
+    "output_accuracy": "Reconstrucción visual aproximada; no CAD ni evidencia de tornillería, roscas, masa, pinout o tolerancias",
+    "sources": [
+      {"url":"https://help.meshy.ai/en/articles/9996860-how-to-use-meshy-image-to-3d","claim":"Conversión de foto a malla y exportación"},
+      {"url":"https://help.meshy.ai/en/articles/12634481-how-to-use-multi-view","claim":"Multi-View usa una imagen principal y hasta tres adicionales; requiere plan de pago"},
+      {"url":"https://help.meshy.ai/en/articles/16102098-can-i-use-meshy-assets-commercially","claim":"Derechos de resultado dependen del plan y de derechos sobre referencias; free CC BY 4.0 con atribución"}
+    ]
+  },
+  "release_gates": ["Identidad/revisión y componente correctos","Licencia, modificación y distribución web comercial verificadas","Derechos de imágenes/IA comprobados si aplica","GLB autocontenido, hash y límites auditados","Escala uniforme, base de referencia y revisión visual documentadas","Puertos, soporte, masa y cables siguen en manifiestos","Atribución visible, regresiones y comparación móvil"],
+  "not_claimed": ["Archivo 3D real descargado o generado","Permiso del fabricante","Réplica mecánica certificada","Rendimiento GPU medido","Prueba física de montaje"]
+}

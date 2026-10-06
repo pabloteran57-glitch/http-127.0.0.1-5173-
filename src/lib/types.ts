@@ -2,6 +2,8 @@ export interface WeightField {
   value: number | null;
   approximate: boolean;
   note: string;
+  source_url?: string;
+  checked_on?: string;
 }
 
 export interface DimensionField {

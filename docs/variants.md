@@ -17,7 +17,7 @@ Canónico: `data/variants.json`. Los cambios son frente al perfil principal `com
 - Presupuesto: Añade Mic 2 y micrófono de solapa frente al perfil Comercial; sin compras nuevas si ya están disponibles.
 - Complejidad: Media / montaje físico pendiente
 - Dependencias: Medir la pila de placas y el barrido de inclinación/rotación/giro horizontal con los motores apagados.; Pesar conjunto móvil completo; la capacidad nominal no certifica encaje.; 3203B: fijación superior documentada, separación del motor de giro horizontal no probada.; Indie 7 invertido bajo soporte nativo 3026B: verificar inversión de imagen, carga y mano enguantada.; Receptor Mic 2: pinza/soporte y punto de fijación aún no confirmados; no se representa un montaje inexistente.
-- Subtotal móvil modelado: 3.23 kg, incompleto/aproximado.
+- Subtotal móvil modelado: 3.25 kg, incompleto/aproximado.
 
 ## Comercial / contenido de marca
 
@@ -34,7 +34,7 @@ Canónico: `data/variants.json`. Los cambios son frente al perfil principal `com
 - Presupuesto: Perfil de alta gama solicitado, sin precios inventados ni añadir DJI Transmission.
 - Complejidad: Alta / montaje físico pendiente
 - Dependencias: Medir la pila de placas y el barrido de inclinación/rotación/giro horizontal con los motores apagados.; Pesar conjunto móvil completo; la capacidad nominal no certifica encaje.; 3203B: fijación superior documentada, separación del motor de giro horizontal no probada.; Indie 7 invertido bajo soporte nativo 3026B: verificar inversión de imagen, carga y mano enguantada.
-- Subtotal móvil modelado: 3.23 kg, incompleto/aproximado.
+- Subtotal móvil modelado: 3.22 kg, incompleto/aproximado.
 
 ## A mano / extracción
 
@@ -51,7 +51,7 @@ Canónico: `data/variants.json`. Los cambios son frente al perfil principal `com
 - Presupuesto: Sin nuevos accesorios si asa y NP-FZ100 están disponibles; el bloque de energía externo queda estacionado.
 - Complejidad: Baja / compatibilidad de extracción pendiente
 - Dependencias: Batería Sony NP-FZ100 cargada; disponibilidad por confirmar.; Retirar el riel NATO superior de la jaula si interfiere con XLR-H1; tornillería según Sony/SmallRig.; Receptor Mic 2: pinza/soporte y punto de fijación aún no confirmados; no se representa un montaje inexistente.
-- Subtotal móvil modelado: 1.83 kg, incompleto/aproximado.
+- Subtotal móvil modelado: 1.85 kg, incompleto/aproximado.
 
 ## Esencial / menor presupuesto
 
@@ -68,7 +68,7 @@ Canónico: `data/variants.json`. Los cambios son frente al perfil principal `com
 - Presupuesto: Menos compras activas: elimina monitor y bloque V-mount/varillas. No equivale a ahorro monetario cotizado.
 - Complejidad: Baja
 - Dependencias: Medir la pila de placas y el barrido de inclinación/rotación/giro horizontal con los motores apagados.; Pesar conjunto móvil completo; la capacidad nominal no certifica encaje.; Receptor Mic 2: pinza/soporte y punto de fijación aún no confirmados; no se representa un montaje inexistente.
-- Subtotal móvil modelado: 1.53 kg, incompleto/aproximado.
+- Subtotal móvil modelado: 1.55 kg, incompleto/aproximado.
 
 ## Vertical / 9:16
 
@@ -85,7 +85,7 @@ Canónico: `data/variants.json`. Los cambios son frente al perfil principal `com
 - Presupuesto: Sin soporte vertical de terceros añadido; NP-FZ100 y dispositivo opcional deben existir.
 - Complejidad: Media / montaje vertical pendiente
 - Dependencias: Medir la pila de placas y el barrido de inclinación/rotación/giro horizontal con los motores apagados.; Pesar conjunto móvil completo; la capacidad nominal no certifica encaje.; Receptor Mic 2: pinza/soporte y punto de fijación aún no confirmados; no se representa un montaje inexistente.; Validar plataforma vertical nativa y disponibilidad de acceso a HDMI/USB-C tras rotación.
-- Subtotal móvil modelado: 1.53 kg, incompleto/aproximado.
+- Subtotal móvil modelado: 1.55 kg, incompleto/aproximado.
 
 ## Entrevista corporativa
 
@@ -102,7 +102,7 @@ Canónico: `data/variants.json`. Los cambios son frente al perfil principal `com
 - Presupuesto: Sin precios ni trípode inventados. Soportes estáticos y su capacidad requieren selección/compra si no existen.
 - Complejidad: Media / soportes pendientes
 - Dependencias: Batería Sony NP-FZ100 cargada; disponibilidad por confirmar.; Retirar el riel NATO superior de la jaula si interfiere con XLR-H1; tornillería según Sony/SmallRig.; Receptor Mic 2: pinza/soporte y punto de fijación aún no confirmados; no se representa un montaje inexistente.; Seleccionar soportes estáticos reales antes de habilitar el monitor/distribuidor.
-- Subtotal móvil modelado: 1.83 kg, incompleto/aproximado.
+- Subtotal móvil modelado: 1.85 kg, incompleto/aproximado.
 
 ## Cine / narrativa
 
@@ -119,8 +119,9 @@ Canónico: `data/variants.json`. Los cambios son frente al perfil principal `com
 - Presupuesto: Configuración de alta gama solicitada; no se presupone foco motorizado ni transmisión operativos.
 - Complejidad: Alta / montaje y foco pendientes
 - Dependencias: Medir la pila de placas y el barrido de inclinación/rotación/giro horizontal con los motores apagados.; Pesar conjunto móvil completo; la capacidad nominal no certifica encaje.; 3203B: fijación superior documentada, separación del motor de giro horizontal no probada.; Indie 7 invertido bajo soporte nativo 3026B: verificar inversión de imagen, carga y mano enguantada.; Receptor Mic 2: pinza/soporte y punto de fijación aún no confirmados; no se representa un montaje inexistente.
-- Subtotal móvil modelado: 3.23 kg, incompleto/aproximado.
+- Subtotal móvil modelado: 3.25 kg, incompleto/aproximado.
 
 
 Vertical: plataforma nativa DJI, no soporte de terceros inventado. La rotación en el visor no prueba la pila vertical de placas.
 
+Rigs propios con monitor lateral: El cambio vertical de DJI afecta a la plataforma de cámara; 3026B usa el NATO lateral fijo del RS 4 Pro. Se permite representar la misma cadena candidata de monitor lateral, no certificar holguras, rigidez, antitorsión o alimentación. Medir puertos, recorrido HDMI, manos y todos los ejes en vertical; la alimentación del Indie 7 queda pendiente sin una cadena activa. No se activa V-mount en vertical ni se modifica la plantilla vertical existente. Fuentes: [Fabricante](https://dl.djicdn.com/downloads/DJI_RS_4_Pro/UM/DJI_RS_4_User_Manual__v1.0__EN.pdf); [Fabricante](https://static.smallrig.com/mall/img/public/m1twezvd88j-1751250182064_.pdf).

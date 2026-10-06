@@ -23,7 +23,7 @@ Cuatro tareas: Rig, Conexiones, Montaje y Piezas. Visor 3D con aproximaciones ba
 
 ## Referencias y fidelidad
 
-47 imágenes descargadas, 9 documentos; 25 referencias de inventario seleccionadas tras revisión visual o técnica. La tabla eléctrica 4253B no sustituye una foto de producto. 3026B usa su manual de revisión B, no foto ambigua de versión anterior.
+47 imágenes descargadas, 10 documentos; 25 referencias de inventario seleccionadas tras revisión visual o técnica. La tabla eléctrica 4253B no sustituye una foto de producto. 3026B usa su manual de revisión B, no foto ambigua de versión anterior.
 
 Medios de fabricante para investigación local, no licencia abierta de redistribución. Escaneo FX3 comunitario identificado, sin licencia/descarga/escala verificadas: no se importa. Antes de usar CAD: comprobar revisión exacta, licencia, unidades, escala, referencias geométricas y distinguir malla visual de malla de colisión.
 

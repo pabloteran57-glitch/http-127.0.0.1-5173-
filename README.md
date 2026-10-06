@@ -27,7 +27,7 @@ Vista de marca: `/brand/preview.html`. SVG reutilizables en `public/brand`; nomb
 
 **Crear rig** abre una selección vacía. **Personalizar** crea una copia editable de la plantilla actual. Elige productos, revisa dependencias y guarda el perfil en **Mis rigs**. **Guardar rig** también puede guardar directamente una copia de una plantilla. El guardado es local a este navegador, no una cuenta sincronizada. Las piezas pendientes se conservan sin inventar un montaje.
 
-Versión 0.2.2: editor en tres pasos, tarjetas visuales y bandeja completa de elecciones. Un rig propio vertical conserva el monitor lateral candidato con 3026B, pero no activa la pila V-mount ni presupone alimentación. Pictogramas públicos de categoría etiquetados; fotos reales locales y enlaces oficiales, sin redistribución no autorizada. Las siete plantillas mantienen sus listas originales.
+Versión 0.2.3: selección directa en **Catálogo**, **Elegidas** y **Datos del rig**, sin pasos obligatorios. Añadir o quitar no te saca del catálogo; guardar está disponible en todas las vistas. Jaulas y accesorios tienen su categoría. Un rig propio vertical conserva el monitor lateral candidato con 3026B, sin activar la pila V-mount ni presuponer alimentación. El RX de DJI Mic 2 se representa sobre la zapata documentada de HawkLock 4770, con 28 g publicados y pose aproximada pendiente de ensayo. Pictogramas públicos etiquetados y enlaces oficiales, sin redistribución no autorizada. Las siete plantillas mantienen sus listas originales.
 
 **Montaje** incluye visor acumulativo, guía condicionada a la selección, reproducción, pausa, reinicio, anterior/siguiente, deslizador de etapas y ritmo. Espera a la escena antes de avanzar; la extracción a mano es opcional y nunca automática. La animación es ilustrativa, no una trayectoria de acople medida. Reglas, esquema y límites en [rigs propios](docs/custom-rigs.md).
 
@@ -49,6 +49,7 @@ Ruta hacia beta: [plan de avance](docs/beta-roadmap.md), con fases, criterios y 
 - `data/assembly-profile-content.json`: bloques de instrucciones condicionados a las piezas y circuitos existentes; no añade especificaciones ni compatibilidades.
 - `data/engineering-manifest.json`: límites publicados y políticas de masa/centros ponderados.
 - `data/sources.json`, `data/geometry-references.json`, `data/geometry-audit.json`: atribución, descargas SHA-256 y referencias revisadas.
+- `data/model-production.json`, `data/model-assets.json`: trabajo de fidelidad y registro de GLB auditados. Importador preparado; cero modelos reales aprobados. [Producción](docs/model-production.md) y [contrato](docs/model-asset-contract.md).
 - `data/ui-content.json`: nombres cortos y traducciones de presentación; no reemplaza especificaciones ni interfaces canónicas.
 - `data/planner-rules.json`: dependencias conservadoras del catálogo actual y fotogramas de montaje; no certifica compatibilidad universal.
 - `data/catalog-contract.json`: índice derivado de identidad, revisión, guía y geometría; se regenera, no es un segundo catálogo.
@@ -64,13 +65,15 @@ Versión 0.2.1: panel Conexiones con evidencia por circuito exacto y comprobacio
 
 BG70 sustituye BG30. Monitor fijo lateral sobre 3026B, fuera de la carga móvil. VB99 Pro 644 g y 3203B bajo varillas con abrazadera superior documentada. 3203B tiene discrepancia de masa, usa 351 g conservadores. SmallHD cable 5.5 mm exterior, no 2 mm. FX3 una HDMI: distribuidor presente en circuito dual de banco pero estacionado en gimbal hasta montaje real y fuente probados. Interfaz Transmission y foco no activados sin hardware/calibración. XLR-H1 sólo a mano/estático.
 
-El subtotal móvil ~3.23 kg incluye estimaciones y excluye cables, RX y fijaciones. 4.5 kg nominales del gimbal NO prueban encaje. CG interno, motores, ajuste de ejes, alcance de cables y rigidez necesitan medición física.
+El subtotal móvil depende del perfil; incluye los 28 g del RX cuando está activo, no el kit completo. Excluye cables, fijaciones y otras masas pendientes. 4.5 kg nominales del gimbal NO prueban encaje. CG interno, motores, ajuste de ejes, alcance de cables y rigidez necesitan medición física.
 
 ## Referencias y CAD
 
 `node scripts/download-references.mjs` descarga páginas/medios oficiales del catálogo; IDs como argumentos actualizan sólo esos productos. No ejecutarlo como rastreador de terceros. `scripts/extract-pdf-images.py` extrae imágenes originales de PDFs, requiere pypdf. Fotografías y manuales de fabricante son investigación local, no recursos de licencia abierta para publicar en App Store.
 
-No se importó CAD comunitario no verificado. Toda forma 3D interna y pose es aproximada, incluso donde se conocen cotas exteriores. Pendientes explícitos: BG70, parasol completo, pila de placas, RX, longitudes, radios de curvatura y holguras reales.
+No se importó CAD comunitario no verificado. Toda forma 3D interna y pose es aproximada, incluso donde se conocen cotas exteriores. Pendientes explícitos: BG70, parasol completo, pila de placas, retención y posición exacta del RX, longitudes, radios de curvatura y holguras reales.
+
+Primero fidelidad del catálogo actual, después ampliaciones: la malla visual no decide puertos, masas ni soportes. `npm run test:models` añade veinte pruebas sintéticas de identidad, licencia, escala, hash/rutas y GLB; no genera permisos ni un escaneo real. La masa de cuerpo FX3 se corrigió a 630 g con fuente Sony US; 715 g incluye batería/tarjeta.
 
 ## Verificación
 

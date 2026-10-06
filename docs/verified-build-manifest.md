@@ -1,6 +1,6 @@
 # Manifiesto verificado de piezas
 
-Generado desde `data/parts-manifest.json`. Auditoría 2026-10-05. 25 productos solicitados y 2 componentes del Combo, conservados.
+Generado desde `data/parts-manifest.json`. Auditoría 2026-10-06. 25 productos solicitados y 2 componentes del Combo, conservados.
 
 Plan de ingeniería, no montaje certificado. Medidas publicadas no prueban forma exacta, enganche de tornillos, equilibrio, rigidez, holguras ni compatibilidad de toda la pila. Fotos y geometría aproximada no son CAD calibrado.
 
@@ -13,6 +13,7 @@ Plan de ingeniería, no montaje certificado. Medidas publicadas no prueban forma
 - Nota de dimensiones: DJI: largo × ancho × alto desplegado con empuñadura ESTÁNDAR; excluye cámara y trípode. No corresponde al conjunto instalado con BG70.
 - Masa publicada: 1843 g. Aproximada: sí.
 - Nota de masa: Suma de componentes nominales aproximados de DJI: gimbal 1242 g + BG30 265 g + placas 110 g + trípode 226 g. NO es el peso del rig instalado con BG70.
+- Fuente de masa: [DJI](https://www.dji.com/rs-4-pro/specs).
 - Masa de planificación: 1843 g; no sustituye pesaje del subconjunto instalado.
 - Interfaces: USB-C de carga; USB-C RSS de control de cámara; USB-C de motor de enfoque; USB-C de transmisión de vídeo/LiDAR; Interfaces de expansión RSA/NATO; Orificio de montaje 1/4"-20; Zapata sin contactos; Bluetooth 5.1
 - Montaje: Plataforma estructural principal; la cámara se fija a la placa de liberación rápida DJI y a los ejes del gimbal.
@@ -31,6 +32,7 @@ Plan de ingeniería, no montaje certificado. Medidas publicadas no prueban forma
 - Nota de dimensiones: Las fuentes oficiales consultadas publican capacidad y tensión, pero no la envolvente física.
 - Masa publicada: pendiente g. Aproximada: sí.
 - Nota de masa: Las fuentes oficiales consultadas no publican la masa de esta unidad.
+- Fuente de masa: [DJI](https://store.dji.com/product/dji-rs-bg70-high-capacity-battery-grip).
 - Masa de planificación: pendiente g; no sustituye pesaje del subconjunto instalado.
 - Interfaces: Interfaz de empuñadura con el cuerpo RS; Salida USB-C inferior de hasta 18 W; Entrada USB-C de carga
 - Montaje: Sustituye la empuñadura de batería estándar en la parte inferior del gimbal.
@@ -47,9 +49,10 @@ Plan de ingeniería, no montaje certificado. Medidas publicadas no prueban forma
 - Modelo: ILME-FX3; fabricante: Sony; categoría: Cuerpo de cámara.
 - Medidas publicadas L/W/H: 129.7 / 77.8 / 84.5 mm. Aproximadas/incompletas: sí.
 - Nota de dimensiones: Sony: ancho × alto × fondo = 129.7 × 77.8 × 84.5 mm. Los nombres históricos de los campos no representan los ejes de la escena; consultar layout-manifest.json. Sony considera estas medidas aproximadas y excluye salientes.
-- Masa publicada: 640 g. Aproximada: sí.
-- Nota de masa: Masa aproximada del cuerpo: 640 g según Sony, sin batería, tarjeta ni asa. La configuración principal utiliza un adaptador NP-FZ100 alimentado externamente.
-- Masa de planificación: 640 g; no sustituye pesaje del subconjunto instalado.
+- Masa publicada: 630 g. Aproximada: sí.
+- Nota de masa: Sony US, ILME-FX3, sección de tamaño y peso: 630 g cuerpo solo; 715 g con batería/tarjeta. Corrige 640 g no sustentados por la guía enlazada, que sólo publica 715 g con batería/tarjeta. Sin asa, batería interna ni tarjeta en este valor; adaptador de batería y cable deben pesarse aparte.
+- Fuente de masa: [Sony](https://www.sony.com/electronics/support/camcorders-and-video-cameras-interchangeable-lens-camcorders/ilme-fx3/specifications).
+- Masa de planificación: 630 g; no sustituye pesaje del subconjunto instalado.
 - Interfaces: Una salida HDMI de tamaño completo, tipo A; Un USB-C; Un Multi/Micro USB; Entrada de micrófono de 3.5 mm; Salida de auriculares de 3.5 mm; Zapata Multi Interface; Punto de montaje 1/4"-20
 - Montaje: Cuerpo con jaula, fijado a la base SmallRig y después a la placa de liberación rápida DJI.
 - Material: Chasis de aleación de magnesio
@@ -67,6 +70,7 @@ Plan de ingeniería, no montaje certificado. Medidas publicadas no prueban forma
 - Nota de dimensiones: No se recuperó una envolvente física completa publicada por el fabricante en esta revisión.
 - Masa publicada: 305 g. Aproximada: sí.
 - Nota de masa: Masa de planificación; comprobar antes de aprobar la carga final del gimbal.
+- Fuente de masa: [Sony](https://electronics.sony.com/imaging/imaging-accessories/imaging-compact-camera-accessories/p/xlrh1).
 - Masa de planificación: 305 g; no sustituye pesaje del subconjunto instalado.
 - Interfaces: Dos entradas combinadas XLR/TRS; Una entrada estéreo de 3.5 mm; Conexión Sony Multi Interface
 - Montaje: Se fija a la zapata Multi Interface de la FX3 y se estabiliza con los tornillos laterales.
@@ -85,6 +89,7 @@ Plan de ingeniería, no montaje certificado. Medidas publicadas no prueban forma
 - Nota de dimensiones: Diámetro máximo y longitud publicados por Sony para este objetivo.
 - Masa publicada: 680 g. Aproximada: no.
 - Nota de masa: Sólo el objetivo.
+- Fuente de masa: [Sony](https://electronics.sony.com/imaging/lenses/all-e-mount/p/sel1635gm).
 - Masa de planificación: 680 g; no sustituye pesaje del subconjunto instalado.
 - Interfaces: Montura Sony E; Rosca frontal de filtro de 82 mm; Selector AF/MF; Botón de retención de enfoque
 - Montaje: Objetivo de montura E en la FX3; aro frontal del parasol y soporte de varillas opcional.
@@ -103,6 +108,7 @@ Plan de ingeniería, no montaje certificado. Medidas publicadas no prueban forma
 - Nota de dimensiones: Manual oficial 4770: 160.0 × 101.2 × 66.2 mm y 208 ±5 g. Jaula abierta en U con riel superior desmontable; no es una caja maciza.
 - Masa publicada: 208 g. Aproximada: no.
 - Nota de masa: Masa nominal publicada, con tolerancia del fabricante; no es una medición del conjunto instalado.
+- Fuente de masa: [SmallRig](https://www.smallrig.com/de/HawkLock-Quick-Release-Cage-Kit-for-Sony-FX3-FX30-4770.html).
 - Masa de planificación: 208 g; no sustituye pesaje del subconjunto instalado.
 - Interfaces: Base integrada de tipo Arca; Roscas 1/4"-20; Roscas de posicionamiento tipo ARRI 3/8"-16; Zapatas sin contactos; Riel NATO superior desmontable; Abrazadera de cable HDMI
 - Montaje: Jaula ajustada a FX3/FX30 con varios puntos de contacto antitorsión.
@@ -121,6 +127,7 @@ Plan de ingeniería, no montaje certificado. Medidas publicadas no prueban forma
 - Nota de dimensiones: Manual oficial: 80 × 80 × 26 mm, 171 ±5 g; orificios de varillas de 15 mm con 60 mm entre centros.
 - Masa publicada: 171 g. Aproximada: no.
 - Nota de masa: Masa nominal publicada, con tolerancia del fabricante; no es una medición del conjunto instalado.
+- Fuente de masa: [SmallRig](https://www.smallrig.com/smallrig-baseplate-with-dual-15mm-rod-clamp-1674.html).
 - Masa de planificación: 171 g; no sustituye pesaje del subconjunto instalado.
 - Interfaces: Abrazadera doble para varillas de 15 mm; Ranura de montaje 1/4"-20; Ranura de montaje 3/8"-16
 - Montaje: Atornillada debajo de la cámara con jaula; fija el par de varillas de 15 mm.
@@ -139,6 +146,7 @@ Plan de ingeniería, no montaje certificado. Medidas publicadas no prueban forma
 - Nota de dimensiones: Varillas de 8 pulgadas de largo y 15 mm de diámetro; la página oficial también indica pared de 2.0 mm.
 - Masa publicada: 80 g. Aproximada: sí.
 - Nota de masa: La página oficial muestra actualmente el peso del paquete del par de 8 pulgadas; usarlo sólo para planificación.
+- Fuente de masa: [SmallRig](https://www.smallrig.com/15mm-Carbon-Fiber-Rods-Pair.html).
 - Masa de planificación: 80 g; no sustituye pesaje del subconjunto instalado.
 - Interfaces: Estándar de varillas de 15 mm
 - Montaje: Atraviesan las abrazaderas de la base 1674 y de la placa trasera 3203B.
@@ -157,6 +165,7 @@ Plan de ingeniería, no montaje certificado. Medidas publicadas no prueban forma
 - Nota de dimensiones: La página oficial confirma la arquitectura de 95 mm, pero no una envolvente exterior completa del conjunto montado.
 - Masa publicada: pendiente g. Aproximada: sí.
 - Nota de masa: La página oficial publica actualmente el peso del paquete, no el del producto montado.
+- Fuente de masa: [SmallRig](https://www.smallrig.com/global/SmallRig-Multifunctional-Modular-Matte-Box-95mm-VND-Kit-3645.html).
 - Masa de planificación: 460 g; no sustituye pesaje del subconjunto instalado.
 - Interfaces: Abertura de parasol de 95 mm; Aros adaptadores 67/72/77/82-95 mm; Marco de filtro magnético; Soporte doble para varillas de 15 mm
 - Montaje: Aro de objetivo 82-95 mm; el soporte de varillas depende de medir su alcance. No asumir que las varillas de 8 pulgadas alcanzan a la vez el soporte frontal y la batería trasera.
@@ -175,6 +184,7 @@ Plan de ingeniería, no montaje certificado. Medidas publicadas no prueban forma
 - Nota de dimensiones: Medidas nominales del manual oficial 3026B; 125 ±5 g. La envolvente de uso depende del ángulo del cabezal.
 - Masa publicada: 125 g. Aproximada: no.
 - Nota de masa: Masa nominal publicada, con tolerancia del fabricante; no es una medición del conjunto instalado.
+- Fuente de masa: [SmallRig](https://www.smallrig.com/global/smallrig-monitor-mount-with-nato-clamp-for-dji-rs-2-rsc-2-3026.html).
 - Masa de planificación: 125 g; no sustituye pesaje del subconjunto instalado.
 - Interfaces: Abrazadera NATO; Roscas de accesorios 1/4"-20; Zapata superior sin contactos; Zapata inferior sin contactos
 - Montaje: Abrazadera directa en el riel NATO lateral del RS 4 Pro; cabezal de monitor regulable en inclinación.
@@ -193,6 +203,7 @@ Plan de ingeniería, no montaje certificado. Medidas publicadas no prueban forma
 - Nota de dimensiones: B&H, modelo MON-INDIE-7: ancho × alto × fondo del cuerpo. No es la diagonal de la pantalla de siete pulgadas.
 - Masa publicada: 737 g. Aproximada: no.
 - Nota de masa: B&H: 26 oz / 737 g, sólo monitor, sin baterías ni soporte.
+- Fuente de masa: [SmallHD](https://guide.smallhd.com/a/1634747-indie-7-quick-start-guide).
 - Masa de planificación: 737 g; no sustituye pesaje del subconjunto instalado.
 - Interfaces: Una entrada HDMI; Una salida HDMI; guía oficial: hasta 4Kp30; Dos conexiones 3G-SDI de entrada/salida; Entrada DC de barril: 10-34 V DC, capacidad de entrada de 2 A; diámetro interior no verificado; Conector de auriculares de 3.5 mm; Placa doble de batería Sony serie L; Micro USB de servicio
 - Montaje: Rosca de monitor 1/4"-20 fijada al soporte SmallRig 3026B.
@@ -211,6 +222,7 @@ Plan de ingeniería, no montaje certificado. Medidas publicadas no prueban forma
 - Nota de dimensiones: Manual oficial 4292: 107.2 × 73.2 × 55.2 mm, 644 ±10 g; sólo la batería.
 - Masa publicada: 644 g. Aproximada: no.
 - Nota de masa: Masa nominal publicada, con tolerancia del fabricante; no es una medición del conjunto instalado.
+- Fuente de masa: [SmallRig](https://www.smallrig.com/smallrig-VB99-Pro-mini-V-Mount-Battery-4292.html?sku=4292).
 - Masa de planificación: 644 g; no sustituye pesaje del subconjunto instalado.
 - Interfaces: V-mount; Una salida D-Tap de 14.8 V; Una salida DC de barril de 8 V; Una salida DC de barril de 12 V; Un USB-C PD de entrada/salida; Un USB-C de salida; Un USB-A de salida
 - Montaje: Bloqueada en la placa V-mount 3203B, sobre el tramo trasero de varillas.
@@ -229,6 +241,7 @@ Plan de ingeniería, no montaje certificado. Medidas publicadas no prueban forma
 - Nota de dimensiones: Página oficial de la revisión 3203B: 168.7 × 108 × 33 mm, 337 ±5 g. Incluye abrazadera doble de 15 mm; no separa las envolventes del cuerpo y de la abrazadera.
 - Masa publicada: 337 g. Aproximada: sí.
 - Nota de masa: La página oficial indica 337 ±5 g y el manual oficial 341 ±10 g. Se usan 351 g conservadores para planificación; pesar la revisión recibida.
+- Fuente de masa: [SmallRig](https://www.smallrig.com/jp/Advanced-V-Mount-Battery-Mount-Plate-with-Dual-15mm-Rod-Clamp-3203B.html).
 - Masa de planificación: 351 g; no sustituye pesaje del subconjunto instalado.
 - Interfaces: Contactos de batería V-mount; Puerto D-Tap de entrada/salida; entrada publicada de 11.0-16.8 V. Salida efectiva por comprobar; DC5521: 8 V / 3 A; Dos DC5525: 12 V / 3 A cada uno; USB-C PD de entrada/salida, hasta 65 W; USB-A QC de salida, hasta 36 W; Parte posterior: seis roscas 1/4-20 y diez M4; Bordes superior/inferior: cinco roscas 1/4-20
 - Montaje: Abrazadera doble incluida de 15 mm atornillada al borde superior, según el diagrama izquierdo del manual oficial, página 5; la placa cuelga bajo las varillas y la batería se fija por detrás.
@@ -247,6 +260,7 @@ Plan de ingeniería, no montaje certificado. Medidas publicadas no prueban forma
 - Nota de dimensiones: Medidas del cable montado publicadas por B&H.
 - Masa publicada: 71 g. Aproximada: no.
 - Nota de masa: Peso de producto publicado por B&H.
+- Fuente de masa: [SmallRig](https://www.smallrig.com/SmallRig-D-Tap-to-Sony-NP-FZ100-Dummy-Battery-Power-Cable-4253B.html).
 - Masa de planificación: 71 g; no sustituye pesaje del subconjunto instalado.
 - Interfaces: D-Tap macho: entrada de 9.6-20 V, suministro mínimo de 2 A; Adaptador NP-FZ100 regulado: 8.0-8.4 V, máximo continuo de 2 A; Cable espiral: hasta 2 m ±50 mm extendido
 - Montaje: Desde el sistema V-mount al compartimento de batería FX3, por la salida de cable de la puerta.
@@ -265,6 +279,7 @@ Plan de ingeniería, no montaje certificado. Medidas publicadas no prueban forma
 - Nota de dimensiones: Especificaciones DJI Focus Pro; largo × ancho × alto aproximados.
 - Masa publicada: 140 g. Aproximada: sí.
 - Nota de masa: Masa de planificación.
+- Fuente de masa: [DJI](https://www.dji.com/focus-pro/specs).
 - Masa de planificación: 140 g; no sustituye pesaje del subconjunto instalado.
 - Interfaces: USB-C de actualización de firmware/alimentación; USB-C de datos/alimentación/CVBS/CAN; Zapata sin contactos; Rosca de montaje 1/4-20
 - Montaje: DJI permite retirar la zapata y fijar el tornillo de 1/4 pulgada incluido a una jaula. Posición superior delantera candidata; medir la distancia entre plano del sensor y vidrio LiDAR.
@@ -283,6 +298,7 @@ Plan de ingeniería, no montaje certificado. Medidas publicadas no prueban forma
 - Nota de dimensiones: Especificaciones DJI Focus Pro; largo × ancho × alto aproximados.
 - Masa publicada: 123 g. Aproximada: sí.
 - Nota de masa: Masa aproximada publicada del motor Focus Pro, no del motor Ronin anterior.
+- Fuente de masa: [DJI](https://www.dji.com/focus-pro/specs).
 - Masa de planificación: 123 g; no sustituye pesaje del subconjunto instalado.
 - Interfaces: USB-C de control/alimentación; Anclaje a varilla de 15 mm; Engrane con el aro del objetivo
 - Montaje: Abrazadera a varilla de 15 mm y engrane con el aro del objetivo.
@@ -301,6 +317,7 @@ Plan de ingeniería, no montaje certificado. Medidas publicadas no prueban forma
 - Nota de dimensiones: Las fuentes consultadas no permiten completar la envolvente física.
 - Masa publicada: 139.3 g. Aproximada: no.
 - Nota de masa: Masa publicada en la tienda oficial para el hub Focus Pro exacto; no corresponde al hub LiDAR Range Finder (RS) anterior.
+- Fuente de masa: [DJI](https://store.dji.com/se/product/dji-focus-pro-lidar-dji-transmission-cable-hub?vid=168921).
 - Masa de planificación: 139.3 g; no sustituye pesaje del subconjunto instalado.
 - Interfaces: Conexiones específicas DJI de LiDAR/transmisión
 - Montaje: Interfaz accesoria del sistema DJI Transmission.
@@ -319,12 +336,13 @@ Plan de ingeniería, no montaje certificado. Medidas publicadas no prueban forma
 - Nota de dimensiones: Las fuentes consultadas verifican mejor la composición del sistema que las dimensiones del kit completo.
 - Masa publicada: pendiente g. Aproximada: sí.
 - Nota de masa: No se recuperó la masa del kit completo.
+- Fuente de masa: [DJI](https://www.dji.com/mic-2).
 - Masa de planificación: pendiente g; no sustituye pesaje del subconjunto instalado.
 - Interfaces: Salida TRS de 3.5 mm del receptor; USB-C de carga/datos; Micrófono integrado del transmisor; Entrada de micrófono lavalier compatible en el transmisor
-- Montaje: El receptor puede fijarse a una zapata o permanecer fuera del rig; los transmisores se sujetan al participante.
+- Montaje: Zapata integrada del receptor DMR02 a la zapata inclinada del HawkLock 4770: interfaces documentadas, montaje candidato. Los transmisores se sujetan al participante; estuche fuera del rig.
 - Material: Plástico técnico y herrajes de clip metálicos
 - Obligatorio/opcional: Opcional; función: Audio inalámbrico de diálogo y referencia para un solo operador.
-- Restricciones: Preferible como sistema corporal o de zapata, no como carga permanente indiscriminada del gimbal.; La ubicación del receptor no debe competir con LiDAR o XLR-H1 por el punto superior.
+- Restricciones: Preferible como sistema corporal o de zapata, no como carga permanente indiscriminada del gimbal.; Verificar retención, acceso a HDMI/MIC, lectura del RX y barrido de motores con la zapata inclinada real; posición y ángulo del visor aproximados.; El receptor utiliza su batería interna; no se presupone alimentación por la zapata sin contactos ni el adaptador Sony MI opcional.
 - Confianza: Media.
 - [Fuente principal](https://www.dji.com/mic-2)
 
@@ -337,6 +355,7 @@ Plan de ingeniería, no montaje certificado. Medidas publicadas no prueban forma
 - Nota de dimensiones: La envolvente física exacta no es necesaria para la distribución actual del rig.
 - Masa publicada: pendiente g. Aproximada: sí.
 - Nota de masa: No se recuperó el peso en las fuentes consultadas.
+- Fuente de masa: [DJI](https://store.dji.com/product/dji-lavalier-mic).
 - Masa de planificación: pendiente g; no sustituye pesaje del subconjunto instalado.
 - Interfaces: Conector TRS de 3.5 mm
 - Montaje: Se sujeta a la ropa y se conecta a un transmisor DJI Mic.
@@ -355,6 +374,7 @@ Plan de ingeniería, no montaje certificado. Medidas publicadas no prueban forma
 - Nota de dimensiones: Las medidas de la ficha StarTech incluyen el cable de entrada cautivo. Los 620 mm NO son la longitud de la carcasa; su geometría sigue siendo aproximada.
 - Masa publicada: 72 g. Aproximada: no.
 - Nota de masa: Masa del producto publicada por el fabricante, sin adaptador de corriente.
+- Fuente de masa: [StarTech](https://www.startech.com/en-fr/audio-video-products/st122hd4ku).
 - Masa de planificación: 72 g; no sustituye pesaje del subconjunto instalado.
 - Interfaces: Cable de entrada cautivo HDMI tipo A macho; Dos salidas HDMI tipo A hembra; Entrada DC de 5 V; adaptador de corriente y cable de alimentación USB incluidos; HDMI 1.4, hasta 4K a 30 Hz
 - Montaje: No se ha verificado una interfaz de montaje al rig en las fuentes consultadas.
@@ -373,6 +393,7 @@ Plan de ingeniería, no montaje certificado. Medidas publicadas no prueban forma
 - Nota de dimensiones: Longitud espiral de 12 a 24 pulgadas.
 - Masa publicada: pendiente g. Aproximada: sí.
 - Nota de masa: No se publicó la masa del cable en las fuentes consultadas.
+- Fuente de masa: [Kondor Blue](https://kondorblue.com/products/12-to-24-coiled-braided-hdmi-cable-for-camera-mounted-monitors).
 - Masa de planificación: 65 g; no sustituye pesaje del subconjunto instalado.
 - Interfaces: HDMI tipo A macho; HDMI tipo A macho; HDMI 2.0, 18 Gbps
 - Montaje: Tramo de cable entre cámara o monitor y el dispositivo HDMI correspondiente.
@@ -391,6 +412,7 @@ Plan de ingeniería, no montaje certificado. Medidas publicadas no prueban forma
 - Nota de dimensiones: Longitud de cable publicada por DJI.
 - Masa publicada: pendiente g. Aproximada: sí.
 - Nota de masa: No se publicó la masa del cable en las fuentes consultadas.
+- Fuente de masa: [DJI](https://store.dji.com/uk/product/r-mini-hdmi-to-hdmi-cable).
 - Masa de planificación: 35 g; no sustituye pesaje del subconjunto instalado.
 - Interfaces: HDMI tipo A macho; Mini HDMI tipo C macho
 - Montaje: Desde la salida del distribuidor en banco hacia Mini HDMI de Ronin Image Transmitter; la salida del monitor es una alternativa condicionada, no la ruta principal.
@@ -409,6 +431,7 @@ Plan de ingeniería, no montaje certificado. Medidas publicadas no prueban forma
 - Nota de dimensiones: La tienda oficial DJI publica una longitud de 30 cm; la envolvente de conectores no está completa.
 - Masa publicada: pendiente g. Aproximada: sí.
 - Nota de masa: No se recuperó el peso en las fuentes consultadas.
+- Fuente de masa: [DJI](https://store.dji.com/ca/product/r-multi-camera-control-cable-usb-c).
 - Masa de planificación: 30 g; no sustituye pesaje del subconjunto instalado.
 - Interfaces: USB-C macho; USB-C macho
 - Montaje: Tramo corto desde RSS del RS a USB-C de la FX3.
@@ -427,6 +450,7 @@ Plan de ingeniería, no montaje certificado. Medidas publicadas no prueban forma
 - Nota de dimensiones: El fabricante indica 36 pulgadas / 91 cm; no publica toda la geometría del conector. Se conserva el ID histórico por compatibilidad de datos, no como especificación de diámetro.
 - Masa publicada: pendiente g. Aproximada: sí.
 - Nota de masa: No se recuperó el peso en las fuentes consultadas.
+- Fuente de masa: [SmallHD](https://smallhd.com/products/dtap-barrel-36in).
 - Masa de planificación: 95 g; no sustituye pesaje del subconjunto instalado.
 - Interfaces: D-Tap macho; Barril DC macho de 5.5 mm de diámetro exterior; centro positivo publicado; diámetro interior por confirmar
 - Montaje: Desde la salida D-Tap de la placa 3203B a la entrada DC del Indie 7.
@@ -445,6 +469,7 @@ Plan de ingeniería, no montaje certificado. Medidas publicadas no prueban forma
 - Nota de dimensiones: Especificaciones publicadas por DJI.
 - Masa publicada: 126 g. Aproximada: no.
 - Nota de masa: Especificaciones publicadas por DJI.
+- Fuente de masa: [DJI](https://www.dji.com/rs-4-pro/specs).
 - Masa de planificación: 126 g; no sustituye pesaje del subconjunto instalado.
 - Interfaces: USB-C de alimentación/comunicación; Entrada Mini HDMI; USB-C RSS de control de cámara; Interfaz de expansión de zapata sin contactos
 - Montaje: Accesorio incluido en el Combo; el montaje activo depende de disponer de zapata o herrajes 1/4"-20 compatibles.
@@ -463,6 +488,7 @@ Plan de ingeniería, no montaje certificado. Medidas publicadas no prueban forma
 - Nota de dimensiones: Sólo aplicación.
 - Masa publicada: pendiente g. Aproximada: no.
 - Nota de masa: Sólo aplicación.
+- Fuente de masa: [DJI](https://www.dji.com/downloads/djiapp/dji-ronin).
 - Masa de planificación: pendiente g; no sustituye pesaje del subconjunto instalado.
 - Interfaces: Bluetooth; Vídeo/control por Wi-Fi con Ronin Image Transmitter
 - Montaje: Se ejecuta en teléfono o tableta; el plan actual no incluye un montaje físico del dispositivo.
@@ -481,6 +507,7 @@ Plan de ingeniería, no montaje certificado. Medidas publicadas no prueban forma
 - Nota de dimensiones: Sólo aplicación.
 - Masa publicada: pendiente g. Aproximada: no.
 - Nota de masa: Sólo aplicación.
+- Fuente de masa: [Sony](https://creatorscloud.sony.net/catalog/en-jo/monitorcontrol/index.html).
 - Masa de planificación: pendiente g; no sustituye pesaje del subconjunto instalado.
 - Interfaces: Monitorización/control por cable o inalámbricos con un dispositivo compatible
 - Montaje: Se ejecuta en teléfono, tableta o Mac.

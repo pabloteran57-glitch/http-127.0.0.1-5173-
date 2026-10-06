@@ -7,5 +7,5 @@
   "storage":"local_only",
   "account_sync":"deferred_by_user",
   "updates":["Crear rig abre directamente el catálogo, sin pasos previos ni botones de siguiente", "Tarjetas táctiles con Añadir/Quitar, filtros y selección exacta", "Guardar disponible en todas las vistas; datos y revisión opcionales separados del montaje", "Editor móvil de pantalla completa con lista desplazable", "Jaulas y accesorios separadas de cámara y óptica", "RX Mic 2 visible en zapata inclinada HawkLock con 28 g publicados y ruta TRS; pose aproximada y prueba física pendiente", "Monitor vertical, guardado local, historial, plantillas y conexiones conservados"],
-  "limitations":["No validado con un rig físico completo", "Diez altas en investigación, no instalables", "Sin cuenta, nube ni enlaces privados", "Instalación web depende del navegador; no es una publicación en App Store"]
+  "limitations":["No validado con un rig físico completo", "Diez altas en investigación, no instalables", "Importador GLB preparado; ninguna malla real aprobada ni generada en Meshy", "Sin cuenta, nube ni enlaces privados", "Instalación web depende del navegador; no es una publicación en App Store"]
 }

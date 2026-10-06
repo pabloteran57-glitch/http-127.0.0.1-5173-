@@ -7,6 +7,14 @@
   ],
   "sources": [
     {
+      "id": "audit-sony-fx3-body-mass",
+      "brand": "Sony",
+      "type": "official",
+      "url": "https://www.sony.com/electronics/support/camcorders-and-video-cameras-interchangeable-lens-camcorders/ilme-fx3/specifications",
+      "checked_on": "2026-10-06",
+      "notes": "ILME-FX3 Size & Weight, WEIGHT MAIN UNIT ONLY: 630 g cuerpo solo y 715 g con batería/tarjeta. Corrige 640 g sin respaldo en la guía canónica. No se extrapola a FX3A."
+    },
+    {
       "id": "src-dji-rs4-pro-vertical-manual",
       "brand": "DJI",
       "type": "official",
