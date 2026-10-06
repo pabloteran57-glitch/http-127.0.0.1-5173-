@@ -8,7 +8,8 @@
 - Primer despliegue verificado el 5 de octubre de 2026, commit `f6e7f3b0e9bdcebaabfd5fed65c2ad7dd4d833f2`. Compilación remota: 27 piezas, 17 conexiones, 13 etapas y 7 perfiles; salida propia de 1.41 MB.
 - Comprobados visor, despiece, circuitos A/B, doble HDMI de banco, siete perfiles, inventario, búsqueda, estado vacío y navegación móvil. No son pruebas mecánicas ni eléctricas del equipo físico.
 - Comprobación HTTP: portada 200, solicitud bajo `/references/` 404 y CSS 200 con caché inmutable. Cabeceras de HTTPS, `nosniff`, protección de marcos y restricciones de cámara/micrófono/geolocalización presentes.
-- Versión actual 0.2.1 comprobada el 6 de octubre de 2026; commit funcional `80ef04d2d202c41fd6f1512b97ebc694f17272e0`. Scripts `/assets/index-uLPCfuAT.js` y estilos `/assets/index-DMaJzg_Y.css` coinciden con la compilación pública. Ruta seleccionada visible, extremos A/B prioritarios y tres revisiones documentales. [Verificación y límites](connection-review-qa.md). No implica beta aprobada.
+- Versión actual 0.2.2 comprobada el 6 de octubre de 2026; commit funcional `1db1313b28028f22167734762844502cef6ffa0b`. Scripts `/assets/index---Q5iE2Z.js` y estilos `/assets/index-BvQsBlFb.css` coinciden con la compilación pública. Editor de tres pasos, selección completa, monitor lateral candidato en rig propio vertical, guardado y montaje comprobados en producción. 88 pruebas automáticas aprobadas. [Verificación y límites](rig-creation-qa.md). No implica beta aprobada.
+- Referencia anterior 0.2.1: commit funcional `80ef04d2d202c41fd6f1512b97ebc694f17272e0`; ruta seleccionada visible, extremos A/B prioritarios y tres revisiones documentales. [Revisión de conexiones](connection-review-qa.md).
 - Referencia anterior 0.2.0: commit funcional `9f5b0e539b759eca77c0dba0fd9fe9fb4f665795`; recuperación e historial local conservados.
 
 La insignia superpuesta del proveedor se desactivó desde la configuración del proyecto para evitar tapar la navegación inferior en móvil. No se añadió un dominio de pago ni se cambió el plan contratado.
@@ -37,7 +38,7 @@ Los cambios enviados a la rama de producción se despliegan automáticamente. La
 
 La app permite guardar rigs propios dentro de Mis rigs, en el navegador y origen actuales, con historial local y recuperación de borradores. Cuentas y nube se aplazaron por decisión del usuario. Compartir la URL permite revisar la misma versión, no la biblioteca privada ni una sesión de trabajo compartida. No hay exportación de planos en la interfaz.
 
-La versión 0.2.1 sigue siendo un prototipo de ingeniería, no una beta aprobada. Preparar sin conexión es opcional y almacena únicamente recursos propios; instalar en iOS/Android y comprobar una desconexión real siguen pendientes. Las actualizaciones no fuerzan recarga ni activación mientras existe trabajo abierto. No hay publicación en App Store. Véanse [Operación de versiones](release-operations.md) y [Verificación actual](connection-review-qa.md).
+La versión 0.2.2 sigue siendo un prototipo de ingeniería, no una beta aprobada. Preparar sin conexión es opcional y almacena únicamente recursos propios; instalar en iOS/Android y comprobar una desconexión real siguen pendientes. Las actualizaciones no fuerzan recarga ni activación mientras existe trabajo abierto. No hay publicación en App Store. Véanse [Operación de versiones](release-operations.md) y [Verificación actual](rig-creation-qa.md).
 
 ## Verificación de salida
 

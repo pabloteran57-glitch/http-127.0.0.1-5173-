@@ -65,7 +65,7 @@
       "order": 1,
       "title": "Rigs propios y montaje fiable",
       "status": "in_progress",
-      "verification_report": "docs/stabilization-qa.md",
+      "verification_report": "docs/rig-creation-qa.md",
       "remaining": ["Medición sostenida en dispositivos físicos de referencia", "Comparación reproducible y objetivos de fluidez", "Aceptación observada del editor guiado con usuarios", "Permisos o fotografías propias de cada producto para miniaturas públicas reales"],
       "depends_on": [],
       "deliverables": [

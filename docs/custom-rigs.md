@@ -26,7 +26,7 @@ La interfaz no ofrece exportación de planos ni transferencia de archivos. El fo
 - Los circuitos se derivan de los extremos y del producto de cable seleccionado. No se añade una segunda salida HDMI a la FX3 ni un cable implícito.
 - NP-FZ100 interna, fijación del RX, masas incompletas, holguras y pruebas eléctricas siguen siendo dependencias explícitas.
 
-La vista Rig conserva una bandeja de todas las piezas elegidas; seleccionar una pendiente abre su ficha sin instalarla artificialmente. Un monitor lateral candidato puede tener alimentación pendiente: dibujarlo no significa que funcione. En la demo pública, las tarjetas muestran pictogramas de categoría identificados como esquemas, no fotos o CAD. La foto real revisada se consulta por enlace oficial; cuando sólo hay manual o tabla técnica se enlaza al producto. Las fotografías locales revisadas no se redistribuyen sin permiso.
+La vista Rig conserva una bandeja de todas las piezas elegidas; seleccionar una pendiente abre su ficha sin instalarla artificialmente. Un monitor lateral candidato puede tener alimentación pendiente: dibujarlo no significa que funcione. En la demo pública, las tarjetas muestran pictogramas de categoría identificados como esquemas, no fotos o CAD. La foto real revisada se consulta por enlace oficial; los manuales se presentan como referencias y las tablas no como fotos. Sin referencia visual revisada se enlaza al producto. Las fotografías locales revisadas no se redistribuyen sin permiso.
 
 ## Ensamblaje visual
 
@@ -48,4 +48,4 @@ El objetivo de producto es apoyar al 1AC y al filmmaker en preproducción y prep
 
 ## Pruebas
 
-`npm run test:planner`: 46 pruebas del planificador/persistencia/medición, siete del worker sin conexión y 600 casos reproducibles (300 selecciones y 300 guías). Cubren dependencias, contextos, cables, montaje progresivo, inventario, extracción, biblioteca, escritura obsoleta, cuota, historial y recuperación. Se ejecutan en las compilaciones local y pública. Registro actual en [Verificación 0.2.0](iteration-qa.md); registro previo en [Estabilización](stabilization-qa.md).
+`npm run test:planner`: 88 pruebas, repartidas en 55 del planificador/persistencia/medición, 26 de evidencia/visibilidad de conexiones y siete del worker sin conexión, más 600 casos reproducibles (300 selecciones y 300 guías). Cubren dependencias, contextos, cables, monitor vertical, selección exacta, montaje progresivo, inventario, extracción, biblioteca, escritura obsoleta, cuota, historial y recuperación. Se ejecutan en las compilaciones local y pública. Registro actual en [Creación y revisión 0.2.2](rig-creation-qa.md); registros anteriores en [Verificación 0.2.0](iteration-qa.md) y [Estabilización](stabilization-qa.md).

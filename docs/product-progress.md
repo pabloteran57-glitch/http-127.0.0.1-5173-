@@ -4,7 +4,7 @@ Fuente: `data/product-roadmap.json`. Estado: prototipo en curso. Ningún criteri
 
 | Fase | Estado de preparación | Evidencia y trabajo restante |
 |---|---|---|
-| 1. Rigs propios y montaje fiable | `in_progress` | [Documento](stabilization-qa.md); Medición sostenida en dispositivos físicos de referencia; Comparación reproducible y objetivos de fluidez; Aceptación observada del editor guiado con usuarios; Permisos o fotografías propias de cada producto para miniaturas públicas reales |
+| 1. Rigs propios y montaje fiable | `in_progress` | [Documento](rig-creation-qa.md); Medición sostenida en dispositivos físicos de referencia; Comparación reproducible y objetivos de fluidez; Aceptación observada del editor guiado con usuarios; Permisos o fotografías propias de cada producto para miniaturas públicas reales |
 | 2. Base de ingeniería extensible | `software_foundation_prepared` | [Documento](extensible-engineering.md); Extender revisión semántica documentada: tres de diecisiete circuitos cubiertos; montaje mecánico y demás interfaces pendientes; Alta completa real con guía y geometría; Generalizar encuadre y contextos más allá de FX3/RS 4 Pro |
 | 3. Primer lote de catálogo ampliado | `research_prepared_not_activated` | [Documento](catalog-pilot.md); Distribución, soportes, tablas de compatibilidad y conexiones del lote; Guías, geometría autorizada y configuraciones completas; Ensayos físicos y liberación |
 | 4. Proyectos seguros para trabajo real | `local_foundation_prepared_cloud_deferred` | [Documento](durable-projects.md); Pruebas físicas de instalación y desconexión web; Cuentas, sincronización y revisión privada aplazadas por el usuario; Copias externas y privacidad jurídica |
