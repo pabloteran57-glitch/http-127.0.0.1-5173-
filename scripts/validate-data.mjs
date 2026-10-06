@@ -134,6 +134,15 @@ const legacyEnglish=/\b(Not published|Handheld|Dummy|Baseplate|Labels On|Labels 
 for(const text of humanText)assert(!legacyEnglish.test(text),"Texto sin localizar: "+text);
 const planner=JSON.parse(readFileSync(new URL("../data/planner-rules.json",import.meta.url),"utf8"));
 assert.equal(planner.version,1);
+assert(planner.selection_checks.length);
+const checkCondition=condition=>{
+  for(const id of [...(condition.all??[]),...(condition.any??[]),...(condition.none??[])])assert(partIds.has(id));
+  for(const key of ["context","not_context"])if(condition[key])assert(["gimbal","handheld","static"].includes(condition[key]));
+  if(condition.orientation)assert(["landscape","vertical"].includes(condition.orientation));
+};
+assert.equal(new Set(planner.selection_checks.map(c=>c.id)).size,planner.selection_checks.length);
+planner.selection_checks.forEach(check=>{assert(check.message);checkCondition(check.condition);[...(check.required_all??[]),...(check.required_any??[])].forEach(id=>assert(partIds.has(id)));});
+planner.cable_exclusions.forEach(rule=>{assert(cableIds.has(rule.cable_id));checkCondition(rule.condition);});
 assert.equal(planner.assembly_frames.length,13);
 const categorized=planner.categories.flatMap(c=>c.part_ids);
 assert.equal(new Set(categorized).size,categorized.length);
@@ -160,3 +169,13 @@ profileContent.steps.forEach((step,i)=>{
   }
 });
 console.log(`CORRECTO: ${partIds.size} piezas, ${cableIds.size} conexiones, ${layout.nodes.length} elementos geométricos, 13 etapas, 7 plantillas y reglas de perfiles propios. Etiquetas en español comprobadas. No implica certificación mecánica.`);
+const intake=JSON.parse(readFileSync(new URL("../data/catalog-intake.json",import.meta.url),"utf8")),contract=JSON.parse(readFileSync(new URL("../data/catalog-contract.json",import.meta.url),"utf8"));
+assert.equal(intake.products.length,10);assert.equal(new Set(intake.products.map(p=>p.id)).size,10);
+for(const product of intake.products){assert(!partIds.has(product.id),"Una alta en investigación no debe ser una pieza activada");assert.equal(product.release_status,"research_only");assert(/^https:\/\/www\.sony\.(com|co\.uk)\//.test(product.source_url));assert(product.model_number&&product.dimensions.note&&Number.isFinite(product.weight_g));}
+assert.deepEqual(new Set(contract.products.map(p=>p.part_id)),partIds);assert.equal(contract.catalog_revision,planner.catalog_revision);
+for(const entry of contract.products){assert.equal(entry.physically_tested,false);assert.equal(entry.geometry_profile_id,layout.nodes.find(n=>n.id===entry.part_id)?.id??null);}
+const release=JSON.parse(readFileSync(new URL("../data/release.json",import.meta.url),"utf8")),pkg=JSON.parse(readFileSync(new URL("../package.json",import.meta.url),"utf8"));
+assert.equal(release.version,pkg.version);assert.equal(release.catalog_revision,planner.catalog_revision);
+const beta=JSON.parse(readFileSync(new URL("../data/beta-evidence.json",import.meta.url),"utf8")),protocol=JSON.parse(readFileSync(new URL("../data/beta-protocol.json",import.meta.url),"utf8"));
+for(const row of beta.observations){assert(typeof row.participant_alias==="string"&&row.participant_alias.trim());assert(protocol.tasks.some(t=>t.id===row.task_id));assert(typeof row.completed==="boolean");assert(Number.isFinite(row.assistance_count)&&row.assistance_count>=0);assert(Number.isFinite(row.elapsed_seconds)&&row.elapsed_seconds>=0);}
+console.log("CORRECTO: diez altas aisladas, índice derivado, versión de código y esquema de observaciones. No se inventan productos activos ni ensayos.");

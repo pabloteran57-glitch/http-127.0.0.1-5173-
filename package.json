@@ -1,14 +1,15 @@
 {
   "name": "rs4-pro-fx3-rig-planner",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
   "scripts": {
     "dev": "vite --config vite.config.ts",
-    "validate": "node scripts/validate-data.mjs && node scripts/test-planner.mjs",
-    "test:planner": "node scripts/test-planner.mjs",
+    "validate": "node scripts/validate-data.mjs && npm run test:planner",
+    "test:planner": "node scripts/test-planner.mjs && node scripts/test-offline.mjs",
+    "check:beta": "node scripts/check-beta-readiness.mjs",
     "build": "npm run validate && tsc --noEmit && vite build --config vite.config.ts",
-    "build:public": "node scripts/validate-data.mjs --public && node scripts/test-planner.mjs && tsc --noEmit && vite build --config vite.config.ts --mode public-demo && node scripts/check-public-build.mjs",
+    "build:public": "node scripts/validate-data.mjs --public && npm run test:planner && tsc --noEmit && vite build --config vite.config.ts --mode public-demo && node scripts/check-public-build.mjs",
     "preview:public": "vite preview --config vite.config.ts --mode public-demo",
     "preview": "vite preview --config vite.config.ts"
   },

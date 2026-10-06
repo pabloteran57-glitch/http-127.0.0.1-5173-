@@ -1,7 +1,9 @@
 {
   "version": 1,
   "reviewed_on": "2026-10-05",
-  "status": "phase_1_in_progress",
+  "status": "prototype_hardening_in_progress",
+  "progress_report": "docs/iteration-qa.md",
+  "user_decisions": [{"date":"2026-10-05","decision":"Mantener guardado local por ahora","effect":"Cuentas, sincronización y revisión privada aplazadas; no se creó un backend ni se eliminan del alcance futuro."}],
   "scope": "Hoja de ruta de producto; no contiene nuevas especificaciones de equipo ni certifica montajes.",
   "recommendation": "Estabilizar rigs propios y montaje, preparar reglas extensibles y ampliar el catálogo por lotes verificados antes de abrir una beta pública.",
   "preserve": [
@@ -17,7 +19,7 @@
     "canonical_assembly_steps": 13,
     "templates": 7,
     "storage": "Local al navegador y origen; no sincronizado",
-    "performance": "Preparación de escena instrumentada con muestras limitadas; FPS sostenidos y comparación reproducible pendientes",
+    "performance": "Laboratorio optativo de reposo/giro y demanda/continuo. Intervalos de render JavaScript; dispositivos físicos de referencia y objetivos pendientes.",
     "assessment": "Prototipo funcional; no liberado como beta de uso profesional"
   },
   "findings": [
@@ -35,15 +37,15 @@
     },
     {
       "id": "playback-performance",
-      "status": "partially_instrumented",
+      "status": "instrumented_pending_reference_devices",
       "evidence": ["src/components/RigViewer.tsx", "src/components/AssemblyWizard.tsx"],
-      "description": "Encuadre estable, vectores reutilizados y renderizado bajo demanda implementados. Preparación de escena instrumentada; muestras en docs/stabilization-qa.md. No hay comparación de FPS ni mejora porcentual demostrada."
+      "description": "Encuadre estable, vectores reutilizados y demanda implementados. Laboratorio A/B de la misma versión, no GPU ni una mejora porcentual contra la versión anterior. Dispositivos y aceptación pendientes."
     },
     {
       "id": "catalog-coupling",
-      "status": "confirmed",
+      "status": "partially_decoupled",
       "evidence": ["src/lib/planner.ts", "data/planner-rules.json", "src/components/RigViewer.tsx"],
-      "description": "Los manifiestos son reutilizables, pero selección, dependencias, geometría y montaje todavía contienen reglas específicas de FX3/RS 4 Pro. Añadir filas no habilita un nuevo ecosistema coherente."
+      "description": "Selección, advertencias y exclusiones de circuitos declarativas; índice de revisión separado y migración local probada. Geometría, encuadre y guía aún específicas. Un registro investigado no activa un ecosistema."
     }
   ],
   "improvement_loop": {
@@ -78,7 +80,9 @@
       "id": "extensible-engineering",
       "order": 2,
       "title": "Base de ingeniería extensible",
-      "status": "pending",
+      "status": "software_foundation_prepared",
+      "verification_report": "docs/extensible-engineering.md",
+      "remaining": ["Control semántico de evidencia por interfaz", "Alta completa real con guía y geometría", "Generalizar encuadre y contextos más allá de FX3/RS 4 Pro"],
       "depends_on": ["stabilize-core"],
       "deliverables": [
         "Reglas declarativas por montura, interfaz mecánica, soporte, señal y alimentación, con evidencia y revisión exacta",
@@ -96,10 +100,12 @@
       "id": "verified-catalog-pilot",
       "order": 3,
       "title": "Primer lote de catálogo ampliado",
-      "status": "pending",
+      "status": "research_prepared_not_activated",
+      "verification_report": "docs/catalog-pilot.md",
+      "remaining": ["Distribución, soportes, tablas de compatibilidad y conexiones del lote", "Guías, geometría autorizada y configuraciones completas", "Ensayos físicos y liberación"],
       "depends_on": ["extensible-engineering"],
       "deliverables": [
-        "Lote piloto propuesto de 10-20 piezas, priorizado por necesidades de usuarios; sin lista de modelos aún aprobada",
+        "Lote de diez candidatos Sony con identidad y algunas cotas/masas revisadas oficialmente; priorización con usuarios y liberación pendientes",
         "Segundo ecosistema coherente o configuraciones adicionales completas, no una colección de fichas aisladas",
         "Fuentes por campo, pesos, dimensiones, conectores, cadenas de montaje y licencias revisados",
         "Pruebas físicas registradas para los conjuntos que se anuncien como comprobados"
@@ -114,7 +120,9 @@
       "id": "durable-projects",
       "order": 4,
       "title": "Proyectos seguros para trabajo real",
-      "status": "pending",
+      "status": "local_foundation_prepared_cloud_deferred",
+      "verification_report": "docs/durable-projects.md",
+      "remaining": ["Pruebas físicas de instalación y desconexión web", "Cuentas, sincronización y revisión privada aplazadas por el usuario", "Copias externas y privacidad jurídica"],
       "depends_on": ["stabilize-core", "extensible-engineering"],
       "deliverables": [
         "Guardado automático de borradores, historial, recuperación y tratamiento visible de conflictos",
@@ -133,7 +141,9 @@
       "id": "closed-beta",
       "order": 5,
       "title": "Beta cerrada con 1AC y solo filmmakers",
-      "status": "pending",
+      "status": "protocol_prepared_not_run",
+      "verification_report": "docs/beta-protocol.md",
+      "remaining": ["Reclutar y observar participantes", "Registrar dispositivos y ensayos físicos", "Cerrar criterios con evidencia real"],
       "depends_on": ["verified-catalog-pilot", "durable-projects"],
       "deliverables": [
         "Cohorte propuesta de 10-15 participantes, no reclutada todavía",
@@ -153,7 +163,9 @@
       "id": "public-beta",
       "order": 6,
       "title": "Beta pública operable",
-      "status": "pending",
+      "status": "release_tools_prepared_not_beta",
+      "verification_report": "docs/release-operations.md",
+      "remaining": ["Superar beta cerrada", "Configurar canal, responsable y tiempos de soporte", "Revisar privacidad, costes y distribución móvil"],
       "depends_on": ["closed-beta"],
       "deliverables": [
         "Publicación versionada con despliegue de prueba, reversión y monitorización de errores respetuosa de la privacidad",
@@ -171,7 +183,9 @@
       "id": "funding-readiness",
       "order": 7,
       "title": "Preparación para financiación",
-      "status": "pending",
+      "status": "preparation_only",
+      "verification_report": "docs/funding-readiness.md",
+      "remaining": ["Evidencia de usuarios y diferenciación contrastada", "Cotizaciones y presupuesto", "Entidad, país, marca, permisos y elegibilidad profesionalmente revisados"],
       "depends_on": ["closed-beta"],
       "deliverables": [
         "Demo real, presentación, evidencia de usuarios y diferenciación frente a tutoriales, listas y herramientas actuales",

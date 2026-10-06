@@ -10,6 +10,8 @@ import type { OrbitControls as OrbitControlsImpl } from "three-stdlib";
 import { cableById, cablesData, layoutData, portById } from "../data";
 import type { LayoutNode, Variant, Vec3 } from "../lib/types";
 import { connectionName } from "../lib/ui";
+import PerformanceProbe from "./PerformanceProbe";
+import type { PerformanceResult, PerformanceRun } from "../lib/performance";
 
 export type ViewAngle = "iso" | "side" | "front";
 interface Props {
@@ -30,6 +32,8 @@ interface Props {
   onSceneReady?: () => void;
   onUnavailable?: () => void;
   onInteract?: () => void;
+  performanceRun?: PerformanceRun;
+  onPerformanceResult?: (result: PerformanceResult) => void;
 }
 const scale = (v: number) => v / 100;
 const vector = (values: Vec3): Vec3 => values.map(scale) as Vec3;
@@ -268,7 +272,7 @@ function PortProjection({anchors,elements}:{anchors:{id:string;position:Vec3}[];
  useFrame(({camera,size})=>anchors.forEach(a=>{const el=elements.current[a.id];if(!el)return;point.set(...a.position).project(camera);el.style.transform=`translate(-50%,-50%) translate(${(point.x*.5+.5)*size.width}px,${(-point.y*.5+.5)*size.height}px)`;el.style.visibility=point.z>1||point.z< -1?"hidden":"visible";}));
  return null;
 }
-export default function RigViewer({exploded,showCables,showLabels,variant,selectedId,onSelect,angle,selectedCableId,resetKey,highlightIds=[],contextIds=[],reveal=false,framing,sceneKey,onSceneReady,onUnavailable,onInteract}:Props){
+export default function RigViewer({exploded,showCables,showLabels,variant,selectedId,onSelect,angle,selectedCableId,resetKey,highlightIds=[],contextIds=[],reveal=false,framing,sceneKey,onSceneReady,onUnavailable,onInteract,performanceRun,onPerformanceResult}:Props){
  const labels=useRef<Record<string,HTMLButtonElement|null>>({});const portLabels=useRef<Record<string,HTMLSpanElement|null>>({});
  const nodes=layoutData.nodes.filter(n=>variant.active_part_ids.includes(n.id));
  const handheld=framing?framing==="handheld":!variant.active_part_ids.includes("dji-rs4-pro-combo");
@@ -287,7 +291,7 @@ export default function RigViewer({exploded,showCables,showLabels,variant,select
  const route=cableById[selectedCableId??""];
  return <div className="rig-stage" aria-label="Visor 3D del rig, geometría aproximada" data-visible-parts={nodes.map(n=>n.id).join(",")} data-context-parts={contextIds.join(",")}>
   <div className="stage-corner">MODELO DE PLANIFICACIÓN <span>Geometría aproximada</span></div>
-  <ViewerBoundary onUnavailable={onUnavailable}><Suspense fallback={<div className="viewer-fallback">Iniciando visor...</div>}><Canvas frameloop="demand" camera={{position:[-6,2.2,-7.5],fov:36}} dpr={[1,1.5]} gl={{antialias:true,alpha:true}}>
+  <ViewerBoundary onUnavailable={onUnavailable}><Suspense fallback={<div className="viewer-fallback">Iniciando visor...</div>}><Canvas frameloop={performanceRun?.policy??"demand"} camera={{position:[-6,2.2,-7.5],fov:36}} dpr={[1,1.5]} gl={{antialias:true,alpha:true}}>
    <ambientLight intensity={1.6}/><directionalLight position={[-3,7,-6]} intensity={4.5} color="#f1f2ff"/><directionalLight position={[5,3,5]} intensity={3} color="#aec3d8"/><pointLight position={[-3,-2,-3]} intensity={14} color="#7cacae"/>
    <gridHelper args={[20,40,"#3d434c","#242933"]} position={[0,handheld?-.8:-3.6,0]}/>
    {nodes.map(n=><AnimatedNode key={n.id} node={n} exploded={exploded} vertical={variant.viewer.mode==="vertical"} selected={(selectedId===n.id&&!selectedCableId)||highlightIds.includes(n.id)} onSelect={onSelect} context={contextIds.includes(n.id)} reveal={reveal}/>)}
@@ -301,6 +305,7 @@ export default function RigViewer({exploded,showCables,showLabels,variant,select
     </group>;
    })}
    <CameraControls angle={angle} exploded={exploded} handheld={handheld} resetKey={resetKey} onInteract={onInteract}/><LabelProjector nodes={nodes} exploded={exploded} elements={labels}/><PortProjection anchors={anchors} elements={portLabels}/><SceneReady sceneKey={sceneKey} onReady={onSceneReady}/>
+   {performanceRun&&onPerformanceResult&&<PerformanceProbe key={performanceRun.id} run={performanceRun} onResult={onPerformanceResult}/>}
   </Canvas></Suspense></ViewerBoundary>
   <div className="label-layer">{nodes.filter(n=>showLabels&&primaryLabels.has(n.id)||(!selectedCableId&&n.id===selectedId)).map(n=><button key={n.id} ref={el=>{labels.current[n.id]=el}} className={n.id===selectedId?"part-label selected":"part-label"} onClick={()=>onSelect(n.id)}>{n.label}</button>)}
    {focus&&anchors.map((a,i)=><span key={a.id} ref={el=>{portLabels.current[a.id]=el}} className="port-marker"><b>{i?"B":"A"}</b>{portById[i?focus.cable.to_port_id:focus.cable.from_port_id].label}</span>)}

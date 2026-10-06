@@ -191,6 +191,26 @@ export interface PlannerRules {
   categories: {id: string; label: string; part_ids: string[]}[];
   assembly_frames: {step: number; add_part_ids: string[]; add_cable_ids: string[]; context_part_ids: string[]; note: string}[];
   extraction_keep_part_ids: string[];
+  camera_part_ids: string[];
+  selection_checks: {id:string; condition:RuleCondition; message:string; required_all?:string[]; required_any?:string[]}[];
+  cable_exclusions: {cable_id:string;condition:RuleCondition}[];
+}
+
+export interface RuleCondition {
+  all?:string[];
+  any?:string[];
+  none?:string[];
+  context?:CustomRig["context"];
+  not_context?:CustomRig["context"];
+  orientation?:CustomRig["orientation"];
+}
+export interface CompatibilityEvidence {
+  id:string;
+  domain:"mechanical"|"power"|"signal";
+  status:"documented_candidate"|"incompatible"|"unknown";
+  source_urls:string[];
+  revision:string|null;
+  note:string;
 }
 
 export interface Port {

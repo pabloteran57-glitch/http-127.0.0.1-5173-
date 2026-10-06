@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "release_status": "engineering_prototype",
+  "software_reports": ["docs/stabilization-qa.md", "docs/iteration-qa.md"],
+  "observations": [],
+  "physical_trials": [],
+  "reference_devices": [],
+  "issues": [],
+  "privacy_review": {"status":"pending","evidence_paths":[]},
+  "support_setup": {"status":"pending","channel":null,"responsible":null,"evidence_paths":[]},
+  "note": "Un registro vacío no significa cero errores observados ni validación aprobada. No hay usuarios reclutados ni ensayos físicos registrados."
+}

@@ -195,3 +195,40 @@
 @media(max-width:340px){.brand strong{font-size:20px}.brand{gap:7px}.brand img{width:27px;height:27px}.header-actions .quiet-button{padding:8px;font-size:10px}.header-actions .quiet-button>svg{display:none}.project-bar .build-controls{max-width:100%}}
 @media(max-width:800px){.visual-assembly .step-navigation button{min-height:60px}.step-navigation button small{max-width:180px}}
 @media(max-width:600px){.inventory-scope{gap:5px}.inventory-scope button{flex:1;padding:9px 11px}.inventory-scope .inventory-edit{flex-basis:100%;justify-content:center;margin:4px 0 0}.inventory-scope-note{font-size:11px}.bom-toolbar{flex-wrap:wrap}.inventory-count{margin-left:0}.assembly-transport{gap:8px;padding:0 10px 12px}.assembly-speed{gap:5px}.assembly-speed>span{display:none}.assembly-speed select{width:64px}.playback-status{padding:0 14px 14px;font-size:10px}.assembly-pending{margin:16px;padding:14px}.step-part-chips>button{max-width:100%;overflow-wrap:anywhere}.assembly-playback .primary-button{padding:9px 11px}.assembly-view-toolbar>span{min-width:0}}
+/* Herramientas de calidad fuera de las cuatro tareas principales. */
+.product-lab {max-width:1100px;margin:auto;padding:32px 20px;color:var(--text,#edf0f2);}
+.product-lab h1 {font-size:clamp(28px,4vw,44px);margin:12px 0;}
+.product-lab>p {max-width:780px;line-height:1.6;color:#aeb7c1;}
+.lab-controls {display:flex;flex-wrap:wrap;gap:12px;margin:20px 0;align-items:end;}
+.lab-controls label {display:grid;gap:8px;flex:1;min-width:220px;}
+.lab-controls input,.lab-controls select {background:#202731;border:1px solid #404b58;border-radius:8px;color:#f1f3f5;padding:12px;}
+.lab-controls button {min-height:44px;border:1px solid #43515f;border-radius:8px;padding:10px 14px;background:#242e38;color:#eaf0f1;}
+.lab-controls button:disabled {opacity:.4;}
+.lab-viewer {height:480px;position:relative;border:1px solid #343e48;border-radius:16px;overflow:hidden;}
+.lab-viewer .rig-stage {height:100%;}
+.lab-results {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px;}
+.lab-results article {background:#202731;padding:20px;border-radius:12px;}
+.lab-results h2 {font-size:18px;}
+.lab-results p {font-size:12px;overflow-wrap:anywhere;}
+.lab-results dl {display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:13px;}
+.lab-results dd {margin:0;}
+@media(max-width:600px){.lab-viewer{height:360px;}}
+.recovery-status {margin:8px 0;color:#a8cbbf;font-size:12px;}
+.recovery-list {border:1px solid #5a6657;border-radius:12px;padding:16px;margin:16px 0;background:#252c26;}
+.recovery-list summary,.rig-history summary {cursor:pointer;min-height:44px;}
+.recovery-list article {padding:14px 0;border-top:1px solid #465245;}
+.recovery-list strong {overflow-wrap:anywhere;}
+.recovery-list p {font-size:13px;color:#b2beb5;}
+.rig-history {border-top:1px solid #39444e;padding-top:12px;margin-top:12px;}
+.rig-history button {display:block;text-align:left;min-height:44px;font-size:12px;color:#bdd5d0;padding:8px;}
+.help-steps {padding-left:20px;line-height:1.7;color:#b4c3c8;}
+.help-steps li {padding:8px 0;}
+.help-steps strong {color:#edf1e6;}
+.help-actions {display:flex;gap:12px;flex-wrap:wrap;margin:18px 0;}
+.help-actions .primary-button {padding:12px 18px;justify-content:center;min-width:120px;min-height:44px;}
+.help-actions button {white-space:normal;min-height:44px;}
+.report-label {display:grid;gap:10px;font-size:13px;}
+.report-label textarea {min-height:130px;resize:vertical;border:1px solid #536268;border-radius:8px;background:#182227;color:#edf3ef;padding:12px;font:inherit;max-width:100%;}
+.help-dialog .dialog-content details p {line-height:1.65;}
+.help-dialog .dialog-content summary {min-height:44px;}
+.help-dialog .dialog-content details>button {margin:10px 0;min-height:44px;}

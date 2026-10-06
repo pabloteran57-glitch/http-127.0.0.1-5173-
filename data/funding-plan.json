@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "status": "preparation_only",
+  "currency": null,
+  "funding_target": null,
+  "creator_country": null,
+  "legal_entity": null,
+  "platform": null,
+  "user_evidence": "Pendiente de beta cerrada; no se inventan ingresos, mercado ni disposición a pagar.",
+  "budget_lines": [
+    {"id":"engineering","label":"Desarrollo y pruebas de software","amount":null,"quotes":[]},
+    {"id":"catalog","label":"Investigación y mantenimiento de catálogo","amount":null,"quotes":[]},
+    {"id":"rights","label":"Derechos de fotografías y CAD","amount":null,"quotes":[]},
+    {"id":"bench","label":"Equipo, técnicos y ensayos físicos","amount":null,"quotes":[]},
+    {"id":"infrastructure","label":"Infraestructura y copias de seguridad","amount":null,"quotes":[]},
+    {"id":"support","label":"Soporte, documentación y privacidad","amount":null,"quotes":[]},
+    {"id":"campaign","label":"Producción de campaña, comisiones y fiscalidad","amount":null,"quotes":[]},
+    {"id":"contingency","label":"Contingencia sustentada en riesgos","amount":null,"quotes":[]}
+  ],
+  "milestones": [
+    {"id":"usable-core","deliverable":"Flujo completo de selección, conexiones, guardado y montaje","date":null,"acceptance":"Pruebas observadas y regresiones; no sólo capturas"},
+    {"id":"catalog-pilot","deliverable":"Lote verificable y configuraciones adicionales","date":null,"acceptance":"Soportes, conexiones, guías, derechos y límites trazables"},
+    {"id":"closed-beta","deliverable":"Beta cerrada con profesionales","date":null,"acceptance":"Datos reales de tareas, incidencias y retorno"},
+    {"id":"public-beta","deliverable":"Beta operable con soporte","date":null,"acceptance":"Criterios técnicos, privacidad y mantenimiento cumplidos"}
+  ],
+  "do_not_claim": ["Compatibilidad universal", "Seguridad certificada desde el visor", "Reemplazo de todos los manuales", "Usuarios, ingresos o ensayos inexistentes", "App Store publicada", "Sincronización de cuentas no implementada", "Fechas o recompensas sin presupuesto"],
+  "sources": ["https://www.kickstarter.com/rules?country=82","https://help.kickstarter.com/en-us/articles/16236650-who-can-use-kickstarter"]
+}

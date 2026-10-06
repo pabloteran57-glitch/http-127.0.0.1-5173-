@@ -17,7 +17,7 @@ La insignia superpuesta del proveedor se desactivó desde la configuración del 
 - `npm run build:public`: demo publicable en `dist-public`; mantiene datos, visor aproximado, conexiones, 13 etapas y 7 perfiles. Las imágenes y manuales se consultan mediante enlaces oficiales, no se redistribuyen.
 - `npm run preview:public`: comprobar la compilación pública localmente. Usar el puerto anunciado, no asumirlo.
 
-Vite desactiva la copia indiscriminada de `public` en el modo `public-demo`. Sólo emite los SVG de identidad propios y su página de presentación. `check-public-build.mjs` verifica una lista permitida de archivos y un presupuesto de 5 MB sin comprimir.
+Vite desactiva la copia indiscriminada de `public` en el modo `public-demo`. Emite los SVG de identidad propios, la página de presentación, el manifiesto web y un worker generado para los módulos y estilos propios de esa compilación. `check-public-build.mjs` verifica la lista permitida, la precaché y un presupuesto de 5 MB sin comprimir. No incluye referencias del fabricante ni captura APIs, formularios o solicitudes externas.
 
 Las referencias descargadas siguen intactas en el equipo. `validate-data.mjs --public` conserva las comprobaciones de fuentes, huellas y estructura, pero no exige copias locales de fotografías/manuales en el repositorio de despliegue. La validación normal sigue exigiendo esos archivos.
 
@@ -33,7 +33,9 @@ Netlify devuelve 404 para `/references/*` y sirve la app para las demás rutas. 
 
 Los cambios enviados a la rama de producción se despliegan automáticamente. Las solicitudes de cambio pueden generar una vista previa para revisión antes de integrarse.
 
-La app permite guardar rigs propios dentro de Mis rigs, en el navegador y origen actuales. No ofrece todavía cuentas, proyectos sincronizados, comentarios persistentes ni edición simultánea. Compartir la URL permite revisar la misma versión, no la biblioteca privada ni una sesión de trabajo compartida. No hay exportación de planos en la interfaz.
+La app permite guardar rigs propios dentro de Mis rigs, en el navegador y origen actuales, con historial local y recuperación de borradores. Cuentas y nube se aplazaron por decisión del usuario. Compartir la URL permite revisar la misma versión, no la biblioteca privada ni una sesión de trabajo compartida. No hay exportación de planos en la interfaz.
+
+La versión 0.2.0 sigue siendo un prototipo de ingeniería, no una beta aprobada. Preparar sin conexión es opcional y almacena únicamente recursos propios; instalar en iOS/Android y comprobar una desconexión real siguen pendientes. Las actualizaciones no fuerzan recarga ni activación mientras existe trabajo abierto. No hay publicación en App Store. Véanse [Operación de versiones](release-operations.md) y [Verificación 0.2.0](iteration-qa.md).
 
 ## Verificación de salida
 

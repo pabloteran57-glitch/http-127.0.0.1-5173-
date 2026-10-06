@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "status": "prepared_not_run",
+  "cohort": {"target_min":10,"target_max":15,"recruited":0,"roles":["1AC","Solo filmmaker"],"note":"Objetivo propuesto; no participantes observados todavía."},
+  "consent": "Explicar alcance, aproximaciones y uso de datos. Usar alias; no registrar nombres de clientes, proyectos confidenciales ni información de cuentas. No grabar pantalla sin consentimiento explícito.",
+  "tasks": [
+    {"id":"create","instruction":"Crea desde cero un rig de cámara a mano con cámara, óptica y jaula.","pass":"La selección, Mi equipo y el montaje contienen sólo las elecciones."},
+    {"id":"dependency","instruction":"Añade VB99 Pro sin su cadena de soporte. Identifica el pendiente sin instalar una pieza implícita.","pass":"El participante distingue elegido de montable y corrige o retira la batería deliberadamente."},
+    {"id":"save","instruction":"Guarda el plan, vuelve a abrir Takegrid y encuentra el rig.","pass":"Nombre, orientación, contexto y elecciones se conservan exactamente."},
+    {"id":"recover","instruction":"Modifica un rig de prueba, vuelve y recupera el borrador como copia.","pass":"El plan confirmado y la copia recuperada siguen separados."},
+    {"id":"assemble","instruction":"Reproduce el montaje, pausa, retrocede y selecciona una conexión.","pass":"La etapa y sus piezas son pertinentes; la extracción opcional no se ejecuta sola."},
+    {"id":"conflict","instruction":"En dos pestañas de prueba, cambia el mismo plan y guarda ambas versiones.","pass":"El guardado obsoleto no sobrescribe; el participante revisa cambios y conserva una copia."}
+  ],
+  "observation_fields": ["participant_alias","role","device","browser_version","viewport","app_version","task_id","started_at","elapsed_seconds","completed","assistance_count","error_ids","return_observed","notes"],
+  "proposed_success_rate": 0.9,
+  "success_rate_policy": "Tareas completadas sin ayuda / tareas intentadas válidas. Mostrar numerador y denominador; una muestra pequeña no demuestra tasa de mercado.",
+  "performance_protocol": "Tres repeticiones por combinación de perfil, reposo/giro y demanda/continuo. Mismo dispositivo y ventana. Muestras interrumpidas excluidas. Intervalos JavaScript, no tiempo de GPU ni certificación de FPS.",
+  "physical_protocol": ["Identificar cada revisión y fijación", "Pesar subconjuntos con cables y tarjetas", "Comprobar roscas, retención y aprietes del fabricante", "Verificar tensión, regulación, polaridad y señal antes de energizar", "Barrido manual de pan, tilt y roll con motores apagados", "Comprobar manos y ausencia de tracción en conectores", "Equilibrar y ajustar según manual DJI", "Registrar restricciones y fotos propias autorizadas; nunca aprobar desde el render"],
+  "release_gates": ["Ninguna incidencia crítica o alta abierta en datos, seguridad de representación o navegación", "Cohorte observada y tareas documentadas", "Rendimiento en dispositivos de referencia", "Catálogo ampliado con cadenas completas", "Validación física registrada para cualquier afirmación de montaje probado", "Privacidad y soporte revisados"]
+}

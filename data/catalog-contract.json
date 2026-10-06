@@ -1,0 +1,346 @@
+{
+  "version": 1,
+  "catalog_revision": "fx3-rs4-2026-10-05",
+  "scope": "Índice derivado; identidad en parts-manifest, forma en layout-manifest y guía en assembly-profile-content.",
+  "products": [
+    {
+      "part_id": "dji-rs4-pro-combo",
+      "record_revision": "fx3-rs4-2026-10-05",
+      "model_number": null,
+      "identity_source_url": "https://www.dji.com/rs-4-pro/specs",
+      "geometry_profile_id": "dji-rs4-pro-combo",
+      "geometry_status": "approximate",
+      "assembly_steps": [
+        7
+      ],
+      "release_status": "planning_candidate",
+      "physically_tested": false
+    },
+    {
+      "part_id": "dji-rs-bg70",
+      "record_revision": "fx3-rs4-2026-10-05",
+      "model_number": null,
+      "identity_source_url": "https://store.dji.com/product/dji-rs-bg70-high-capacity-battery-grip",
+      "geometry_profile_id": "dji-rs-bg70",
+      "geometry_status": "approximate",
+      "assembly_steps": [
+        7
+      ],
+      "release_status": "planning_candidate",
+      "physically_tested": false
+    },
+    {
+      "part_id": "sony-fx3",
+      "record_revision": "fx3-rs4-2026-10-05",
+      "model_number": "ILME-FX3",
+      "identity_source_url": "https://helpguide.sony.net/ilc/2210/v1/en/contents/TP1000886922.html",
+      "geometry_profile_id": "sony-fx3",
+      "geometry_status": "approximate",
+      "assembly_steps": [
+        1
+      ],
+      "release_status": "planning_candidate",
+      "physically_tested": false
+    },
+    {
+      "part_id": "sony-xlr-h1",
+      "record_revision": "fx3-rs4-2026-10-05",
+      "model_number": "XLR-H1",
+      "identity_source_url": "https://electronics.sony.com/imaging/imaging-accessories/imaging-compact-camera-accessories/p/xlrh1",
+      "geometry_profile_id": "sony-xlr-h1",
+      "geometry_status": "approximate",
+      "assembly_steps": [
+        2
+      ],
+      "release_status": "planning_candidate",
+      "physically_tested": false
+    },
+    {
+      "part_id": "sony-fe-16-35-gm",
+      "record_revision": "fx3-rs4-2026-10-05",
+      "model_number": "SEL1635GM",
+      "identity_source_url": "https://electronics.sony.com/imaging/lenses/all-e-mount/p/sel1635gm",
+      "geometry_profile_id": "sony-fe-16-35-gm",
+      "geometry_status": "approximate",
+      "assembly_steps": [
+        1
+      ],
+      "release_status": "planning_candidate",
+      "physically_tested": false
+    },
+    {
+      "part_id": "smallrig-4770",
+      "record_revision": "fx3-rs4-2026-10-05",
+      "model_number": "4770",
+      "identity_source_url": "https://www.smallrig.com/de/HawkLock-Quick-Release-Cage-Kit-for-Sony-FX3-FX30-4770.html",
+      "geometry_profile_id": "smallrig-4770",
+      "geometry_status": "approximate",
+      "assembly_steps": [
+        2
+      ],
+      "release_status": "planning_candidate",
+      "physically_tested": false
+    },
+    {
+      "part_id": "smallrig-1674",
+      "record_revision": "fx3-rs4-2026-10-05",
+      "model_number": "1674",
+      "identity_source_url": "https://www.smallrig.com/smallrig-baseplate-with-dual-15mm-rod-clamp-1674.html",
+      "geometry_profile_id": "smallrig-1674",
+      "geometry_status": "approximate",
+      "assembly_steps": [
+        3
+      ],
+      "release_status": "planning_candidate",
+      "physically_tested": false
+    },
+    {
+      "part_id": "smallrig-rods-8in",
+      "record_revision": "fx3-rs4-2026-10-05",
+      "model_number": null,
+      "identity_source_url": "https://www.smallrig.com/15mm-Carbon-Fiber-Rods-Pair.html",
+      "geometry_profile_id": "smallrig-rods-8in",
+      "geometry_status": "approximate",
+      "assembly_steps": [
+        3
+      ],
+      "release_status": "planning_candidate",
+      "physically_tested": false
+    },
+    {
+      "part_id": "smallrig-3645",
+      "record_revision": "fx3-rs4-2026-10-05",
+      "model_number": "3645",
+      "identity_source_url": "https://www.smallrig.com/global/SmallRig-Multifunctional-Modular-Matte-Box-95mm-VND-Kit-3645.html",
+      "geometry_profile_id": "smallrig-3645",
+      "geometry_status": "approximate",
+      "assembly_steps": [
+        4
+      ],
+      "release_status": "planning_candidate",
+      "physically_tested": false
+    },
+    {
+      "part_id": "smallrig-3026b",
+      "record_revision": "fx3-rs4-2026-10-05",
+      "model_number": "3026B",
+      "identity_source_url": "https://www.smallrig.com/global/smallrig-monitor-mount-with-nato-clamp-for-dji-rs-2-rsc-2-3026.html",
+      "geometry_profile_id": "smallrig-3026b",
+      "geometry_status": "approximate",
+      "assembly_steps": [
+        6
+      ],
+      "release_status": "planning_candidate",
+      "physically_tested": false
+    },
+    {
+      "part_id": "smallhd-indie-7",
+      "record_revision": "fx3-rs4-2026-10-05",
+      "model_number": "MON-INDIE-7",
+      "identity_source_url": "https://guide.smallhd.com/a/1634747-indie-7-quick-start-guide",
+      "geometry_profile_id": "smallhd-indie-7",
+      "geometry_status": "approximate",
+      "assembly_steps": [
+        6
+      ],
+      "release_status": "planning_candidate",
+      "physically_tested": false
+    },
+    {
+      "part_id": "smallrig-vb99-pro",
+      "record_revision": "fx3-rs4-2026-10-05",
+      "model_number": "4292",
+      "identity_source_url": "https://www.smallrig.com/smallrig-VB99-Pro-mini-V-Mount-Battery-4292.html?sku=4292",
+      "geometry_profile_id": "smallrig-vb99-pro",
+      "geometry_status": "approximate",
+      "assembly_steps": [
+        5
+      ],
+      "release_status": "planning_candidate",
+      "physically_tested": false
+    },
+    {
+      "part_id": "smallrig-3203b",
+      "record_revision": "fx3-rs4-2026-10-05",
+      "model_number": "3203B",
+      "identity_source_url": "https://www.smallrig.com/jp/Advanced-V-Mount-Battery-Mount-Plate-with-Dual-15mm-Rod-Clamp-3203B.html",
+      "geometry_profile_id": "smallrig-3203b",
+      "geometry_status": "approximate",
+      "assembly_steps": [
+        5
+      ],
+      "release_status": "planning_candidate",
+      "physically_tested": false
+    },
+    {
+      "part_id": "smallrig-4253b",
+      "record_revision": "fx3-rs4-2026-10-05",
+      "model_number": "4253B",
+      "identity_source_url": "https://www.smallrig.com/SmallRig-D-Tap-to-Sony-NP-FZ100-Dummy-Battery-Power-Cable-4253B.html",
+      "geometry_profile_id": null,
+      "geometry_status": "not_modeled",
+      "assembly_steps": [
+        5
+      ],
+      "release_status": "planning_candidate",
+      "physically_tested": false
+    },
+    {
+      "part_id": "dji-focus-pro-lidar",
+      "record_revision": "fx3-rs4-2026-10-05",
+      "model_number": null,
+      "identity_source_url": "https://www.dji.com/focus-pro/specs",
+      "geometry_profile_id": null,
+      "geometry_status": "not_modeled",
+      "assembly_steps": [],
+      "release_status": "reserve",
+      "physically_tested": false
+    },
+    {
+      "part_id": "dji-focus-pro-motor",
+      "record_revision": "fx3-rs4-2026-10-05",
+      "model_number": null,
+      "identity_source_url": "https://www.dji.com/focus-pro/specs",
+      "geometry_profile_id": null,
+      "geometry_status": "not_modeled",
+      "assembly_steps": [],
+      "release_status": "reserve",
+      "physically_tested": false
+    },
+    {
+      "part_id": "dji-lidar-transmission-hub",
+      "record_revision": "fx3-rs4-2026-10-05",
+      "model_number": null,
+      "identity_source_url": "https://store.dji.com/se/product/dji-focus-pro-lidar-dji-transmission-cable-hub?vid=168921",
+      "geometry_profile_id": null,
+      "geometry_status": "not_modeled",
+      "assembly_steps": [],
+      "release_status": "reserve",
+      "physically_tested": false
+    },
+    {
+      "part_id": "dji-mic-2-kit",
+      "record_revision": "fx3-rs4-2026-10-05",
+      "model_number": null,
+      "identity_source_url": "https://www.dji.com/mic-2",
+      "geometry_profile_id": null,
+      "geometry_status": "not_modeled",
+      "assembly_steps": [
+        2
+      ],
+      "release_status": "planning_candidate",
+      "physically_tested": false
+    },
+    {
+      "part_id": "dji-lavalier",
+      "record_revision": "fx3-rs4-2026-10-05",
+      "model_number": null,
+      "identity_source_url": "https://store.dji.com/product/dji-lavalier-mic",
+      "geometry_profile_id": null,
+      "geometry_status": "not_modeled",
+      "assembly_steps": [
+        2
+      ],
+      "release_status": "planning_candidate",
+      "physically_tested": false
+    },
+    {
+      "part_id": "startech-st122hd4ku",
+      "record_revision": "fx3-rs4-2026-10-05",
+      "model_number": "ST122HD4KU",
+      "identity_source_url": "https://www.startech.com/en-fr/audio-video-products/st122hd4ku",
+      "geometry_profile_id": null,
+      "geometry_status": "not_modeled",
+      "assembly_steps": [],
+      "release_status": "reserve",
+      "physically_tested": false
+    },
+    {
+      "part_id": "kondor-blue-hdmi-aa",
+      "record_revision": "fx3-rs4-2026-10-05",
+      "model_number": "KB-FHDMI-12",
+      "identity_source_url": "https://kondorblue.com/products/12-to-24-coiled-braided-hdmi-cable-for-camera-mounted-monitors",
+      "geometry_profile_id": null,
+      "geometry_status": "not_modeled",
+      "assembly_steps": [
+        9
+      ],
+      "release_status": "planning_candidate",
+      "physically_tested": false
+    },
+    {
+      "part_id": "dji-hdmi-a-to-c",
+      "record_revision": "fx3-rs4-2026-10-05",
+      "model_number": null,
+      "identity_source_url": "https://store.dji.com/uk/product/r-mini-hdmi-to-hdmi-cable",
+      "geometry_profile_id": null,
+      "geometry_status": "not_modeled",
+      "assembly_steps": [],
+      "release_status": "reserve",
+      "physically_tested": false
+    },
+    {
+      "part_id": "dji-r-usbc-control",
+      "record_revision": "fx3-rs4-2026-10-05",
+      "model_number": null,
+      "identity_source_url": "https://store.dji.com/ca/product/r-multi-camera-control-cable-usb-c",
+      "geometry_profile_id": null,
+      "geometry_status": "not_modeled",
+      "assembly_steps": [
+        10
+      ],
+      "release_status": "planning_candidate",
+      "physically_tested": false
+    },
+    {
+      "part_id": "smallhd-dtap-to-2mm-barrel",
+      "record_revision": "fx3-rs4-2026-10-05",
+      "model_number": "CBL-PWR-DTAP-BAR-36",
+      "identity_source_url": "https://smallhd.com/products/dtap-barrel-36in",
+      "geometry_profile_id": null,
+      "geometry_status": "not_modeled",
+      "assembly_steps": [
+        11
+      ],
+      "release_status": "planning_candidate",
+      "physically_tested": false
+    },
+    {
+      "part_id": "dji-ronin-image-transmitter",
+      "record_revision": "fx3-rs4-2026-10-05",
+      "model_number": null,
+      "identity_source_url": "https://www.dji.com/rs-4-pro/specs",
+      "geometry_profile_id": null,
+      "geometry_status": "not_modeled",
+      "assembly_steps": [],
+      "release_status": "reserve",
+      "physically_tested": false
+    },
+    {
+      "part_id": "dji-ronin-app",
+      "record_revision": "fx3-rs4-2026-10-05",
+      "model_number": null,
+      "identity_source_url": "https://www.dji.com/downloads/djiapp/dji-ronin",
+      "geometry_profile_id": null,
+      "geometry_status": "not_modeled",
+      "assembly_steps": [
+        12
+      ],
+      "release_status": "planning_candidate",
+      "physically_tested": false
+    },
+    {
+      "part_id": "sony-monitor-control-app",
+      "record_revision": "fx3-rs4-2026-10-05",
+      "model_number": null,
+      "identity_source_url": "https://creatorscloud.sony.net/catalog/en-jo/monitorcontrol/index.html",
+      "geometry_profile_id": null,
+      "geometry_status": "not_modeled",
+      "assembly_steps": [
+        12
+      ],
+      "release_status": "planning_candidate",
+      "physically_tested": false
+    }
+  ]
+}

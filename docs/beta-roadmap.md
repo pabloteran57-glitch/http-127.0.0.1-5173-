@@ -1,8 +1,8 @@
 # Takegrid: ruta a una beta utilizable
 
-Revisión: 5 de octubre de 2026. Estado: fase 1 en curso. Fuente estructurada: `data/product-roadmap.json`. No modifica los manifiestos técnicos ni amplía el catálogo en esta iteración.
+Revisión: 5 de octubre de 2026. Estado: endurecimiento del prototipo en curso. Fuente estructurada: `data/product-roadmap.json`. El catálogo activo permanece en 27 piezas; diez altas están sólo en investigación.
 
-Mi equipo, guía filtrada y controles de reproducción ya tienen correcciones funcionales comprobadas. La evidencia y límites de medición están en `docs/stabilization-qa.md`. La fase no se cierra antes de validar rendimiento sostenido y aceptación con usuarios; las fases posteriores siguen pendientes.
+Mi equipo, guía filtrada y controles de reproducción ya tienen correcciones funcionales comprobadas. Se prepararon laboratorio, reglas declarativas, recuperación e historial, recursos sin conexión, protocolo de beta y paquete preliminar de financiación. La evidencia actual está en `docs/iteration-qa.md`; la previa en `docs/stabilization-qa.md`. Preparar entregables posteriores no cierra sus criterios de salida. Cuentas y sincronización quedan aplazadas por decisión del usuario, no eliminadas del plan.
 
 ## Decisión recomendada
 
@@ -10,7 +10,7 @@ Optimizar primero el flujo completo de un rig propio. Después, preparar reglas 
 
 No hace falta tener miles de referencias para demostrar valor a usuarios o inversores. Sí hace falta que una selección personal corresponda exactamente a su lista, sus conexiones, su guía y su recuperación después de guardar. La expansión no se cancela: se ordena para no multiplicar errores ni reducir fidelidad.
 
-## Diagnóstico Inicial
+## Diagnóstico Histórico
 
 - `PartsTable` inicia con el filtro de perfil desactivado. Bajo Tu equipo aparece el catálogo completo de 27 entradas.
 - El filtro actual muestra sólo piezas activas. No distingue adecuadamente una pieza elegida pendiente de otra nunca elegida; ambas pueden aparecer como RESERVA.
@@ -19,7 +19,7 @@ No hace falta tener miles de referencias para demostrar valor a usuarios o inver
 - En la web pública se observó un perfil de ocho elecciones con cuatro piezas representadas, seis pendientes y trece etapas. No se cambiaron ni guardaron sus elecciones durante el diagnóstico.
 - El rendimiento todavía no tiene una línea base reproducible. Los cambios de encuadre y las asignaciones por fotograma son candidatos de análisis, no una causa de lentitud demostrada.
 
-Las pruebas anteriores validaban datos, dependencias y circuitos. No cubrían suficientemente la correspondencia entre selección y textos de la guía ni medían la fluidez de la reproducción. Que compilen datos y visor no basta para declarar cerrada la experiencia de uso.
+Este diagnóstico describe la versión anterior a las correcciones, no el estado actual. Que compilen datos y visor no basta para declarar cerrada la experiencia de uso.
 
 ## Secuencia de avance
 

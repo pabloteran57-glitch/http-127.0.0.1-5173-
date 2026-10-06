@@ -29,6 +29,12 @@ Vista de marca: `/brand/preview.html`. SVG reutilizables en `public/brand`; nomb
 
 **Montaje** incluye visor acumulativo, guía condicionada a la selección, reproducción, pausa, reinicio, anterior/siguiente, deslizador de etapas y ritmo. Espera a la escena antes de avanzar; la extracción a mano es opcional y nunca automática. La animación es ilustrativa, no una trayectoria de acople medida. Reglas, esquema y límites en [rigs propios](docs/custom-rigs.md).
 
+Versión 0.2.0: borradores recuperables, historial de cinco versiones y restauración como copia en Mis rigs. Web Locks coordina guardado entre pestañas; sin esa API no se confirma la escritura. Biblioteca v2 separada de la antigua v1, que se conserva para migrar sin afectar pestañas viejas. Revisar cambios de otra pestaña protege los planes distintos como copias. No hay copia externa ni cuenta. [Persistencia y límites](docs/durable-projects.md).
+
+**Ayuda y versión** conserva una orientación de tres pasos, preparación optativa sin conexión, privacidad y descripción local de incidencias. No añade una quinta tarea ni reintroduce exportar planes. Instalación web según navegador, no App Store.
+
+Laboratorio optativo: `/?laboratorio=1`. Compara reposo/giro y demanda/continuo en la misma escena. Intervalos JavaScript, no tiempos GPU ni mejora porcentual contra la versión anterior. `npm run check:beta` muestra criterios y evidencia pendientes; `--strict` no permite declarar beta lista.
+
 ## Datos Canónicos
 
 Ruta hacia beta: [plan de avance](docs/beta-roadmap.md), con fases, criterios y diagnóstico. `data/product-roadmap.json` distingue correcciones implementadas de trabajo pendiente; no sustituye los manifiestos técnicos. Evidencia de esta iteración en [estabilización](docs/stabilization-qa.md).
@@ -42,6 +48,10 @@ Ruta hacia beta: [plan de avance](docs/beta-roadmap.md), con fases, criterios y 
 - `data/sources.json`, `data/geometry-references.json`, `data/geometry-audit.json`: atribución, descargas SHA-256 y referencias revisadas.
 - `data/ui-content.json`: nombres cortos y traducciones de presentación; no reemplaza especificaciones ni interfaces canónicas.
 - `data/planner-rules.json`: dependencias conservadoras del catálogo actual y fotogramas de montaje; no certifica compatibilidad universal.
+- `data/catalog-contract.json`: índice derivado de identidad, revisión, guía y geometría; se regenera, no es un segundo catálogo.
+- `data/catalog-intake.json`: diez candidatos Sony investigados, no activados; [lote piloto](docs/catalog-pilot.md).
+- `data/beta-protocol.json`, `data/beta-evidence.json`: tareas propuestas y observaciones reales; un registro vacío no certifica éxito.
+- `data/release.json`, `data/funding-plan.json`: alcance versionado y preparación financiera sin costes, fechas ni usuarios inventados.
 
 Documentación completa en `docs/`. Regenerar con `node scripts/sync-docs.mjs` después de cambiar datos; no editar especificaciones sólo en la interfaz.
 

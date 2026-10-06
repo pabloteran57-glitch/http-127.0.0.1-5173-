@@ -1,0 +1,13 @@
+{
+  "id": "/",
+  "name": "Takegrid · Planificador de rigs",
+  "short_name": "Takegrid",
+  "description": "Equipo, conexiones y montaje para preparar tu rodaje. Geometría aproximada; revisión física pendiente.",
+  "lang": "es",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#111315",
+  "theme_color": "#161b20",
+  "icons": [{"src":"/brand/takegrid-app-icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any"}]
+}

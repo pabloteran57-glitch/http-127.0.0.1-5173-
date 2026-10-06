@@ -2,6 +2,10 @@ import { readFileSync, writeFileSync } from "node:fs";
 const read=name=>JSON.parse(readFileSync(new URL(`../data/${name}.json`,import.meta.url),"utf8"));
 const parts=read("parts-manifest"),layout=read("layout-manifest"),cables=read("cables-manifest"),ports=read("ports-manifest"),assembly=read("assembly-guide"),variants=read("variants"),refs=read("geometry-references"),audit=read("geometry-audit");
 const ui=read("ui-content");
+const planner=read("planner-rules"),intake=read("catalog-intake");
+const roadmap=read("product-roadmap");
+const contract={version:1,catalog_revision:planner.catalog_revision,scope:"Índice derivado; identidad en parts-manifest, forma en layout-manifest y guía en assembly-profile-content.",products:parts.parts.map(p=>({part_id:p.id,record_revision:planner.catalog_revision,model_number:p.model_number,identity_source_url:p.primary_source_url,geometry_profile_id:layout.nodes.find(n=>n.id===p.id)?.id??null,geometry_status:layout.nodes.some(n=>n.id===p.id)?"approximate":"not_modeled",assembly_steps:planner.assembly_frames.filter(f=>f.add_part_ids.includes(p.id)).map(f=>f.step),release_status:planner.parked_part_ids.includes(p.id)?"reserve":"planning_candidate",physically_tested:false}))};
+writeFileSync(new URL("../data/catalog-contract.json",import.meta.url),JSON.stringify(contract,null,2)+"\n");
 const name=id=>ui.part_names[id]??parts.parts.find(p=>p.id===id)?.exact_product_name??id;
 const label=value=>ui.schema_labels[value]??value;
 const join=list=>list.length?list.join("; "):"Ninguno";
@@ -207,5 +211,6 @@ Medios de fabricante para investigación local, no licencia abierta de redistrib
 
 No hay medición del conjunto físico ni certificación de producción. El plan conserva esos límites en datos, documentación e interfaz y exportación.
 `);
-console.log("Seis documentos técnicos regenerados desde los JSON canónicos.");
-
+write("catalog-pilot.md",`# Lote piloto de catálogo\n\nFuente canónica de investigación: \`data/catalog-intake.json\`. Revisión ${intake.reviewed_on}. **Diez candidatos; ninguno activado.** No se incluyen imágenes sin permiso ni formas heredadas.\n\n## Manifiesto inicial\n\n| Producto | Modelo | Masa publicada (g) | Cotas publicadas (mm) | Fuente |\n|---|---|---:|---|---|\n${intake.products.map(p=>`| ${p.exact_product_name} | ${p.model_number} | ${p.weight_approximate?"~ ":""}${p.weight_g} | ${p.dimensions.approximate?"~ ":""}${p.dimensions.diameter_mm?`D ${p.dimensions.diameter_mm} × L ${p.dimensions.length_mm}`:`W ${p.dimensions.width_mm} × H ${p.dimensions.height_mm} × D ${p.dimensions.depth_mm}`} | [Sony](${p.source_url}) |`).join("\n")}\n\n## Límites y liberación\n\n${bullets(intake.common_limits)}\n\n${intake.release_gates.map((g,i)=>`${i+1}. ${g}.`).join("\n")}\n\n## Conjuntos candidatos\n\n${intake.configuration_candidates.map(c=>`- \`${c.id}\`: ${c.part_ids.join(", ")}. ${c.reason}`).join("\n")}\n\nDistribución, cableado, guía y representación pendientes. Este lote no modifica las 27 piezas utilizables del catálogo actual.\n`);
+write("product-progress.md",`# Avance por fases\n\nFuente: \`data/product-roadmap.json\`. Estado: prototipo en curso. Ningún criterio externo se da por cumplido a partir de compilación.\n\n| Fase | Estado de preparación | Evidencia y trabajo restante |\n|---|---|---|\n${roadmap.phases.map(p=>`| ${p.order}. ${p.title} | \`${p.status}\` | [Documento](${p.verification_report.replace("docs/","")}); ${p.remaining.join("; ")} |`).join("\n")}\n\nDecisión del usuario: guardado local por ahora. Cuentas, sincronización y enlaces privados siguen en el plan futuro, aplazados. Catálogo activo sin ampliaciones no verificadas.\n`);
+console.log("Documentos técnicos, índice de revisión, lote y avance de producto regenerados desde los JSON canónicos.");

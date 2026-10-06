@@ -1,0 +1,21 @@
+import assert from "node:assert/strict";
+import {readFileSync} from "node:fs";
+import {runInNewContext} from "node:vm";
+const assets=["/index.html","/assets/fixture.js","/manifest.webmanifest"];
+const source=readFileSync(new URL("../public/offline-worker.js",import.meta.url),"utf8").replace("__BUILD_HASH__","fixture").replace("__PRECACHE_ASSETS__",JSON.stringify(assets));
+const handlers=new Map(),stored=new Map();let online=true,failInstall=false,checks=0;
+const cache={addAll:async paths=>{if(failInstall)throw new Error("Descarga de prueba fallida");for(const path of paths)stored.set(path,new Response(path==="/index.html"?"Aplicación propia":path));},match:async request=>stored.get(typeof request==="string"?request:new URL(request.url).pathname)};
+const keys=["takegrid-static-old","cache-ajena"];const deleted=[];
+runInNewContext(source,{self:{location:{origin:"https://takegrid.test"},addEventListener:(name,handler)=>handlers.set(name,handler)},caches:{open:async()=>cache,keys:async()=>keys,delete:async key=>{deleted.push(key);return true;}},URL,Response,Set,Promise,fetch:async()=>{if(!online)throw new Error("Sin red de prueba");return new Response("Red");}});
+async function test(name,run){await run();checks++;console.log(`CORRECTO: ${name}`);}
+const waitEvent=async name=>{let promise;handlers.get(name)({waitUntil:value=>{promise=value;}});return promise;};
+const request=(path,mode="cors",method="GET")=>({url:new URL(path,"https://takegrid.test").href,mode,method});
+const fetchEvent=req=>{let response;handlers.get("fetch")({request:req,respondWith:value=>{response=value;}});return response;};
+await test("Instalación almacena sólo la lista propia",async()=>{await waitEvent("install");assert.deepEqual([...stored.keys()],assets);});
+await test("Reapertura sin red usa el HTML precargado",async()=>{online=false;const response=await fetchEvent(request("/?laboratorio=1","navigate"));assert.equal(await response.text(),"Aplicación propia");});
+await test("Módulos propios permanecen disponibles sin red",async()=>{const response=await fetchEvent(request("/assets/fixture.js"));assert.equal(await response.text(),"/assets/fixture.js");});
+await test("No intercepta API, referencias, terceros ni escrituras",async()=>{for(const req of [request("/api/rigs"),request("/references/product.jpg"),request("https://example.invalid/private"),request("/index.html","cors","POST")])assert.equal(fetchEvent(req),undefined);});
+await test("Caché propia ausente falla visible, no fabrica una app",async()=>{stored.delete("/index.html");assert.equal((await fetchEvent(request("/","navigate"))).status,503);});
+await test("Activación conserva cachés ajenas",async()=>{await waitEvent("activate");assert.deepEqual(deleted,["takegrid-static-old"]);});
+await test("Descarga fallida no completa la instalación",async()=>{failInstall=true;await assert.rejects(waitEvent("install"),/fallida/);});
+console.log(`SIN CONEXIÓN: ${checks} pruebas del worker con caché/red simuladas; no sustituye desconexión de un dispositivo físico.`);

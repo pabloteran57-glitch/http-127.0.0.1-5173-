@@ -43,6 +43,9 @@
 - `data/geometry-audit.json`: referencias visualmente revisadas.
 - `data/brand.json`: identidad provisional Takegrid.
 - `data/planner-rules.json`: cadenas conservadoras para rigs propios y etapas del montaje visual; no ampliar el catálogo ni activar accesorios pendientes sin nueva verificación.
+- `data/catalog-intake.json`: investigación en cuarentena; no confundirla con piezas seleccionables.
+- `data/catalog-contract.json`: índice generado desde manifiestos, nunca otra autoridad de especificaciones.
+- `data/beta-protocol.json`, `data/beta-evidence.json`, `data/release.json`, `data/funding-plan.json`: criterios, evidencia y alcance; no fabricar usuarios, ensayos ni presupuestos.
 - Después de editar datos, ejecutar `node scripts/sync-docs.mjs`, validar y compilar.
 
 ## Fidelidad y carga
@@ -60,3 +63,6 @@
 - El guardado local no es sincronización de cuenta. No afirmar guardado si falla el almacenamiento; no sobrescribir cambios de otra pestaña ni añadir piezas implícitas a una selección.
 - Conservar los planes en Mis rigs. No reintroducir exportación de archivos en la interfaz sin una petición explícita del usuario.
 - Ejecutar `npm run test:planner`; las transiciones de montaje son ilustrativas, nunca trayectorias físicas verificadas.
+- El usuario aplazó cuentas y nube: conservar guardado local. Biblioteca v2 aislada de v1, recuperación e historial como copias; no borrar la copia heredada sin petición expresa.
+- El service worker sólo admite recursos propios del manifiesto de compilación. No forzar activación/recarga ni cachear referencias del fabricante, APIs o datos privados como respuestas de red.
+- Las mediciones del laboratorio son callbacks JavaScript, no tiempos de GPU, consumo de batería ni ensayos físicos. Beta y financiación no se liberan por compilación o registros vacíos.

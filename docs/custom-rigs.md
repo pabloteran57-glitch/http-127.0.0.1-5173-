@@ -8,9 +8,9 @@
 4. Abrir el rig para inspeccionarlo, comprobar sus conexiones y recorrer **Montaje**.
 5. Elegir **Guardar rig** y abrirlo después desde **Mis rigs**. En una plantilla, el botón guarda una copia propia sin modificar el original. No es necesario descargar ni abrir archivos.
 
-El guardado es local al origen y navegador, con un máximo de 40 rigs. No sincroniza cuentas, sesiones ni colaboradores. La app vuelve al último rig guardado después de una recarga. Los borradores se mantienen mientras la página está abierta, incluso al cambiar de perfil; cerrar o recargar puede perder cambios sin guardar.
+El guardado es local al origen y navegador, con un máximo de 40 rigs. No sincroniza cuentas, sesiones ni colaboradores. La app vuelve al último rig guardado después de una recarga. Guardar confirma el plan y conserva hasta cinco versiones; las anteriores se abren como copias. Los borradores se registran por sesión tras 350 ms y al ocultar o abandonar la página, si el almacenamiento lo permite. Mis rigs permite recuperarlos sin reemplazar un plan confirmado. Un cierre inmediato, cuota agotada o borrado de datos del sitio aún puede perder cambios; no es una copia de seguridad externa.
 
-Los registros guardados se validan contra el catálogo. Se rechazan versiones desconocidas, piezas desconocidas, IDs duplicados y documentos inválidos. La edición no altera las especificaciones canónicas. Si otra pestaña cambió la biblioteca, se bloquea una escritura obsoleta y el borrador permanece abierto; no se sobrescribe silenciosamente el trabajo de esa pestaña. Una biblioteca ilegible se conserva en una copia local `takegrid.rigs.v1.backup` antes de un nuevo guardado, siempre que el almacenamiento esté disponible.
+Los registros guardados se validan contra el catálogo. Se rechazan versiones desconocidas, piezas desconocidas, IDs duplicados y documentos inválidos. La edición no altera las especificaciones canónicas. La biblioteca v2 y su historial se escriben juntos bajo Web Locks y comprobación de versión; si el navegador no permite el bloqueo, no se confirma el guardado. Si otra pestaña cambió la biblioteca, se bloquea una escritura obsoleta y el borrador permanece abierto. Revisar cambios conserva las diferencias como copias; nunca sobrescribe silenciosamente otra pestaña. La biblioteca v1 histórica se conserva. Una biblioteca v2 ilegible se respalda en `takegrid.rigs.v2.backup` antes de un nuevo guardado, si el almacenamiento está disponible. Detalles en [Proyectos locales](durable-projects.md).
 
 La interfaz no ofrece exportación de planos ni transferencia de archivos. El formato JSON es interno y reutilizable para desarrollo; no se presenta como un entregable que el usuario deba abrir fuera de Takegrid. Borrar los datos del sitio elimina la biblioteca local.
 
@@ -34,16 +34,16 @@ Cada fotograma muestra la intersección entre la selección activa y los element
 
 En la etapa del monitor, el estabilizador translúcido identifica el soporte de referencia, no un acople de la cámara ya verificado. La extracción elimina el bloque de gimbal y energía externa; no añade un asa que el usuario no haya seleccionado. Las aplicaciones, el receptor sin soporte confirmado y los productos sin geometría no reciben modelos ficticios.
 
-El usuario puede reproducir, pausar, reiniciar, avanzar, retroceder, elegir etapa, ángulo y ritmo (0,5×, 1×, 2×). El temporizador espera a que el visor notifique preparación; usa 4,5 segundos por etapa a 1×. Se detiene al salir de Montaje, abrir el editor o biblioteca, interactuar con la escena o esconder la pestaña. Termina en la revisión final, nunca en extracción automática. No marca comprobaciones como realizadas.
+El usuario puede reproducir, pausar, reiniciar, avanzar, retroceder, elegir etapa, ángulo y ritmo (0,5×, 1×, 2×). El temporizador espera a que el visor notifique preparación; usa 4,5 segundos por etapa a 1×. Se detiene al salir de Montaje, abrir el editor, biblioteca o ayuda, interactuar con la escena o esconder la pestaña. Termina en la revisión final, nunca en extracción automática. No marca comprobaciones como realizadas.
 
 El encuadre depende del conjunto completo, no de si el gimbal ya apareció en la etapa. Renderizado bajo demanda cuando la escena está quieta; las transiciones continúan solicitando fotogramas. No se declara una mejora cuantificada de FPS. La aparición animada no es una trayectoria de inserción, ni simula equilibrio, par, tornillería o energizado. Se respeta la preferencia de movimiento reducido.
 
 ## Extensión futura
 
-El catálogo ampliado queda fuera de esta iteración. Para incorporar otra cámara o ecosistema será necesario verificar piezas, fuentes, interfaces, reglas de soporte, geometría y etapas, y añadir casos de prueba. No basta con importar una lista grande de productos.
+Diez candidatos se investigaron en un lote aislado, todavía no seleccionable. Para incorporar otra cámara o ecosistema será necesario completar fuentes, interfaces, reglas de soporte, geometría, derechos y etapas, y añadir casos de prueba. No basta con importar una lista grande de productos. El [lote piloto](catalog-pilot.md) y el [motor extensible](extensible-engineering.md) documentan esas puertas de entrada.
 
 El objetivo de producto es apoyar al 1AC y al filmmaker en preproducción y preparación de rodaje mediante un plan trazable. No se presenta como reemplazo de manuales, capacitación de seguridad o comprobaciones físicas.
 
 ## Pruebas
 
-`npm run test:planner`: 29 pruebas, 300 selecciones y 300 guías reproducibles sobre dependencias, contextos, cables, montaje progresivo, textos condicionados, inventario, extracción, biblioteca, escritura obsoleta, cuota y recuperación. Estas pruebas se ejecutan en las compilaciones local y pública. Registro de interacción de esta iteración en `docs/stabilization-qa.md`.
+`npm run test:planner`: 46 pruebas del planificador/persistencia/medición, siete del worker sin conexión y 600 casos reproducibles (300 selecciones y 300 guías). Cubren dependencias, contextos, cables, montaje progresivo, inventario, extracción, biblioteca, escritura obsoleta, cuota, historial y recuperación. Se ejecutan en las compilaciones local y pública. Registro actual en [Verificación 0.2.0](iteration-qa.md); registro previo en [Estabilización](stabilization-qa.md).

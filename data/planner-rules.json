@@ -2,6 +2,21 @@
   "version": 1,
   "scope": "Reglas conservadoras para el catálogo FX3 actual; no certifican compatibilidad universal ni sustituyen mediciones físicas.",
   "max_saved_rigs": 40,
+  "catalog_revision": "fx3-rs4-2026-10-05",
+  "camera_part_ids": ["sony-fx3"],
+  "selection_checks": [
+    {"id":"camera","condition":{},"required_any":["sony-fx3"],"message":"Elige una cámara para iniciar el rig."},
+    {"id":"lens","condition":{"all":["sony-fx3"]},"required_any":["sony-fe-16-35-gm"],"message":"Falta una óptica para completar el núcleo de cámara."},
+    {"id":"gimbal","condition":{"context":"gimbal"},"required_all":["dji-rs4-pro-combo","dji-rs-bg70"],"message":"Este perfil necesita RS 4 Pro y BG70. La capacidad nominal no certifica equilibrio."},
+    {"id":"monitor-video","condition":{"all":["smallhd-indie-7"]},"required_all":["kondor-blue-hdmi-aa"],"message":"Monitor sin enlace de vídeo seleccionado."},
+    {"id":"monitor-power","condition":{"all":["smallhd-indie-7"]},"required_all":["smallhd-dtap-to-2mm-barrel","smallrig-vb99-pro"],"message":"Falta la cadena documentada de alimentación del monitor; no se presupone batería interna."},
+    {"id":"camera-power","condition":{"all":["smallrig-vb99-pro","sony-fx3"]},"required_all":["smallrig-4253b"],"message":"V-mount elegida sin adaptador regulado para la FX3."},
+    {"id":"internal-battery","condition":{"all":["sony-fx3"],"none":["smallrig-4253b"]},"message":"Planifica una NP-FZ100 interna cargada: disponibilidad y masa no incluidas en el catálogo actual."},
+    {"id":"rx-mount","condition":{"all":["dji-mic-2-kit"]},"message":"El receptor Mic 2 no tiene fijación confirmada. Audio documentado, montaje y masa del RX pendientes."},
+    {"id":"static-support","condition":{"context":"static"},"message":"Soporte estático real por seleccionar. No se representa un trípode ni se certifica estabilidad."},
+    {"id":"vertical-support","condition":{"orientation":"vertical","not_context":"gimbal"},"message":"Montaje vertical fuera del RS 4 Pro no documentado. El visor conserva orientación horizontal."}
+  ],
+  "cable_exclusions": [{"cable_id":"audio-rx-to-fx3","condition":{"all":["sony-xlr-h1"]}}],
   "parked_part_ids": ["startech-st122hd4ku", "dji-ronin-image-transmitter", "dji-hdmi-a-to-c", "dji-focus-pro-lidar", "dji-focus-pro-motor", "dji-lidar-transmission-hub"],
   "mount_dependencies": {
     "sony-fe-16-35-gm": ["sony-fx3"],

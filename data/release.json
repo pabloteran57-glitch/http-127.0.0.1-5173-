@@ -1,0 +1,11 @@
+{
+  "version":"0.2.0",
+  "released_on":"2026-10-05",
+  "status":"engineering_prototype",
+  "label":"Prototipo de ingeniería",
+  "catalog_revision":"fx3-rs4-2026-10-05",
+  "storage":"local_only",
+  "account_sync":"deferred_by_user",
+  "updates":["Recuperación automática local de borradores", "Historial de cinco versiones y restauración como copia", "Reglas de selección declarativas", "Laboratorio de rendimiento optativo", "Recursos propios sin conexión bajo petición"],
+  "limitations":["No validado con un rig físico completo", "Diez altas en investigación, no instalables", "Sin cuenta, nube ni enlaces privados", "Instalación web depende del navegador; no es una publicación en App Store"]
+}
