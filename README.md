@@ -42,6 +42,7 @@ Ruta hacia beta: [plan de avance](docs/beta-roadmap.md), con fases, criterios y 
 - `data/parts-manifest.json`: 25 productos + dos componentes del Combo, con fuente y confianza por campo.
 - `data/layout-manifest.json`: envolventes XYZ, poses candidatas, soporte y pruebas pendientes.
 - `data/cables-manifest.json`, `data/ports-manifest.json`: 17 circuitos, puertos reales, coordenadas sólo aproximadas.
+- `data/connection-reviews.json`: evidencia exacta de tres circuitos; rango, polaridad, firmware y límites visibles en Conexiones. Desconocido no equivale a compatible.
 - `data/assembly-guide.json`, `data/variants.json`: 13 pasos y 7 perfiles.
 - `data/assembly-profile-content.json`: bloques de instrucciones condicionados a las piezas y circuitos existentes; no añade especificaciones ni compatibilidades.
 - `data/engineering-manifest.json`: límites publicados y políticas de masa/centros ponderados.
@@ -56,6 +57,8 @@ Ruta hacia beta: [plan de avance](docs/beta-roadmap.md), con fases, criterios y 
 Documentación completa en `docs/`. Regenerar con `node scripts/sync-docs.mjs` después de cambiar datos; no editar especificaciones sólo en la interfaz.
 
 ## Correcciones Importantes
+
+Versión 0.2.1: panel Conexiones con evidencia por circuito exacto y comprobaciones pendientes. Revisión documental inicial de control USB-C, 4253B e Indie 7; no certificación eléctrica ni física. [Criterios y fuentes](docs/connection-reviews.md).
 
 BG70 sustituye BG30. Monitor fijo lateral sobre 3026B, fuera de la carga móvil. VB99 Pro 644 g y 3203B bajo varillas con abrazadera superior documentada. 3203B tiene discrepancia de masa, usa 351 g conservadores. SmallHD cable 5.5 mm exterior, no 2 mm. FX3 una HDMI: distribuidor presente en circuito dual de banco pero estacionado en gimbal hasta montaje real y fuente probados. Interfaz Transmission y foco no activados sin hardware/calibración. XLR-H1 sólo a mano/estático.
 

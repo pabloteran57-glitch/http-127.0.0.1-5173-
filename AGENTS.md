@@ -45,6 +45,7 @@
 - `data/planner-rules.json`: cadenas conservadoras para rigs propios y etapas del montaje visual; no ampliar el catálogo ni activar accesorios pendientes sin nueva verificación.
 - `data/catalog-intake.json`: investigación en cuarentena; no confundirla con piezas seleccionables.
 - `data/catalog-contract.json`: índice generado desde manifiestos, nunca otra autoridad de especificaciones.
+- `data/connection-reviews.json`: evidencia por circuito y revisión exacta; los valores eléctricos permanecen en cables/puertos. No reutilizar una prueba para otro modelo, puerto o firmware.
 - `data/beta-protocol.json`, `data/beta-evidence.json`, `data/release.json`, `data/funding-plan.json`: criterios, evidencia y alcance; no fabricar usuarios, ensayos ni presupuestos.
 - Después de editar datos, ejecutar `node scripts/sync-docs.mjs`, validar y compilar.
 
@@ -55,7 +56,7 @@
 - El manual 3203B, página 5, documenta abrazadera de varillas en el borde superior; no inventar adaptadores.
 - Las masas publicadas del 3203B discrepan; conservar fuentes y masa conservadora de planificación de 351 g.
 - El centro ponderado de envolventes es una aproximación etiquetada, no CG medido ni par de motores.
-- El ID histórico SmallHD que contiene `2mm` no es una especificación de conector: diámetro exterior 5.5 mm; interior y polaridad pendientes.
+- El ID histórico SmallHD que contiene `2mm` no es una especificación de conector: cable CBL-PWR-DTAP-BAR-36 de exterior 5.5 mm y centro positivo publicado. Diámetro interior y pinout de entrada del monitor siguen pendientes; no extrapolar la polaridad del cable a la entrada.
 - No redistribuir imágenes del fabricante ni importar CAD comunitario sin verificar derechos, revisión exacta y escala.
 - Netlify debe ejecutar `build:public` y publicar sólo `dist-public`; nunca subir el `dist` local completo ni `public/references`.
 - No sustituir referencias retiradas de la demo pública por imágenes inventadas: enlazar a su fuente oficial.

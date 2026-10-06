@@ -115,6 +115,7 @@
     },
     {
       "id": "vb99-dtap",
+      "electrical": {"revision":"2026-10-05-1","output_nominal_v":14.8,"output_range_v":null,"field_sources":{"output_nominal_v":"audit-doc-smallrig-vb99-manual"}},
       "part_id": "smallrig-vb99-pro",
       "label": "Salida D-Tap",
       "connector": "D-Tap hembra",
@@ -149,6 +150,7 @@
     },
     {
       "id": "plate-dtap",
+      "electrical": {"revision":"2026-10-05-1","output_nominal_v":14.8,"output_range_v":null,"field_sources":{"output_nominal_v":"audit-doc-smallrig-3203b-manual"}},
       "part_id": "smallrig-3203b",
       "label": "Salida D-Tap / 14.8 V nominales",
       "connector": "D-Tap hembra",
@@ -191,6 +193,7 @@
     },
     {
       "id": "indie7-dc",
+      "electrical": {"revision":"2026-10-05-1","input_range_v":[10,34],"nominal_input_current_a":2,"input_polarity":null,"barrel_inner_mm":null,"field_sources":{"input_range_v":"audit-indie-port-guide","nominal_input_current_a":"audit-indie-port-guide"}},
       "part_id": "smallhd-indie-7",
       "label": "I / entrada DC",
       "connector": "Barril DC del fabricante; cable de 5.5 mm de diámetro exterior",
@@ -345,4 +348,3 @@
     }
   ]
 }
-

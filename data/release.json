@@ -1,11 +1,11 @@
 {
-  "version":"0.2.0",
+  "version":"0.2.1",
   "released_on":"2026-10-05",
   "status":"engineering_prototype",
   "label":"Prototipo de ingeniería",
   "catalog_revision":"fx3-rs4-2026-10-05",
   "storage":"local_only",
   "account_sync":"deferred_by_user",
-  "updates":["Recuperación automática local de borradores", "Historial de cinco versiones y restauración como copia", "Reglas de selección declarativas", "Laboratorio de rendimiento optativo", "Recursos propios sin conexión bajo petición"],
+  "updates":["Revisión documental por modelo, puerto y circuito exactos", "Comprobaciones pendientes de tensión, polaridad y firmware visibles", "Fuentes oficiales por comprobación", "Recuperación local, historial y selecciones conservados"],
   "limitations":["No validado con un rig físico completo", "Diez altas en investigación, no instalables", "Sin cuenta, nube ni enlaces privados", "Instalación web depende del navegador; no es una publicación en App Store"]
 }

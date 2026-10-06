@@ -1,0 +1,79 @@
+{
+  "version": 1,
+  "revision": "connection-review-2026-10-05-1",
+  "catalog_revision": "fx3-rs4-2026-10-05",
+  "policy": "Revisión documental limitada a modelos, puertos y revisión vinculados. No es autorización para energizar ni ensayo físico. Fuentes de valores eléctricos en cables-manifest y ports-manifest; ausencia de rango, pinout o protocolo mantiene el resultado pendiente.",
+  "reviews": [
+    {
+      "cable_id": "ctrl-rs4-to-fx3-usbc",
+      "catalog_revision": "fx3-rs4-2026-10-05",
+      "reviewed_on": "2026-10-05",
+      "action": "Comprueba los ajustes USB y prueba grabación y AF con el firmware instalado. La matriz DJI publicada indica FX3 V1.00; no implica que debas cambiar a esa versión.",
+      "binding": {
+        "source_part_id": "dji-r-usbc-control", "from_port_id": "rs4-rss", "to_port_id": "fx3-usbc",
+        "connector_a": "USB-C macho", "connector_b": "USB-C macho",
+        "signal_standard": "DJI documenta control USB-C de FX3 con RS 4 Pro; matriz publicada con firmware FX3 V1.00. Comprobar ajustes y firmware del equipo real.",
+        "electrical_revision": null,
+        "models": [{"part_id":"dji-rs4-pro-combo","model_number":null,"exact_product_name":"DJI RS 4 Pro Combo"},{"part_id":"sony-fx3","model_number":"ILME-FX3","exact_product_name":"Sony FX3 Full-Frame Cinema Line Camera"},{"part_id":"dji-r-usbc-control","model_number":null,"exact_product_name":"DJI R Multi-Camera Control Cable (USB-C)"}],
+        "ports": [{"id":"rs4-rss","connector":"USB-C hembra","electrical_revision":null},{"id":"fx3-usbc","connector":"USB-C hembra","electrical_revision":null}]
+      },
+      "citations": {
+        "pair": {"source_id":"src-dji-rs4-fx3-control-matrix","source_url":"https://www.dji.com/global/support/compatibility/rs-4-pro/fx3","locator":"FX3 + DJI RS 4 Pro; columna USB-C; filas Start/Stop Recording Video, Trigger Auto Focus y Camera Firmware","claim":"DJI documenta grabación y AF por USB-C para este par, con FX3 V1.00 como firmware publicado en la matriz.","part_ids":["dji-rs4-pro-combo","sony-fx3","dji-r-usbc-control"]}
+      },
+      "checks": [
+        {"id":"control-pair","kind":"manufacturer_pair","label":"Control para este par","pair":["dji-rs4-pro-combo","sony-fx3"],"tested_firmware":"FX3 V1.00","citation_ids":["pair"],"detail":"La matriz específica de DJI documenta grabación y AF por USB-C; no se deduce de la forma del conector."},
+        {"id":"control-firmware","kind":"operational","label":"Firmware y ajustes reales","citation_ids":["pair"],"detail":"Comprobar la versión instalada y los ajustes de cámara; probar grabación y AF. No se ha ensayado tu equipo."},
+        {"id":"control-clearance","kind":"operational","label":"Movimiento y holgura","citation_ids":[],"detail":"Verificar bucle RSS-cámara en los ejes permitidos con motores apagados. Coordenadas y curva 3D aproximadas."}
+      ]
+    },
+    {
+      "cable_id": "pwr-vmount-to-fx3-dummy",
+      "catalog_revision": "fx3-rs4-2026-10-05",
+      "reviewed_on": "2026-10-05",
+      "action": "No conectes D-Tap directo a la FX3. Verifica la entrada y la salida del 4253B, la corriente disponible, el ajuste y la puerta antes de energizar.",
+      "binding": {
+        "source_part_id":"smallrig-4253b","from_port_id":"vb99-dtap","to_port_id":"fx3-battery",
+        "connector_a":"D-Tap macho","connector_b":"Adaptador NP-FZ100 regulado",
+        "signal_standard":"Manual 4253B: entrada de 9.6-20 V y mínimo de 2 A; salida regulada de 8.0-8.4 V, máximo continuo de 2 A.",
+        "electrical_revision":"2026-10-05-1",
+        "models":[{"part_id":"smallrig-vb99-pro","model_number":"4292","exact_product_name":"SmallRig VB99 Pro Mini V-Mount Battery"},{"part_id":"smallrig-4253b","model_number":"4253B","exact_product_name":"SmallRig D-Tap to Sony NP-FZ100 Dummy Battery Power Cable"},{"part_id":"sony-fx3","model_number":"ILME-FX3","exact_product_name":"Sony FX3 Full-Frame Cinema Line Camera"}],
+        "ports":[{"id":"vb99-dtap","connector":"D-Tap hembra","electrical_revision":"2026-10-05-1"},{"id":"fx3-battery","connector":"Compartimento NP-FZ100","electrical_revision":null}]
+      },
+      "citations": {
+        "regulator":{"source_id":"audit-doc-smallrig-4253b-manual","source_url":"https://static.smallrig.com/mall/img/public/1706163303324_.pdf","locator":"Página 3, Specifications: D-Tap Input, Output Voltage y Output Current","claim":"4253B: entrada 9.6-20 V con mínimo 2 A; salida 8.0-8.4 V con máximo continuo 2 A. El umbral de protección no es corriente continua admisible.","part_ids":["smallrig-4253b"]},
+        "battery":{"source_id":"audit-doc-smallrig-vb99-manual","source_url":"https://static.smallrig.com/mall/img/public/1730100759046_.pdf","locator":"Página 14, Product Specifications (inglés); D-Tap Output y total Rated Discharging Power","claim":"La tabla publica salida nominal D-Tap 14.8 V y potencia total de 100 W. No se registra aquí un rango completo verificado bajo carga ni se reparte esa potencia entre accesorios.","part_ids":["smallrig-vb99-pro"]}
+      },
+      "checks": [
+        {"id":"dummy-regulation","kind":"specification","label":"Regulador 4253B","subject_part_ids":["smallrig-4253b"],"citation_ids":["regulator"],"detail":"Entrada 9.6-20 V / mínimo 2 A; salida 8.0-8.4 V / máximo continuo 2 A documentadas para 4253B."},
+        {"id":"dummy-input-range","kind":"voltage_range","label":"Rango completo de la fuente","source":{"owner":"from_port","field":"output_range_v"},"receiver":{"owner":"cable","field":"input_range_v"},"citation_ids":["battery","regulator"],"detail":"La salida nominal de la batería no prueba su rango completo bajo carga. Falta confirmar que toda la salida queda dentro de 9.6-20 V."},
+        {"id":"dummy-load","kind":"operational","label":"Carga y ajuste del adaptador","citation_ids":["battery","regulator"],"detail":"Confirmar corriente disponible con los demás accesorios, salida regulada, ajuste NP-FZ100 y salida de puerta sin pellizcar. No hay ensayo de carga del conjunto."}
+      ]
+    },
+    {
+      "cable_id":"pwr-plate-to-smallhd",
+      "catalog_revision":"fx3-rs4-2026-10-05",
+      "reviewed_on":"2026-10-05",
+      "action":"Antes de energizar, confirma que el pinout de entrada del Indie 7 coincide con el centro positivo del cable, comprueba ajuste del barril y mide la salida de la placa bajo carga.",
+      "binding": {
+        "source_part_id":"smallhd-dtap-to-2mm-barrel","from_port_id":"plate-dtap","to_port_id":"indie7-dc",
+        "connector_a":"D-Tap macho","connector_b":"Barril SmallHD macho, exterior 5.5 mm; centro positivo; interior pendiente",
+        "signal_standard":"D-Tap a tensión de batería; Indie 7 admite 10-34 V DC y entrada nominal de 2 A. El cable no regula.",
+        "electrical_revision":"2026-10-05-1",
+        "models":[{"part_id":"smallrig-3203b","model_number":"3203B","exact_product_name":"SmallRig V-Mount Battery Adapter Plate with Dual 15 mm Rod Clamp"},{"part_id":"smallhd-indie-7","model_number":"MON-INDIE-7","exact_product_name":"SmallHD Indie 7 Touchscreen On-Camera Monitor"},{"part_id":"smallhd-dtap-to-2mm-barrel","model_number":"CBL-PWR-DTAP-BAR-36","exact_product_name":"SmallHD D-Tap to 5.5mm Male DC Barrel Power Cable (36in / 91cm)"}],
+        "ports":[{"id":"plate-dtap","connector":"D-Tap hembra","electrical_revision":"2026-10-05-1"},{"id":"indie7-dc","connector":"Barril DC del fabricante; cable de 5.5 mm de diámetro exterior","electrical_revision":"2026-10-05-1"}]
+      },
+      "citations": {
+        "cable":{"source_id":"src-smallhd-dtap-barrel","source_url":"https://smallhd.com/products/dtap-barrel-36in","locator":"SKU CBL-PWR-DTAP-BAR-36; Tech Specs > Cable > Pinout; diámetro de producto 5.5 mm","claim":"Cable con centro positivo publicado y exterior de barril 5.5 mm. No establece el pinout de entrada del monitor ni el diámetro interior.","part_ids":["smallhd-dtap-to-2mm-barrel"]},
+        "monitor":{"source_id":"audit-indie-port-guide","source_url":"https://guide.smallhd.com/a/1634747-indie-7-quick-start-guide","locator":"Indie 7 Quick Start Guide > Connectors > I: Barrel connector for power","claim":"Entrada Indie 7 de 10-34 V DC y 2 A publicados; no se identifican diámetro interior ni pinout en esta guía.","part_ids":["smallhd-indie-7"]},
+        "plate":{"source_id":"audit-doc-smallrig-3203b-manual","source_url":"https://static.smallrig.com/mall/img/public/1714289722871_.pdf","locator":"Tabla de especificaciones eléctricas: D-Tap output","claim":"Placa 3203B: salida D-Tap de 14.8 V nominales. No usar el nominal como un rango de salida verificado bajo carga.","part_ids":["smallrig-3203b"]}
+      },
+      "checks": [
+        {"id":"monitor-input","kind":"specification","label":"Entrada del Indie 7","subject_part_ids":["smallhd-indie-7"],"citation_ids":["monitor"],"detail":"10-34 V DC y 2 A de entrada publicados. Los 2 A no son una medición de consumo del rig."},
+        {"id":"monitor-cable","kind":"specification","label":"Cable SmallHD exacto","subject_part_ids":["smallhd-dtap-to-2mm-barrel"],"citation_ids":["cable"],"detail":"CBL-PWR-DTAP-BAR-36: exterior 5.5 mm y centro positivo documentados."},
+        {"id":"monitor-polarity","kind":"polarity","label":"Coincidencia de polaridad","source":{"owner":"cable","field":"output_polarity"},"receiver":{"owner":"to_port","field":"input_polarity"},"citation_ids":["cable","monitor"],"detail":"El cable tiene centro positivo; falta confirmar el pinout de entrada del monitor. No asumir coincidencia."},
+        {"id":"monitor-voltage","kind":"voltage_range","label":"Rango de la salida D-Tap","source":{"owner":"from_port","field":"output_range_v"},"receiver":{"owner":"to_port","field":"input_range_v"},"citation_ids":["plate","monitor"],"detail":"14.8 V es nominal, no el rango completo bajo carga. Confirmar la salida de la placa para este conjunto."},
+        {"id":"monitor-fit-route","kind":"operational","label":"Ajuste y recorrido","citation_ids":[],"detail":"Diámetro interior, retención, carga compartida y bucles entre cámara móvil y monitor fijo pendientes de verificación física."}
+      ]
+    }
+  ]
+}

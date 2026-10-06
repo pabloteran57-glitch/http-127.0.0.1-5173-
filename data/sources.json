@@ -197,10 +197,12 @@
     },
     {
       "id": "src-smallhd-dtap-barrel",
+      "review_subject_part_ids": ["smallhd-dtap-to-2mm-barrel"],
       "brand": "SmallHD",
       "type": "official",
       "url": "https://smallhd.com/products/dtap-barrel-36in",
-      "notes": "Cable del fabricante CBL-PWR-DTAP-BAR-36, 36 pulgadas. Diámetro interior y polaridad sin verificar."
+      "notes": "Cable CBL-PWR-DTAP-BAR-36, 36 pulgadas y exterior 5.5 mm. Tabla técnica Cable: pin central positivo, revisada visualmente el 2026-10-05. Diámetro interior no publicado; no demuestra pinout de entrada del Indie 7.",
+      "checked_on": "2026-10-05"
     },
     {
       "id": "src-vb99-bh",
@@ -467,6 +469,7 @@
     },
     {
       "id": "audit-doc-smallrig-vb99-manual",
+      "review_subject_part_ids": ["smallrig-vb99-pro"],
       "brand": "SmallRig",
       "type": "official",
       "url": "https://static.smallrig.com/mall/img/public/1730100759046_.pdf",
@@ -503,6 +506,7 @@
     },
     {
       "id": "audit-doc-smallrig-3203b-manual",
+      "review_subject_part_ids": ["smallrig-3203b"],
       "brand": "SmallRig",
       "type": "official",
       "url": "https://static.smallrig.com/mall/img/public/1714289722871_.pdf",
@@ -512,6 +516,7 @@
     },
     {
       "id": "audit-doc-smallrig-4253b-manual",
+      "review_subject_part_ids": ["smallrig-4253b"],
       "brand": "SmallRig",
       "type": "official",
       "url": "https://static.smallrig.com/mall/img/public/1706163303324_.pdf",
@@ -521,12 +526,22 @@
     },
     {
       "id": "audit-indie-port-guide",
+      "review_subject_part_ids": ["smallhd-indie-7"],
       "brand": "SmallHD",
       "type": "official",
       "url": "https://guide.smallhd.com/a/1634747-indie-7-quick-start-guide",
-      "notes": "Mapa de conectores: I entrada DC, J entrada HDMI, K salida HDMI. Entrada de 10-34 V DC y 2 A; interior y polaridad del barril por verificar."
+      "notes": "Mapa de conectores: I entrada DC, J entrada HDMI, K salida HDMI. Entrada de 10-34 V DC y 2 A; diámetro interior y pinout de entrada pendientes.",
+      "checked_on": "2026-10-05"
+    },
+    {
+      "id": "src-dji-rs4-fx3-control-matrix",
+      "review_subject_part_ids": ["dji-rs4-pro-combo", "sony-fx3", "dji-r-usbc-control"],
+      "brand": "DJI",
+      "type": "official",
+      "url": "https://www.dji.com/global/support/compatibility/rs-4-pro/fx3",
+      "checked_on": "2026-10-05",
+      "notes": "Matriz específica RS 4 Pro + FX3 revisada visualmente. Columna USB-C: grabación y AF documentados; Camera Firmware V1.00. No extrapolar a cualquier cable USB-C ni certificar otro firmware."
     }
   ],
   "audit_on": "2026-10-05"
 }
-

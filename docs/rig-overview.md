@@ -36,5 +36,4 @@ Medios de fabricante para investigación local, no licencia abierta de redistrib
 - [Variantes](variants.md)
 - [Identidad provisional](brand.md)
 
-No hay medición del conjunto físico ni certificación de producción. El plan conserva esos límites en datos, documentación e interfaz y exportación.
-
+No hay medición del conjunto físico ni certificación de producción. El plan conserva esos límites en datos, documentación e interfaz; los planes se guardan en Mis rigs, sin exportación de archivos.

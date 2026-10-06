@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { cableById, cablesData, portById, partById, layoutData } from "../data";
+import { cableById, cablesData, portById, partById, layoutData, connectionAssessmentById } from "../data";
 import type { Variant } from "../lib/types";
 import { connectionKind, connectionName, connectorName, partName } from "../lib/ui";
 import Icon from "./Icon";
@@ -10,6 +10,8 @@ export default function ConnectionPanel({variant,bench,selectedId,onSelect}:{var
   const focus=useRef<HTMLDivElement>(null);
   const ids=bench?cablesData.profiles.requested_dual_feed_bench:variant.cable_profile_ids;
   const selected=cableById[ids.includes(selectedId)?selectedId:ids[0]];
+  const review=selected?connectionAssessmentById[selected.cable_id]:null;
+  const documentedCount=review?.checks.filter(check=>check.state==="documented").length??0;
   const hasVisualRoute=selected?.display_kind==="cable"&&[selected.from_port_id,selected.to_port_id].every(id=>portById[id].local_position_mm&&layoutData.nodes.some(n=>n.id===portById[id].part_id&&variant.active_part_ids.includes(n.id)));
   const choose=(id:string)=>{onSelect(id);requestAnimationFrame(()=>{if(window.matchMedia("(max-width:800px)").matches)focus.current?.scrollIntoView({block:"start"});else{panel.current?.scrollTo({top:0});document.getElementById("workspace")?.scrollIntoView({block:"start"});}focus.current?.focus({preventScroll:true});});};
   return <aside ref={panel} className="connection-panel" aria-label="Conexiones del perfil">
@@ -17,6 +19,18 @@ export default function ConnectionPanel({variant,bench,selectedId,onSelect}:{var
     {selected&&<div ref={focus} tabIndex={-1} className="connection-focus" aria-live="polite">
       <p className="connection-category" style={{color:cablesData.color_coding[selected.type==="data"?"control":selected.type]}}>{connectionKind(selected.type)} <span>{selected.display_kind==="cable"?"Cable":selected.display_kind==="contacts"?"Contactos":"Batería interna"}</span></p>
       <h3>{connectionName(selected.cable_id)}</h3>
+      {review&&<section className={`connection-review ${review.state}`} aria-label="Revisión de la conexión">
+        <div className="review-heading"><strong>{review.state==="blocked"?"No conectar":review.reviewed?"Requiere comprobación":"Revisión pendiente"}</strong>{review.reviewed&&<span>{documentedCount} {documentedCount===1?"dato documentado":"datos documentados"}</span>}</div>
+        <p>{review.action}</p>
+        {review.reviewed&&<details><summary>Ver comprobaciones ({review.checks.length})</summary>
+          <ul className="connection-checks">{review.checks.map(check=><li key={check.id}>
+            <div><strong>{check.label}</strong><span className={`check-state ${check.state}`}>{check.state==="documented"?"Documentado":check.state==="blocked"?"Incompatible":"Por comprobar"}</span></div>
+            <p>{check.detail}</p>
+            {check.source_ids.map(id=>{const source=review.sources.find(source=>source.id===id);return source?<a key={id} href={source.url} target="_blank" rel="noreferrer">Fuente oficial: {new URL(source.url).hostname}<Icon name="arrow"/></a>:null;})}
+          </li>)}</ul>
+          <p className="review-limit">Revisión documental, no ensayo físico ni autorización para energizar.</p>
+        </details>}
+      </section>}
       <div className="endpoint-card"><span className="endpoint-letter">A</span><div><strong>{partName(selected.from_part_id)}</strong><p>{portById[selected.from_port_id].label}</p><small>{connectorName(selected.connector_a)}</small></div></div>
       <div className="endpoint-card"><span className="endpoint-letter">B</span><div><strong>{partName(selected.to_part_id)}</strong><p>{portById[selected.to_port_id].label}</p><small>{connectorName(selected.connector_b)}</small></div></div>
       {!bench&&hasVisualRoute&&<button className="show-route-button" onClick={()=>document.querySelector(".rig-stage")?.scrollIntoView({block:"start"})}>Ver ruta en el rig<Icon name="arrow"/></button>}
@@ -29,7 +43,7 @@ export default function ConnectionPanel({variant,bench,selectedId,onSelect}:{var
         <small>{connectionKind(c.type)}{c.display_kind!=="cable"?" · Sin cable externo":""}</small><strong>{connectionName(id)}</strong>
       </button>;
     })}</div>
-    <p className="panel-footnote">{bench?"Circuito estático. Distribuidor con fuente 5 V / 2 A. No hay soporte validado en el rig.":"Puertos reales identificados. Los anclajes 3D y las curvas son aproximados; medir holguras antes de operar."}</p>
+    <p className="panel-footnote">{bench?"Circuito estático. Distribuidor con fuente 5 V / 2 A. No hay soporte validado en el rig.":"Puertos identificados; geometría y curvas aproximadas. La revisión ampliada cubre tres circuitos: no certifica el conjunto."}</p>
   </aside>;
 }
 

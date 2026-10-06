@@ -12,7 +12,9 @@ Canónicos: `data/cables-manifest.json` y `data/ports-manifest.json`. 17 circuit
 - Doble salida solicitada, en banco: FX3 HDMI -> entrada cautiva StarTech -> salida 1 A-A a Indie 7 / salida 2 A-C a RavenEye. Adaptador StarTech incluido de 5 V / 2 A. No distribuidor sin fuente ni montaje invisible.
 - RavenEye en banco con batería interna; no reclamar control gimbal/ActiveTrack por sólo tener vídeo.
 
-**Corrección eléctrica:** Cable SmallHD de 5.5 mm de diámetro exterior. El ID histórico `smallhd-dtap-to-2mm-barrel` se conserva por compatibilidad de datos, pero no afirma diámetro de 2 mm ni polaridad/diámetro interno desconocidos. Indie 7: 10-34 V DC, 2 A de corriente nominal de entrada, no consumo real medido. 4253B: entrada 9.6-20 V, salida 8.0-8.4 V, 2 A máximo continuo.
+**Corrección eléctrica:** Cable SmallHD CBL-PWR-DTAP-BAR-36 de 5.5 mm exterior y centro positivo publicado. El ID histórico `smallhd-dtap-to-2mm-barrel` no afirma diámetro de 2 mm. Diámetro interior y pinout de entrada del monitor pendientes: no extrapolar del cable. Indie 7: 10-34 V DC, 2 A de entrada publicados, no consumo real medido. 4253B: entrada 9.6-20 V con mínimo 2 A, salida 8.0-8.4 V con máximo continuo 2 A.
+
+Revisión por circuito y fuentes: [comprobaciones de conexiones](connection-reviews.md). Tres enlaces revisados documentalmente; los demás no se dan por compatibles por tener puertos identificados.
 
 ## Colores
 
@@ -30,7 +32,7 @@ Canónicos: `data/cables-manifest.json` y `data/ports-manifest.json`. 17 circuit
 - Origen: Puerto RSS del RS 4 Pro; puerto `rs4-rss`.
 - Destino: USB-C de FX3; puerto `fx3-usbc`.
 - Conector A: USB-C macho; conector B: USB-C macho.
-- Tipo: Datos/control; estándar/tensión: Control de cámara DJI; confirmar ajustes FX3 y firmware..
+- Tipo: Datos/control; estándar/tensión: DJI documenta control USB-C de FX3 con RS 4 Pro; matriz publicada con firmware FX3 V1.00. Comprobar ajustes y firmware del equipo real..
 - Longitud estimada: Cable DJI de 30 cm; alcance útil estimado de 250-350 mm por comprobar, no longitud para cortar.
 - Ruta candidata: Sujeción en el lado izquierdo de la jaula y bucle suave de inclinación hacia RSS. Configurar el modo USB de cámara compatible con DJI.
 - Alivio de tensión: Sujetar ambos extremos sin cargar los conectores; probar holgura y radio mínimo de curvatura.
@@ -44,7 +46,7 @@ Canónicos: `data/cables-manifest.json` y `data/ports-manifest.json`. 17 circuit
 - Origen: D-Tap de VB99 Pro; puerto `vb99-dtap`.
 - Destino: Compartimento FX3 mediante 4253B; puerto `fx3-battery`.
 - Conector A: D-Tap macho; conector B: Adaptador NP-FZ100 regulado.
-- Tipo: Alimentación; estándar/tensión: Manual 4253B: entrada de 9.6-20 V; salida regulada de 8.0-8.4 V, máximo continuo de 2 A..
+- Tipo: Alimentación; estándar/tensión: Manual 4253B: entrada de 9.6-20 V y mínimo de 2 A; salida regulada de 8.0-8.4 V, máximo continuo de 2 A..
 - Longitud estimada: Espiral de fábrica: extensión de producto publicada de 580 mm; hasta 2 m ±50 mm según manual. Medir holgura útil.
 - Ruta candidata: Ambos extremos se mueven con la cámara. Sujetar sobrante en varilla/jaula trasera y utilizar la salida de puerta sin pellizcar.
 - Alivio de tensión: Sujetar ambos extremos sin cargar los conectores; probar holgura y radio mínimo de curvatura.
@@ -57,12 +59,12 @@ Canónicos: `data/cables-manifest.json` y `data/ports-manifest.json`. 17 circuit
 - Producto/fuente: D-Tap a DC SmallHD.
 - Origen: Salida D-Tap de 3203B; puerto `plate-dtap`.
 - Destino: Entrada DC del Indie 7; puerto `indie7-dc`.
-- Conector A: D-Tap macho; conector B: Barril SmallHD macho, exterior 5.5 mm; interior y polaridad pendientes.
+- Conector A: D-Tap macho; conector B: Barril SmallHD macho, exterior 5.5 mm; centro positivo; interior pendiente.
 - Tipo: Alimentación; estándar/tensión: D-Tap a tensión de batería; Indie 7 admite 10-34 V DC y entrada nominal de 2 A. El cable no regula..
 - Longitud estimada: Cable de fábrica de 914.4 mm; alcance necesario aproximado.
 - Ruta candidata: De placa móvil trasera a monitor lateral fijo: sujetar en jaula, dejar bucles de servicio medidos en los ejes y retener sobrante en soporte de monitor, fuera de las manos.
 - Alivio de tensión: Sujetar ambos extremos sin cargar los conectores; probar holgura y radio mínimo de curvatura.
-- Riesgos: Medir polaridad y tensión bajo carga antes de conectar.; Cruza de móvil a fijo: no admite giro/rotación ilimitados.; No unir batería móvil y monitor fijo con un cable tenso.
+- Riesgos: Cable CBL-PWR-DTAP-BAR-36 con centro positivo publicado. Pinout de entrada del monitor y diámetro interior no verificados; comprobar coincidencia y tensión bajo carga antes de conectar.; Cruza de móvil a fijo: no admite giro/rotación ilimitados.; No unir batería móvil y monitor fijo con un cable tenso.
 - Obligatorio/opcional: Obligatorio; estado: Candidato; visualización: Cable.
 - Cruce de movimiento: De móvil a fijo; geometría: Esquema, no CAD de puertos.
 
@@ -311,4 +313,3 @@ Canónicos: `data/cables-manifest.json` y `data/ports-manifest.json`. 17 circuit
 - Conservar varillas/batería como subconjunto, salvo que la extracción de cámara exija desatornillar la pila.
 
 El trazado superpuesto 3D es una anotación de topología, no cable físico para cortar ni una prueba de colisión. Contactos e internos no se dibujan como cables. Aparatos sin pose siguen en el esquema 2D.
-

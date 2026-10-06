@@ -42,6 +42,7 @@ export interface PartsManifest {
 }
 
 export interface Cable {
+  electrical?: ElectricalProperties;
   from_port_id: string;
   to_port_id: string;
   display_kind: "cable" | "contacts" | "internal";
@@ -214,6 +215,7 @@ export interface CompatibilityEvidence {
 }
 
 export interface Port {
+  electrical?: ElectricalProperties;
   id: string;
   part_id: string | null;
   label: string;
@@ -221,4 +223,56 @@ export interface Port {
   local_position_mm: Vec3 | null;
   position_confidence: string;
   identity_source_url: string;
+}
+
+export type ElectricalField = "input_range_v" | "output_range_v" | "output_polarity" | "input_polarity" | "output_nominal_v" | "input_min_current_a" | "output_max_current_a" | "nominal_input_current_a" | "barrel_outer_mm" | "barrel_inner_mm";
+export interface ElectricalProperties {
+  revision: string;
+  input_range_v?: [number, number] | null;
+  output_range_v?: [number, number] | null;
+  output_nominal_v?: number;
+  input_min_current_a?: number;
+  output_max_current_a?: number;
+  nominal_input_current_a?: number;
+  output_polarity?: "center_positive" | "center_negative" | null;
+  input_polarity?: "center_positive" | "center_negative" | null;
+  barrel_outer_mm?: number;
+  barrel_inner_mm?: number | null;
+  field_sources: Partial<Record<ElectricalField, string>>;
+}
+export interface ReviewSource { id: string; type: string; url: string; review_subject_part_ids?: string[] }
+export interface EvidenceCitation { source_id: string; source_url: string; locator: string; claim: string; part_ids: string[] }
+export interface ElectricalReference { owner: "from_port" | "to_port" | "cable"; field: ElectricalField }
+interface ConnectionCheckBase { id: string; label: string; detail: string; citation_ids: string[] }
+export type ConnectionCheck = ConnectionCheckBase & (
+  { kind: "specification"; subject_part_ids: string[] } |
+  { kind: "manufacturer_pair"; pair: [string, string]; tested_firmware: string } |
+  { kind: "voltage_range" | "polarity"; source: ElectricalReference; receiver: ElectricalReference } |
+  { kind: "operational" }
+);
+export interface ConnectionReview {
+  cable_id: string;
+  catalog_revision: string;
+  reviewed_on: string;
+  action: string;
+  binding: {
+    source_part_id: string;
+    from_port_id: string;
+    to_port_id: string;
+    connector_a: string;
+    connector_b: string;
+    signal_standard: string;
+    electrical_revision: string | null;
+    models: { part_id: string; model_number: string | null; exact_product_name: string }[];
+    ports: { id: string; connector: string; electrical_revision: string | null }[];
+  };
+  citations: Record<string, EvidenceCitation>;
+  checks: ConnectionCheck[];
+}
+export interface ConnectionReviewManifest {
+  version: 1;
+  revision: string;
+  catalog_revision: string;
+  policy: string;
+  reviews: ConnectionReview[];
 }

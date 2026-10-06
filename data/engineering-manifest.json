@@ -16,9 +16,8 @@
     "Pila completa de cámara, jaula, base y placa de liberación DJI y su retención",
     "Centros de gravedad internos de cámara, objetivo y batería V-mount",
     "Posiciones de ejes de motores, rango de ajuste y holgura de barrido",
-    "Diámetro interior y polaridad DC; salientes de conectores HDMI/DC y radios de curvatura",
+    "Diámetro interior del barril y pinout de entrada DC del Indie 7; el cable CBL-PWR-DTAP-BAR-36 sí publica centro positivo. Salientes HDMI/DC y radios de curvatura pendientes",
     "Fijación del receptor Mic 2 y masa del cableado",
     "Masa total transportada con BG70, monitor fijo, accesorios y cables"
   ]
 }
-

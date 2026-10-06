@@ -232,3 +232,22 @@
 .help-dialog .dialog-content details p {line-height:1.65;}
 .help-dialog .dialog-content summary {min-height:44px;}
 .help-dialog .dialog-content details>button {margin:10px 0;min-height:44px;}
+.connection-review {border:1px solid #796246;border-radius:8px;padding:12px;margin:0 0 18px;background:#332b2259;}
+.connection-review.blocked {border-color:#dc8d79;background:#512c2859;}
+.review-heading {display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;}
+.review-heading>strong {color:#efc486;font-size:12px;}
+.connection-review.blocked .review-heading>strong {color:#ffb49d;}
+.review-heading>span {color:#b6c7c8;font-size:10px;}
+.connection-review>p {font-size:12px;color:#e1d4bf;line-height:1.65;margin:10px 0 0;}
+.connection-review details {margin-top:5px;}
+.connection-checks {list-style:none;padding:0;margin:6px 0;}
+.connection-checks li {padding:12px 0;border-top:1px solid #ffffff18;}
+.connection-checks li>div {display:flex;gap:8px;flex-wrap:wrap;align-items:baseline;}
+.connection-checks strong {font-size:12px;color:#e1e8e5;font-weight:500;}
+.connection-checks .check-state {font-size:10px;color:#efc486;}
+.connection-checks .check-state.documented {color:#b9d8b6;}
+.connection-checks .check-state.blocked {color:#ffb49d;}
+.connection-checks li p {margin:7px 0;font-size:12px;line-height:1.65;}
+.connection-checks a {display:flex;gap:5px;align-items:center;overflow-wrap:anywhere;font-size:11px;padding:8px 0;min-height:36px;}
+.connection-checks a svg {width:12px;height:12px;flex-shrink:0;}
+.connection-review .review-limit {font-size:11px;color:#d7c1a0;}

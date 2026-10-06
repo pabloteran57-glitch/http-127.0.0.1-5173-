@@ -428,7 +428,7 @@ Plan de ingeniería, no montaje certificado. Medidas publicadas no prueban forma
 - Masa publicada: pendiente g. Aproximada: sí.
 - Nota de masa: No se recuperó el peso en las fuentes consultadas.
 - Masa de planificación: 95 g; no sustituye pesaje del subconjunto instalado.
-- Interfaces: D-Tap macho; Barril DC macho de 5.5 mm de diámetro exterior; interior y polaridad por confirmar
+- Interfaces: D-Tap macho; Barril DC macho de 5.5 mm de diámetro exterior; centro positivo publicado; diámetro interior por confirmar
 - Montaje: Desde la salida D-Tap de la placa 3203B a la entrada DC del Indie 7.
 - Material: Cable de PVC y carcasas de conector moldeadas
 - Obligatorio/opcional: Obligatorio; función: Alimentación del monitor; no se afirma regulación de tensión.
@@ -489,4 +489,3 @@ Plan de ingeniería, no montaje certificado. Medidas publicadas no prueban forma
 - Restricciones: Útil si se retira deliberadamente el monitor SmallHD o la transmisión Ronin para reducir peso.
 - Confianza: Alta.
 - [Fuente principal](https://creatorscloud.sony.net/catalog/en-jo/monitorcontrol/index.html)
-

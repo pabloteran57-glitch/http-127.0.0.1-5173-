@@ -82,7 +82,7 @@
       "title": "Base de ingeniería extensible",
       "status": "software_foundation_prepared",
       "verification_report": "docs/extensible-engineering.md",
-      "remaining": ["Control semántico de evidencia por interfaz", "Alta completa real con guía y geometría", "Generalizar encuadre y contextos más allá de FX3/RS 4 Pro"],
+      "remaining": ["Extender revisión semántica documentada: tres de diecisiete circuitos cubiertos; montaje mecánico y demás interfaces pendientes", "Alta completa real con guía y geometría", "Generalizar encuadre y contextos más allá de FX3/RS 4 Pro"],
       "depends_on": ["stabilize-core"],
       "deliverables": [
         "Reglas declarativas por montura, interfaz mecánica, soporte, señal y alimentación, con evidencia y revisión exacta",

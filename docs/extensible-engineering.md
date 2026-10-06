@@ -17,6 +17,8 @@ Las comprobaciones de selección y exclusiones de circuitos se leen de `data/pla
 
 `compatibilityDecision` sólo admite un candidato documentado si hay revisión y URL HTTPS de evidencia. Incompatible queda bloqueado; desconocido o incompleto sigue desconocido. Este control de integridad no autentica el contenido de una URL: la revisión humana/técnica de la evidencia continúa siendo obligatoria. Candidato no significa probado físicamente.
 
+El panel Conexiones usa ahora `assessConnection`, no ese control básico. Vincula modelo y nombre exactos, revisión, puerto, conector, señal y fuentes con alcance explícito. Compara rangos completos y polaridad; información ausente mantiene pendientes. Revisión inicial: control RS 4 Pro/FX3, 4253B y alimentación del Indie 7. No certifica los demás catorce circuitos ni valida automáticamente el contenido web. [Evidencia por comprobación](connection-reviews.md).
+
 Las pruebas incluyen un producto sintético, aislado del catálogo, que resuelve selección y dependencias cambiando sólo reglas. No prueba geometría ni guía universal. Los modelos de visor, encuadre, contextos de plantilla y etapas aún son específicos del ecosistema actual; no se anuncia compatibilidad universal.
 
 ## Migración

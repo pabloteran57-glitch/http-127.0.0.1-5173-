@@ -4,6 +4,7 @@ const parts=read("parts-manifest"),layout=read("layout-manifest"),cables=read("c
 const ui=read("ui-content");
 const planner=read("planner-rules"),intake=read("catalog-intake");
 const roadmap=read("product-roadmap");
+const connectionReviews=read("connection-reviews"),sourceList=read("sources").sources;
 const contract={version:1,catalog_revision:planner.catalog_revision,scope:"Índice derivado; identidad en parts-manifest, forma en layout-manifest y guía en assembly-profile-content.",products:parts.parts.map(p=>({part_id:p.id,record_revision:planner.catalog_revision,model_number:p.model_number,identity_source_url:p.primary_source_url,geometry_profile_id:layout.nodes.find(n=>n.id===p.id)?.id??null,geometry_status:layout.nodes.some(n=>n.id===p.id)?"approximate":"not_modeled",assembly_steps:planner.assembly_frames.filter(f=>f.add_part_ids.includes(p.id)).map(f=>f.step),release_status:planner.parked_part_ids.includes(p.id)?"reserve":"planning_candidate",physically_tested:false}))};
 writeFileSync(new URL("../data/catalog-contract.json",import.meta.url),JSON.stringify(contract,null,2)+"\n");
 const name=id=>ui.part_names[id]??parts.parts.find(p=>p.id===id)?.exact_product_name??id;
@@ -91,7 +92,9 @@ Canónicos: \`data/cables-manifest.json\` y \`data/ports-manifest.json\`. ${cabl
 - Doble salida solicitada, en banco: FX3 HDMI -> entrada cautiva StarTech -> salida 1 A-A a Indie 7 / salida 2 A-C a RavenEye. Adaptador StarTech incluido de 5 V / 2 A. No distribuidor sin fuente ni montaje invisible.
 - RavenEye en banco con batería interna; no reclamar control gimbal/ActiveTrack por sólo tener vídeo.
 
-**Corrección eléctrica:** Cable SmallHD de 5.5 mm de diámetro exterior. El ID histórico \`smallhd-dtap-to-2mm-barrel\` se conserva por compatibilidad de datos, pero no afirma diámetro de 2 mm ni polaridad/diámetro interno desconocidos. Indie 7: 10-34 V DC, 2 A de corriente nominal de entrada, no consumo real medido. 4253B: entrada 9.6-20 V, salida 8.0-8.4 V, 2 A máximo continuo.
+**Corrección eléctrica:** Cable SmallHD CBL-PWR-DTAP-BAR-36 de 5.5 mm exterior y centro positivo publicado. El ID histórico \`smallhd-dtap-to-2mm-barrel\` no afirma diámetro de 2 mm. Diámetro interior y pinout de entrada del monitor pendientes: no extrapolar del cable. Indie 7: 10-34 V DC, 2 A de entrada publicados, no consumo real medido. 4253B: entrada 9.6-20 V con mínimo 2 A, salida 8.0-8.4 V con máximo continuo 2 A.
+
+Revisión por circuito y fuentes: [comprobaciones de conexiones](connection-reviews.md). Tres enlaces revisados documentalmente; los demás no se dan por compatibles por tener puertos identificados.
 
 ## Colores
 
@@ -209,8 +212,37 @@ Medios de fabricante para investigación local, no licencia abierta de redistrib
 - [Variantes](variants.md)
 - [Identidad provisional](brand.md)
 
-No hay medición del conjunto físico ni certificación de producción. El plan conserva esos límites en datos, documentación e interfaz y exportación.
+No hay medición del conjunto físico ni certificación de producción. El plan conserva esos límites en datos, documentación e interfaz; los planes se guardan en Mis rigs, sin exportación de archivos.
 `);
 write("catalog-pilot.md",`# Lote piloto de catálogo\n\nFuente canónica de investigación: \`data/catalog-intake.json\`. Revisión ${intake.reviewed_on}. **Diez candidatos; ninguno activado.** No se incluyen imágenes sin permiso ni formas heredadas.\n\n## Manifiesto inicial\n\n| Producto | Modelo | Masa publicada (g) | Cotas publicadas (mm) | Fuente |\n|---|---|---:|---|---|\n${intake.products.map(p=>`| ${p.exact_product_name} | ${p.model_number} | ${p.weight_approximate?"~ ":""}${p.weight_g} | ${p.dimensions.approximate?"~ ":""}${p.dimensions.diameter_mm?`D ${p.dimensions.diameter_mm} × L ${p.dimensions.length_mm}`:`W ${p.dimensions.width_mm} × H ${p.dimensions.height_mm} × D ${p.dimensions.depth_mm}`} | [Sony](${p.source_url}) |`).join("\n")}\n\n## Límites y liberación\n\n${bullets(intake.common_limits)}\n\n${intake.release_gates.map((g,i)=>`${i+1}. ${g}.`).join("\n")}\n\n## Conjuntos candidatos\n\n${intake.configuration_candidates.map(c=>`- \`${c.id}\`: ${c.part_ids.join(", ")}. ${c.reason}`).join("\n")}\n\nDistribución, cableado, guía y representación pendientes. Este lote no modifica las 27 piezas utilizables del catálogo actual.\n`);
 write("product-progress.md",`# Avance por fases\n\nFuente: \`data/product-roadmap.json\`. Estado: prototipo en curso. Ningún criterio externo se da por cumplido a partir de compilación.\n\n| Fase | Estado de preparación | Evidencia y trabajo restante |\n|---|---|---|\n${roadmap.phases.map(p=>`| ${p.order}. ${p.title} | \`${p.status}\` | [Documento](${p.verification_report.replace("docs/","")}); ${p.remaining.join("; ")} |`).join("\n")}\n\nDecisión del usuario: guardado local por ahora. Cuentas, sincronización y enlaces privados siguen en el plan futuro, aplazados. Catálogo activo sin ampliaciones no verificadas.\n`);
-console.log("Documentos técnicos, índice de revisión, lote y avance de producto regenerados desde los JSON canónicos.");
+write("connection-reviews.md",`# Revisión de conexiones
+
+Fuente: \`data/connection-reviews.json\`, revisión \`${connectionReviews.revision}\`. Valores eléctricos canónicos en cables y puertos, con fuente por campo. ${connectionReviews.reviews.length} de ${cables.cables.length} circuitos con revisión ampliada.
+
+${connectionReviews.policy}
+
+## Criterio de evaluación
+
+- Identidad exacta: catálogo, producto, modelo, puertos, conectores, señal y revisión eléctrica deben coincidir. Un cambio invalida la evidencia anterior.
+- Evidencia: fuente oficial vinculada a esos productos, URL conservada, afirmación y localizador. Una URL HTTPS aislada o la forma del conector no prueba protocolo.
+- Alimentación: toda la salida debe estar contenida en la entrada. Solapamiento parcial bloquea; nominal o rango ausente siguen pendientes.
+- Polaridad: ambos extremos deben estar documentados. Centro positivo del cable no verifica el pinout del monitor.
+- Firmware, carga compartida, ajuste y holguras siguen requiriendo comprobaciones del equipo real. El motor documental no certifica un montaje.
+
+${connectionReviews.reviews.map(r=>`## ${r.cable_id}
+
+Modelos vinculados: ${r.binding.models.map(m=>name(m.part_id)+(m.model_number?" / "+m.model_number:"")).join("; ")}. Puertos: \`${r.binding.from_port_id}\` -> \`${r.binding.to_port_id}\`.
+
+Antes de conectar: ${r.action}
+
+${r.checks.map(c=>"- **"+c.label+":** "+c.detail).join("\n")}
+
+${Object.values(r.citations).map(c=>"- ["+sourceList.find(s=>s.id===c.source_id).brand+"]("+c.source_url+"): "+c.locator+". "+c.claim).join("\n")}
+`).join("\n")}
+
+## Alcance pendiente
+
+Los otros ${cables.cables.length-connectionReviews.reviews.length} circuitos conservan especificaciones y riesgos, pero no se califican como compatibles por defecto. Las revisiones no añaden piezas, no cambian las siete plantillas y no modifican las selecciones guardadas. Cadenas mecánicas universales, revisión del resto del catálogo y ensayos físicos siguen pendientes.
+`);
+console.log("Documentos técnicos, revisiones de conexiones, índice, lote y avance regenerados desde los JSON canónicos.");

@@ -42,7 +42,7 @@
     "USB-C male": "USB-C macho",
     "D-Tap male": "D-Tap macho",
     "NP-FZ100 regulated dummy coupler": "Adaptador NP-FZ100 regulado",
-    "SmallHD 5.5 mm OD barrel male; inner/polarity confirmation pending": "Barril SmallHD macho, exterior 5.5 mm; interior y polaridad pendientes",
+    "SmallHD 5.5 mm OD barrel male; inner/polarity confirmation pending": "Barril SmallHD macho, exterior 5.5 mm; centro positivo publicado; interior pendiente",
     "HDMI Type-A male": "HDMI tipo A macho",
     "Mini HDMI Type-C male": "Mini HDMI tipo C macho",
     "Captive HDMI Type-A male at camera": "HDMI tipo A macho del cable cautivo",
@@ -61,7 +61,7 @@
     "USB-C macho": "USB-C macho",
     "D-Tap macho": "D-Tap macho",
     "Dummy NP-FZ100 regulado": "Adaptador NP-FZ100 regulado",
-    "Barril SmallHD macho, exterior 5.5 mm; interior y polaridad pendientes": "Barril SmallHD macho, exterior 5.5 mm; interior y polaridad pendientes",
+    "Barril SmallHD macho, exterior 5.5 mm; centro positivo; interior pendiente": "Barril SmallHD macho, exterior 5.5 mm; centro positivo; interior pendiente",
     "HDMI tipo A macho": "HDMI tipo A macho",
     "Mini HDMI tipo C macho": "Mini HDMI tipo C macho",
     "HDMI tipo A macho del cable cautivo": "HDMI tipo A macho del cable cautivo",
@@ -140,4 +140,3 @@
   },
   "language": "es"
 }
-

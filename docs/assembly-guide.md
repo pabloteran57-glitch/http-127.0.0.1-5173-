@@ -140,8 +140,8 @@ Montar: 4253B y cable SmallHD D-Tap a barril de 5.5 mm de diámetro exterior.
 
 Ubicación: VB99 D-Tap a adaptador de batería FX3; contactos V-mount a 3203B; D-Tap de placa al monitor lateral.
 
-- 4253B: entrada 9.6-20 V, salida regulada 8.0-8.4 V, máximo continuo 2 A.
-- Indie 7: DC 10-34 V; diámetro interior y polaridad no publicados en la guía, verificar cable específico antes de energizar.
+- 4253B: entrada 9.6-20 V con mínimo 2 A; salida regulada 8.0-8.4 V con máximo continuo 2 A.
+- Indie 7: DC 10-34 V. Cable CBL-PWR-DTAP-BAR-36 con centro positivo publicado; diámetro interior y pinout de entrada del monitor pendientes. Verificar coincidencia antes de energizar.
 - Adaptador de batería local en el bloque móvil. El cable al monitor cruza al lado fijo y necesita bucles sin tirar de los puertos.
 - Conectar apagado y proteger salida de la puerta de batería.
 
@@ -180,4 +180,3 @@ Aplicabilidad del perfil: guía general.
 
 
 La casilla de la app sólo registra lectura en la sesión, no una prueba física aprobada.
-

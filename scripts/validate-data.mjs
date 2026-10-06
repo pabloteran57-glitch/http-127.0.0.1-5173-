@@ -179,3 +179,44 @@ assert.equal(release.version,pkg.version);assert.equal(release.catalog_revision,
 const beta=JSON.parse(readFileSync(new URL("../data/beta-evidence.json",import.meta.url),"utf8")),protocol=JSON.parse(readFileSync(new URL("../data/beta-protocol.json",import.meta.url),"utf8"));
 for(const row of beta.observations){assert(typeof row.participant_alias==="string"&&row.participant_alias.trim());assert(protocol.tasks.some(t=>t.id===row.task_id));assert(typeof row.completed==="boolean");assert(Number.isFinite(row.assistance_count)&&row.assistance_count>=0);assert(Number.isFinite(row.elapsed_seconds)&&row.elapsed_seconds>=0);}
 console.log("CORRECTO: diez altas aisladas, índice derivado, versión de código y esquema de observaciones. No se inventan productos activos ni ensayos.");
+const reviews=JSON.parse(readFileSync(new URL("../data/connection-reviews.json",import.meta.url),"utf8"));
+assert.equal(reviews.version,1);assert(reviews.revision);assert.equal(reviews.catalog_revision,planner.catalog_revision);
+assert.equal(new Set(reviews.reviews.map(r=>r.cable_id)).size,reviews.reviews.length);
+const sourceById=new Map(sources.sources.map(s=>[s.id,s]));
+const electricalFields=new Set(["input_range_v","output_range_v","input_polarity","output_polarity","output_nominal_v","input_min_current_a","output_max_current_a","nominal_input_current_a","barrel_outer_mm","barrel_inner_mm"]);
+for(const owner of [...ports.ports,...cables.cables]){
+  const e=owner.electrical;if(!e)continue;assert(e.revision&&e.field_sources);
+  for(const [field,value] of Object.entries(e)){
+    if(["revision","field_sources"].includes(field))continue;assert(electricalFields.has(field));if(value===null)continue;
+    assert(sourceById.has(e.field_sources[field]),"Falta fuente por campo eléctrico: "+field);
+    if(field.endsWith("range_v"))assert(Array.isArray(value)&&value.length===2&&value.every(v=>Number.isFinite(v)&&v>0)&&value[0]<=value[1]);
+    else if(field.endsWith("polarity"))assert(["center_positive","center_negative"].includes(value));
+    else assert(Number.isFinite(value)&&value>0);
+  }
+}
+for(const review of reviews.reviews){
+  assert(cableIds.has(review.cable_id));assert.equal(review.catalog_revision,planner.catalog_revision);
+  assert(/^\d{4}-\d{2}-\d{2}$/.test(review.reviewed_on));assert(review.action&&review.checks.length);
+  const cable=cables.cables.find(c=>c.cable_id===review.cable_id),b=review.binding;
+  for(const field of ["source_part_id","from_port_id","to_port_id","connector_a","connector_b"])assert.equal(b[field],cable[field]);
+  assert.equal(b.signal_standard,cable.voltage_or_signal_standard);assert.equal(b.electrical_revision,cable.electrical?.revision??null);
+  assert.deepEqual(new Set(b.models.map(p=>p.part_id)),new Set([cable.source_part_id,cable.from_part_id,cable.to_part_id].filter(Boolean)));
+  b.models.forEach(model=>{const p=parts.parts.find(p=>p.id===model.part_id);assert.equal(model.model_number,p.model_number);assert.equal(model.exact_product_name,p.exact_product_name);});
+  assert.deepEqual(new Set(b.ports.map(p=>p.id)),new Set([cable.from_port_id,cable.to_port_id]));
+  b.ports.forEach(port=>{const actual=ports.ports.find(p=>p.id===port.id);assert.equal(port.connector,actual.connector);assert.equal(port.electrical_revision,actual.electrical?.revision??null);});
+  for(const proof of Object.values(review.citations)){
+    const source=sourceById.get(proof.source_id);assert.equal(source?.type,"official");assert.equal(proof.source_url,source.url);
+    assert(proof.locator.trim()&&proof.claim.trim()&&proof.part_ids.length);
+    proof.part_ids.forEach(id=>assert(b.models.some(p=>p.part_id===id)&&source.review_subject_part_ids?.includes(id)));
+  }
+  assert.equal(new Set(review.checks.map(c=>c.id)).size,review.checks.length);
+  for(const check of review.checks){
+    assert(check.label&&check.detail&&["specification","manufacturer_pair","voltage_range","polarity","operational"].includes(check.kind));
+    check.citation_ids.forEach(id=>assert(review.citations[id]));if(check.kind!=="operational")assert(check.citation_ids.length);
+    if(check.kind==="specification")check.subject_part_ids.forEach(id=>assert(b.models.some(p=>p.part_id===id)));
+    if(check.kind==="manufacturer_pair"){assert.deepEqual(check.pair,[cable.from_part_id,cable.to_part_id]);assert(check.tested_firmware);}
+    if(["voltage_range","polarity"].includes(check.kind))for(const ref of [check.source,check.receiver])assert(["from_port","to_port","cable"].includes(ref.owner)&&electricalFields.has(ref.field));
+    for(const text of [check.label,check.detail,review.action])assert(!legacyEnglish.test(text),"Texto de revisión sin localizar: "+text);
+  }
+}
+console.log(`CORRECTO: ${reviews.reviews.length} revisiones vinculadas a modelos/puertos y fuentes por campo. Desconocido no significa compatible.`);

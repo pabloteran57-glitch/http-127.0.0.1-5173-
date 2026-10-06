@@ -912,7 +912,7 @@
       "planning_weight_g": 95,
       "ports_interfaces": [
         "D-Tap macho",
-        "Barril DC macho de 5.5 mm de diámetro exterior; interior y polaridad por confirmar"
+        "Barril DC macho de 5.5 mm de diámetro exterior; centro positivo publicado; diámetro interior por confirmar"
       ],
       "mounting_method": "Desde la salida D-Tap de la placa 3203B a la entrada DC del Indie 7.",
       "likely_material": "Cable de PVC y carcasas de conector moldeadas",
@@ -1031,4 +1031,3 @@
     }
   ]
 }
-

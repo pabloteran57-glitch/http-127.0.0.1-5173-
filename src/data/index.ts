@@ -9,6 +9,8 @@ import referenceManifest from "../../data/geometry-references.json";
 import geometryAudit from "../../data/geometry-audit.json";
 import plannerRules from "../../data/planner-rules.json";
 import assemblyProfileContent from "../../data/assembly-profile-content.json";
+import connectionReviewManifest from "../../data/connection-reviews.json";
+import { assessConnection } from "../lib/connections";
 import type {
   CablesManifest,
   PartsManifest,
@@ -20,6 +22,9 @@ import type {
   Port,
   PlannerRules,
   AssemblyProfileContent,
+  ConnectionReviewManifest,
+  ConnectionCheck,
+  ElectricalProperties,
 } from "../lib/types";
 
 export const partsData = partsManifest as PartsManifest;
@@ -28,6 +33,13 @@ export const assemblyContent = assemblyProfileContent as AssemblyProfileContent;
 export const cablesData = cablesManifest as CablesManifest;
 export const variantsData = variantsManifest as VariantsManifest;
 export const sourcesData = sourcesManifest;
+export const connectionReviewsData: ConnectionReviewManifest = {
+  ...connectionReviewManifest, version: 1,
+  reviews: connectionReviewManifest.reviews.map(review => ({...review,
+    citations: Object.fromEntries(Object.entries(review.citations).filter(([, citation]) => citation !== undefined)),
+    checks: review.checks as ConnectionCheck[],
+  })),
+};
 const vector = (values: number[]): Vec3 => {
   if (values.length !== 3 || !values.every(Number.isFinite)) throw new Error("Invalid layout vector");
   return [values[0], values[1], values[2]];
@@ -44,7 +56,7 @@ export const layoutData: LayoutManifest = {
   }),
 };
 export const assemblySteps = assemblyManifest.steps as AssemblyStep[];
-export const portsData: Port[] = portsManifest.ports.map(port => ({...port, local_position_mm: port.local_position_mm ? vector(port.local_position_mm) : null}));
+export const portsData: Port[] = portsManifest.ports.map(port => ({...port, electrical: port.electrical as ElectricalProperties | undefined, local_position_mm: port.local_position_mm ? vector(port.local_position_mm) : null}));
 export const portById = Object.fromEntries(portsData.map(port => [port.id, port]));
 export const referencesData = referenceManifest;
 export const geometryAuditData = geometryAudit;
@@ -57,3 +69,7 @@ export const partById = Object.fromEntries(
 export const cableById = Object.fromEntries(
   cablesData.cables.map((cable) => [cable.cable_id, cable]),
 );
+
+export const connectionAssessmentById = Object.fromEntries(cablesData.cables.map(cable => [cable.cable_id,
+  assessConnection(cable, connectionReviewsData, {catalog_revision: plannerRules.catalog_revision, parts: partsData.parts, ports: portsData, sources: sourcesData.sources}),
+]));
