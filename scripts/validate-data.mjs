@@ -184,7 +184,7 @@ assert.equal(reviews.version,1);assert(reviews.revision);assert.equal(reviews.ca
 assert.equal(new Set(reviews.reviews.map(r=>r.cable_id)).size,reviews.reviews.length);
 const sourceById=new Map(sources.sources.map(s=>[s.id,s]));
 assert.deepEqual(new Set(Object.keys(ui.builder.roles)),partIds,"Las tarjetas deben identificar todas las piezas, sin catálogo paralelo");
-assert.equal(ui.builder.steps.length,3);
+assert.deepEqual(ui.builder.views.map(view=>view.id),["catalog","selected","settings"]);
 assert.deepEqual(ui.builder.contexts.map(c=>c.id),["gimbal","handheld","static"]);
 ui.builder.contexts.forEach(c=>assert(["design","assemble","inventory"].includes(c.icon)));
 const verticalReview=planner.vertical_monitor_review;

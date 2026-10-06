@@ -139,7 +139,7 @@
     "schematic_only_not_port_CAD": "Esquema, no CAD de puertos"
   },
   "builder": {
-    "steps": ["Define tu uso", "Elige piezas", "Revisa tu rig"],
+    "views": [{"id":"catalog","label":"Catálogo"},{"id":"selected","label":"Elegidas"},{"id":"settings","label":"Datos del rig"}],
     "image_policy": "Versión pública: esquemas propios de categoría, no fotografías ni geometría exacta. Consulta la foto real en la fuente oficial. Las fotos revisadas sólo se muestran en investigación local; redistribución pendiente de permiso.",
     "contexts": [
       {"id":"gimbal","label":"Con gimbal","detail":"Cámara estabilizada y monitor lateral.","icon":"design"},

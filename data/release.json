@@ -1,11 +1,11 @@
 {
-  "version":"0.2.2",
+  "version":"0.2.3",
   "released_on":"2026-10-06",
   "status":"engineering_prototype",
   "label":"Prototipo de ingeniería",
   "catalog_revision":"fx3-rs4-2026-10-05",
   "storage":"local_only",
   "account_sync":"deferred_by_user",
-  "updates":["Creación guiada: uso, tarjetas de piezas y revisión", "Selección completa visible; pendientes separados de montajes", "Monitor lateral candidato en rigs propios verticales, con alimentación y holguras pendientes", "Referencias oficiales enlazadas y fotos locales; esquemas públicos claramente identificados", "Guardado local, historial, plantillas y conexiones anteriores conservados"],
+  "updates":["Crear rig abre directamente el catálogo, sin pasos previos ni botones de siguiente", "Tarjetas táctiles con Añadir/Quitar, filtros y selección exacta", "Guardar disponible en todas las vistas; datos y revisión opcionales separados del montaje", "Editor móvil de pantalla completa con lista desplazable", "Monitor vertical, guardado local, historial, plantillas y conexiones conservados"],
   "limitations":["No validado con un rig físico completo", "Diez altas en investigación, no instalables", "Sin cuenta, nube ni enlaces privados", "Instalación web depende del navegador; no es una publicación en App Store"]
 }

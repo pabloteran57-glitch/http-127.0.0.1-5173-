@@ -1,52 +1,87 @@
 import { useDeferredValue, useEffect, useRef, useState } from "react";
-import { layoutData, partById, plannerData } from "../data";
+import { layoutData, partById, partsData, plannerData } from "../data";
 import { availableSupportIds, selectionPresentation, type RigResolution } from "../lib/planner";
 import type { CustomRig } from "../lib/types";
 import { partName } from "../lib/ui";
-import { normalizeSearch } from "../lib/inventory";
+import { builderEntries } from "../lib/inventory";
 import ui from "../../data/ui-content.json";
 import Icon, { type IconName } from "./Icon";
 import ProductVisual, { officialVisualLink } from "./ProductVisual";
 
+type BuilderView = "catalog" | "selected" | "settings";
 const modeledIds = layoutData.nodes.map(node => node.id);
-const stateNames = {visual:"En visor", list:"En tu lista", pending:"Montaje pendiente"};
-export default function RigBuilder({open,onClose,rig,resolution,onChange,onSave,dirty,message}:{open:boolean;onClose:()=>void;rig:CustomRig;resolution:RigResolution;onChange:(r:CustomRig)=>void;onSave:()=>void;dirty:boolean;message:string}) {
+const stateNames = {visual: "En visor", list: "En tu lista", pending: "Montaje pendiente"};
+
+export default function RigBuilder({open, onClose, rig, resolution, onChange, onSave, dirty, message}: {
+  open: boolean; onClose: () => void; rig: CustomRig; resolution: RigResolution;
+  onChange: (r: CustomRig) => void; onSave: () => void; dirty: boolean; message: string;
+}) {
   const dialog = useRef<HTMLDialogElement>(null);
   const scrollBody = useRef<HTMLDivElement>(null);
-  const [step, setStep] = useState(rig.part_ids.length ? 1 : 0);
-  const [category, setCategory] = useState("core");
+  const [view, setView] = useState<BuilderView>("catalog");
+  const [category, setCategory] = useState("all");
   const [query, setQuery] = useState("");
-  const [scope, setScope] = useState<"catalog"|"selected">("catalog");
-  const q = useDeferredValue(normalizeSearch(query));
+  const search = useDeferredValue(query);
+
   useEffect(() => {
-    if(open && !dialog.current?.open) {setStep(rig.part_ids.length ? 1 : 0); setScope("catalog"); setQuery(""); dialog.current?.showModal();}
-    if(!open && dialog.current?.open) dialog.current.close();
+    if (open && !dialog.current?.open) {
+      setView("catalog"); setCategory("all"); setQuery("");
+      dialog.current?.showModal();
+    }
+    if (!open && dialog.current?.open) dialog.current.close();
   }, [open]);
-  const go = (next: number) => {setStep(next); scrollBody.current?.scrollTo({top:0});};
-  const toggle = (id: string) => onChange({...rig,part_ids:rig.part_ids.includes(id)?rig.part_ids.filter(p=>p!==id):[...rig.part_ids,id]});
-  const add = (ids: string[]) => onChange({...rig,part_ids:[...rig.part_ids,...ids.filter(id=>!rig.part_ids.includes(id))]});
-  const categoryIds = plannerData.categories.find(c=>c.id===category)!.part_ids;
-  const ids = (scope==="selected" ? rig.part_ids : q ? plannerData.categories.flatMap(c=>c.part_ids) : categoryIds).filter(id=>normalizeSearch(`${partName(id)} ${partById[id].exact_product_name} ${partById[id].brand} ${partById[id].model_number??""}`).includes(q));
-  const rows = selectionPresentation(rig.part_ids,resolution.variant,modeledIds);
-  const stateById = Object.fromEntries(rows.map(row=>[row.id,row.state]));
-  const visibleCount = rows.filter(row=>row.state==="visual").length;
-  const listCount = rows.filter(row=>row.state==="list").length;
-  const renderCard = (id: string, reviewing = false) => {
+
+  const switchView = (next: BuilderView) => {
+    setView(next); setQuery(""); scrollBody.current?.scrollTo({top: 0});
+  };
+  const toggle = (id: string) => onChange({...rig, part_ids: rig.part_ids.includes(id) ? rig.part_ids.filter(p => p !== id) : [...rig.part_ids, id]});
+  const add = (ids: string[]) => onChange({...rig, part_ids: [...rig.part_ids, ...ids.filter(id => !rig.part_ids.includes(id))]});
+  const entries = builderEntries(partsData.parts, rig.part_ids, plannerData.categories, view === "selected" ? "selected" : "catalog", category, search, partName);
+  const rows = selectionPresentation(rig.part_ids, resolution.variant, modeledIds);
+  const stateById = Object.fromEntries(rows.map(row => [row.id, row.state]));
+  const visibleCount = rows.filter(row => row.state === "visual").length;
+  const listCount = rows.filter(row => row.state === "list").length;
+
+  const renderCard = (id: string) => {
     const part = partById[id], chosen = rig.part_ids.includes(id), state = stateById[id];
-    const supports = availableSupportIds(plannerData.mount_dependencies[id]??[],rig,plannerData);
+    const supports = availableSupportIds(plannerData.mount_dependencies[id] ?? [], rig, plannerData);
     const reference = officialVisualLink(id);
-    return <article key={id} className={`piece-card ${chosen?"is-chosen":""} ${state==="pending"?"is-pending":""}`} data-builder-part={id} data-selection-state={state??"unchosen"}>
-      <label className="piece-choice"><input type="checkbox" aria-label={`Elegir ${partName(id)}`} checked={chosen} onChange={()=>toggle(id)}/><ProductVisual id={id}/><span className="piece-copy"><small>{part.brand} / {part.model_number??"Catálogo actual"}</small><strong>{partName(id)}</strong><span>{(ui.builder.roles as Record<string,string>)[id]}</span></span><span className="piece-badge">{chosen?<><Icon name="check"/>{stateNames[state]}</>:<><Icon name="plus"/>Añadir</>}</span></label>
-      <div className="piece-card-footer"><a href={reference.href} target="_blank" rel="noreferrer" aria-label={`${reference.label}: ${partName(id)}`}>{reference.label}<Icon name="arrow"/></a>{reviewing&&<button aria-label={`Quitar ${partName(id)}`} onClick={()=>toggle(id)}>Quitar</button>}</div>
-      {chosen && state==="pending" && <div className="piece-pending"><p>{resolution.issues.find(issue=>issue.part_id===id)?.message}</p>{supports.length>0&&<><p>Añadirá: {supports.map(partName).join(", ")}.</p><button className="quiet-button" onClick={()=>add(supports)}>Añadir soporte ({supports.length})</button></>}</div>}
+    return <article key={id} className={`piece-card ${chosen ? "is-chosen" : ""} ${state === "pending" ? "is-pending" : ""}`} data-builder-part={id} data-selection-state={state ?? "unchosen"}>
+      <button type="button" className="piece-choice" aria-label={`${chosen ? "Quitar" : "Añadir"} ${partName(id)}`} aria-pressed={chosen} onClick={() => toggle(id)}>
+        <ProductVisual id={id}/>
+        <span className="piece-copy"><small>{part.brand} / {part.model_number ?? "Catálogo actual"}</small><strong>{partName(id)}</strong><span>{(ui.builder.roles as Record<string, string>)[id]}</span></span>
+        <span className="piece-badge"><Icon name={chosen ? "check" : "plus"}/>{chosen ? "Elegida · toca para quitar" : "Añadir al rig"}</span>
+      </button>
+      <div className="piece-card-footer"><a href={reference.href} target="_blank" rel="noreferrer" aria-label={`${reference.label}: ${partName(id)}`}>{reference.label}<Icon name="arrow"/></a>{chosen && <span className="piece-selection-state">{stateNames[state]}</span>}</div>
+      {chosen && state === "pending" && <div className="piece-pending"><p>{resolution.issues.find(issue => issue.part_id === id)?.message}</p>{supports.length > 0 && <><p>Añadirá: {supports.map(partName).join(", ")}.</p><button type="button" className="quiet-button" onClick={() => add(supports)}>Añadir soporte ({supports.length})</button></>}</div>}
     </article>;
   };
-  return <dialog ref={dialog} className="builder-dialog guided-builder" aria-labelledby="builder-title" onCancel={onClose} onClose={onClose}>
-    <div className="dialog-heading"><div><p className="eyebrow">TU EQUIPO, TU PLAN</p><h2 id="builder-title">{step===0?"Prepara tu rig":step===1?"Elige tu equipo":"Todo lo que elegiste"}</h2></div><button className="icon-button" aria-label="Cerrar editor de rig" onClick={onClose}><Icon name="close"/></button></div>
-    <nav className="builder-progress" aria-label="Pasos para crear el rig">{ui.builder.steps.map((label,index)=><button key={label} aria-current={step===index?"step":undefined} onClick={()=>go(index)}><b>{index+1}</b><span>{label}</span>{index===1&&<small>{rig.part_ids.length}</small>}</button>)}</nav>
+
+  return <dialog ref={dialog} className="builder-dialog guided-builder direct-builder" aria-labelledby="builder-title" onCancel={onClose} onClose={onClose}>
+    <div className="dialog-heading"><div><p className="eyebrow">TU EQUIPO, TU PLAN</p><h2 id="builder-title">{view === "catalog" ? "Añade piezas a tu rig" : view === "selected" ? "Tus piezas elegidas" : "Datos del rig"}</h2></div><button type="button" className="icon-button" aria-label="Cerrar editor de rig" onClick={onClose}><Icon name="close"/></button></div>
+    <nav className="builder-tabs" aria-label="Vistas del editor">{ui.builder.views.map(item => <button type="button" key={item.id} aria-pressed={view === item.id} onClick={() => switchView(item.id as BuilderView)}>{item.label}{item.id === "selected" && <span>{rig.part_ids.length}</span>}</button>)}</nav>
     <div ref={scrollBody} className="guided-builder-body">
-      {step===0?<section className="builder-start"><label className="rig-name-field">¿Cómo se llama tu rig?<input aria-label="Nombre del rig" value={rig.name} maxLength={80} onChange={e=>onChange({...rig,name:e.target.value})}/></label><h3>¿Cómo vas a rodar?</h3><div className="use-choices">{ui.builder.contexts.map(context=><button key={context.id} aria-pressed={rig.context===context.id} onClick={()=>onChange({...rig,context:context.id as CustomRig["context"]})}><Icon name={context.icon as IconName}/><strong>{context.label}</strong><span>{context.detail}</span></button>)}</div><h3>Encuadre</h3><div className="orientation-choices"><button aria-pressed={rig.orientation==="landscape"} onClick={()=>onChange({...rig,orientation:"landscape"})}><span className="format-outline landscape"/>Horizontal</button><button aria-pressed={rig.orientation==="vertical"} onClick={()=>onChange({...rig,orientation:"vertical"})}><span className="format-outline portrait"/>Vertical 9:16</button></div><p className="builder-tip"><Icon name="info"/>Tú decides qué añadir o quitar; puedes guardar un plan incompleto.</p></section>:step===1?<section className="builder-catalog"><div className="builder-scope segmented" aria-label="Selección del editor"><button aria-pressed={scope==="catalog"} onClick={()=>{setScope("catalog");setQuery("");}}>Explorar piezas</button><button aria-pressed={scope==="selected"} onClick={()=>{setScope("selected");setQuery("");}}>Mi selección <span>{rig.part_ids.length}</span></button></div><label className="search-field"><Icon name="search"/><input aria-label="Buscar piezas en el editor" placeholder="Busca una cámara, monitor o modelo…" value={query} onChange={e=>setQuery(e.target.value)}/></label>{scope==="catalog"&&<><label className="mobile-category-picker">Categoría<select aria-label="Categoría de piezas" value={category} onChange={event=>{setCategory(event.target.value);setQuery("");}}>{plannerData.categories.map(c=><option key={c.id} value={c.id}>{c.label}</option>)}</select></label><div className="catalog-categories" aria-label="Categorías del catálogo">{plannerData.categories.map(c=><button key={c.id} aria-pressed={category===c.id&&!q} onClick={()=>{setCategory(c.id);setQuery("");}}>{c.label}<span aria-hidden="true">{c.part_ids.filter(id=>rig.part_ids.includes(id)).length||""}</span></button>)}</div></>}<div className="piece-grid">{ids.map(id=>renderCard(id))}</div>{ids.length===0&&<div className="empty-state"><p>{q?"No hay coincidencias en este ámbito.":"Aún no has elegido piezas."}</p><button className="quiet-button" onClick={()=>{setScope("catalog");setQuery("");}}>Explorar piezas</button></div>}<details className="visual-policy"><summary>Sobre las imágenes y el catálogo</summary><p>{ui.builder.image_policy}</p><p>25 productos y 2 componentes del Combo. La selección no activa montajes no documentados.</p></details></section>:<section className="builder-final-review"><div className="selection-totals" role="status"><strong>{rig.part_ids.length}<span>Elegidos</span></strong><strong>{visibleCount}<span>Con modelo en visor</span></strong><strong>{listCount}<span>Sólo en tu lista</span></strong><strong>{resolution.parked_ids.length}<span>Sin soporte activo</span></strong></div><p className="builder-review-intro">Nada se elimina por tener pendientes. Un cable, una app o una pieza sin geometría siguen en tu lista, no como un objeto flotante.</p><div className="piece-grid">{rig.part_ids.map(id=>renderCard(id,true))}</div>{rig.part_ids.length===0&&<div className="empty-state"><p>Tu plan todavía está vacío.</p><button className="quiet-button" onClick={()=>go(1)}>Elegir piezas</button></div>}<div className="review-checks"><h3>{resolution.issues.length?`${resolution.issues.length} pendientes antes de rodar`:"Antes de rodar"}</h3><p>Puedes guardar ahora. No energices el equipo hasta comprobar soportes, alimentación y holguras reales.</p>{resolution.issues.map(issue=>{const suggestions=availableSupportIds(issue.add_ids,rig,plannerData);return <details key={issue.id}><summary>{issue.part_id?partName(issue.part_id):issue.id==="monitor-power"?"Alimentación del monitor":issue.id==="vertical-monitor"?"Monitor en vertical":issue.id==="monitor-video"?"Señal del monitor":issue.message}</summary><p>{issue.message}</p>{suggestions.length>0&&<><p>Añadirá: {suggestions.map(partName).join(", ")}.</p><button className="quiet-button" onClick={()=>add(suggestions)}>Añadir estas piezas ({suggestions.length})</button></>}</details>;})}</div></section>}
+      {view === "settings" ? <section className="builder-start">
+        <label className="rig-name-field">Nombre del rig<input aria-label="Nombre del rig" value={rig.name} maxLength={80} onChange={e => onChange({...rig, name: e.target.value})}/></label>
+        <h3>¿Cómo vas a rodar?</h3><div className="use-choices">{ui.builder.contexts.map(context => <button type="button" key={context.id} aria-pressed={rig.context === context.id} onClick={() => onChange({...rig, context: context.id as CustomRig["context"]})}><Icon name={context.icon as IconName}/><strong>{context.label}</strong><span>{context.detail}</span></button>)}</div>
+        <h3>Encuadre</h3><div className="orientation-choices"><button type="button" aria-pressed={rig.orientation === "landscape"} onClick={() => onChange({...rig, orientation: "landscape"})}><span className="format-outline landscape"/>Horizontal</button><button type="button" aria-pressed={rig.orientation === "vertical"} onClick={() => onChange({...rig, orientation: "vertical"})}><span className="format-outline portrait"/>Vertical 9:16</button></div>
+        <p className="builder-tip"><Icon name="info"/>Cambiar estos datos no añade ni elimina tus elecciones. Puedes guardar un plan incompleto.</p>
+        <button type="button" className="quiet-button return-to-catalog" onClick={() => switchView("catalog")}>Volver a las piezas</button>
+      </section> : <section className="builder-catalog">
+        <label className="search-field"><Icon name="search"/><input aria-label="Buscar piezas en el editor" placeholder={view === "selected" ? "Buscar en tus piezas elegidas…" : "Buscar cámara, lente o accesorio…"} value={query} onChange={e => setQuery(e.target.value)}/></label>
+        {view === "catalog" && <><label className="mobile-category-picker">Categoría<select aria-label="Categoría de piezas" value={category} onChange={e => {setCategory(e.target.value); setQuery(""); scrollBody.current?.scrollTo({top: 0});}}><option value="all">Todas las piezas</option>{plannerData.categories.map(c => <option key={c.id} value={c.id}>{c.label}</option>)}</select></label><div className="catalog-categories" aria-label="Categorías del catálogo"><button type="button" aria-pressed={category === "all" && !query} onClick={() => {setCategory("all"); setQuery("");}}>Todas</button>{plannerData.categories.map(c => <button type="button" key={c.id} aria-pressed={category === c.id && !query} onClick={() => {setCategory(c.id); setQuery("");}}>{c.label}<span aria-hidden="true">{c.part_ids.filter(id => rig.part_ids.includes(id)).length || ""}</span></button>)}</div></>}
+        <p className="catalog-count">{view === "catalog" ? `${entries.length} piezas disponibles · toca una para añadirla` : `${entries.length} de ${rig.part_ids.length} elegidas · toca una para quitarla`}</p>
+        <div className="piece-grid">{entries.map(part => renderCard(part.id))}</div>
+        {entries.length === 0 && <div className="empty-state"><p>{query ? "No hay coincidencias en esta vista." : "Aún no has elegido piezas."}</p><button type="button" className="quiet-button" onClick={() => {switchView("catalog"); setCategory("all");}}>Ver todas las piezas</button></div>}
+        {view === "selected" && <>
+          <details className="selection-review"><summary>Revisar montaje y conexiones <span>{resolution.issues.length} pendientes</span></summary><div className="selection-totals"><strong>{visibleCount}<span>Con modelo en visor</span></strong><strong>{listCount}<span>Sólo en tu lista</span></strong><strong>{resolution.parked_ids.length}<span>Sin soporte activo</span></strong></div><div className="review-checks"><h3>Antes de rodar</h3><p>Guardar no valida el montaje. Comprueba soportes, alimentación y holguras reales antes de encender.</p>{resolution.issues.map(issue => {
+            const suggestions = availableSupportIds(issue.add_ids, rig, plannerData);
+            return <details key={issue.id}><summary>{issue.part_id ? partName(issue.part_id) : issue.id === "monitor-power" ? "Alimentación del monitor" : issue.id === "vertical-monitor" ? "Monitor en vertical" : issue.id === "monitor-video" ? "Señal del monitor" : issue.message}</summary><p>{issue.message}</p>{suggestions.length > 0 && <><p>Añadirá: {suggestions.map(partName).join(", ")}.</p><button type="button" className="quiet-button" onClick={() => add(suggestions)}>Añadir estas piezas ({suggestions.length})</button></>}</details>;
+          })}</div></details>
+        </>}
+        <details className="visual-policy"><summary>Sobre las imágenes y el catálogo</summary><p>{ui.builder.image_policy}</p><p>25 productos y 2 componentes del Combo. La selección no activa montajes no documentados.</p></details>
+      </section>}
     </div>
-    <div className="builder-actions">{message&&<p className="builder-feedback" role="status">{message}</p>}<span aria-live="polite">{rig.part_ids.length} elegidos · {dirty?"Borrador sin guardar":"Guardado local"}</span>{step>0&&<button className="quiet-button" onClick={()=>go(step-1)}>Atrás</button>}{step<2?<button className="primary-button" onClick={()=>go(step+1)}>{step===0?"Elegir piezas":"Revisar mi rig"}<Icon name="arrow"/></button>:<><button className="quiet-button" onClick={onClose}>Ver mi rig</button><button className="primary-button" onClick={onSave} disabled={!rig.name.trim()||!dirty}><Icon name="check"/>{dirty?"Guardar rig":"Guardado"}</button></>}</div>
+    <div className="builder-actions">{message && <p className="builder-feedback" role="status">{message}</p>}{!rig.name.trim() && <p className="builder-feedback" role="status">Escribe un nombre en Datos del rig para guardar.</p>}<span aria-live="polite">{rig.part_ids.length} {rig.part_ids.length === 1 ? "pieza elegida" : "piezas elegidas"} · {dirty ? "Sin guardar" : "Guardado local"}</span><button type="button" className="quiet-button" onClick={onClose}>Ver rig</button><button type="button" className="primary-button" onClick={onSave} disabled={!rig.name.trim() || !dirty}><Icon name="check"/>{dirty ? "Guardar rig" : "Guardado"}</button></div>
   </dialog>;
 }
