@@ -5,6 +5,8 @@ hosting/sites-public/
 public/references/
 public/previews/
 public/models/*-takegrid-v1.glb
+public/models/*-pilot-v1.glb
+hosting/.private-*
 public/product-visuals/*.webp
 research/private/
 research/model-incoming/
