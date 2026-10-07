@@ -25,7 +25,7 @@ for(const port of ports.ports){
 }
 assert.equal(partIds.size, parts.parts.length, "Duplicate parts");
 assert.equal(cableIds.size, cables.cables.length, "Duplicate cables");
-assert.equal(parts.parts.length, 27, "Preserve 25 requested products and two Combo subcomponents");
+assert.equal(parts.parts.length, 30, "Conservar 27 entradas originales y 3 accesorios verificados de monitor");
 assert.equal(assembly.steps.length, 13, "All thirteen assembly stages required");
 assert.equal(variants.variants.length, 7, "All seven profiles required");
 assert(variants.variants.some(v => v.id === variants.master_variant_id));
@@ -146,6 +146,19 @@ const checkCondition=condition=>{
 assert.equal(new Set(planner.selection_checks.map(c=>c.id)).size,planner.selection_checks.length);
 planner.selection_checks.forEach(check=>{assert(check.message);checkCondition(check.condition);[...(check.required_all??[]),...(check.required_any??[])].forEach(id=>assert(partIds.has(id)));});
 planner.cable_exclusions.forEach(rule=>{assert(cableIds.has(rule.cable_id));checkCondition(rule.condition);});
+for(const rule of planner.dynamic_mount_dependencies??[]){assert(partIds.has(rule.part_id));checkCondition(rule.condition);assert(rule.required_all.length);rule.required_all.forEach(id=>assert(partIds.has(id)&&id!==rule.part_id));}
+for(const check of planner.selection_checks)for(const id of check.suggest_ids??[])assert(partIds.has(id)&&check.required_any?.includes(id));
+assert.deepEqual(Object.keys(layout.monitor_mount_routes??{}).sort(),["cage","gimbal","xlr"]);
+for(const route of Object.values(layout.monitor_mount_routes??{}))for(const [id,override]of Object.entries(route.overrides)){
+  assert(layout.nodes.some(n=>n.id===id));assert(override.parent_id===undefined||layout.nodes.some(n=>n.id===override.parent_id));
+  for(const key of ["position_mm","rotation_deg"])if(override[key])assert(override[key].length===3&&override[key].every(Number.isFinite));
+  if(override.mass_domain)assert(["fixed","moving"].includes(override.mass_domain));
+}
+for(const cable of cables.cables)for(const [route,override]of Object.entries(cable.monitor_route_overrides??{})){
+  assert(layout.monitor_mount_routes[route]);assert(override.routing_path&&override.motion_boundary);
+  assert.deepEqual(Object.keys(override).sort(),["motion_boundary","route_control_frame","route_control_offsets_mm","routing_path"]);
+  for(const values of Object.values(override.route_control_offsets_mm))assert(values.length===3&&values.every(Number.isFinite));
+}
 assert.equal(planner.assembly_frames.length,13);
 const categorized=planner.categories.flatMap(c=>c.part_ids);
 assert.equal(new Set(categorized).size,categorized.length);

@@ -138,7 +138,7 @@
       "rights": {
         "license": "custom-reviewed",
         "evidence_url": "https://github.com/pabloteran57-glitch/http-127.0.0.1-5173-/blob/main/docs/authored-model-rights.md",
-        "reviewed_on": "2026-10-06",
+        "reviewed_on": "2026-10-07",
         "commercial": true,
         "redistribution": true,
         "modification": true,
@@ -148,8 +148,8 @@
       },
       "artifact": {
         "path": "/models/smallrig-4770-takegrid-v1.glb",
-        "sha256": "3538ae804f602a1e97d9057a64912b6152c1680a40e51b7571dcb7df4e46beef",
-        "bytes": 235332,
+        "sha256": "c35f32304a9018b0737dd365cadaa38f69932074bf2f6a43d405ed2f5c4d9b4b",
+        "bytes": 236268,
         "triangles": 4996
       },
       "calibration": {
@@ -178,7 +178,7 @@
         "scale": true,
         "views": true,
         "interfaces": true,
-        "evidence": "Revisión local del lote en perspectiva, frontal, posterior, lateral y superior; fotografías/manuales canónicos consultados. Huecos, alcance del componente y orientación cotejados visualmente. Registro de diferencias en calibration.reference_basis; no es medición mecánica.",
+        "evidence": "Revisión local del lote en perspectiva, frontal, posterior, lateral y superior; fotografías/manuales canónicos consultados. Huecos, alcance del componente y orientación cotejados visualmente. Registro de diferencias en calibration.reference_basis; no es medición mecánica. Riel superior separado por material y ocultable al instalar XLR; lámina local de cinco vistas revisada el 2026-10-07, resto sin cambios.",
         "mechanical_accuracy": "approximate",
         "ports_authority": "ports-manifest.json"
       }
@@ -839,6 +839,186 @@
         "views": true,
         "interfaces": true,
         "evidence": "Revisión local del lote en perspectiva, frontal, posterior, lateral y superior; fotografías/manuales canónicos consultados. Huecos, alcance del componente y orientación cotejados visualmente. Registro de diferencias en calibration.reference_basis; no es medición mecánica.",
+        "mechanical_accuracy": "approximate",
+        "ports_authority": "ports-manifest.json"
+      }
+    },
+    {
+      "id": "smallrig-2906b-takegrid-v1",
+      "part_id": "smallrig-2906b",
+      "subcomponent_id": null,
+      "exact_product_name": "SmallRig Swivel and Tilt Adjustable Monitor Support with NATO Clamp",
+      "model_number": "2906B",
+      "status": "approved",
+      "source": {
+        "method": "manual",
+        "url": "https://github.com/pabloteran57-glitch/http-127.0.0.1-5173-/blob/main/scripts/lib/authored-models.mjs",
+        "author": "Takegrid / reconstrucción propia en código"
+      },
+      "rights": {
+        "license": "custom-reviewed",
+        "evidence_url": "https://github.com/pabloteran57-glitch/http-127.0.0.1-5173-/blob/main/docs/authored-model-rights.md",
+        "reviewed_on": "2026-10-07",
+        "commercial": true,
+        "redistribution": true,
+        "modification": true,
+        "source_images_authorized": false,
+        "source_images_evidence": "No usa imágenes, texturas ni archivos ajenos en el GLB; referencias de fabricante consultadas localmente, no cargadas a IA ni redistribuidas.",
+        "attribution": "2906B: reconstrucción propia Takegrid, 2026; geometría y materiales aproximados, no CAD del fabricante ni respaldo comercial."
+      },
+      "artifact": {
+        "path": "/models/smallrig-2906b-takegrid-v1.glb",
+        "sha256": "d13098606b7ce0e1ccba53b5e97eb590e398da905c9654f1654265f50f137de5",
+        "bytes": 130192,
+        "triangles": 2568
+      },
+      "calibration": {
+        "units": "metres",
+        "uniform_scale": 1,
+        "offset_mm": [
+          0,
+          0,
+          0
+        ],
+        "rotation_deg": [
+          0,
+          0,
+          0
+        ],
+        "bounds_mm": [
+          56.49999901652336,
+          53.79999801516533,
+          32.00000151991844
+        ],
+        "reference_url": "https://static.smallrig.com/mall/img/public/0g141qmktenu-1751249917074_.pdf",
+        "reference_basis": "Envolvente de planificación XYZ 52.6 × 53.8 × 36 mm; malla 56.50 × 53.80 × 32.00 mm. Contorno, controles, contactos y holguras aproximados desde referencias. No deformada para igualar cotas; no CAD ni encaje probado."
+      },
+      "review": {
+        "identity": true,
+        "scale": true,
+        "views": true,
+        "interfaces": true,
+        "evidence": "Lámina propia local de cinco vistas revisada: perspectiva, frontal, posterior, lateral y superior. Manuales/ficha oficial cotejados; forma interna, tornillería y pose no medidas. Diferencias de envolvente registradas, no certificación mecánica.",
+        "mechanical_accuracy": "approximate",
+        "ports_authority": "ports-manifest.json"
+      }
+    },
+    {
+      "id": "smallrig-4830-takegrid-v1",
+      "part_id": "smallrig-4830",
+      "subcomponent_id": null,
+      "exact_product_name": "SmallRig Extension Mount Plate Kit for Sony FX3/FX30 XLR Handle",
+      "model_number": "4830",
+      "status": "approved",
+      "source": {
+        "method": "manual",
+        "url": "https://github.com/pabloteran57-glitch/http-127.0.0.1-5173-/blob/main/scripts/lib/authored-models.mjs",
+        "author": "Takegrid / reconstrucción propia en código"
+      },
+      "rights": {
+        "license": "custom-reviewed",
+        "evidence_url": "https://github.com/pabloteran57-glitch/http-127.0.0.1-5173-/blob/main/docs/authored-model-rights.md",
+        "reviewed_on": "2026-10-07",
+        "commercial": true,
+        "redistribution": true,
+        "modification": true,
+        "source_images_authorized": false,
+        "source_images_evidence": "No usa imágenes, texturas ni archivos ajenos en el GLB; referencias de fabricante consultadas localmente, no cargadas a IA ni redistribuidas.",
+        "attribution": "4830: reconstrucción propia Takegrid, 2026; geometría y materiales aproximados, no CAD del fabricante ni respaldo comercial."
+      },
+      "artifact": {
+        "path": "/models/smallrig-4830-takegrid-v1.glb",
+        "sha256": "08f9bc91d305160754514cb66716681c7d60155462a92cb3779f1dae9ddf67fb",
+        "bytes": 113592,
+        "triangles": 2292
+      },
+      "calibration": {
+        "units": "metres",
+        "uniform_scale": 1,
+        "offset_mm": [
+          0,
+          0,
+          0
+        ],
+        "rotation_deg": [
+          0,
+          0,
+          0
+        ],
+        "bounds_mm": [
+          65.99999964237213,
+          59.550000354647636,
+          121.99999764561653
+        ],
+        "reference_url": "https://static.smallrig.com/mall/img/public/1725874097334_.pdf",
+        "reference_basis": "Envolvente de planificación XYZ 55.8 × 77.5 × 124.8 mm; malla 66.00 × 59.55 × 122.00 mm. Contorno, controles, contactos y holguras aproximados desde referencias. No deformada para igualar cotas; no CAD ni encaje probado."
+      },
+      "review": {
+        "identity": true,
+        "scale": true,
+        "views": true,
+        "interfaces": true,
+        "evidence": "Lámina propia local de cinco vistas revisada: perspectiva, frontal, posterior, lateral y superior. Manuales/ficha oficial cotejados; forma interna, tornillería y pose no medidas. Diferencias de envolvente registradas, no certificación mecánica.",
+        "mechanical_accuracy": "approximate",
+        "ports_authority": "ports-manifest.json"
+      }
+    },
+    {
+      "id": "sony-np-f970-pro-takegrid-v1",
+      "part_id": "sony-np-f970-pro",
+      "subcomponent_id": null,
+      "exact_product_name": "Sony NP-F970/PRO Rechargeable Battery Pack",
+      "model_number": "NP-F970/PRO",
+      "status": "approved",
+      "source": {
+        "method": "manual",
+        "url": "https://github.com/pabloteran57-glitch/http-127.0.0.1-5173-/blob/main/scripts/lib/authored-models.mjs",
+        "author": "Takegrid / reconstrucción propia en código"
+      },
+      "rights": {
+        "license": "custom-reviewed",
+        "evidence_url": "https://github.com/pabloteran57-glitch/http-127.0.0.1-5173-/blob/main/docs/authored-model-rights.md",
+        "reviewed_on": "2026-10-07",
+        "commercial": true,
+        "redistribution": true,
+        "modification": true,
+        "source_images_authorized": false,
+        "source_images_evidence": "No usa imágenes, texturas ni archivos ajenos en el GLB; referencias de fabricante consultadas localmente, no cargadas a IA ni redistribuidas.",
+        "attribution": "NP-F970/PRO: reconstrucción propia Takegrid, 2026; geometría y materiales aproximados, no CAD del fabricante ni respaldo comercial."
+      },
+      "artifact": {
+        "path": "/models/sony-np-f970-pro-takegrid-v1.glb",
+        "sha256": "6ec851d80a1341d7535028d3c314c5c9a05f105e021e98951d86664842adbfd9",
+        "bytes": 79280,
+        "triangles": 1540
+      },
+      "calibration": {
+        "units": "metres",
+        "uniform_scale": 1,
+        "offset_mm": [
+          0,
+          0,
+          0
+        ],
+        "rotation_deg": [
+          0,
+          0,
+          0
+        ],
+        "bounds_mm": [
+          38.40000182390213,
+          70.80000638961792,
+          61.249999329447746
+        ],
+        "reference_url": "https://www.sony.jp/products/catalog/SPC_NP-F970_PRO.pdf",
+        "reference_basis": "Envolvente de planificación XYZ 38.4 × 70.8 × 60 mm; malla 38.40 × 70.80 × 61.25 mm. Contorno, controles, contactos y holguras aproximados desde referencias. No deformada para igualar cotas; no CAD ni encaje probado."
+      },
+      "review": {
+        "identity": true,
+        "scale": true,
+        "views": true,
+        "interfaces": true,
+        "evidence": "Lámina propia local de cinco vistas revisada: perspectiva, frontal, posterior, lateral y superior. Manuales/ficha oficial cotejados; forma interna, tornillería y pose no medidas. Diferencias de envolvente registradas, no certificación mecánica.",
         "mechanical_accuracy": "approximate",
         "ports_authority": "ports-manifest.json"
       }

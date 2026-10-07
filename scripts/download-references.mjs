@@ -72,4 +72,3 @@ for (const doc of wanted.length ? [] : catalog.documents) {
 }
 writeFileSync(resolve(root, "data/geometry-references.json"), JSON.stringify({ generated_on: new Date().toISOString(), license_note: catalog.license_note, parts: results.sort((a,b) => catalog.parts.findIndex(p => p.id === a.id) - catalog.parts.findIndex(p => p.id === b.id)), documents }, null, 2));
 console.log(`Saved ${results.reduce((n,p) => n+p.images.length,0)} reference images and ${documents.filter(d=>d.local_path).length} documents.`);
-

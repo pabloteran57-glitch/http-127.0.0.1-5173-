@@ -1,5 +1,8 @@
 import { useState } from "react";
-import { partById, referenceById, referencesData } from "../data";
+import { layoutData, modelAssets, partById, referenceById, referencesData } from "../data";
+import visualRegistry from "../../data/product-visuals.json";
+import { approvedModelFor } from "../lib/model-assets";
+import { approvedProductVisual } from "../lib/product-visuals";
 import { publicDemo } from "../lib/publication";
 import { partName } from "../lib/ui";
 
@@ -38,11 +41,16 @@ function CategoryDrawing({category}: {category: string}) {
 }
 
 export default function ProductVisual({id, caption = true}: {id: string; caption?: boolean}) {
-  const [failedId, setFailedId] = useState<string | null>(null);
+  const [failedIds, setFailedIds] = useState<string[]>([]);
+  const markFailed=(key:string)=>setFailedIds(previous=>previous.includes(key)?previous:[...previous,key]);
   const part = partById[id], reference = referenceById[id];
-  const usePhoto = !publicDemo && reference?.review === "visual_identity_checked" && failedId !== id;
-  return <div className={`product-visual ${usePhoto ? "is-photo" : "is-schematic"}`} data-visual-kind={usePhoto ? "official-local" : "category-schematic"}>
-    {usePhoto ? <img src={reference.display_image} alt={`${partName(id)}, referencia oficial revisada`} loading="lazy" onError={() => setFailedId(id)}/> : <svg viewBox="0 0 160 110" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><CategoryDrawing category={part.category}/></svg>}
-    {caption && <span>{usePhoto ? "Referencia oficial local" : part.category === "software" ? "Esquema de aplicación" : "Esquema · no es foto"}</span>}
+  const node=layoutData.nodes.find(n=>n.id===id),model=node?approvedModelFor(node,part,modelAssets):null;
+  const visual=approvedProductVisual(id,model,visualRegistry.assets);
+  const ownKey=visual?.image.sha256;
+  const useModel=!!visual&&!failedIds.includes(ownKey!);
+  const usePhoto = !useModel&&!publicDemo && reference?.review === "visual_identity_checked" && !failedIds.includes(id);
+  return <div className={`product-visual ${useModel?"is-model":usePhoto ? "is-photo" : "is-schematic"}`} data-visual-kind={useModel?"authored-model":usePhoto ? "official-local" : "category-schematic"}>
+    {useModel?<img src={visual.image.path} width={400} height={280} alt={`${partName(id)}, modelo propio aproximado${visual.subcomponent_id?", sólo receptor RX":""}`} loading="lazy" decoding="async" onError={()=>markFailed(ownKey!)}/>:usePhoto ? <img src={reference.display_image} alt={`${partName(id)}, referencia oficial revisada`} loading="lazy" decoding="async" onError={() => markFailed(id)}/> : <svg viewBox="0 0 160 110" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><CategoryDrawing category={part.category}/></svg>}
+    {caption && <span>{useModel?visual.caption:usePhoto ? "Referencia oficial local" : part.category === "software" ? "Esquema de aplicación" : "Esquema · no es foto"}</span>}
   </div>;
 }

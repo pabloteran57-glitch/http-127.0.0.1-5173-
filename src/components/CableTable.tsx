@@ -11,4 +11,3 @@ export default function CableTable({ variant, bench = false }: { variant: Varian
     </details>;
   })}</div>;
 }
-

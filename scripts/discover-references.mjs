@@ -17,4 +17,3 @@ for (const part of parts.filter(p => wanted[0] !== "--url" && (!wanted.length ||
     console.log(JSON.stringify({ id: part.id, status: response.status, page: response.url, og, assets: urls.slice(0, 100) }));
   } catch (error) { console.log(JSON.stringify({ id: part.id, error: error.message })); }
 }
-

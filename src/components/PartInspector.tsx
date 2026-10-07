@@ -1,17 +1,18 @@
 import { useState } from "react";
 import { layoutData, modelAssets, partById, referenceById } from "../data";
+import { layoutForVariant } from "../lib/viewer";
 import type { Variant } from "../lib/types";
 import { partName } from "../lib/ui";
 import { formatNumber } from "../lib/format";
 import { publicDemo } from "../lib/publication";
-import { officialVisualLink } from "./ProductVisual";
+import ProductVisual, { officialVisualLink } from "./ProductVisual";
 import { approvedModelFor } from "../lib/model-assets";
 import PartModelLoader from "./PartModelLoader";
 
 export default function PartInspector({ selectedId, variant }: { selectedId: string; variant: Variant }) {
   const [detailId, setDetailId] = useState<string | null>(null);
   const part = partById[selectedId];
-  const node = layoutData.nodes.find(n => n.id === selectedId);
+  const node = layoutForVariant(variant,layoutData).nodes.find(n => n.id === selectedId);
   const ref = referenceById[selectedId];
   if (!part) return null;
   const active = variant.active_part_ids.includes(part.id);
@@ -21,7 +22,7 @@ export default function PartInspector({ selectedId, variant }: { selectedId: str
   const dimensions = component?.dimensions_lwh_mm??[part.verified_dimensions_mm.length,part.verified_dimensions_mm.width,part.verified_dimensions_mm.height];
   return <aside id="part-inspector" className="inspector" aria-label="Ficha de la pieza">
     <div className="inspector-top"><span className="eyebrow">PIEZA SELECCIONADA</span><span className={active ? "status active" : "status parked"}>{active ? "EN PLAN" : "MONTAJE PENDIENTE"}</span></div>
-    <div className="product-reference">{publicDemo ? <div className="reference-pending">Referencia del fabricante<a href={visualLink.href} target="_blank" rel="noreferrer">{visualLink.label}</a><span>Imágenes conservadas en investigación local</span></div> : ref ? <a href={ref.display_image} target="_blank" rel="noreferrer" aria-label="Ampliar referencia oficial"><img src={ref.display_image} alt={partName(part.id) + ", referencia del fabricante"} /></a> : <div className="reference-pending">Referencia visual pendiente<span>No se sustituye por una imagen inventada</span></div>}<span>{publicDemo ? "FUENTES OFICIALES / NO ES CAD CERTIFICADO" : "REFERENCIA REAL / NO ES EL MODELO 3D"}</span></div>
+    <div className="product-reference">{publicDemo ? <><ProductVisual id={part.id}/><a href={visualLink.href} target="_blank" rel="noreferrer">{visualLink.label}</a></> : ref ? <a href={ref.display_image} target="_blank" rel="noreferrer" aria-label="Ampliar referencia oficial"><img src={ref.display_image} alt={partName(part.id) + ", referencia del fabricante"} /></a> : <ProductVisual id={part.id}/>}<span>{publicDemo || !ref ? "VISUAL DE PLANIFICACIÓN / NO ES CAD" : "REFERENCIA REAL / NO ES EL MODELO 3D"}</span></div>
     <p className="part-brand">{part.brand} / {part.model_number ?? "Fabricante"}</p><h2>{node?.label ?? partName(part.id)}</h2>
     <div className="spec-pair"><div><span>{component?"MASA PUBLICADA / SÓLO RX":"MASA PUBLICADA"}</span><strong>{component?`${formatNumber(component.weight_g)} g`:part.category==="software" ? "No aplica" : part.verified_weight_g.value===null ? "Pendiente" : `${part.verified_weight_g.approximate?"~ ":""}${formatNumber(part.verified_weight_g.value)} g`}</strong></div><div><span>DOMINIO DE CARGA</span><strong>{node ? node.mass_domain==="moving" ? "Cámara móvil" : "Base fija" : "No modelado"}</strong></div></div>
     <p className="dimension-note">{part.category==="software" ? "Sin geometría física" : dimensions.some(v=>v===null) ? "Dimensiones completas pendientes" : `${dimensions.map(v=>v===null?"?":formatNumber(v)).join(" × ")} mm${!component&&part.verified_dimensions_mm.approximate?" aprox.":""}`}<br />Envolvente publicada; forma y posición 3D aproximadas.</p>

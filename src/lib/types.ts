@@ -45,6 +45,7 @@ export interface PartsManifest {
 }
 
 export interface Cable {
+  monitor_route_overrides?: Partial<Record<"gimbal" | "cage" | "xlr", Pick<Cable, "routing_path" | "motion_boundary" | "route_control_offsets_mm" | "route_control_frame">>>;
   route_control_frame?: "camera" | "world";
   electrical?: ElectricalProperties;
   from_port_id: string;
@@ -109,6 +110,7 @@ export interface Variant {
   viewer: {
     mode: "assembled" | "exploded" | "vertical";
     positions: Record<string, VariantViewerPosition>;
+    monitor_mount_route?: "gimbal" | "cage" | "xlr";
   };
 }
 
@@ -122,7 +124,7 @@ export interface LayoutNode {
   dimension_source_url: string;
   id: string;
   label: string;
-  kind: "camera" | "lens" | "cage" | "baseplate" | "rods" | "matte" | "batteryPlate" | "battery" | "gimbal" | "grip" | "monitorMount" | "monitor" | "handle" | "audioReceiver";
+  kind: "camera" | "lens" | "cage" | "baseplate" | "rods" | "matte" | "batteryPlate" | "battery" | "gimbal" | "grip" | "monitorMount" | "monitor" | "handle" | "audioReceiver" | "compactMonitorMount" | "handleExtension" | "monitorBattery";
   position_mm: Vec3;
   size_xyz_mm: Vec3;
   explode_mm: Vec3;
@@ -138,6 +140,7 @@ export interface LayoutManifest {
   units: string;
   nominal_rod_center_spacing_mm: number;
   nodes: LayoutNode[];
+  monitor_mount_routes?: Record<string, {label:string; overrides:Record<string, Partial<LayoutNode>>}>;
   clearance_gates: { id: string; title: string; detail: string; status: string }[];
 }
 export interface AssemblyStep {
@@ -193,6 +196,7 @@ export interface PlannerRules {
   max_saved_rigs: number;
   parked_part_ids: string[];
   mount_dependencies: Record<string, string[]>;
+  dynamic_mount_dependencies?: {part_id:string; condition:RuleCondition; required_all:string[]}[];
   gimbal_only_part_ids: string[];
   gimbal_excluded_part_ids: string[];
   vertical_excluded_part_ids: string[];
@@ -200,7 +204,7 @@ export interface PlannerRules {
   assembly_frames: {step: number; add_part_ids: string[]; add_cable_ids: string[]; context_part_ids: string[]; note: string}[];
   extraction_keep_part_ids: string[];
   camera_part_ids: string[];
-  selection_checks: {id:string; condition:RuleCondition; message:string; required_all?:string[]; required_any?:string[]}[];
+  selection_checks: {id:string; condition:RuleCondition; message:string; required_all?:string[]; required_any?:string[]; suggest_ids?:string[]}[];
   cable_exclusions: {cable_id:string;condition:RuleCondition}[];
 }
 

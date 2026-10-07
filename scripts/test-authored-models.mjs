@@ -15,14 +15,14 @@ const near = (a, b) => assert(Math.abs(a - b) < .02, `${a} != ${b}`);
 let checks = 0;
 const test = (name, fn) => { fn(); checks++; console.log("CORRECTO: " + name); };
 
-test("El lote cubre los 14 nodos, sin activar nuevos montajes", () => {
-  assert.equal(nodes.length, 14); assert.equal(registry.assets.length, 14);
+test("El lote cubre los nodos, sin activar montajes implícitos", () => {
+  assert.equal(nodes.length, 17); assert.equal(registry.assets.length, 17);
   assert.deepEqual(new Set(registry.assets.map(a => a.part_id)), new Set(nodes.map(n => n.id)));
   assert(registry.assets.every(a => a.source.method === "manual" && a.review.mechanical_accuracy === "approximate"));
 });
-test("Las 27 entradas tienen alcance explícito: malla, cable, reserva o software", () => {
+test("Las entradas tienen alcance explícito: malla, cable, reserva o software", () => {
   const ids = [...registry.assets.map(a => a.part_id), ...production.unmodeled.map(a => a.part_id)];
-  assert.equal(ids.length, 27); assert.equal(new Set(ids).size, 27);
+  assert.equal(ids.length, parts.length); assert.equal(new Set(ids).size, parts.length);
   assert.deepEqual(new Set(ids), new Set(parts.map(p => p.id)));
   assert.equal(production.unmodeled.filter(a => a.status === "software_no_mesh").length, 2);
 });
@@ -76,5 +76,5 @@ for (const node of nodes) {
   dispose(model);
 }
 checks++;
-console.log("CORRECTO: exportación repetida de 14 GLB coincide byte a byte con las huellas revisadas");
+console.log(`CORRECTO: exportación repetida de ${nodes.length} GLB coincide byte a byte con las huellas revisadas`);
 console.log(`RECONSTRUCCIÓN: ${checks} comprobaciones de software, no certificación mecánica ni prueba física.`);

@@ -88,11 +88,22 @@
       "cable_id": "pwr-vmount-to-fx3-dummy",
       "electrical": {
         "revision": "2026-10-05-1",
-        "input_range_v": [9.6, 20],
-        "output_range_v": [8, 8.4],
+        "input_range_v": [
+          9.6,
+          20
+        ],
+        "output_range_v": [
+          8,
+          8.4
+        ],
         "input_min_current_a": 2,
         "output_max_current_a": 2,
-        "field_sources": {"input_range_v":"audit-doc-smallrig-4253b-manual","output_range_v":"audit-doc-smallrig-4253b-manual","input_min_current_a":"audit-doc-smallrig-4253b-manual","output_max_current_a":"audit-doc-smallrig-4253b-manual"}
+        "field_sources": {
+          "input_range_v": "audit-doc-smallrig-4253b-manual",
+          "output_range_v": "audit-doc-smallrig-4253b-manual",
+          "input_min_current_a": "audit-doc-smallrig-4253b-manual",
+          "output_max_current_a": "audit-doc-smallrig-4253b-manual"
+        }
       },
       "source": "D-Tap de VB99 Pro",
       "destination": "Compartimento FX3 mediante 4253B",
@@ -139,7 +150,10 @@
         "output_polarity": "center_positive",
         "barrel_outer_mm": 5.5,
         "barrel_inner_mm": null,
-        "field_sources": {"output_polarity":"src-smallhd-dtap-barrel","barrel_outer_mm":"src-smallhd-dtap-barrel"}
+        "field_sources": {
+          "output_polarity": "src-smallhd-dtap-barrel",
+          "barrel_outer_mm": "src-smallhd-dtap-barrel"
+        }
       },
       "source": "Salida D-Tap de 3203B",
       "destination": "Entrada DC del Indie 7",
@@ -151,7 +165,7 @@
       "routing_path": "De placa móvil trasera a monitor lateral fijo: sujetar en jaula, dejar bucles de servicio medidos en los ejes y retener sobrante en soporte de monitor, fuera de las manos.",
       "strain_relief_requirement": "Sujetar ambos extremos sin cargar los conectores; probar holgura y radio mínimo de curvatura.",
       "risk_notes": [
-        "Cable CBL-PWR-DTAP-BAR-36 con centro positivo publicado. Pinout de entrada del monitor y diámetro interior no verificados; comprobar coincidencia y tensión bajo carga antes de conectar.",
+        "Cable y entrada documentan centro positivo por separado; entrada Indie 7: 2.0 mm interior / 5.5 mm exterior. Interior del cable y ajuste físico todavía por verificar; medir tensión bajo carga antes de conectar.",
         "Cruza de móvil a fijo: no admite giro/rotación ilimitados.",
         "No unir batería móvil y monitor fijo con un cable tenso."
       ],
@@ -178,7 +192,43 @@
           -35
         ]
       },
-      "route_control_status": "approximate_annotation_not_cable_cut_or_swept_clearance"
+      "route_control_status": "approximate_annotation_not_cable_cut_or_swept_clearance",
+      "monitor_route_overrides": {
+        "cage": {
+          "routing_path": "Desde D-Tap de placa sobre varillas hasta monitor sobre jaula 4770. Ambos extremos pertenecen al núcleo; recoger sobrante lejos del asa, pantalla y liberación de la batería.",
+          "motion_boundary": "same_camera_core",
+          "route_control_frame": "world",
+          "route_control_offsets_mm": {
+            "a": [
+              -35,
+              18,
+              -15
+            ],
+            "b": [
+              -20,
+              -20,
+              -18
+            ]
+          }
+        },
+        "xlr": {
+          "routing_path": "Desde D-Tap de placa sobre varillas hasta monitor sobre kit 4830 del XLR-H1. Ambos extremos pertenecen al núcleo; recoger sobrante lejos del asa, pantalla y liberación de la batería.",
+          "motion_boundary": "same_camera_core",
+          "route_control_frame": "world",
+          "route_control_offsets_mm": {
+            "a": [
+              -35,
+              18,
+              -15
+            ],
+            "b": [
+              -20,
+              -20,
+              -18
+            ]
+          }
+        }
+      }
     },
     {
       "cable_id": "vid-fx3-to-smallhd",
@@ -219,7 +269,43 @@
           -35
         ]
       },
-      "route_control_status": "approximate_annotation_not_cable_cut_or_swept_clearance"
+      "route_control_status": "approximate_annotation_not_cable_cut_or_swept_clearance",
+      "monitor_route_overrides": {
+        "cage": {
+          "routing_path": "Desde HDMI izquierdo de FX3, retenido en la abrazadera de jaula, hacia el monitor sobre NATO 4770. Ambos extremos siguen el núcleo; dejar bucle para inclinación del monitor y acceso a conectores, sin cruzar el agarre.",
+          "motion_boundary": "same_camera_core",
+          "route_control_frame": "world",
+          "route_control_offsets_mm": {
+            "a": [
+              -35,
+              18,
+              -15
+            ],
+            "b": [
+              -20,
+              -20,
+              -18
+            ]
+          }
+        },
+        "xlr": {
+          "routing_path": "Desde HDMI izquierdo de FX3, retenido en la abrazadera de jaula, hacia el monitor sobre riel 4830 del XLR-H1. Ambos extremos siguen el núcleo; dejar bucle para inclinación del monitor y acceso a conectores, sin cruzar el agarre.",
+          "motion_boundary": "same_camera_core",
+          "route_control_frame": "world",
+          "route_control_offsets_mm": {
+            "a": [
+              -35,
+              18,
+              -15
+            ],
+            "b": [
+              -20,
+              -20,
+              -18
+            ]
+          }
+        }
+      }
     },
     {
       "cable_id": "vid-smallhd-to-ronin-transmitter",
@@ -710,6 +796,34 @@
       "display_kind": "contacts",
       "route_control_offsets_mm": null,
       "route_control_status": "approximate_annotation_not_cable_cut_or_swept_clearance"
+    },
+    {
+      "cable_id": "pwr-npf-to-smallhd-contacts",
+      "source": "Sony NP-F970/PRO elegida",
+      "destination": "Placa serie L nativa del Indie 7",
+      "connector_a": "Contactos serie L de batería",
+      "connector_b": "Contactos de placa serie L",
+      "type": "power",
+      "voltage_or_signal_standard": "7.2 V nominales; terminales SmallHD 6.0–16.8 V, combinación candidata pendiente de ensayo.",
+      "ideal_length_estimate": "Sin cable externo: contactos directos de bahía.",
+      "routing_path": "Batería en una bahía posterior del monitor; contacto directo, no línea que atraviesa gimbal.",
+      "strain_relief_requirement": "No hay cable: comprobar seguro y asiento de batería.",
+      "risk_notes": [
+        "No conectar esta batería al barril DC de mínimo 10 V.",
+        "Monitor no carga baterías; requiere cargador externo específico.",
+        "Una batería de ~300 g; retención, corriente disponible y autonomía reales por probar."
+      ],
+      "mandatory_or_optional": "optional",
+      "source_part_id": "sony-np-f970-pro",
+      "from_part_id": "sony-np-f970-pro",
+      "to_part_id": "smallhd-indie-7",
+      "status": "candidate",
+      "motion_boundary": "local_to_monitor",
+      "route_geometry": "contacts_only_not_port_CAD",
+      "from_port_id": "npf970-contacts",
+      "to_port_id": "indie7-l-series",
+      "display_kind": "contacts",
+      "route_control_offsets_mm": null
     }
   ],
   "route_control_status": "Anotación aproximada; no determina longitudes para cortar ni valida holgura de barrido."

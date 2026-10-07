@@ -1,6 +1,6 @@
 # Manifiesto verificado de piezas
 
-Generado desde `data/parts-manifest.json`. Auditoría 2026-10-06. 25 productos solicitados y 2 componentes del Combo, conservados.
+Generado desde `data/parts-manifest.json`. Auditoría 2026-10-06. 25 productos solicitados y 2 componentes del Combo conservados, más 3 accesorios de monitor verificados: 30 entradas.
 
 Plan de ingeniería, no montaje certificado. Medidas publicadas no prueban forma exacta, enganche de tornillos, equilibrio, rigidez, holguras ni compatibilidad de toda la pila. Fotos y geometría aproximada no son CAD calibrado.
 
@@ -202,14 +202,14 @@ Plan de ingeniería, no montaje certificado. Medidas publicadas no prueban forma
 - Medidas publicadas L/W/H: 180.1 / 118.6 / 33.5 mm. Aproximadas/incompletas: no.
 - Nota de dimensiones: B&H, modelo MON-INDIE-7: ancho × alto × fondo del cuerpo. No es la diagonal de la pantalla de siete pulgadas.
 - Masa publicada: 737 g. Aproximada: no.
-- Nota de masa: B&H: 26 oz / 737 g, sólo monitor, sin baterías ni soporte.
+- Nota de masa: B&H: 26 oz / 737 g, sólo monitor, sin baterías ni soporte. Tabla SmallHD publica 18.9 oz (~536 g) de equipo y 26 oz (~737 g) de paquete: discrepancia conservada; planificación 737 g hasta pesar configuración real.
 - Fuente de masa: [SmallHD](https://guide.smallhd.com/a/1634747-indie-7-quick-start-guide).
 - Masa de planificación: 737 g; no sustituye pesaje del subconjunto instalado.
-- Interfaces: Una entrada HDMI; Una salida HDMI; guía oficial: hasta 4Kp30; Dos conexiones 3G-SDI de entrada/salida; Entrada DC de barril: 10-34 V DC, capacidad de entrada de 2 A; diámetro interior no verificado; Conector de auriculares de 3.5 mm; Placa doble de batería Sony serie L; Micro USB de servicio
-- Montaje: Rosca de monitor 1/4"-20 fijada al soporte SmallRig 3026B.
+- Interfaces: Una entrada HDMI; Una salida HDMI; guía oficial: hasta 4Kp30; Dos conexiones 3G-SDI de entrada/salida; Entrada DC: 10–34 V; barril 2.0 mm interior / 5.5 mm exterior, centro positivo según tabla oficial SmallHD; Conector de auriculares de 3.5 mm; Placa doble de batería Sony serie L; Micro USB de servicio; Terminales batería serie L: 6.0–16.8 V; placa doble incluida; no carga baterías
+- Montaje: Rosca inferior 1/4-20 al 3026B lateral de gimbal o 2906B sobre riel NATO de jaula / 4830.
 - Material: Carcasa de aluminio, según la información del fabricante
 - Obligatorio/opcional: Obligatorio; función: Monitor principal del operador.
-- Restricciones: Su masa importa en el lateral del gimbal; acercarlo al pivote NATO, sin brazo largo.; La guía oficial indica 2 A, no 2 mm. Usar el cable de barril D-Tap de SmallHD y comprobar polaridad y ajuste antes de alimentar.
+- Restricciones: Su masa importa en el lateral del gimbal; acercarlo al pivote NATO, sin brazo largo.; No conectar batería 7.2 V al barril de mínimo 10 V. La batería serie L utiliza únicamente su placa nativa.
 - Confianza: Media.
 - [Fuente principal](https://guide.smallhd.com/a/1634747-indie-7-quick-start-guide); [fuente secundaria](https://www.bhphotovideo.com/c/product/1593398-REG/smallhd_mon_indie_7_indie_7_touchscreen_on_camera.html)
 
@@ -516,3 +516,60 @@ Plan de ingeniería, no montaje certificado. Medidas publicadas no prueban forma
 - Restricciones: Útil si se retira deliberadamente el monitor SmallHD o la transmisión Ronin para reducir peso.
 - Confianza: Alta.
 - [Fuente principal](https://creatorscloud.sony.net/catalog/en-jo/monitorcontrol/index.html)
+
+## Soporte NATO de monitor 2906B
+
+- ID: `smallrig-2906b`
+- Nombre oficial del fabricante: SmallRig Swivel and Tilt Adjustable Monitor Support with NATO Clamp.
+- Modelo: 2906B; fabricante: SmallRig; categoría: Soporte de monitor.
+- Medidas publicadas L/W/H: 52.6 / 36 / 53.8 mm. Aproximadas/incompletas: no.
+- Nota de dimensiones: Envolvente publicada; forma y asiento del montaje aproximados. Manual página 10: 53.8 de alto × 52.6 de ancho × 36.0 de fondo.
+- Masa publicada: 85 g. Aproximada: no.
+- Nota de masa: Masa nominal ±5 g publicada en manual, sin monitor ni batería.
+- Fuente de masa: [SmallRig](https://static.smallrig.com/mall/img/public/0g141qmktenu-1751249917074_.pdf).
+- Masa de planificación: 85 g; no sustituye pesaje del subconjunto instalado.
+- Interfaces: Abrazadera NATO; Tornillo 1/4-20 de monitor; Giro 360° e inclinación 180° publicados
+- Montaje: Abrazadera NATO sobre riel superior 4770 sin XLR, o riel del kit 4830 sobre XLR-H1. Tornillo superior 1/4-20 a rosca inferior del Indie 7.
+- Material: Aleación de aluminio y acero inoxidable, manual página 10
+- Obligatorio/opcional: Opcional; función: Monitor sobre núcleo a mano o estático; no sustituye 3026B lateral en gimbal..
+- Restricciones: Manual página 3: límite según ángulo, 4.2 kg a 90°, 2.5 kg a 45°, 2.3 kg a 30°. No certifica seguridad dinámica ni rosca del Indie 7.; Pines elásticos descritos para Atomos Ninja V/V+; no se afirma antitorsión del Indie 7.; Verificar asiento NATO, apriete, palanca de batería, cables y acceso a asa.
+- Confianza: Media.
+- [Fuente principal](https://static.smallrig.com/mall/img/public/0g141qmktenu-1751249917074_.pdf)
+
+## Extensión y riel XLR 4830
+
+- ID: `smallrig-4830`
+- Nombre oficial del fabricante: SmallRig Extension Mount Plate Kit for Sony FX3/FX30 XLR Handle.
+- Modelo: 4830; fabricante: SmallRig; categoría: audio handle accessory.
+- Medidas publicadas L/W/H: 124.8 / 55.8 / 77.5 mm. Aproximadas/incompletas: no.
+- Nota de dimensiones: Envolvente publicada; forma y asiento del montaje aproximados. Manual página 2: envolvente de kit 124.8 × 77.5 × 55.8 mm, no cotas de cada subpieza.
+- Masa publicada: 115 g. Aproximada: no.
+- Nota de masa: Masa nominal ±5 g publicada en manual, sin monitor ni batería.
+- Fuente de masa: [SmallRig](https://static.smallrig.com/mall/img/public/1725874097334_.pdf).
+- Masa de planificación: 115 g; no sustituye pesaje del subconjunto instalado.
+- Interfaces: Riel NATO para asa XLR; Orificios 1/4-20 y ARRI 3/8-16 publicados; Fijaciones M4 incluidas
+- Montaje: Extensión, pieza de bloqueo y riel NATO nativos sobre XLR-H1; seguir montaje del manual página 8. Retirar riel superior desmontable de 4770 antes de instalar XLR.
+- Material: Aleación de aluminio, acero inoxidable y silicona; manual página 2
+- Obligatorio/opcional: Opcional; función: Proporcionar riel de monitor cuando el asa Sony ocupa el techo de cámara..
+- Restricciones: Kit 4770 no incluye 4830; elegirlo expresamente.; Incluye riel NATO para XLR, extensión, bloqueo, dos tornillos M4 y dos llaves; no incluye asa Sony ni monitor.; No transferir monitor de gimbal sin desconectar y elegir esta cadena.; Verificar que monitor, batería y cables no cierren el agarre del asa.
+- Confianza: Media.
+- [Fuente principal](https://static.smallrig.com/mall/img/public/1725874097334_.pdf)
+
+## Batería Sony NP-F970/PRO
+
+- ID: `sony-np-f970-pro`
+- Nombre oficial del fabricante: Sony NP-F970/PRO Rechargeable Battery Pack.
+- Modelo: NP-F970/PRO; fabricante: Sony; categoría: Batería.
+- Medidas publicadas L/W/H: 70.8 / 38.4 / 60 mm. Aproximadas/incompletas: sí.
+- Nota de dimensiones: Envolvente publicada; forma y asiento del montaje aproximados. Ficha Sony NP-F970/PRO: ancho 38.4 × alto 60.0 × fondo 70.8 mm aproximados. No se extrapolan las cotas discrepantes de NP-F970 regional.
+- Masa publicada: 300 g. Aproximada: sí.
+- Nota de masa: Sony publica aproximadamente 300 g para NP-F970/PRO.
+- Fuente de masa: [Sony](https://www.sony.jp/products/catalog/SPC_NP-F970_PRO.pdf).
+- Masa de planificación: 300 g; no sustituye pesaje del subconjunto instalado.
+- Interfaces: Contactos serie L / InfoLITHIUM; 7.2 V nominales; no salida de barril ni USB
+- Montaje: Un paquete serie L en una de las dos bahías de la placa nativa incluida del Indie 7. Sin adaptador D-Tap ni cable a barril.
+- Material: Celdas de ion-litio publicadas; carcasa plástica estimada, no composición certificada.
+- Obligatorio/opcional: Opcional; función: Alimentación autónoma del monitor, también en gimbal vertical..
+- Restricciones: Tensión nominal 7.2 V; ficha Sony: 45 Wh / 6300 mAh. No es NP-FZ100 ni alimenta la FX3.; Usar cargador específico externo. El Indie 7 no carga baterías.; Una batería elegida: no representar dos paquetes ni prometer autonomía calculada.; Comprobar retención, carga disponible y tensión real bajo carga; interfaz serie L documentada, combinación física no ensayada.
+- Confianza: Media.
+- [Fuente principal](https://www.sony.jp/products/catalog/SPC_NP-F970_PRO.pdf)

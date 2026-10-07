@@ -3,76 +3,528 @@
   "scope": "Reglas conservadoras para el catálogo FX3 actual; no certifican compatibilidad universal ni sustituyen mediciones físicas.",
   "max_saved_rigs": 40,
   "catalog_revision": "fx3-rs4-2026-10-05",
-  "camera_part_ids": ["sony-fx3"],
-  "selection_checks": [
-    {"id":"camera","condition":{},"required_any":["sony-fx3"],"message":"Elige una cámara para iniciar el rig."},
-    {"id":"lens","condition":{"all":["sony-fx3"]},"required_any":["sony-fe-16-35-gm"],"message":"Falta una óptica para completar el núcleo de cámara."},
-    {"id":"gimbal","condition":{"context":"gimbal"},"required_all":["dji-rs4-pro-combo","dji-rs-bg70"],"message":"Este perfil necesita RS 4 Pro y BG70. La capacidad nominal no certifica equilibrio."},
-    {"id":"monitor-video","condition":{"all":["smallhd-indie-7"]},"required_all":["kondor-blue-hdmi-aa"],"message":"Monitor sin enlace de vídeo seleccionado."},
-    {"id":"monitor-power","condition":{"all":["smallhd-indie-7"]},"required_all":["smallhd-dtap-to-2mm-barrel","smallrig-vb99-pro"],"message":"Monitor en el plan, pero sin una cadena de alimentación activa. No se presupone batería interna ni una fuente no elegida."},
-    {"id":"vertical-monitor","condition":{"all":["smallhd-indie-7"],"context":"gimbal","orientation":"vertical"},"message":"Monitor lateral conservado en vertical como montaje candidato. Medir soporte, manos, holguras y bucle HDMI; la alimentación sigue pendiente sin una cadena activa. La pila V-mount vertical no está documentada."},
-    {"id":"camera-power","condition":{"all":["smallrig-vb99-pro","sony-fx3"]},"required_all":["smallrig-4253b"],"message":"V-mount elegida sin adaptador regulado para la FX3."},
-    {"id":"internal-battery","condition":{"all":["sony-fx3"],"none":["smallrig-4253b"]},"message":"Planifica una NP-FZ100 interna cargada: disponibilidad y masa no incluidas en el catálogo actual."},
-    {"id":"rx-mount","condition":{"all":["dji-mic-2-kit"]},"message":"RX Mic 2 en zapata inclinada HawkLock: interfaz documentada y 28 g publicados, posición aproximada. Probar retención, bucle TRS y barrido de motores; TX y estuche fuera del rig."},
-    {"id":"static-support","condition":{"context":"static"},"message":"Soporte estático real por seleccionar. No se representa un trípode ni se certifica estabilidad."},
-    {"id":"vertical-support","condition":{"orientation":"vertical","not_context":"gimbal"},"message":"Montaje vertical fuera del RS 4 Pro no documentado. El visor conserva orientación horizontal."}
+  "camera_part_ids": [
+    "sony-fx3"
   ],
-  "cable_exclusions": [{"cable_id":"audio-rx-to-fx3","condition":{"all":["sony-xlr-h1"]}}],
-  "parked_part_ids": ["startech-st122hd4ku", "dji-ronin-image-transmitter", "dji-hdmi-a-to-c", "dji-focus-pro-lidar", "dji-focus-pro-motor", "dji-lidar-transmission-hub"],
+  "selection_checks": [
+    {
+      "id": "camera",
+      "condition": {},
+      "required_any": [
+        "sony-fx3"
+      ],
+      "message": "Elige una cámara para iniciar el rig."
+    },
+    {
+      "id": "lens",
+      "condition": {
+        "all": [
+          "sony-fx3"
+        ]
+      },
+      "required_any": [
+        "sony-fe-16-35-gm"
+      ],
+      "message": "Falta una óptica para completar el núcleo de cámara."
+    },
+    {
+      "id": "gimbal",
+      "condition": {
+        "context": "gimbal"
+      },
+      "required_all": [
+        "dji-rs4-pro-combo",
+        "dji-rs-bg70"
+      ],
+      "message": "Este perfil necesita RS 4 Pro y BG70. La capacidad nominal no certifica equilibrio."
+    },
+    {
+      "id": "monitor-video",
+      "condition": {
+        "all": [
+          "smallhd-indie-7"
+        ]
+      },
+      "required_all": [
+        "kondor-blue-hdmi-aa"
+      ],
+      "message": "Monitor sin enlace de vídeo seleccionado."
+    },
+    {
+      "id": "monitor-power",
+      "condition": {
+        "all": [
+          "smallhd-indie-7"
+        ]
+      },
+      "message": "Elige alimentación: Sony NP-F970/PRO en la placa serie L incluida, o la cadena V-mount/D-Tap completa. La sugerencia de batería no se añade sin tu acción.",
+      "required_any": [
+        "sony-np-f970-pro",
+        "smallhd-dtap-to-2mm-barrel"
+      ],
+      "suggest_ids": [
+        "sony-np-f970-pro"
+      ]
+    },
+    {
+      "id": "vertical-monitor",
+      "condition": {
+        "all": [
+          "smallhd-indie-7"
+        ],
+        "context": "gimbal",
+        "orientation": "vertical"
+      },
+      "message": "Monitor lateral fijo y alimentación serie L disponibles en vertical. Medir manos, retención y bucle HDMI; V-mount vertical sigue en reserva."
+    },
+    {
+      "id": "camera-power",
+      "condition": {
+        "all": [
+          "smallrig-vb99-pro",
+          "sony-fx3"
+        ]
+      },
+      "required_all": [
+        "smallrig-4253b"
+      ],
+      "message": "V-mount elegida sin adaptador regulado para la FX3."
+    },
+    {
+      "id": "internal-battery",
+      "condition": {
+        "all": [
+          "sony-fx3"
+        ],
+        "none": [
+          "smallrig-4253b"
+        ]
+      },
+      "message": "Planifica una NP-FZ100 interna cargada: disponibilidad y masa no incluidas en el catálogo actual."
+    },
+    {
+      "id": "rx-mount",
+      "condition": {
+        "all": [
+          "dji-mic-2-kit"
+        ]
+      },
+      "message": "RX Mic 2 en zapata inclinada HawkLock: interfaz documentada y 28 g publicados, posición aproximada. Probar retención, bucle TRS y barrido de motores; TX y estuche fuera del rig."
+    },
+    {
+      "id": "static-support",
+      "condition": {
+        "context": "static"
+      },
+      "message": "Soporte estático real por seleccionar. No se representa un trípode ni se certifica estabilidad."
+    },
+    {
+      "id": "vertical-support",
+      "condition": {
+        "orientation": "vertical",
+        "not_context": "gimbal"
+      },
+      "message": "Montaje vertical fuera del RS 4 Pro no documentado. El visor conserva orientación horizontal."
+    },
+    {
+      "id": "monitor-local-power",
+      "condition": {
+        "all": [
+          "sony-np-f970-pro"
+        ]
+      },
+      "message": "NP-F970/PRO: una batería de 300 g aproximados en placa nativa serie L; cargador externo requerido. Comprobar retención y autonomía real. No conectar 7.2 V al barril DC."
+    }
+  ],
+  "cable_exclusions": [
+    {
+      "cable_id": "audio-rx-to-fx3",
+      "condition": {
+        "all": [
+          "sony-xlr-h1"
+        ]
+      }
+    }
+  ],
+  "parked_part_ids": [
+    "startech-st122hd4ku",
+    "dji-ronin-image-transmitter",
+    "dji-hdmi-a-to-c",
+    "dji-focus-pro-lidar",
+    "dji-focus-pro-motor",
+    "dji-lidar-transmission-hub"
+  ],
   "mount_dependencies": {
-    "sony-fe-16-35-gm": ["sony-fx3"],
-    "smallrig-4770": ["sony-fx3"],
-    "smallrig-1674": ["smallrig-4770"],
-    "smallrig-rods-8in": ["smallrig-1674"],
-    "smallrig-3645": ["sony-fe-16-35-gm"],
-    "smallrig-3203b": ["smallrig-rods-8in"],
-    "smallrig-vb99-pro": ["smallrig-3203b"],
-    "smallrig-4253b": ["smallrig-vb99-pro", "sony-fx3"],
-    "dji-rs4-pro-combo": ["sony-fx3", "smallrig-4770"],
-    "dji-rs-bg70": ["dji-rs4-pro-combo"],
-    "smallrig-3026b": ["dji-rs4-pro-combo"],
-    "smallhd-indie-7": ["smallrig-3026b"],
-    "sony-xlr-h1": ["sony-fx3"],
-    "kondor-blue-hdmi-aa": ["sony-fx3", "smallhd-indie-7"],
-    "smallhd-dtap-to-2mm-barrel": ["smallrig-vb99-pro", "smallrig-3203b", "smallhd-indie-7"],
-    "dji-r-usbc-control": ["dji-rs4-pro-combo", "sony-fx3"],
-    "dji-mic-2-kit": ["smallrig-4770"],
-    "dji-lavalier": ["dji-mic-2-kit"]
+    "sony-fe-16-35-gm": [
+      "sony-fx3"
+    ],
+    "smallrig-4770": [
+      "sony-fx3"
+    ],
+    "smallrig-1674": [
+      "smallrig-4770"
+    ],
+    "smallrig-rods-8in": [
+      "smallrig-1674"
+    ],
+    "smallrig-3645": [
+      "sony-fe-16-35-gm"
+    ],
+    "smallrig-3203b": [
+      "smallrig-rods-8in"
+    ],
+    "smallrig-vb99-pro": [
+      "smallrig-3203b"
+    ],
+    "smallrig-4253b": [
+      "smallrig-vb99-pro",
+      "sony-fx3"
+    ],
+    "dji-rs4-pro-combo": [
+      "sony-fx3",
+      "smallrig-4770"
+    ],
+    "dji-rs-bg70": [
+      "dji-rs4-pro-combo"
+    ],
+    "smallrig-3026b": [
+      "dji-rs4-pro-combo"
+    ],
+    "smallhd-indie-7": [
+      "smallrig-3026b"
+    ],
+    "sony-xlr-h1": [
+      "sony-fx3"
+    ],
+    "kondor-blue-hdmi-aa": [
+      "sony-fx3",
+      "smallhd-indie-7"
+    ],
+    "smallhd-dtap-to-2mm-barrel": [
+      "smallrig-vb99-pro",
+      "smallrig-3203b",
+      "smallhd-indie-7"
+    ],
+    "dji-r-usbc-control": [
+      "dji-rs4-pro-combo",
+      "sony-fx3"
+    ],
+    "dji-mic-2-kit": [
+      "smallrig-4770"
+    ],
+    "dji-lavalier": [
+      "dji-mic-2-kit"
+    ],
+    "smallrig-2906b": [
+      "smallrig-4770"
+    ],
+    "smallrig-4830": [
+      "sony-xlr-h1"
+    ],
+    "sony-np-f970-pro": [
+      "smallhd-indie-7"
+    ]
   },
-  "gimbal_only_part_ids": ["dji-rs4-pro-combo", "dji-rs-bg70", "smallrig-3026b", "smallhd-indie-7", "dji-r-usbc-control", "dji-ronin-app"],
-  "gimbal_excluded_part_ids": ["sony-xlr-h1"],
-  "vertical_excluded_part_ids": ["smallrig-1674","smallrig-rods-8in","smallrig-3645","smallrig-3203b","smallrig-vb99-pro","smallrig-4253b","smallhd-dtap-to-2mm-barrel"],
+  "gimbal_only_part_ids": [
+    "dji-rs4-pro-combo",
+    "dji-rs-bg70",
+    "smallrig-3026b",
+    "dji-r-usbc-control",
+    "dji-ronin-app"
+  ],
+  "gimbal_excluded_part_ids": [
+    "sony-xlr-h1",
+    "smallrig-2906b",
+    "smallrig-4830"
+  ],
+  "vertical_excluded_part_ids": [
+    "smallrig-1674",
+    "smallrig-rods-8in",
+    "smallrig-3645",
+    "smallrig-3203b",
+    "smallrig-vb99-pro",
+    "smallrig-4253b",
+    "smallhd-dtap-to-2mm-barrel"
+  ],
   "vertical_monitor_review": {
     "reviewed_on": "2026-10-06",
-    "part_ids": ["dji-rs4-pro-combo", "smallrig-3026b", "smallhd-indie-7", "kondor-blue-hdmi-aa"],
-    "source_urls": ["https://dl.djicdn.com/downloads/DJI_RS_4_Pro/UM/DJI_RS_4_User_Manual__v1.0__EN.pdf", "https://static.smallrig.com/mall/img/public/m1twezvd88j-1751250182064_.pdf"],
+    "part_ids": [
+      "dji-rs4-pro-combo",
+      "smallrig-3026b",
+      "smallhd-indie-7",
+      "kondor-blue-hdmi-aa"
+    ],
+    "source_urls": [
+      "https://dl.djicdn.com/downloads/DJI_RS_4_Pro/UM/DJI_RS_4_User_Manual__v1.0__EN.pdf",
+      "https://static.smallrig.com/mall/img/public/m1twezvd88j-1751250182064_.pdf"
+    ],
     "status": "documented_interfaces_candidate_not_physical_validation",
     "rationale": "El cambio vertical de DJI afecta a la plataforma de cámara; 3026B usa el NATO lateral fijo del RS 4 Pro. Se permite representar la misma cadena candidata de monitor lateral, no certificar holguras, rigidez, antitorsión o alimentación.",
     "pending": "Medir puertos, recorrido HDMI, manos y todos los ejes en vertical; la alimentación del Indie 7 queda pendiente sin una cadena activa. No se activa V-mount en vertical ni se modifica la plantilla vertical existente."
   },
   "categories": [
-    {"id":"core","label":"Cámara y óptica","part_ids":["sony-fx3","sony-fe-16-35-gm"]},
-    {"id":"rigging","label":"Jaulas y accesorios","part_ids":["smallrig-4770","smallrig-1674","smallrig-rods-8in","smallrig-3026b","smallrig-3645","sony-xlr-h1","smallrig-3203b"]},
-    {"id":"support","label":"Estabilización","part_ids":["dji-rs4-pro-combo","dji-rs-bg70"]},
-    {"id":"power","label":"Alimentación","part_ids":["smallrig-vb99-pro","smallrig-4253b","smallhd-dtap-to-2mm-barrel"]},
-    {"id":"video","label":"Monitor y conexiones","part_ids":["smallhd-indie-7","kondor-blue-hdmi-aa","dji-r-usbc-control","startech-st122hd4ku","dji-ronin-image-transmitter","dji-hdmi-a-to-c"]},
-    {"id":"audio","label":"Audio y aplicaciones","part_ids":["dji-mic-2-kit","dji-lavalier","dji-ronin-app","sony-monitor-control-app"]},
-    {"id":"focus","label":"Enfoque en reserva","part_ids":["dji-focus-pro-lidar","dji-focus-pro-motor","dji-lidar-transmission-hub"]}
+    {
+      "id": "core",
+      "label": "Cámara y óptica",
+      "part_ids": [
+        "sony-fx3",
+        "sony-fe-16-35-gm"
+      ]
+    },
+    {
+      "id": "rigging",
+      "label": "Jaulas y accesorios",
+      "part_ids": [
+        "smallrig-4770",
+        "smallrig-1674",
+        "smallrig-rods-8in",
+        "smallrig-3026b",
+        "smallrig-3645",
+        "sony-xlr-h1",
+        "smallrig-3203b",
+        "smallrig-2906b",
+        "smallrig-4830"
+      ]
+    },
+    {
+      "id": "support",
+      "label": "Estabilización",
+      "part_ids": [
+        "dji-rs4-pro-combo",
+        "dji-rs-bg70"
+      ]
+    },
+    {
+      "id": "power",
+      "label": "Alimentación",
+      "part_ids": [
+        "smallrig-vb99-pro",
+        "smallrig-4253b",
+        "smallhd-dtap-to-2mm-barrel",
+        "sony-np-f970-pro"
+      ]
+    },
+    {
+      "id": "video",
+      "label": "Monitor y conexiones",
+      "part_ids": [
+        "smallhd-indie-7",
+        "kondor-blue-hdmi-aa",
+        "dji-r-usbc-control",
+        "startech-st122hd4ku",
+        "dji-ronin-image-transmitter",
+        "dji-hdmi-a-to-c"
+      ]
+    },
+    {
+      "id": "audio",
+      "label": "Audio y aplicaciones",
+      "part_ids": [
+        "dji-mic-2-kit",
+        "dji-lavalier",
+        "dji-ronin-app",
+        "sony-monitor-control-app"
+      ]
+    },
+    {
+      "id": "focus",
+      "label": "Enfoque en reserva",
+      "part_ids": [
+        "dji-focus-pro-lidar",
+        "dji-focus-pro-motor",
+        "dji-lidar-transmission-hub"
+      ]
+    }
   ],
   "assembly_frames": [
-    {"step":1,"add_part_ids":["sony-fx3","sony-fe-16-35-gm"],"add_cable_ids":[],"context_part_ids":[],"note":"Presentación del cuerpo y la óptica en posición final aproximada; no simula el giro de bayoneta."},
-    {"step":2,"add_part_ids":["smallrig-4770","sony-xlr-h1","dji-mic-2-kit","dji-lavalier"],"add_cable_ids":["audio-rx-to-fx3","audio-rx-to-xlrhandle","audio-lav-to-tx"],"context_part_ids":[],"note":"Sólo RX Mic 2 sobre la zapata inclinada HawkLock; interfaz documentada, asiento y ángulo aproximados. TX y estuche fuera del rig."},
-    {"step":3,"add_part_ids":["smallrig-1674","smallrig-rods-8in"],"add_cable_ids":[],"context_part_ids":[],"note":"Pila de placas y enganche de tornillos pendientes de medición."},
-    {"step":4,"add_part_ids":["smallrig-3645"],"add_cable_ids":[],"context_part_ids":[],"note":"Anillo y abrazadera candidatos; verificar viñeteo y carga sobre el objetivo."},
-    {"step":5,"add_part_ids":["smallrig-3203b","smallrig-vb99-pro","smallrig-4253b"],"add_cable_ids":[],"context_part_ids":[],"note":"Montaje superior de abrazadera documentado; las holguras y la alimentación aún no están aprobadas."},
-    {"step":6,"add_part_ids":["smallrig-3026b","smallhd-indie-7"],"add_cable_ids":[],"context_part_ids":["dji-rs4-pro-combo","dji-rs-bg70"],"note":"El estabilizador gris es soporte de referencia para el monitor lateral. La carga móvil se acopla en la etapa siguiente."},
-    {"step":7,"add_part_ids":["dji-rs4-pro-combo","dji-rs-bg70"],"add_cable_ids":["pwr-bg70-to-rs4"],"context_part_ids":[],"note":"Comprobar placas y retenciones con los motores apagados; no se anima una trayectoria de inserción no medida."},
-    {"step":8,"add_part_ids":[],"add_cable_ids":[],"context_part_ids":[],"note":"Equilibrio manual según DJI; el visor no calcula par, centro de gravedad real ni ajuste de ejes."},
-    {"step":9,"add_part_ids":["kondor-blue-hdmi-aa"],"add_cable_ids":["vid-fx3-to-smallhd"],"context_part_ids":[],"note":"Una salida HDMI. La distribución dual es una alternativa de banco, no un accesorio montado aquí."},
-    {"step":10,"add_part_ids":["dji-r-usbc-control"],"add_cable_ids":["ctrl-rs4-to-fx3-usbc"],"context_part_ids":[],"note":"Comprobar REC/STOP y bucles sin tensión; coordenadas y radios aproximados."},
-    {"step":11,"add_part_ids":["smallhd-dtap-to-2mm-barrel"],"add_cable_ids":["pwr-vmount-to-fx3-dummy","pwr-plate-to-smallhd","pwr-vmount-to-plate-contacts"],"context_part_ids":[],"note":"Presentación de conexiones, no orden de energizado. Conectar apagado y verificar polaridad, regulación y cable específico."},
-    {"step":12,"add_part_ids":["dji-ronin-app","sony-monitor-control-app"],"add_cable_ids":[],"context_part_ids":[],"note":"Prueba física completa antes de ajuste automático o rodaje."},
-    {"step":13,"add_part_ids":[],"add_cable_ids":[],"context_part_ids":[],"note":"Extracción ilustrativa: sólo se conserva el núcleo seleccionado y el audio disponible. No promete liberación de la pila en un clic."}
+    {
+      "step": 1,
+      "add_part_ids": [
+        "sony-fx3",
+        "sony-fe-16-35-gm"
+      ],
+      "add_cable_ids": [],
+      "context_part_ids": [],
+      "note": "Presentación del cuerpo y la óptica en posición final aproximada; no simula el giro de bayoneta."
+    },
+    {
+      "step": 2,
+      "add_part_ids": [
+        "smallrig-4770",
+        "sony-xlr-h1",
+        "dji-mic-2-kit",
+        "dji-lavalier",
+        "smallrig-4830"
+      ],
+      "add_cable_ids": [
+        "audio-rx-to-fx3",
+        "audio-rx-to-xlrhandle",
+        "audio-lav-to-tx"
+      ],
+      "context_part_ids": [],
+      "note": "Sólo RX Mic 2 sobre la zapata inclinada HawkLock; interfaz documentada, asiento y ángulo aproximados. TX y estuche fuera del rig."
+    },
+    {
+      "step": 3,
+      "add_part_ids": [
+        "smallrig-1674",
+        "smallrig-rods-8in"
+      ],
+      "add_cable_ids": [],
+      "context_part_ids": [],
+      "note": "Pila de placas y enganche de tornillos pendientes de medición."
+    },
+    {
+      "step": 4,
+      "add_part_ids": [
+        "smallrig-3645"
+      ],
+      "add_cable_ids": [],
+      "context_part_ids": [],
+      "note": "Anillo y abrazadera candidatos; verificar viñeteo y carga sobre el objetivo."
+    },
+    {
+      "step": 5,
+      "add_part_ids": [
+        "smallrig-3203b",
+        "smallrig-vb99-pro",
+        "smallrig-4253b"
+      ],
+      "add_cable_ids": [],
+      "context_part_ids": [],
+      "note": "Montaje superior de abrazadera documentado; las holguras y la alimentación aún no están aprobadas."
+    },
+    {
+      "step": 6,
+      "add_part_ids": [
+        "smallrig-3026b",
+        "smallhd-indie-7",
+        "smallrig-2906b"
+      ],
+      "add_cable_ids": [],
+      "context_part_ids": [
+        "dji-rs4-pro-combo",
+        "dji-rs-bg70"
+      ],
+      "note": "El estabilizador gris es soporte de referencia para el monitor lateral. La carga móvil se acopla en la etapa siguiente."
+    },
+    {
+      "step": 7,
+      "add_part_ids": [
+        "dji-rs4-pro-combo",
+        "dji-rs-bg70"
+      ],
+      "add_cable_ids": [
+        "pwr-bg70-to-rs4"
+      ],
+      "context_part_ids": [],
+      "note": "Comprobar placas y retenciones con los motores apagados; no se anima una trayectoria de inserción no medida."
+    },
+    {
+      "step": 8,
+      "add_part_ids": [],
+      "add_cable_ids": [],
+      "context_part_ids": [],
+      "note": "Equilibrio manual según DJI; el visor no calcula par, centro de gravedad real ni ajuste de ejes."
+    },
+    {
+      "step": 9,
+      "add_part_ids": [
+        "kondor-blue-hdmi-aa"
+      ],
+      "add_cable_ids": [
+        "vid-fx3-to-smallhd"
+      ],
+      "context_part_ids": [],
+      "note": "Una salida HDMI. La distribución dual es una alternativa de banco, no un accesorio montado aquí."
+    },
+    {
+      "step": 10,
+      "add_part_ids": [
+        "dji-r-usbc-control"
+      ],
+      "add_cable_ids": [
+        "ctrl-rs4-to-fx3-usbc"
+      ],
+      "context_part_ids": [],
+      "note": "Comprobar REC/STOP y bucles sin tensión; coordenadas y radios aproximados."
+    },
+    {
+      "step": 11,
+      "add_part_ids": [
+        "smallhd-dtap-to-2mm-barrel",
+        "sony-np-f970-pro"
+      ],
+      "add_cable_ids": [
+        "pwr-vmount-to-fx3-dummy",
+        "pwr-plate-to-smallhd",
+        "pwr-vmount-to-plate-contacts",
+        "pwr-npf-to-smallhd-contacts"
+      ],
+      "context_part_ids": [],
+      "note": "Presentación de conexiones, no orden de energizado. Conectar apagado y verificar polaridad, regulación y cable específico."
+    },
+    {
+      "step": 12,
+      "add_part_ids": [
+        "dji-ronin-app",
+        "sony-monitor-control-app"
+      ],
+      "add_cable_ids": [],
+      "context_part_ids": [],
+      "note": "Prueba física completa antes de ajuste automático o rodaje."
+    },
+    {
+      "step": 13,
+      "add_part_ids": [],
+      "add_cable_ids": [],
+      "context_part_ids": [],
+      "note": "Extracción ilustrativa: sólo se conserva el núcleo seleccionado y el audio disponible. No promete liberación de la pila en un clic."
+    }
   ],
-  "extraction_keep_part_ids": ["sony-fx3","sony-fe-16-35-gm","smallrig-4770","sony-xlr-h1","dji-mic-2-kit","dji-lavalier","sony-monitor-control-app"]
+  "extraction_keep_part_ids": [
+    "sony-fx3",
+    "sony-fe-16-35-gm",
+    "smallrig-4770",
+    "sony-xlr-h1",
+    "dji-mic-2-kit",
+    "dji-lavalier",
+    "sony-monitor-control-app"
+  ],
+  "dynamic_mount_dependencies": [
+    {
+      "part_id": "smallhd-indie-7",
+      "condition": {
+        "not_context": "gimbal"
+      },
+      "required_all": [
+        "smallrig-2906b"
+      ]
+    },
+    {
+      "part_id": "smallrig-2906b",
+      "condition": {
+        "not_context": "gimbal",
+        "none": [
+          "sony-xlr-h1"
+        ]
+      },
+      "required_all": [
+        "smallrig-4770"
+      ]
+    },
+    {
+      "part_id": "smallrig-2906b",
+      "condition": {
+        "not_context": "gimbal",
+        "all": [
+          "sony-xlr-h1"
+        ]
+      },
+      "required_all": [
+        "smallrig-4830"
+      ]
+    }
+  ],
+  "catalog_additions_revision": "monitor-chains-2026-10-07"
 }

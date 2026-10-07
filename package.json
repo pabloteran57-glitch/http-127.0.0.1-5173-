@@ -1,17 +1,18 @@
 {
   "name": "rs4-pro-fx3-rig-planner",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "private": true,
   "type": "module",
   "scripts": {
     "dev": "vite --config vite.config.ts",
     "build:models": "node scripts/build-authored-models.mjs",
+    "build:visuals": "node scripts/build-product-visuals.mjs",
     "validate": "node scripts/validate-data.mjs && node scripts/audit-model-assets.mjs && npm run test:planner && npm run test:models",
     "test:planner": "node scripts/test-planner.mjs && node scripts/test-connections.mjs && node scripts/test-offline.mjs && node scripts/test-profiles.mjs",
-    "test:models": "node scripts/test-model-assets.mjs && node scripts/test-model-runtime.mjs && node scripts/test-authored-models.mjs",
+    "test:models": "node scripts/test-model-assets.mjs && node scripts/test-model-runtime.mjs && node scripts/test-authored-models.mjs && node scripts/test-product-visuals.mjs",
     "check:beta": "node scripts/check-beta-readiness.mjs",
-    "build": "npm run build:models && npm run validate && tsc --noEmit && vite build --config vite.config.ts",
-    "build:public": "npm run build:models && node scripts/validate-data.mjs --public && node scripts/audit-model-assets.mjs && npm run test:planner && npm run test:models && tsc --noEmit && vite build --config vite.config.ts --mode public-demo && node scripts/check-public-build.mjs",
+    "build": "npm run build:models && npm run build:visuals && npm run validate && tsc --noEmit && vite build --config vite.config.ts",
+    "build:public": "npm run build:models && npm run build:visuals && node scripts/validate-data.mjs --public && node scripts/audit-model-assets.mjs && npm run test:planner && npm run test:models && tsc --noEmit && vite build --config vite.config.ts --mode public-demo && node scripts/check-public-build.mjs",
     "preview:public": "vite preview --config vite.config.ts --mode public-demo",
     "preview": "vite preview --config vite.config.ts"
   },
@@ -33,6 +34,7 @@
     "postcss": "^8.5.3",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.8.2",
+    "sharp": "0.35.5",
     "vite": "^6.2.1"
   }
 }

@@ -36,4 +36,3 @@ export function titleCase(value: string) {
     .replace(/[-_]/g, " ")
     .replace(/\b\w/g, (match) => match.toUpperCase());
 }
-

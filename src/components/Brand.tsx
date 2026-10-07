@@ -6,4 +6,3 @@ export default function Brand({onHome}:{onHome?:()=>void}) {
     <strong>{brand.name.toLowerCase()}<span>{brand.descriptor.toUpperCase()}</span></strong>
   </a>;
 }
-

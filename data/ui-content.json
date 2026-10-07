@@ -27,7 +27,10 @@
     "smallhd-dtap-to-2mm-barrel": "D-Tap a DC SmallHD",
     "dji-ronin-image-transmitter": "RavenEye",
     "dji-ronin-app": "Aplicación Ronin",
-    "sony-monitor-control-app": "Monitor & Control"
+    "sony-monitor-control-app": "Monitor & Control",
+    "smallrig-2906b": "Soporte NATO de monitor 2906B",
+    "smallrig-4830": "Extensión y riel XLR 4830",
+    "sony-np-f970-pro": "Batería Sony NP-F970/PRO"
   },
   "profile_hints": {
     "documentary-one-man-film": "Cámara, monitor lateral y audio para un solo operador.",
@@ -78,7 +81,9 @@
     "Contactos de la batería V-mount": "Contactos de la batería V-mount",
     "Contactos de la placa V-mount": "Contactos de la placa V-mount",
     "Adaptador NP-FZ100 regulado": "Adaptador NP-FZ100 regulado",
-    "Cable cautivo integrado en el distribuidor": "Cable cautivo integrado en el distribuidor"
+    "Cable cautivo integrado en el distribuidor": "Cable cautivo integrado en el distribuidor",
+    "Contactos serie L de batería": "Contactos serie L de batería",
+    "Contactos de placa serie L": "Contactos de placa serie L"
   },
   "task_hints": {
     "design": "Explora el rig y toca una pieza para ver su ficha.",
@@ -139,41 +144,72 @@
     "schematic_only_not_port_CAD": "Esquema, no CAD de puertos"
   },
   "builder": {
-    "views": [{"id":"catalog","label":"Catálogo"},{"id":"selected","label":"Elegidas"},{"id":"settings","label":"Datos del rig"}],
-    "image_policy": "Versión pública: esquemas propios de categoría, no fotografías ni geometría exacta. Consulta la foto real en la fuente oficial. Las fotos revisadas sólo se muestran en investigación local; redistribución pendiente de permiso.",
+    "views": [
+      {
+        "id": "catalog",
+        "label": "Catálogo"
+      },
+      {
+        "id": "selected",
+        "label": "Elegidas"
+      },
+      {
+        "id": "settings",
+        "label": "Datos del rig"
+      }
+    ],
+    "image_policy": "Las piezas modeladas usan miniaturas de nuestras mallas 3D aproximadas, no fotografías ni CAD. Otros elementos conservan pictogramas etiquetados. Los enlaces oficiales permiten cotejar el producto. Cada miniatura se encuadra por separado y no compara tamaños relativos.",
     "contexts": [
-      {"id":"gimbal","label":"Con gimbal","detail":"Cámara estabilizada y monitor lateral.","icon":"design"},
-      {"id":"handheld","label":"A mano","detail":"Núcleo de cámara y accesorios seleccionados.","icon":"assemble"},
-      {"id":"static","label":"Cámara estática","detail":"El soporte de trípode queda por documentar.","icon":"inventory"}
+      {
+        "id": "gimbal",
+        "label": "Con gimbal",
+        "detail": "Cámara estabilizada y monitor lateral.",
+        "icon": "design"
+      },
+      {
+        "id": "handheld",
+        "label": "A mano",
+        "detail": "Núcleo de cámara y accesorios seleccionados.",
+        "icon": "assemble"
+      },
+      {
+        "id": "static",
+        "label": "Cámara estática",
+        "detail": "El soporte de trípode queda por documentar.",
+        "icon": "inventory"
+      }
     ],
     "roles": {
-      "dji-rs4-pro-combo":"Estabilizador; accesorios del Combo por separado",
-      "dji-rs-bg70":"Alimentación del gimbal",
-      "sony-fx3":"Cuerpo de cámara",
-      "sony-xlr-h1":"Asa y entradas XLR",
-      "sony-fe-16-35-gm":"Óptica Sony E",
-      "smallrig-4770":"Jaula y sujeción HDMI",
-      "smallrig-1674":"Base para las varillas",
-      "smallrig-rods-8in":"Par de varillas de 15 mm",
-      "smallrig-3645":"Parasol con filtro VND",
-      "smallrig-3026b":"Fija el monitor al lateral del gimbal",
-      "smallhd-indie-7":"Pantalla externa de 7 pulgadas",
-      "smallrig-vb99-pro":"Batería V-mount",
-      "smallrig-3203b":"Placa V-mount sobre varillas",
-      "smallrig-4253b":"Alimenta la cámara por adaptador regulado",
-      "dji-focus-pro-lidar":"Sensor; montaje y calibración pendientes",
-      "dji-focus-pro-motor":"Motor; calibración pendiente",
-      "dji-lidar-transmission-hub":"Requiere el sistema DJI Transmission",
-      "dji-mic-2-kit":"Dos transmisores, receptor y estuche",
-      "dji-lavalier":"Micrófono para el transmisor Mic 2",
-      "startech-st122hd4ku":"Doble HDMI; sólo circuito de banco",
-      "kondor-blue-hdmi-aa":"Vídeo de cámara a monitor",
-      "dji-hdmi-a-to-c":"Enlace de vídeo para RavenEye",
-      "dji-r-usbc-control":"Control de cámara desde el gimbal",
-      "smallhd-dtap-to-2mm-barrel":"Cable de alimentación del monitor",
-      "dji-ronin-image-transmitter":"RavenEye; soporte pendiente",
-      "dji-ronin-app":"Control desde un dispositivo compatible",
-      "sony-monitor-control-app":"Monitorización en un dispositivo compatible"
+      "dji-rs4-pro-combo": "Estabilizador; accesorios del Combo por separado",
+      "dji-rs-bg70": "Alimentación del gimbal",
+      "sony-fx3": "Cuerpo de cámara",
+      "sony-xlr-h1": "Asa y entradas XLR",
+      "sony-fe-16-35-gm": "Óptica Sony E",
+      "smallrig-4770": "Jaula y sujeción HDMI",
+      "smallrig-1674": "Base para las varillas",
+      "smallrig-rods-8in": "Par de varillas de 15 mm",
+      "smallrig-3645": "Parasol con filtro VND",
+      "smallrig-3026b": "Fija el monitor al lateral del gimbal",
+      "smallhd-indie-7": "Pantalla externa de 7 pulgadas",
+      "smallrig-vb99-pro": "Batería V-mount",
+      "smallrig-3203b": "Placa V-mount sobre varillas",
+      "smallrig-4253b": "Alimenta la cámara por adaptador regulado",
+      "dji-focus-pro-lidar": "Sensor; montaje y calibración pendientes",
+      "dji-focus-pro-motor": "Motor; calibración pendiente",
+      "dji-lidar-transmission-hub": "Requiere el sistema DJI Transmission",
+      "dji-mic-2-kit": "Dos transmisores, receptor y estuche",
+      "dji-lavalier": "Micrófono para el transmisor Mic 2",
+      "startech-st122hd4ku": "Doble HDMI; sólo circuito de banco",
+      "kondor-blue-hdmi-aa": "Vídeo de cámara a monitor",
+      "dji-hdmi-a-to-c": "Enlace de vídeo para RavenEye",
+      "dji-r-usbc-control": "Control de cámara desde el gimbal",
+      "smallhd-dtap-to-2mm-barrel": "Cable de alimentación del monitor",
+      "dji-ronin-image-transmitter": "RavenEye; soporte pendiente",
+      "dji-ronin-app": "Control desde un dispositivo compatible",
+      "sony-monitor-control-app": "Monitorización en un dispositivo compatible",
+      "smallrig-2906b": "Monitor sobre jaula o asa, fuera del gimbal.",
+      "smallrig-4830": "Riel NATO para montar monitor con el asa Sony.",
+      "sony-np-f970-pro": "Alimenta sólo el monitor sin cable D-Tap."
     }
   },
   "language": "es"

@@ -73,7 +73,7 @@
       "number": 6,
       "title": "Soporte y monitor",
       "mount": "3026B + Indie 7.",
-      "where": "Abrazadera NATO en lateral fijo RS; monitor bajo cabezal nativo mediante su rosca inferior 1/4-20.",
+      "where": "Usar la cadena elegida: lateral fija en gimbal; sobre riel de jaula o XLR en cámara a mano/estática.",
       "verify": [
         "Sin brazo de extensión inventado.",
         "Carga publicada del 3026B: 1.5 kg. Indie 7: 737 g sin accesorios; pesar conectores/fijaciones.",
@@ -81,7 +81,8 @@
       ],
       "rebalance": "Monitor fijo fuera de la carga móvil; revisar ergonomía y tirón de cables.",
       "applies_if_any_part_ids": [
-        "smallhd-indie-7"
+        "smallhd-indie-7",
+        "smallrig-2906b"
       ]
     },
     {
@@ -150,7 +151,8 @@
         "4253B: entrada 9.6-20 V con mínimo 2 A; salida regulada 8.0-8.4 V con máximo continuo 2 A.",
         "Indie 7: DC 10-34 V. Cable CBL-PWR-DTAP-BAR-36 con centro positivo publicado; diámetro interior y pinout de entrada del monitor pendientes. Verificar coincidencia antes de energizar.",
         "Adaptador de batería local en el bloque móvil. El cable al monitor cruza al lado fijo y necesita bucles sin tirar de los puertos.",
-        "Conectar apagado y proteger salida de la puerta de batería."
+        "Conectar apagado y proteger salida de la puerta de batería.",
+        "Alternativa elegida NP-F970/PRO: placa nativa serie L, sin cable DC; cargador externo y prueba bajo carga."
       ],
       "rebalance": "Revisar cualquier sesgo producido por los bucles.",
       "applies_if_any_part_ids": [

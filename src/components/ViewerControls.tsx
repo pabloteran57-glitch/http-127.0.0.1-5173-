@@ -53,4 +53,3 @@ export default function ViewerControls(props: ViewerControlsProps) {
     </div>
   );
 }
-

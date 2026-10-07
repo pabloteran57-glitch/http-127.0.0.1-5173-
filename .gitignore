@@ -1,9 +1,11 @@
 node_modules
 dist
 dist-public
+hosting/sites-public/
 public/references/
 public/previews/
 public/models/*-takegrid-v1.glb
+public/product-visuals/*.webp
 research/private/
 research/model-incoming/
 public/brand/*.png

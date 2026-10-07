@@ -4,7 +4,7 @@ import { Group, type Object3D } from "three";
 import type { ModelAsset } from "../lib/model-assets";
 import { disposeModel, loadAuditedModel, modelAppearance, type ModelLoadReport } from "../lib/model-runtime";
 
-export default function ApprovedModel({ asset, selected, context, fallback, reportKey, onReport }: { asset: ModelAsset; selected: boolean; context: boolean; fallback: ReactNode; reportKey: string; onReport: (report: ModelLoadReport) => void }) {
+export default function ApprovedModel({ asset, selected, context, fallback, reportKey, onReport, removeTopRail=false }: { asset: ModelAsset; selected: boolean; context: boolean; fallback: ReactNode; reportKey: string; onReport: (report: ModelLoadReport) => void; removeTopRail?:boolean }) {
   const [model, setModel] = useState<Object3D | null>(null);
   const [state, setState] = useState<ModelLoadReport["state"]>("loading");
   const wrapper = useRef<Group>(null);
@@ -35,5 +35,9 @@ export default function ApprovedModel({ asset, selected, context, fallback, repo
     invalidate(); return restore;
   }, [context, selected, model, invalidate]);
   const c = asset.calibration;
+  useEffect(()=>{
+    model?.traverse(object=>{if(object.name==="smallrig-4770/natoRail")object.visible=!removeTopRail;});
+    invalidate();
+  },[model,removeTopRail,invalidate]);
   return <group ref={wrapper}>{model ? <group position={c.offset_mm.map(v => v / 100) as [number, number, number]} rotation={c.rotation_deg.map(v => v * Math.PI / 180) as [number, number, number]} scale={c.uniform_scale * 10}><primitive object={model} dispose={null} /></group> : fallback}</group>;
 }

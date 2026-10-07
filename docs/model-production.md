@@ -1,6 +1,6 @@
 # Producción de modelos realistas
 
-Fuentes canónicas: `data/model-production.json` y `data/model-assets.json`. Revisión 2026-10-06. Estado: `authored_approximate_batch_original_exact_assets_pending`. **14 mallas aprobadas. No se ha sustituido ninguna forma por un recurso sin auditar.**
+Fuentes canónicas: `data/model-production.json` y `data/model-assets.json`. Revisión 2026-10-06. Estado: `authored_approximate_batch_original_exact_assets_pending`. **17 mallas aprobadas. No se ha sustituido ninguna forma por un recurso sin auditar.**
 
 ## Acción por acción
 
@@ -22,7 +22,7 @@ Reconstrucciones propias aproximadas; no descargas de Sketchfab ni resultados de
 |---|---|---:|---:|---|
 | FX3 | `/models/sony-fx3-takegrid-v1.glb` | 12808 | 608396 | Cuerpo ILME-FX3 129.7 × 77.8 × 84.5 mm, sin salientes, en manifiesto. Malla incluye controles y zapata estimados; su altura 82.9 mm no se presenta como la cota publicada. Roscas y bayoneta sólo visuales. |
 | 16-35 mm GM | `/models/sony-fe-16-35-gm-takegrid-v1.glb` | 9588 | 404296 | SEL1635GM primera generación, diámetro 88.5 y longitud 121.6 mm publicados. Perfil, estriado y controles estimados, sin parasol ni extensión de zoom medida. |
-| Jaula HawkLock | `/models/smallrig-4770-takegrid-v1.glb` | 4996 | 235332 | Kit 4770 160 × 101.2 × 66.2 mm publicado. Marco abierto y zapata de página 4; forma estimada. Altura 110.18 mm incluye la pose candidata de zapata canónica: discrepancia no corregida por deformación ni declarada exacta. |
+| Jaula HawkLock | `/models/smallrig-4770-takegrid-v1.glb` | 4996 | 236268 | Kit 4770 160 × 101.2 × 66.2 mm publicado. Marco abierto y zapata de página 4; forma estimada. Altura 110.18 mm incluye la pose candidata de zapata canónica: discrepancia no corregida por deformación ni declarada exacta. |
 | Base 1674 | `/models/smallrig-1674-takegrid-v1.glb` | 2420 | 116664 | Cuerpo publicado 80 × 80 × 26 mm; 15 mm de paso y 60 mm entre varillas. Palancas y salientes estimados llevan envolvente de malla a 90 × 28.35 × 80 mm. |
 | Varillas de 8 pulgadas | `/models/smallrig-rods-8in-takegrid-v1.glb` | 2560 | 70984 | Par con 15 mm de diámetro exterior, pared de 2 mm y 203.2 mm de longitud publicados; centros a 60 mm. Acentos visuales añaden 0.01 mm, no textura ni material medido. |
 | Parasol Star-Trail | `/models/smallrig-3645-takegrid-v1.glb` | 2484 | 120124 | Envolvente del cuerpo 156 × 116 × 32 mm aproximada en layout. Malla con bandera estimada desplegada, no comparar su caja total con medidas del cuerpo. Filtro y perfil no verifican asiento. |
@@ -34,6 +34,9 @@ Reconstrucciones propias aproximadas; no descargas de Sketchfab ni resultados de
 | Indie 7 | `/models/smallhd-indie-7-takegrid-v1.glb` | 6640 | 324300 | 180.1 × 118.6 × 33.5 mm publicados. Pantalla frontal -Z, dos alojamientos NP-F vacíos y rosca inferior ilustrativa; no se añaden baterías ni se certifica pinout. |
 | Mic 2 / receiver | `/models/dji-mic-2-kit-takegrid-v1.glb` | 3184 | 158944 | Sólo DMR02 RX, 54.2 × 28.36 × 22.49 mm y 28 g publicados; ejes adaptados al layout. Zapata integrada, OLED y dial estimados. No se fusionan TX/estuche ni se simula adaptador MI. |
 | XLR-H1 | `/models/sony-xlr-h1-takegrid-v1.glb` | 4560 | 227200 | XLR-H1; envolvente 65 × 78 × 128 mm aproximada en layout. Pie, mandos y conectores estimados; no verifica roscas, asiento ni compatibilidad con gimbal. |
+| Soporte NATO de monitor 2906B | `/models/smallrig-2906b-takegrid-v1.glb` | 2568 | 130192 | Envolvente de planificación XYZ 52.6 × 53.8 × 36 mm; malla 56.50 × 53.80 × 32.00 mm. Contorno, controles, contactos y holguras aproximados desde referencias. No deformada para igualar cotas; no CAD ni encaje probado. |
+| Extensión y riel XLR 4830 | `/models/smallrig-4830-takegrid-v1.glb` | 2292 | 113592 | Envolvente de planificación XYZ 55.8 × 77.5 × 124.8 mm; malla 66.00 × 59.55 × 122.00 mm. Contorno, controles, contactos y holguras aproximados desde referencias. No deformada para igualar cotas; no CAD ni encaje probado. |
+| Batería Sony NP-F970/PRO | `/models/sony-np-f970-pro-takegrid-v1.glb` | 1540 | 79280 | Envolvente de planificación XYZ 38.4 × 70.8 × 60 mm; malla 38.40 × 70.80 × 61.25 mm. Contorno, controles, contactos y holguras aproximados desde referencias. No deformada para igualar cotas; no CAD ni encaje probado. |
 
 | Orden | Producto | Subcomponente | Estado | Referencias necesarias |
 |---|---|---|---|---|
@@ -111,7 +114,7 @@ Usuario inició sesión en Meshy en Edge. Cuenta gratuita observada el 6 de octu
 - Puertos, soporte, masa y cables siguen en manifiestos
 - Atribución visible, regresiones y comparación móvil
 
-14 nodos del layout tienen reconstrucción propia aproximada. No se da por cumplida la petición de módulos exactos: CAD/escaneos y el resto de piezas físicas siguen pendientes. Software sin objeto 3D, cables sin trayectoria física inventada y accesorios en reserva sin soporte ficticio. Cada alta repite los controles.
+17 nodos del layout tienen reconstrucción propia aproximada. No se da por cumplida la petición de módulos exactos: CAD/escaneos y el resto de piezas físicas siguen pendientes. Software sin objeto 3D, cables sin trayectoria física inventada y accesorios en reserva sin soporte ficticio. Cada alta repite los controles.
 
 ## Resto del catálogo actual
 
@@ -119,7 +122,7 @@ Usuario inició sesión en Meshy en Edge. Cuenta gratuita observada el 6 de octu
 - **HDMI Kondor Blue**: `cable_connector_geometry_pending`. Recorrido lógico flexible existente; forma y esfuerzo de cable espiral no medidos.
 - **HDMI A-C DJI**: `cable_connector_geometry_pending`. Extremos HDMI A/C documentados, ruta de banco; conectores no modelados.
 - **Control USB-C DJI**: `cable_connector_geometry_pending`. Ruta USB-C activa según selección; forma de conectores y radios por medir.
-- **D-Tap a DC SmallHD**: `cable_connector_geometry_pending`. Exterior 5.5 mm publicado; interior y pinout de monitor pendientes. No inventar diámetro para modelar.
+- **D-Tap a DC SmallHD**: `cable_connector_geometry_pending`. Exterior 5.5 mm y polaridad del cable publicados; interior del cable y ajuste físico pendientes. Entrada del monitor 2.0/5.5 mm y centro positivo documentados por separado.
 - **Focus Pro LiDAR**: `reserve_component_geometry_pending`. Modelo separado, revisión y soporte por verificar; sin activación ni cableado implícitos.
 - **Motor Focus Pro**: `reserve_component_geometry_pending`. Motor separado; anillo y calibración SEL1635GM no resueltos.
 - **Interfaz LiDAR / Transmission**: `reserve_component_geometry_pending`. No usar como RavenEye ni activarlo sin DJI Transmission correspondiente.

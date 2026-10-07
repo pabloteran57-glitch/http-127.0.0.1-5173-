@@ -18,7 +18,7 @@ const mass=v=>layout.nodes.filter(n=>n.mass_domain==="moving"&&v.active_part_ids
 const disclaimer="Plan de ingeniería, no montaje certificado. Medidas publicadas no prueban forma exacta, enganche de tornillos, equilibrio, rigidez, holguras ni compatibilidad de toda la pila. Fotos y geometría aproximada no son CAD calibrado.";
 write("verified-build-manifest.md",`# Manifiesto verificado de piezas
 
-Generado desde \`data/parts-manifest.json\`. Auditoría ${parts.engineering_audit_on??parts.verified_on}. 25 productos solicitados y 2 componentes del Combo, conservados.
+Generado desde \`data/parts-manifest.json\`. Auditoría ${parts.engineering_audit_on??parts.verified_on}. 25 productos solicitados y 2 componentes del Combo conservados, más 3 accesorios de monitor verificados: ${parts.parts.length} entradas.
 
 ${disclaimer}
 
@@ -49,6 +49,12 @@ ${disclaimer}
 
 Varillas: 15 mm de diámetro, 203.2 mm de largo, 60 mm entre centros según el manual 1674. No barras ficticias de 410 mm. 3203B: abrazadera al borde superior documentada en la página 5 del manual, placa bajo las varillas; barrido del giro horizontal pendiente.
 
+## Cadenas alternativas de monitor
+
+${Object.entries(layout.monitor_mount_routes??{}).map(([id,route])=>`### ${route.label}\n\nRuta \`${id}\`; posiciones ilustrativas, no asiento verificado.\n\n${Object.entries(route.overrides).map(([part,pose])=>`- ${name(part)}: posición ${pose.position_mm?.join(" / ")??"heredada"} mm; soporte ${pose.parent_id?name(pose.parent_id):"heredado"}; carga ${pose.mass_domain??"heredada"}.`).join("\n")}`).join("\n\n")}
+
+En gimbal conservar 3026B lateral fijo. A mano/estática usar 2906B sobre NATO 4770 sin XLR, o kit 4830 sobre XLR-H1 si el asa está elegida. No ocupar simultáneamente el riel superior 4770 y la interfaz XLR. Cada pieza se añade sólo por elección del usuario. NP-F970/PRO elegida alimenta el monitor en su placa nativa incluida, sin cable al barril.
+
 ${layout.nodes.map(n=>`## ${n.label}
 
 - Posición candidata XYZ: ${n.position_mm.join(" / ")} mm; rotación XYZ: ${n.rotation_deg.join(" / ")} grados.
@@ -74,9 +80,9 @@ ${layout.nodes.map(n=>`## ${n.label}
 
 ${variants.variants.map(v=>"- "+v.label+": "+(mass(v)/1000).toFixed(2)+" kg de piezas móviles modeladas.").join("\n")}
 
-Incluye masas de planificación aproximadas, especialmente varillas y parasol, y 28 g publicados del RX Mic 2 cuando está activo. Excluye cables, TX, estuche, tarjetas y tornillos adicionales. Monitor fijo fuera de la carga móvil. No sumar BG30 estándar al BG70 ni el Combo entero a sus subcomponentes. Peso total llevado y centro de gravedad reales no medidos.
+Incluye masas de planificación aproximadas, especialmente varillas y parasol, y 28 g publicados del RX Mic 2 cuando está activo. Excluye cables, TX, estuche, tarjetas y tornillos adicionales. Monitor lateral fijo fuera de carga móvil en gimbal; monitor sobre jaula/asa y batería elegida incluidos en el núcleo a mano/estático. No sumar BG30 estándar al BG70 ni el Combo entero a sus subcomponentes. Peso total llevado y centro de gravedad reales no medidos.
 
-3026B: límite de carga publicado 1.5 kg, Indie 7 737 g sin accesorios. La comparación escalar no prueba rigidez, par de inclinación ni seguridad dinámica.
+3026B: límite publicado 1.5 kg; monitor 737 g de planificación conservadora, más NP-F970/PRO ~300 g si se elige. SmallHD publica masa inferior discrepante; pesar equipo real. La comparación escalar no prueba rigidez, par ni seguridad dinámica.
 
 ## Pruebas de liberación
 
@@ -90,12 +96,13 @@ Canónicos: \`data/cables-manifest.json\` y \`data/ports-manifest.json\`. ${cabl
 - BG70 -> contactos empuñadura -> RS 4 Pro, no cable externo ni segunda batería BG30.
 - VB99 D-Tap -> 4253B regulado -> NP-FZ100 adaptador de batería -> FX3.
 - VB99 contactos V-mount -> 3203B -> D-Tap -> SmallHD conector de barril 5.5 mm externo -> Indie 7 DC I.
+- Alternativa propia: NP-F970/PRO -> contactos de placa serie L incluida -> Indie 7. Una batería elegida, sin cable; 7.2 V nominales y ~300 g. Nunca al barril DC de mínimo 10 V. Cargador externo requerido; el monitor no carga baterías.
 - RS RSS -> USB-C control -> FX3 USB-C.
 - Gimbal candidato: única FX3 HDMI A -> Indie 7 HDMI IN J.
 - Doble salida solicitada, en banco: FX3 HDMI -> entrada cautiva StarTech -> salida 1 A-A a Indie 7 / salida 2 A-C a RavenEye. Adaptador StarTech incluido de 5 V / 2 A. No distribuidor sin fuente ni montaje invisible.
 - RavenEye en banco con batería interna; no reclamar control gimbal/ActiveTrack por sólo tener vídeo.
 
-**Corrección eléctrica:** Cable SmallHD CBL-PWR-DTAP-BAR-36 de 5.5 mm exterior y centro positivo publicado. El ID histórico \`smallhd-dtap-to-2mm-barrel\` no afirma diámetro de 2 mm. Diámetro interior y pinout de entrada del monitor pendientes: no extrapolar del cable. Indie 7: 10-34 V DC, 2 A de entrada publicados, no consumo real medido. 4253B: entrada 9.6-20 V con mínimo 2 A, salida 8.0-8.4 V con máximo continuo 2 A.
+**Corrección eléctrica:** Cable CBL-PWR-DTAP-BAR-36: exterior 5.5 mm y centro positivo publicados, interior del cable por confirmar. Fuente independiente SmallHD, tabla técnica Power: entrada del Indie 7 de 2.0 mm interior / 5.5 mm exterior y centro positivo, DC 10–34 V; terminales batería 6.0–16.8 V. El ID histórico del cable no es prueba de conector. 4253B: entrada 9.6–20 V / mínimo 2 A, salida 8.0–8.4 V / máximo continuo 2 A. Todas las cargas y ajustes reales siguen pendientes.
 
 Revisión por circuito y fuentes: [comprobaciones de conexiones](connection-reviews.md). Tres enlaces revisados documentalmente; los demás no se dan por compatibles por tener puertos identificados.
 
@@ -117,7 +124,7 @@ ${cables.cables.map(c=>`### ${c.cable_id}
 - Alivio de tensión: ${c.strain_relief_requirement}
 - Riesgos: ${join(c.risk_notes)}
 - Obligatorio/opcional: ${label(c.mandatory_or_optional)}; estado: ${label(c.status)}; visualización: ${label(c.display_kind)}.
-- Cruce de movimiento: ${label(c.motion_boundary)}; geometría: ${label(c.route_geometry)}.
+- Cruce de movimiento: ${label(c.motion_boundary)}; geometría: ${label(c.route_geometry)}.\n${Object.entries(c.monitor_route_overrides??{}).map(([route,override])=>`- Recorrido ${route}: ${override.routing_path} Cruce: ${override.motion_boundary}. Curva ilustrativa, no ruta física medida.`).join("\n")}
 `).join("\n")}
 
 ## Puertos identificados
@@ -219,7 +226,7 @@ Medios de fabricante para investigación local, no licencia abierta de redistrib
 
 No hay medición del conjunto físico ni certificación de producción. El plan conserva esos límites en datos, documentación e interfaz; los planes se guardan en Mis rigs, sin exportación de archivos.
 `);
-write("catalog-pilot.md",`# Lote piloto de catálogo\n\nFuente canónica de investigación: \`data/catalog-intake.json\`. Revisión ${intake.reviewed_on}. **Diez candidatos; ninguno activado.** No se incluyen imágenes sin permiso ni formas heredadas.\n\n## Manifiesto inicial\n\n| Producto | Modelo | Masa publicada (g) | Cotas publicadas (mm) | Fuente |\n|---|---|---:|---|---|\n${intake.products.map(p=>`| ${p.exact_product_name} | ${p.model_number} | ${p.weight_approximate?"~ ":""}${p.weight_g} | ${p.dimensions.approximate?"~ ":""}${p.dimensions.diameter_mm?`D ${p.dimensions.diameter_mm} × L ${p.dimensions.length_mm}`:`W ${p.dimensions.width_mm} × H ${p.dimensions.height_mm} × D ${p.dimensions.depth_mm}`} | [Sony](${p.source_url}) |`).join("\n")}\n\n## Límites y liberación\n\n${bullets(intake.common_limits)}\n\n${intake.release_gates.map((g,i)=>`${i+1}. ${g}.`).join("\n")}\n\n## Conjuntos candidatos\n\n${intake.configuration_candidates.map(c=>`- \`${c.id}\`: ${c.part_ids.join(", ")}. ${c.reason}`).join("\n")}\n\nDistribución, cableado, guía y representación pendientes. Este lote no modifica las 27 piezas utilizables del catálogo actual.\n`);
+write("catalog-pilot.md",`# Lote piloto de catálogo\n\nFuente canónica de investigación: \`data/catalog-intake.json\`. Revisión ${intake.reviewed_on}. **Diez candidatos; ninguno activado.** No se incluyen imágenes sin permiso ni formas heredadas.\n\n## Manifiesto inicial\n\n| Producto | Modelo | Masa publicada (g) | Cotas publicadas (mm) | Fuente |\n|---|---|---:|---|---|\n${intake.products.map(p=>`| ${p.exact_product_name} | ${p.model_number} | ${p.weight_approximate?"~ ":""}${p.weight_g} | ${p.dimensions.approximate?"~ ":""}${p.dimensions.diameter_mm?`D ${p.dimensions.diameter_mm} × L ${p.dimensions.length_mm}`:`W ${p.dimensions.width_mm} × H ${p.dimensions.height_mm} × D ${p.dimensions.depth_mm}`} | [Sony](${p.source_url}) |`).join("\n")}\n\n## Límites y liberación\n\n${bullets(intake.common_limits)}\n\n${intake.release_gates.map((g,i)=>`${i+1}. ${g}.`).join("\n")}\n\n## Conjuntos candidatos\n\n${intake.configuration_candidates.map(c=>`- \`${c.id}\`: ${c.part_ids.join(", ")}. ${c.reason}`).join("\n")}\n\nDistribución, cableado, guía y representación pendientes. Este lote no modifica las ${parts.parts.length} entradas del catálogo actual.\n`);
 write("product-progress.md",`# Avance por fases\n\nFuente: \`data/product-roadmap.json\`. Estado: prototipo en curso. Ningún criterio externo se da por cumplido a partir de compilación.\n\n| Fase | Estado de preparación | Evidencia y trabajo restante |\n|---|---|---|\n${roadmap.phases.map(p=>`| ${p.order}. ${p.title} | \`${p.status}\` | [Documento](${p.verification_report.replace("docs/","")}); ${p.remaining.join("; ")} |`).join("\n")}\n\nDecisión del usuario: guardado local por ahora. Cuentas, sincronización y enlaces privados siguen en el plan futuro, aplazados. Catálogo activo sin ampliaciones no verificadas.\n`);
 write("connection-reviews.md",`# Revisión de conexiones
 

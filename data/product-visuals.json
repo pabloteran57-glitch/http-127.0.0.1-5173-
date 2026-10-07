@@ -1,0 +1,295 @@
+{
+  "version": 1,
+  "assets": [
+    {
+      "id": "sony-fx3-takegrid-v1",
+      "part_id": "sony-fx3",
+      "subcomponent_id": null,
+      "model_sha256": "47fe25a63a9d0454c9d77facf7402d02dfc525404d470fa0ec127378a67c1463",
+      "status": "approved",
+      "method": "rendered_approved_mesh",
+      "image": {
+        "path": "/product-visuals/sony-fx3-takegrid-v1.webp",
+        "sha256": "b88ef9f8e27f3c1a74729d7fe8aad18dc5e999a010cdfe701d0cbac995c2da6e",
+        "bytes": 9590,
+        "width": 400,
+        "height": 280
+      },
+      "caption": "Modelo aproximado",
+      "reviewed_on": "2026-10-07"
+    },
+    {
+      "id": "sony-fe-16-35-gm-takegrid-v1",
+      "part_id": "sony-fe-16-35-gm",
+      "subcomponent_id": null,
+      "model_sha256": "4c788eb7dd0b2e06a385b5ee2fc5ee0059c07630154a332d658825a0d0a0029d",
+      "status": "approved",
+      "method": "rendered_approved_mesh",
+      "image": {
+        "path": "/product-visuals/sony-fe-16-35-gm-takegrid-v1.webp",
+        "sha256": "16729693375821efa4c490e5c8b0d168350834f0cccfa6ddf073d02734d422dc",
+        "bytes": 11220,
+        "width": 400,
+        "height": 280
+      },
+      "caption": "Modelo aproximado",
+      "reviewed_on": "2026-10-07"
+    },
+    {
+      "id": "smallrig-4770-takegrid-v1",
+      "part_id": "smallrig-4770",
+      "subcomponent_id": null,
+      "model_sha256": "c35f32304a9018b0737dd365cadaa38f69932074bf2f6a43d405ed2f5c4d9b4b",
+      "status": "approved",
+      "method": "rendered_approved_mesh",
+      "image": {
+        "path": "/product-visuals/smallrig-4770-takegrid-v1.webp",
+        "sha256": "4e71a402441723a26a8fdca3942d6fbbfa0b82441710da7030e4e64674d806c2",
+        "bytes": 8304,
+        "width": 400,
+        "height": 280
+      },
+      "caption": "Modelo aproximado",
+      "reviewed_on": "2026-10-07"
+    },
+    {
+      "id": "smallrig-1674-takegrid-v1",
+      "part_id": "smallrig-1674",
+      "subcomponent_id": null,
+      "model_sha256": "b7dd92d8234de7128640474cae8387d4859ae9ae81301e7b8a94baefa99b8aad",
+      "status": "approved",
+      "method": "rendered_approved_mesh",
+      "image": {
+        "path": "/product-visuals/smallrig-1674-takegrid-v1.webp",
+        "sha256": "61981fec33932ebffc784e692d23613c879b306ce376bfbd6404664bd762ee4e",
+        "bytes": 8294,
+        "width": 400,
+        "height": 280
+      },
+      "caption": "Modelo aproximado",
+      "reviewed_on": "2026-10-07"
+    },
+    {
+      "id": "smallrig-rods-8in-takegrid-v1",
+      "part_id": "smallrig-rods-8in",
+      "subcomponent_id": null,
+      "model_sha256": "431092c55db1c36219eae0a22aaac2ad0712d2155cb3fe98162157a3b26f3599",
+      "status": "approved",
+      "method": "rendered_approved_mesh",
+      "image": {
+        "path": "/product-visuals/smallrig-rods-8in-takegrid-v1.webp",
+        "sha256": "0d0ae54694d1a4243728319a3a951df24bf619ac5ec3e58818e6bf28469a3c62",
+        "bytes": 9968,
+        "width": 400,
+        "height": 280
+      },
+      "caption": "Modelo aproximado",
+      "reviewed_on": "2026-10-07"
+    },
+    {
+      "id": "smallrig-3645-takegrid-v1",
+      "part_id": "smallrig-3645",
+      "subcomponent_id": null,
+      "model_sha256": "687fb5fa5c62ef9aa295467a29a92ccafdd1c2fad7fae972dab179fa38ef4c63",
+      "status": "approved",
+      "method": "rendered_approved_mesh",
+      "image": {
+        "path": "/product-visuals/smallrig-3645-takegrid-v1.webp",
+        "sha256": "17d3317279bddd6342ff0e1be11e07d06dc62e2d2338bc94616ddc6e1dbb14c6",
+        "bytes": 10068,
+        "width": 400,
+        "height": 280
+      },
+      "caption": "Modelo aproximado",
+      "reviewed_on": "2026-10-07"
+    },
+    {
+      "id": "smallrig-3203b-takegrid-v1",
+      "part_id": "smallrig-3203b",
+      "subcomponent_id": null,
+      "model_sha256": "9de529dfab70f13a304633dd7b30a2f98a1f345263fd5a5e7bbadb79d8793ffc",
+      "status": "approved",
+      "method": "rendered_approved_mesh",
+      "image": {
+        "path": "/product-visuals/smallrig-3203b-takegrid-v1.webp",
+        "sha256": "5fa421596f48707fbf8f8639debd833d4175e48705385db500c46103fecd4a0d",
+        "bytes": 5674,
+        "width": 400,
+        "height": 280
+      },
+      "caption": "Modelo aproximado",
+      "reviewed_on": "2026-10-07"
+    },
+    {
+      "id": "smallrig-vb99-pro-takegrid-v1",
+      "part_id": "smallrig-vb99-pro",
+      "subcomponent_id": null,
+      "model_sha256": "03db0f7cb6f2d920340a23886e50fed65f51b09f5f89fb3af6c7ddf205330087",
+      "status": "approved",
+      "method": "rendered_approved_mesh",
+      "image": {
+        "path": "/product-visuals/smallrig-vb99-pro-takegrid-v1.webp",
+        "sha256": "0826fc799c3f84efb680d27a90aa8547a854e867abbe9f02281335be1fcfb904",
+        "bytes": 3616,
+        "width": 400,
+        "height": 280
+      },
+      "caption": "Modelo aproximado",
+      "reviewed_on": "2026-10-07"
+    },
+    {
+      "id": "dji-rs4-pro-combo-takegrid-v1",
+      "part_id": "dji-rs4-pro-combo",
+      "subcomponent_id": null,
+      "model_sha256": "fd14ac362b43c3c76239c2019fea46992d3c51bfd1441a24066c4e0f6cb7e8fd",
+      "status": "approved",
+      "method": "rendered_approved_mesh",
+      "image": {
+        "path": "/product-visuals/dji-rs4-pro-combo-takegrid-v1.webp",
+        "sha256": "4de9cf443fc5383c93d81c69933b12c65830f7d16d792d2a13f740c8ee2ad683",
+        "bytes": 6650,
+        "width": 400,
+        "height": 280
+      },
+      "caption": "Modelo aproximado",
+      "reviewed_on": "2026-10-07"
+    },
+    {
+      "id": "dji-rs-bg70-takegrid-v1",
+      "part_id": "dji-rs-bg70",
+      "subcomponent_id": null,
+      "model_sha256": "cff40403e5eeb7701629c616bf15d7640628f94ded27e39ce10f40403a9e445b",
+      "status": "approved",
+      "method": "rendered_approved_mesh",
+      "image": {
+        "path": "/product-visuals/dji-rs-bg70-takegrid-v1.webp",
+        "sha256": "b49d67badd5708a77d2d42dc5d0a6270002767ec70252615a3b1574ede590c19",
+        "bytes": 3400,
+        "width": 400,
+        "height": 280
+      },
+      "caption": "Modelo aproximado",
+      "reviewed_on": "2026-10-07"
+    },
+    {
+      "id": "smallrig-3026b-takegrid-v1",
+      "part_id": "smallrig-3026b",
+      "subcomponent_id": null,
+      "model_sha256": "fbb089163392295ee7367f0556a5b93d5ca1303ca8075635864ca7c1b8f46621",
+      "status": "approved",
+      "method": "rendered_approved_mesh",
+      "image": {
+        "path": "/product-visuals/smallrig-3026b-takegrid-v1.webp",
+        "sha256": "e0daf8c7564a3d98b45fe0c0f2f99f461a05b7cc414ed193c7a1b9b28ba0e965",
+        "bytes": 6014,
+        "width": 400,
+        "height": 280
+      },
+      "caption": "Modelo aproximado",
+      "reviewed_on": "2026-10-07"
+    },
+    {
+      "id": "smallhd-indie-7-takegrid-v1",
+      "part_id": "smallhd-indie-7",
+      "subcomponent_id": null,
+      "model_sha256": "ff992e200bf82fcd9148d9cda2b397b47f28b75ac492626f0a6728098bfc91b9",
+      "status": "approved",
+      "method": "rendered_approved_mesh",
+      "image": {
+        "path": "/product-visuals/smallhd-indie-7-takegrid-v1.webp",
+        "sha256": "4001a3de3506d9a84151073b25aebf12f02175aa2b2f61b7ff537257008c448e",
+        "bytes": 5282,
+        "width": 400,
+        "height": 280
+      },
+      "caption": "Modelo aproximado",
+      "reviewed_on": "2026-10-07"
+    },
+    {
+      "id": "dji-mic-2-kit-takegrid-v1",
+      "part_id": "dji-mic-2-kit",
+      "subcomponent_id": "receiver",
+      "model_sha256": "e82a77ed2c5c9b0011f19358e76a21fc81611ab50b24acee4216f12dac3ca462",
+      "status": "approved",
+      "method": "rendered_approved_mesh",
+      "image": {
+        "path": "/product-visuals/dji-mic-2-kit-takegrid-v1.webp",
+        "sha256": "23f3b6142270888ec7a4ebf1342e2c5982d78f54952c17ecfa7a20298bd58106",
+        "bytes": 8322,
+        "width": 400,
+        "height": 280
+      },
+      "caption": "Modelo aprox. · sólo RX",
+      "reviewed_on": "2026-10-07"
+    },
+    {
+      "id": "sony-xlr-h1-takegrid-v1",
+      "part_id": "sony-xlr-h1",
+      "subcomponent_id": null,
+      "model_sha256": "bd516fb85c525adb1720f493f5ae096f0f9029362382d06a0c1854100e176c3a",
+      "status": "approved",
+      "method": "rendered_approved_mesh",
+      "image": {
+        "path": "/product-visuals/sony-xlr-h1-takegrid-v1.webp",
+        "sha256": "218634e3649cc9b69ded750f3bc64d0d307580cfae79fe6a1e6a339e7f9f1072",
+        "bytes": 5786,
+        "width": 400,
+        "height": 280
+      },
+      "caption": "Modelo aproximado",
+      "reviewed_on": "2026-10-07"
+    },
+    {
+      "id": "smallrig-2906b-takegrid-v1",
+      "part_id": "smallrig-2906b",
+      "subcomponent_id": null,
+      "model_sha256": "d13098606b7ce0e1ccba53b5e97eb590e398da905c9654f1654265f50f137de5",
+      "status": "approved",
+      "method": "rendered_approved_mesh",
+      "image": {
+        "path": "/product-visuals/smallrig-2906b-takegrid-v1.webp",
+        "sha256": "d28a4e1c59d6b6b561c737ee3c700a6796cf58f92b3b73930224a4c4551ea173",
+        "bytes": 8242,
+        "width": 400,
+        "height": 280
+      },
+      "caption": "Modelo aproximado",
+      "reviewed_on": "2026-10-07"
+    },
+    {
+      "id": "smallrig-4830-takegrid-v1",
+      "part_id": "smallrig-4830",
+      "subcomponent_id": null,
+      "model_sha256": "08f9bc91d305160754514cb66716681c7d60155462a92cb3779f1dae9ddf67fb",
+      "status": "approved",
+      "method": "rendered_approved_mesh",
+      "image": {
+        "path": "/product-visuals/smallrig-4830-takegrid-v1.webp",
+        "sha256": "31a9f4f1ebccd509869652b36035181bbb0f74bd16293322387db30262b08967",
+        "bytes": 8818,
+        "width": 400,
+        "height": 280
+      },
+      "caption": "Modelo aproximado",
+      "reviewed_on": "2026-10-07"
+    },
+    {
+      "id": "sony-np-f970-pro-takegrid-v1",
+      "part_id": "sony-np-f970-pro",
+      "subcomponent_id": null,
+      "model_sha256": "6ec851d80a1341d7535028d3c314c5c9a05f105e021e98951d86664842adbfd9",
+      "status": "approved",
+      "method": "rendered_approved_mesh",
+      "image": {
+        "path": "/product-visuals/sony-np-f970-pro-takegrid-v1.webp",
+        "sha256": "32e27fe0e2320c7774437df2554c9b62b4b20ed6c83868931a01807767cc6a66",
+        "bytes": 3468,
+        "width": 400,
+        "height": 280
+      },
+      "caption": "Modelo aproximado",
+      "reviewed_on": "2026-10-07"
+    }
+  ],
+  "scope": "Miniaturas de mallas propias revisadas, aproximadas y encuadradas por pieza. No fotos oficiales, CAD ni comparación de escala entre tarjetas."
+}

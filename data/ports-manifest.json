@@ -115,7 +115,14 @@
     },
     {
       "id": "vb99-dtap",
-      "electrical": {"revision":"2026-10-05-1","output_nominal_v":14.8,"output_range_v":null,"field_sources":{"output_nominal_v":"audit-doc-smallrig-vb99-manual"}},
+      "electrical": {
+        "revision": "2026-10-05-1",
+        "output_nominal_v": 14.8,
+        "output_range_v": null,
+        "field_sources": {
+          "output_nominal_v": "audit-doc-smallrig-vb99-manual"
+        }
+      },
       "part_id": "smallrig-vb99-pro",
       "label": "Salida D-Tap",
       "connector": "D-Tap hembra",
@@ -150,7 +157,11 @@
     },
     {
       "id": "plate-dtap",
-      "electrical": {"revision":"2026-10-06-1","output_range_v":null,"field_sources":{}},
+      "electrical": {
+        "revision": "2026-10-06-1",
+        "output_range_v": null,
+        "field_sources": {}
+      },
       "part_id": "smallrig-3203b",
       "label": "Salida D-Tap",
       "connector": "D-Tap hembra",
@@ -193,7 +204,24 @@
     },
     {
       "id": "indie7-dc",
-      "electrical": {"revision":"2026-10-05-1","input_range_v":[10,34],"nominal_input_current_a":2,"input_polarity":null,"barrel_inner_mm":null,"field_sources":{"input_range_v":"audit-indie-port-guide","nominal_input_current_a":"audit-indie-port-guide"}},
+      "electrical": {
+        "revision": "2026-10-07-1",
+        "input_range_v": [
+          10,
+          34
+        ],
+        "nominal_input_current_a": 2,
+        "input_polarity": "center_positive",
+        "barrel_inner_mm": 2,
+        "field_sources": {
+          "input_range_v": "audit-indie-port-guide",
+          "nominal_input_current_a": "audit-indie-port-guide",
+          "input_polarity": "src-smallhd-indie7-specs",
+          "barrel_outer_mm": "src-smallhd-indie7-specs",
+          "barrel_inner_mm": "src-smallhd-indie7-specs"
+        },
+        "barrel_outer_mm": 5.5
+      },
       "part_id": "smallhd-indie-7",
       "label": "I / entrada DC",
       "connector": "Barril DC del fabricante; cable de 5.5 mm de diámetro exterior",
@@ -203,8 +231,8 @@
         16.75
       ],
       "position_confidence": "approximate_photo_zone_not_measured",
-      "identity_source_url": "https://guide.smallhd.com/a/1634747-indie-7-quick-start-guide",
-      "note": "Identidad y función eléctrica documentadas; coordenadas sólo para visualización, nunca cotas de perforación o corte de cable."
+      "identity_source_url": "https://smallhd.com/products/indie-7",
+      "note": "Entrada documentada por separado del cable: tabla Power, 2.0 mm interior / 5.5 mm exterior, centro positivo. Coordenadas de puerto siguen aproximadas; ajuste del cable y carga reales por probar."
     },
     {
       "id": "splitter-captive-input",
@@ -311,7 +339,11 @@
       "part_id": "dji-mic-2-kit",
       "label": "Receptor / salida",
       "connector": "TRS de 3.5 mm hembra",
-      "local_position_mm": [-27.1,0,-6],
+      "local_position_mm": [
+        -27.1,
+        0,
+        -6
+      ],
       "position_confidence": "approximate_photo_based_not_port_CAD",
       "identity_source_url": "https://dl.djicdn.com/downloads/DJI_Mic_2/20240426/UM/DJI_Mic_2_User_Manual_V1.2_EN.pdf",
       "note": "Identidad y función eléctrica documentadas; coordenadas sólo para visualización, nunca cotas de perforación o corte de cable."
@@ -345,6 +377,51 @@
       "position_confidence": "not_modeled",
       "identity_source_url": "https://electronics.sony.com/imaging/imaging-accessories/imaging-compact-camera-accessories/p/xlrh1",
       "note": "Identidad y función eléctrica documentadas; coordenadas sólo para visualización, nunca cotas de perforación o corte de cable."
+    },
+    {
+      "id": "npf970-contacts",
+      "part_id": "sony-np-f970-pro",
+      "label": "Contactos de batería serie L",
+      "connector": "Contactos serie L de batería",
+      "local_position_mm": [
+        0,
+        -35.4,
+        -30
+      ],
+      "position_confidence": "approximate_photo_zone_not_measured",
+      "identity_source_url": "https://www.sony.jp/products/catalog/SPC_NP-F970_PRO.pdf",
+      "note": "Sin asignación de pinout inventada; tensión nominal 7.2 V, no rango de descarga certificado.",
+      "electrical": {
+        "revision": "2026-10-07-1",
+        "output_nominal_v": 7.2,
+        "field_sources": {
+          "output_nominal_v": "src-sony-npf970-pro"
+        }
+      }
+    },
+    {
+      "id": "indie7-l-series",
+      "part_id": "smallhd-indie-7",
+      "label": "Placa serie L incluida / una bahía",
+      "connector": "Contactos de placa serie L",
+      "local_position_mm": [
+        26,
+        -17.4,
+        16.75
+      ],
+      "position_confidence": "approximate_photo_zone_not_measured",
+      "identity_source_url": "https://smallhd.com/products/indie-7",
+      "note": "Placa nativa incluida; posición aproximada. No carga batería ni verifica protocolo InfoLITHIUM.",
+      "electrical": {
+        "revision": "2026-10-07-1",
+        "input_range_v": [
+          6,
+          16.8
+        ],
+        "field_sources": {
+          "input_range_v": "src-smallhd-indie7-specs"
+        }
+      }
     }
   ]
 }

@@ -11,4 +11,3 @@ for index, asset in enumerate(PdfReader(args.pdf).pages[0].images):
     path = args.prefix.parent / (args.prefix.name + "-" + str(index) + Path(asset.name).suffix)
     path.write_bytes(asset.data)
     print(path)
-

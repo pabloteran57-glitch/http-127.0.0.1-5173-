@@ -1,6 +1,6 @@
 import { useDeferredValue, useEffect, useRef, useState } from "react";
 import { layoutData, partById, partsData, plannerData } from "../data";
-import { availableSupportIds, selectionPresentation, type RigResolution } from "../lib/planner";
+import { availableSupportIds, mountDependencies, selectionPresentation, type RigResolution } from "../lib/planner";
 import type { CustomRig } from "../lib/types";
 import { partName } from "../lib/ui";
 import { builderEntries } from "../lib/inventory";
@@ -44,8 +44,12 @@ export default function RigBuilder({open, onClose, rig, resolution, onChange, on
 
   const renderCard = (id: string) => {
     const part = partById[id], chosen = rig.part_ids.includes(id), state = stateById[id];
-    const supports = availableSupportIds(plannerData.mount_dependencies[id] ?? [], rig, plannerData);
+    const supports = availableSupportIds(mountDependencies(id,plannerData,rig), rig, plannerData);
     const reference = officialVisualLink(id);
+    const monitorCompletion=chosen&&id==="smallhd-indie-7"?availableSupportIds([
+      ...mountDependencies(id,plannerData,rig),"kondor-blue-hdmi-aa",
+      ...(!resolution.variant.cable_profile_ids.some(c=>["pwr-plate-to-smallhd","pwr-npf-to-smallhd-contacts"].includes(c))?["sony-np-f970-pro"]:[]),
+    ],rig,plannerData):[];
     return <article key={id} className={`piece-card ${chosen ? "is-chosen" : ""} ${state === "pending" ? "is-pending" : ""}`} data-builder-part={id} data-selection-state={state ?? "unchosen"}>
       <button type="button" className="piece-choice" aria-label={`${chosen ? "Quitar" : "Añadir"} ${partName(id)}`} aria-pressed={chosen} onClick={() => toggle(id)}>
         <ProductVisual id={id}/>
@@ -53,7 +57,8 @@ export default function RigBuilder({open, onClose, rig, resolution, onChange, on
         <span className="piece-badge"><Icon name={chosen ? "check" : "plus"}/>{chosen ? "Elegida · toca para quitar" : "Añadir al rig"}</span>
       </button>
       <div className="piece-card-footer"><a href={reference.href} target="_blank" rel="noreferrer" aria-label={`${reference.label}: ${partName(id)}`}>{reference.label}<Icon name="arrow"/></a>{chosen && <span className="piece-selection-state">{stateNames[state]}</span>}</div>
-      {chosen && state === "pending" && <div className="piece-pending"><p>{resolution.issues.find(issue => issue.part_id === id)?.message}</p>{supports.length > 0 && <><p>Añadirá: {supports.map(partName).join(", ")}.</p><button type="button" className="quiet-button" onClick={() => add(supports)}>Añadir soporte ({supports.length})</button></>}</div>}
+      {monitorCompletion.length>0&&<div className="piece-pending"><p>Para este monitor: {monitorCompletion.map(partName).join(", ")}.</p><button type="button" className="quiet-button" onClick={()=>add(monitorCompletion)}>Completar monitor ({monitorCompletion.length})</button></div>}
+      {chosen && state === "pending" && <div className="piece-pending"><p>{resolution.issues.find(issue => issue.part_id === id)?.message}</p>{supports.length > 0 && id!=="smallhd-indie-7" && <><p>Añadirá: {supports.map(partName).join(", ")}.</p><button type="button" className="quiet-button" onClick={() => add(supports)}>Añadir soporte ({supports.length})</button></>}</div>}
     </article>;
   };
 
@@ -79,7 +84,7 @@ export default function RigBuilder({open, onClose, rig, resolution, onChange, on
             return <details key={issue.id}><summary>{issue.part_id ? partName(issue.part_id) : issue.id === "monitor-power" ? "Alimentación del monitor" : issue.id === "vertical-monitor" ? "Monitor en vertical" : issue.id === "monitor-video" ? "Señal del monitor" : issue.message}</summary><p>{issue.message}</p>{suggestions.length > 0 && <><p>Añadirá: {suggestions.map(partName).join(", ")}.</p><button type="button" className="quiet-button" onClick={() => add(suggestions)}>Añadir estas piezas ({suggestions.length})</button></>}</details>;
           })}</div></details>
         </>}
-        <details className="visual-policy"><summary>Sobre las imágenes y el catálogo</summary><p>{ui.builder.image_policy}</p><p>25 productos y 2 componentes del Combo. La selección no activa montajes no documentados.</p></details>
+        <details className="visual-policy"><summary>Sobre las imágenes y el catálogo</summary><p>{ui.builder.image_policy}</p><p>{partsData.parts.length} entradas: catálogo original y accesorios de monitor verificados. La selección no activa montajes no documentados.</p></details>
       </section>}
     </div>
     <div className="builder-actions">{message && <p className="builder-feedback" role="status">{message}</p>}{!rig.name.trim() && <p className="builder-feedback" role="status">Escribe un nombre en Datos del rig para guardar.</p>}<span aria-live="polite">{rig.part_ids.length} {rig.part_ids.length === 1 ? "pieza elegida" : "piezas elegidas"} · {dirty ? "Sin guardar" : "Guardado local"}</span><button type="button" className="quiet-button" onClick={onClose}>Ver rig</button><button type="button" className="primary-button" onClick={onSave} disabled={!rig.name.trim() || !dirty}><Icon name="check"/>{dirty ? "Guardar rig" : "Guardado"}</button></div>

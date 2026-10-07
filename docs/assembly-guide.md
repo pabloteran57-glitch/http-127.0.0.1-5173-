@@ -72,7 +72,7 @@ Aplicabilidad del perfil: Placa V-mount.
 
 Montar: 3026B + Indie 7.
 
-Ubicación: Abrazadera NATO en lateral fijo RS; monitor bajo cabezal nativo mediante su rosca inferior 1/4-20.
+Ubicación: Usar la cadena elegida: lateral fija en gimbal; sobre riel de jaula o XLR en cámara a mano/estática.
 
 - Sin brazo de extensión inventado.
 - Carga publicada del 3026B: 1.5 kg. Indie 7: 737 g sin accesorios; pesar conectores/fijaciones.
@@ -80,7 +80,7 @@ Ubicación: Abrazadera NATO en lateral fijo RS; monitor bajo cabezal nativo medi
 
 **Equilibrio:** Monitor fijo fuera de la carga móvil; revisar ergonomía y tirón de cables.
 
-Aplicabilidad del perfil: Indie 7.
+Aplicabilidad del perfil: Indie 7; Soporte NATO de monitor 2906B.
 
 ## 7. Montaje en estabilizador
 
@@ -145,6 +145,7 @@ Ubicación: VB99 D-Tap a adaptador de batería FX3; contactos V-mount a 3203B; D
 - Indie 7: DC 10-34 V. Cable CBL-PWR-DTAP-BAR-36 con centro positivo publicado; diámetro interior y pinout de entrada del monitor pendientes. Verificar coincidencia antes de energizar.
 - Adaptador de batería local en el bloque móvil. El cable al monitor cruza al lado fijo y necesita bucles sin tirar de los puertos.
 - Conectar apagado y proteger salida de la puerta de batería.
+- Alternativa elegida NP-F970/PRO: placa nativa serie L, sin cable DC; cargador externo y prueba bajo carga.
 
 **Equilibrio:** Revisar cualquier sesgo producido por los bucles.
 

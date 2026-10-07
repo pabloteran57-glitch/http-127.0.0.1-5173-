@@ -16,11 +16,15 @@ const monitor = "pwr-plate-to-smallhd", control = "ctrl-rs4-to-fx3-usbc", dummy 
 let count = 0;
 function test(name, run) { run(); count++; console.log(`CORRECTO: ${name}`); }
 
-test("Las tres revisiones mantienen pendientes y no autorizan uso", () => {
-  for (const id of [monitor, control, dummy]) { const r = assess(id); assert(r.reviewed); assert.equal(r.state, "pending"); assert(r.checks.some(check => check.state === "documented")); assert(r.checks.some(check => check.state === "pending")); }
+test("Todas las revisiones mantienen pendientes y no autorizan uso", () => {
+  for (const id of manifest.reviews.map(r=>r.cable_id)) { const r = assess(id); assert(r.reviewed); assert.equal(r.state, "pending"); assert(r.checks.some(check => check.state === "documented")); assert(r.checks.some(check => check.state === "pending")); }
 });
-test("Catorce circuitos sin revisión ampliada no se presuponen compatibles", () => {
-  const remainder = cables.filter(c => !manifest.reviews.some(r => r.cable_id === c.cable_id)); assert.equal(remainder.length, 14);
+test("La batería nativa no extrapola su tensión nominal a rango ni al barril",()=>{
+  const r=assess("pwr-npf-to-smallhd-contacts");assert.equal(check(r,"npf-nominal").state,"documented");assert.equal(check(r,"monitor-native-plate").state,"documented");assert.equal(check(r,"npf-full-range").state,"pending");
+  const c=cables.find(c=>c.cable_id==="pwr-npf-to-smallhd-contacts");assert.equal(c.display_kind,"contacts");assert.notEqual(c.to_port_id,"indie7-dc");assert.equal(context.ports.find(p=>p.id===c.from_port_id).electrical.output_range_v,undefined);
+});
+test("Circuitos sin revisión ampliada no se presuponen compatibles", () => {
+  const remainder = cables.filter(c => !manifest.reviews.some(r => r.cable_id === c.cable_id)); assert.equal(remainder.length, cables.length-manifest.reviews.length);
   for (const c of remainder) {const r = assess(c.cable_id); assert.equal(r.state, "pending"); assert.equal(r.reviewed, false);}
 });
 test("Control USB-C requiere evidencia del par, no identidad del conector", () => {
@@ -43,9 +47,9 @@ test("Tensión nominal, datos ausentes y rangos inválidos siguen pendientes", (
   assert.equal(check(assess(monitor), "monitor-voltage").state, "pending");
   assert.equal(check(assess(dummy), "dummy-input-range").state, "pending");
 });
-test("Polaridad documentada del cable no se hereda al monitor", () => {
+test("Polaridad de entrada documentada por fuente independiente del cable", () => {
   assert.equal(check(assess(monitor), "monitor-cable").state, "documented");
-  assert.equal(check(assess(monitor), "monitor-polarity").state, "pending");
+  assert.equal(check(assess(monitor), "monitor-polarity").state, "documented");
   assert.equal(comparePolarities("center_positive", null), "pending");
   assert.equal(comparePolarities("center_positive", "center_negative"), "blocked");
   assert.equal(comparePolarities("center_positive", "center_positive"), "documented");
@@ -100,7 +104,7 @@ test("Incompatibilidad de rango sintetizada bloquea y pide no conectar", () => {
   const r = assess(monitor, manifest, c); assert.equal(r.state, "blocked"); assert.match(r.action, /No conectar/);
 });
 test("Un dato sin fuente de campo no puede probar coincidencia", () => {
-  const c = clone(context); c.ports.find(p => p.id === "indie7-dc").electrical.input_polarity = "center_positive";
+  const c = clone(context); delete c.ports.find(p => p.id === "indie7-dc").electrical.field_sources.input_polarity;
   assert.equal(check(assess(monitor, manifest, c), "monitor-polarity").state, "pending");
 });
 test("Entrada 3203B y capacidad de batería no inventan una salida", () => {

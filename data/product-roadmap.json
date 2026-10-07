@@ -1,9 +1,20 @@
 {
   "version": 1,
-  "reviewed_on": "2026-10-06",
+  "reviewed_on": "2026-10-07",
   "status": "prototype_hardening_in_progress",
-  "progress_report": "docs/mobile-selection-qa.md",
-  "user_decisions": [{"date":"2026-10-05","decision":"Mantener guardado local por ahora","effect":"Cuentas, sincronización y revisión privada aplazadas; no se creó un backend ni se eliminan del alcance futuro."},{"date":"2026-10-06","decision":"Perfiles locales ahora, sin contraseña ni nube","effect":"Bibliotecas, historial y borradores independientes por perfil del navegador. Perfil inicial conserva claves v1/v2 anteriores. No se interpreta como autorización para cuentas o nube."}],
+  "progress_report": "docs/monitor-mount-qa.md",
+  "user_decisions": [
+    {
+      "date": "2026-10-05",
+      "decision": "Mantener guardado local por ahora",
+      "effect": "Cuentas, sincronización y revisión privada aplazadas; no se creó un backend ni se eliminan del alcance futuro."
+    },
+    {
+      "date": "2026-10-06",
+      "decision": "Perfiles locales ahora, sin contraseña ni nube",
+      "effect": "Bibliotecas, historial y borradores independientes por perfil del navegador. Perfil inicial conserva claves v1/v2 anteriores. No se interpreta como autorización para cuentas o nube."
+    }
+  ],
   "scope": "Hoja de ruta de producto; no contiene nuevas especificaciones de equipo ni certifica montajes.",
   "recommendation": "Estabilizar rigs propios y montaje, preparar reglas extensibles y ampliar el catálogo por lotes verificados antes de abrir una beta pública.",
   "preserve": [
@@ -14,60 +25,113 @@
     "Fuentes oficiales, derechos de uso y aproximaciones explícitas"
   ],
   "baseline": {
-    "part_entries": 27,
-    "geometry_nodes": 14,
+    "part_entries": 30,
+    "geometry_nodes": 17,
     "canonical_assembly_steps": 13,
     "templates": 7,
     "storage": "Local al navegador y origen; no sincronizado",
     "performance": "Laboratorio optativo de reposo/giro y demanda/continuo. Intervalos de render JavaScript; dispositivos físicos de referencia y objetivos pendientes.",
-    "assessment": "Prototipo funcional; no liberado como beta de uso profesional"
+    "assessment": "Prototipo funcional; no liberado como beta de uso profesional",
+    "product_thumbnails": 17
   },
   "findings": [
     {
       "id": "custom-vertical-monitor",
       "status": "corrected_software_pending_observed_acceptance",
-      "evidence": ["data/planner-rules.json", "src/components/RigBuilder.tsx", "src/components/RigSelection.tsx", "scripts/test-planner.mjs", "docs/rig-creation-qa.md"],
-      "description": "La exclusión vertical agrupaba el monitor lateral fijo con la pila móvil. Se conservan 3026B/Indie 7 candidatos con su soporte elegido; alimentación y pruebas físicas permanecen pendientes. Editor directo y bandeja de todas las elecciones, sin adiciones implícitas."
+      "evidence": [
+        "data/planner-rules.json",
+        "src/components/RigBuilder.tsx",
+        "src/components/RigSelection.tsx",
+        "scripts/test-planner.mjs",
+        "docs/rig-creation-qa.md"
+      ],
+      "description": "Monitor lateral fijo candidato en vertical; Sony NP-F970/PRO permite alimentación por placa incluida sin pila V-mount. Sólo se activa con los soportes elegidos. Retención, bucle HDMI y ensayo físico pendientes."
     },
     {
       "id": "mobile-editor-flow",
       "status": "corrected_software_pending_observed_acceptance",
-      "evidence": ["src/components/RigBuilder.tsx", "src/lib/inventory.ts", "docs/mobile-selection-qa.md"],
+      "evidence": [
+        "src/components/RigBuilder.tsx",
+        "src/lib/inventory.ts",
+        "docs/mobile-selection-qa.md"
+      ],
       "description": "El editor abre Catálogo sin asistente obligatorio; tarjeta completa añade/quita sin cambiar de vista. Jaulas separadas, Elegidas exactas y guardado desde cualquier vista. Revisión de ventanas móviles y escritorio, no hardware táctil físico."
     },
     {
       "id": "audio-rx-visibility",
       "status": "corrected_candidate_geometry_pending_physical_test",
-      "evidence": ["data/layout-manifest.json", "data/geometry-audit.json", "src/lib/viewer.ts", "docs/mobile-selection-qa.md"],
+      "evidence": [
+        "data/layout-manifest.json",
+        "data/geometry-audit.json",
+        "src/lib/viewer.ts",
+        "docs/mobile-selection-qa.md"
+      ],
       "description": "RX de Mic 2 visible sobre zapata documentada de 4770 con ambos elegidos; masa 28 g y envolvente del RX, no kit. Núcleo y curva TRS giran juntos en vertical. Pose, asiento y retención pendientes; no certifica montaje físico."
     },
     {
       "id": "inventory-scope",
       "status": "corrected_software",
-      "evidence": ["src/components/PartsTable.tsx", "src/views/RigPlannerPage.tsx", "Interfaz pública revisada el 2026-10-05"],
+      "evidence": [
+        "src/components/PartsTable.tsx",
+        "src/views/RigPlannerPage.tsx",
+        "Interfaz pública revisada el 2026-10-05"
+      ],
       "description": "Corregido: Mi equipo abre con elecciones exactas, incluidos pendientes; Catálogo es explícito. Regresión de búsqueda y cuatro elecciones comprobada en navegador."
     },
     {
       "id": "assembly-scope",
       "status": "corrected_software",
-      "evidence": ["src/components/AssemblyWizard.tsx", "src/lib/planner.ts", "Interfaz pública revisada el 2026-10-05"],
+      "evidence": [
+        "src/components/AssemblyWizard.tsx",
+        "src/lib/planner.ts",
+        "Interfaz pública revisada el 2026-10-05"
+      ],
       "description": "Corregido: guía, bloques y navegación condicionados a las piezas activas. Comprobaciones pertinentes conservadas. Extracción opcional excluida de reproducción automática."
     },
     {
       "id": "playback-performance",
       "status": "instrumented_pending_reference_devices",
-      "evidence": ["src/components/RigViewer.tsx", "src/components/AssemblyWizard.tsx", "src/lib/model-runtime.ts", "docs/viewer-profiles-qa.md"],
+      "evidence": [
+        "src/components/RigViewer.tsx",
+        "src/components/AssemblyWizard.tsx",
+        "src/lib/model-runtime.ts",
+        "docs/viewer-profiles-qa.md"
+      ],
       "description": "Encuadre estable y demanda implementados. Carga auditada, espera acotada, reintento de módulo/escena y montaje coordinado con cargas. Prueba local de fallo deliberado y recuperación sin recargar; no benchmark GPU ni mejora porcentual. Dispositivos y aceptación pendientes."
     },
     {
       "id": "catalog-coupling",
       "status": "partially_decoupled",
-      "evidence": ["src/lib/planner.ts", "data/planner-rules.json", "src/components/RigViewer.tsx"],
+      "evidence": [
+        "src/lib/planner.ts",
+        "data/planner-rules.json",
+        "src/components/RigViewer.tsx"
+      ],
       "description": "Selección, advertencias y exclusiones de circuitos declarativas; índice de revisión separado y migración local probada. Geometría, encuadre y guía aún específicas. Un registro investigado no activa un ecosistema."
+    },
+    {
+      "id": "context-monitor-chains",
+      "status": "corrected_software_pending_physical_and_observed_acceptance",
+      "evidence": [
+        "data/planner-rules.json",
+        "data/layout-manifest.json",
+        "data/connection-reviews.json",
+        "scripts/test-planner.mjs",
+        "docs/monitor-mount-qa.md"
+      ],
+      "description": "Antes, toda cadena Indie 7 exigía gimbal. Ahora se distinguen gimbal, jaula y asa XLR con accesorios verificados y confirmación explícita; siete plantillas intactas. Cuarta revisión documental por contactos, sin convertir tensión nominal en rango completo."
     }
   ],
   "improvement_loop": {
-    "sequence": ["Reproducir y registrar", "Definir criterio de aceptación", "Corregir una causa", "Ejecutar regresiones", "Medir y probar escritorio/móvil", "Comparar con la línea base", "Publicar sólo si pasa"],
+    "sequence": [
+      "Reproducir y registrar",
+      "Definir criterio de aceptación",
+      "Corregir una causa",
+      "Ejecutar regresiones",
+      "Medir y probar escritorio/móvil",
+      "Comparar con la línea base",
+      "Publicar sólo si pasa"
+    ],
     "stop_rule": "Cerrar cada incidencia sólo con evidencia. Reabrirla ante regresión. No ejecutar un bucle infinito ni afirmar mejora sin medición.",
     "privacy": "No modificar, guardar ni recargar borradores del usuario durante el diagnóstico; usar perfiles de prueba separados."
   },
@@ -77,8 +141,13 @@
       "order": 1,
       "title": "Rigs propios y montaje fiable",
       "status": "in_progress",
-      "verification_report": "docs/mobile-selection-qa.md",
-      "remaining": ["Medición sostenida en dispositivos físicos de referencia", "Comparación reproducible y objetivos de fluidez", "Aceptación observada del editor directo con usuarios", "Miniaturas y modelos de catálogo actual con identidad, escala y derechos auditados"],
+      "verification_report": "docs/monitor-mount-qa.md",
+      "remaining": [
+        "Medición sostenida en dispositivos físicos de referencia",
+        "Comparación reproducible y objetivos de fluidez",
+        "Aceptación observada del editor directo y montaje con usuarios",
+        "Archivos exactos y derechos de terceros pendientes; 17 mallas y miniaturas propias aproximadas integradas"
+      ],
       "depends_on": [],
       "deliverables": [
         "Mi equipo muestra exactamente las elecciones del perfil, incluidos pendientes separados; Catálogo es una vista explícita",
@@ -100,8 +169,14 @@
       "title": "Base de ingeniería extensible",
       "status": "software_foundation_prepared",
       "verification_report": "docs/extensible-engineering.md",
-      "remaining": ["Extender revisión semántica documentada: tres de diecisiete circuitos cubiertos; montaje mecánico y demás interfaces pendientes", "Alta completa real con guía y geometría", "Generalizar encuadre y contextos más allá de FX3/RS 4 Pro"],
-      "depends_on": ["stabilize-core"],
+      "remaining": [
+        "Extender revisión semántica documentada: cuatro de dieciocho circuitos cubiertos; montaje mecánico y demás interfaces pendientes",
+        "Tres accesorios de monitor añadidos en el orden técnico, aún sin validación física",
+        "Generalizar encuadre y contextos más allá de FX3/RS 4 Pro"
+      ],
+      "depends_on": [
+        "stabilize-core"
+      ],
       "deliverables": [
         "Reglas declarativas por montura, interfaz mecánica, soporte, señal y alimentación, con evidencia y revisión exacta",
         "Identidad y versión de producto separadas de geometría, presentación y reglas de montaje",
@@ -120,8 +195,14 @@
       "title": "Primer lote de catálogo ampliado",
       "status": "research_prepared_not_activated",
       "verification_report": "docs/catalog-pilot.md",
-      "remaining": ["Distribución, soportes, tablas de compatibilidad y conexiones del lote", "Guías, geometría autorizada y configuraciones completas", "Ensayos físicos y liberación"],
-      "depends_on": ["extensible-engineering"],
+      "remaining": [
+        "Distribución, soportes, tablas de compatibilidad y conexiones del lote",
+        "Guías, geometría autorizada y configuraciones completas",
+        "Ensayos físicos y liberación"
+      ],
+      "depends_on": [
+        "extensible-engineering"
+      ],
       "deliverables": [
         "Lote de diez candidatos Sony con identidad y algunas cotas/masas revisadas oficialmente; priorización con usuarios y liberación pendientes",
         "Segundo ecosistema coherente o configuraciones adicionales completas, no una colección de fichas aisladas",
@@ -140,8 +221,15 @@
       "title": "Proyectos seguros para trabajo real",
       "status": "local_foundation_prepared_cloud_deferred",
       "verification_report": "docs/durable-projects.md",
-      "remaining": ["Pruebas físicas de instalación y desconexión web", "Cuentas, sincronización y revisión privada aplazadas por el usuario", "Copias externas y privacidad jurídica"],
-      "depends_on": ["stabilize-core", "extensible-engineering"],
+      "remaining": [
+        "Pruebas físicas de instalación y desconexión web",
+        "Cuentas, sincronización y revisión privada aplazadas por el usuario",
+        "Copias externas y privacidad jurídica"
+      ],
+      "depends_on": [
+        "stabilize-core",
+        "extensible-engineering"
+      ],
       "deliverables": [
         "Guardado automático de borradores, historial, recuperación y tratamiento visible de conflictos",
         "Perfiles locales autorizados por el usuario: bibliotecas y borradores separados sin autenticación ni nube; conservan planes anteriores",
@@ -162,8 +250,15 @@
       "title": "Beta cerrada con 1AC y solo filmmakers",
       "status": "protocol_prepared_not_run",
       "verification_report": "docs/beta-protocol.md",
-      "remaining": ["Reclutar y observar participantes", "Registrar dispositivos y ensayos físicos", "Cerrar criterios con evidencia real"],
-      "depends_on": ["verified-catalog-pilot", "durable-projects"],
+      "remaining": [
+        "Reclutar y observar participantes",
+        "Registrar dispositivos y ensayos físicos",
+        "Cerrar criterios con evidencia real"
+      ],
+      "depends_on": [
+        "verified-catalog-pilot",
+        "durable-projects"
+      ],
       "deliverables": [
         "Cohorte propuesta de 10-15 participantes, no reclutada todavía",
         "Tareas observadas: crear desde cero, corregir incompatibilidad, guardar, volver y seguir montaje",
@@ -184,8 +279,14 @@
       "title": "Beta pública operable",
       "status": "release_tools_prepared_not_beta",
       "verification_report": "docs/release-operations.md",
-      "remaining": ["Superar beta cerrada", "Configurar canal, responsable y tiempos de soporte", "Revisar privacidad, costes y distribución móvil"],
-      "depends_on": ["closed-beta"],
+      "remaining": [
+        "Superar beta cerrada",
+        "Configurar canal, responsable y tiempos de soporte",
+        "Revisar privacidad, costes y distribución móvil"
+      ],
+      "depends_on": [
+        "closed-beta"
+      ],
       "deliverables": [
         "Publicación versionada con despliegue de prueba, reversión y monitorización de errores respetuosa de la privacidad",
         "Inicio guiado breve, ayuda contextual, reporte de problemas y soporte definidos",
@@ -204,8 +305,14 @@
       "title": "Preparación para financiación",
       "status": "preparation_only",
       "verification_report": "docs/funding-readiness.md",
-      "remaining": ["Evidencia de usuarios y diferenciación contrastada", "Cotizaciones y presupuesto", "Entidad, país, marca, permisos y elegibilidad profesionalmente revisados"],
-      "depends_on": ["closed-beta"],
+      "remaining": [
+        "Evidencia de usuarios y diferenciación contrastada",
+        "Cotizaciones y presupuesto",
+        "Entidad, país, marca, permisos y elegibilidad profesionalmente revisados"
+      ],
+      "depends_on": [
+        "closed-beta"
+      ],
       "deliverables": [
         "Demo real, presentación, evidencia de usuarios y diferenciación frente a tutoriales, listas y herramientas actuales",
         "Presupuesto cotizado de desarrollo, investigación, derechos, validación física, infraestructura, soporte y contingencia",
@@ -221,9 +328,24 @@
     }
   ],
   "sources": [
-    {"id":"kickstarter-rules","url":"https://www.kickstarter.com/rules?country=82","verified_on":"2026-10-05","note":"Apps: prototipo real, presentación honesta, derechos de recursos y transparencia sobre IA. No admite equity."},
-    {"id":"kickstarter-eligibility","url":"https://help.kickstarter.com/en-us/articles/16236650-who-can-use-kickstarter","verified_on":"2026-10-05","note":"País, identidad, entidad y cuenta bancaria verificables. Ecuador no figura actualmente entre los países habilitados para creadores."},
-    {"id":"kickstarter-funding-model","url":"https://updates.kickstarter.com/how-crowdfunding-works-a-guide-for-creators/","verified_on":"2026-10-05","note":"Financiación por recompensas, no participación de inversores; no garantiza éxito de campaña."}
+    {
+      "id": "kickstarter-rules",
+      "url": "https://www.kickstarter.com/rules?country=82",
+      "verified_on": "2026-10-05",
+      "note": "Apps: prototipo real, presentación honesta, derechos de recursos y transparencia sobre IA. No admite equity."
+    },
+    {
+      "id": "kickstarter-eligibility",
+      "url": "https://help.kickstarter.com/en-us/articles/16236650-who-can-use-kickstarter",
+      "verified_on": "2026-10-05",
+      "note": "País, identidad, entidad y cuenta bancaria verificables. Ecuador no figura actualmente entre los países habilitados para creadores."
+    },
+    {
+      "id": "kickstarter-funding-model",
+      "url": "https://updates.kickstarter.com/how-crowdfunding-works-a-guide-for-creators/",
+      "verified_on": "2026-10-05",
+      "note": "Financiación por recompensas, no participación de inversores; no garantiza éxito de campaña."
+    }
   ],
   "timing_policy": "Sin fechas ni coste total comprometidos. Estimar tras medir la fase 1 y definir capacidad del equipo; avanzar por criterios de salida, no por volumen de funcionalidades."
 }

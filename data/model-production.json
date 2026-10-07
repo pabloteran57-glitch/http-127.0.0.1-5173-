@@ -2,7 +2,7 @@
   "version": 1,
   "reviewed_on": "2026-10-06",
   "status": "authored_approximate_batch_original_exact_assets_pending",
-  "scope": "Mejorar fidelidad de productos ya canónicos, no ampliar catálogo ni activar accesorios en reserva.",
+  "scope": "Catálogo original y tres accesorios verificados para cadenas de monitor; recursos exactos y accesorios en reserva siguen pendientes.",
   "authority": {
     "identity_dimensions_mass": "parts-manifest.json",
     "pose_envelope_support": "layout-manifest.json",
@@ -119,7 +119,7 @@
       ]
     }
   ],
-  "remaining_policy": "14 nodos del layout tienen reconstrucción propia aproximada. No se da por cumplida la petición de módulos exactos: CAD/escaneos y el resto de piezas físicas siguen pendientes. Software sin objeto 3D, cables sin trayectoria física inventada y accesorios en reserva sin soporte ficticio. Cada alta repite los controles.",
+  "remaining_policy": "17 nodos del layout tienen reconstrucción propia aproximada. No se da por cumplida la petición de módulos exactos: CAD/escaneos y el resto de piezas físicas siguen pendientes. Software sin objeto 3D, cables sin trayectoria física inventada y accesorios en reserva sin soporte ficticio. Cada alta repite los controles.",
   "unmodeled": [
     {
       "part_id": "smallrig-4253b",
@@ -144,7 +144,7 @@
     {
       "part_id": "smallhd-dtap-to-2mm-barrel",
       "status": "cable_connector_geometry_pending",
-      "reason": "Exterior 5.5 mm publicado; interior y pinout de monitor pendientes. No inventar diámetro para modelar."
+      "reason": "Exterior 5.5 mm y polaridad del cable publicados; interior del cable y ajuste físico pendientes. Entrada del monitor 2.0/5.5 mm y centro positivo documentados por separado."
     },
     {
       "part_id": "dji-focus-pro-lidar",

@@ -1,4 +1,18 @@
-import type { LayoutManifest, LayoutNode, Part, Variant, Vec3 } from "./types";
+import type { Cable, LayoutManifest, LayoutNode, Part, Variant, Vec3 } from "./types";
+
+export function monitorRoute(variant:Variant) {
+  return variant.viewer.monitor_mount_route??(variant.active_part_ids.includes("dji-rs4-pro-combo")?"gimbal":variant.active_part_ids.includes("sony-xlr-h1")?"xlr":"cage");
+}
+
+export function cableForVariant(cable:Cable,variant:Variant):Cable {
+  return {...cable,...cable.monitor_route_overrides?.[monitorRoute(variant)]};
+}
+
+export function layoutForVariant(variant:Variant,layout:LayoutManifest):LayoutManifest {
+  const route=monitorRoute(variant);
+  const overrides=layout.monitor_mount_routes?.[route]?.overrides??{};
+  return {...layout,nodes:layout.nodes.map(node=>({...node,...overrides[node.id]}))};
+}
 
 export function visibleCableIds(availableIds: string[], showAll: boolean, selectedId: string | null): string[] {
   return availableIds.filter(id => showAll || id === selectedId);
@@ -29,7 +43,7 @@ export function routeOffset(offset:Vec3,cameraFrame:boolean,vertical:boolean):Ve
 
 // Sólo piezas móviles modeladas; no es una carga completa ni certificada.
 export function movingMass(variant: Variant, layout: LayoutManifest, parts: Record<string, Part>) {
-  const moving = layout.nodes.filter(n => n.mass_domain === "moving" && variant.active_part_ids.includes(n.id));
+  const moving = layoutForVariant(variant,layout).nodes.filter(n => n.mass_domain === "moving" && variant.active_part_ids.includes(n.id));
   const subtotal=moving.reduce((sum,n)=>sum+(nodeWeight(n,parts[n.id]).value??0),0);
   return {
     subtotal,

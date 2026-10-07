@@ -6,6 +6,31 @@ Plan de ingeniería, no montaje certificado. Medidas publicadas no prueban forma
 
 Varillas: 15 mm de diámetro, 203.2 mm de largo, 60 mm entre centros según el manual 1674. No barras ficticias de 410 mm. 3203B: abrazadera al borde superior documentada en la página 5 del manual, placa bajo las varillas; barrido del giro horizontal pendiente.
 
+## Cadenas alternativas de monitor
+
+### NATO lateral RS / 3026B
+
+Ruta `gimbal`; posiciones ilustrativas, no asiento verificado.
+
+
+
+### NATO superior 4770 / 2906B
+
+Ruta `cage`; posiciones ilustrativas, no asiento verificado.
+
+- Indie 7: posición -18 / 161.35 / 6 mm; soporte Soporte NATO de monitor 2906B; carga moving.
+- Batería Sony NP-F970/PRO: posición 8 / 179.35 / 52.75 mm; soporte heredado; carga moving.
+
+### XLR-H1 / 4830 / 2906B
+
+Ruta `xlr`; posiciones ilustrativas, no asiento verificado.
+
+- Soporte NATO de monitor 2906B: posición 0 / 134.4 / -25 mm; soporte Extensión y riel XLR 4830; carga heredada.
+- Indie 7: posición 0 / 220.6 / -25 mm; soporte Soporte NATO de monitor 2906B; carga moving.
+- Batería Sony NP-F970/PRO: posición 26 / 238.6 / 21.75 mm; soporte heredado; carga moving.
+
+En gimbal conservar 3026B lateral fijo. A mano/estática usar 2906B sobre NATO 4770 sin XLR, o kit 4830 sobre XLR-H1 si el asa está elegida. No ocupar simultáneamente el riel superior 4770 y la interfaz XLR. Cada pieza se añade sólo por elección del usuario. NP-F970/PRO elegida alimenta el monitor en su placa nativa incluida, sin cable al barril.
+
 ## Sony FX3
 
 - Posición candidata XYZ: 0 / 0 / 0 mm; rotación XYZ: 0 / 0 / 0 grados.
@@ -174,6 +199,42 @@ Varillas: 15 mm de diámetro, 203.2 mm de largo, 60 mm entre centros según el m
 - Rechazado: Asa superior activa por defecto en gimbal.
 - [Referencia de medidas](https://electronics.sony.com/imaging/imaging-accessories/imaging-compact-camera-accessories/p/xlrh1)
 
+## 2906B
+
+- Posición candidata XYZ: -18 / 75.15 / 6 mm; rotación XYZ: 0 / 0 / 0 grados.
+- Envolvente XYZ: 52.6 / 53.8 / 36 mm; estado: Medidas exteriores publicadas. Una envolvente publicada no verifica los detalles internos.
+- Dominio de carga: Carga móvil; soporte candidato: Jaula HawkLock.
+- Colocación: Posición candidata aproximada; comprobar asiento, manos y acceso a conexiones.
+- Orientación: Orientación de visualización aproximada, no transformación de montaje medida.
+- Montaje: Abrazadera NATO sobre riel superior 4770 sin XLR, o riel del kit 4830 sobre XLR-H1. Tornillo superior 1/4-20 a rosca inferior del Indie 7.
+- Motivo: Monitor sobre núcleo a mano o estático; no sustituye 3026B lateral en gimbal.
+- Rechazado: Montaje flotante, adaptación no elegida y extrapolación de cotas de tornillos.
+- [Referencia de medidas](https://static.smallrig.com/mall/img/public/0g141qmktenu-1751249917074_.pdf)
+
+## 4830
+
+- Posición candidata XYZ: 0 / 92 / -42 mm; rotación XYZ: 0 / 0 / 0 grados.
+- Envolvente XYZ: 55.8 / 77.5 / 124.8 mm; estado: Medidas exteriores publicadas. Una envolvente publicada no verifica los detalles internos.
+- Dominio de carga: Carga móvil; soporte candidato: XLR-H1.
+- Colocación: Posición candidata aproximada; comprobar asiento, manos y acceso a conexiones.
+- Orientación: Orientación de visualización aproximada, no transformación de montaje medida.
+- Montaje: Extensión, pieza de bloqueo y riel NATO nativos sobre XLR-H1; seguir montaje del manual página 8. Retirar riel superior desmontable de 4770 antes de instalar XLR.
+- Motivo: Proporcionar riel de monitor cuando el asa Sony ocupa el techo de cámara.
+- Rechazado: Montaje flotante, adaptación no elegida y extrapolación de cotas de tornillos.
+- [Referencia de medidas](https://static.smallrig.com/mall/img/public/1725874097334_.pdf)
+
+## NP-F970/PRO
+
+- Posición candidata XYZ: -211 / -223 / 21.75 mm; rotación XYZ: 0 / 0 / 180 grados.
+- Envolvente XYZ: 38.4 / 70.8 / 60 mm; estado: Medidas aproximadas. Una envolvente publicada no verifica los detalles internos.
+- Dominio de carga: Carga fija; soporte candidato: Indie 7.
+- Colocación: Posición candidata aproximada; comprobar asiento, manos y acceso a conexiones.
+- Orientación: Orientación de visualización aproximada, no transformación de montaje medida.
+- Montaje: Un paquete serie L en una de las dos bahías de la placa nativa incluida del Indie 7. Sin adaptador D-Tap ni cable a barril.
+- Motivo: Alimentación autónoma del monitor, también en gimbal vertical.
+- Rechazado: Montaje flotante, adaptación no elegida y extrapolación de cotas de tornillos.
+- [Referencia de medidas](https://www.sony.jp/products/catalog/SPC_NP-F970_PRO.pdf)
+
 
 ## Componentes sin montaje 3D habilitado
 
@@ -193,9 +254,9 @@ Varillas: 15 mm de diámetro, 203.2 mm de largo, 60 mm entre centros según el m
 - Entrevista corporativa: 1.85 kg de piezas móviles modeladas.
 - Cine / narrativa: 3.25 kg de piezas móviles modeladas.
 
-Incluye masas de planificación aproximadas, especialmente varillas y parasol, y 28 g publicados del RX Mic 2 cuando está activo. Excluye cables, TX, estuche, tarjetas y tornillos adicionales. Monitor fijo fuera de la carga móvil. No sumar BG30 estándar al BG70 ni el Combo entero a sus subcomponentes. Peso total llevado y centro de gravedad reales no medidos.
+Incluye masas de planificación aproximadas, especialmente varillas y parasol, y 28 g publicados del RX Mic 2 cuando está activo. Excluye cables, TX, estuche, tarjetas y tornillos adicionales. Monitor lateral fijo fuera de carga móvil en gimbal; monitor sobre jaula/asa y batería elegida incluidos en el núcleo a mano/estático. No sumar BG30 estándar al BG70 ni el Combo entero a sus subcomponentes. Peso total llevado y centro de gravedad reales no medidos.
 
-3026B: límite de carga publicado 1.5 kg, Indie 7 737 g sin accesorios. La comparación escalar no prueba rigidez, par de inclinación ni seguridad dinámica.
+3026B: límite publicado 1.5 kg; monitor 737 g de planificación conservadora, más NP-F970/PRO ~300 g si se elige. SmallHD publica masa inferior discrepante; pesar equipo real. La comparación escalar no prueba rigidez, par ni seguridad dinámica.
 
 ## Pruebas de liberación
 
@@ -213,13 +274,13 @@ Estado: Prueba física pendiente.
 
 ### Espacio para las manos
 
-Ajustar el monitor en el 3026B real. Usar empuñadura y controles con guantes sin tocar pantalla ni soporte.
+Gimbal: ajustar monitor en 3026B, sin obstaculizar empuñadura. A mano/estático: medir acceso al asa y mandos con 2906B, incluyendo 4830 si hay XLR-H1. Usar guantes sin tocar pantalla, batería ni soporte; no se da por validado por la pose.
 
 Estado: Prueba física pendiente.
 
 ### Cables entre partes móviles y fijas
 
-HDMI y alimentación del monitor cruzan de cámara móvil a monitor lateral fijo. Prever bucles flexibles para los ejes; no se promete giro o rotación ilimitados.
+En gimbal HDMI y D-Tap cruzan de móvil a fijo y requieren bucles medidos; batería serie L no añade cable de potencia. A mano/estático ambos extremos HDMI/D-Tap siguen el núcleo y deben dejar holgura para monitor y agarre. No se promete giro ilimitado.
 
 Estado: Prueba física pendiente.
 

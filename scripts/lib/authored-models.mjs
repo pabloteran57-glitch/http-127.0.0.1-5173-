@@ -7,6 +7,7 @@ const palette = {
   black: ["#0b1015", .25, .46], steel: ["#a4adb2", .9, .29], recess: ["#030608", .05, .95],
   glass: ["#163f50", .5, .18], red: ["#bb3438", .3, .44], orange: ["#c86532", .25, .45],
   green: ["#61b4a1", .1, .6], carbon: ["#353b40", .5, .56], gold: ["#bca477", .85, .4],
+  natoRail: ["#292e34", .42, .57],
 };
 const materials = Object.fromEntries(Object.entries(palette).map(([id, [color, metalness, roughness]]) => [id, new MeshStandardMaterial({ name: id, color, metalness, roughness })]));
 
@@ -135,7 +136,7 @@ function cage(g, node) {
   plate(g, "Base de jaula abierta", 154, 60, 5, [0, -47, 0], [[-38, 0, 3], [12, 0, 4]], "dark", [-Math.PI / 2, 0, 0]);
   plate(g, "Lateral con acceso HDMI", 22, 90, 5, [-74, 0, 4], [[0, -32, 3], [0, -18, 3], [0, 32, 3]], "dark", [0, Math.PI / 2, 0]);
   block(g, "Contorno de empuñadura abierto", [4, 80, 7], [73, -2, 22], "dark", 1.2);
-  plate(g, "Riel NATO superior desmontable", 84, 17, 4.5, [-18, 46, 6], [[-28, 0, 3], [-15, 0, 2], [0, 0, 3], [17, 0, 2], [29, 0, 3]], "dark", [-Math.PI / 2, 0, 0]);
+  plate(g, "Riel NATO superior desmontable", 84, 17, 4.5, [-18, 46, 6], [[-28, 0, 3], [-15, 0, 2], [0, 0, 3], [17, 0, 2], [29, 0, 3]], "natoRail", [-Math.PI / 2, 0, 0]);
   block(g, "Abrazadera HDMI / cuerpo", [10, 36, 24], [-77, 3, 7], "alloy", 2);
   block(g, "Mordaza HDMI", [5, 34, 20], [-81, 3, 7], "dark", 1.6);
   knurl(g, "Tornillo de abrazadera", 3.8, 14, [-76, 29, 7], "steel", "y", 24);
@@ -277,7 +278,36 @@ function handle(g) {
   shoe(g, [0, 29, 45], [0, 0, 0], 20, 19);
 }
 
-export const authors = { camera, lens, cage, audioReceiver: receiver, baseplate, rods, matte, batteryPlate, battery, gimbal, grip, monitorMount, monitor, handle };
+function compactMonitorMount(g) {
+  block(g,"Mordaza NATO 2906B",[46,15,32],[0,-19.4,0],"dark",2);
+  block(g,"Canal NATO / asiento aproximado",[27,.8,24],[0,-26.5,0],"black",.5);
+  lever(g,[-22,-17,0],"y");
+  cylinder(g,"Pivote de giro",11,7,[0,-8.4,0],"alloy","y");
+  for(const x of [-12,12])block(g,"Horquilla",[7,22,27],[x,1.1,0],"dark",2);
+  cylinder(g,"Pivote inclinable",10,30,[0,9,0],"dark","x");
+  knurl(g,"Mando lateral",7,5,[24,9,0],"rubber","x",24);
+  block(g,"Placa de apoyo monitor",[36,4,30],[0,19,0],"dark",1);
+  knurl(g,"Rueda de tornillo",10,3,[0,22,0],"steel","y",30);
+  cylinder(g,"Tornillo 1/4-20 ilustrativo",3,3.4,[0,25.2,0],"steel","y",16);
+}
+function handleExtension(g) {
+  // Contorno abierto desde manual p.8; kit y tornillería, no una pieza CAD calibrada.
+  plate(g,"Riel NATO de asa XLR",100,18,5,[0,15,0],[[0,-30,3],[0,0,3],[0,30,3]],"alloy",[-Math.PI/2,0,Math.PI/2]);
+  for(const x of [-9,9])block(g,"Labio NATO",[3,3,94],[x,19,0],"dark",.5);
+  beam(g,[0,12,53],[0,-34,53],12,10,"alloy");
+  beam(g,[0,-34,53],[0,-34,-57],12,10,"alloy");
+  beam(g,[0,-34,-57],[0,12,-57],12,10,"alloy");
+  block(g,"Bloqueo de extensión",[28,13,16],[0,8,52],"dark",1.5);
+  for(const z of [-28,28])screw(g,[0,20,z],"y");
+}
+function monitorBattery(g) {
+  block(g,"NP-F970/PRO / envolvente aproximada",[38.4,70.8,60],[0,0,0],"rubber",3);
+  block(g,"Cara de contactos",[34,65,.8],[0,0,-29.8],"black",1);
+  for(const x of [-14,14])block(g,"Guía serie L ilustrativa",[3,58,2],[x,1,-30],"dark",.5);
+  for(const x of [-8,8])block(g,"Contacto / sin pinout geométrico",[3,4,.4],[x,-29,-30.2],"gold",.2);
+  block(g,"Etiqueta visual sin marca copiada",[23,36,.3],[0,3,30.1],"dark",1);
+}
+export const authors = { camera, lens, cage, audioReceiver: receiver, baseplate, rods, matte, batteryPlate, battery, gimbal, grip, monitorMount, monitor, handle, compactMonitorMount, handleExtension, monitorBattery };
 
 export function authoredModel(node) {
   const g = new Group(); g.name = node.id; authors[node.kind]?.(g, node);

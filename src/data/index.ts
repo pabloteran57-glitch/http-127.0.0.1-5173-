@@ -47,9 +47,13 @@ const vector = (values: number[]): Vec3 => {
   if (values.length !== 3 || !values.every(Number.isFinite)) throw new Error("Invalid layout vector");
   return [values[0], values[1], values[2]];
 };
-const kinds: LayoutNode["kind"][] = ["camera", "lens", "cage", "baseplate", "rods", "matte", "batteryPlate", "battery", "gimbal", "grip", "monitorMount", "monitor", "handle", "audioReceiver"];
+const kinds: LayoutNode["kind"][] = ["camera", "lens", "cage", "baseplate", "rods", "matte", "batteryPlate", "battery", "gimbal", "grip", "monitorMount", "monitor", "handle", "audioReceiver", "compactMonitorMount", "handleExtension", "monitorBattery"];
+function monitorOverride(raw:{position_mm?:number[];rotation_deg?:number[];parent_id?:string;mass_domain?:string;mount?:string;placement?:string;orientation?:string;rationale?:string;rejected?:string}):Partial<LayoutNode>{
+  return {...(raw.position_mm?{position_mm:vector(raw.position_mm)}:{}),...(raw.rotation_deg?{rotation_deg:vector(raw.rotation_deg)}:{}),...(raw.parent_id?{parent_id:raw.parent_id}:{}),...(raw.mass_domain?{mass_domain:raw.mass_domain==="fixed"?"fixed":"moving"}:{}),...(raw.mount?{mount:raw.mount}:{}),...(raw.placement?{placement:raw.placement}:{}),...(raw.orientation?{orientation:raw.orientation}:{}),...(raw.rationale?{rationale:raw.rationale}:{}),...(raw.rejected?{rejected:raw.rejected}:{})};
+}
 export const layoutData: LayoutManifest = {
   ...layoutManifest,
+  monitor_mount_routes: Object.fromEntries(Object.entries(layoutManifest.monitor_mount_routes).map(([id,route])=>[id,{label:route.label,overrides:Object.fromEntries(Object.entries(route.overrides).map(([partId,override])=>[partId,monitorOverride(override)]))}])),
   nodes: layoutManifest.nodes.map(node => {
     const kind = kinds.find(kind => kind === node.kind);
     if (!kind) throw new Error(`Invalid layout kind: ${node.kind}`);

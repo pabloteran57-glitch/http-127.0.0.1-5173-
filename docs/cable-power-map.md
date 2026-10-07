@@ -1,18 +1,19 @@
 # Mapa de cables y alimentación
 
-Canónicos: `data/cables-manifest.json` y `data/ports-manifest.json`. 17 circuitos, 30 puertos. Identidad de conectores documentada; coordenadas 3D y curvas aproximadas.
+Canónicos: `data/cables-manifest.json` y `data/ports-manifest.json`. 18 circuitos, 32 puertos. Identidad de conectores documentada; coordenadas 3D y curvas aproximadas.
 
 ## Arquitectura
 
 - BG70 -> contactos empuñadura -> RS 4 Pro, no cable externo ni segunda batería BG30.
 - VB99 D-Tap -> 4253B regulado -> NP-FZ100 adaptador de batería -> FX3.
 - VB99 contactos V-mount -> 3203B -> D-Tap -> SmallHD conector de barril 5.5 mm externo -> Indie 7 DC I.
+- Alternativa propia: NP-F970/PRO -> contactos de placa serie L incluida -> Indie 7. Una batería elegida, sin cable; 7.2 V nominales y ~300 g. Nunca al barril DC de mínimo 10 V. Cargador externo requerido; el monitor no carga baterías.
 - RS RSS -> USB-C control -> FX3 USB-C.
 - Gimbal candidato: única FX3 HDMI A -> Indie 7 HDMI IN J.
 - Doble salida solicitada, en banco: FX3 HDMI -> entrada cautiva StarTech -> salida 1 A-A a Indie 7 / salida 2 A-C a RavenEye. Adaptador StarTech incluido de 5 V / 2 A. No distribuidor sin fuente ni montaje invisible.
 - RavenEye en banco con batería interna; no reclamar control gimbal/ActiveTrack por sólo tener vídeo.
 
-**Corrección eléctrica:** Cable SmallHD CBL-PWR-DTAP-BAR-36 de 5.5 mm exterior y centro positivo publicado. El ID histórico `smallhd-dtap-to-2mm-barrel` no afirma diámetro de 2 mm. Diámetro interior y pinout de entrada del monitor pendientes: no extrapolar del cable. Indie 7: 10-34 V DC, 2 A de entrada publicados, no consumo real medido. 4253B: entrada 9.6-20 V con mínimo 2 A, salida 8.0-8.4 V con máximo continuo 2 A.
+**Corrección eléctrica:** Cable CBL-PWR-DTAP-BAR-36: exterior 5.5 mm y centro positivo publicados, interior del cable por confirmar. Fuente independiente SmallHD, tabla técnica Power: entrada del Indie 7 de 2.0 mm interior / 5.5 mm exterior y centro positivo, DC 10–34 V; terminales batería 6.0–16.8 V. El ID histórico del cable no es prueba de conector. 4253B: entrada 9.6–20 V / mínimo 2 A, salida 8.0–8.4 V / máximo continuo 2 A. Todas las cargas y ajustes reales siguen pendientes.
 
 Revisión por circuito y fuentes: [comprobaciones de conexiones](connection-reviews.md). Tres enlaces revisados documentalmente; los demás no se dan por compatibles por tener puertos identificados.
 
@@ -40,6 +41,7 @@ Revisión por circuito y fuentes: [comprobaciones de conexiones](connection-revi
 - Obligatorio/opcional: Obligatorio; estado: Candidato; visualización: Cable.
 - Cruce de movimiento: De puerto del gimbal a cámara; geometría: Esquema, no CAD de puertos.
 
+
 ### pwr-vmount-to-fx3-dummy
 
 - Producto/fuente: Adaptador NP-FZ100.
@@ -54,6 +56,7 @@ Revisión por circuito y fuentes: [comprobaciones de conexiones](connection-revi
 - Obligatorio/opcional: Obligatorio; estado: Candidato; visualización: Cable.
 - Cruce de movimiento: Dentro del mismo subconjunto; geometría: Esquema, no CAD de puertos.
 
+
 ### pwr-plate-to-smallhd
 
 - Producto/fuente: D-Tap a DC SmallHD.
@@ -64,9 +67,11 @@ Revisión por circuito y fuentes: [comprobaciones de conexiones](connection-revi
 - Longitud estimada: Cable de fábrica de 914.4 mm; alcance necesario aproximado.
 - Ruta candidata: De placa móvil trasera a monitor lateral fijo: sujetar en jaula, dejar bucles de servicio medidos en los ejes y retener sobrante en soporte de monitor, fuera de las manos.
 - Alivio de tensión: Sujetar ambos extremos sin cargar los conectores; probar holgura y radio mínimo de curvatura.
-- Riesgos: Cable CBL-PWR-DTAP-BAR-36 con centro positivo publicado. Pinout de entrada del monitor y diámetro interior no verificados; comprobar coincidencia y tensión bajo carga antes de conectar.; Cruza de móvil a fijo: no admite giro/rotación ilimitados.; No unir batería móvil y monitor fijo con un cable tenso.
+- Riesgos: Cable y entrada documentan centro positivo por separado; entrada Indie 7: 2.0 mm interior / 5.5 mm exterior. Interior del cable y ajuste físico todavía por verificar; medir tensión bajo carga antes de conectar.; Cruza de móvil a fijo: no admite giro/rotación ilimitados.; No unir batería móvil y monitor fijo con un cable tenso.
 - Obligatorio/opcional: Obligatorio; estado: Candidato; visualización: Cable.
 - Cruce de movimiento: De móvil a fijo; geometría: Esquema, no CAD de puertos.
+- Recorrido cage: Desde D-Tap de placa sobre varillas hasta monitor sobre jaula 4770. Ambos extremos pertenecen al núcleo; recoger sobrante lejos del asa, pantalla y liberación de la batería. Cruce: same_camera_core. Curva ilustrativa, no ruta física medida.
+- Recorrido xlr: Desde D-Tap de placa sobre varillas hasta monitor sobre kit 4830 del XLR-H1. Ambos extremos pertenecen al núcleo; recoger sobrante lejos del asa, pantalla y liberación de la batería. Cruce: same_camera_core. Curva ilustrativa, no ruta física medida.
 
 ### vid-fx3-to-smallhd
 
@@ -81,6 +86,8 @@ Revisión por circuito y fuentes: [comprobaciones de conexiones](connection-revi
 - Riesgos: No representa una segunda salida HDMI de cámara.; La fuerza de la espiral puede alterar el balance.; No asumir compatibilidad con 4K60 o visualización RAW.
 - Obligatorio/opcional: Obligatorio; estado: Candidato; visualización: Cable.
 - Cruce de movimiento: De móvil a fijo; geometría: Esquema, no CAD de puertos.
+- Recorrido cage: Desde HDMI izquierdo de FX3, retenido en la abrazadera de jaula, hacia el monitor sobre NATO 4770. Ambos extremos siguen el núcleo; dejar bucle para inclinación del monitor y acceso a conectores, sin cruzar el agarre. Cruce: same_camera_core. Curva ilustrativa, no ruta física medida.
+- Recorrido xlr: Desde HDMI izquierdo de FX3, retenido en la abrazadera de jaula, hacia el monitor sobre riel 4830 del XLR-H1. Ambos extremos siguen el núcleo; dejar bucle para inclinación del monitor y acceso a conectores, sin cruzar el agarre. Cruce: same_camera_core. Curva ilustrativa, no ruta física medida.
 
 ### vid-smallhd-to-ronin-transmitter
 
@@ -96,6 +103,7 @@ Revisión por circuito y fuentes: [comprobaciones de conexiones](connection-revi
 - Obligatorio/opcional: Opcional; estado: Condicionado; visualización: Cable.
 - Cruce de movimiento: Dentro del mismo subconjunto; geometría: Esquema, no CAD de puertos.
 
+
 ### vid-fx3-to-startech-splitter
 
 - Producto/fuente: Distribuidor StarTech.
@@ -109,6 +117,7 @@ Revisión por circuito y fuentes: [comprobaciones de conexiones](connection-revi
 - Riesgos: No usar simultáneamente el cable directo cámara-monitor.; Sin soporte verificado en rig: sólo banco.
 - Obligatorio/opcional: Opcional; estado: Sólo banco; visualización: Cable.
 - Cruce de movimiento: Dentro del mismo subconjunto; geometría: Esquema, no CAD de puertos.
+
 
 ### vid-splitter-to-smallhd
 
@@ -124,6 +133,7 @@ Revisión por circuito y fuentes: [comprobaciones de conexiones](connection-revi
 - Obligatorio/opcional: Opcional; estado: Sólo banco; visualización: Cable.
 - Cruce de movimiento: Dentro del mismo subconjunto; geometría: Esquema, no CAD de puertos.
 
+
 ### vid-splitter-to-raveneye
 
 - Producto/fuente: HDMI A-C DJI.
@@ -137,6 +147,7 @@ Revisión por circuito y fuentes: [comprobaciones de conexiones](connection-revi
 - Riesgos: Comprobar EDID, pérdida de señal y reconexión.; No enviar 4K a RavenEye.
 - Obligatorio/opcional: Opcional; estado: Sólo banco; visualización: Cable.
 - Cruce de movimiento: Dentro del mismo subconjunto; geometría: Esquema, no CAD de puertos.
+
 
 ### pwr-ac-to-splitter
 
@@ -152,6 +163,7 @@ Revisión por circuito y fuentes: [comprobaciones de conexiones](connection-revi
 - Obligatorio/opcional: Opcional; estado: Sólo banco; visualización: Cable.
 - Cruce de movimiento: Dentro del mismo subconjunto; geometría: Esquema, no CAD de puertos.
 
+
 ### focus-rs4-to-lidar
 
 - Producto/fuente: Focus Pro LiDAR.
@@ -165,6 +177,7 @@ Revisión por circuito y fuentes: [comprobaciones de conexiones](connection-revi
 - Riesgos: El uso del mismo puerto RS por LiDAR y RavenEye necesita una topología aprobada.; No se demostró calibración de enfoque con SEL1635GM.
 - Obligatorio/opcional: Opcional; estado: Condicionado; visualización: Cable.
 - Cruce de movimiento: De puerto del gimbal a cámara; geometría: Esquema, no CAD de puertos.
+
 
 ### focus-rs4-to-motor
 
@@ -180,6 +193,7 @@ Revisión por circuito y fuentes: [comprobaciones de conexiones](connection-revi
 - Obligatorio/opcional: Opcional; estado: Condicionado; visualización: Cable.
 - Cruce de movimiento: De puerto del gimbal a cámara; geometría: Esquema, no CAD de puertos.
 
+
 ### audio-rx-to-fx3
 
 - Producto/fuente: Mic 2.
@@ -193,6 +207,7 @@ Revisión por circuito y fuentes: [comprobaciones de conexiones](connection-revi
 - Riesgos: Usar TRS para cámara, no TRRS de teléfono.; Verificar ganancia, modo estéreo/seguridad y medidor de grabación.; La masa del kit no es la del receptor; pesar por separado.
 - Obligatorio/opcional: Obligatorio; estado: Candidato; visualización: Cable.
 - Cruce de movimiento: Dentro del mismo subconjunto; geometría: Esquema, no CAD de puertos.
+
 
 ### audio-rx-to-xlrhandle
 
@@ -208,6 +223,7 @@ Revisión por circuito y fuentes: [comprobaciones de conexiones](connection-revi
 - Obligatorio/opcional: Obligatorio; estado: Candidato; visualización: Cable.
 - Cruce de movimiento: Dentro del mismo subconjunto; geometría: Esquema, no CAD de puertos.
 
+
 ### audio-lav-to-tx
 
 - Producto/fuente: Micrófono de solapa DJI.
@@ -221,6 +237,7 @@ Revisión por circuito y fuentes: [comprobaciones de conexiones](connection-revi
 - Riesgos: Mantener cable del participante fuera del modelo de rig.; Grabar respaldo y sincronizar cuando haga falta.
 - Obligatorio/opcional: Obligatorio; estado: Candidato; visualización: Cable.
 - Cruce de movimiento: Dentro del mismo subconjunto; geometría: Esquema, no CAD de puertos.
+
 
 ### pwr-bg70-to-rs4
 
@@ -236,6 +253,7 @@ Revisión por circuito y fuentes: [comprobaciones de conexiones](connection-revi
 - Obligatorio/opcional: Obligatorio; estado: Candidato; visualización: Contactos sin cable.
 - Cruce de movimiento: Dentro del mismo subconjunto; geometría: Esquema, no CAD de puertos.
 
+
 ### pwr-raveneye-internal
 
 - Producto/fuente: RavenEye.
@@ -250,6 +268,7 @@ Revisión por circuito y fuentes: [comprobaciones de conexiones](connection-revi
 - Obligatorio/opcional: Opcional; estado: Sólo banco; visualización: Circuito interno.
 - Cruce de movimiento: Dentro del mismo subconjunto; geometría: Esquema, no CAD de puertos.
 
+
 ### pwr-vmount-to-plate-contacts
 
 - Producto/fuente: Placa V-mount.
@@ -263,6 +282,22 @@ Revisión por circuito y fuentes: [comprobaciones de conexiones](connection-revi
 - Riesgos: Apagar antes de retirar la batería. Comprobar limpieza de contactos.
 - Obligatorio/opcional: Obligatorio; estado: Candidato; visualización: Contactos sin cable.
 - Cruce de movimiento: Dentro del mismo subconjunto; geometría: internal_mating_interface.
+
+
+### pwr-npf-to-smallhd-contacts
+
+- Producto/fuente: Batería Sony NP-F970/PRO.
+- Origen: Sony NP-F970/PRO elegida; puerto `npf970-contacts`.
+- Destino: Placa serie L nativa del Indie 7; puerto `indie7-l-series`.
+- Conector A: Contactos serie L de batería; conector B: Contactos de placa serie L.
+- Tipo: Alimentación; estándar/tensión: 7.2 V nominales; terminales SmallHD 6.0–16.8 V, combinación candidata pendiente de ensayo..
+- Longitud estimada: Sin cable externo: contactos directos de bahía.
+- Ruta candidata: Batería en una bahía posterior del monitor; contacto directo, no línea que atraviesa gimbal.
+- Alivio de tensión: No hay cable: comprobar seguro y asiento de batería.
+- Riesgos: No conectar esta batería al barril DC de mínimo 10 V.; Monitor no carga baterías; requiere cargador externo específico.; Una batería de ~300 g; retención, corriente disponible y autonomía reales por probar.
+- Obligatorio/opcional: Opcional; estado: Candidato; visualización: Contactos sin cable.
+- Cruce de movimiento: local_to_monitor; geometría: contacts_only_not_port_CAD.
+
 
 
 ## Puertos identificados
@@ -282,7 +317,7 @@ Revisión por circuito y fuentes: [comprobaciones de conexiones](connection-revi
 - `plate-dtap`: Salida D-Tap / D-Tap hembra; anclaje visual XYZ -54/-48/0 mm aproximado; [fuente](https://static.smallrig.com/mall/img/public/1714289722871_.pdf).
 - `indie7-hdmi-in`: J / entrada HDMI / HDMI tipo A hembra; anclaje visual XYZ 70/-49/16.75 mm aproximado; [fuente](https://guide.smallhd.com/a/1634747-indie-7-quick-start-guide).
 - `indie7-hdmi-out`: K / salida HDMI / HDMI tipo A hembra; anclaje visual XYZ 48/-49/16.75 mm aproximado; [fuente](https://guide.smallhd.com/a/1634747-indie-7-quick-start-guide).
-- `indie7-dc`: I / entrada DC / Barril DC del fabricante; cable de 5.5 mm de diámetro exterior; anclaje visual XYZ -28/-55/16.75 mm aproximado; [fuente](https://guide.smallhd.com/a/1634747-indie-7-quick-start-guide).
+- `indie7-dc`: I / entrada DC / Barril DC del fabricante; cable de 5.5 mm de diámetro exterior; anclaje visual XYZ -28/-55/16.75 mm aproximado; [fuente](https://smallhd.com/products/indie-7).
 - `splitter-captive-input`: Entrada HDMI de cable cautivo / Cable integrado con HDMI tipo A macho; sin pose habilitada; [fuente](https://media.startech.com/cms/pdfs/st122hd4ku_datasheet.pdf).
 - `splitter-output1`: Salida HDMI 1 / HDMI tipo A hembra; sin pose habilitada; [fuente](https://media.startech.com/cms/pdfs/st122hd4ku_datasheet.pdf).
 - `splitter-output2`: Salida HDMI 2 / HDMI tipo A hembra; sin pose habilitada; [fuente](https://media.startech.com/cms/pdfs/st122hd4ku_datasheet.pdf).
@@ -297,6 +332,8 @@ Revisión por circuito y fuentes: [comprobaciones de conexiones](connection-revi
 - `mic2-tx-in`: Transmisor / entrada de micrófono / TRS de 3.5 mm hembra; sin pose habilitada; [fuente](https://www.dji.com/mic-2/specs).
 - `lav-mic`: Micrófono de solapa / Cable integrado; sin pose habilitada; [fuente](https://store.dji.com/product/dji-lavalier-mic).
 - `xlrh1-input3`: Entrada 3 / TRS de 3.5 mm hembra; sin pose habilitada; [fuente](https://electronics.sony.com/imaging/imaging-accessories/imaging-compact-camera-accessories/p/xlrh1).
+- `npf970-contacts`: Contactos de batería serie L / Contactos serie L de batería; anclaje visual XYZ 0/-35.4/-30 mm aproximado; [fuente](https://www.sony.jp/products/catalog/SPC_NP-F970_PRO.pdf).
+- `indie7-l-series`: Placa serie L incluida / una bahía / Contactos de placa serie L; anclaje visual XYZ 26/-17.4/16.75 mm aproximado; [fuente](https://smallhd.com/products/indie-7).
 
 ## Lógica ensamblada
 

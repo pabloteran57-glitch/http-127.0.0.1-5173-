@@ -22,4 +22,3 @@ export function connectionName(id: string) {
 export function connectionKind(type: "power" | "video" | "data") {
   return type === "power" ? "Alimentación" : type === "video" ? "Vídeo" : "Control / audio";
 }
-

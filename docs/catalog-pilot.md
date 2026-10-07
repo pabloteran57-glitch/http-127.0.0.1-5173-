@@ -38,4 +38,4 @@ Fuente canónica de investigación: `data/catalog-intake.json`. Revisión 2026-1
 - `fx3-light-prime`: sony-fx3, smallrig-4770, sony-fe-35-f18, sony-np-fz100. Priorizar un núcleo compacto sin monitor ni V-mount. Verificar tablas Sony, alojamiento de batería, jaula y guía antes de activar.
 - `fx30-handheld-prime`: sony-fx30, smallrig-4770, sony-fe-20-f18-g, sony-np-fz100. Segundo cuerpo candidato. 4770 menciona FX3/FX30, pero no se copia el rig de FX3 ni su control, señales o masa.
 
-Distribución, cableado, guía y representación pendientes. Este lote no modifica las 27 piezas utilizables del catálogo actual.
+Distribución, cableado, guía y representación pendientes. Este lote no modifica las 30 entradas del catálogo actual.

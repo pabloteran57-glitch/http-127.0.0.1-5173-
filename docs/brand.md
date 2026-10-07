@@ -14,4 +14,3 @@ Identidad provisional solicitada como alternativa a Axirig.
 La búsqueda exploratoria de nombre exacto y resultados App Store indexados no encontró una app de cámara/rig homónima. Esto no demuestra disponibilidad en todos los territorios, dominio libre, marca registrable ni garantiza éxito comercial. Requiere comprobación directa en App Store Connect y revisión de marca antes de publicar.
 
 El icono es un concepto SVG de 1024 unidades, no una entrega certificada de todos los recursos de App Store.
-

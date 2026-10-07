@@ -1,5 +1,6 @@
 import { useRef } from "react";
-import { cableById, cablesData, portById, partById, layoutData, connectionAssessmentById } from "../data";
+import { cableById, cablesData, portById, partById, layoutData, connectionAssessmentById, connectionReviewsData } from "../data";
+import { cableForVariant } from "../lib/viewer";
 import type { Variant } from "../lib/types";
 import { connectionKind, connectionName, connectorName, partName } from "../lib/ui";
 import Icon from "./Icon";
@@ -9,7 +10,8 @@ export default function ConnectionPanel({variant,bench,selectedId,onSelect}:{var
   const panel=useRef<HTMLElement>(null);
   const focus=useRef<HTMLDivElement>(null);
   const ids=bench?cablesData.profiles.requested_dual_feed_bench:variant.cable_profile_ids;
-  const selected=cableById[ids.includes(selectedId)?selectedId:ids[0]];
+  const sourceCable=cableById[ids.includes(selectedId)?selectedId:ids[0]];
+  const selected=sourceCable?(bench?sourceCable:cableForVariant(sourceCable,variant)):undefined;
   const review=selected?connectionAssessmentById[selected.cable_id]:null;
   const documentedCount=review?.checks.filter(check=>check.state==="documented").length??0;
   const hasVisualRoute=selected?.display_kind==="cable"&&[selected.from_port_id,selected.to_port_id].every(id=>portById[id].local_position_mm&&layoutData.nodes.some(n=>n.id===portById[id].part_id&&variant.active_part_ids.includes(n.id)));
@@ -43,7 +45,7 @@ export default function ConnectionPanel({variant,bench,selectedId,onSelect}:{var
         <small>{connectionKind(c.type)}{c.display_kind!=="cable"?" · Sin cable externo":""}</small><strong>{connectionName(id)}</strong>
       </button>;
     })}</div>
-    <p className="panel-footnote">{bench?"Circuito estático. Distribuidor con fuente 5 V / 2 A. No hay soporte validado en el rig.":"Puertos identificados; geometría y curvas aproximadas. La revisión ampliada cubre tres circuitos: no certifica el conjunto."}</p>
+    <p className="panel-footnote">{bench?"Circuito estático. Distribuidor con fuente 5 V / 2 A. No hay soporte validado en el rig.":`Puertos identificados; geometría y curvas aproximadas. ${connectionReviewsData.reviews.length} circuitos con revisión ampliada; no certifica el conjunto.`}</p>
   </aside>;
 }
 

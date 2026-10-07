@@ -1,6 +1,6 @@
 # Revisión de conexiones
 
-Fuente: `data/connection-reviews.json`, revisión `connection-review-2026-10-06-1`. Valores eléctricos canónicos en cables y puertos, con fuente por campo. 3 de 17 circuitos con revisión ampliada.
+Fuente: `data/connection-reviews.json`, revisión `connection-review-2026-10-07-2`. Valores eléctricos canónicos en cables y puertos, con fuente por campo. 4 de 18 circuitos con revisión ampliada.
 
 Revisión documental limitada a modelos, puertos y revisión vinculados. No es autorización para energizar ni ensayo físico. Fuentes de valores eléctricos en cables-manifest y ports-manifest; ausencia de rango, pinout o protocolo mantiene el resultado pendiente.
 
@@ -41,17 +41,31 @@ Antes de conectar: No conectes D-Tap directo a la FX3. Verifica la entrada y la 
 
 Modelos vinculados: Placa V-mount / 3203B; Indie 7 / MON-INDIE-7; D-Tap a DC SmallHD / CBL-PWR-DTAP-BAR-36. Puertos: `plate-dtap` -> `indie7-dc`.
 
-Antes de conectar: Antes de energizar, confirma que el pinout de entrada del Indie 7 coincide con el centro positivo del cable, comprueba ajuste del barril y mide la salida de la placa bajo carga.
+Antes de conectar: Polaridad de entrada y cable documentadas por fuentes independientes. Antes de energizar, verificar ajuste físico del barril, tensión de la placa bajo carga y recorrido del cable.
 
 - **Entrada del Indie 7:** 10-34 V DC y 2 A de entrada publicados. Los 2 A no son una medición de consumo del rig.
 - **Cable SmallHD exacto:** CBL-PWR-DTAP-BAR-36: exterior 5.5 mm y centro positivo documentados.
-- **Coincidencia de polaridad:** El cable tiene centro positivo; falta confirmar el pinout de entrada del monitor. No asumir coincidencia.
+- **Coincidencia de polaridad:** Cable y entrada del monitor publican centro positivo en fuentes independientes. No deducido del ID histórico del cable; prueba física aún pendiente.
 - **Rango de la salida D-Tap:** El manual de la placa publica el rango de entrada D-Tap, no un rango completo de salida. Confirmar la salida efectiva de este conjunto bajo carga.
-- **Ajuste y recorrido:** Diámetro interior, retención, carga compartida y bucles entre cámara móvil y monitor fijo pendientes de verificación física.
+- **Ajuste y recorrido:** Diámetro interior del cable, asiento, retención, carga compartida y bucles físicos por verificar. Entrada del monitor de 2.0 mm documentada, no cotas CAD.
 
 - [SmallHD](https://smallhd.com/products/dtap-barrel-36in): SKU CBL-PWR-DTAP-BAR-36; Tech Specs > Cable > Pinout; diámetro de producto 5.5 mm. Cable con centro positivo publicado y exterior de barril 5.5 mm. No establece el pinout de entrada del monitor ni el diámetro interior.
 - [SmallHD](https://guide.smallhd.com/a/1634747-indie-7-quick-start-guide): Indie 7 Quick Start Guide > Connectors > I: Barrel connector for power. Entrada Indie 7 de 10-34 V DC y 2 A publicados; no se identifican diámetro interior ni pinout en esta guía.
 - [SmallRig](https://static.smallrig.com/mall/img/public/1714289722871_.pdf): Página 4, Specifications: D-Tap Input Voltage y Battery Rated Capacity. La tabla publica entrada D-Tap de 11.0-16.8 V; 14.8 V aparece en capacidad nominal de batería, no como rango de salida D-Tap. La salida efectiva queda pendiente.
+- [SmallHD](https://smallhd.com/products/indie-7): Technical Specs > Power > Connector y Voltage. Entrada de barril Indie 7: 2.0 mm interior, 5.5 mm exterior y centro positivo. Entrada DC 10–34 V; batería en terminales 6.0–16.8 V.
+
+## pwr-npf-to-smallhd-contacts
+
+Modelos vinculados: Batería Sony NP-F970/PRO / NP-F970/PRO; Indie 7 / MON-INDIE-7. Puertos: `npf970-contacts` -> `indie7-l-series`.
+
+Antes de conectar: Una NP-F970/PRO en la placa serie L incluida del Indie 7, no en el barril DC. Verificar retención, contactos limpios y funcionamiento con la batería real cargada; cargador específico externo requerido.
+
+- **Batería y masa por modelo:** NP-F970/PRO documenta 7.2 V nominales y aproximadamente 300 g. No se adopta el peso de otro producto denominado NP-F970.
+- **Entrada nativa serie L:** Placa serie L incluida en Indie 7, rango 6.0-16.8 V por contactos. Es una entrada distinta del barril DC de mínimo 10 V.
+- **Rango real y funcionamiento:** La ficha Sony publica tensión nominal, no el rango completo de descarga de esta revisión. Comprobar batería real, retención, contactos, consumo y autonomía; no es un ensayo de compatibilidad del par.
+
+- [Sony](https://www.sony.jp/products/catalog/SPC_NP-F970_PRO.pdf): Página 1, especificaciones principales y advertencia de cargador. NP-F970/PRO: 7.2 V nominales, 45 Wh, dimensiones aproximadas y masa de aproximadamente 300 g; requiere cargador específico.
+- [SmallHD](https://smallhd.com/products/indie-7): In the Box: Sony L Series Battery Bracket; Technical Specs, Power: Battery Charging, Input Voltage Battery. Placa serie L incluida, contactos de batería admiten 6.0-16.8 V; el monitor no carga baterías.
 
 
 ## Alcance pendiente

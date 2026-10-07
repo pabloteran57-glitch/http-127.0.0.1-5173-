@@ -6,6 +6,8 @@ El permiso de esta reconstrucción propia cubre modificación, compilación y di
 
 Las fotografías oficiales se consultan localmente como referencias de identificación. Las superficies, materiales y detalles se redactan en código; no se extraen datos protegidos de visores web. Las medidas publicadas y datos funcionales siguen en los manifiestos canónicos.
 
+En la versión 0.2.6 hay diecisiete mallas propias y diecisiete miniaturas WebP derivadas de ellas mediante `scripts/build-product-visuals.mjs`. El mismo alcance de uso dentro de Takegrid cubre esas miniaturas; no son fotografías de producto. `data/product-visuals.json` relaciona cada revisión visual con la huella de su GLB y de su imagen. La publicación sólo admite los recursos propios aprobados por esa relación, sin ampliar derechos sobre referencias externas.
+
 La clasificación `custom-reviewed` del registro se refiere a esta procedencia original y al uso autorizado por el usuario dentro de Takegrid. No equivale a un permiso de Sony, DJI, SmallRig, SmallHD ni otro fabricante, ni a una autorización de fabricación o impresión 3D.
 
 Todas las reconstrucciones son visuales aproximadas. El detalle de un tornillo, la representación de una zapata o un aro no certifica posición, rosca, tolerancia, encaje, holgura, polaridad, centro de gravedad o resistencia mecánica. No se autoriza una instalación por la mera existencia de una malla.

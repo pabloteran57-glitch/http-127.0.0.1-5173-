@@ -229,7 +229,9 @@
     },
     {
       "id": "src-smallhd-dtap-barrel",
-      "review_subject_part_ids": ["smallhd-dtap-to-2mm-barrel"],
+      "review_subject_part_ids": [
+        "smallhd-dtap-to-2mm-barrel"
+      ],
       "brand": "SmallHD",
       "type": "official",
       "url": "https://smallhd.com/products/dtap-barrel-36in",
@@ -501,7 +503,9 @@
     },
     {
       "id": "audit-doc-smallrig-vb99-manual",
-      "review_subject_part_ids": ["smallrig-vb99-pro"],
+      "review_subject_part_ids": [
+        "smallrig-vb99-pro"
+      ],
       "brand": "SmallRig",
       "type": "official",
       "url": "https://static.smallrig.com/mall/img/public/1730100759046_.pdf",
@@ -538,7 +542,9 @@
     },
     {
       "id": "audit-doc-smallrig-3203b-manual",
-      "review_subject_part_ids": ["smallrig-3203b"],
+      "review_subject_part_ids": [
+        "smallrig-3203b"
+      ],
       "checked_on": "2026-10-06",
       "brand": "SmallRig",
       "type": "official",
@@ -549,7 +555,9 @@
     },
     {
       "id": "audit-doc-smallrig-4253b-manual",
-      "review_subject_part_ids": ["smallrig-4253b"],
+      "review_subject_part_ids": [
+        "smallrig-4253b"
+      ],
       "brand": "SmallRig",
       "type": "official",
       "url": "https://static.smallrig.com/mall/img/public/1706163303324_.pdf",
@@ -559,7 +567,9 @@
     },
     {
       "id": "audit-indie-port-guide",
-      "review_subject_part_ids": ["smallhd-indie-7"],
+      "review_subject_part_ids": [
+        "smallhd-indie-7"
+      ],
       "brand": "SmallHD",
       "type": "official",
       "url": "https://guide.smallhd.com/a/1634747-indie-7-quick-start-guide",
@@ -586,12 +596,60 @@
     },
     {
       "id": "src-dji-rs4-fx3-control-matrix",
-      "review_subject_part_ids": ["dji-rs4-pro-combo", "sony-fx3", "dji-r-usbc-control"],
+      "review_subject_part_ids": [
+        "dji-rs4-pro-combo",
+        "sony-fx3",
+        "dji-r-usbc-control"
+      ],
       "brand": "DJI",
       "type": "official",
       "url": "https://www.dji.com/global/support/compatibility/rs-4-pro/fx3",
       "checked_on": "2026-10-05",
       "notes": "Matriz específica RS 4 Pro + FX3 revisada visualmente. Columna USB-C: grabación y AF documentados; Camera Firmware V1.00. No extrapolar a cualquier cable USB-C ni certificar otro firmware."
+    },
+    {
+      "id": "src-smallrig-2906b-manual",
+      "brand": "SmallRig",
+      "type": "official",
+      "url": "https://static.smallrig.com/mall/img/public/0g141qmktenu-1751249917074_.pdf",
+      "checked_on": "2026-10-07",
+      "notes": "Páginas 2, 3 y 10 revisadas: NATO, 1/4-20, límites angulares, 53.8 × 52.6 × 36 mm, 85 ±5 g.",
+      "review_subject_part_ids": [
+        "smallrig-2906b"
+      ]
+    },
+    {
+      "id": "src-smallrig-4830-manual",
+      "brand": "SmallRig",
+      "type": "official",
+      "url": "https://static.smallrig.com/mall/img/public/1725874097334_.pdf",
+      "checked_on": "2026-10-07",
+      "notes": "Páginas 2 y 8 revisadas: kit 4830, 115 ±5 g y montaje del riel en XLR.",
+      "review_subject_part_ids": [
+        "smallrig-4830"
+      ]
+    },
+    {
+      "id": "src-sony-npf970-pro",
+      "brand": "Sony",
+      "type": "official",
+      "url": "https://www.sony.jp/products/catalog/SPC_NP-F970_PRO.pdf",
+      "checked_on": "2026-10-07",
+      "notes": "NP-F970/PRO exacta: 7.2 V, 45 Wh, 6300 mAh, aproximadamente 300 g; ancho × alto × fondo 38.4 × 60 × 70.8 mm. No usar los 225 g de ficha regional genérica.",
+      "review_subject_part_ids": [
+        "sony-np-f970-pro"
+      ]
+    },
+    {
+      "id": "src-smallhd-indie7-specs",
+      "brand": "SmallHD",
+      "type": "official",
+      "url": "https://smallhd.com/products/indie-7",
+      "checked_on": "2026-10-07",
+      "notes": "Tabla técnica Power: batería 6.0–16.8 V, placa serie L incluida, no carga batería; barril 2.0 ID / 5.5 OD y centro positivo. Masa y fondo publicados discrepan de B&H; se conserva masa de planificación conservadora de 737 g.",
+      "review_subject_part_ids": [
+        "smallhd-indie-7"
+      ]
     }
   ],
   "audit_on": "2026-10-06"

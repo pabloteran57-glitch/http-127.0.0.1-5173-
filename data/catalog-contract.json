@@ -341,6 +341,45 @@
       ],
       "release_status": "planning_candidate",
       "physically_tested": false
+    },
+    {
+      "part_id": "smallrig-2906b",
+      "record_revision": "fx3-rs4-2026-10-05",
+      "model_number": "2906B",
+      "identity_source_url": "https://static.smallrig.com/mall/img/public/0g141qmktenu-1751249917074_.pdf",
+      "geometry_profile_id": "smallrig-2906b",
+      "geometry_status": "approximate",
+      "assembly_steps": [
+        6
+      ],
+      "release_status": "planning_candidate",
+      "physically_tested": false
+    },
+    {
+      "part_id": "smallrig-4830",
+      "record_revision": "fx3-rs4-2026-10-05",
+      "model_number": "4830",
+      "identity_source_url": "https://static.smallrig.com/mall/img/public/1725874097334_.pdf",
+      "geometry_profile_id": "smallrig-4830",
+      "geometry_status": "approximate",
+      "assembly_steps": [
+        2
+      ],
+      "release_status": "planning_candidate",
+      "physically_tested": false
+    },
+    {
+      "part_id": "sony-np-f970-pro",
+      "record_revision": "fx3-rs4-2026-10-05",
+      "model_number": "NP-F970/PRO",
+      "identity_source_url": "https://www.sony.jp/products/catalog/SPC_NP-F970_PRO.pdf",
+      "geometry_profile_id": "sony-np-f970-pro",
+      "geometry_status": "approximate",
+      "assembly_steps": [
+        11
+      ],
+      "release_status": "planning_candidate",
+      "physically_tested": false
     }
   ]
 }

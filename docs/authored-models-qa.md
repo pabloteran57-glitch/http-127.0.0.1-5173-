@@ -27,7 +27,9 @@ Servidores observados: desarrollo `http://127.0.0.1:5174/` y compilación públi
 - Montaje deriva nueve etapas. A partir del montaje del soporte se conserva monitor; RX en accesorios del núcleo. Reproducción 2× termina en la novena con ocho nodos y tres circuitos: HDMI, TRS y control USB-C. Extracción opcional no se inicia y cero etapas se marcan físicamente revisadas. Las esperas de carga son estados visibles, no un ensayo cronometrado.
 - Detalle de RX abre en móvil con huella confirmada, cinco controles accesibles y origen aproximado explícito. Guardar el rig confirma historial local y conserva las diez elecciones.
 
-La publicación remota se documentará cuando se observe, no antes. Capturas locales excluidas de publicación: `public/previews/takegrid-fx3-detalle-local.png`, `public/previews/takegrid-montaje-modelos-movil-025.png`, `public/previews/takegrid-mic2-detalle-movil-025.png`.
+Publicación adicional confirmada por Sites con estado `succeeded` el 7 de octubre de 2026 a las 04:30:42 UTC, todavía 6 de octubre en Ecuador: [Takegrid 0.2.5](https://takegrid-rigs.pabloteran57.chatgpt.site). Paquete estático de 31 archivos, incluido el manifiesto de alojamiento; los 30 recursos de aplicación coinciden por SHA-256 con la compilación pública probada. No es una prueba de navegación remota, teléfono físico o rendimiento de producción. Netlify conserva la versión anterior. [Registro del despliegue](additional-hosting.md).
+
+Capturas locales excluidas de publicación: `public/previews/takegrid-fx3-detalle-local.png`, `public/previews/takegrid-montaje-modelos-movil-025.png`, `public/previews/takegrid-mic2-detalle-movil-025.png`.
 
 ## Pendientes
 

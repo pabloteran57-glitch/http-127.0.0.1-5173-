@@ -99,7 +99,29 @@
       "envelope": "verified",
       "mass_domain": "moving",
       "mount": "Jaula en U, dos tornillos de cámara 1/4-20 y abrazadera HDMI izquierda. Riel NATO superior desmontable y zapata inclinada en esquina superior izquierda, manual página 4, llamada 5.",
-      "mounting_points": [{"id":"tilted-cold-shoe","local_position_mm":[-69,48,8],"rotation_deg":[0,0,-25],"size_xyz_mm":[24,6,24],"source_url":"https://static.smallrig.com/mall/img/public/1725874097334_.pdf","confidence":"approximate_photo_based_not_mechanical_CAD","note":"Interfaz documentada en página 4, llamada 5; cotas internas, posición y ángulo aproximados desde referencias, no patrón de fabricación."}],
+      "mounting_points": [
+        {
+          "id": "tilted-cold-shoe",
+          "local_position_mm": [
+            -69,
+            48,
+            8
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            -25
+          ],
+          "size_xyz_mm": [
+            24,
+            6,
+            24
+          ],
+          "source_url": "https://static.smallrig.com/mall/img/public/1725874097334_.pdf",
+          "confidence": "approximate_photo_based_not_mechanical_CAD",
+          "note": "Interfaz documentada en página 4, llamada 5; cotas internas, posición y ángulo aproximados desde referencias, no patrón de fabricación."
+        }
+      ],
       "placement": "Alrededor del cuerpo, con acceso a las conexiones izquierdas.",
       "orientation": "Misma orientación que la cámara.",
       "rationale": "Sujeción del cable y núcleo antitorsión.",
@@ -439,8 +461,16 @@
       "mount_point_id": "tilted-cold-shoe",
       "label": "DJI Mic 2 / receptor RX",
       "kind": "audioReceiver",
-      "position_mm": [-64.247,58.191,8],
-      "size_xyz_mm": [54.2,22.49,28.36],
+      "position_mm": [
+        -64.247,
+        58.191,
+        8
+      ],
+      "size_xyz_mm": [
+        54.2,
+        22.49,
+        28.36
+      ],
       "envelope": "verified",
       "mass_domain": "moving",
       "mount": "Zapata integrada DMR02 en zapata inclinada 4770, sin brazo ni adaptador adicional. Interfaces documentadas; asiento y retención reales por comprobar.",
@@ -448,13 +478,27 @@
       "orientation": "Pantalla hacia el operador y hacia arriba, paralela a la zapata inclinada. Ángulo -25 grados ilustrativo, no medición del fabricante. En vertical gira con la jaula y mantiene el vínculo de soporte.",
       "rationale": "Representar el audio elegido usando una interfaz existente documentada. Se cuentan 28 g publicados del RX, nunca el kit completo.",
       "rejected": "RX flotante, transmisores/estuche en cámara, adaptador MI no elegido, zapata tratada como alimentación y ángulo presentado como cota exacta.",
-      "explode_mm": [-45,140,0],
+      "explode_mm": [
+        -45,
+        140,
+        0
+      ],
       "dimension_source_url": "https://www.dji.com/mic-2/specs",
       "pose_status": "approximate_not_clearance_checked",
       "parent_id": "smallrig-4770",
-      "rotation_deg": [0,0,-25],
-      "mount_evidence_urls": ["https://static.smallrig.com/mall/img/public/1725874097334_.pdf","https://dl.djicdn.com/downloads/DJI_Mic_2/20240426/UM/DJI_Mic_2_User_Manual_V1.2_EN.pdf"],
-      "mount_evidence_locators": ["4770, página 4, llamada 5: Cold Shoe","DJI Mic 2 v1.2, página 8, llamada 6 y página 13: Using with a Camera"]
+      "rotation_deg": [
+        0,
+        0,
+        -25
+      ],
+      "mount_evidence_urls": [
+        "https://static.smallrig.com/mall/img/public/1725874097334_.pdf",
+        "https://dl.djicdn.com/downloads/DJI_Mic_2/20240426/UM/DJI_Mic_2_User_Manual_V1.2_EN.pdf"
+      ],
+      "mount_evidence_locators": [
+        "4770, página 4, llamada 5: Cold Shoe",
+        "DJI Mic 2 v1.2, página 8, llamada 6 y página 13: Using with a Camera"
+      ]
     },
     {
       "id": "sony-xlr-h1",
@@ -490,10 +534,120 @@
         0,
         0
       ]
+    },
+    {
+      "id": "smallrig-2906b",
+      "label": "2906B",
+      "kind": "compactMonitorMount",
+      "position_mm": [
+        -18,
+        75.15,
+        6
+      ],
+      "size_xyz_mm": [
+        52.6,
+        53.8,
+        36
+      ],
+      "explode_mm": [
+        50,
+        140,
+        -40
+      ],
+      "rotation_deg": [
+        0,
+        0,
+        0
+      ],
+      "parent_id": "smallrig-4770",
+      "dimension_source_url": "https://static.smallrig.com/mall/img/public/0g141qmktenu-1751249917074_.pdf",
+      "envelope": "verified",
+      "mass_domain": "moving",
+      "mount": "Abrazadera NATO sobre riel superior 4770 sin XLR, o riel del kit 4830 sobre XLR-H1. Tornillo superior 1/4-20 a rosca inferior del Indie 7.",
+      "placement": "Posición candidata aproximada; comprobar asiento, manos y acceso a conexiones.",
+      "orientation": "Orientación de visualización aproximada, no transformación de montaje medida.",
+      "rationale": "Monitor sobre núcleo a mano o estático; no sustituye 3026B lateral en gimbal.",
+      "rejected": "Montaje flotante, adaptación no elegida y extrapolación de cotas de tornillos.",
+      "pose_status": "approximate_not_clearance_checked"
+    },
+    {
+      "id": "smallrig-4830",
+      "label": "4830",
+      "kind": "handleExtension",
+      "position_mm": [
+        0,
+        92,
+        -42
+      ],
+      "size_xyz_mm": [
+        55.8,
+        77.5,
+        124.8
+      ],
+      "explode_mm": [
+        50,
+        140,
+        -40
+      ],
+      "rotation_deg": [
+        0,
+        0,
+        0
+      ],
+      "parent_id": "sony-xlr-h1",
+      "dimension_source_url": "https://static.smallrig.com/mall/img/public/1725874097334_.pdf",
+      "envelope": "verified",
+      "mass_domain": "moving",
+      "mount": "Extensión, pieza de bloqueo y riel NATO nativos sobre XLR-H1; seguir montaje del manual página 8. Retirar riel superior desmontable de 4770 antes de instalar XLR.",
+      "placement": "Posición candidata aproximada; comprobar asiento, manos y acceso a conexiones.",
+      "orientation": "Orientación de visualización aproximada, no transformación de montaje medida.",
+      "rationale": "Proporcionar riel de monitor cuando el asa Sony ocupa el techo de cámara.",
+      "rejected": "Montaje flotante, adaptación no elegida y extrapolación de cotas de tornillos.",
+      "pose_status": "approximate_not_clearance_checked"
+    },
+    {
+      "id": "sony-np-f970-pro",
+      "label": "NP-F970/PRO",
+      "kind": "monitorBattery",
+      "position_mm": [
+        -211,
+        -223,
+        21.75
+      ],
+      "size_xyz_mm": [
+        38.4,
+        70.8,
+        60
+      ],
+      "explode_mm": [
+        50,
+        140,
+        -40
+      ],
+      "rotation_deg": [
+        0,
+        0,
+        180
+      ],
+      "parent_id": "smallhd-indie-7",
+      "dimension_source_url": "https://www.sony.jp/products/catalog/SPC_NP-F970_PRO.pdf",
+      "envelope": "approximate",
+      "mass_domain": "fixed",
+      "mount": "Un paquete serie L en una de las dos bahías de la placa nativa incluida del Indie 7. Sin adaptador D-Tap ni cable a barril.",
+      "placement": "Posición candidata aproximada; comprobar asiento, manos y acceso a conexiones.",
+      "orientation": "Orientación de visualización aproximada, no transformación de montaje medida.",
+      "rationale": "Alimentación autónoma del monitor, también en gimbal vertical.",
+      "rejected": "Montaje flotante, adaptación no elegida y extrapolación de cotas de tornillos.",
+      "pose_status": "approximate_not_clearance_checked"
     }
   ],
   "clearance_gates": [
-    {"id":"rx-shoe-clearance","title":"Receptor Mic 2 y zapata HawkLock","detail":"Verificar asiento y retención del RX en la zapata inclinada 4770, acceso a MIC/HDMI, pantalla y holgura en todos los ejes con motores apagados. Pesar el cable TRS y rebalancear con RX instalado; no inferir holgura por los 28 g publicados.","status":"bench_required"},
+    {
+      "id": "rx-shoe-clearance",
+      "title": "Receptor Mic 2 y zapata HawkLock",
+      "detail": "Verificar asiento y retención del RX en la zapata inclinada 4770, acceso a MIC/HDMI, pantalla y holgura en todos los ejes con motores apagados. Pesar el cable TRS y rebalancear con RX instalado; no inferir holgura por los 28 g publicados.",
+      "status": "bench_required"
+    },
     {
       "id": "battery-sweep",
       "title": "Batería y recorrido de motores",
@@ -503,13 +657,13 @@
     {
       "id": "hand-zone",
       "title": "Espacio para las manos",
-      "detail": "Ajustar el monitor en el 3026B real. Usar empuñadura y controles con guantes sin tocar pantalla ni soporte.",
+      "detail": "Gimbal: ajustar monitor en 3026B, sin obstaculizar empuñadura. A mano/estático: medir acceso al asa y mandos con 2906B, incluyendo 4830 si hay XLR-H1. Usar guantes sin tocar pantalla, batería ni soporte; no se da por validado por la pose.",
       "status": "bench_required"
     },
     {
       "id": "motion-boundary",
       "title": "Cables entre partes móviles y fijas",
-      "detail": "HDMI y alimentación del monitor cruzan de cámara móvil a monitor lateral fijo. Prever bucles flexibles para los ejes; no se promete giro o rotación ilimitados.",
+      "detail": "En gimbal HDMI y D-Tap cruzan de móvil a fijo y requieren bucles medidos; batería serie L no añade cable de potencia. A mano/estático ambos extremos HDMI/D-Tap siguen el núcleo y deben dejar holgura para monitor y agarre. No se promete giro ilimitado.",
       "status": "bench_required"
     },
     {
@@ -531,5 +685,93 @@
       "status": "conditional"
     }
   ],
-  "support_graph_note": "parent_id representa la cadena candidata de soporte mecánico, no una jerarquía de transformaciones. En cámara a mano se omiten soportes inactivos; no se inventan manos o soportes externos. Medir la pila de jaula, base y placa DJI."
+  "support_graph_note": "parent_id representa la cadena candidata de soporte mecánico, no una jerarquía de transformaciones. En cámara a mano se omiten soportes inactivos; no se inventan manos o soportes externos. Medir la pila de jaula, base y placa DJI.",
+  "monitor_mount_routes": {
+    "gimbal": {
+      "label": "NATO lateral RS / 3026B",
+      "overrides": {}
+    },
+    "cage": {
+      "label": "NATO superior 4770 / 2906B",
+      "overrides": {
+        "smallhd-indie-7": {
+          "position_mm": [
+            -18,
+            161.35,
+            6
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            0
+          ],
+          "parent_id": "smallrig-2906b",
+          "mass_domain": "moving",
+          "mount": "Rosca inferior del Indie 7 al tornillo superior 2906B; NATO de jaula 4770 sin XLR.",
+          "placement": "Sobre la jaula, fuera del agarre previsto. Pose aproximada; medir acceso de manos y conectores.",
+          "orientation": "Rosca inferior hacia abajo, pantalla hacia operador; inclinación real ajustable en 2906B, posición neutra ilustrativa.",
+          "rationale": "Conjunto autónomo sobre el núcleo para cámara a mano/estática, sin inventar gimbal ni brazo articulado.",
+          "rejected": "Usar 3026B sin riel RS documentado, dejar monitor sin NATO, o ocupar simultáneamente interfaz XLR y riel superior removible 4770."
+        },
+        "sony-np-f970-pro": {
+          "position_mm": [
+            8,
+            179.35,
+            52.75
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            0
+          ],
+          "mass_domain": "moving"
+        }
+      }
+    },
+    "xlr": {
+      "label": "XLR-H1 / 4830 / 2906B",
+      "overrides": {
+        "smallrig-2906b": {
+          "position_mm": [
+            0,
+            134.4,
+            -25
+          ],
+          "parent_id": "smallrig-4830"
+        },
+        "smallhd-indie-7": {
+          "position_mm": [
+            0,
+            220.6,
+            -25
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            0
+          ],
+          "parent_id": "smallrig-2906b",
+          "mass_domain": "moving",
+          "mount": "Rosca inferior Indie 7 al 2906B sobre riel NATO 4830 del XLR-H1. No usar riel 4770 retirado.",
+          "placement": "Sobre el riel 4830 del asa XLR, fuera del agarre previsto. Pose aproximada; medir acceso de manos y conectores.",
+          "orientation": "Rosca inferior hacia abajo, pantalla hacia operador; inclinación real ajustable en 2906B, posición neutra ilustrativa.",
+          "rationale": "Conjunto autónomo sobre el núcleo para cámara a mano/estática, sin inventar gimbal ni brazo articulado.",
+          "rejected": "Usar 3026B sin riel RS documentado, dejar monitor sin NATO, o ocupar simultáneamente interfaz XLR y riel superior removible 4770."
+        },
+        "sony-np-f970-pro": {
+          "position_mm": [
+            26,
+            238.6,
+            21.75
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            0
+          ],
+          "mass_domain": "moving"
+        }
+      }
+    }
+  }
 }

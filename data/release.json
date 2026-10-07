@@ -1,11 +1,27 @@
 {
-  "version":"0.2.5",
-  "released_on":"2026-10-06",
-  "status":"engineering_prototype",
-  "label":"Prototipo de ingeniería",
-  "catalog_revision":"fx3-rs4-2026-10-05",
-  "storage":"local_only",
-  "account_sync":"deferred_by_user",
-  "updates":["14 mallas propias separadas para los nodos del visor; detalles de montura, jaula abierta, abrazaderas, pantallas y mandos, con geometría aproximada", "Detalle de pieza giratorio con cinco vistas y procedencia desplegable", "Generación GLB reproducible desde código, huellas auditadas antes de compilar; respaldo ante fallos de carga", "Pesos, puertos, cadenas de montaje, selección exacta, perfiles locales y bibliotecas preservados", "Monitor vertical, RX Mic 2, las cuatro tareas y siete plantillas conservados"],
-  "limitations":["Las 14 mallas propias son aproximadas; no son modelos exactos, CAD oficiales, escaneos de Sketchfab ni resultados de Meshy", "13 entradas restantes del catálogo no tienen malla de producto: cables, software y accesorios en reserva requieren distinto alcance", "No validado con un rig físico completo; una malla no prueba asiento, holgura, pinout ni equilibrio", "Diez altas en investigación, no instalables", "GLB oficial RS 4 Pro permanece en cuarentena; enlace DJI_RS4_PRO_2 sin archivo/licencia confirmados; archivo FX3 solicitado al autor", "Los GLB no se precargan sin conexión; el visor conserva geometría aproximada de respaldo", "Perfiles locales no son autenticación, privacidad, cuenta sincronizada ni enlaces privados", "Instalación web depende del navegador; no es una publicación en App Store"]
+  "version": "0.2.6",
+  "released_on": "2026-10-07",
+  "status": "engineering_prototype",
+  "label": "Prototipo de ingeniería",
+  "catalog_revision": "fx3-rs4-2026-10-05",
+  "storage": "local_only",
+  "account_sync": "deferred_by_user",
+  "updates": [
+    "Monitor en rigs propios con tres cadenas contextuales: lateral 3026B, jaula 2906B y XLR-H1/4830/2906B, todas candidatas a prueba física",
+    "Tres accesorios verificados: 2906B, 4830 y Sony NP-F970/PRO; selección explícita mediante Completar monitor, sin modificar las siete plantillas",
+    "17 mallas propias aproximadas y 17 miniaturas autorizadas del producto para reconocer las piezas al elegir",
+    "Montaje acumulativo, puertos, rutas y desglose de masas adaptados a la posición del monitor; alimentación nativa serie L sin cable exterior",
+    "Perfiles locales, bibliotecas, elecciones pendientes y cuatro tareas conservados"
+  ],
+  "limitations": [
+    "Las 17 mallas propias son aproximadas; no son CAD oficiales, modelos exactos, escaneos de Sketchfab ni resultados de Meshy",
+    "13 entradas restantes del catálogo no tienen malla de producto: cables, software y accesorios en reserva requieren distinto alcance",
+    "No validado con un rig físico completo; una malla no prueba asiento, holgura, pinout ni equilibrio",
+    "Diez altas en investigación, no instalables",
+    "GLB oficial RS 4 Pro permanece en cuarentena; enlace DJI_RS4_PRO_2 sin archivo/licencia confirmados; archivo FX3 solicitado al autor",
+    "Los GLB no se precargan sin conexión; el visor conserva geometría aproximada de respaldo",
+    "Perfiles locales no son autenticación, privacidad, cuenta sincronizada ni enlaces privados",
+    "Instalación web depende del navegador; no es una publicación en App Store",
+    "Soportes, ajuste del tornillo, retención de batería, manos y holguras requieren ensayo físico. NP-F970/PRO requiere cargador externo no incluido en la selección."
+  ]
 }

@@ -410,25 +410,26 @@
       "verified_weight_g": {
         "value": 737,
         "approximate": false,
-        "note": "B&H: 26 oz / 737 g, sólo monitor, sin baterías ni soporte."
+        "note": "B&H: 26 oz / 737 g, sólo monitor, sin baterías ni soporte. Tabla SmallHD publica 18.9 oz (~536 g) de equipo y 26 oz (~737 g) de paquete: discrepancia conservada; planificación 737 g hasta pesar configuración real."
       },
       "planning_weight_g": 737,
       "ports_interfaces": [
         "Una entrada HDMI",
         "Una salida HDMI; guía oficial: hasta 4Kp30",
         "Dos conexiones 3G-SDI de entrada/salida",
-        "Entrada DC de barril: 10-34 V DC, capacidad de entrada de 2 A; diámetro interior no verificado",
+        "Entrada DC: 10–34 V; barril 2.0 mm interior / 5.5 mm exterior, centro positivo según tabla oficial SmallHD",
         "Conector de auriculares de 3.5 mm",
         "Placa doble de batería Sony serie L",
-        "Micro USB de servicio"
+        "Micro USB de servicio",
+        "Terminales batería serie L: 6.0–16.8 V; placa doble incluida; no carga baterías"
       ],
-      "mounting_method": "Rosca de monitor 1/4\"-20 fijada al soporte SmallRig 3026B.",
+      "mounting_method": "Rosca inferior 1/4-20 al 3026B lateral de gimbal o 2906B sobre riel NATO de jaula / 4830.",
       "likely_material": "Carcasa de aluminio, según la información del fabricante",
       "mandatory_or_optional": "mandatory",
       "rig_role": "Monitor principal del operador",
       "physical_constraints": [
         "Su masa importa en el lateral del gimbal; acercarlo al pivote NATO, sin brazo largo.",
-        "La guía oficial indica 2 A, no 2 mm. Usar el cable de barril D-Tap de SmallHD y comprobar polaridad y ajuste antes de alimentar."
+        "No conectar batería 7.2 V al barril de mínimo 10 V. La batería serie L utiliza únicamente su placa nativa."
       ],
       "primary_source_url": "https://guide.smallhd.com/a/1634747-indie-7-quick-start-guide",
       "secondary_source_url": "https://www.bhphotovideo.com/c/product/1593398-REG/smallhd_mon_indie_7_indie_7_touchscreen_on_camera.html",
@@ -1031,6 +1032,124 @@
       "primary_source_url": "https://creatorscloud.sony.net/catalog/en-jo/monitorcontrol/index.html",
       "secondary_source_url": null,
       "confidence_level": "high"
+    },
+    {
+      "id": "smallrig-2906b",
+      "exact_product_name": "SmallRig Swivel and Tilt Adjustable Monitor Support with NATO Clamp",
+      "model_number": "2906B",
+      "brand": "SmallRig",
+      "category": "monitor mount",
+      "verified_dimensions_mm": {
+        "length": 52.6,
+        "width": 36,
+        "height": 53.8,
+        "approximate": false,
+        "note": "Envolvente publicada; forma y asiento del montaje aproximados. Manual página 10: 53.8 de alto × 52.6 de ancho × 36.0 de fondo."
+      },
+      "verified_weight_g": {
+        "value": 85,
+        "approximate": false,
+        "note": "Masa nominal ±5 g publicada en manual, sin monitor ni batería.",
+        "source_url": "https://static.smallrig.com/mall/img/public/0g141qmktenu-1751249917074_.pdf",
+        "checked_on": "2026-10-07"
+      },
+      "planning_weight_g": 85,
+      "ports_interfaces": [
+        "Abrazadera NATO",
+        "Tornillo 1/4-20 de monitor",
+        "Giro 360° e inclinación 180° publicados"
+      ],
+      "mounting_method": "Abrazadera NATO sobre riel superior 4770 sin XLR, o riel del kit 4830 sobre XLR-H1. Tornillo superior 1/4-20 a rosca inferior del Indie 7.",
+      "likely_material": "Aleación de aluminio y acero inoxidable, manual página 10",
+      "mandatory_or_optional": "optional",
+      "rig_role": "Monitor sobre núcleo a mano o estático; no sustituye 3026B lateral en gimbal.",
+      "physical_constraints": [
+        "Manual página 3: límite según ángulo, 4.2 kg a 90°, 2.5 kg a 45°, 2.3 kg a 30°. No certifica seguridad dinámica ni rosca del Indie 7.",
+        "Pines elásticos descritos para Atomos Ninja V/V+; no se afirma antitorsión del Indie 7.",
+        "Verificar asiento NATO, apriete, palanca de batería, cables y acceso a asa."
+      ],
+      "primary_source_url": "https://static.smallrig.com/mall/img/public/0g141qmktenu-1751249917074_.pdf",
+      "secondary_source_url": null,
+      "confidence_level": "medium"
+    },
+    {
+      "id": "smallrig-4830",
+      "exact_product_name": "SmallRig Extension Mount Plate Kit for Sony FX3/FX30 XLR Handle",
+      "model_number": "4830",
+      "brand": "SmallRig",
+      "category": "audio handle accessory",
+      "verified_dimensions_mm": {
+        "length": 124.8,
+        "width": 55.8,
+        "height": 77.5,
+        "approximate": false,
+        "note": "Envolvente publicada; forma y asiento del montaje aproximados. Manual página 2: envolvente de kit 124.8 × 77.5 × 55.8 mm, no cotas de cada subpieza."
+      },
+      "verified_weight_g": {
+        "value": 115,
+        "approximate": false,
+        "note": "Masa nominal ±5 g publicada en manual, sin monitor ni batería.",
+        "source_url": "https://static.smallrig.com/mall/img/public/1725874097334_.pdf",
+        "checked_on": "2026-10-07"
+      },
+      "planning_weight_g": 115,
+      "ports_interfaces": [
+        "Riel NATO para asa XLR",
+        "Orificios 1/4-20 y ARRI 3/8-16 publicados",
+        "Fijaciones M4 incluidas"
+      ],
+      "mounting_method": "Extensión, pieza de bloqueo y riel NATO nativos sobre XLR-H1; seguir montaje del manual página 8. Retirar riel superior desmontable de 4770 antes de instalar XLR.",
+      "likely_material": "Aleación de aluminio, acero inoxidable y silicona; manual página 2",
+      "mandatory_or_optional": "optional",
+      "rig_role": "Proporcionar riel de monitor cuando el asa Sony ocupa el techo de cámara.",
+      "physical_constraints": [
+        "Kit 4770 no incluye 4830; elegirlo expresamente.",
+        "Incluye riel NATO para XLR, extensión, bloqueo, dos tornillos M4 y dos llaves; no incluye asa Sony ni monitor.",
+        "No transferir monitor de gimbal sin desconectar y elegir esta cadena.",
+        "Verificar que monitor, batería y cables no cierren el agarre del asa."
+      ],
+      "primary_source_url": "https://static.smallrig.com/mall/img/public/1725874097334_.pdf",
+      "secondary_source_url": null,
+      "confidence_level": "medium"
+    },
+    {
+      "id": "sony-np-f970-pro",
+      "exact_product_name": "Sony NP-F970/PRO Rechargeable Battery Pack",
+      "model_number": "NP-F970/PRO",
+      "brand": "Sony",
+      "category": "battery",
+      "verified_dimensions_mm": {
+        "length": 70.8,
+        "width": 38.4,
+        "height": 60,
+        "approximate": true,
+        "note": "Envolvente publicada; forma y asiento del montaje aproximados. Ficha Sony NP-F970/PRO: ancho 38.4 × alto 60.0 × fondo 70.8 mm aproximados. No se extrapolan las cotas discrepantes de NP-F970 regional."
+      },
+      "verified_weight_g": {
+        "value": 300,
+        "approximate": true,
+        "note": "Sony publica aproximadamente 300 g para NP-F970/PRO.",
+        "source_url": "https://www.sony.jp/products/catalog/SPC_NP-F970_PRO.pdf",
+        "checked_on": "2026-10-07"
+      },
+      "planning_weight_g": 300,
+      "ports_interfaces": [
+        "Contactos serie L / InfoLITHIUM",
+        "7.2 V nominales; no salida de barril ni USB"
+      ],
+      "mounting_method": "Un paquete serie L en una de las dos bahías de la placa nativa incluida del Indie 7. Sin adaptador D-Tap ni cable a barril.",
+      "likely_material": "Celdas de ion-litio publicadas; carcasa plástica estimada, no composición certificada.",
+      "mandatory_or_optional": "optional",
+      "rig_role": "Alimentación autónoma del monitor, también en gimbal vertical.",
+      "physical_constraints": [
+        "Tensión nominal 7.2 V; ficha Sony: 45 Wh / 6300 mAh. No es NP-FZ100 ni alimenta la FX3.",
+        "Usar cargador específico externo. El Indie 7 no carga baterías.",
+        "Una batería elegida: no representar dos paquetes ni prometer autonomía calculada.",
+        "Comprobar retención, carga disponible y tensión real bajo carga; interfaz serie L documentada, combinación física no ensayada."
+      ],
+      "primary_source_url": "https://www.sony.jp/products/catalog/SPC_NP-F970_PRO.pdf",
+      "secondary_source_url": null,
+      "confidence_level": "medium"
     }
   ]
 }

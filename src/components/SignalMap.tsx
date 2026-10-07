@@ -16,4 +16,3 @@ export default function SignalMap({ variant, bench }: { variant: Variant; bench:
     <p className="signal-caption">{bench ? "FX3: una salida HDMI. El distribuidor usa entrada cautiva, dos salidas y fuente incluida de 5 V. RavenEye: batería interna. Ensayar señal 1080p progresiva y EDID. Sin soporte aprobado para gimbal." : "El HDMI y la alimentación del monitor cruzan del conjunto móvil al soporte fijo. La curva 3D no valida holgura ni giro continuo. Verificar cada ángulo en banco."}</p>
   </div>;
 }
-
