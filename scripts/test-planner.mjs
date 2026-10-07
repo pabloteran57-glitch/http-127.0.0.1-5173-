@@ -115,6 +115,7 @@ test("Compatibilidad desconocida o sin revisión no se convierte en compatible",
 });
 test("Una cámara sintética se configura por datos sin casos de modelo en el motor",()=>{
  const customRules=structuredClone(rules);customRules.selection_checks=customRules.selection_checks.filter(c=>!["camera","lens","internal-battery"].includes(c.id));
+ customRules.planning_root_part_ids=["fixture-camera"];
  customRules.selection_checks.push({id:"camera",condition:{},required_any:["fixture-camera"],message:"Cámara de prueba"},{id:"lens",condition:{all:["fixture-camera"]},required_any:["fixture-lens"],message:"Óptica de prueba"});
  customRules.mount_dependencies["fixture-lens"]=["fixture-camera"];
  const result=resolveRig(rig(["fixture-camera","fixture-lens"],"handheld"),customRules,[],master,id=>id);

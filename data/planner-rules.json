@@ -6,6 +6,27 @@
   "camera_part_ids": [
     "sony-fx3"
   ],
+  "planning_root_part_ids": ["sony-fx3","dji-ronin-app","sony-monitor-control-app"],
+  "exclusive_selection_groups": [
+    {"id":"camera-body","part_ids":["sony-fx3"],"max_active":1,"message":"Elige un solo cuerpo para este rig. Tus elecciones se conservan; no se decide por ti."},
+    {"id":"mounted-lens","part_ids":["sony-fe-16-35-gm"],"max_active":1,"message":"Elige una sola óptica montada para este rig. Las alternativas deben ir en otros planes."}
+  ],
+  "viewer_routes": [
+    {"id":"gimbal","condition":{"context":"gimbal"}},
+    {"id":"xlr","condition":{"not_context":"gimbal","all":["sony-xlr-h1"]}},
+    {"id":"cage","condition":{"not_context":"gimbal","none":["sony-xlr-h1"]}}
+  ],
+  "viewer_route_part_ids": ["smallhd-indie-7","smallrig-3026b","smallrig-2906b","smallrig-4830","sony-np-f970-pro"],
+  "completion_rules": {
+    "smallhd-indie-7": {
+      "label":"Completar monitor",
+      "required_all":["kondor-blue-hdmi-aa"],
+      "power_cable_ids":["pwr-plate-to-smallhd","pwr-npf-to-smallhd-contacts"],
+      "power_suggest_ids":["sony-np-f970-pro"]
+    }
+  },
+  "camera_external_power_part_ids": ["smallrig-4253b"],
+  "extraction_step": 13,
   "selection_checks": [
     {
       "id": "camera",

@@ -5,12 +5,12 @@ import { Edges } from "@react-three/drei/core/Edges";
 import { Line } from "@react-three/drei/core/Line";
 import { OrbitControls } from "@react-three/drei/core/OrbitControls";
 import { RoundedBox } from "@react-three/drei/core/RoundedBox";
-import { Box3, Euler, Group, Mesh, Path, PerspectiveCamera, Shape, Vector3 } from "three";
+import { Box3, Euler, Group, Mesh, PerspectiveCamera, Vector3 } from "three";
 import type { OrbitControls as OrbitControlsImpl } from "three-stdlib";
 import { cableById, cablesData, layoutData, modelAssets, partById, portById } from "../data";
 import type { LayoutNode, Variant, Vec3 } from "../lib/types";
 import { connectionName } from "../lib/ui";
-import { cableForVariant, layoutForVariant, nodePose, routeOffset, visibleCableIds } from "../lib/viewer";
+import { cableForVariant, hiddenSubassemblies, layoutForVariant, nodePose, routeOffset, visibleCableIds } from "../lib/viewer";
 import PerformanceProbe from "./PerformanceProbe";
 import type { PerformanceResult, PerformanceRun } from "../lib/performance";
 import { approvedModelFor } from "../lib/model-assets";
@@ -44,165 +44,20 @@ interface Props {
 }
 const scale = (v: number) => v / 100;
 const vector = (values: Vec3): Vec3 => values.map(scale) as Vec3;
-const primaryLabels = new Set(["sony-fx3", "sony-fe-16-35-gm", "smallrig-3645", "smallrig-vb99-pro", "smallhd-indie-7", "dji-rs-bg70", "dji-mic-2-kit"]);
-const graphite = "#252b2c";
+const primaryKinds = new Set<LayoutNode["kind"]>(["camera", "lens", "matte", "battery", "monitor", "grip", "audioReceiver"]);
 
-function Block({ size, at = [0, 0, 0], color = graphite, selected = false, radius = 0.025 }: {
-  size: Vec3; at?: Vec3; color?: string; selected?: boolean; radius?: number;
-}) {
-  return <RoundedBox args={size} position={at} radius={radius} smoothness={3}>
-    <meshStandardMaterial color={color} metalness={0.6} roughness={0.43}
-      emissive={selected ? "#62958d" : "#000000"} emissiveIntensity={selected ? 0.16 : 0} />
-    {selected && <Edges color="#a2ded1" threshold={30} />}
+function EnvelopeGeometry({node,selected}:{node:LayoutNode;selected:boolean}) {
+  const size=vector(node.size_xyz_mm);
+  return <RoundedBox args={size} radius={Math.min(...size,.04)/6} smoothness={2}>
+    <meshStandardMaterial color="#587579" transparent opacity={selected ? .55 : .28} metalness={.1} roughness={.8}/>
+    <Edges color={selected?"#a2ded1":"#597479"}/>
   </RoundedBox>;
 }
-function Cylinder({ radius, length, at = [0, 0, 0], axis = "z", color = graphite }: {
-  radius: number; length: number; at?: Vec3; axis?: "x" | "y" | "z"; color?: string;
-}) {
-  const rotation: Vec3 = axis === "z" ? [Math.PI / 2, 0, 0] : axis === "x" ? [0, 0, Math.PI / 2] : [0, 0, 0];
-  return <mesh position={at} rotation={rotation}>
-    <cylinderGeometry args={[radius, radius, length, 40]} />
-    <meshStandardMaterial color={color} metalness={0.65} roughness={0.38} />
-  </mesh>;
-}
-function Bolt({ at }: { at: Vec3 }) {
-  return <Cylinder radius={0.028} length={0.016} at={at} color="#626968" />;
-}
 
-function RodClamp({w=0.8,h=0.26,d=0.35,at=[0,0,0] as Vec3,selected=false}:{w?:number;h?:number;d?:number;at?:Vec3;selected?:boolean}){
-  const face=new Shape();face.moveTo(-w/2,-h/2);face.lineTo(w/2,-h/2);face.lineTo(w/2,h/2);face.lineTo(-w/2,h/2);face.closePath();
-  for(const x of [-0.3,0.3]){const hole=new Path();hole.absarc(x,-0.01,0.075,0,Math.PI*2,true);face.holes.push(hole);}
-  return <group position={at}><mesh position={[0,0,-d/2]}><extrudeGeometry args={[face,{depth:d,bevelEnabled:false,curveSegments:32}]}/><meshStandardMaterial color={selected?"#758a8a":"#303338"} metalness={.8} roughness={.4}/></mesh>{[-1,1].map(s=><group key={s}><Cylinder radius={.04} length={.08} axis="x" at={[s*(w/2+.025),-.015,0]} color="#85898b"/><Block size={[.024,.14,.09]} at={[s*(w/2+.06),-.06,0]} color="#1e2023" radius={.008}/></group>)}</group>;
-}
-function Geometry({node,selected,removeTopRail=false}:{node:LayoutNode;selected:boolean;removeTopRail?:boolean}){
- const [w,h,d]=vector(node.size_xyz_mm);
- switch(node.kind){
-  case "camera": return <group>
-   <Block size={[w-.28,h,d-.19]} at={[-.14,0,-.095]} selected={selected} color="#55575c" radius={.065}/>
-   <Block size={[.3,h-.02,d]} at={[(w-.3)/2,-.01,0]} selected={selected} color="#242527" radius={.065}/>
-   <Cylinder radius={.323} length={.04} at={[0,0,d/2-.012]} color="#8e9197"/>
-   <Block size={[.77,.46,.035]} at={[-.12,0,-d/2]} color="#13151a" radius={.035}/>
-   <Block size={[.68,.37,.007]} at={[-.12,0,-d/2-.019]} color="#1b2832" radius={.012}/>
-   <Cylinder radius={.09} length={.035} axis="y" at={[.36,h/2-.01,-.07]} color="#252629"/>
-   <Cylinder radius={.047} length={.02} axis="y" at={[.44,h/2+.008,.18]} color="#b73131"/>
-   <Block size={[.23,.018,.23]} at={[-.01,h/2-.006,-.03]} color="#15171c"/>
-   {Array.from({length:7},(_,i)=><Block key={i} size={[.33,.022,.008]} at={[-.38,.22-i*.05,-d/2-.006]} color="#111215" radius={.005}/>)}
-   {[-.45,-.19,.07].map(x=><Cylinder key={x} radius={.028} length={.014} axis="y" at={[x,h/2,.22]} color="#252629"/>)}
-   <Block size={[.016,.43,.28]} at={[-w/2-.001,-.018,.05]} color="#26272b" radius={.01}/>
-  </group>;
-  case "lens":return <group>
-   <Cylinder radius={w/2-.024} length={d} color="#25272b"/>
-   <Cylinder radius={w/2} length={.29} at={[0,0,-.19]} color="#111315"/>
-   <Cylinder radius={w/2} length={.29} at={[0,0,.32]} color="#15171b"/>
-   {[-.19,.32].flatMap(z=>Array.from({length:64},(_,i)=>{const a=i*Math.PI/32;return <group key={z+"-"+i} position={[Math.cos(a)*(w/2),Math.sin(a)*(w/2),z]} rotation={[0,0,a]}><Block size={[.008,.015,.27]} color="#36373a" radius={.002}/></group>}))}
-   <Cylinder radius={.345} length={.01} at={[0,0,d/2]} color="#123646"/>
-   <Cylinder radius={w/2} length={.025} at={[0,0,d/2-.015]} color="#3b3c3f"/>
-   <Block size={[.02,.075,.09]} at={[-w/2,.09,.02]} color="#d26634" radius={.004}/>
-   <Block size={[.025,.09,.13]} at={[-w/2,-.09,-.42]} color="#65676c"/>
-   {selected&&<mesh rotation={[Math.PI/2,0,0]}><cylinderGeometry args={[w/2+.006,w/2+.006,d,40,1,true]}/><meshBasicMaterial wireframe color="#9cdad4" transparent opacity={.18}/></mesh>}
-  </group>;
-  case "cage":return <group>
-   <Block size={[w,.07,.58]} at={[0,-h/2+.035,0]} selected={selected} color="#62656b" radius={.025}/>
-   <Block size={[.085,h-.07,.34]} at={[-w/2+.043,0,.03]} selected={selected} color="#62656b" radius={.018}/>
-   <Block size={[.06,h-.14,.055]} at={[w/2-.03,-.01,.2]} selected={selected} color="#62656b" radius={.012}/>
-   {!removeTopRail&&<Block size={[.92,.055,.18]} at={[-.29,h/2-.03,.04]} selected={selected} color="#62656b" radius={.02}/>}
-   <Block size={[.075,.39,.32]} at={[-w/2-.008,.02,.04]} color="#404349" radius={.014}/>
-   <Bolt at={[-w/2-.015,.19,.23]}/>
-   {[-.45,-.2,.05].map(x=><Cylinder key={x} radius={.029} length={.011} axis="y" at={[x,h/2,.055]} color="#121518"/>)}
-   <Block size={[.57,.055,.53]} at={[.04,-h/2-.02,-.02]} color="#383b40" radius={.008}/>
-   {node.mounting_points?.map(point=>{const [sw,sh,sd]=vector(point.size_xyz_mm);return <group key={point.id} position={vector(point.local_position_mm)} rotation={point.rotation_deg.map(v=>v*Math.PI/180) as Vec3}>
-    <Block size={[sw,sh/2,sd]} at={[0,-sh/4,0]} selected={selected} color="#62656b" radius={.005}/>
-    {[-1,1].map(s=><Block key={s} size={[sw*.14,sh/2,sd]} at={[s*sw*.43,sh/4,0]} color="#85898f" radius={.004}/>)}
-   </group>})}
-  </group>;
-  case "audioReceiver":return <group>
-   <Block size={[w,h-.032,d]} at={[0,.016,0]} selected={selected} color="#171d23" radius={.025}/>
-   <Block size={[.22,.032,.16]} at={[0,-h/2+.016,0]} color="#666e78" radius={.005}/>
-   <Block size={[w*.62,.008,d*.64]} at={[-w*.12,h/2,d*.02]} color="#162f37" radius={.012}/>
-   <Cylinder radius={.058} length={.018} axis="y" at={[w*.33,h/2-.009,0]} color="#555f6b"/>
-   <Cylinder radius={.041} length={.019} axis="y" at={[w*.33,h/2-.008,0]} color="#1b2026"/>
-   {[-.07,.045].map(z=><Cylinder key={z} radius={.018} length={.007} axis="x" at={[-w/2,0,z]} color="#080c11"/>)}
-   {[-.16,-.11].map(x=><Block key={x} size={[.018,.009,.06]} at={[x,h/2+.001,.02]} color="#8bbb98" radius={.003}/>)}
-  </group>;
-  case "baseplate":return <group><RodClamp w={w} h={h} d={d} selected={selected}/>{[-.24,.24].map(x=><Block key={x} size={[.2,.015,.64]} at={[x,h/2+.007,0]} color="#191a1c" radius={.008}/>)}</group>;
-  case "rods":return <group>{[-.3,.3].map(x=><Cylinder key={x} radius={.075} length={d} at={[x,0,0]} color={selected?"#638d8f":"#25282c"}/>)}</group>;
-  case "matte":return <group>
-   {[-1,1].map(s=><group key={s}><Block size={[w,.11,d]} at={[0,s*(h/2-.055),0]} selected={selected} color="#313439"/><Block size={[.115,h-.16,d]} at={[s*(w/2-.058),0,0]} selected={selected} color="#313439"/></group>)}
-   <group position={[0,h/2-.015,0]} rotation={[-.24,0,0]}><Block size={[w,.018,.69]} at={[0,0,.18]} color="#26282c" radius={.004}/></group>
-   <mesh position={[0,0,-d/2-.03]}><torusGeometry args={[.445,.026,16,64]}/><meshStandardMaterial color="#3a3d41" metalness={.8} roughness={.4}/></mesh>
-   <Block size={[.07,.2,.24]} at={[w/2+.03,.22,0]} color="#35383c"/>
-  </group>;
-  case "batteryPlate":return <group>
-   <Block size={[w,h-.22,d]} at={[0,-.11,0]} selected={selected} color="#35373b" radius={.045}/>
-   <RodClamp w={.9} h={.22} d={.32} at={[0,h/2-.11,0]} selected={selected}/>
-   <Block size={[.36,.41,.05]} at={[0,.12,-d/2-.023]} color="#15171a" radius={.01}/>
-   {Array.from({length:10},(_,i)=><Block key={i} size={[.02,.47,.008]} at={[-.42+i*.035,.48,-d/2-.007]} color="#121519" radius={.005}/>)}
-   {[-.32,0,.32].map(x=><Bolt key={x} at={[x,-.58,d/2+.008]}/>)}
-   <Cylinder radius={.08} length={.06} axis="x" at={[-w/2-.02,.15,0]} color="#252629"/>
-  </group>;
-  case "battery":return <group>
-   <Block size={[w,h,d]} selected={selected} color="#222428" radius={.065}/>
-   <Block size={[w-.04,h-.05,.015]} at={[0,0,-d/2-.001]} color="#101319" radius={.07}/>
-   <Block size={[.31,.23,.008]} at={[-.01,.27,-d/2-.012]} color="#182e35" radius={.02}/>
-   <mesh position={[-.01,.27,-d/2-.018]}><ringGeometry args={[.065,.07,32]}/><meshBasicMaterial color="#87cbbf" side={2}/></mesh>
-   <Block size={[.18,.025,.03]} at={[.14,h/2,0]} color="#151719"/>
-  </group>;
-  case "gimbal":return <group>
-   <Cylinder radius={.31} length={.29} axis="y" color="#3a3d41"/>
-   <Block size={[.66,.57,.65]} at={[0,-.37,0]} selected={selected} color="#24272c" radius={.07}/>
-   <Block size={[.37,.34,.012]} at={[0,-.3,-.334]} color="#101e29" radius={.025}/>
-   <Cylinder radius={.055} length={.025} at={[-.14,-.6,-.34]} color="#757a80"/>
-   <Block size={[.17,.16,1.28]} at={[0,.1,-.48]} color="#30343b"/>
-   <Cylinder radius={.27} length={.3} at={[0,.35,-1.12]} color="#373b41"/>
-   <group position={[.45,.74,-1.13]} rotation={[0,0,-.6]}><Block size={[1.17,.16,.19]} color="#343840"/></group>
-   <Block size={[.16,.78,.19]} at={[.96,1.06,-1.13]} color="#33373e"/>
-   <Block size={[.17,.17,1.24]} at={[.96,1.57,-.6]} color="#33373e"/>
-   <Block size={[.025,.03,.91]} at={[.87,1.6,-.67]} color="#a92c33" radius={.005}/>
-   <Cylinder radius={.25} length={.27} axis="x" at={[.96,1.57,.06]} color="#35393f"/>
-   <Cylinder radius={.16} length={.014} axis="x" at={[1.104,1.57,.06]} color="#23262c"/>
-   <Block size={[.53,.13,.17]} at={[.65,1.25,.06]} color="#353a42"/>
-   <Block size={[.14,.78,.18]} at={[.41,.91,.06]} color="#353a42"/>
-   <Block size={[.59,.07,.74]} at={[.17,.735,.06]} color="#62666d"/>
-  </group>;
-  case "grip":return <group>
-   <Block size={[w,h,d]} selected={selected} color="#1b1d21" radius={.085}/>
-   <Block size={[w*.77,h*.79,.01]} at={[-w*.07,0,-d/2-.002]} color="#24272b" radius={.04}/>
-   <Block size={[w-.05,.12,d-.06]} at={[0,-h/2+.08,0]} color="#3e4248"/>
-  </group>;
-  case "monitorMount":return <group>
-   <Block size={[.25,.36,.33]} at={[w/2-.125,0,0]} selected={selected} color="#393e45"/>
-   <Cylinder radius={.095} length={.07} axis="y" at={[w/2-.125,-.18,0]} color="#9b9fa5"/>
-   <Block size={[w-.35,.08,.2]} at={[-.055,.035,0]} selected={selected} color="#42464d"/>
-   <Block size={[w-.4,.015,.025]} at={[-.06,.048,-.12]} color="#a73232" radius={.003}/>
-   <Cylinder radius={.13} length={.22} axis="x" at={[-w/2+.16,-.08,0]} color="#41464e"/>
-   <Block size={[.24,.08,.25]} at={[-w/2+.15,-.15,0]} color="#3d4147"/>
-   <Cylinder radius={.073} length={.035} axis="y" at={[-w/2+.15,-.2,0]} color="#a4a7ab"/>
-  </group>;
-  case "monitor":return <group>
-   <Block size={[w,h,d]} selected={selected} color="#292c31" radius={.045}/>
-   <Block size={[w-.13,h-.13,.016]} at={[0,.01,-d/2-.005]} color="#07111b" radius={.025}/>
-   <Block size={[w-.2,h-.21,.008]} at={[0,.018,-d/2-.017]} color="#193745" radius={.008}/>
-   <Block size={[1.15,.025,.01]} at={[0,-.38,-d/2-.023]} color="#769496" radius={.003}/>
-   {[-.47,.47].map(x=><Block key={x} size={[.055,.85,.06]} at={[x,.05,d/2+.01]} color="#16191e"/>)}
-   <Block size={[.97,.7,.055]} at={[0,.18,d/2+.013]} color="#191c22"/>
-   {Array.from({length:5},(_,i)=><Block key={i} size={[.018,.7,.009]} at={[-.8+i*.04,.19,d/2+.011]} color="#13151a"/>)}
-   <Block size={[.35,.09,.012]} at={[.48,-.49,d/2+.015]} color="#15181c"/>
-  </group>;
-  case "handle":return <group>
-   <Block size={[.58,.35,.46]} at={[0,.22,.45]} selected={selected} color="#2c3036" radius={.04}/>
-   <Block size={[.3,.18,1.2]} at={[0,.15,-.14]} selected={selected} color="#262a2f" radius={.055}/>
-   <Block size={[.12,.58,.14]} at={[0,-.1,-.47]} color="#41464f"/>
-   <Block size={[.24,.08,.32]} at={[0,-.4,-.37]} color="#42464e"/>
-   {[-.16,.02,.2].map(x=><Cylinder key={x} radius={.045} length={.017} at={[x,.26,.69]} color="#858b92"/>)}
-  </group>;
-  case "compactMonitorMount": case "handleExtension": case "monitorBattery":return <Block size={[w,h,d]} selected={selected}/>;
- }
-}
-
-function AnimatedNode({ node, exploded, vertical, selected, onSelect, context, reveal, attempt, scene, onModelReport,removeTopRail }: {
+function AnimatedNode({ node, exploded, vertical, selected, onSelect, context, reveal, attempt, scene, onModelReport,hiddenObjectNames }: {
   node: LayoutNode; exploded: boolean; vertical: boolean; selected: boolean; onSelect: (id: string) => void; context:boolean; reveal:boolean;
   attempt: number; scene: string; onModelReport: (report: ModelLoadReport) => void;
-  removeTopRail:boolean;
+  hiddenObjectNames:string[];
 }) {
   const group = useRef<Group>(null);
   const pose = nodePose(node,vertical,exploded);
@@ -230,7 +85,7 @@ function AnimatedNode({ node, exploded, vertical, selected, onSelect, context, r
   const rotation = pose.rotation_deg.map(v=>v*Math.PI/180) as Vec3;
   return <group ref={group} position={pos} scale={initialScale.current} onClick={click}>
     <group rotation={rotation}>
-      {asset ? <Suspense fallback={<Geometry node={node} selected={selected} removeTopRail={removeTopRail}/>}><ApprovedModel key={`${asset.id}:${asset.artifact.sha256}:${attempt}`} asset={asset} selected={selected} context={context} reportKey={modelSessionKey(asset, attempt, scene)} onReport={onModelReport} removeTopRail={removeTopRail} fallback={<Geometry node={node} selected={selected} removeTopRail={removeTopRail}/>} /></Suspense> : <Geometry node={node} selected={selected} removeTopRail={removeTopRail}/>}
+      {asset ? <Suspense fallback={<EnvelopeGeometry node={node} selected={selected}/>}><ApprovedModel key={`${asset.id}:${asset.artifact.sha256}:${attempt}`} asset={asset} selected={selected} context={context} reportKey={modelSessionKey(asset, attempt, scene)} onReport={onModelReport} hiddenObjectNames={hiddenObjectNames} fallback={<EnvelopeGeometry node={node} selected={selected}/>} /></Suspense> : <EnvelopeGeometry node={node} selected={selected}/>}
     </group>
   </group>;
 }
@@ -319,7 +174,7 @@ export default function RigViewer({exploded,showCables,showLabels,variant,select
  const reportModel=(report:ModelLoadReport)=>setModelReports(previous=>updateModelReports(previous,modelKeys,report));
  const retry=()=>{onInteract?.();setUnavailable(false);setAttempt(value=>value+1);onScenePreparing?.();};
  const vertical=variant.viewer.mode==="vertical";
- const handheld=framing?framing==="handheld":!variant.active_part_ids.includes("dji-rs4-pro-combo");
+ const handheld=framing?framing==="handheld":variant.viewer.rig_context!=="gimbal";
  const positions=Object.fromEntries(nodes.map(n=>[n.id,vector(nodePose(n,vertical,exploded).position_mm)]));
  const endpoint=(portId:string):Vec3|null=>{
    const port=portById[portId]; const node=nodes.find(n=>n.id===port?.part_id);
@@ -339,7 +194,7 @@ export default function RigViewer({exploded,showCables,showLabels,variant,select
   <ViewerBoundary key={attempt} onRetry={retry} onUnavailable={()=>{setUnavailable(true);onUnavailable?.();}}><Suspense fallback={<div className="viewer-fallback">Iniciando visor...</div>}><Canvas frameloop={performanceRun?.policy??"demand"} camera={{position:[-6,2.2,-7.5],fov:36}} dpr={[1,1.5]} gl={{antialias:true,alpha:true}}>
    <ambientLight intensity={1.6}/><directionalLight position={[-3,7,-6]} intensity={4.5} color="#f1f2ff"/><directionalLight position={[5,3,5]} intensity={3} color="#aec3d8"/><pointLight position={[-3,-2,-3]} intensity={14} color="#7cacae"/>
    <gridHelper args={[20,40,"#3d434c","#242933"]} position={[0,handheld?-.8:-3.6,0]}/>
-   {nodes.map(n=><AnimatedNode key={n.id} node={n} exploded={exploded} vertical={variant.viewer.mode==="vertical"} selected={(selectedId===n.id&&!selectedCableId)||highlightIds.includes(n.id)} onSelect={onSelect} context={contextIds.includes(n.id)} reveal={reveal} attempt={attempt} scene={session} onModelReport={reportModel} removeTopRail={n.id==="smallrig-4770"&&variant.active_part_ids.includes("sony-xlr-h1")}/>)}
+   {nodes.map(n=><AnimatedNode key={n.id} node={n} exploded={exploded} vertical={variant.viewer.mode==="vertical"} selected={(selectedId===n.id&&!selectedCableId)||highlightIds.includes(n.id)} onSelect={onSelect} context={contextIds.includes(n.id)} reveal={reveal} attempt={attempt} scene={session} onModelReport={reportModel} hiddenObjectNames={hiddenSubassemblies(n,variant)}/>)}
    {visibleLinks.map(({cable:c,a,b})=>{
     const focused=c.cable_id===selectedCableId;const color=cablesData.color_coding[c.type==="data"?"control":c.type];
     const opacity=selectedCableId&&!focused ? .18 : 1;
@@ -354,11 +209,11 @@ export default function RigViewer({exploded,showCables,showLabels,variant,select
    <CameraControls angle={angle} exploded={exploded} nodes={framingVariant?layoutForVariant(framingVariant,layoutData).nodes.filter(n=>framingVariant.active_part_ids.includes(n.id)):nodes} vertical={(framingVariant??variant).viewer.mode==="vertical"} resetKey={resetKey} onInteract={onInteract}/><LabelProjector nodes={nodes} exploded={exploded} vertical={vertical} elements={labels}/><PortProjection anchors={anchors} elements={portLabels}/><SceneReady sceneKey={`${session}:${attempt}`} settled={readiness.settled} onReady={onSceneReady} onPreparing={onScenePreparing}/>
    {performanceRun&&onPerformanceResult&&<PerformanceProbe key={performanceRun.id} run={performanceRun} onResult={onPerformanceResult}/>}
   </Canvas></Suspense></ViewerBoundary>
-  {!unavailable&&<div className="label-layer">{nodes.filter(n=>showLabels&&primaryLabels.has(n.id)||(!selectedCableId&&n.id===selectedId)).map(n=><button key={n.id} ref={el=>{labels.current[n.id]=el}} className={n.id===selectedId?"part-label selected":"part-label"} onClick={()=>onSelect(n.id)}>{n.label}</button>)}
+  {!unavailable&&<div className="label-layer">{nodes.filter(n=>showLabels&&primaryKinds.has(n.kind)||(!selectedCableId&&n.id===selectedId)).map(n=><button key={n.id} ref={el=>{labels.current[n.id]=el}} className={n.id===selectedId?"part-label selected":"part-label"} onClick={()=>onSelect(n.id)}>{n.label}</button>)}
    {focus&&anchors.map((a,i)=><span key={a.id} ref={el=>{portLabels.current[a.id]=el}} className="port-marker"><b>{i?"B":"A"}</b>{portById[i?focus.cable.to_port_id:focus.cable.from_port_id].label}</span>)}
   </div>}
   {!unavailable&&modelEntries.length>0&&(readiness.loading.length>0||readiness.failed.length>0)&&<div className="model-load-status" role="status"><span>{readiness.loading.length>0?`Cargando ${readiness.loading.length} ${readiness.loading.length===1?"modelo":"modelos"}. Geometría aproximada de respaldo visible.`:`${readiness.failed.length} ${readiness.failed.length===1?"modelo no disponible":"modelos no disponibles"}. Mostrando geometría aproximada de respaldo.`}</span>{readiness.failed.length>0&&<button className="quiet-button" onClick={retry}>Reintentar modelos</button>}</div>}
   {!unavailable&&selectedCableId&&<div className="route-hud" style={{"--route-color":route?cablesData.color_coding[route.type==="data"?"control":route.type]:undefined} as React.CSSProperties}><span className="eyebrow">{focus?"RECORRIDO RESALTADO":route?.display_kind==="contacts"?"CONTACTOS / SIN CABLE":route?.display_kind==="internal"?"ALIMENTACIÓN INTERNA":"CONEXIÓN SIN GEOMETRÍA VALIDADA"}</span><strong>{connectionName(selectedCableId)}</strong><p>{route?.display_kind!=="cable"?"Acople nativo ilustrativo. Verificar retención y contactos reales.":exploded?"En despiece: vínculo lógico, cable desconectado.":"Anclajes y bucles aproximados. No valida radios ni despejes."}</p></div>}
-  <div className="stage-footer"><span>{unavailable?"GUÍA Y PIEZAS DISPONIBLES SIN 3D":"ARRASTRA PARA GIRAR / ACERCA O ALEJA"}</span><span>{unavailable?"VISOR NO DISPONIBLE":"Forma reconstruida con fotos y cotas, no CAD"}</span></div>
+  <div className="stage-footer"><span>{unavailable?"GUÍA Y PIEZAS DISPONIBLES SIN 3D":"ARRASTRA PARA GIRAR / ACERCA O ALEJA"}</span><span>{unavailable?"VISOR NO DISPONIBLE":modelEntries.length<nodes.length||readiness.loading.length||readiness.failed.length?"Envolventes ilustrativas visibles; sin detalle mecánico":"Forma reconstruida con fotos y cotas, no CAD"}</span></div>
  </div>;
 }

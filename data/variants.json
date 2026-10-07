@@ -50,7 +50,9 @@
       "complexity_impact": "Media / montaje físico pendiente",
       "viewer": {
         "mode": "assembled",
-        "positions": {}
+        "positions": {},
+        "rig_context": "gimbal",
+        "monitor_mount_route": "gimbal"
       },
       "conditional_part_ids": [],
       "operating_status": "Candidato / validación física pendiente",
@@ -105,7 +107,9 @@
       "complexity_impact": "Alta / montaje físico pendiente",
       "viewer": {
         "mode": "assembled",
-        "positions": {}
+        "positions": {},
+        "rig_context": "gimbal",
+        "monitor_mount_route": "gimbal"
       },
       "conditional_part_ids": [
         "dji-focus-pro-lidar",
@@ -169,7 +173,9 @@
       "complexity_impact": "Baja / compatibilidad de extracción pendiente",
       "viewer": {
         "mode": "assembled",
-        "positions": {}
+        "positions": {},
+        "rig_context": "handheld",
+        "monitor_mount_route": "xlr"
       },
       "conditional_part_ids": [],
       "operating_status": "Candidato / validación física pendiente",
@@ -235,7 +241,9 @@
       "complexity_impact": "Baja",
       "viewer": {
         "mode": "assembled",
-        "positions": {}
+        "positions": {},
+        "rig_context": "gimbal",
+        "monitor_mount_route": "gimbal"
       },
       "conditional_part_ids": [],
       "operating_status": "Candidato / validación física pendiente",
@@ -296,7 +304,9 @@
       "complexity_impact": "Media / montaje vertical pendiente",
       "viewer": {
         "mode": "vertical",
-        "positions": {}
+        "positions": {},
+        "rig_context": "gimbal",
+        "monitor_mount_route": "gimbal"
       },
       "conditional_part_ids": [],
       "operating_status": "Candidato / validación física pendiente",
@@ -358,7 +368,9 @@
       "complexity_impact": "Media / soportes pendientes",
       "viewer": {
         "mode": "assembled",
-        "positions": {}
+        "positions": {},
+        "rig_context": "handheld",
+        "monitor_mount_route": "xlr"
       },
       "conditional_part_ids": [
         "startech-st122hd4ku",
@@ -426,7 +438,9 @@
       "complexity_impact": "Alta / montaje y foco pendientes",
       "viewer": {
         "mode": "assembled",
-        "positions": {}
+        "positions": {},
+        "rig_context": "gimbal",
+        "monitor_mount_route": "gimbal"
       },
       "conditional_part_ids": [
         "dji-focus-pro-lidar",

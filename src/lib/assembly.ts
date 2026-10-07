@@ -3,7 +3,7 @@ import type { AssemblyContentBlock, AssemblyProfileContent, Cable, PlannerRules,
 export function assemblyTimeline(variant: Variant, rules: PlannerRules, cables: Cable[], content: AssemblyProfileContent) {
   const active = new Set(variant.active_part_ids);
   const circuits = new Set(variant.cable_profile_ids);
-  if (!active.has("sony-fx3")) return [];
+  if (!rules.camera_part_ids.some(id => active.has(id))) return [];
   const applies = (block: AssemblyContentBlock) => block.part_ids.some(id => active.has(id))
     && (block.require_all ?? []).every(id => active.has(id))
     && !(block.unless_any ?? []).some(id => active.has(id))

@@ -1,6 +1,6 @@
 # Lote piloto de catálogo
 
-Fuente canónica de investigación: `data/catalog-intake.json`. Revisión 2026-10-05. **Diez candidatos; ninguno activado.** No se incluyen imágenes sin permiso ni formas heredadas.
+Fuente canónica de investigación: `data/catalog-intake.json`. Revisión 2026-10-07. **Diez candidatos; ninguno activado.** No se incluyen imágenes sin permiso ni formas heredadas.
 
 ## Manifiesto inicial
 

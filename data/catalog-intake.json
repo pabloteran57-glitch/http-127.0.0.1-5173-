@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "reviewed_on": "2026-10-05",
+  "reviewed_on": "2026-10-07",
   "status": "research_only",
   "scope": "Diez candidatos con identidad y algunas cotas publicadas revisadas. No forman parte de parts-manifest ni se pueden instalar en la app todavía.",
   "intake_order": ["manifest", "layout", "cables_power", "assembly", "viewer", "variants"],
@@ -15,8 +15,50 @@
     {"id":"sony-fe-24-f14-gm","exact_product_name":"Sony FE 24mm F1.4 GM","model_number":"SEL24F14GM","brand":"Sony","category":"lens","dimensions":{"diameter_mm":75.4,"length_mm":92.4,"approximate":false,"note":"D × L publicados; parasol no modelado."},"weight_g":445,"weight_approximate":false,"mount":"Sony E-mount","filter_diameter_mm":67,"source_url":"https://www.sony.com/electronics/support/lenses-e-mount-lenses/sel24f14gm/specifications","verification_method":"Especificaciones oficiales indexadas; acceso directo intermitente.","release_status":"research_only"},
     {"id":"sony-fe-50-f14-gm","exact_product_name":"Sony FE 50mm F1.4 GM","model_number":"SEL50F14GM","brand":"Sony","category":"lens","dimensions":{"diameter_mm":80.6,"length_mm":96,"approximate":false,"note":"D × L publicados; parasol no modelado."},"weight_g":516,"weight_approximate":false,"mount":"Sony E-mount","filter_diameter_mm":67,"source_url":"https://www.sony.com/electronics/support/lenses-e-mount-lenses/sel50f14gm/specifications","verification_method":"Página oficial consultada.","release_status":"research_only"},
     {"id":"sony-fe-85-f18","exact_product_name":"Sony FE 85mm F1.8","model_number":"SEL85F18","brand":"Sony","category":"lens","dimensions":{"diameter_mm":78,"length_mm":82,"approximate":false,"note":"D × L publicados; parasol no modelado."},"weight_g":371,"weight_approximate":false,"mount":"Sony E-mount","filter_diameter_mm":67,"source_url":"https://www.sony.com/electronics/support/lenses-e-mount-lenses/sel85f18/specifications","verification_method":"Especificaciones oficiales indexadas; acceso directo intermitente.","release_status":"research_only"},
-    {"id":"sony-fx30","exact_product_name":"Sony FX30","model_number":"ILME-FX30","brand":"Sony","category":"camera","dimensions":{"width_mm":129.7,"height_mm":77.8,"depth_mm":84.5,"approximate":true,"note":"Cuerpo sin salientes; fabricante marca cotas aproximadas."},"weight_g":562,"weight_approximate":true,"additional_mass":{"with_battery_and_card_g":646,"with_handle_battery_and_card_g":951},"mount":"Sony E-mount","filter_diameter_mm":null,"source_url":"https://www.sony.com/electronics/support/camcorders-and-video-cameras-interchangeable-lens-camcorders/ilme-fx30/specifications","verification_method":"Página oficial consultada; interfaces adicionales y compatibilidad completa pendientes.","release_status":"research_only"},
+    {
+      "id":"sony-fx30","exact_product_name":"Sony FX30","model_number":"ILME-FX30","brand":"Sony","category":"camera",
+      "dimensions":{"width_mm":129.7,"height_mm":77.8,"depth_mm":84.5,"approximate":true,"note":"Cuerpo sin salientes; fabricante marca cotas aproximadas."},
+      "weight_g":562,"weight_approximate":true,"additional_mass":{"with_battery_and_card_g":646,"with_handle_battery_and_card_g":951},
+      "mount":"Sony E-mount","filter_diameter_mm":null,
+      "interfaces":[
+        {"id":"hdmi-out","connector":"HDMI-A","direction":"output","count":null,"position_mm":null,"note":"YCbCr 4:2:2 10 bit / RGB 8 bit publicados; modos de monitor y par exacto por revisar."},
+        {"id":"usb-c","connector":"USB-C","direction":"bidirectional","count":1,"position_mm":null,"note":"USB 3.2, 10 Gbps publicado. No demuestra control DJI ni cualquier cable USB-C."},
+        {"id":"multi-usb","connector":"Multi/Micro USB","direction":"bidirectional","count":1,"position_mm":null,"note":"No intercambiar con USB-C ni inferir su control desde la FX3."},
+        {"id":"mic-in","connector":"3.5 mm stereo minijack","direction":"input","count":null,"position_mm":null,"note":"Identidad independiente del manual; recorrido, nivel y par Mic 2 pendientes."},
+        {"id":"headphones","connector":"3.5 mm stereo minijack","direction":"output","count":null,"position_mm":null,"note":"No es una segunda entrada de audio."},
+        {"id":"multi-interface-shoe","connector":"Sony Multi Interface Shoe","direction":"interface","count":null,"position_mm":null,"note":"Interfaz de audio digital publicada; no equivale a una zapata pasiva genérica."}
+      ],
+      "native_battery_model":"NP-FZ100",
+      "bundled_handle":{"ILME-FX30":true,"ILME-FX30B":false,"note":"Revisar SKU y región del ejemplar; no añadir el asa implícitamente al rig."},
+      "source_url":"https://www.sony.com/electronics/support/camcorders-and-video-cameras-interchangeable-lens-camcorders/ilme-fx30/specifications",
+      "verification_method":"Especificaciones y secciones del manual oficial revisadas el 2026-10-07; sin trasladar puertos o geometría de FX3.","release_status":"research_only"
+    },
     {"id":"sony-np-fz100","exact_product_name":"Sony NP-FZ100 Rechargeable Battery Pack","model_number":"NP-FZ100","brand":"Sony","category":"battery","dimensions":{"width_mm":38.7,"height_mm":22.7,"depth_mm":51.7,"approximate":true,"note":"Fabricante marca dimensiones y masa aproximadas."},"weight_g":83,"weight_approximate":true,"nominal_voltage_v":7.2,"energy_wh":16.4,"mount":null,"filter_diameter_mm":null,"source_url":"https://www.sony.co.uk/electronics/interchangeable-lens-cameras-batteries-chargers/np-fz100","verification_method":"Página oficial consultada; tabla de compatibilidad por cuerpo pendiente.","release_status":"research_only"}
+  ],
+  "manifest_reviews": [
+    {
+      "part_id":"sony-fx30","reviewed_on":"2026-10-07","status":"partial_official_manifest_not_released",
+      "citations":[
+        {"source_id":"intake-sony-fx30-specs","field_paths":["dimensions","weight_g","additional_mass","mount"],"locator":"Size & Weight; General / LENS MOUNT","method":"direct_official_page"},
+        {"source_id":"intake-sony-fx30-specs","field_paths":["interfaces"],"locator":"Interface / USB, HDMI OUTPUT, MULTI INTERFACE SHOE","method":"direct_official_page"},
+        {"source_id":"intake-sony-fx30-helpguide","field_paths":["interfaces.3","interfaces.4"],"locator":"Página 525 (índice PDF 524), especificaciones: micrófono y auriculares","method":"official_pdf_text_review"},
+        {"source_id":"intake-sony-fx30-helpguide","field_paths":["native_battery_model","bundled_handle"],"locator":"Página 19 (índice PDF 18), contenido y tabla ILME-FX30 / ILME-FX30B","method":"official_pdf_text_review"}
+      ],
+      "remaining":["Posiciones, roscas y salientes medidos","Compatibilidad SEL20F18G por función y firmware","Distribución propia y masa sin duplicar batería","Materiales y geometría autorizada","Guía, circuitos y ensayos físicos"]
+    },
+    {
+      "part_id":"sony-fe-20-f18-g","reviewed_on":"2026-10-07","status":"partial_official_manifest_not_released",
+      "citations":[{"source_id":"intake-sony-sel20f18g-specs","field_paths":["dimensions","weight_g","mount","filter_diameter_mm"],"locator":"Size & Weight; Mount; Filter Diameter (mm)","method":"direct_official_page"}],
+      "remaining":["Tabla de compatibilidad exacta y limitaciones","Parasol, salientes y holguras de jaula","Montaje sin heredar geometría SEL1635GM","Guía, derechos y pruebas del conjunto"]
+    },
+    {
+      "part_id":"sony-np-fz100","reviewed_on":"2026-10-07","status":"partial_official_manifest_not_released",
+      "citations":[
+        {"source_id":"intake-sony-npfz100-regional","field_paths":["dimensions","weight_g","nominal_voltage_v","energy_wh"],"locator":"Specifications: dimensions, weight, capacity","method":"official_indexed_text_direct_access_failed"},
+        {"source_id":"intake-sony-fx30-helpguide","field_paths":["nominal_voltage_v"],"locator":"Página 526 (índice PDF 525), NP-FZ100 / Rated voltage","method":"official_pdf_text_review"}
+      ],
+      "remaining":["Confirmar ficha regional directa; acceso web intermitente","Contactos y retención; tensión nominal no es rango","Puerta y masa en el montaje específico","Carga y guía sin piezas implícitas"]
+    }
   ],
   "configuration_candidates": [
     {"id":"fx3-light-prime","context":"handheld","part_ids":["sony-fx3","smallrig-4770","sony-fe-35-f18","sony-np-fz100"],"status":"research_only","reason":"Priorizar un núcleo compacto sin monitor ni V-mount. Verificar tablas Sony, alojamiento de batería, jaula y guía antes de activar."},

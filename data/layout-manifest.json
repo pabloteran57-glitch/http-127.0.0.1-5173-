@@ -16,6 +16,7 @@
       "id": "sony-fx3",
       "label": "Sony FX3",
       "kind": "camera",
+      "vertical_frame": "camera",
       "position_mm": [
         0,
         0,
@@ -86,6 +87,8 @@
       "id": "smallrig-4770",
       "label": "Jaula HawkLock 4770",
       "kind": "cage",
+      "vertical_frame": "camera",
+      "visual_subassemblies": [{"object_name":"smallrig-4770/natoRail","hide_if_any_part_ids":["sony-xlr-h1"]}],
       "position_mm": [
         0,
         0,
@@ -461,6 +464,7 @@
       "mount_point_id": "tilted-cold-shoe",
       "label": "DJI Mic 2 / receptor RX",
       "kind": "audioReceiver",
+      "vertical_frame": "camera",
       "position_mm": [
         -64.247,
         58.191,

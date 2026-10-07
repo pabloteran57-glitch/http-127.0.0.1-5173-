@@ -150,6 +150,7 @@
     },
     {
       "number": 5,
+      "references": [{"part_id":"smallrig-3203b","document_id":"smallrig-3203b-manual","page":5,"image_path":"/references/3203b-diagram-5.png","alt":"Abrazadera 3203B documentada en el manual"}],
       "title": "Batería y soporte elegidos",
       "kind": "mount",
       "requires_any": [],
@@ -191,6 +192,7 @@
     },
     {
       "number": 6,
+      "references": [{"part_id":"smallrig-3026b","document_id":"smallrig-3026b-manual","page":7,"image_path":"/references/3026b-diagram-7.png","alt":"Orientación y límite estático publicado del 3026B"}],
       "title": "Montar el monitor elegido",
       "kind": "mount",
       "requires_any": [],

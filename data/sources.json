@@ -650,7 +650,27 @@
       "review_subject_part_ids": [
         "smallhd-indie-7"
       ]
+    },
+    {
+      "id":"intake-sony-fx30-specs","brand":"Sony","type":"official",
+      "url":"https://www.sony.com/electronics/support/camcorders-and-video-cameras-interchangeable-lens-camcorders/ilme-fx30/specifications",
+      "checked_on":"2026-10-07","notes":"Manifiesto en cuarentena: cotas, masas e identidad de interfaces. No activa FX30 ni demuestra pares DJI/SmallHD."
+    },
+    {
+      "id":"intake-sony-fx30-helpguide","brand":"Sony","type":"official",
+      "url":"https://helpguide.sony.net/ilc/2220/v1/en/print.pdf",
+      "checked_on":"2026-10-07","notes":"Revisión textual de páginas 19, 89 y 525–526: diferencias FX30/FX30B, montaje de óptica, terminales y batería nativa. Sin descargar o redistribuir el manual ni afirmar coordenadas mecánicas."
+    },
+    {
+      "id":"intake-sony-sel20f18g-specs","brand":"Sony","type":"official",
+      "url":"https://www.sony.com/electronics/support/lenses-e-mount-lenses/sel20f18g/specifications",
+      "checked_on":"2026-10-07","notes":"Candidato: D 73.5 × L 84.7 mm, 373 g, montura E, filtro 67 mm; no autoriza montaje ni geometría de otra óptica."
+    },
+    {
+      "id":"intake-sony-npfz100-regional","brand":"Sony","type":"official",
+      "url":"https://www.sony.com/en-cm/electronics/interchangeable-lens-cameras-batteries-chargers/np-fz100",
+      "checked_on":"2026-10-07","notes":"Texto oficial indexado: dimensiones/masa aproximadas y capacidad nominal. Acceso directo falló; verificación directa pendiente, no inferir rango o contactos."
     }
   ],
-  "audit_on": "2026-10-06"
+  "audit_on": "2026-10-07"
 }

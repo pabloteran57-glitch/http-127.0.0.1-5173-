@@ -57,7 +57,7 @@ export const layoutData: LayoutManifest = {
   nodes: layoutManifest.nodes.map(node => {
     const kind = kinds.find(kind => kind === node.kind);
     if (!kind) throw new Error(`Invalid layout kind: ${node.kind}`);
-    return { ...node, kind, mounting_points: "mounting_points" in node ? node.mounting_points?.map(point=>({...point,local_position_mm:vector(point.local_position_mm),rotation_deg:vector(point.rotation_deg),size_xyz_mm:vector(point.size_xyz_mm)})) : undefined, position_mm: vector(node.position_mm), size_xyz_mm: vector(node.size_xyz_mm), explode_mm: vector(node.explode_mm), rotation_deg: vector(node.rotation_deg),
+    return { ...node, kind, vertical_frame: "vertical_frame" in node && node.vertical_frame === "camera" ? "camera" : undefined, mounting_points: "mounting_points" in node ? node.mounting_points?.map(point=>({...point,local_position_mm:vector(point.local_position_mm),rotation_deg:vector(point.rotation_deg),size_xyz_mm:vector(point.size_xyz_mm)})) : undefined, position_mm: vector(node.position_mm), size_xyz_mm: vector(node.size_xyz_mm), explode_mm: vector(node.explode_mm), rotation_deg: vector(node.rotation_deg),
       envelope: node.envelope === "verified" ? "verified" : "approximate",
       mass_domain: node.mass_domain === "moving" ? "moving" : "fixed" };
   }),

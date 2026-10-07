@@ -45,7 +45,7 @@ export interface PartsManifest {
 }
 
 export interface Cable {
-  monitor_route_overrides?: Partial<Record<"gimbal" | "cage" | "xlr", Pick<Cable, "routing_path" | "motion_boundary" | "route_control_offsets_mm" | "route_control_frame">>>;
+  monitor_route_overrides?: Record<string, Pick<Cable, "routing_path" | "motion_boundary" | "route_control_offsets_mm" | "route_control_frame">>;
   route_control_frame?: "camera" | "world";
   electrical?: ElectricalProperties;
   from_port_id: string;
@@ -110,12 +110,15 @@ export interface Variant {
   viewer: {
     mode: "assembled" | "exploded" | "vertical";
     positions: Record<string, VariantViewerPosition>;
-    monitor_mount_route?: "gimbal" | "cage" | "xlr";
+    monitor_mount_route?: string;
+    rig_context?: CustomRig["context"];
   };
 }
 
 export type Vec3 = [number, number, number];
 export interface LayoutNode {
+  vertical_frame?: "camera" | "fixed";
+  visual_subassemblies?: {object_name:string;hide_if_any_part_ids:string[]}[];
   subcomponent_id?: string;
   mount_point_id?: string;
   mounting_points?: {id:string;local_position_mm:Vec3;rotation_deg:Vec3;size_xyz_mm:Vec3;source_url:string;confidence:string;note:string}[];
@@ -165,6 +168,7 @@ export interface AssemblyContentBlock {
 export interface AssemblyProfileContent {
   version: number;
   steps: {
+    references?: {part_id:string;document_id:string;page:number;image_path:string;alt:string}[];
     number: number;
     title: string;
     note: string;
@@ -192,6 +196,13 @@ export interface CustomRig {
 }
 
 export interface PlannerRules {
+  planning_root_part_ids: string[];
+  exclusive_selection_groups?: {id:string;part_ids:string[];max_active:number;message:string}[];
+  viewer_routes?: {id:string;condition:RuleCondition}[];
+  viewer_route_part_ids?: string[];
+  completion_rules?: Record<string,{label:string;required_all:string[];power_cable_ids:string[];power_suggest_ids:string[]}>;
+  camera_external_power_part_ids?: string[];
+  extraction_step?: number;
   version: number;
   max_saved_rigs: number;
   parked_part_ids: string[];

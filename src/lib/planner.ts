@@ -23,12 +23,23 @@ export function compatibilityDecision(evidence:CompatibilityEvidence):"candidate
 }
 
 export function newRig(name = "Mi nuevo rig", template?: Variant): CustomRig {
-  return { schema_version: 1, id: `rig-${crypto.randomUUID()}`, name: name.slice(0,80), context: template && !template.active_part_ids.includes("dji-rs4-pro-combo") ? "handheld" : "gimbal", orientation: template?.viewer.mode === "vertical" ? "vertical" : "landscape", part_ids: template ? [...template.active_part_ids] : [], updated_at: new Date().toISOString() };
+  return { schema_version: 1, id: `rig-${crypto.randomUUID()}`, name: name.slice(0,80), context: template?.viewer.rig_context ?? "gimbal", orientation: template?.viewer.mode === "vertical" ? "vertical" : "landscape", part_ids: template ? [...template.active_part_ids] : [], updated_at: new Date().toISOString() };
 }
 
 export function mountDependencies(id:string, rules:PlannerRules, rig?:CustomRig):string[] {
   const match=rig&&rules.dynamic_mount_dependencies?.find(rule=>rule.part_id===id&&conditionMatches(rule.condition,new Set(rig.part_ids),rig));
   return match ? match.required_all : rules.mount_dependencies[id]??[];
+}
+
+export function mountChainProblem(id:string,rules:PlannerRules,rig:CustomRig,seen:string[]=[]):string|null {
+  if(seen.includes(id))return "La cadena de soporte contiene un ciclo.";
+  if(rules.planning_root_part_ids.includes(id))return null;
+  const choices=(rules.dynamic_mount_dependencies??[]).filter(rule=>rule.part_id===id&&conditionMatches(rule.condition,new Set(rig.part_ids),rig));
+  if(new Set(choices.map(rule=>JSON.stringify([...rule.required_all].sort()))).size>1)return "Hay cadenas de soporte contradictorias para esta selección.";
+  const dependencies=mountDependencies(id,rules,rig);
+  if(!dependencies.length)return "La cadena de soporte aún no está documentada.";
+  for(const dependency of dependencies){const problem=mountChainProblem(dependency,rules,rig,[...seen,id]);if(problem)return problem;}
+  return null;
 }
 
 export function dependencyClosure(ids: string[], rules: PlannerRules, rig?:CustomRig): string[] {
@@ -45,6 +56,7 @@ export function selectionPresentation(chosenIds: string[], variant: Variant, mod
 
 export function availableSupportIds(ids: string[], rig: CustomRig, rules: PlannerRules): string[] {
   const allowed = (id: string) => !rules.parked_part_ids.includes(id)
+    && !mountChainProblem(id,rules,rig)
     && !(rig.context !== "gimbal" && rules.gimbal_only_part_ids.includes(id))
     && !(rig.context === "gimbal" && rules.gimbal_excluded_part_ids.includes(id))
     && !(rig.context === "gimbal" && rig.orientation === "vertical" && rules.vertical_excluded_part_ids.includes(id));
@@ -52,17 +64,32 @@ export function availableSupportIds(ids: string[], rig: CustomRig, rules: Planne
   return [...new Set(ids.filter(id => dependencyClosure([id], rules,rig).every(allowed)).flatMap(id => dependencyClosure([id], rules,rig)))].filter(id => !rig.part_ids.includes(id));
 }
 
+export function completionIds(id:string,rig:CustomRig,rules:PlannerRules,activeCableIds:string[]):string[] {
+  const completion=rules.completion_rules?.[id];
+  if(!completion||!rig.part_ids.includes(id))return [];
+  const power=completion.power_cable_ids.some(cable=>activeCableIds.includes(cable));
+  return availableSupportIds([...mountDependencies(id,rules,rig),...completion.required_all,...(power?[]:completion.power_suggest_ids)],rig,rules);
+}
+
 export function resolveRig(rig: CustomRig, rules: PlannerRules, cables: Cable[], master: Variant, nameOf: (id: string) => string): RigResolution {
   const selected = new Set(rig.part_ids);
   const active = new Set(rig.part_ids);
   const issues: RigIssue[] = [];
   const exclude = (id: string, message: string, add_ids: string[] = []) => { active.delete(id); issues.push({id: `part-${id}`, part_id: id, message, add_ids}); };
+  const routes=(rules.viewer_routes??[]).filter(route=>conditionMatches(route.condition,selected,rig));
+  const route=routes.length===1?routes[0].id:undefined;
   for (const id of selected) {
     if (rules.parked_part_ids.includes(id)) exclude(id, `${nameOf(id)}: montaje o sistema pendiente. Se conserva en reserva, no se instala en el visor.`);
     else if (rig.context !== "gimbal" && rules.gimbal_only_part_ids.includes(id)) exclude(id, `${nameOf(id)}: la cadena documentada requiere un gimbal. No se inventa soporte a mano o estático.`);
     else if (rig.context === "gimbal" && rules.gimbal_excluded_part_ids.includes(id)) exclude(id, `${nameOf(id)}: reservado para cámara a mano o estática, no gimbal activo.`);
     else if (rig.context === "gimbal" && rig.orientation === "vertical" && rules.vertical_excluded_part_ids.includes(id)) exclude(id, `${nameOf(id)}: fuera de la configuración vertical documentada; pila, soporte y holguras pendientes.`);
+    else {const problem=mountChainProblem(id,rules,rig);if(problem)exclude(id,`${nameOf(id)}: ${problem} Se conserva pendiente, sin montaje ficticio.`);}
   }
+  for(const group of rules.exclusive_selection_groups??[]){
+    const members=group.part_ids.filter(id=>active.has(id));
+    if(members.length>group.max_active)for(const id of members)exclude(id,`${nameOf(id)}: ${group.message}`);
+  }
+  if(!route)for(const id of rules.viewer_route_part_ids??[])if(active.has(id))exclude(id,`${nameOf(id)}: distribución contextual desconocida o ambigua. Se conserva pendiente, sin inventar una posición.`);
   let changed = true;
   while (changed) {
     changed = false;
@@ -82,19 +109,19 @@ export function resolveRig(rig: CustomRig, rules: PlannerRules, cables: Cable[],
   const cableIds = cables.filter(c => c.status === "candidate" && active.has(c.source_part_id) && [c.from_part_id,c.to_part_id].every(p => p === null || active.has(p)) && !rules.cable_exclusions.some(rule=>rule.cable_id===c.cable_id&&conditionMatches(rule.condition,active,rig))).map(c => c.cable_id);
   const ids = rig.part_ids.filter(id => active.has(id));
   const parked = rig.part_ids.filter(id => !active.has(id));
-  return {issues, parked_ids: parked, variant: {id:rig.id,label:rig.name,active_part_ids:ids,conditional_part_ids:parked,parts_added:ids.filter(id=>!master.active_part_ids.includes(id)),parts_removed:master.active_part_ids.filter(id=>!active.has(id)),cable_profile_ids:cableIds,cables_added:cableIds.filter(id=>!master.cable_profile_ids.includes(id)),cables_removed:master.cable_profile_ids.filter(id=>!cableIds.includes(id)),dependencies:issues.map(i=>i.message),operating_status:"Plan personalizado / comprobación física pendiente",balance_impact:"Pesar el conjunto completo y volver a equilibrar tras cambios. Las masas conocidas no certifican encaje ni par.",workflow_impact:"Configuración elegida por el usuario dentro del catálogo actual. Las piezas pendientes no se dibujan como instaladas.",budget_impact:"Sin precios cotizados. La selección no demuestra disponibilidad ni compras realizadas.",complexity_impact:`${ids.length} elementos activos; ${parked.length} en reserva.`,viewer:{mode:rig.orientation==="vertical"&&rig.context==="gimbal"?"vertical":"assembled",positions:{},monitor_mount_route:rig.context==="gimbal"?"gimbal":selected.has("sony-xlr-h1")?"xlr":"cage"}}};
+  return {issues, parked_ids: parked, variant: {id:rig.id,label:rig.name,active_part_ids:ids,conditional_part_ids:parked,parts_added:ids.filter(id=>!master.active_part_ids.includes(id)),parts_removed:master.active_part_ids.filter(id=>!active.has(id)),cable_profile_ids:cableIds,cables_added:cableIds.filter(id=>!master.cable_profile_ids.includes(id)),cables_removed:master.cable_profile_ids.filter(id=>!cableIds.includes(id)),dependencies:issues.map(i=>i.message),operating_status:"Plan personalizado / comprobación física pendiente",balance_impact:"Pesar el conjunto completo y volver a equilibrar tras cambios. Las masas conocidas no certifican encaje ni par.",workflow_impact:"Configuración elegida por el usuario dentro del catálogo actual. Las piezas pendientes no se dibujan como instaladas.",budget_impact:"Sin precios cotizados. La selección no demuestra disponibilidad ni compras realizadas.",complexity_impact:`${ids.length} elementos activos; ${parked.length} en reserva.`,viewer:{mode:rig.orientation==="vertical"&&rig.context==="gimbal"?"vertical":"assembled",positions:{},rig_context:rig.context,monitor_mount_route:route}}};
 }
 
 export function assemblyFrame(variant: Variant, step: number, rules: PlannerRules, cables: Cable[]) {
   const frame = rules.assembly_frames[step-1];
   const introduced = new Set(rules.assembly_frames.filter(f=>f.step<=step).flatMap(f=>f.add_part_ids));
   let ids = variant.active_part_ids.filter(id=>introduced.has(id));
-  if (step === 13) ids = ids.filter(id=>rules.extraction_keep_part_ids.includes(id));
+  if (step === rules.extraction_step) ids = ids.filter(id=>rules.extraction_keep_part_ids.includes(id));
   const contextIds = frame.context_part_ids.filter(id=>variant.active_part_ids.includes(id)&&!ids.includes(id));
   const visible = new Set([...ids,...contextIds]);
   const available = new Set(rules.assembly_frames.filter(f=>f.step<=step).flatMap(f=>f.add_cable_ids));
   const cableIds = variant.cable_profile_ids.filter(id=>available.has(id)&&cables.some(c=>c.cable_id===id&&[c.from_part_id,c.to_part_id].every(p=>p===null||ids.includes(p))));
-  return {variant:{...variant,active_part_ids:[...visible],cable_profile_ids:cableIds,viewer:{...variant.viewer,mode:step===13?"assembled" as const:variant.viewer.mode}},new_ids:frame.add_part_ids.filter(id=>ids.includes(id)),context_ids:contextIds,note:frame.note};
+  return {variant:{...variant,active_part_ids:[...visible],cable_profile_ids:cableIds,viewer:{...variant.viewer,mode:step===rules.extraction_step?"assembled" as const:variant.viewer.mode,rig_context:step===rules.extraction_step?"handheld":variant.viewer.rig_context}},new_ids:frame.add_part_ids.filter(id=>ids.includes(id)),context_ids:contextIds,note:frame.note};
 }
 
 export function parseRig(value: unknown, catalogIds: string[]): CustomRig {

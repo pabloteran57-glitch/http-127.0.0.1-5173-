@@ -1,16 +1,17 @@
 import type { Cable, LayoutManifest, LayoutNode, Part, Variant, Vec3 } from "./types";
 
 export function monitorRoute(variant:Variant) {
-  return variant.viewer.monitor_mount_route??(variant.active_part_ids.includes("dji-rs4-pro-combo")?"gimbal":variant.active_part_ids.includes("sony-xlr-h1")?"xlr":"cage");
+  return variant.viewer.monitor_mount_route;
 }
 
 export function cableForVariant(cable:Cable,variant:Variant):Cable {
-  return {...cable,...cable.monitor_route_overrides?.[monitorRoute(variant)]};
+  const route=monitorRoute(variant);
+  return {...cable,...(route?cable.monitor_route_overrides?.[route]:undefined)};
 }
 
 export function layoutForVariant(variant:Variant,layout:LayoutManifest):LayoutManifest {
   const route=monitorRoute(variant);
-  const overrides=layout.monitor_mount_routes?.[route]?.overrides??{};
+  const overrides=(route?layout.monitor_mount_routes?.[route]?.overrides:undefined)??{};
   return {...layout,nodes:layout.nodes.map(node=>({...node,...overrides[node.id]}))};
 }
 
@@ -30,11 +31,19 @@ export function nodeWeight(node:LayoutNode,part:Part) {
 export function nodePose(node:LayoutNode,vertical:boolean,exploded=false) {
   const position=node.position_mm.map((v,i)=>v+(exploded?node.explode_mm[i]:0)) as Vec3;
   const rotation=[...node.rotation_deg] as Vec3;
-  if(vertical&&["camera","cage","audioReceiver"].includes(node.kind)){
+  if(vertical&&node.vertical_frame==="camera"){
     [position[0],position[1]]=[-position[1],position[0]];
     rotation[2]+=90;
   }
   return {position_mm:position,rotation_deg:rotation};
+}
+
+export function hiddenSubassemblies(node:LayoutNode,variant:Variant):string[] {
+  return (node.visual_subassemblies??[]).filter(rule=>rule.hide_if_any_part_ids.some(id=>variant.active_part_ids.includes(id))).map(rule=>rule.object_name);
+}
+
+export function preferredPartId(ids:string[],layout:LayoutManifest):string {
+  return ids.find(id=>layout.nodes.some(node=>node.id===id&&node.kind==="camera"))??ids[0]??"";
 }
 
 export function routeOffset(offset:Vec3,cameraFrame:boolean,vertical:boolean):Vec3 {

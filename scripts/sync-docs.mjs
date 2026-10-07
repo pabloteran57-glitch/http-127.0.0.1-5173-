@@ -13,6 +13,8 @@ const label=value=>ui.schema_labels[value]??value;
 const join=list=>list.length?list.join("; "):"Ninguno";
 const bullets=list=>list.map(item=>"- "+item).join("\n");
 const write=(file,content)=>writeFileSync(new URL("../docs/"+file,import.meta.url),content.trim()+"\n");
+const intakeReviews=intake.manifest_reviews??[];
+write("catalog-manifest-reviews.md",`# Revisiones del manifiesto piloto\n\nFuente: \`data/catalog-intake.json\`. Revisión ${intake.reviewed_on}. ${intakeReviews.length} revisiones parciales, sin productos activados ni instrucciones físicas liberadas. Los otros candidatos conservan su fecha y alcance anteriores.\n\n${intakeReviews.map(review=>`## ${intake.products.find(p=>p.id===review.part_id).exact_product_name}\n\nRevisión: ${review.reviewed_on}.\n\n| Campos en investigación | Fuente y localizador | Método |\n|---|---|---|\n${review.citations.map(citation=>`| ${citation.field_paths.map(path=>`\`${path}\``).join(", ")} | [Sony](${sourceList.find(source=>source.id===citation.source_id).url}): ${citation.locator} | ${citation.method==="direct_official_page"?"Página oficial consultada":citation.method==="official_pdf_text_review"?"Sección textual del PDF oficial; no medición de figura":"Texto oficial indexado; acceso directo falló y sigue pendiente"} |`).join("\n")}\n\nPendiente:\n\n${bullets(review.remaining)}`).join("\n\n")}\n\n## Límites\n\nNo se copian puertos, mallas ni poses de FX3. La montura declarada no prueba funciones, firmware o holgura con jaula. NP-FZ100 es batería nativa de FX30 documentada; tensión nominal no equivale a rango completo ni pinout. Las diferencias ILME-FX30 / ILME-FX30B de contenido incluido se conservan sin añadir piezas al usuario. El catálogo instalable mantiene ${parts.parts.length} entradas.\n`);
 const weight=n=>{const p=parts.parts.find(p=>p.id===n.id);return n.subcomponent_id?p.subcomponents?.find(c=>c.id===n.subcomponent_id)?.weight_g??0:p.planning_weight_g??0;};
 const mass=v=>layout.nodes.filter(n=>n.mass_domain==="moving"&&v.active_part_ids.includes(n.id)).reduce((sum,n)=>sum+weight(n),0);
 const disclaimer="Plan de ingeniería, no montaje certificado. Medidas publicadas no prueban forma exacta, enganche de tornillos, equilibrio, rigidez, holguras ni compatibilidad de toda la pila. Fotos y geometría aproximada no son CAD calibrado.";
@@ -104,7 +106,7 @@ Canónicos: \`data/cables-manifest.json\` y \`data/ports-manifest.json\`. ${cabl
 
 **Corrección eléctrica:** Cable CBL-PWR-DTAP-BAR-36: exterior 5.5 mm y centro positivo publicados, interior del cable por confirmar. Fuente independiente SmallHD, tabla técnica Power: entrada del Indie 7 de 2.0 mm interior / 5.5 mm exterior y centro positivo, DC 10–34 V; terminales batería 6.0–16.8 V. El ID histórico del cable no es prueba de conector. 4253B: entrada 9.6–20 V / mínimo 2 A, salida 8.0–8.4 V / máximo continuo 2 A. Todas las cargas y ajustes reales siguen pendientes.
 
-Revisión por circuito y fuentes: [comprobaciones de conexiones](connection-reviews.md). Tres enlaces revisados documentalmente; los demás no se dan por compatibles por tener puertos identificados.
+Revisión por circuito y fuentes: [comprobaciones de conexiones](connection-reviews.md). ${connectionReviews.reviews.length} enlaces revisados documentalmente; los demás no se dan por compatibles por tener puertos identificados.
 
 ## Colores
 

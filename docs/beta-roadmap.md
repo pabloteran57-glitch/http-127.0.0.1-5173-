@@ -1,12 +1,12 @@
 # Takegrid: ruta a una beta utilizable
 
-Revisión: 5 de octubre de 2026. Estado: endurecimiento del prototipo en curso. Fuente estructurada: `data/product-roadmap.json`. El catálogo activo permanece en 27 piezas; diez altas están sólo en investigación.
+Revisión: 7 de octubre de 2026. Estado: endurecimiento del prototipo en curso. Fuente estructurada: `data/product-roadmap.json`. El catálogo mantiene 30 entradas; diez altas están sólo en investigación. [Revisión actual por fases](extensible-engineering-qa.md).
 
 Mi equipo, guía filtrada y controles de reproducción ya tienen correcciones funcionales comprobadas. Se prepararon laboratorio, reglas declarativas, recuperación e historial, recursos sin conexión, protocolo de beta y paquete preliminar de financiación. La evidencia actual está en `docs/iteration-qa.md`; la previa en `docs/stabilization-qa.md`. Preparar entregables posteriores no cierra sus criterios de salida. Cuentas y sincronización quedan aplazadas por decisión del usuario, no eliminadas del plan.
 
 ## Decisión recomendada
 
-Optimizar primero el flujo completo de un rig propio. Después, preparar reglas extensibles y ampliar por lotes verificados. Es posible añadir productos ahora, pero no basta con sumar registros: cámara, lente, soportes, conexiones, geometría y guía deben formar una cadena coherente. La arquitectura actual contiene dependencias específicas de FX3/RS 4 Pro.
+Optimizar primero el flujo completo de un rig propio. Después, preparar reglas extensibles y ampliar por lotes verificados. Es posible añadir productos ahora, pero no basta con sumar registros: cámara, lente, soportes, conexiones, geometría y guía deben formar una cadena coherente. La arquitectura admite reglas declarativas, pero un segundo conjunto real necesita sus propios datos y verificaciones.
 
 No hace falta tener miles de referencias para demostrar valor a usuarios o inversores. Sí hace falta que una selección personal corresponda exactamente a su lista, sus conexiones, su guía y su recuperación después de guardar. La expansión no se cancela: se ordena para no multiplicar errores ni reducir fidelidad.
 
@@ -80,4 +80,4 @@ No se promete éxito en una campaña. No se comprometen fechas de beta hasta med
 
 ## Avance actual
 
-El diagnóstico anterior es histórico. Las versiones 0.2.0/0.2.1 corrigieron inventario, guía filtrada, persistencia y visibilidad de rutas. La iteración 0.2.2 reabre el flujo de creación ante la observación del usuario: editor guiado, selección íntegra y monitor lateral candidato en vertical. Evidencia y límites en [Creación de rigs](rig-creation-qa.md). La aceptación observada y las puertas físicas permanecen abiertas; no se activa el lote ampliado ni se declara beta aprobada.
+El diagnóstico anterior es histórico. Las versiones 0.2.0–0.2.6 corrigieron inventario, guía, selección móvil directa, monitor y audio, y añadieron recuperación y perfiles locales. La iteración 0.2.7 desacopla contexto, soportes, encuadre, completado y referencias de guía; quince pruebas de ecosistema sintético se suman a las regresiones anteriores. Tres manifiestos piloto tienen revisión parcial por campo, sin activarse. [Estado actual](extensible-engineering-qa.md). La aceptación observada y las puertas físicas permanecen abiertas; no se declara beta aprobada ni se elimina la nube aplazada del plan.

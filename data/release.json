@@ -1,5 +1,5 @@
 {
-  "version": "0.2.6",
+  "version": "0.2.7",
   "released_on": "2026-10-07",
   "status": "engineering_prototype",
   "label": "Prototipo de ingeniería",
@@ -7,6 +7,10 @@
   "storage": "local_only",
   "account_sync": "deferred_by_user",
   "updates": [
+    "Base extensible: raíces, soporte, exclusividad, contexto, rutas, completado, subensambles y referencias de guía declarativos",
+    "Quince regresiones de ecosistema sintético; cadenas desconocidas, ciclos y contradicciones conservan elecciones sin montaje ficticio",
+    "Respaldo de visor por envolvente explícita, sin copiar detalles de otro producto; 17 mallas autorizadas actuales conservadas",
+    "Manifiestos en cuarentena de FX30, SEL20F18G y NP-FZ100 con fuentes por campo; no amplían todavía el catálogo seleccionable",
     "Monitor en rigs propios con tres cadenas contextuales: lateral 3026B, jaula 2906B y XLR-H1/4830/2906B, todas candidatas a prueba física",
     "Tres accesorios verificados: 2906B, 4830 y Sony NP-F970/PRO; selección explícita mediante Completar monitor, sin modificar las siete plantillas",
     "17 mallas propias aproximadas y 17 miniaturas autorizadas del producto para reconocer las piezas al elegir",
@@ -19,7 +23,7 @@
     "No validado con un rig físico completo; una malla no prueba asiento, holgura, pinout ni equilibrio",
     "Diez altas en investigación, no instalables",
     "GLB oficial RS 4 Pro permanece en cuarentena; enlace DJI_RS4_PRO_2 sin archivo/licencia confirmados; archivo FX3 solicitado al autor",
-    "Los GLB no se precargan sin conexión; el visor conserva geometría aproximada de respaldo",
+    "Los GLB no se precargan sin conexión; el visor conserva una envolvente ilustrativa de respaldo sin detalle mecánico",
     "Perfiles locales no son autenticación, privacidad, cuenta sincronizada ni enlaces privados",
     "Instalación web depende del navegador; no es una publicación en App Store",
     "Soportes, ajuste del tornillo, retención de batería, manos y holguras requieren ensayo físico. NP-F970/PRO requiere cargador externo no incluido en la selección."

@@ -146,6 +146,22 @@ const checkCondition=condition=>{
 assert.equal(new Set(planner.selection_checks.map(c=>c.id)).size,planner.selection_checks.length);
 planner.selection_checks.forEach(check=>{assert(check.message);checkCondition(check.condition);[...(check.required_all??[]),...(check.required_any??[])].forEach(id=>assert(partIds.has(id)));});
 planner.cable_exclusions.forEach(rule=>{assert(cableIds.has(rule.cable_id));checkCondition(rule.condition);});
+assert(planner.planning_root_part_ids.length&&planner.camera_part_ids.length);
+for(const key of ["planning_root_part_ids","camera_part_ids","camera_external_power_part_ids","viewer_route_part_ids"]){assert(Array.isArray(planner[key]));assert.equal(new Set(planner[key]).size,planner[key].length);planner[key].forEach(id=>assert(partIds.has(id)));}
+for(const id of planner.camera_part_ids)assert(planner.planning_root_part_ids.includes(id),"Cuerpo sin raíz declarada: "+id);
+for(const id of planner.planning_root_part_ids)assert(!planner.mount_dependencies[id],"Raíz con soporte contradictorio: "+id);
+for(const id of partIds)assert(planner.parked_part_ids.includes(id)||planner.planning_root_part_ids.includes(id)||planner.mount_dependencies[id]?.length,"Pieza sin cadena ni raíz declarada: "+id);
+assert.equal(new Set(planner.exclusive_selection_groups.map(g=>g.id)).size,planner.exclusive_selection_groups.length);
+for(const group of planner.exclusive_selection_groups){assert(group.id&&group.message&&Number.isInteger(group.max_active)&&group.max_active>0);assert(group.part_ids.length);assert.equal(new Set(group.part_ids).size,group.part_ids.length);group.part_ids.forEach(id=>assert(partIds.has(id)));}
+assert(planner.viewer_routes.length);assert.equal(new Set(planner.viewer_routes.map(r=>r.id)).size,planner.viewer_routes.length);
+for(const route of planner.viewer_routes){assert(layout.monitor_mount_routes[route.id]);checkCondition(route.condition);}
+assert(Number.isInteger(planner.extraction_step)&&planner.assembly_frames.some(f=>f.step===planner.extraction_step));
+for(const [id,completion]of Object.entries(planner.completion_rules)){assert(partIds.has(id)&&completion.label);[...completion.required_all,...completion.power_suggest_ids].forEach(id=>assert(partIds.has(id)));completion.power_cable_ids.forEach(id=>assert(cableIds.has(id)));}
+for(const node of layout.nodes){
+  if(node.vertical_frame!==undefined)assert(["camera","fixed"].includes(node.vertical_frame));
+  for(const rule of node.visual_subassemblies??[]){assert(rule.object_name&&rule.hide_if_any_part_ids.length);rule.hide_if_any_part_ids.forEach(id=>assert(partIds.has(id)));}
+}
+for(const variant of variants.variants){assert(["gimbal","handheld","static"].includes(variant.viewer.rig_context));assert(layout.monitor_mount_routes[variant.viewer.monitor_mount_route]);}
 for(const rule of planner.dynamic_mount_dependencies??[]){assert(partIds.has(rule.part_id));checkCondition(rule.condition);assert(rule.required_all.length);rule.required_all.forEach(id=>assert(partIds.has(id)&&id!==rule.part_id));}
 for(const check of planner.selection_checks)for(const id of check.suggest_ids??[])assert(partIds.has(id)&&check.required_any?.includes(id));
 assert.deepEqual(Object.keys(layout.monitor_mount_routes??{}).sort(),["cage","gimbal","xlr"]);
@@ -177,6 +193,13 @@ profileContent.steps.forEach((step,i)=>{
   assert.equal(step.number,i+1);assert(["mount","check","optional"].includes(step.kind));
   assert(step.title&&step.note&&step.rebalance&&step.blocks.length);
   step.requires_any.forEach(id=>assert(partIds.has(id)));
+  for(const reference of step.references??[]){
+    assert(partIds.has(reference.part_id)&&step.blocks.some(block=>block.part_ids.includes(reference.part_id)),"Referencia ajena a la etapa");
+    assert(references.documents.some(document=>document.id===reference.document_id),"Manual no registrado");
+    assert(Number.isInteger(reference.page)&&reference.page>0&&reference.alt);
+    assert(reference.image_path.startsWith("/references/")&&!reference.image_path.includes(".."));
+    if(!publicValidation)assert(existsSync(new URL("../public"+reference.image_path,import.meta.url)),"Ilustración de manual ausente");
+  }
   for(const block of step.blocks){
     assert(block.part_ids.length&&block.mount&&block.where&&block.verify.length);
     [...block.part_ids,...(block.require_all??[]),...(block.unless_any??[])].forEach(id=>assert(partIds.has(id)));
@@ -188,6 +211,16 @@ console.log(`CORRECTO: ${partIds.size} piezas, ${cableIds.size} conexiones, ${la
 const intake=JSON.parse(readFileSync(new URL("../data/catalog-intake.json",import.meta.url),"utf8")),contract=JSON.parse(readFileSync(new URL("../data/catalog-contract.json",import.meta.url),"utf8"));
 assert.equal(intake.products.length,10);assert.equal(new Set(intake.products.map(p=>p.id)).size,10);
 for(const product of intake.products){assert(!partIds.has(product.id),"Una alta en investigación no debe ser una pieza activada");assert.equal(product.release_status,"research_only");assert(/^https:\/\/www\.sony\.(com|co\.uk)\//.test(product.source_url));assert(product.model_number&&product.dimensions.note&&Number.isFinite(product.weight_g));}
+assert.equal(new Set((intake.manifest_reviews??[]).map(review=>review.part_id)).size,(intake.manifest_reviews??[]).length);
+for(const review of intake.manifest_reviews??[]){
+  const product=intake.products.find(item=>item.id===review.part_id);assert(product&&review.reviewed_on&&review.remaining.length);
+  assert.equal(review.status,"partial_official_manifest_not_released");assert(review.citations.length);
+  for(const citation of review.citations){
+    const source=sources.sources.find(item=>item.id===citation.source_id);assert(source?.type==="official"&&citation.locator&&citation.method);
+    assert(citation.field_paths.length);for(const path of citation.field_paths)assert(path.split(".").reduce((value,key)=>value?.[key],product)!==undefined,"Campo investigado inexistente: "+path);
+  }
+  for(const entry of product.interfaces??[]){assert(entry.id&&entry.connector&&entry.note);assert.equal(entry.position_mm,null,"No se inventan posiciones en un manifiesto inicial");assert(entry.count===null||(Number.isInteger(entry.count)&&entry.count>0));}
+}
 assert.deepEqual(new Set(contract.products.map(p=>p.part_id)),partIds);assert.equal(contract.catalog_revision,planner.catalog_revision);
 for(const entry of contract.products){assert.equal(entry.physically_tested,false);assert.equal(entry.geometry_profile_id,layout.nodes.find(n=>n.id===entry.part_id)?.id??null);}
 const release=JSON.parse(readFileSync(new URL("../data/release.json",import.meta.url),"utf8")),pkg=JSON.parse(readFileSync(new URL("../package.json",import.meta.url),"utf8"));

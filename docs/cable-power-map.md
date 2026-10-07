@@ -15,7 +15,7 @@ Canónicos: `data/cables-manifest.json` y `data/ports-manifest.json`. 18 circuit
 
 **Corrección eléctrica:** Cable CBL-PWR-DTAP-BAR-36: exterior 5.5 mm y centro positivo publicados, interior del cable por confirmar. Fuente independiente SmallHD, tabla técnica Power: entrada del Indie 7 de 2.0 mm interior / 5.5 mm exterior y centro positivo, DC 10–34 V; terminales batería 6.0–16.8 V. El ID histórico del cable no es prueba de conector. 4253B: entrada 9.6–20 V / mínimo 2 A, salida 8.0–8.4 V / máximo continuo 2 A. Todas las cargas y ajustes reales siguen pendientes.
 
-Revisión por circuito y fuentes: [comprobaciones de conexiones](connection-reviews.md). Tres enlaces revisados documentalmente; los demás no se dan por compatibles por tener puertos identificados.
+Revisión por circuito y fuentes: [comprobaciones de conexiones](connection-reviews.md). 4 enlaces revisados documentalmente; los demás no se dan por compatibles por tener puertos identificados.
 
 ## Colores
 

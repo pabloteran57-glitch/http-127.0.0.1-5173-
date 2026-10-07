@@ -17,9 +17,17 @@ Las comprobaciones de selección y exclusiones de circuitos se leen de `data/pla
 
 `compatibilityDecision` sólo admite un candidato documentado si hay revisión y URL HTTPS de evidencia. Incompatible queda bloqueado; desconocido o incompleto sigue desconocido. Este control de integridad no autentica el contenido de una URL: la revisión humana/técnica de la evidencia continúa siendo obligatoria. Candidato no significa probado físicamente.
 
-El panel Conexiones usa ahora `assessConnection`, no ese control básico. Vincula modelo y nombre exactos, revisión, puerto, conector, señal y fuentes con alcance explícito. Compara rangos completos y polaridad; información ausente mantiene pendientes. Revisión inicial: control RS 4 Pro/FX3, 4253B y alimentación del Indie 7. No certifica los demás catorce circuitos ni valida automáticamente el contenido web. [Evidencia por comprobación](connection-reviews.md) y [pruebas de esta iteración](connection-review-qa.md).
+El panel Conexiones usa `assessConnection`, no ese control básico. Vincula modelo y nombre exactos, revisión, puerto, conector, señal y fuentes con alcance explícito. Compara rangos completos y polaridad; información ausente mantiene pendientes. Cuatro de dieciocho circuitos tienen revisión ampliada: control RS 4 Pro/FX3, 4253B y dos alimentaciones del Indie 7. No certifica los demás catorce ni valida automáticamente el contenido web. [Evidencia por comprobación](connection-reviews.md).
 
-Las pruebas incluyen un producto sintético, aislado del catálogo, que resuelve selección y dependencias cambiando sólo reglas. No prueba geometría ni guía universal. Los modelos de visor, encuadre, contextos de plantilla y etapas aún son específicos del ecosistema actual; no se anuncia compatibilidad universal.
+## Extensibilidad Comprobada
+
+`planning_root_part_ids` declara raíces; todo accesorio necesita cadena o reserva explícita. Los ciclos, raíces desconocidas y soportes contextuales contradictorios permanecen pendientes. `exclusive_selection_groups` conserva dos cuerpos u ópticas elegidos sin representarlos instalados simultáneamente.
+
+Contexto y ruta de plantilla, reglas de completado explícito y etapa de extracción proceden de datos. `vertical_frame` identifica nodos que giran con cámara; `visual_subassemblies` controla visibilidad de subensambles. La guía toma sus manuales de referencias condicionadas, no de nombres de producto en JSX.
+
+Quince regresiones remapean todos los IDs de partes, puertos y cables y recorren selección, poses, masa aproximada, instrucciones, reproducción y extracción. No incorporan productos sintéticos al catálogo. Un futuro equipo sin malla autorizada usa una envolvente etiquetada, nunca la forma de FX3 o de otra pieza. Las 17 reconstrucciones actuales se conservan.
+
+Esto prueba extensibilidad de software, no compatibilidad universal. Un alta real exige su propio manifiesto, distribución, señales, guía, geometría y variantes; no se heredan coordenadas por compartir marca, montura o dimensiones. [Regresiones y límites](extensible-engineering-qa.md).
 
 ## Migración
 

@@ -40,6 +40,8 @@ Versión 0.2.5: 14 reconstrucciones propias iniciales separadas, con montura, ja
 
 Versión 0.2.6: monitor elegible en las siete copias de plantillas y rigs propios mediante tres cadenas candidatas. Gimbal: 3026B lateral. A mano/estático: 2906B sobre NATO 4770 sin XLR, o 4830 + 2906B sobre XLR-H1. **Completar monitor** indica soportes, HDMI y una NP-F970/PRO sólo si falta alimentación; las incorpora exclusivamente al pulsarlo. 17 mallas y miniaturas propias aproximadas para reconocer piezas. La placa serie L incluida alimenta el monitor sin cable al barril; batería y cargador específico se verifican antes de usar. [Pruebas y límites](docs/monitor-mount-qa.md).
 
+Versión 0.2.7: contexto, soporte, completado explícito, giro vertical, subensambles y manuales de guía declarativos. Quince regresiones remapean un ecosistema completo y bloquean raíces desconocidas, ciclos y contradicciones sin borrar elecciones. Respaldo por envolvente, sin reutilizar forma de otro producto. FX30, SEL20F18G y NP-FZ100 tienen manifiestos parciales con fuentes por campo; siguen en investigación. [Avance y pendientes](docs/extensible-engineering-qa.md).
+
 **Ayuda y versión** conserva una orientación de tres pasos, preparación optativa sin conexión, privacidad y descripción local de incidencias. No añade una quinta tarea ni reintroduce exportar planes. Instalación web según navegador, no App Store.
 
 Laboratorio optativo: `/?laboratorio=1`. Compara reposo/giro y demanda/continuo en la misma escena. Intervalos JavaScript, no tiempos GPU ni mejora porcentual contra la versión anterior. `npm run check:beta` muestra criterios y evidencia pendientes; `--strict` no permite declarar beta lista.
