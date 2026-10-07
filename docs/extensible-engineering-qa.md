@@ -27,6 +27,8 @@ Compilación pública 0.2.7, módulo principal `index-BXdpyS_q.js`. Pruebas en E
 
 Capturas locales: `research/model-incoming/extensible-public-desktop-027.png`, `extensible-mobile-editor-027.png` y `extensible-mobile-rig-027.png`. No se incluyen en el paquete público. Ventana móvil emulada, no ensayo táctil o GPU de un teléfono físico.
 
+Publicación confirmada por Sites: `succeeded`, 7 de octubre de 2026 a las 08:14 de Ecuador. Mismo [enlace público](https://takegrid-rigs.pabloteran57.chatgpt.site), sin cambios de audiencia, facturación o almacenamiento. [Evidencia de publicación](additional-hosting.md). No se usa la publicación para declarar beta aprobada.
+
 ## Plan Restante
 
 | Fase | Avance real | Falta para cerrar |
