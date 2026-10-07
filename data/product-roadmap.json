@@ -2,7 +2,7 @@
   "version": 1,
   "reviewed_on": "2026-10-07",
   "status": "prototype_hardening_in_progress",
-  "progress_report": "docs/extensible-engineering-qa.md",
+  "progress_report": "docs/contextual-attachments-qa.md",
   "user_decisions": [
     {
       "date": "2026-10-05",
@@ -143,7 +143,7 @@
       "order": 1,
       "title": "Rigs propios y montaje fiable",
       "status": "in_progress",
-      "verification_report": "docs/monitor-mount-qa.md",
+      "verification_report": "docs/contextual-attachments-qa.md",
       "remaining": [
         "Medición sostenida en dispositivos físicos de referencia",
         "Comparación reproducible y objetivos de fluidez",

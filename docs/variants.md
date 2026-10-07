@@ -5,7 +5,7 @@ Canónico: `data/variants.json`. Los cambios son frente al perfil principal `com
 ## Documental / solo
 
 - ID: `documentary-one-man-film`; modo visual: Ensamblado; estado: Candidato / validación física pendiente.
-- Activos: RS 4 Pro; BG70; FX3; 16-35 mm GM; Jaula HawkLock; Base 1674; Varillas de 8 pulgadas; Parasol Star-Trail; Soporte de monitor; Indie 7; VB99 Pro; Placa V-mount; Adaptador NP-FZ100; Control USB-C DJI; HDMI Kondor Blue; D-Tap a DC SmallHD; Mic 2; Micrófono de solapa DJI; Monitor & Control
+- Activos: RS 4 Pro; BG70; FX3; 16-35 mm GM; Jaula HawkLock; Base 1674; Varillas de 8 pulgadas; Parasol Star-Trail; Soporte lateral 3026B; Indie 7; VB99 Pro; Placa V-mount; Adaptador NP-FZ100; Control USB-C DJI; HDMI Kondor Blue; D-Tap a DC SmallHD; Mic 2; Micrófono de solapa DJI; Monitor & Control
 - Retirados del perfil principal: Aplicación Ronin
 - Añadidos al perfil principal: Mic 2; Micrófono de solapa DJI; Monitor & Control
 - En reserva/condicionales: Ninguno
@@ -22,7 +22,7 @@ Canónico: `data/variants.json`. Los cambios son frente al perfil principal `com
 ## Comercial / contenido de marca
 
 - ID: `commercial-solo-gimbal`; modo visual: Ensamblado; estado: Candidato / validación física pendiente.
-- Activos: RS 4 Pro; BG70; FX3; 16-35 mm GM; Jaula HawkLock; Base 1674; Varillas de 8 pulgadas; Parasol Star-Trail; Soporte de monitor; Indie 7; VB99 Pro; Placa V-mount; Adaptador NP-FZ100; Control USB-C DJI; HDMI Kondor Blue; D-Tap a DC SmallHD; Aplicación Ronin
+- Activos: RS 4 Pro; BG70; FX3; 16-35 mm GM; Jaula HawkLock; Base 1674; Varillas de 8 pulgadas; Parasol Star-Trail; Soporte lateral 3026B; Indie 7; VB99 Pro; Placa V-mount; Adaptador NP-FZ100; Control USB-C DJI; HDMI Kondor Blue; D-Tap a DC SmallHD; Aplicación Ronin
 - Retirados del perfil principal: Ninguno
 - Añadidos al perfil principal: Ninguno
 - En reserva/condicionales: Focus Pro LiDAR; Motor Focus Pro; RavenEye; HDMI A-C DJI; Distribuidor StarTech; Interfaz LiDAR / Transmission
@@ -40,7 +40,7 @@ Canónico: `data/variants.json`. Los cambios son frente al perfil principal `com
 
 - ID: `handheld-quick-release`; modo visual: Ensamblado; estado: Candidato / validación física pendiente.
 - Activos: FX3; 16-35 mm GM; Jaula HawkLock; XLR-H1; Mic 2; Micrófono de solapa DJI; Monitor & Control
-- Retirados del perfil principal: RS 4 Pro; BG70; Base 1674; Varillas de 8 pulgadas; Parasol Star-Trail; Soporte de monitor; Indie 7; VB99 Pro; Placa V-mount; Adaptador NP-FZ100; Control USB-C DJI; HDMI Kondor Blue; D-Tap a DC SmallHD; Aplicación Ronin
+- Retirados del perfil principal: RS 4 Pro; BG70; Base 1674; Varillas de 8 pulgadas; Parasol Star-Trail; Soporte lateral 3026B; Indie 7; VB99 Pro; Placa V-mount; Adaptador NP-FZ100; Control USB-C DJI; HDMI Kondor Blue; D-Tap a DC SmallHD; Aplicación Ronin
 - Añadidos al perfil principal: XLR-H1; Mic 2; Micrófono de solapa DJI; Monitor & Control
 - En reserva/condicionales: Ninguno
 - Cableado activo: audio-rx-to-xlrhandle; audio-lav-to-tx
@@ -57,7 +57,7 @@ Canónico: `data/variants.json`. Los cambios son frente al perfil principal `com
 
 - ID: `lower-budget-stripped-down`; modo visual: Ensamblado; estado: Candidato / validación física pendiente.
 - Activos: RS 4 Pro; BG70; FX3; 16-35 mm GM; Jaula HawkLock; Control USB-C DJI; Monitor & Control; Mic 2; Micrófono de solapa DJI
-- Retirados del perfil principal: Base 1674; Varillas de 8 pulgadas; Parasol Star-Trail; Soporte de monitor; Indie 7; VB99 Pro; Placa V-mount; Adaptador NP-FZ100; HDMI Kondor Blue; D-Tap a DC SmallHD; Aplicación Ronin
+- Retirados del perfil principal: Base 1674; Varillas de 8 pulgadas; Parasol Star-Trail; Soporte lateral 3026B; Indie 7; VB99 Pro; Placa V-mount; Adaptador NP-FZ100; HDMI Kondor Blue; D-Tap a DC SmallHD; Aplicación Ronin
 - Añadidos al perfil principal: Monitor & Control; Mic 2; Micrófono de solapa DJI
 - En reserva/condicionales: Ninguno
 - Cableado activo: ctrl-rs4-to-fx3-usbc; pwr-bg70-to-rs4; audio-rx-to-fx3; audio-lav-to-tx
@@ -74,7 +74,7 @@ Canónico: `data/variants.json`. Los cambios son frente al perfil principal `com
 
 - ID: `vertical-916-creator-mode`; modo visual: Vertical; estado: Candidato / validación física pendiente.
 - Activos: RS 4 Pro; BG70; FX3; 16-35 mm GM; Jaula HawkLock; Control USB-C DJI; Monitor & Control; Mic 2
-- Retirados del perfil principal: Base 1674; Varillas de 8 pulgadas; Parasol Star-Trail; Soporte de monitor; Indie 7; VB99 Pro; Placa V-mount; Adaptador NP-FZ100; HDMI Kondor Blue; D-Tap a DC SmallHD; Aplicación Ronin
+- Retirados del perfil principal: Base 1674; Varillas de 8 pulgadas; Parasol Star-Trail; Soporte lateral 3026B; Indie 7; VB99 Pro; Placa V-mount; Adaptador NP-FZ100; HDMI Kondor Blue; D-Tap a DC SmallHD; Aplicación Ronin
 - Añadidos al perfil principal: Monitor & Control; Mic 2
 - En reserva/condicionales: Ninguno
 - Cableado activo: ctrl-rs4-to-fx3-usbc; pwr-bg70-to-rs4; audio-rx-to-fx3
@@ -91,7 +91,7 @@ Canónico: `data/variants.json`. Los cambios son frente al perfil principal `com
 
 - ID: `corporate-interview`; modo visual: Ensamblado; estado: Candidato / validación física pendiente.
 - Activos: FX3; 16-35 mm GM; Jaula HawkLock; XLR-H1; Mic 2; Micrófono de solapa DJI
-- Retirados del perfil principal: RS 4 Pro; BG70; Base 1674; Varillas de 8 pulgadas; Parasol Star-Trail; Soporte de monitor; Indie 7; VB99 Pro; Placa V-mount; Adaptador NP-FZ100; Control USB-C DJI; HDMI Kondor Blue; D-Tap a DC SmallHD; Aplicación Ronin
+- Retirados del perfil principal: RS 4 Pro; BG70; Base 1674; Varillas de 8 pulgadas; Parasol Star-Trail; Soporte lateral 3026B; Indie 7; VB99 Pro; Placa V-mount; Adaptador NP-FZ100; Control USB-C DJI; HDMI Kondor Blue; D-Tap a DC SmallHD; Aplicación Ronin
 - Añadidos al perfil principal: XLR-H1; Mic 2; Micrófono de solapa DJI
 - En reserva/condicionales: Distribuidor StarTech; Indie 7
 - Cableado activo: audio-rx-to-xlrhandle; audio-lav-to-tx
@@ -107,7 +107,7 @@ Canónico: `data/variants.json`. Los cambios son frente al perfil principal `com
 ## Cine / narrativa
 
 - ID: `cinema-narrative`; modo visual: Ensamblado; estado: Candidato / validación física pendiente.
-- Activos: RS 4 Pro; BG70; FX3; 16-35 mm GM; Jaula HawkLock; Base 1674; Varillas de 8 pulgadas; Parasol Star-Trail; Soporte de monitor; Indie 7; VB99 Pro; Placa V-mount; Adaptador NP-FZ100; Control USB-C DJI; HDMI Kondor Blue; D-Tap a DC SmallHD; Aplicación Ronin; Mic 2
+- Activos: RS 4 Pro; BG70; FX3; 16-35 mm GM; Jaula HawkLock; Base 1674; Varillas de 8 pulgadas; Parasol Star-Trail; Soporte lateral 3026B; Indie 7; VB99 Pro; Placa V-mount; Adaptador NP-FZ100; Control USB-C DJI; HDMI Kondor Blue; D-Tap a DC SmallHD; Aplicación Ronin; Mic 2
 - Retirados del perfil principal: Ninguno
 - Añadidos al perfil principal: Mic 2
 - En reserva/condicionales: Focus Pro LiDAR; Motor Focus Pro; RavenEye; HDMI A-C DJI; Distribuidor StarTech; Interfaz LiDAR / Transmission

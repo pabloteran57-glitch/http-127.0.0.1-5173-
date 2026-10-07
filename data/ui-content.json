@@ -10,7 +10,7 @@
     "smallrig-1674": "Base 1674",
     "smallrig-rods-8in": "Varillas de 8 pulgadas",
     "smallrig-3645": "Parasol Star-Trail",
-    "smallrig-3026b": "Soporte de monitor",
+    "smallrig-3026b": "Soporte lateral 3026B",
     "smallhd-indie-7": "Indie 7",
     "smallrig-vb99-pro": "VB99 Pro",
     "smallrig-3203b": "Placa V-mount",
@@ -86,7 +86,7 @@
     "Contactos de placa serie L": "Contactos de placa serie L"
   },
   "task_hints": {
-    "design": "Explora el rig y toca una pieza para ver su ficha.",
+    "design": "Toca una pieza del rig para ver su ficha o añadirle accesorios.",
     "connect": "Elige una conexión para localizar sus dos extremos.",
     "assemble": "Sigue el montaje, con comprobaciones antes de cada etapa.",
     "inventory": "Busca los productos, sus referencias y especificaciones."

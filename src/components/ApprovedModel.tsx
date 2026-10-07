@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { useThree } from "@react-three/fiber";
-import { Group, type Object3D } from "three";
+import { Euler, Group, Matrix4, type Object3D } from "three";
+import type { JointTransform } from "../lib/viewer";
 import type { ModelAsset } from "../lib/model-assets";
 import { disposeModel, loadAuditedModel, modelAppearance, type ModelLoadReport } from "../lib/model-runtime";
 
-export default function ApprovedModel({ asset, selected, context, fallback, reportKey, onReport, hiddenObjectNames=[] }: { asset: ModelAsset; selected: boolean; context: boolean; fallback: ReactNode; reportKey: string; onReport: (report: ModelLoadReport) => void; hiddenObjectNames?:string[] }) {
+export default function ApprovedModel({ asset, selected, context, fallback, reportKey, onReport, hiddenObjectNames=[],objectTransforms={} }: { asset: ModelAsset; selected: boolean; context: boolean; fallback: ReactNode; reportKey: string; onReport: (report: ModelLoadReport) => void; hiddenObjectNames?:string[];objectTransforms?:Record<string,JointTransform[]> }) {
   const [model, setModel] = useState<Object3D | null>(null);
   const [state, setState] = useState<ModelLoadReport["state"]>("loading");
   const wrapper = useRef<Group>(null);
@@ -42,5 +43,24 @@ export default function ApprovedModel({ asset, selected, context, fallback, repo
     invalidate();
     return ()=>restore.forEach(reset=>reset());
   },[model,hiddenKey,invalidate]);
+  const transformKey=JSON.stringify(objectTransforms);
+  useEffect(()=>{
+    const transforms=JSON.parse(transformKey) as Record<string,JointTransform[]>,restore:(()=>void)[]=[];
+    model?.traverse(object=>{
+      const originalName=typeof object.userData.name==="string"?object.userData.name:object.name;
+      const rule=Object.entries(transforms).find(([prefix])=>originalName.startsWith(`${asset.part_id}/${prefix}/`))?.[1];
+      if(!rule)return;
+      const previous=object.matrix.clone(),auto=object.matrixAutoUpdate,composite=new Matrix4();
+      for(const transform of rule){
+        const pivot=transform.pivot_mm.map(v=>v/1000) as [number,number,number];
+        const rotation=transform.rotation_deg.map(v=>v*Math.PI/180) as [number,number,number];
+        const matrix=new Matrix4().makeTranslation(...pivot).multiply(new Matrix4().makeRotationFromEuler(new Euler(...rotation))).multiply(new Matrix4().makeTranslation(-pivot[0],-pivot[1],-pivot[2]));
+        composite.premultiply(matrix);
+      }
+      object.matrixAutoUpdate=false;object.matrix.copy(composite).multiply(previous);object.matrixWorldNeedsUpdate=true;
+      restore.push(()=>{object.matrix.copy(previous);object.matrixAutoUpdate=auto;object.matrixWorldNeedsUpdate=true;});
+    });
+    invalidate();return ()=>restore.forEach(reset=>reset());
+  },[model,transformKey,asset.part_id,invalidate]);
   return <group ref={wrapper}>{model ? <group position={c.offset_mm.map(v => v / 100) as [number, number, number]} rotation={c.rotation_deg.map(v => v * Math.PI / 180) as [number, number, number]} scale={c.uniform_scale * 10}><primitive object={model} dispose={null} /></group> : fallback}</group>;
 }

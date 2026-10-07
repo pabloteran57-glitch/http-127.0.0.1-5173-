@@ -10,7 +10,7 @@ import type { OrbitControls as OrbitControlsImpl } from "three-stdlib";
 import { cableById, cablesData, layoutData, modelAssets, partById, portById } from "../data";
 import type { LayoutNode, Variant, Vec3 } from "../lib/types";
 import { connectionName } from "../lib/ui";
-import { cableForVariant, hiddenSubassemblies, layoutForVariant, nodePose, routeOffset, visibleCableIds } from "../lib/viewer";
+import { cableForVariant, cableRouteOffset, hiddenSubassemblies, layoutForVariant, monitorJoint, monitorTransforms, nodePose, visibleCableIds, type JointTransform } from "../lib/viewer";
 import PerformanceProbe from "./PerformanceProbe";
 import type { PerformanceResult, PerformanceRun } from "../lib/performance";
 import { approvedModelFor } from "../lib/model-assets";
@@ -54,10 +54,11 @@ function EnvelopeGeometry({node,selected}:{node:LayoutNode;selected:boolean}) {
   </RoundedBox>;
 }
 
-function AnimatedNode({ node, exploded, vertical, selected, onSelect, context, reveal, attempt, scene, onModelReport,hiddenObjectNames }: {
+function AnimatedNode({ node, exploded, vertical, selected, onSelect, context, reveal, attempt, scene, onModelReport,hiddenObjectNames,objectTransforms }: {
   node: LayoutNode; exploded: boolean; vertical: boolean; selected: boolean; onSelect: (id: string) => void; context:boolean; reveal:boolean;
   attempt: number; scene: string; onModelReport: (report: ModelLoadReport) => void;
   hiddenObjectNames:string[];
+  objectTransforms:Record<string,JointTransform[]>;
 }) {
   const group = useRef<Group>(null);
   const pose = nodePose(node,vertical,exploded);
@@ -85,7 +86,7 @@ function AnimatedNode({ node, exploded, vertical, selected, onSelect, context, r
   const rotation = pose.rotation_deg.map(v=>v*Math.PI/180) as Vec3;
   return <group ref={group} position={pos} scale={initialScale.current} onClick={click}>
     <group rotation={rotation}>
-      {asset ? <Suspense fallback={<EnvelopeGeometry node={node} selected={selected}/>}><ApprovedModel key={`${asset.id}:${asset.artifact.sha256}:${attempt}`} asset={asset} selected={selected} context={context} reportKey={modelSessionKey(asset, attempt, scene)} onReport={onModelReport} hiddenObjectNames={hiddenObjectNames} fallback={<EnvelopeGeometry node={node} selected={selected}/>} /></Suspense> : <EnvelopeGeometry node={node} selected={selected}/>}
+      {asset ? <Suspense fallback={<EnvelopeGeometry node={node} selected={selected}/>}><ApprovedModel key={`${asset.id}:${asset.artifact.sha256}:${attempt}`} asset={asset} selected={selected} context={context} reportKey={modelSessionKey(asset, attempt, scene)} onReport={onModelReport} hiddenObjectNames={hiddenObjectNames} objectTransforms={objectTransforms} fallback={<EnvelopeGeometry node={node} selected={selected}/>} /></Suspense> : <EnvelopeGeometry node={node} selected={selected}/>}
     </group>
   </group>;
 }
@@ -111,7 +112,7 @@ function LabelProjector({ nodes, exploded, vertical, elements }: { nodes: Layout
 function CameraControls({ angle, exploded, nodes, vertical, resetKey, onInteract }: { angle: ViewAngle; exploded: boolean; nodes:LayoutNode[]; vertical:boolean; resetKey: number; onInteract?: () => void }) {
   const { camera, invalidate, size } = useThree();
   const controls = useRef<OrbitControlsImpl>(null);
-  const envelopeKey=JSON.stringify(nodes.map(n=>[n.id,n.position_mm,n.rotation_deg,n.size_xyz_mm,n.explode_mm]));
+  const envelopeKey=JSON.stringify(nodes.map(n=>[n.id,n.size_xyz_mm,n.explode_mm]));
   useEffect(() => {
     if(!(camera instanceof PerspectiveCamera)||!nodes.length)return;
     const bounds=new Box3(),corners:Vector3[]=[];
@@ -168,6 +169,8 @@ export default function RigViewer({exploded,showCables,showLabels,variant,select
  const [attempt,setAttempt]=useState(0),[unavailable,setUnavailable]=useState(false);
  const [modelReports,setModelReports]=useState<ModelReports>({});
  const nodes=layoutForVariant(variant,layoutData).nodes.filter(n=>variant.active_part_ids.includes(n.id));
+ const joint=monitorJoint(variant,layoutData),jointTransforms=monitorTransforms(variant,layoutData);
+ const objectTransforms=(node:LayoutNode):Record<string,JointTransform[]>=>node.id===joint?.mount_id?{[joint.head_object_name]:jointTransforms,...(joint.swivel_object_name?{[joint.swivel_object_name]:jointTransforms.slice(1)}:{})}:{};
  const session=sceneKey??`${variant.id}:${nodes.map(n=>n.id).join(",")}`;
  const modelEntries=nodes.flatMap(node=>{const asset=approvedModelFor(node,partById[node.id],modelAssets);return asset?[{asset,key:modelSessionKey(asset,attempt,session)}]:[];});
  const modelKeys=modelEntries.map(entry=>entry.key),readiness=modelReadiness(modelKeys,modelReports);
@@ -194,12 +197,12 @@ export default function RigViewer({exploded,showCables,showLabels,variant,select
   <ViewerBoundary key={attempt} onRetry={retry} onUnavailable={()=>{setUnavailable(true);onUnavailable?.();}}><Suspense fallback={<div className="viewer-fallback">Iniciando visor...</div>}><Canvas frameloop={performanceRun?.policy??"demand"} camera={{position:[-6,2.2,-7.5],fov:36}} dpr={[1,1.5]} gl={{antialias:true,alpha:true}}>
    <ambientLight intensity={1.6}/><directionalLight position={[-3,7,-6]} intensity={4.5} color="#f1f2ff"/><directionalLight position={[5,3,5]} intensity={3} color="#aec3d8"/><pointLight position={[-3,-2,-3]} intensity={14} color="#7cacae"/>
    <gridHelper args={[20,40,"#3d434c","#242933"]} position={[0,handheld?-.8:-3.6,0]}/>
-   {nodes.map(n=><AnimatedNode key={n.id} node={n} exploded={exploded} vertical={variant.viewer.mode==="vertical"} selected={(selectedId===n.id&&!selectedCableId)||highlightIds.includes(n.id)} onSelect={onSelect} context={contextIds.includes(n.id)} reveal={reveal} attempt={attempt} scene={session} onModelReport={reportModel} hiddenObjectNames={hiddenSubassemblies(n,variant)}/>)}
+   {nodes.map(n=><AnimatedNode key={n.id} node={n} exploded={exploded} vertical={variant.viewer.mode==="vertical"} selected={(selectedId===n.id&&!selectedCableId)||highlightIds.includes(n.id)} onSelect={onSelect} context={contextIds.includes(n.id)} reveal={reveal} attempt={attempt} scene={session} onModelReport={reportModel} hiddenObjectNames={hiddenSubassemblies(n,variant)} objectTransforms={objectTransforms(n)}/>)}
    {visibleLinks.map(({cable:c,a,b})=>{
     const focused=c.cable_id===selectedCableId;const color=cablesData.color_coding[c.type==="data"?"control":c.type];
     const opacity=selectedCableId&&!focused ? .18 : 1;
-    const offsetA=routeOffset(c.route_control_offsets_mm!.a as Vec3,c.route_control_frame==="camera",vertical);
-    const offsetB=routeOffset(c.route_control_offsets_mm!.b as Vec3,c.route_control_frame==="camera",vertical);
+    const offsetA=cableRouteOffset(c.route_control_offsets_mm!.a as Vec3,c.from_part_id,variant,layoutData,c.route_control_frame==="camera");
+    const offsetB=cableRouteOffset(c.route_control_offsets_mm!.b as Vec3,c.to_part_id,variant,layoutData,c.route_control_frame==="camera");
     const midA=a!.map((v,i)=>v+scale(offsetA[i])) as Vec3;
     const midB=b!.map((v,i)=>v+scale(offsetB[i])) as Vec3;
     return <group key={c.cable_id}>{exploded?<Line points={[a!,b!]} dashed dashSize={.1} gapSize={.06} color={color} lineWidth={focused?4:2.5} transparent opacity={opacity} depthTest={false}/>:<CubicBezierLine start={a!} end={b!} midA={midA} midB={midB} color={color} lineWidth={focused?4.5:2.7} transparent opacity={opacity} depthTest={false}/>}

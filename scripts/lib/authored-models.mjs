@@ -315,9 +315,9 @@ export function authoredModel(node) {
   g.updateMatrixWorld(true);
   // Agrupar por material conserva la silueta reduciendo draw calls y duplicados del GLB.
   const byMaterial = new Map();
-  g.traverse(o => { if (o instanceof Mesh) { const geometry = o.geometry.clone().applyMatrix4(o.matrixWorld); geometry.scale(.001, .001, .001); const key = o.material.name; if (!byMaterial.has(key)) byMaterial.set(key, []); byMaterial.get(key).push(geometry); } });
+  g.traverse(o => { if (o instanceof Mesh) { const geometry = o.geometry.clone().applyMatrix4(o.matrixWorld); geometry.scale(.001, .001, .001); const articulation=Object.entries(node.articulated_subassemblies??{}).find(([,names])=>names.includes(o.name))?.[0]??""; const key = articulation?`${articulation}/${o.material.name}`:o.material.name; if (!byMaterial.has(key)) byMaterial.set(key, []); byMaterial.get(key).push(geometry); } });
   const out = new Group(); out.name = g.name; out.userData = g.userData;
-  for (const [key, geometries] of byMaterial) { const geom = mergeGeometries(geometries.map(x => x.index ? x : mergeVertices(x)), false); if (!geom) throw new Error("No se pudo consolidar " + node.id); geom.deleteAttribute("uv"); geom.normalizeNormals(); const mesh = new Mesh(geom, materials[key]); mesh.name = node.id + "/" + key; out.add(mesh); for (const geo of geometries) geo.dispose(); }
+  for (const [key, geometries] of byMaterial) { const geom = mergeGeometries(geometries.map(x => x.index ? x : mergeVertices(x)), false); if (!geom) throw new Error("No se pudo consolidar " + node.id); geom.deleteAttribute("uv"); geom.normalizeNormals(); const mesh = new Mesh(geom, materials[key.split("/").at(-1)]); mesh.name = node.id + "/" + key; out.add(mesh); for (const geo of geometries) geo.dispose(); }
   g.traverse(o => { if (o instanceof Mesh) o.geometry.dispose(); });
   out.updateMatrixWorld(true); out.userData.bounds_mm = new Box3().setFromObject(out).getSize(new Vector3()).multiplyScalar(1000).toArray();
   return out;

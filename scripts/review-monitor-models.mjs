@@ -4,7 +4,7 @@ import {fileURLToPath} from "node:url";
 import {authoredModel} from "./lib/authored-models.mjs";
 import {renderProductVisual} from "./lib/render-product-visual.mjs";
 const nodes=JSON.parse(readFileSync(new URL("../data/layout-manifest.json",import.meta.url),"utf8")).nodes;
-const selected=nodes.filter(n=>["smallrig-4770","smallrig-2906b","smallrig-4830","sony-np-f970-pro"].includes(n.id));
+const selected=nodes.filter(n=>["smallrig-4770","smallrig-3026b","smallrig-2906b","smallrig-4830","sony-np-f970-pro"].includes(n.id));
 const views=[[.8,.4,1.4],[0,0,1],[0,0,-1],[1,0,0],[0,1,.001]],tiles=[];
 for(const [row,node] of selected.entries())for(const [column,viewDirection] of views.entries()){
   const model=authoredModel(node),render=renderProductVisual(model,{partId:node.id,width:280,height:240,viewDirection});

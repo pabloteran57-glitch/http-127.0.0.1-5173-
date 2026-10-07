@@ -167,7 +167,7 @@ En gimbal conservar 3026B lateral fijo. A mano/estática usar 2906B sobre NATO 4
 
 - Posición candidata XYZ: -185 / -205 / -25 mm; rotación XYZ: 0 / 0 / 180 grados.
 - Envolvente XYZ: 180.1 / 118.6 / 33.5 mm; estado: Medidas exteriores publicadas. Una envolvente publicada no verifica los detalles internos.
-- Dominio de carga: Carga fija; soporte candidato: Soporte de monitor.
+- Dominio de carga: Carga fija; soporte candidato: Soporte lateral 3026B.
 - Colocación: Fuera de cámara, a la izquierda del operador. Posición candidata, no prueba de holgura de todos los ejes.
 - Orientación: Monitor bajo el cabezal nativo 3026B, invertido para que la rosca inferior 1/4-20 mire hacia arriba, según ejemplos del fabricante. Verificar inversión de imagen y lectura.
 - Montaje: Rosca inferior 1/4-20 del Indie 7 al tornillo del cabezal 3026B orientado hacia abajo; no se inventa una rosca superior.

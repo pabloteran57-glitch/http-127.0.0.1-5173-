@@ -14,6 +14,22 @@ const audit = read("geometry-audit");
 const references = read("geometry-references");
 const engineering = read("engineering-manifest");
 const partIds = new Set(parts.parts.map(p => p.id));
+for(const [route,joint] of Object.entries(layout.monitor_joints??{})){
+  assert(layout.monitor_mount_routes[route],"Ruta de articulación desconocida");
+  assert([joint.mount_id,joint.monitor_id,...joint.attached_part_ids].every(id=>partIds.has(id)),"Pieza articulada fuera del catálogo");
+  assert(sources.sources.some(s=>s.type==="official"&&s.url===joint.source_url),"Articulación sin fuente oficial registrada");
+  assert(joint.source_locator&&/aproximad/.test(joint.geometry_note),"Origen/pivote sin incertidumbre explícita");
+  for(const field of ["tilt_range_deg","swivel_range_deg"]){assert.equal(joint[field].length,2);assert(joint[field].every(Number.isFinite)&&joint[field][0]<=0&&joint[field][1]>=0);}
+  for(const field of ["tilt_pivot_local_mm","swivel_pivot_local_mm"]){assert.equal(joint[field].length,3);assert(joint[field].every(Number.isFinite));}
+  const node=layout.nodes.find(n=>n.id===joint.mount_id);
+  assert(node.articulated_subassemblies?.[joint.head_object_name]?.length,"Cabezal móvil no separado en malla");
+  if(joint.swivel_object_name)assert(node.articulated_subassemblies[joint.swivel_object_name]?.length,"Horquilla móvil no separada");
+}
+const slideRule=layout.battery_plate_slide;
+assert(slideRule&&[slideRule.plate_id,slideRule.rod_id,...slideRule.attached_part_ids].every(id=>partIds.has(id)));
+assert.equal(slideRule.travel_status,"user_measurement_required");
+assert.deepEqual(slideRule.rod_axis_local,[0,0,1],"Sólo desplazamiento axial, no giro libre");
+assert(sources.sources.some(s=>s.type==="official"&&s.url===slideRule.source_url));
 const cableIds = new Set(cables.cables.map(c => c.cable_id));
 const portById=Object.fromEntries(ports.ports.map(p=>[p.id,p]));
 assert.equal(Object.keys(portById).length,ports.ports.length,"Duplicate port IDs");
@@ -154,6 +170,15 @@ for(const id of partIds)assert(planner.parked_part_ids.includes(id)||planner.pla
 assert.equal(new Set(planner.exclusive_selection_groups.map(g=>g.id)).size,planner.exclusive_selection_groups.length);
 for(const group of planner.exclusive_selection_groups){assert(group.id&&group.message&&Number.isInteger(group.max_active)&&group.max_active>0);assert(group.part_ids.length);assert.equal(new Set(group.part_ids).size,group.part_ids.length);group.part_ids.forEach(id=>assert(partIds.has(id)));}
 assert(planner.viewer_routes.length);assert.equal(new Set(planner.viewer_routes.map(r=>r.id)).size,planner.viewer_routes.length);
+assert(["gimbal","handheld","static"].includes(planner.default_context));
+assert.equal(new Set(planner.attachment_options.map(option=>option.id)).size,planner.attachment_options.length);
+for(const option of planner.attachment_options){
+  assert(partIds.has(option.anchor_part_id)&&option.label&&option.note&&option.source_ids.length);
+  assert(option.add_part_ids.length&&new Set(option.add_part_ids).size===option.add_part_ids.length);
+  option.add_part_ids.forEach(id=>assert(partIds.has(id)&&id!==option.anchor_part_id));
+  option.source_ids.forEach(id=>assert(sources.sources.some(source=>source.id===id&&source.type==="official"),"Accesorio sin fuente oficial: "+option.id));
+  checkCondition(option.condition);
+}
 for(const route of planner.viewer_routes){assert(layout.monitor_mount_routes[route.id]);checkCondition(route.condition);}
 assert(Number.isInteger(planner.extraction_step)&&planner.assembly_frames.some(f=>f.step===planner.extraction_step));
 for(const [id,completion]of Object.entries(planner.completion_rules)){assert(partIds.has(id)&&completion.label);[...completion.required_all,...completion.power_suggest_ids].forEach(id=>assert(partIds.has(id)));completion.power_cable_ids.forEach(id=>assert(cableIds.has(id)));}

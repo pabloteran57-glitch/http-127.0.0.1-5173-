@@ -36,6 +36,7 @@
 ## Datos canónicos adicionales
 
 - `data/layout-manifest.json`: posiciones, envolventes y cadenas candidatas de soporte.
+- Sus `monitor_joints` documentan rangos totales y pivotes aproximados: 2906B 180° de inclinación/360° de giro; 3026B 170° de inclinación, sin giro independiente verificado. `battery_plate_slide` sólo admite traslación axial con recorrido medido por el usuario, nunca bisagra ficticia. Conservar juntos pantalla/batería/cabezal y extremos/tangentes de cables. Ajustes locales no certifican topes, colisiones ni equilibrio; ejecutar pruebas de ajustes incluidas en `test:planner`.
 - `data/ports-manifest.json`: identidad de conectores; anclajes espaciales aproximados.
 - `data/assembly-guide.json`: las trece etapas de montaje.
 - `data/engineering-manifest.json`: límites publicados y políticas de incertidumbre.

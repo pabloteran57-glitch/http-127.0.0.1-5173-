@@ -1,5 +1,5 @@
 {
-  "version": "0.2.7",
+  "version": "0.2.8",
   "released_on": "2026-10-07",
   "status": "engineering_prototype",
   "label": "Prototipo de ingeniería",
@@ -7,6 +7,12 @@
   "storage": "local_only",
   "account_sync": "deferred_by_user",
   "updates": [
+    "Ajustes locales acoplados: inclinación 2906B/3026B y giro 2906B documentados; cabezal, monitor, batería y extremos/tangentes de cables acompañan la pose aproximada",
+    "3203B sin bisagra ficticia: deslizamiento axial de placa y batería sólo con recorrido aportado y confirmado por el usuario; historial, duplicados y recuperación conservan ajustes",
+    "Ficha pública: enlace oficial compacto y legible, separado del contenedor de imagen; eliminado el bloque blanco vacío",
+    "Rig desde cero a mano, sin gimbal implícito; selector de montaje visible en el catálogo y en la tarjeta del monitor",
+    "Añadir a esta pieza desde la selección del visor: propuestas documentadas, imágenes, piezas exactas y comprobación del contexto antes de modificar el borrador",
+    "Monitor en NATO HawkLock mediante 2906B sin 3026B ni RS; cambio de montaje conserva elecciones y exige guardado explícito",
     "Base extensible: raíces, soporte, exclusividad, contexto, rutas, completado, subensambles y referencias de guía declarativos",
     "Quince regresiones de ecosistema sintético; cadenas desconocidas, ciclos y contradicciones conservan elecciones sin montaje ficticio",
     "Respaldo de visor por envolvente explícita, sin copiar detalles de otro producto; 17 mallas autorizadas actuales conservadas",
@@ -18,6 +24,7 @@
     "Perfiles locales, bibliotecas, elecciones pendientes y cuatro tareas conservados"
   ],
   "limitations": [
+    "Pivotes y ceros angulares aproximados. Los rangos publicados del soporte no certifican recorrido libre del rig completo; no hay detección automática de colisiones ni equilibrio. Traslación V-mount depende de medición del usuario.",
     "Las 17 mallas propias son aproximadas; no son CAD oficiales, modelos exactos, escaneos de Sketchfab ni resultados de Meshy",
     "13 entradas restantes del catálogo no tienen malla de producto: cables, software y accesorios en reserva requieren distinto alcance",
     "No validado con un rig físico completo; una malla no prueba asiento, holgura, pinout ni equilibrio",

@@ -10,6 +10,59 @@
     "warning": "Todas las posiciones, componentes internos del gimbal y formas de soportes son aproximados. Las medidas exteriores verificadas no validan posiciones ni colisiones."
   },
   "nominal_rod_center_spacing_mm": 60,
+  "battery_plate_slide": {
+    "plate_id": "smallrig-3203b",
+    "rod_id": "smallrig-rods-8in",
+    "attached_part_ids": ["smallrig-vb99-pro"],
+    "rod_axis_local": [0, 0, 1],
+    "source_url": "https://static.smallrig.com/mall/img/public/1714289722871_.pdf",
+    "source_locator": "Página 5: posiciones de abrazadera atornillada; sin bisagra. Desplazar sólo tras aflojar y volver a fijar abrazaderas sobre varillas.",
+    "travel_status": "user_measurement_required",
+    "note": "No hay recorrido libre publicado para el rig completo. El usuario aporta distancias desde la pose ilustrativa tras medir asiento, motores y manos. La traslación y los anclajes son aproximados; conservar placa baja y rebalancear. No habilita giro libre ni traslación en otros ejes."
+  },
+  "monitor_joints": {
+    "gimbal": {
+      "mount_id": "smallrig-3026b",
+      "monitor_id": "smallhd-indie-7",
+      "attached_part_ids": ["sony-np-f970-pro"],
+      "tilt_range_deg": [-85, 85],
+      "swivel_range_deg": [0, 0],
+      "tilt_pivot_local_mm": [-65, 5.3, 0],
+      "swivel_pivot_local_mm": [-65, 5.3, 0],
+      "head_object_name": "monitor-head",
+      "source_url": "https://static.smallrig.com/mall/img/public/m1twezvd88j-1751250182064_.pdf",
+      "source_locator": "Página 2: inclinación total hasta 170°. No declara giro independiente.",
+      "geometry_note": "Intervalo centrado en la pose ilustrativa, no en un cero mecánico medido. Pivote tomado de la reconstrucción propia aproximada; los topes y las colisiones reales siguen pendientes."
+    },
+    "cage": {
+      "mount_id": "smallrig-2906b",
+      "monitor_id": "smallhd-indie-7",
+      "attached_part_ids": ["sony-np-f970-pro"],
+      "tilt_range_deg": [-90, 90],
+      "swivel_range_deg": [-180, 180],
+      "tilt_pivot_local_mm": [0, 9, 0],
+      "swivel_pivot_local_mm": [0, -8.4, 0],
+      "head_object_name": "monitor-head",
+      "swivel_object_name": "monitor-swivel",
+      "source_url": "https://static.smallrig.com/mall/img/public/0g141qmktenu-1751249917074_.pdf",
+      "source_locator": "Página 2: inclinación total 180° y giro 360°; el giro se ajusta con llave Allen.",
+      "geometry_note": "Intervalos centrados en la pose ilustrativa, no en un cero mecánico medido. Pivotes de la reconstrucción propia aproximada. El giro del soporte no demuestra giro libre con cables, manos o asa."
+    },
+    "xlr": {
+      "mount_id": "smallrig-2906b",
+      "monitor_id": "smallhd-indie-7",
+      "attached_part_ids": ["sony-np-f970-pro"],
+      "tilt_range_deg": [-90, 90],
+      "swivel_range_deg": [-180, 180],
+      "tilt_pivot_local_mm": [0, 9, 0],
+      "swivel_pivot_local_mm": [0, -8.4, 0],
+      "head_object_name": "monitor-head",
+      "swivel_object_name": "monitor-swivel",
+      "source_url": "https://static.smallrig.com/mall/img/public/0g141qmktenu-1751249917074_.pdf",
+      "source_locator": "Página 2: inclinación total 180° y giro 360°; el giro se ajusta con llave Allen.",
+      "geometry_note": "Pose y pivotes aproximados; comprobar colisiones con XLR-H1/4830 y agarre. Los intervalos no prueban recorrido libre en el rig completo."
+    }
+  },
   "rod_spacing_status": "Separación entre centros de 60 mm verificada en el manual 1674; medir alineación de abrazaderas e inserción de varillas.",
   "nodes": [
     {
@@ -390,6 +443,9 @@
     },
     {
       "id": "smallrig-3026b",
+      "articulated_subassemblies": {
+        "monitor-head": ["Horquilla nativa", "Rueda de fijación", "Tornillo de monitor ilustrativo"]
+      },
       "label": "Soporte NATO 3026B",
       "kind": "monitorMount",
       "position_mm": [
@@ -541,6 +597,10 @@
     },
     {
       "id": "smallrig-2906b",
+      "articulated_subassemblies": {
+        "monitor-head": ["Placa de apoyo monitor", "Rueda de tornillo", "Tornillo 1/4-20 ilustrativo"],
+        "monitor-swivel": ["Horquilla", "Pivote inclinable", "Mando lateral"]
+      },
       "label": "2906B",
       "kind": "compactMonitorMount",
       "position_mm": [

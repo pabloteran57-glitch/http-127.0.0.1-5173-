@@ -628,8 +628,8 @@
       },
       "artifact": {
         "path": "/models/smallrig-3026b-takegrid-v1.glb",
-        "sha256": "fbb089163392295ee7367f0556a5b93d5ca1303ca8075635864ca7c1b8f46621",
-        "bytes": 141452,
+        "sha256": "9a71a5fb26c69399da03b807c584bab4363df333140ee4051fe28f73b385ec36",
+        "bytes": 142996,
         "triangles": 2768
       },
       "calibration": {
@@ -651,7 +651,7 @@
           32.00000151991844
         ],
         "reference_url": "https://static.smallrig.com/mall/img/public/m1twezvd88j-1751250182064_.pdf",
-        "reference_basis": "3026B, 152.6 × 54.8 × 38 mm publicados en otra pose; brazo y cabezal aproximados. Conserva la orientación candidata del layout; sin adaptadores ficticios ni carga dinámica certificada."
+        "reference_basis": "3026B, 152.6 × 54.8 × 38 mm publicados en otra pose; brazo y cabezal aproximados. Cabezal separado para inclinación ilustrativa: revisión visual en cinco vistas el 2026-10-07, misma envolvente y triángulos. Manual página 2 documenta 170° totales, no giro independiente. Pivote y cero aproximados; sin carga dinámica certificada."
       },
       "review": {
         "identity": true,
@@ -868,8 +868,8 @@
       },
       "artifact": {
         "path": "/models/smallrig-2906b-takegrid-v1.glb",
-        "sha256": "d13098606b7ce0e1ccba53b5e97eb590e398da905c9654f1654265f50f137de5",
-        "bytes": 130192,
+        "sha256": "63ba19add2c4821a738b1a59d0e8b1408a6f5deb5ba503e523d257dbb58276ce",
+        "bytes": 133268,
         "triangles": 2568
       },
       "calibration": {
@@ -891,7 +891,7 @@
           32.00000151991844
         ],
         "reference_url": "https://static.smallrig.com/mall/img/public/0g141qmktenu-1751249917074_.pdf",
-        "reference_basis": "Envolvente de planificación XYZ 52.6 × 53.8 × 36 mm; malla 56.50 × 53.80 × 32.00 mm. Contorno, controles, contactos y holguras aproximados desde referencias. No deformada para igualar cotas; no CAD ni encaje probado."
+        "reference_basis": "Envolvente de planificación XYZ 52.6 × 53.8 × 36 mm; malla 56.50 × 53.80 × 32.00 mm. Cabezal y horquilla separados para articular: revisión visual en cinco vistas el 2026-10-07, misma envolvente y triángulos. Manual página 2: inclinación 180° y giro 360° totales. Pivotes, controles, contactos y holguras aproximados; no CAD ni encaje probado."
       },
       "review": {
         "identity": true,

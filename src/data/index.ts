@@ -18,6 +18,7 @@ import type {
   PartsManifest,
   VariantsManifest,
   LayoutManifest,
+  MonitorJoint,
   AssemblyStep,
   LayoutNode,
   Vec3,
@@ -53,11 +54,14 @@ function monitorOverride(raw:{position_mm?:number[];rotation_deg?:number[];paren
 }
 export const layoutData: LayoutManifest = {
   ...layoutManifest,
+  battery_plate_slide:{...layoutManifest.battery_plate_slide,rod_axis_local:vector(layoutManifest.battery_plate_slide.rod_axis_local)},
+  monitor_joints: Object.fromEntries(Object.entries(layoutManifest.monitor_joints).map(([id,joint])=>[id,{...joint,tilt_range_deg:[joint.tilt_range_deg[0],joint.tilt_range_deg[1]] as [number,number],swivel_range_deg:[joint.swivel_range_deg[0],joint.swivel_range_deg[1]] as [number,number],tilt_pivot_local_mm:vector(joint.tilt_pivot_local_mm),swivel_pivot_local_mm:vector(joint.swivel_pivot_local_mm)} satisfies MonitorJoint])),
   monitor_mount_routes: Object.fromEntries(Object.entries(layoutManifest.monitor_mount_routes).map(([id,route])=>[id,{label:route.label,overrides:Object.fromEntries(Object.entries(route.overrides).map(([partId,override])=>[partId,monitorOverride(override)]))}])),
   nodes: layoutManifest.nodes.map(node => {
     const kind = kinds.find(kind => kind === node.kind);
     if (!kind) throw new Error(`Invalid layout kind: ${node.kind}`);
     return { ...node, kind, vertical_frame: "vertical_frame" in node && node.vertical_frame === "camera" ? "camera" : undefined, mounting_points: "mounting_points" in node ? node.mounting_points?.map(point=>({...point,local_position_mm:vector(point.local_position_mm),rotation_deg:vector(point.rotation_deg),size_xyz_mm:vector(point.size_xyz_mm)})) : undefined, position_mm: vector(node.position_mm), size_xyz_mm: vector(node.size_xyz_mm), explode_mm: vector(node.explode_mm), rotation_deg: vector(node.rotation_deg),
+      articulated_subassemblies: "articulated_subassemblies" in node ? Object.fromEntries(Object.entries(node.articulated_subassemblies??{}).filter((entry):entry is [string,string[]]=>Array.isArray(entry[1]))) : undefined,
       envelope: node.envelope === "verified" ? "verified" : "approximate",
       mass_domain: node.mass_domain === "moving" ? "moving" : "fixed" };
   }),

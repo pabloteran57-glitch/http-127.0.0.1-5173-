@@ -112,11 +112,13 @@ export interface Variant {
     positions: Record<string, VariantViewerPosition>;
     monitor_mount_route?: string;
     rig_context?: CustomRig["context"];
+    adjustments?: RigAdjustments;
   };
 }
 
 export type Vec3 = [number, number, number];
 export interface LayoutNode {
+  articulated_subassemblies?: Record<string,string[]>;
   vertical_frame?: "camera" | "fixed";
   visual_subassemblies?: {object_name:string;hide_if_any_part_ids:string[]}[];
   subcomponent_id?: string;
@@ -140,6 +142,8 @@ export interface LayoutNode {
   rejected: string;
 }
 export interface LayoutManifest {
+  battery_plate_slide?: {plate_id:string;rod_id:string;attached_part_ids:string[];rod_axis_local:Vec3;source_url:string;source_locator:string;travel_status:string;note:string};
+  monitor_joints?: Record<string,MonitorJoint>;
   units: string;
   nominal_rod_center_spacing_mm: number;
   nodes: LayoutNode[];
@@ -193,9 +197,31 @@ export interface CustomRig {
   orientation: "landscape" | "vertical";
   part_ids: string[];
   updated_at: string;
+  adjustments?: RigAdjustments;
+}
+
+export interface RigAdjustments {
+  monitor?: {mount_id:string;tilt_deg:number;swivel_deg:number};
+  battery_plate?: {offset_mm:number;measured_back_mm:number;measured_forward_mm:number};
+}
+export interface MonitorJoint {
+  mount_id:string;
+  monitor_id:string;
+  attached_part_ids:string[];
+  tilt_range_deg:[number,number];
+  swivel_range_deg:[number,number];
+  tilt_pivot_local_mm:Vec3;
+  swivel_pivot_local_mm:Vec3;
+  head_object_name:string;
+  swivel_object_name?:string;
+  source_url:string;
+  source_locator:string;
+  geometry_note:string;
 }
 
 export interface PlannerRules {
+  default_context?: CustomRig["context"];
+  attachment_options?: AttachmentOption[];
   planning_root_part_ids: string[];
   exclusive_selection_groups?: {id:string;part_ids:string[];max_active:number;message:string}[];
   viewer_routes?: {id:string;condition:RuleCondition}[];
@@ -217,6 +243,16 @@ export interface PlannerRules {
   camera_part_ids: string[];
   selection_checks: {id:string; condition:RuleCondition; message:string; required_all?:string[]; required_any?:string[]; suggest_ids?:string[]}[];
   cable_exclusions: {cable_id:string;condition:RuleCondition}[];
+}
+
+export interface AttachmentOption {
+  id: string;
+  anchor_part_id: string;
+  label: string;
+  add_part_ids: string[];
+  condition: RuleCondition;
+  source_ids: string[];
+  note: string;
 }
 
 export interface RuleCondition {

@@ -175,7 +175,7 @@
       "id": "smallrig-3026b-takegrid-v1",
       "part_id": "smallrig-3026b",
       "subcomponent_id": null,
-      "model_sha256": "fbb089163392295ee7367f0556a5b93d5ca1303ca8075635864ca7c1b8f46621",
+      "model_sha256": "9a71a5fb26c69399da03b807c584bab4363df333140ee4051fe28f73b385ec36",
       "status": "approved",
       "method": "rendered_approved_mesh",
       "image": {
@@ -243,7 +243,7 @@
       "id": "smallrig-2906b-takegrid-v1",
       "part_id": "smallrig-2906b",
       "subcomponent_id": null,
-      "model_sha256": "d13098606b7ce0e1ccba53b5e97eb590e398da905c9654f1654265f50f137de5",
+      "model_sha256": "63ba19add2c4821a738b1a59d0e8b1408a6f5deb5ba503e523d257dbb58276ce",
       "status": "approved",
       "method": "rendered_approved_mesh",
       "image": {

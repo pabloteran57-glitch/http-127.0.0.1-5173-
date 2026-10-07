@@ -175,7 +175,7 @@ Plan de ingeniería, no montaje certificado. Medidas publicadas no prueban forma
 - Confianza: Media.
 - [Fuente principal](https://www.smallrig.com/global/SmallRig-Multifunctional-Modular-Matte-Box-95mm-VND-Kit-3645.html)
 
-## Soporte de monitor
+## Soporte lateral 3026B
 
 - ID: `smallrig-3026b`
 - Nombre oficial del fabricante: SmallRig Monitor Mount with NATO Clamp for DJI RS Series.

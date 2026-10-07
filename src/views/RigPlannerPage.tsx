@@ -1,7 +1,7 @@
 import { useRef, useState, type KeyboardEvent } from "react";
 import { cablesData, layoutData, partById, plannerData, referencesData, variantsData } from "../data";
 import { layoutForVariant, movingMass, nodeWeight, preferredPartId } from "../lib/viewer";
-import type { CustomRig, Variant } from "../lib/types";
+import type { CustomRig, RigAdjustments, Variant } from "../lib/types";
 import type { RigResolution } from "../lib/planner";
 import type { ViewAngle } from "../components/RigViewer";
 import PartsTable from "../components/PartsTable";
@@ -17,7 +17,11 @@ import Icon from "../components/Icon";
 import { partName } from "../lib/ui";
 import { formatNumber } from "../lib/format";
 import RigViewer from "../components/RigViewerLoader";
+import AttachmentPicker from "../components/AttachmentPicker";
+import PartAdjustments,{adjustablePart} from "../components/PartAdjustments";
 interface Props {
+ onAttach:(anchorId:string,optionId:string)=>void;
+ onAdjust:(adjustments:RigAdjustments)=>void;
  profileName:string;onProfiles:()=>void;
  exploded:boolean;onExplodedChange:(v:boolean)=>void;onShowCablesChange:(v:boolean)=>void;onShowLabelsChange:(v:boolean)=>void;onVariantChange:(v:string)=>void;showCables:boolean;showLabels:boolean;variant:Variant;
  customRig:CustomRig|null;resolution:RigResolution|null;savedRigs:CustomRig[];dirty:boolean;message:string;recoveryStatus:string;viewerPaused:boolean;onHelp:()=>void;onDismissMessage:()=>void;onNewRig:()=>void;onLibrary:()=>void;onEditRig:()=>void;onSaveRig:()=>void;
@@ -25,17 +29,22 @@ interface Props {
 const names:Record<string,string>={"documentary-one-man-film":"Documental / solo","commercial-solo-gimbal":"Comercial","handheld-quick-release":"A mano","lower-budget-stripped-down":"Esencial","vertical-916-creator-mode":"Vertical 9:16","corporate-interview":"Entrevista","cinema-narrative":"Cine / narrativa"};
 const tabs=[{id:"design",label:"Rig",icon:"design"},{id:"connect",label:"Conexiones",icon:"connect"},{id:"assemble",label:"Montaje",icon:"assemble"},{id:"inventory",label:"Piezas",icon:"inventory"}] as const;
 type Tab=typeof tabs[number]["id"];
-export default function RigPlannerPage({profileName,onProfiles,exploded,onExplodedChange,onShowCablesChange,onShowLabelsChange,onVariantChange,showCables,showLabels,variant,customRig,resolution,savedRigs,dirty,message,recoveryStatus,viewerPaused,onHelp,onDismissMessage,onNewRig,onLibrary,onEditRig,onSaveRig}:Props){
+export default function RigPlannerPage({profileName,onProfiles,exploded,onExplodedChange,onShowCablesChange,onShowLabelsChange,onVariantChange,showCables,showLabels,variant,customRig,resolution,savedRigs,dirty,message,recoveryStatus,viewerPaused,onHelp,onDismissMessage,onNewRig,onLibrary,onEditRig,onSaveRig,onAttach,onAdjust}:Props){
  const [tab,setTab]=useState<Tab>("design");const [selectedId,setSelectedId]=useState("");const [angle,setAngle]=useState<ViewAngle>("iso");const [bench,setBench]=useState(false);const [cableId,setCableId]=useState("");
  const [resetKey,setResetKey]=useState(0);
+ const [attachmentAnchor,setAttachmentAnchor]=useState("");
+ const [adjustmentPart,setAdjustmentPart]=useState("");
  const profileDialog=useRef<HTMLDialogElement>(null);
  const mass=movingMass(variant,layoutData,partById);
  const nodes=layoutForVariant(variant,layoutData).nodes.filter(n=>variant.active_part_ids.includes(n.id));
  const chosenIds=customRig?.part_ids??variant.active_part_ids;
+ const attachmentRig:CustomRig=customRig??{schema_version:1,id:"rig-template-preview",name:variant.label,context:variant.viewer.rig_context??"handheld",orientation:variant.viewer.mode==="vertical"?"vertical":"landscape",part_ids:variant.active_part_ids,updated_at:"2026-10-07T00:00:00Z"};
  const focusPartId=chosenIds.includes(selectedId)?selectedId:preferredPartId(chosenIds,layoutData);
+ const canAdjust=adjustablePart(focusPartId,variant);
+ const adjust=()=>{onExplodedChange(false);setAdjustmentPart(focusPartId);requestAnimationFrame(()=>document.getElementById("workspace")?.scrollIntoView({block:"start"}));};
  const ids=bench?cablesData.profiles.requested_dual_feed_bench:variant.cable_profile_ids;
  const selectedCable=ids.includes(cableId)?cableId:ids[0]??"";
- const switchVariant=(id:string)=>{onVariantChange(id);setSelectedId("");setCableId("");onExplodedChange(false);setBench(false);setResetKey(k=>k+1);};
+ const switchVariant=(id:string)=>{onVariantChange(id);setSelectedId("");setCableId("");setAdjustmentPart("");setAttachmentAnchor("");onExplodedChange(false);setBench(false);setResetKey(k=>k+1);};
  const switchTab=(id:Tab)=>{setTab(id);if(id==="connect"){onShowCablesChange(true);onShowLabelsChange(false);}if(id==="design"){setBench(false);onShowCablesChange(false);}if(window.matchMedia("(max-width:600px)").matches)requestAnimationFrame(()=>window.scrollTo({top:0,behavior:"auto"}));};
  const tabKey=(event:KeyboardEvent<HTMLButtonElement>,index:number)=>{if(!["ArrowLeft","ArrowRight","Home","End"].includes(event.key))return;event.preventDefault();const next=event.key==="Home"?0:event.key==="End"?3:(index+(event.key==="ArrowRight"?1:3))%4;switchTab(tabs[next].id);document.getElementById(`tab-${tabs[next].id}`)?.focus();};
  const inspect=(id:string)=>{setSelectedId(id);switchTab("design");requestAnimationFrame(()=>document.getElementById("workspace")?.scrollIntoView({block:"start"}));};
@@ -57,9 +66,9 @@ export default function RigPlannerPage({profileName,onProfiles,exploded,onExplod
     {tab==="connect"&&<label className="mobile-connection-picker">Conexión<select aria-label="Conexión" value={selectedCable} onChange={e=>setCableId(e.target.value)}>{ids.map(id=><option key={id} value={id}>{connectionName(id)}</option>)}</select></label>}
     <div className="workspace-body"><div className="viewer-column">{tab==="connect"&&bench?<SplitFeedDiagram selectedId={selectedCable} onSelect={setCableId}/>:viewerPaused?<div className="viewer-fallback">Vista en pausa mientras configuras el plan.</div>:nodes.length===0?<div className="rig-empty-canvas"><span><Icon name="design"/></span><h2>Tu rig empieza aquí</h2><p>Elige la cámara, la óptica y los accesorios. El visor mostrará sólo las piezas con una cadena de montaje documentada.</p><button className="primary-button" onClick={onEditRig}><Icon name="plus"/>Elegir mis piezas</button></div>:<RigViewer variant={variant} exploded={exploded} showLabels={showLabels} showCables={showCables} selectedId={nodes.some(n=>n.id===focusPartId)?focusPartId:""} onSelect={setSelectedId} angle={angle} selectedCableId={tab==="connect"?selectedCable:null} resetKey={resetKey}/>}
       {tab==="design"&&<div className="part-strip" aria-label="Piezas del rig">{chosenIds.map(id=><button key={id} className={resolution?.parked_ids.includes(id)?"is-pending":""} aria-pressed={focusPartId===id} onClick={()=>setSelectedId(id)}>{partName(id)}{resolution?.parked_ids.includes(id)?" · pendiente":""}</button>)}</div>}
-      {tab==="design"&&focusPartId&&<div className="mobile-part-focus"><span>{partName(focusPartId)}</span><button onClick={()=>document.getElementById("part-inspector")?.scrollIntoView({block:"start"})}>Ver ficha<Icon name="arrow"/></button></div>}
+      {tab==="design"&&focusPartId&&<div className="mobile-part-focus"><span>{partName(focusPartId)}</span><button onClick={()=>setAttachmentAnchor(focusPartId)}><Icon name="plus"/>Añadir accesorio</button>{canAdjust&&<button onClick={adjust}><Icon name="settings"/>Ajustar</button>}<button onClick={()=>document.getElementById("part-inspector")?.scrollIntoView({block:"start"})}>Ver ficha<Icon name="arrow"/></button></div>}
       {bench?<div className="bench-context"><Icon name="info"/><p><strong>Circuito de referencia, independiente del perfil.</strong> Requiere las piezas y fuentes indicadas. No añade un soporte de distribuidor HDMI al rig ni modifica tu configuración.</p></div>:nodes.length>0?<div className="workspace-summary"><div><span>CARGA MÓVIL ESTIMADA</span><strong>~ {formatNumber(mass.subtotal/1000,2)} <small>kg</small></strong></div><p>Subtotal incompleto: faltan cables, fijaciones{!(plannerData.camera_external_power_part_ids??[]).some(id=>variant.active_part_ids.includes(id))?" y batería interna de cámara":""}{mass.unknown?"; masas pendientes":""}. {nodes.some(n=>n.kind==="monitor")?(nodes.find(n=>n.kind==="monitor")?.mass_domain==="fixed"?"Monitor lateral fuera de la carga móvil.":"Monitor y batería elegida incluidos en el núcleo."):"Sin monitor externo activo."}</p><button onClick={()=>profileDialog.current?.showModal()}>Desglose<Icon name="arrow"/></button></div>:null}
-    </div>{tab==="connect"?<ConnectionPanel variant={variant} bench={bench} selectedId={selectedCable} onSelect={setCableId}/>:focusPartId&&partById[focusPartId]?<PartInspector selectedId={focusPartId} variant={variant}/>:<aside className="empty-inspector"><Icon name="inventory"/><h3>Construye tu lista de equipo</h3><p>Las piezas en reserva siguen en tu perfil, con sus pendientes visibles. No aparecen como instaladas en el visor.</p></aside>}</div>
+    </div>{tab==="connect"?<ConnectionPanel variant={variant} bench={bench} selectedId={selectedCable} onSelect={setCableId}/>:focusPartId&&partById[focusPartId]?<PartInspector selectedId={focusPartId} variant={variant} onAttach={()=>setAttachmentAnchor(focusPartId)} onAdjust={canAdjust?adjust:undefined}/>:<aside className="empty-inspector"><Icon name="inventory"/><h3>Construye tu lista de equipo</h3><p>Las piezas en reserva siguen en tu perfil, con sus pendientes visibles. No aparecen como instaladas en el visor.</p></aside>}</div>
     {tab==="design"&&customRig&&resolution&&chosenIds.length>0&&<RigSelection chosenIds={chosenIds} variant={variant} resolution={resolution} selectedId={focusPartId} onSelect={setSelectedId} onEdit={onEditRig}/>}
     <div className="workspace-notice"><Icon name="info"/><p>{bench?"Diagrama lógico. Comprueba señal, alimentación y conectores antes de encender.":"Modelo aproximado. Comprueba motores, manos y bucles antes de encender."}</p><button onClick={()=>profileDialog.current?.showModal()}>Ver comprobaciones</button></div>
   </div>}
@@ -67,6 +76,8 @@ export default function RigPlannerPage({profileName,onProfiles,exploded,onExplod
   {tab==="inventory"&&<div className="inventory-workspace"><div className="panel-heading"><h2>Equipo del proyecto</h2><p>{chosenIds.length} {chosenIds.length===1?"elemento elegido":"elementos elegidos"}</p></div><PartsTable key={variant.id} variant={variant} chosenIds={chosenIds} selectedId={selectedId} onSelect={inspect} onEdit={onEditRig}/></div>}
   </section>
   <footer className="app-footer"><span>{brand.name.toUpperCase()} / PLANIFICACIÓN DE RODAJE</span><p>Fuentes verificadas. Geometría aproximada, no CAD certificado.</p><button className="quiet-button" onClick={onHelp}>Ayuda y versión</button></footer>
+  {attachmentAnchor&&<AttachmentPicker key={`${variant.id}:${attachmentAnchor}`} anchorId={attachmentAnchor} rig={attachmentRig} onClose={()=>setAttachmentAnchor("")} onAdd={optionId=>{onAttach(attachmentAnchor,optionId);setAttachmentAnchor("");}} onCatalog={()=>{setAttachmentAnchor("");onEditRig();}}/>}
+  {adjustmentPart&&adjustablePart(adjustmentPart,variant)&&<PartAdjustments key={adjustmentPart} partId={adjustmentPart} variant={variant} onChange={onAdjust} onClose={()=>setAdjustmentPart("")}/>}
   <dialog ref={profileDialog} className="profile-dialog" aria-labelledby="profile-title"><div className="dialog-heading"><div><p className="eyebrow">TU PERFIL / CRITERIOS DE MONTAJE</p><h2 id="profile-title">{names[variant.id]??variant.label}</h2></div><button className="icon-button" aria-label="Cerrar detalles del perfil" onClick={()=>profileDialog.current?.close()}><Icon name="close"/></button></div>
    <div className="dialog-content"><p className="dialog-intro">{variant.workflow_impact}</p><div className="profile-pills">{variantsData.variants.map(v=><button key={v.id} aria-pressed={v.id===variant.id} onClick={()=>switchVariant(v.id)}>{names[v.id]}</button>)}</div>
    <h3>Carga móvil modelada</h3><div className="mass-breakdown">{nodes.filter(n=>n.mass_domain==="moving").map(n=>{const weight=nodeWeight(n,partById[n.id]);return <div key={n.id}><span>{n.label}{!weight.published?" / estimado":""}</span><b>{weight.value===null?"?":(weight.approximate?"~ ":"")+formatNumber(weight.value!)} g</b></div>})}</div><p className="panel-footnote">Suma de masas de planificación, incluye estimaciones. Incluye sólo los 28 g del RX Mic 2 cuando está activo, nunca TX ni estuche. No incluye cables, tarjetas ni tornillería adicional. BG70 sustituye a BG30. Centro de gravedad real no medido.</p>

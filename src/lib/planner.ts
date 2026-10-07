@@ -1,4 +1,4 @@
-import type { Cable, CompatibilityEvidence, CustomRig, PlannerRules, RuleCondition, Variant } from "./types";
+import type { AttachmentOption, Cable, CompatibilityEvidence, CustomRig, PlannerRules, RigAdjustments, RuleCondition, Variant } from "./types";
 
 export interface RigIssue { id: string; part_id?: string; message: string; add_ids: string[] }
 export interface RigResolution { variant: Variant; issues: RigIssue[]; parked_ids: string[] }
@@ -22,8 +22,51 @@ export function compatibilityDecision(evidence:CompatibilityEvidence):"candidate
   return "candidate";
 }
 
-export function newRig(name = "Mi nuevo rig", template?: Variant): CustomRig {
-  return { schema_version: 1, id: `rig-${crypto.randomUUID()}`, name: name.slice(0,80), context: template?.viewer.rig_context ?? "gimbal", orientation: template?.viewer.mode === "vertical" ? "vertical" : "landscape", part_ids: template ? [...template.active_part_ids] : [], updated_at: new Date().toISOString() };
+export function newRig(name = "Mi nuevo rig", template?: Variant, defaultContext:CustomRig["context"]="handheld"): CustomRig {
+  return { schema_version: 1, id: `rig-${crypto.randomUUID()}`, name: name.slice(0,80), context: template?.viewer.rig_context ?? defaultContext, orientation: template?.viewer.mode === "vertical" ? "vertical" : "landscape", part_ids: template ? [...template.active_part_ids] : [], updated_at: new Date().toISOString(),...(template?.viewer.adjustments?{adjustments:structuredClone(template.viewer.adjustments)}:{}) };
+}
+
+export function copyRig(rig:CustomRig,name:string):CustomRig {
+  return {...structuredClone(rig),...newRig(name),context:rig.context,orientation:rig.orientation,part_ids:[...rig.part_ids]};
+}
+
+function parseAdjustments(value:unknown,catalogIds:string[]):RigAdjustments|undefined {
+  if(value===undefined)return undefined;
+  if(!value||typeof value!=="object"||Array.isArray(value))throw new Error("Ajustes del rig no válidos.");
+  const raw=value as Record<string,unknown>,result:RigAdjustments={};
+  if(Object.keys(raw).some(key=>!["monitor","battery_plate"].includes(key)))throw new Error("Ajuste sin soporte documentado.");
+  if(raw.monitor!==undefined){
+    const m=raw.monitor as Record<string,unknown>;
+    if(!m||typeof m!=="object"||Array.isArray(m)||typeof m.mount_id!=="string"||!catalogIds.includes(m.mount_id)||typeof m.tilt_deg!=="number"||!Number.isFinite(m.tilt_deg)||Math.abs(m.tilt_deg)>180||typeof m.swivel_deg!=="number"||!Number.isFinite(m.swivel_deg)||Math.abs(m.swivel_deg)>360)throw new Error("Orientación de monitor no válida.");
+    result.monitor={mount_id:m.mount_id,tilt_deg:m.tilt_deg,swivel_deg:m.swivel_deg};
+  }
+  if(raw.battery_plate!==undefined){
+    const b=raw.battery_plate as Record<string,unknown>;
+    if(!b||typeof b!=="object"||Array.isArray(b)||[b.offset_mm,b.measured_back_mm,b.measured_forward_mm].some(v=>typeof v!=="number"||!Number.isFinite(v)||Math.abs(v)>1000)||Number(b.measured_back_mm)<0||Number(b.measured_forward_mm)<0||Number(b.offset_mm)<-Number(b.measured_back_mm)||Number(b.offset_mm)>Number(b.measured_forward_mm))throw new Error("Recorrido medido de placa no válido.");
+    result.battery_plate={offset_mm:Number(b.offset_mm),measured_back_mm:Number(b.measured_back_mm),measured_forward_mm:Number(b.measured_forward_mm)};
+  }
+  return result;
+}
+
+export interface AttachmentCandidate { option:AttachmentOption; add_ids:string[] }
+
+export function attachmentCandidates(anchorId:string,rig:CustomRig,rules:PlannerRules,cables:Cable[],master:Variant):AttachmentCandidate[] {
+  if(!rig.part_ids.includes(anchorId))return [];
+  return (rules.attachment_options??[]).flatMap(option=>{
+    if(option.anchor_part_id!==anchorId||!option.source_ids.length||!conditionMatches(option.condition,new Set(rig.part_ids),rig))return [];
+    const closure=dependencyClosure(option.add_part_ids,rules,rig);
+    const additions=closure.filter(id=>!rig.part_ids.includes(id));
+    if(!additions.length||additions.some(id=>!availableSupportIds([id],rig,rules).includes(id)))return [];
+    const proposal={...rig,part_ids:[...rig.part_ids,...additions]};
+    const result=resolveRig(proposal,rules,cables,master,id=>id);
+    if(![anchorId,...closure].every(id=>result.variant.active_part_ids.includes(id)))return [];
+    return [{option,add_ids:additions}];
+  });
+}
+
+export function applyAttachment(optionId:string,anchorId:string,rig:CustomRig,rules:PlannerRules,cables:Cable[],master:Variant):CustomRig|null {
+  const candidate=attachmentCandidates(anchorId,rig,rules,cables,master).find(item=>item.option.id===optionId);
+  return candidate?{...rig,part_ids:[...rig.part_ids,...candidate.add_ids]}:null;
 }
 
 export function mountDependencies(id:string, rules:PlannerRules, rig?:CustomRig):string[] {
@@ -109,7 +152,7 @@ export function resolveRig(rig: CustomRig, rules: PlannerRules, cables: Cable[],
   const cableIds = cables.filter(c => c.status === "candidate" && active.has(c.source_part_id) && [c.from_part_id,c.to_part_id].every(p => p === null || active.has(p)) && !rules.cable_exclusions.some(rule=>rule.cable_id===c.cable_id&&conditionMatches(rule.condition,active,rig))).map(c => c.cable_id);
   const ids = rig.part_ids.filter(id => active.has(id));
   const parked = rig.part_ids.filter(id => !active.has(id));
-  return {issues, parked_ids: parked, variant: {id:rig.id,label:rig.name,active_part_ids:ids,conditional_part_ids:parked,parts_added:ids.filter(id=>!master.active_part_ids.includes(id)),parts_removed:master.active_part_ids.filter(id=>!active.has(id)),cable_profile_ids:cableIds,cables_added:cableIds.filter(id=>!master.cable_profile_ids.includes(id)),cables_removed:master.cable_profile_ids.filter(id=>!cableIds.includes(id)),dependencies:issues.map(i=>i.message),operating_status:"Plan personalizado / comprobación física pendiente",balance_impact:"Pesar el conjunto completo y volver a equilibrar tras cambios. Las masas conocidas no certifican encaje ni par.",workflow_impact:"Configuración elegida por el usuario dentro del catálogo actual. Las piezas pendientes no se dibujan como instaladas.",budget_impact:"Sin precios cotizados. La selección no demuestra disponibilidad ni compras realizadas.",complexity_impact:`${ids.length} elementos activos; ${parked.length} en reserva.`,viewer:{mode:rig.orientation==="vertical"&&rig.context==="gimbal"?"vertical":"assembled",positions:{},rig_context:rig.context,monitor_mount_route:route}}};
+  return {issues, parked_ids: parked, variant: {id:rig.id,label:rig.name,active_part_ids:ids,conditional_part_ids:parked,parts_added:ids.filter(id=>!master.active_part_ids.includes(id)),parts_removed:master.active_part_ids.filter(id=>!active.has(id)),cable_profile_ids:cableIds,cables_added:cableIds.filter(id=>!master.cable_profile_ids.includes(id)),cables_removed:master.cable_profile_ids.filter(id=>!cableIds.includes(id)),dependencies:issues.map(i=>i.message),operating_status:"Plan personalizado / comprobación física pendiente",balance_impact:"Pesar el conjunto completo y volver a equilibrar tras cambios. Las masas conocidas no certifican encaje ni par.",workflow_impact:"Configuración elegida por el usuario dentro del catálogo actual. Las piezas pendientes no se dibujan como instaladas.",budget_impact:"Sin precios cotizados. La selección no demuestra disponibilidad ni compras realizadas.",complexity_impact:`${ids.length} elementos activos; ${parked.length} en reserva.`,viewer:{mode:rig.orientation==="vertical"&&rig.context==="gimbal"?"vertical":"assembled",positions:{},rig_context:rig.context,monitor_mount_route:route,...(rig.adjustments?{adjustments:rig.adjustments}:{})}}};
 }
 
 export function assemblyFrame(variant: Variant, step: number, rules: PlannerRules, cables: Cable[]) {
@@ -128,7 +171,8 @@ export function parseRig(value: unknown, catalogIds: string[]): CustomRig {
   if (!value || typeof value !== "object") throw new Error("Formato de rig no válido.");
   const r = value as Record<string,unknown>;
   if (r.schema_version!==1||typeof r.id!=="string"||!/^rig-[\w-]{1,100}$/.test(r.id)||typeof r.name!=="string"||!r.name.trim()||r.name.length>80||!["gimbal","handheld","static"].includes(String(r.context))||!["landscape","vertical"].includes(String(r.orientation))||!Array.isArray(r.part_ids)||r.part_ids.length>catalogIds.length||r.part_ids.some(id=>typeof id!=="string"||!catalogIds.includes(id))||new Set(r.part_ids).size!==r.part_ids.length||typeof r.updated_at!=="string"||!Number.isFinite(Date.parse(r.updated_at))) throw new Error("Rig no válido o piezas fuera del catálogo actual. No se importaron datos.");
-  return {schema_version:1,id:r.id,name:r.name.trim(),context:r.context as CustomRig["context"],orientation:r.orientation as CustomRig["orientation"],part_ids:[...r.part_ids] as string[],updated_at:r.updated_at};
+  const adjustments=parseAdjustments(r.adjustments,catalogIds);
+  return {schema_version:1,id:r.id,name:r.name.trim(),context:r.context as CustomRig["context"],orientation:r.orientation as CustomRig["orientation"],part_ids:[...r.part_ids] as string[],updated_at:r.updated_at,...(adjustments?{adjustments}:{})};
 }
 
 export function parseLibrary(raw: string | null, catalogIds: string[], limit: number): RigLibrary {
