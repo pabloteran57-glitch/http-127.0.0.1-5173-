@@ -1,6 +1,6 @@
 # Revisión de montaje de monitor, versión 0.2.6
 
-Fecha: 7 de octubre de 2026. Esta revisión cierra defectos de selección, representación y recorrido de montaje en software; no certifica un rig físico ni libera la beta.
+Fecha: 7 de octubre de 2026. Esta revisión cierra defectos de selección, representación y recorrido de montaje en software; no certifica un rig físico ni libera la beta. La versión 0.2.6 fue confirmada como publicada por el proveedor en el enlace habitual; evidencia en [publicación adicional](additional-hosting.md).
 
 ## Datos y Cadenas Candidatas
 
@@ -45,7 +45,7 @@ Capturas y notas privadas de las pruebas quedan en `research/model-incoming/` y 
 
 | Fase acordada | Estado y siguiente condición |
 | --- | --- |
-| 1. Núcleo | Correcciones de software comprobadas; confirmar publicación y registrar cualquier regresión real, fluidez en dispositivos y comprobaciones físicas |
+| 1. Núcleo | Correcciones de software comprobadas y publicación confirmada; registrar cualquier regresión real, fluidez en dispositivos y comprobaciones físicas |
 | 2. Preparar expansión | Contrato de catálogo y tres cadenas añadidos; revisar semántica de montajes y límites antes de activar otra familia de cámara |
 | 3. Catálogo | Tres accesorios incorporados de forma dirigida; diez candidatos del lote piloto siguen en cuarentena hasta verificar modelo exacto, montajes, alimentación, señal y derechos |
 | 4. Proyectos | Perfiles y recuperación locales probados; cuentas y nube aplazadas por decisión del usuario, no simuladas |

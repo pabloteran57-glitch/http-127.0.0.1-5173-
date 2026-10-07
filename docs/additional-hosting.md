@@ -2,21 +2,23 @@
 
 ## Estado Confirmado
 
-- Enlace adicional público: [Takegrid 0.2.5](https://takegrid-rigs.pabloteran57.chatgpt.site).
+- Enlace adicional público: [Takegrid 0.2.6](https://takegrid-rigs.pabloteran57.chatgpt.site).
 - Enlace anterior conservado: [Takegrid en Netlify](https://takegrid.netlify.app/), versión anterior sin sustituir.
-- No se contrató un plan, cambió facturación ni alteró el repositorio GitHub existente.
-- Confirmación de Sites: `succeeded`, `2026-10-07T04:30:42.483367+00:00` (6 de octubre en Ecuador).
+- No se contrató un plan ni cambió facturación. El código 0.2.6 se respaldó en el repositorio GitHub existente, sin forzar ni reescribir historial.
+- Confirmación de Sites: `succeeded`, `2026-10-07T12:25:25.791214+00:00` (7 de octubre, 07:25 en Ecuador).
 - Proyecto: `appgprj_6ac5ca6c160c819191d2bacd7366c426`.
-- Versión guardada: `appgprj_6ac5ca6c160c819191d2bacd7366c426~appgver_ec42dcb3ba1c8191b5b00593b14b7532`.
-- Despliegue: `appgdep_6ac5cae5bab48191a1fb44fd33253f6b`.
-- Revisión principal de origen: `a29188f145b0fdf11cb14978fabeeb61321f81cd`.
-- Revisión del repositorio estático adicional: `aa6545a6f4e30ad0b5af80aa9eb4c9a62b162ddc`.
+- Versión guardada: `appgprj_6ac5ca6c160c819191d2bacd7366c426~appgver_d045d29baa6481918b48f161364db368` (versión 2 del proveedor).
+- Despliegue: `appgdep_6ac63a2b2cd08191b8d4175b94fc5d5d`.
+- Revisión principal de origen: `607fd2fa6a81dd56370b6e3f3a70c47b4b6d6e15`.
+- Revisión del repositorio estático adicional: `e4c72751f89c99773b2a3435f49c17c6e789a969`.
 
 La URL confirmada de producción, no la URL provisional de registro, es la indicada arriba. La confirmación del proveedor acredita el despliegue; las pruebas de interfaz se realizaron en la compilación pública local.
 
 ## Contenido y Persistencia
 
-Copia exacta de los 30 archivos de `dist-public` (4 822 450 bytes sin comprimir), más `.openai/hosting.json` en el paquete. Catorce mallas propias aproximadas; no CAD oficiales ni originales de Sketchfab. El archivo guardado por Sites contiene 31 archivos y tiene huella `sha256:28b50c53ea6e324b764dc0eb646776bec027be21bb0a3a197779233b2c7c5675`. No incluye referencias del fabricante, investigación privada, capturas, bibliotecas locales ni el GLB oficial de DJI.
+Copia exacta de los 50 archivos de `dist-public` (5 311 215 bytes sin comprimir), más `.openai/hosting.json` en el paquete. Diecisiete mallas propias aproximadas y diecisiete miniaturas propias; no CAD oficiales ni originales de Sketchfab. El paquete tar confirmado por Sites contiene 51 archivos, mide 5 355 520 bytes y tiene huella `sha256:a395cc8cd75959f7d2afe370930ff14f45381ae3aaa76247ded56e5128453367`. El transporte gzip local mide 1 334 946 bytes y tiene huella `sha256:31bdf60c51b17914ed298038e470b156d590b67f79e66f44edc058e9c4af652b`; la diferencia corresponde al formato de archivo. No incluye referencias del fabricante, investigación privada, capturas, bibliotecas locales ni el GLB oficial de DJI.
+
+La versión 0.2.6 incorpora las cadenas candidatas de soporte de monitor para gimbal, jaula y asa XLR, alimentación local NP-F y selección expresa de piezas faltantes. La [revisión de este bloque](monitor-mount-qa.md) documenta 179 pruebas automatizadas y recorridos manuales con guardado, reapertura y reproducción. La versión anterior 0.2.5 permanece guardada para recuperación; no se forzó una recarga de las pestañas del usuario.
 
 Los perfiles, borradores e historiales se guardan en el navegador del dominio donde se usaron. Cambiar de dominio, navegador o dispositivo no transfiere esos datos. No se borró ni sobrescribió ninguna biblioteca de Netlify. El enlace compartido no contiene los rigs personales ni permite edición conjunta sincronizada. No se añadió exportación a la interfaz.
 
