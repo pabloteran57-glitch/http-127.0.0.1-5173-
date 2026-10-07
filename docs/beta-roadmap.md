@@ -1,6 +1,8 @@
 # Takegrid: ruta a una beta utilizable
 
-Revisión: 7 de octubre de 2026. Estado: endurecimiento del prototipo en curso. Fuente estructurada: `data/product-roadmap.json`. El catálogo mantiene 30 entradas; diez altas están sólo en investigación. [Revisión actual por fases](extensible-engineering-qa.md).
+Revisión: 7 de octubre de 2026. Estado: endurecimiento del prototipo en curso. Fuente estructurada: `data/product-roadmap.json`. El catálogo mantiene 30 entradas; diez altas están sólo en investigación. [Revisión actual por fases](contextual-attachments-qa.md).
+
+Takegrid 0.2.8 publicado: accesorios desde el visor, monitor sobre NATO sin imponer gimbal, ajustes acoplados y guardado de poses. Correcciones locales comprobadas, no finalización de beta; 228 pruebas de software y revisión de escritorio/viewport móvil. [Publicación confirmada](additional-hosting.md).
 
 Mi equipo, guía filtrada y controles de reproducción ya tienen correcciones funcionales comprobadas. Se prepararon laboratorio, reglas declarativas, recuperación e historial, recursos sin conexión, protocolo de beta y paquete preliminar de financiación. La evidencia actual está en `docs/iteration-qa.md`; la previa en `docs/stabilization-qa.md`. Preparar entregables posteriores no cierra sus criterios de salida. Cuentas y sincronización quedan aplazadas por decisión del usuario, no eliminadas del plan.
 

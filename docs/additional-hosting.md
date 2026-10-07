@@ -2,23 +2,25 @@
 
 ## Estado Confirmado
 
-- Enlace adicional público: [Takegrid 0.2.7](https://takegrid-rigs.pabloteran57.chatgpt.site).
+- Enlace adicional público: [Takegrid 0.2.8](https://takegrid-rigs.pabloteran57.chatgpt.site).
 - Enlace anterior conservado: [Takegrid en Netlify](https://takegrid.netlify.app/), versión anterior sin sustituir.
-- No se contrató un plan ni cambió facturación. El código 0.2.7 se respaldó en el repositorio GitHub existente, sin forzar ni reescribir historial.
-- Confirmación de Sites: `succeeded`, `2026-10-07T13:14:31.749355+00:00` (7 de octubre, 08:14 en Ecuador).
+- No se contrató un plan ni cambió facturación. El código 0.2.8 se respaldó en el repositorio GitHub existente, sin forzar ni reescribir historial.
+- Confirmación de Sites: `succeeded`, `2026-10-07T21:11:39.086201+00:00` (7 de octubre, 16:11 en Ecuador).
 - Proyecto: `appgprj_6ac5ca6c160c819191d2bacd7366c426`.
-- Versión guardada: `appgprj_6ac5ca6c160c819191d2bacd7366c426~appgver_4cd1282a92c4819181917f15683e6b50` (versión 3 del proveedor).
-- Despliegue: `appgdep_6ac645b01f6c8191ab1df6042eae1253`.
-- Revisión principal de origen: `adc9764bc314d77362621852f80e3d9396e6dcd6`.
-- Revisión del repositorio estático adicional: `3195d068bc075a6db7c7fc54532c8783af92368a`.
+- Versión guardada: `appgprj_6ac5ca6c160c819191d2bacd7366c426~appgver_cbece2e27de88191b95928ede3f36d39` (versión 4 del proveedor).
+- Despliegue: `appgdep_6ac6b58171248191b758ab46fd2ef218`.
+- Revisión principal de origen: `2a05d83c853d321e02a64222ccb8a7e918a50a39`.
+- Revisión del repositorio estático adicional: `da8ad9b7e1280a94a9aadc9577976feae49274f3`.
 
 La URL confirmada de producción, no la URL provisional de registro, es la indicada arriba. La confirmación del proveedor acredita el despliegue; las pruebas de interfaz se realizaron en la compilación pública local.
 
 ## Contenido y Persistencia
 
-Copia exacta de los 50 archivos de `dist-public` (5 306 663 bytes sin comprimir), más `.openai/hosting.json` en el paquete. Diecisiete mallas propias aproximadas y diecisiete miniaturas propias; no CAD oficiales ni originales de Sketchfab. El paquete tar confirmado por Sites contiene 51 archivos, mide 5 355 520 bytes y tiene huella `sha256:f2214781dc6452f79a647cbffde771d7b6402ff562006d6c1a1928b3f5eacc90`. El transporte gzip local mide 1 333 249 bytes y tiene huella `sha256:3e36418fb603850f995f60beadd099c9aeea533a5ffa16a9fa446f66b1567d50`; la diferencia corresponde al formato de archivo. No incluye referencias del fabricante, investigación privada, capturas, bibliotecas locales ni el GLB oficial de DJI.
+Copia exacta de los 50 archivos de `dist-public` (5 344 841 bytes sin comprimir), más `.openai/hosting.json` en el paquete. Diecisiete mallas propias aproximadas y diecisiete miniaturas propias; no CAD oficiales ni originales de Sketchfab. El paquete tar confirmado por Sites contiene 51 archivos, mide 5 386 240 bytes y tiene huella `sha256:f5fd7a7cbf29da9ce27454c52769337ad1a5bf1deb9248f638e259d44fd2ed75`. El transporte gzip local mide 1 341 795 bytes y tiene huella `sha256:ceb52394aa2488f112adb5b9e03aaa6aa73a7c92063010e202baaa039d360892`; la diferencia corresponde al formato de archivo. No incluye referencias del fabricante, investigación privada, capturas, bibliotecas locales ni el GLB oficial de DJI.
 
-La versión 0.2.7 conserva las cadenas candidatas de monitor de 0.2.6 y desacopla soporte, contexto, guía y visor mediante reglas declarativas. La [revisión de este bloque](extensible-engineering-qa.md) documenta 194 comprobaciones automatizadas y recorridos locales de escritorio/móvil con monitor, audio, guardado, reapertura y reproducción. No activa el lote investigado ni sustituye ensayos físicos. Las versiones anteriores 0.2.5 y 0.2.6 permanecen guardadas para recuperación; no se forzó una recarga de las pestañas del usuario.
+La versión 0.2.8 conserva las cadenas candidatas y reglas declarativas. Añade accesorios desde la pieza seleccionada, contexto explícito sin imponer gimbal, orientación del monitor según soporte y traslación medida de placa V-mount sin bisagra ficticia. Corrige el bloque blanco de la ficha y la identificación de subconjuntos GLTF, incluido el NATO desmontable con XLR. La [revisión de este bloque](contextual-attachments-qa.md) documenta 228 comprobaciones automatizadas y recorridos locales de escritorio/móvil con monitor, audio, ajustes, guardado, reapertura y reproducción. No activa el lote investigado ni sustituye ensayos físicos. Las versiones anteriores 0.2.5, 0.2.6 y 0.2.7 permanecen guardadas para recuperación; no se forzó una recarga de las pestañas del usuario.
+
+Histórico 0.2.7: despliegue `appgdep_6ac645b01f6c8191ab1df6042eae1253`, versión `appgprj_6ac5ca6c160c819191d2bacd7366c426~appgver_4cd1282a92c4819181917f15683e6b50`, revisión estática `3195d068bc075a6db7c7fc54532c8783af92368a`, confirmado a las 08:14 de Ecuador. [Pruebas](extensible-engineering-qa.md).
 
 Histórico 0.2.6: despliegue `appgdep_6ac63a2b2cd08191b8d4175b94fc5d5d`, versión `appgprj_6ac5ca6c160c819191d2bacd7366c426~appgver_d045d29baa6481918b48f161364db368`, revisión estática `e4c72751f89c99773b2a3435f49c17c6e789a969`, confirmado a las 07:25 de Ecuador. [Pruebas](monitor-mount-qa.md).
 
