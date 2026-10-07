@@ -36,6 +36,7 @@ En Edge, compilación pública local:
 - Perfil QA aislado y rig de ocho elecciones: FX3, SEL1635GM, 4770, 2906B, Indie 7, HDMI Kondor Blue, NP-F970/PRO y Mic 2. Monitor y RX visibles; sin RS ni 3026B implícitos. Añadir monitor y audio desde la jaula modifica sólo el borrador; opciones ya elegidas dejan de proponerse.
 - Guardado confirmado antes de recargar: las ocho elecciones se recuperaron sin extras. Montaje derivó seis etapas, sin montaje/equilibrio/control de gimbal, y terminó en Revisión final con reproducción 2×, sin extracción automática.
 - Orientación 36° de inclinación / 36° de giro guardada y reabierta. Revisión visual del cabezal tras corregir su identificación: GLTFLoader elimina separadores del nombre y conserva el original en `userData.name`. La prueba utiliza el GLB decodificado, no sólo su JSON.
+- La misma identificación se aplica al riel NATO desmontable 4770: su malla se oculta con XLR y se restaura sin ocultar la jaula. Prueba sobre el GLB propio decodificado; no es desmontaje físico verificado.
 - Ventana móvil configurada a 390 × 844; contenido útil de 375 px con barra de desplazamiento. Monitor y controles visibles, Listo de 88 × 44 px dentro de la ventana y pie fijo del panel; información técnica desplazable. Es una comprobación de viewport, no hardware táctil real.
 - Copia QA comercial con recorrido simulado atrás 5 / delante 10 mm: el formulario vacío no habilitó movimiento; tras confirmación de fixture mostró 10 mm y los conservó después del guardado y recarga. Esta aceptación de formulario es exclusivamente prueba de software, nunca evidencia de recorrido medido en un rig real.
 - 3026B muestra sólo inclinación de 170° total, sin deslizador de giro. Errores/advertencias de consola vacíos en el rig NATO inspeccionado.
@@ -47,7 +48,7 @@ Capturas locales de investigación: `research/model-incoming/qa-028-monitor-desk
 
 [Ajustes de posición](adjustable-layout.md) se genera desde el manifiesto de distribución. Manuales 2906B y 3026B, página 2, documentan respectivamente 180°/360° y 170° de inclinación. Los ceros y pivotes son aproximados. Manual 3203B, página 5, documenta abrazaderas atornilladas: no se inventa una bisagra. Placa y V-mount sólo se trasladan axialmente con recorrido aportado por el usuario. Puertos y tangentes ilustrativas acompañan las poses; no hay detección automática de colisiones, radios o equilibrio.
 
-Compilación pública, TypeScript y auditorías correctas; 226 comprobaciones automatizadas, además de 300 selecciones y 300 guías reproducibles. 50 archivos permitidos, aproximadamente 5,34 MB; 17 mallas y 17 miniaturas propias. Advertencia de módulos JavaScript mayores de 500 kB conservada, no ocultada. Publicación remota pendiente de confirmar al cierre de esta revisión; el estado vigente se registra en [alojamiento](additional-hosting.md).
+Compilación pública, TypeScript y auditorías correctas; 228 comprobaciones automatizadas, además de 300 selecciones y 300 guías reproducibles. 50 archivos permitidos, aproximadamente 5,34 MB; 17 mallas y 17 miniaturas propias. Advertencia de módulos JavaScript mayores de 500 kB conservada, no ocultada. Publicación remota pendiente de confirmar al cierre de esta revisión; el estado vigente se registra en [alojamiento](additional-hosting.md).
 
 ## Plan restante
 

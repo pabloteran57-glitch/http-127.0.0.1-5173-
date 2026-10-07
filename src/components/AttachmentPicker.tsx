@@ -10,7 +10,7 @@ export default function AttachmentPicker({anchorId,rig,onClose,onAdd,onCatalog}:
   const dialog=useRef<HTMLDialogElement>(null);
   const master=variantsData.variants.find(variant=>variant.id===variantsData.master_variant_id)!;
   const candidates=attachmentCandidates(anchorId,rig,plannerData,cablesData.cables,master);
-  useEffect(()=>{dialog.current?.showModal();},[]);
+  useEffect(()=>{if(dialog.current&&!dialog.current.open)dialog.current.showModal();},[]);
   return <dialog ref={dialog} className="attachment-dialog" aria-labelledby="attachment-title" onCancel={onClose} onClose={onClose}>
     <div className="dialog-heading"><div><p className="eyebrow">AÑADIR DESDE EL RIG</p><h2 id="attachment-title">Sobre {partName(anchorId)}</h2></div><button type="button" className="icon-button" aria-label="Cerrar accesorios compatibles" onClick={onClose}><Icon name="close"/></button></div>
     <div className="attachment-content"><p className="attachment-intro">Opciones con interfaces documentadas para este montaje. Revisa las piezas antes de añadirlas; el encaje físico sigue pendiente.</p>

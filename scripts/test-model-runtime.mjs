@@ -6,7 +6,7 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import ts from "typescript";
 
 const code = ts.transpileModule(readFileSync(new URL("../src/lib/model-runtime.ts", import.meta.url), "utf8"), { compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.ES2022 } }).outputText;
-const { loadAuditedModel, modelReadiness, modelSessionKey, updateModelReports, modelResources, modelAppearance, disposeModel } = await import(`data:text/javascript;base64,${Buffer.from(code).toString("base64")}`);
+const { loadAuditedModel, modelReadiness, modelSessionKey, updateModelReports, modelResources, modelAppearance, modelObjectName, modelVisibility, disposeModel } = await import(`data:text/javascript;base64,${Buffer.from(code).toString("base64")}`);
 const digest = async bytes => createHash("sha256").update(new Uint8Array(bytes)).digest("hex");
 const bytes = new Uint8Array([1, 2, 3, 4]);
 const asset = { id: "runtime-test-only", artifact: { path: "/models/runtime-test-only.glb", bytes: bytes.length, sha256: await digest(bytes.buffer) } };
@@ -135,4 +135,23 @@ await test("GLTFLoader decodifica GLB sintético por el mismo adaptador", async 
   const model = await loadAuditedModel(synthetic, adapters({ fetch: async () => new Response(file), parse: async data => (await new GLTFLoader().parseAsync(data, "")).scene, dispose: disposeModel }), new AbortController().signal);
   assert.equal(modelResources(model).geometries.size, 1); disposeModel(model);
 });
-console.log(`RUNTIME DE MODELOS: ${checks} pruebas de software con recursos sintéticos; no son productos, GPU ni ensayos físicos.`);
+await test("Identidad original prevalece sin perder objetos sin metadatos", () => {
+  const object = new Group(); object.name = "nombre-saneado";
+  assert.equal(modelObjectName(object), "nombre-saneado");
+  object.userData.name = "pieza/subconjunto";
+  assert.equal(modelObjectName(object), "pieza/subconjunto");
+});
+await test("Riel desmontable 4770 decodificado se oculta y restaura sin ocultar jaula", async () => {
+  const file = readFileSync(new URL("../public/models/smallrig-4770-takegrid-v1.glb", import.meta.url));
+  const model = (await new GLTFLoader().parseAsync(file.buffer.slice(file.byteOffset, file.byteOffset + file.byteLength), "")).scene;
+  const rule = JSON.parse(readFileSync(new URL("../data/layout-manifest.json", import.meta.url), "utf8")).nodes.find(node => node.id === "smallrig-4770").visual_subassemblies[0];
+  const rail = [], others = [];
+  model.traverse(object => { if (object.isMesh) (modelObjectName(object) === rule.object_name ? rail : others).push(object); });
+  assert.equal(rail.length, 1); assert(others.length > 0); assert.equal(rail[0].visible, true);
+  const restore = modelVisibility(model, [rule.object_name]);
+  assert.equal(rail[0].visible, false); assert(others.every(object => object.visible));
+  restore(); assert.equal(rail[0].visible, true);
+  rail[0].visible = false; const restoreHidden = modelVisibility(model, [rule.object_name]);
+  restoreHidden(); assert.equal(rail[0].visible, false); disposeModel(model);
+});
+console.log(`RUNTIME DE MODELOS: ${checks} pruebas de software; recursos sintéticos y GLB propios, no GPU ni ensayos físicos.`);

@@ -6,6 +6,22 @@ export interface ModelLoadReport { key: string; state: ModelLoadState }
 export type ModelReports = Record<string, ModelLoadState>;
 export const MODEL_LOAD_TIMEOUT_MS = 15_000;
 
+// GLTFLoader sanea los nombres; la identidad original permanece en userData.
+export function modelObjectName(object: Object3D) {
+  return typeof object.userData.name === "string" ? object.userData.name : object.name;
+}
+
+export function modelVisibility(root: Object3D, hiddenNames: string[]) {
+  const hidden = new Set(hiddenNames), restore: (() => void)[] = [];
+  root.traverse(object => {
+    if (!hidden.has(modelObjectName(object))) return;
+    const visible = object.visible;
+    object.visible = false;
+    restore.push(() => { object.visible = visible; });
+  });
+  return () => restore.forEach(reset => reset());
+}
+
 export function modelSessionKey(asset: ModelAsset, attempt: number, scene: string) {
   return `${asset.id}:${asset.artifact.sha256}:${attempt}:${scene}`;
 }

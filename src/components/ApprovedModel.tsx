@@ -3,7 +3,7 @@ import { useThree } from "@react-three/fiber";
 import { Euler, Group, Matrix4, type Object3D } from "three";
 import type { JointTransform } from "../lib/viewer";
 import type { ModelAsset } from "../lib/model-assets";
-import { disposeModel, loadAuditedModel, modelAppearance, type ModelLoadReport } from "../lib/model-runtime";
+import { disposeModel, loadAuditedModel, modelAppearance, modelObjectName, modelVisibility, type ModelLoadReport } from "../lib/model-runtime";
 
 export default function ApprovedModel({ asset, selected, context, fallback, reportKey, onReport, hiddenObjectNames=[],objectTransforms={} }: { asset: ModelAsset; selected: boolean; context: boolean; fallback: ReactNode; reportKey: string; onReport: (report: ModelLoadReport) => void; hiddenObjectNames?:string[];objectTransforms?:Record<string,JointTransform[]> }) {
   const [model, setModel] = useState<Object3D | null>(null);
@@ -38,16 +38,15 @@ export default function ApprovedModel({ asset, selected, context, fallback, repo
   const c = asset.calibration;
   const hiddenKey=JSON.stringify(hiddenObjectNames);
   useEffect(()=>{
-    const hidden=new Set<string>(JSON.parse(hiddenKey)),restore:(()=>void)[]=[];
-    model?.traverse(object=>{if(hidden.has(object.name)){const visible=object.visible;object.visible=false;restore.push(()=>{object.visible=visible;});}});
+    const restore=model?modelVisibility(model,JSON.parse(hiddenKey)):()=>{};
     invalidate();
-    return ()=>restore.forEach(reset=>reset());
+    return restore;
   },[model,hiddenKey,invalidate]);
   const transformKey=JSON.stringify(objectTransforms);
   useEffect(()=>{
     const transforms=JSON.parse(transformKey) as Record<string,JointTransform[]>,restore:(()=>void)[]=[];
     model?.traverse(object=>{
-      const originalName=typeof object.userData.name==="string"?object.userData.name:object.name;
+      const originalName=modelObjectName(object);
       const rule=Object.entries(transforms).find(([prefix])=>originalName.startsWith(`${asset.part_id}/${prefix}/`))?.[1];
       if(!rule)return;
       const previous=object.matrix.clone(),auto=object.matrixAutoUpdate,composite=new Matrix4();

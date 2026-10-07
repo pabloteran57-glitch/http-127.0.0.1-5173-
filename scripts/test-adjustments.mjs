@@ -36,7 +36,7 @@ for(const id of ["smallrig-2906b","smallrig-3026b"]){
   test(`GLTFLoader conserva nombre original de articulación ${id}`,()=>{
     const heads=[];decoded.scene.traverse(object=>{const originalName=typeof object.userData.name==="string"?object.userData.name:object.name;if(originalName.startsWith(`${id}/monitor-head/`))heads.push(object);});
     assert.equal(heads.length,2);assert(heads.every(object=>!object.name.includes("/")));
-    const source=readFileSync(new URL("../src/components/ApprovedModel.tsx",import.meta.url),"utf8");assert(source.includes('typeof object.userData.name==="string"?object.userData.name:object.name'));
+    const source=readFileSync(new URL("../src/components/ApprovedModel.tsx",import.meta.url),"utf8");assert(source.includes('const originalName=modelObjectName(object)'));
   });
   decoded.scene.traverse(o=>{if(o.isMesh)o.geometry.dispose();});
 }
