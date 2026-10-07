@@ -22,6 +22,12 @@ Las nuevas pruebas rechazan modelos o fuentes ajenos, evidencia sin alcance de p
 
 El build emitió la advertencia existente de paquetes JavaScript mayores de 500 kB. No se midió fluidez, GPU, batería ni UX móvil en este bloque; no se anuncia una mejora de rendimiento.
 
+## Respaldo Y Publicación
+
+Código y documentos respaldados en el repositorio GitHub existente, revisión `1e17b06804f68f70a1337e4704189daa449f4e8b`, sin forzar historial ni incluir investigación privada. La copia pública de los 50 archivos coincide byte a byte con `dist-public`. Sites confirmó `succeeded` a las 18:05 de Ecuador en el [enlace existente](https://takegrid-rigs.pabloteran57.chatgpt.site), conservando versión funcional 0.2.8 y sin activar el piloto. [Registro de publicación](additional-hosting.md).
+
+La finalización del proveedor no es un nuevo ensayo de la interfaz de producción. Los registros de UX anteriores mantienen su fecha y alcance; no se recargaron pestañas ni se tocaron borradores del usuario.
+
 ## Lo Siguiente
 
 1. Crear recursos propios aproximados para FX30, SEL20F18G y NP-FZ100; auditar escala, forma, alcance, huellas y derechos. No tratar diagramas como CAD.
