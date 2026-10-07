@@ -260,6 +260,12 @@ ${modelProduction.sequence.map((s,i)=>`${i+1}. ${s}.`).join("\n")}
 
 ## Primer lote, mismo catálogo
 
+Reconstrucciones propias aproximadas; no descargas de Sketchfab ni resultados de Meshy. [Procedencia y uso](authored-model-rights.md). Aprobar una malla visual no verifica asiento, tolerancias ni funcionamiento del rig.
+
+| Pieza representada | Archivo | Triángulos | Bytes | Alcance de referencia |
+|---|---|---:|---:|---|
+${modelAssets.assets.filter(a=>a.status==="approved").map(a=>`| ${name(a.part_id)}${a.subcomponent_id?" / "+a.subcomponent_id:""} | \`${a.artifact.path}\` | ${a.artifact.triangles} | ${a.artifact.bytes} | ${a.calibration.reference_basis} |`).join("\n")}
+
 | Orden | Producto | Subcomponente | Estado | Referencias necesarias |
 |---|---|---|---|---|
 ${modelProduction.priorities.map(p=>`| ${p.order} | ${name(p.part_id)} | ${p.subcomponent_id??"Producto"} | \`${p.status}\` | ${p.required_views.join("; ")} |`).join("\n")}
@@ -289,6 +295,10 @@ ${modelProduction.licensed_references.map(r=>`- [${r.id}](${r.source_url}): ${r.
 ${bullets(modelProduction.release_gates)}
 
 ${modelProduction.remaining_policy}
+
+## Resto del catálogo actual
+
+${(modelProduction.unmodeled??[]).map(p=>`- **${name(p.part_id)}**: \`${p.status}\`. ${p.reason}`).join("\n")}
 
 El contrato técnico y los comandos se explican en [Integración GLB](model-asset-contract.md). La reunión exploratoria se mantiene privada, no se cuenta como ensayo puntuado de beta ni concede permisos de fotos.
 `);

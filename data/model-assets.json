@@ -1,6 +1,847 @@
 {
   "version": 1,
   "reviewed_on": "2026-10-06",
-  "scope": "Registro de mallas visuales auditadas; nunca sustituye parts, layout, ports ni cables. Vacío hasta disponer de un archivo autorizado y calibrado.",
-  "assets": []
+  "scope": "14 reconstrucciones propias aproximadas revisadas visualmente; no son CAD, escaneos ni descargas de Sketchfab. Las mallas no sustituyen dimensiones, masas, soportes, puertos ni cables canónicos.",
+  "assets": [
+    {
+      "id": "sony-fx3-takegrid-v1",
+      "part_id": "sony-fx3",
+      "subcomponent_id": null,
+      "exact_product_name": "Sony FX3 Full-Frame Cinema Line Camera",
+      "model_number": "ILME-FX3",
+      "status": "approved",
+      "source": {
+        "method": "manual",
+        "url": "https://github.com/pabloteran57-glitch/http-127.0.0.1-5173-/blob/main/scripts/lib/authored-models.mjs",
+        "author": "Takegrid / reconstrucción propia en código"
+      },
+      "rights": {
+        "license": "custom-reviewed",
+        "evidence_url": "https://github.com/pabloteran57-glitch/http-127.0.0.1-5173-/blob/main/docs/authored-model-rights.md",
+        "reviewed_on": "2026-10-06",
+        "commercial": true,
+        "redistribution": true,
+        "modification": true,
+        "source_images_authorized": false,
+        "source_images_evidence": "No usa imágenes, texturas ni archivos ajenos en el GLB; referencias de fabricante consultadas localmente, no cargadas a IA ni redistribuidas.",
+        "attribution": "Sony FX3: reconstrucción propia Takegrid, 2026. Geometría y materiales aproximados desde medidas y referencias; sin respaldo del fabricante. Uso como recurso de Takegrid, no licencia independiente de fabricación."
+      },
+      "artifact": {
+        "path": "/models/sony-fx3-takegrid-v1.glb",
+        "sha256": "47fe25a63a9d0454c9d77facf7402d02dfc525404d470fa0ec127378a67c1463",
+        "bytes": 608396,
+        "triangles": 12808
+      },
+      "calibration": {
+        "units": "metres",
+        "uniform_scale": 1,
+        "offset_mm": [
+          0,
+          0,
+          0
+        ],
+        "rotation_deg": [
+          0,
+          0,
+          0
+        ],
+        "bounds_mm": [
+          130.34918159246445,
+          82.90000259876251,
+          84.75000038743019
+        ],
+        "reference_url": "https://helpguide.sony.net/ilc/2210/v1/en/contents/TP1000886922.html",
+        "reference_basis": "Cuerpo ILME-FX3 129.7 × 77.8 × 84.5 mm, sin salientes, en manifiesto. Malla incluye controles y zapata estimados; su altura 82.9 mm no se presenta como la cota publicada. Roscas y bayoneta sólo visuales."
+      },
+      "review": {
+        "identity": true,
+        "scale": true,
+        "views": true,
+        "interfaces": true,
+        "evidence": "Revisión local del lote en perspectiva, frontal, posterior, lateral y superior; fotografías/manuales canónicos consultados. Huecos, alcance del componente y orientación cotejados visualmente. Registro de diferencias en calibration.reference_basis; no es medición mecánica.",
+        "mechanical_accuracy": "approximate",
+        "ports_authority": "ports-manifest.json"
+      }
+    },
+    {
+      "id": "sony-fe-16-35-gm-takegrid-v1",
+      "part_id": "sony-fe-16-35-gm",
+      "subcomponent_id": null,
+      "exact_product_name": "Sony FE 16-35mm F2.8 GM",
+      "model_number": "SEL1635GM",
+      "status": "approved",
+      "source": {
+        "method": "manual",
+        "url": "https://github.com/pabloteran57-glitch/http-127.0.0.1-5173-/blob/main/scripts/lib/authored-models.mjs",
+        "author": "Takegrid / reconstrucción propia en código"
+      },
+      "rights": {
+        "license": "custom-reviewed",
+        "evidence_url": "https://github.com/pabloteran57-glitch/http-127.0.0.1-5173-/blob/main/docs/authored-model-rights.md",
+        "reviewed_on": "2026-10-06",
+        "commercial": true,
+        "redistribution": true,
+        "modification": true,
+        "source_images_authorized": false,
+        "source_images_evidence": "No usa imágenes, texturas ni archivos ajenos en el GLB; referencias de fabricante consultadas localmente, no cargadas a IA ni redistribuidas.",
+        "attribution": "16-35 mm GM: reconstrucción propia Takegrid, 2026. Geometría y materiales aproximados desde medidas y referencias; sin respaldo del fabricante. Uso como recurso de Takegrid, no licencia independiente de fabricación."
+      },
+      "artifact": {
+        "path": "/models/sony-fe-16-35-gm-takegrid-v1.glb",
+        "sha256": "4c788eb7dd0b2e06a385b5ee2fc5ee0059c07630154a332d658825a0d0a0029d",
+        "bytes": 404296,
+        "triangles": 9588
+      },
+      "calibration": {
+        "units": "metres",
+        "uniform_scale": 1,
+        "offset_mm": [
+          0,
+          0,
+          0
+        ],
+        "rotation_deg": [
+          0,
+          0,
+          0
+        ],
+        "bounds_mm": [
+          88.5000005364418,
+          88.5000005364418,
+          121.60000205039978
+        ],
+        "reference_url": "https://electronics.sony.com/imaging/lenses/all-e-mount/p/sel1635gm",
+        "reference_basis": "SEL1635GM primera generación, diámetro 88.5 y longitud 121.6 mm publicados. Perfil, estriado y controles estimados, sin parasol ni extensión de zoom medida."
+      },
+      "review": {
+        "identity": true,
+        "scale": true,
+        "views": true,
+        "interfaces": true,
+        "evidence": "Revisión local del lote en perspectiva, frontal, posterior, lateral y superior; fotografías/manuales canónicos consultados. Huecos, alcance del componente y orientación cotejados visualmente. Registro de diferencias en calibration.reference_basis; no es medición mecánica.",
+        "mechanical_accuracy": "approximate",
+        "ports_authority": "ports-manifest.json"
+      }
+    },
+    {
+      "id": "smallrig-4770-takegrid-v1",
+      "part_id": "smallrig-4770",
+      "subcomponent_id": null,
+      "exact_product_name": "SmallRig HawkLock Quick Release Cage Kit for Sony FX3/FX30",
+      "model_number": "4770",
+      "status": "approved",
+      "source": {
+        "method": "manual",
+        "url": "https://github.com/pabloteran57-glitch/http-127.0.0.1-5173-/blob/main/scripts/lib/authored-models.mjs",
+        "author": "Takegrid / reconstrucción propia en código"
+      },
+      "rights": {
+        "license": "custom-reviewed",
+        "evidence_url": "https://github.com/pabloteran57-glitch/http-127.0.0.1-5173-/blob/main/docs/authored-model-rights.md",
+        "reviewed_on": "2026-10-06",
+        "commercial": true,
+        "redistribution": true,
+        "modification": true,
+        "source_images_authorized": false,
+        "source_images_evidence": "No usa imágenes, texturas ni archivos ajenos en el GLB; referencias de fabricante consultadas localmente, no cargadas a IA ni redistribuidas.",
+        "attribution": "Jaula HawkLock 4770: reconstrucción propia Takegrid, 2026. Geometría y materiales aproximados desde medidas y referencias; sin respaldo del fabricante. Uso como recurso de Takegrid, no licencia independiente de fabricación."
+      },
+      "artifact": {
+        "path": "/models/smallrig-4770-takegrid-v1.glb",
+        "sha256": "3538ae804f602a1e97d9057a64912b6152c1680a40e51b7571dcb7df4e46beef",
+        "bytes": 235332,
+        "triangles": 4996
+      },
+      "calibration": {
+        "units": "metres",
+        "uniform_scale": 1,
+        "offset_mm": [
+          0,
+          0,
+          0
+        ],
+        "rotation_deg": [
+          0,
+          0,
+          0
+        ],
+        "bounds_mm": [
+          160.49999743700027,
+          110.17513647675514,
+          59.99999865889549
+        ],
+        "reference_url": "https://static.smallrig.com/mall/img/public/1725874097334_.pdf",
+        "reference_basis": "Kit 4770 160 × 101.2 × 66.2 mm publicado. Marco abierto y zapata de página 4; forma estimada. Altura 110.18 mm incluye la pose candidata de zapata canónica: discrepancia no corregida por deformación ni declarada exacta."
+      },
+      "review": {
+        "identity": true,
+        "scale": true,
+        "views": true,
+        "interfaces": true,
+        "evidence": "Revisión local del lote en perspectiva, frontal, posterior, lateral y superior; fotografías/manuales canónicos consultados. Huecos, alcance del componente y orientación cotejados visualmente. Registro de diferencias en calibration.reference_basis; no es medición mecánica.",
+        "mechanical_accuracy": "approximate",
+        "ports_authority": "ports-manifest.json"
+      }
+    },
+    {
+      "id": "smallrig-1674-takegrid-v1",
+      "part_id": "smallrig-1674",
+      "subcomponent_id": null,
+      "exact_product_name": "SmallRig Baseplate with Dual 15 mm Rod Clamp",
+      "model_number": "1674",
+      "status": "approved",
+      "source": {
+        "method": "manual",
+        "url": "https://github.com/pabloteran57-glitch/http-127.0.0.1-5173-/blob/main/scripts/lib/authored-models.mjs",
+        "author": "Takegrid / reconstrucción propia en código"
+      },
+      "rights": {
+        "license": "custom-reviewed",
+        "evidence_url": "https://github.com/pabloteran57-glitch/http-127.0.0.1-5173-/blob/main/docs/authored-model-rights.md",
+        "reviewed_on": "2026-10-06",
+        "commercial": true,
+        "redistribution": true,
+        "modification": true,
+        "source_images_authorized": false,
+        "source_images_evidence": "No usa imágenes, texturas ni archivos ajenos en el GLB; referencias de fabricante consultadas localmente, no cargadas a IA ni redistribuidas.",
+        "attribution": "Base 1674: reconstrucción propia Takegrid, 2026. Geometría y materiales aproximados desde medidas y referencias; sin respaldo del fabricante. Uso como recurso de Takegrid, no licencia independiente de fabricación."
+      },
+      "artifact": {
+        "path": "/models/smallrig-1674-takegrid-v1.glb",
+        "sha256": "b7dd92d8234de7128640474cae8387d4859ae9ae81301e7b8a94baefa99b8aad",
+        "bytes": 116664,
+        "triangles": 2420
+      },
+      "calibration": {
+        "units": "metres",
+        "uniform_scale": 1,
+        "offset_mm": [
+          0,
+          0,
+          0
+        ],
+        "rotation_deg": [
+          0,
+          0,
+          0
+        ],
+        "bounds_mm": [
+          90.00000357627869,
+          28.350000269711018,
+          79.99999821186066
+        ],
+        "reference_url": "https://static.smallrig.com/mall/img/public/vcqnxceuxol-1747621696364_.pdf",
+        "reference_basis": "Cuerpo publicado 80 × 80 × 26 mm; 15 mm de paso y 60 mm entre varillas. Palancas y salientes estimados llevan envolvente de malla a 90 × 28.35 × 80 mm."
+      },
+      "review": {
+        "identity": true,
+        "scale": true,
+        "views": true,
+        "interfaces": true,
+        "evidence": "Revisión local del lote en perspectiva, frontal, posterior, lateral y superior; fotografías/manuales canónicos consultados. Huecos, alcance del componente y orientación cotejados visualmente. Registro de diferencias en calibration.reference_basis; no es medición mecánica.",
+        "mechanical_accuracy": "approximate",
+        "ports_authority": "ports-manifest.json"
+      }
+    },
+    {
+      "id": "smallrig-rods-8in-takegrid-v1",
+      "part_id": "smallrig-rods-8in",
+      "subcomponent_id": null,
+      "exact_product_name": "SmallRig 15 mm Carbon Fiber Rods (Pair), 8 in",
+      "model_number": null,
+      "status": "approved",
+      "source": {
+        "method": "manual",
+        "url": "https://github.com/pabloteran57-glitch/http-127.0.0.1-5173-/blob/main/scripts/lib/authored-models.mjs",
+        "author": "Takegrid / reconstrucción propia en código"
+      },
+      "rights": {
+        "license": "custom-reviewed",
+        "evidence_url": "https://github.com/pabloteran57-glitch/http-127.0.0.1-5173-/blob/main/docs/authored-model-rights.md",
+        "reviewed_on": "2026-10-06",
+        "commercial": true,
+        "redistribution": true,
+        "modification": true,
+        "source_images_authorized": false,
+        "source_images_evidence": "No usa imágenes, texturas ni archivos ajenos en el GLB; referencias de fabricante consultadas localmente, no cargadas a IA ni redistribuidas.",
+        "attribution": "Varillas de 15 mm / 8 pulgadas: reconstrucción propia Takegrid, 2026. Geometría y materiales aproximados desde medidas y referencias; sin respaldo del fabricante. Uso como recurso de Takegrid, no licencia independiente de fabricación."
+      },
+      "artifact": {
+        "path": "/models/smallrig-rods-8in-takegrid-v1.glb",
+        "sha256": "431092c55db1c36219eae0a22aaac2ad0712d2155cb3fe98162157a3b26f3599",
+        "bytes": 70984,
+        "triangles": 2560
+      },
+      "calibration": {
+        "units": "metres",
+        "uniform_scale": 1,
+        "offset_mm": [
+          0,
+          0,
+          0
+        ],
+        "rotation_deg": [
+          0,
+          0,
+          0
+        ],
+        "bounds_mm": [
+          75.01000165939331,
+          15.010000206530094,
+          203.19999754428864
+        ],
+        "reference_url": "https://www.smallrig.com/15mm-Carbon-Fiber-Rods-Pair.html",
+        "reference_basis": "Par con 15 mm de diámetro exterior, pared de 2 mm y 203.2 mm de longitud publicados; centros a 60 mm. Acentos visuales añaden 0.01 mm, no textura ni material medido."
+      },
+      "review": {
+        "identity": true,
+        "scale": true,
+        "views": true,
+        "interfaces": true,
+        "evidence": "Revisión local del lote en perspectiva, frontal, posterior, lateral y superior; fotografías/manuales canónicos consultados. Huecos, alcance del componente y orientación cotejados visualmente. Registro de diferencias en calibration.reference_basis; no es medición mecánica.",
+        "mechanical_accuracy": "approximate",
+        "ports_authority": "ports-manifest.json"
+      }
+    },
+    {
+      "id": "smallrig-3645-takegrid-v1",
+      "part_id": "smallrig-3645",
+      "subcomponent_id": null,
+      "exact_product_name": "SmallRig Multifunctional Modular Matte Box (95 mm) VND Kit",
+      "model_number": "3645",
+      "status": "approved",
+      "source": {
+        "method": "manual",
+        "url": "https://github.com/pabloteran57-glitch/http-127.0.0.1-5173-/blob/main/scripts/lib/authored-models.mjs",
+        "author": "Takegrid / reconstrucción propia en código"
+      },
+      "rights": {
+        "license": "custom-reviewed",
+        "evidence_url": "https://github.com/pabloteran57-glitch/http-127.0.0.1-5173-/blob/main/docs/authored-model-rights.md",
+        "reviewed_on": "2026-10-06",
+        "commercial": true,
+        "redistribution": true,
+        "modification": true,
+        "source_images_authorized": false,
+        "source_images_evidence": "No usa imágenes, texturas ni archivos ajenos en el GLB; referencias de fabricante consultadas localmente, no cargadas a IA ni redistribuidas.",
+        "attribution": "Parasol Star-Trail VND: reconstrucción propia Takegrid, 2026. Geometría y materiales aproximados desde medidas y referencias; sin respaldo del fabricante. Uso como recurso de Takegrid, no licencia independiente de fabricación."
+      },
+      "artifact": {
+        "path": "/models/smallrig-3645-takegrid-v1.glb",
+        "sha256": "687fb5fa5c62ef9aa295467a29a92ccafdd1c2fad7fae972dab179fa38ef4c63",
+        "bytes": 120124,
+        "triangles": 2484
+      },
+      "calibration": {
+        "units": "metres",
+        "uniform_scale": 1,
+        "offset_mm": [
+          0,
+          0,
+          0
+        ],
+        "rotation_deg": [
+          0,
+          0,
+          0
+        ],
+        "bounds_mm": [
+          161.00000590085983,
+          130.11255860328674,
+          85.88052541017532
+        ],
+        "reference_url": "https://www.smallrig.com/global/SmallRig-Multifunctional-Modular-Matte-Box-95mm-VND-Kit-3645.html",
+        "reference_basis": "Envolvente del cuerpo 156 × 116 × 32 mm aproximada en layout. Malla con bandera estimada desplegada, no comparar su caja total con medidas del cuerpo. Filtro y perfil no verifican asiento."
+      },
+      "review": {
+        "identity": true,
+        "scale": true,
+        "views": true,
+        "interfaces": true,
+        "evidence": "Revisión local del lote en perspectiva, frontal, posterior, lateral y superior; fotografías/manuales canónicos consultados. Huecos, alcance del componente y orientación cotejados visualmente. Registro de diferencias en calibration.reference_basis; no es medición mecánica.",
+        "mechanical_accuracy": "approximate",
+        "ports_authority": "ports-manifest.json"
+      }
+    },
+    {
+      "id": "smallrig-3203b-takegrid-v1",
+      "part_id": "smallrig-3203b",
+      "subcomponent_id": null,
+      "exact_product_name": "SmallRig V-Mount Battery Adapter Plate with Dual 15 mm Rod Clamp",
+      "model_number": "3203B",
+      "status": "approved",
+      "source": {
+        "method": "manual",
+        "url": "https://github.com/pabloteran57-glitch/http-127.0.0.1-5173-/blob/main/scripts/lib/authored-models.mjs",
+        "author": "Takegrid / reconstrucción propia en código"
+      },
+      "rights": {
+        "license": "custom-reviewed",
+        "evidence_url": "https://github.com/pabloteran57-glitch/http-127.0.0.1-5173-/blob/main/docs/authored-model-rights.md",
+        "reviewed_on": "2026-10-06",
+        "commercial": true,
+        "redistribution": true,
+        "modification": true,
+        "source_images_authorized": false,
+        "source_images_evidence": "No usa imágenes, texturas ni archivos ajenos en el GLB; referencias de fabricante consultadas localmente, no cargadas a IA ni redistribuidas.",
+        "attribution": "Placa V-mount 3203B: reconstrucción propia Takegrid, 2026. Geometría y materiales aproximados desde medidas y referencias; sin respaldo del fabricante. Uso como recurso de Takegrid, no licencia independiente de fabricación."
+      },
+      "artifact": {
+        "path": "/models/smallrig-3203b-takegrid-v1.glb",
+        "sha256": "9de529dfab70f13a304633dd7b30a2f98a1f345263fd5a5e7bbadb79d8793ffc",
+        "bytes": 120228,
+        "triangles": 2652
+      },
+      "calibration": {
+        "units": "metres",
+        "uniform_scale": 1,
+        "offset_mm": [
+          0,
+          0,
+          0
+        ],
+        "rotation_deg": [
+          0,
+          0,
+          0
+        ],
+        "bounds_mm": [
+          108.90000313520432,
+          168.6999946832657,
+          32.00000151991844
+        ],
+        "reference_url": "https://www.smallrig.com/jp/Advanced-V-Mount-Battery-Mount-Plate-with-Dual-15mm-Rod-Clamp-3203B.html",
+        "reference_basis": "168.7 × 108 × 33 mm publicados; abrazadera superior según manual página 5. Asiento V, palancas y agujeros sólo ilustrativos; masa sigue siendo 351 g conservadores."
+      },
+      "review": {
+        "identity": true,
+        "scale": true,
+        "views": true,
+        "interfaces": true,
+        "evidence": "Revisión local del lote en perspectiva, frontal, posterior, lateral y superior; fotografías/manuales canónicos consultados. Huecos, alcance del componente y orientación cotejados visualmente. Registro de diferencias en calibration.reference_basis; no es medición mecánica.",
+        "mechanical_accuracy": "approximate",
+        "ports_authority": "ports-manifest.json"
+      }
+    },
+    {
+      "id": "smallrig-vb99-pro-takegrid-v1",
+      "part_id": "smallrig-vb99-pro",
+      "subcomponent_id": null,
+      "exact_product_name": "SmallRig VB99 Pro Mini V-Mount Battery",
+      "model_number": "4292",
+      "status": "approved",
+      "source": {
+        "method": "manual",
+        "url": "https://github.com/pabloteran57-glitch/http-127.0.0.1-5173-/blob/main/scripts/lib/authored-models.mjs",
+        "author": "Takegrid / reconstrucción propia en código"
+      },
+      "rights": {
+        "license": "custom-reviewed",
+        "evidence_url": "https://github.com/pabloteran57-glitch/http-127.0.0.1-5173-/blob/main/docs/authored-model-rights.md",
+        "reviewed_on": "2026-10-06",
+        "commercial": true,
+        "redistribution": true,
+        "modification": true,
+        "source_images_authorized": false,
+        "source_images_evidence": "No usa imágenes, texturas ni archivos ajenos en el GLB; referencias de fabricante consultadas localmente, no cargadas a IA ni redistribuidas.",
+        "attribution": "VB99 Pro: reconstrucción propia Takegrid, 2026. Geometría y materiales aproximados desde medidas y referencias; sin respaldo del fabricante. Uso como recurso de Takegrid, no licencia independiente de fabricación."
+      },
+      "artifact": {
+        "path": "/models/smallrig-vb99-pro-takegrid-v1.glb",
+        "sha256": "03db0f7cb6f2d920340a23886e50fed65f51b09f5f89fb3af6c7ddf205330087",
+        "bytes": 215404,
+        "triangles": 4260
+      },
+      "calibration": {
+        "units": "metres",
+        "uniform_scale": 1,
+        "offset_mm": [
+          0,
+          0,
+          0
+        ],
+        "rotation_deg": [
+          0,
+          0,
+          0
+        ],
+        "bounds_mm": [
+          73.9000029861927,
+          107.29999840259552,
+          55.524999275803566
+        ],
+        "reference_url": "https://static.smallrig.com/mall/img/public/1730100759046_.pdf",
+        "reference_basis": "4292, 107.2 × 73.2 × 55.2 mm publicados. Relieves y pantalla ilustrativos; puertos y límites eléctricos siguen en manifiestos."
+      },
+      "review": {
+        "identity": true,
+        "scale": true,
+        "views": true,
+        "interfaces": true,
+        "evidence": "Revisión local del lote en perspectiva, frontal, posterior, lateral y superior; fotografías/manuales canónicos consultados. Huecos, alcance del componente y orientación cotejados visualmente. Registro de diferencias en calibration.reference_basis; no es medición mecánica.",
+        "mechanical_accuracy": "approximate",
+        "ports_authority": "ports-manifest.json"
+      }
+    },
+    {
+      "id": "dji-rs4-pro-combo-takegrid-v1",
+      "part_id": "dji-rs4-pro-combo",
+      "subcomponent_id": null,
+      "exact_product_name": "DJI RS 4 Pro Combo",
+      "model_number": null,
+      "status": "approved",
+      "source": {
+        "method": "manual",
+        "url": "https://github.com/pabloteran57-glitch/http-127.0.0.1-5173-/blob/main/scripts/lib/authored-models.mjs",
+        "author": "Takegrid / reconstrucción propia en código"
+      },
+      "rights": {
+        "license": "custom-reviewed",
+        "evidence_url": "https://github.com/pabloteran57-glitch/http-127.0.0.1-5173-/blob/main/docs/authored-model-rights.md",
+        "reviewed_on": "2026-10-06",
+        "commercial": true,
+        "redistribution": true,
+        "modification": true,
+        "source_images_authorized": false,
+        "source_images_evidence": "No usa imágenes, texturas ni archivos ajenos en el GLB; referencias de fabricante consultadas localmente, no cargadas a IA ni redistribuidas.",
+        "attribution": "DJI RS 4 Pro: reconstrucción propia Takegrid, 2026. Geometría y materiales aproximados desde medidas y referencias; sin respaldo del fabricante. Uso como recurso de Takegrid, no licencia independiente de fabricación."
+      },
+      "artifact": {
+        "path": "/models/dji-rs4-pro-combo-takegrid-v1.glb",
+        "sha256": "fd14ac362b43c3c76239c2019fea46992d3c51bfd1441a24066c4e0f6cb7e8fd",
+        "bytes": 371872,
+        "triangles": 7832
+      },
+      "calibration": {
+        "units": "metres",
+        "uniform_scale": 1,
+        "offset_mm": [
+          0,
+          0,
+          0
+        ],
+        "rotation_deg": [
+          0,
+          0,
+          0
+        ],
+        "bounds_mm": [
+          146.49999886751175,
+          214.49999511241913,
+          169.49999704957008
+        ],
+        "reference_url": "https://www.dji.com/rs-4-pro/specs",
+        "reference_basis": "Sólo unidad superior RS 4 Pro estimada, sin BG30/cámara/lente/trípode fusionados. Las cotas DJI desplegado con grip estándar no aplican a esta subescena; no se deforma para igualarlas. No es el archivo DJI_RS4_PRO_2 ni el GLB DJI."
+      },
+      "review": {
+        "identity": true,
+        "scale": true,
+        "views": true,
+        "interfaces": true,
+        "evidence": "Revisión local del lote en perspectiva, frontal, posterior, lateral y superior; fotografías/manuales canónicos consultados. Huecos, alcance del componente y orientación cotejados visualmente. Registro de diferencias en calibration.reference_basis; no es medición mecánica.",
+        "mechanical_accuracy": "approximate",
+        "ports_authority": "ports-manifest.json"
+      }
+    },
+    {
+      "id": "dji-rs-bg70-takegrid-v1",
+      "part_id": "dji-rs-bg70",
+      "subcomponent_id": null,
+      "exact_product_name": "DJI RS BG70 High-Capacity Battery Grip",
+      "model_number": null,
+      "status": "approved",
+      "source": {
+        "method": "manual",
+        "url": "https://github.com/pabloteran57-glitch/http-127.0.0.1-5173-/blob/main/scripts/lib/authored-models.mjs",
+        "author": "Takegrid / reconstrucción propia en código"
+      },
+      "rights": {
+        "license": "custom-reviewed",
+        "evidence_url": "https://github.com/pabloteran57-glitch/http-127.0.0.1-5173-/blob/main/docs/authored-model-rights.md",
+        "reviewed_on": "2026-10-06",
+        "commercial": true,
+        "redistribution": true,
+        "modification": true,
+        "source_images_authorized": false,
+        "source_images_evidence": "No usa imágenes, texturas ni archivos ajenos en el GLB; referencias de fabricante consultadas localmente, no cargadas a IA ni redistribuidas.",
+        "attribution": "Empuñadura BG70: reconstrucción propia Takegrid, 2026. Geometría y materiales aproximados desde medidas y referencias; sin respaldo del fabricante. Uso como recurso de Takegrid, no licencia independiente de fabricación."
+      },
+      "artifact": {
+        "path": "/models/dji-rs-bg70-takegrid-v1.glb",
+        "sha256": "cff40403e5eeb7701629c616bf15d7640628f94ded27e39ce10f40403a9e445b",
+        "bytes": 47504,
+        "triangles": 892
+      },
+      "calibration": {
+        "units": "metres",
+        "uniform_scale": 1,
+        "offset_mm": [
+          0,
+          0,
+          0
+        ],
+        "rotation_deg": [
+          0,
+          0,
+          0
+        ],
+        "bounds_mm": [
+          43.0000014603138,
+          165.00000655651093,
+          43.299997225403786
+        ],
+        "reference_url": "https://store.dji.com/product/dji-rs-bg70-high-capacity-battery-grip",
+        "reference_basis": "Envolvente 43 × 165 × 43 mm aproximada en layout. Referencia visual BG70 separada del gimbal; geometría exacta del fabricante pendiente."
+      },
+      "review": {
+        "identity": true,
+        "scale": true,
+        "views": true,
+        "interfaces": true,
+        "evidence": "Revisión local del lote en perspectiva, frontal, posterior, lateral y superior; fotografías/manuales canónicos consultados. Huecos, alcance del componente y orientación cotejados visualmente. Registro de diferencias en calibration.reference_basis; no es medición mecánica.",
+        "mechanical_accuracy": "approximate",
+        "ports_authority": "ports-manifest.json"
+      }
+    },
+    {
+      "id": "smallrig-3026b-takegrid-v1",
+      "part_id": "smallrig-3026b",
+      "subcomponent_id": null,
+      "exact_product_name": "SmallRig Monitor Mount with NATO Clamp for DJI RS Series",
+      "model_number": "3026B",
+      "status": "approved",
+      "source": {
+        "method": "manual",
+        "url": "https://github.com/pabloteran57-glitch/http-127.0.0.1-5173-/blob/main/scripts/lib/authored-models.mjs",
+        "author": "Takegrid / reconstrucción propia en código"
+      },
+      "rights": {
+        "license": "custom-reviewed",
+        "evidence_url": "https://github.com/pabloteran57-glitch/http-127.0.0.1-5173-/blob/main/docs/authored-model-rights.md",
+        "reviewed_on": "2026-10-06",
+        "commercial": true,
+        "redistribution": true,
+        "modification": true,
+        "source_images_authorized": false,
+        "source_images_evidence": "No usa imágenes, texturas ni archivos ajenos en el GLB; referencias de fabricante consultadas localmente, no cargadas a IA ni redistribuidas.",
+        "attribution": "Soporte NATO 3026B: reconstrucción propia Takegrid, 2026. Geometría y materiales aproximados desde medidas y referencias; sin respaldo del fabricante. Uso como recurso de Takegrid, no licencia independiente de fabricación."
+      },
+      "artifact": {
+        "path": "/models/smallrig-3026b-takegrid-v1.glb",
+        "sha256": "fbb089163392295ee7367f0556a5b93d5ca1303ca8075635864ca7c1b8f46621",
+        "bytes": 141452,
+        "triangles": 2768
+      },
+      "calibration": {
+        "units": "metres",
+        "uniform_scale": 1,
+        "offset_mm": [
+          0,
+          0,
+          0
+        ],
+        "rotation_deg": [
+          0,
+          0,
+          0
+        ],
+        "bounds_mm": [
+          157.5000062584877,
+          40.79999774694443,
+          32.00000151991844
+        ],
+        "reference_url": "https://static.smallrig.com/mall/img/public/m1twezvd88j-1751250182064_.pdf",
+        "reference_basis": "3026B, 152.6 × 54.8 × 38 mm publicados en otra pose; brazo y cabezal aproximados. Conserva la orientación candidata del layout; sin adaptadores ficticios ni carga dinámica certificada."
+      },
+      "review": {
+        "identity": true,
+        "scale": true,
+        "views": true,
+        "interfaces": true,
+        "evidence": "Revisión local del lote en perspectiva, frontal, posterior, lateral y superior; fotografías/manuales canónicos consultados. Huecos, alcance del componente y orientación cotejados visualmente. Registro de diferencias en calibration.reference_basis; no es medición mecánica.",
+        "mechanical_accuracy": "approximate",
+        "ports_authority": "ports-manifest.json"
+      }
+    },
+    {
+      "id": "smallhd-indie-7-takegrid-v1",
+      "part_id": "smallhd-indie-7",
+      "subcomponent_id": null,
+      "exact_product_name": "SmallHD Indie 7 Touchscreen On-Camera Monitor",
+      "model_number": "MON-INDIE-7",
+      "status": "approved",
+      "source": {
+        "method": "manual",
+        "url": "https://github.com/pabloteran57-glitch/http-127.0.0.1-5173-/blob/main/scripts/lib/authored-models.mjs",
+        "author": "Takegrid / reconstrucción propia en código"
+      },
+      "rights": {
+        "license": "custom-reviewed",
+        "evidence_url": "https://github.com/pabloteran57-glitch/http-127.0.0.1-5173-/blob/main/docs/authored-model-rights.md",
+        "reviewed_on": "2026-10-06",
+        "commercial": true,
+        "redistribution": true,
+        "modification": true,
+        "source_images_authorized": false,
+        "source_images_evidence": "No usa imágenes, texturas ni archivos ajenos en el GLB; referencias de fabricante consultadas localmente, no cargadas a IA ni redistribuidas.",
+        "attribution": "SmallHD Indie 7: reconstrucción propia Takegrid, 2026. Geometría y materiales aproximados desde medidas y referencias; sin respaldo del fabricante. Uso como recurso de Takegrid, no licencia independiente de fabricación."
+      },
+      "artifact": {
+        "path": "/models/smallhd-indie-7-takegrid-v1.glb",
+        "sha256": "ff992e200bf82fcd9148d9cda2b397b47f28b75ac492626f0a6728098bfc91b9",
+        "bytes": 324300,
+        "triangles": 6640
+      },
+      "calibration": {
+        "units": "metres",
+        "uniform_scale": 1,
+        "offset_mm": [
+          0,
+          0,
+          0
+        ],
+        "rotation_deg": [
+          0,
+          0,
+          0
+        ],
+        "bounds_mm": [
+          180.10000884532928,
+          118.79999935626984,
+          33.82499888539314
+        ],
+        "reference_url": "https://www.bhphotovideo.com/c/product/1593398-REG/smallhd_mon_indie_7_indie_7_touchscreen_on_camera.html",
+        "reference_basis": "180.1 × 118.6 × 33.5 mm publicados. Pantalla frontal -Z, dos alojamientos NP-F vacíos y rosca inferior ilustrativa; no se añaden baterías ni se certifica pinout."
+      },
+      "review": {
+        "identity": true,
+        "scale": true,
+        "views": true,
+        "interfaces": true,
+        "evidence": "Revisión local del lote en perspectiva, frontal, posterior, lateral y superior; fotografías/manuales canónicos consultados. Huecos, alcance del componente y orientación cotejados visualmente. Registro de diferencias en calibration.reference_basis; no es medición mecánica.",
+        "mechanical_accuracy": "approximate",
+        "ports_authority": "ports-manifest.json"
+      }
+    },
+    {
+      "id": "dji-mic-2-kit-takegrid-v1",
+      "part_id": "dji-mic-2-kit",
+      "subcomponent_id": "receiver",
+      "exact_product_name": "DJI Mic 2 (2 TX + 1 RX + Charging Case)",
+      "model_number": "DMR02",
+      "status": "approved",
+      "source": {
+        "method": "manual",
+        "url": "https://github.com/pabloteran57-glitch/http-127.0.0.1-5173-/blob/main/scripts/lib/authored-models.mjs",
+        "author": "Takegrid / reconstrucción propia en código"
+      },
+      "rights": {
+        "license": "custom-reviewed",
+        "evidence_url": "https://github.com/pabloteran57-glitch/http-127.0.0.1-5173-/blob/main/docs/authored-model-rights.md",
+        "reviewed_on": "2026-10-06",
+        "commercial": true,
+        "redistribution": true,
+        "modification": true,
+        "source_images_authorized": false,
+        "source_images_evidence": "No usa imágenes, texturas ni archivos ajenos en el GLB; referencias de fabricante consultadas localmente, no cargadas a IA ni redistribuidas.",
+        "attribution": "DJI Mic 2 / receptor RX: reconstrucción propia Takegrid, 2026. Geometría y materiales aproximados desde medidas y referencias; sin respaldo del fabricante. Uso como recurso de Takegrid, no licencia independiente de fabricación."
+      },
+      "artifact": {
+        "path": "/models/dji-mic-2-kit-takegrid-v1.glb",
+        "sha256": "e82a77ed2c5c9b0011f19358e76a21fc81611ab50b24acee4216f12dac3ca462",
+        "bytes": 158944,
+        "triangles": 3184
+      },
+      "calibration": {
+        "units": "metres",
+        "uniform_scale": 1,
+        "offset_mm": [
+          0,
+          0,
+          0
+        ],
+        "rotation_deg": [
+          0,
+          0,
+          0
+        ],
+        "bounds_mm": [
+          54.499998688697815,
+          22.575000301003456,
+          28.35999894887209
+        ],
+        "reference_url": "https://www.dji.com/mic-2/specs",
+        "reference_basis": "Sólo DMR02 RX, 54.2 × 28.36 × 22.49 mm y 28 g publicados; ejes adaptados al layout. Zapata integrada, OLED y dial estimados. No se fusionan TX/estuche ni se simula adaptador MI."
+      },
+      "review": {
+        "identity": true,
+        "scale": true,
+        "views": true,
+        "interfaces": true,
+        "evidence": "Revisión local del lote en perspectiva, frontal, posterior, lateral y superior; fotografías/manuales canónicos consultados. Huecos, alcance del componente y orientación cotejados visualmente. Registro de diferencias en calibration.reference_basis; no es medición mecánica.",
+        "mechanical_accuracy": "approximate",
+        "ports_authority": "ports-manifest.json"
+      }
+    },
+    {
+      "id": "sony-xlr-h1-takegrid-v1",
+      "part_id": "sony-xlr-h1",
+      "subcomponent_id": null,
+      "exact_product_name": "Sony XLR-H1 Top Handle Unit",
+      "model_number": "XLR-H1",
+      "status": "approved",
+      "source": {
+        "method": "manual",
+        "url": "https://github.com/pabloteran57-glitch/http-127.0.0.1-5173-/blob/main/scripts/lib/authored-models.mjs",
+        "author": "Takegrid / reconstrucción propia en código"
+      },
+      "rights": {
+        "license": "custom-reviewed",
+        "evidence_url": "https://github.com/pabloteran57-glitch/http-127.0.0.1-5173-/blob/main/docs/authored-model-rights.md",
+        "reviewed_on": "2026-10-06",
+        "commercial": true,
+        "redistribution": true,
+        "modification": true,
+        "source_images_authorized": false,
+        "source_images_evidence": "No usa imágenes, texturas ni archivos ajenos en el GLB; referencias de fabricante consultadas localmente, no cargadas a IA ni redistribuidas.",
+        "attribution": "Sony XLR-H1: reconstrucción propia Takegrid, 2026. Geometría y materiales aproximados desde medidas y referencias; sin respaldo del fabricante. Uso como recurso de Takegrid, no licencia independiente de fabricación."
+      },
+      "artifact": {
+        "path": "/models/sony-xlr-h1-takegrid-v1.glb",
+        "sha256": "bd516fb85c525adb1720f493f5ae096f0f9029362382d06a0c1854100e176c3a",
+        "bytes": 227200,
+        "triangles": 4560
+      },
+      "calibration": {
+        "units": "metres",
+        "uniform_scale": 1,
+        "offset_mm": [
+          0,
+          0,
+          0
+        ],
+        "rotation_deg": [
+          0,
+          0,
+          0
+        ],
+        "bounds_mm": [
+          58.900000527501106,
+          74.00000095367432,
+          124.49999898672104
+        ],
+        "reference_url": "https://electronics.sony.com/imaging/imaging-accessories/imaging-compact-camera-accessories/p/xlrh1",
+        "reference_basis": "XLR-H1; envolvente 65 × 78 × 128 mm aproximada en layout. Pie, mandos y conectores estimados; no verifica roscas, asiento ni compatibilidad con gimbal."
+      },
+      "review": {
+        "identity": true,
+        "scale": true,
+        "views": true,
+        "interfaces": true,
+        "evidence": "Revisión local del lote en perspectiva, frontal, posterior, lateral y superior; fotografías/manuales canónicos consultados. Huecos, alcance del componente y orientación cotejados visualmente. Registro de diferencias en calibration.reference_basis; no es medición mecánica.",
+        "mechanical_accuracy": "approximate",
+        "ports_authority": "ports-manifest.json"
+      }
+    }
+  ]
 }

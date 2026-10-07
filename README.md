@@ -8,6 +8,7 @@ Interfaz, descripciones, avisos y guías en español. Se conservan los nombres o
 
 ```sh
 npm install
+npm run build:models
 npm run dev
 npm run validate
 npm run build
@@ -35,6 +36,8 @@ Versión 0.2.0: borradores recuperables, historial de cinco versiones y restaura
 
 Versión 0.2.4: el botón de perfil junto a **Mis rigs** crea bibliotecas locales independientes. El perfil inicial conserva rigs, historial y borradores anteriores sin moverlos ni borrar v1. La elección se recuerda por pestaña; cambiar confirma primero los borradores recuperables. Sin contraseña, privacidad frente a otras personas del navegador ni sincronización. El visor permite reintentar un fallo de carga sin recargar toda la app; montaje espera a modelos listos o respaldo comunicado. [Pruebas y límites](docs/viewer-profiles-qa.md).
 
+Versión 0.2.5: 14 reconstrucciones propias separadas, con montura, jaula abierta, abrazaderas, pantallas y mandos. **Examinar pieza en 3D** abre giro, cinco vistas y precisión de cada recurso. Son aproximaciones visuales, no modelos exactos del fabricante ni los originales de Sketchfab. No se cambian pesos, puertos, soportes o selecciones por la forma de una malla. [Procedencia](docs/authored-model-rights.md) y [cobertura/pedientes](docs/model-production.md).
+
 **Ayuda y versión** conserva una orientación de tres pasos, preparación optativa sin conexión, privacidad y descripción local de incidencias. No añade una quinta tarea ni reintroduce exportar planes. Instalación web según navegador, no App Store.
 
 Laboratorio optativo: `/?laboratorio=1`. Compara reposo/giro y demanda/continuo en la misma escena. Intervalos JavaScript, no tiempos GPU ni mejora porcentual contra la versión anterior. `npm run check:beta` muestra criterios y evidencia pendientes; `--strict` no permite declarar beta lista.
@@ -51,7 +54,7 @@ Ruta hacia beta: [plan de avance](docs/beta-roadmap.md), con fases, criterios y 
 - `data/assembly-profile-content.json`: bloques de instrucciones condicionados a las piezas y circuitos existentes; no añade especificaciones ni compatibilidades.
 - `data/engineering-manifest.json`: límites publicados y políticas de masa/centros ponderados.
 - `data/sources.json`, `data/geometry-references.json`, `data/geometry-audit.json`: atribución, descargas SHA-256 y referencias revisadas.
-- `data/model-production.json`, `data/model-assets.json`: trabajo de fidelidad y registro de GLB auditados. Importador preparado; cero modelos reales aprobados. [Producción](docs/model-production.md) y [contrato](docs/model-asset-contract.md).
+- `data/model-production.json`, `data/model-assets.json`: trabajo de fidelidad y registro de 14 GLB propios aproximados auditados; las otras 13 entradas tienen alcance pendiente o no físico explícito. [Producción](docs/model-production.md) y [contrato](docs/model-asset-contract.md).
 - `data/ui-content.json`: nombres cortos y traducciones de presentación; no reemplaza especificaciones ni interfaces canónicas.
 - `data/planner-rules.json`: dependencias conservadoras del catálogo actual y fotogramas de montaje; no certifica compatibilidad universal.
 - `data/catalog-contract.json`: índice derivado de identidad, revisión, guía y geometría; se regenera, no es un segundo catálogo.
@@ -75,7 +78,9 @@ El subtotal móvil depende del perfil; incluye los 28 g del RX cuando está acti
 
 No se importó CAD comunitario no verificado. Toda forma 3D interna y pose es aproximada, incluso donde se conocen cotas exteriores. Pendientes explícitos: BG70, parasol completo, pila de placas, retención y posición exacta del RX, longitudes, radios de curvatura y holguras reales.
 
-Primero fidelidad del catálogo actual, después ampliaciones: la malla visual no decide puertos, masas ni soportes. `npm run test:models` ejecuta 39 pruebas de contrato y carga, incluida cancelación y liberación de recursos compartidos; no genera permisos ni un escaneo real. `npm run test:planner` incluye 17 pruebas de perfiles locales. La masa de cuerpo FX3 se corrigió a 630 g con fuente Sony US; 715 g incluye batería/tarjeta. GLB oficial DJI descargado bajo `research/model-incoming/`, en cuarentena por permisos, componentes fusionados y Draco; no forma parte de la web pública.
+Primero fidelidad del catálogo actual, después ampliaciones: la malla visual no decide puertos, masas ni soportes. `npm run test:models` ejecuta 50 comprobaciones de contrato, carga y reconstrucción reproducible; no genera permisos ni un escaneo real. `npm run test:planner` incluye 17 pruebas de perfiles locales. La masa de cuerpo FX3 se corrigió a 630 g con fuente Sony US; 715 g incluye batería/tarjeta. GLB oficial DJI descargado bajo `research/model-incoming/`, en cuarentena por permisos, componentes fusionados y Draco; no forma parte de la web pública.
+
+Generación propia: `scripts/lib/authored-models.mjs` y `npm run build:models`. Ambos builds regeneran las mallas antes de compararlas con las huellas revisadas; nunca modifican el registro automáticamente. No es necesario subir binarios de investigación al repositorio. Ni fotos oficiales ni referencias descargadas entran al paquete público. Meshy conectado pero sin generación; FX3 solicitado al autor, DJI_RS4_PRO_2 pendiente de descarga/licencia. No afirmar que esos originales estén integrados.
 
 ## Verificación
 

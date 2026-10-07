@@ -1,16 +1,17 @@
 {
   "name": "rs4-pro-fx3-rig-planner",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "private": true,
   "type": "module",
   "scripts": {
     "dev": "vite --config vite.config.ts",
+    "build:models": "node scripts/build-authored-models.mjs",
     "validate": "node scripts/validate-data.mjs && node scripts/audit-model-assets.mjs && npm run test:planner && npm run test:models",
     "test:planner": "node scripts/test-planner.mjs && node scripts/test-connections.mjs && node scripts/test-offline.mjs && node scripts/test-profiles.mjs",
-    "test:models": "node scripts/test-model-assets.mjs && node scripts/test-model-runtime.mjs",
+    "test:models": "node scripts/test-model-assets.mjs && node scripts/test-model-runtime.mjs && node scripts/test-authored-models.mjs",
     "check:beta": "node scripts/check-beta-readiness.mjs",
-    "build": "npm run validate && tsc --noEmit && vite build --config vite.config.ts",
-    "build:public": "node scripts/validate-data.mjs --public && node scripts/audit-model-assets.mjs && npm run test:planner && npm run test:models && tsc --noEmit && vite build --config vite.config.ts --mode public-demo && node scripts/check-public-build.mjs",
+    "build": "npm run build:models && npm run validate && tsc --noEmit && vite build --config vite.config.ts",
+    "build:public": "npm run build:models && node scripts/validate-data.mjs --public && node scripts/audit-model-assets.mjs && npm run test:planner && npm run test:models && tsc --noEmit && vite build --config vite.config.ts --mode public-demo && node scripts/check-public-build.mjs",
     "preview:public": "vite preview --config vite.config.ts --mode public-demo",
     "preview": "vite preview --config vite.config.ts"
   },

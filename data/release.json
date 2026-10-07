@@ -1,11 +1,11 @@
 {
-  "version":"0.2.4",
+  "version":"0.2.5",
   "released_on":"2026-10-06",
   "status":"engineering_prototype",
   "label":"Prototipo de ingeniería",
   "catalog_revision":"fx3-rs4-2026-10-05",
   "storage":"local_only",
   "account_sync":"deferred_by_user",
-  "updates":["Perfiles locales con bibliotecas, historial y borradores independientes; perfil inicial conserva todos los planes anteriores", "Cambio por pestaña con confirmación de recuperación antes de salir; sin contraseña ni nube", "Reintento del visor tras fallos de módulo o escena sin recargar toda la app", "Carga GLB auditada con tamaño, hash, cancelación y espera acotada; respaldo aproximado y fallos visibles", "Montaje espera a que termine la carga o se comunique el respaldo antes de avanzar", "Selección directa, monitor vertical, RX Mic 2, las cuatro tareas y siete plantillas conservados"],
-  "limitations":["No validado con un rig físico completo", "Diez altas en investigación, no instalables", "GLB oficial RS 4 Pro descargado en cuarentena local, no redistribuido ni aprobado; ningún modelo generado en Meshy", "Perfiles locales no son autenticación, privacidad, cuenta sincronizada ni enlaces privados", "Instalación web depende del navegador; no es una publicación en App Store"]
+  "updates":["14 mallas propias separadas para los nodos del visor; detalles de montura, jaula abierta, abrazaderas, pantallas y mandos, con geometría aproximada", "Detalle de pieza giratorio con cinco vistas y procedencia desplegable", "Generación GLB reproducible desde código, huellas auditadas antes de compilar; respaldo ante fallos de carga", "Pesos, puertos, cadenas de montaje, selección exacta, perfiles locales y bibliotecas preservados", "Monitor vertical, RX Mic 2, las cuatro tareas y siete plantillas conservados"],
+  "limitations":["Las 14 mallas propias son aproximadas; no son modelos exactos, CAD oficiales, escaneos de Sketchfab ni resultados de Meshy", "13 entradas restantes del catálogo no tienen malla de producto: cables, software y accesorios en reserva requieren distinto alcance", "No validado con un rig físico completo; una malla no prueba asiento, holgura, pinout ni equilibrio", "Diez altas en investigación, no instalables", "GLB oficial RS 4 Pro permanece en cuarentena; enlace DJI_RS4_PRO_2 sin archivo/licencia confirmados; archivo FX3 solicitado al autor", "Los GLB no se precargan sin conexión; el visor conserva geometría aproximada de respaldo", "Perfiles locales no son autenticación, privacidad, cuenta sincronizada ni enlaces privados", "Instalación web depende del navegador; no es una publicación en App Store"]
 }

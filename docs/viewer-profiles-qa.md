@@ -48,8 +48,10 @@ Commit funcional `5520fd2c6ce0ee77be9a3602d557d8b02f8be24b`, versión 0.2.4, ver
 
 GLB obtenido de `model-viewer` oficial DJI, conservado sólo en `research/model-incoming/dji-rs4-pro-official-reference.glb`. SHA-256 `4bca5abbb94becfa5ef6bae5d6b05de2b318dd932b5132c03f7ad3bc18518568`; 8.791.748 bytes. Contiene cámara/óptica/motor/cables y compresión Draco; no es RS 4 Pro aislado ni FX3. Auditoría rechaza la extensión no admitida. Permisos, separación, BG70, escala y optimización pendientes. Ningún modelo real aprobado/generado todavía.
 
-Yeggi revisado como índice, no licencia; resultados de accesorios no sustituyen cuerpos de producto. Meshy confirmado por el usuario y registro gratuito autorizado; formulario abierto pendiente de correo y aceptación explícita de términos. No se consumieron créditos ni subieron imágenes.
+Yeggi revisado como índice, no licencia; resultados de accesorios no sustituyen cuerpos de producto. En el registro original de 0.2.4 Meshy estaba pendiente de acceso. El usuario inició sesión después: cuenta conectada sin fotos cargadas, generación ni consumo de créditos.
+
+Seguimiento 0.2.5: 14 reconstrucciones propias aproximadas, no originales descargados ni resultados de Meshy. Archivo/permiso del escaneo FX3 solicitado al autor con autorización del usuario; DJI_RS4_PRO_2 documentado como candidato sin archivo/licencia confirmados. [Revisión y límites actuales](authored-models-qa.md).
 
 ## Pendientes reales
 
-Derechos/mallas calibradas del catálogo, cuenta Meshy y fotos autorizadas suficientes, pruebas táctiles físicas, mediciones de dispositivos, ensayo completo de soportes/cables, usuarios observados y condiciones de financiación. El plan de siete fases no está terminado.
+Derechos/archivos exactos y resto del catálogo, fotos autorizadas suficientes para Meshy, pruebas táctiles físicas, mediciones de dispositivos, ensayo completo de soportes/cables, usuarios observados y condiciones de financiación. El plan de siete fases no está terminado.

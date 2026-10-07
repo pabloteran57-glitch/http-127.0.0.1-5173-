@@ -3,6 +3,7 @@ dist
 dist-public
 public/references/
 public/previews/
+public/models/*-takegrid-v1.glb
 research/private/
 research/model-incoming/
 public/brand/*.png

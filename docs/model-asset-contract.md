@@ -30,6 +30,7 @@ El factor es **uniforme**: no estirar ejes para hacer coincidir un escaneo con u
 ## Auditoría
 
 ```sh
+npm run build:models
 node scripts/audit-model-assets.mjs
 npm run test:models
 node scripts/sync-docs.mjs
@@ -47,4 +48,12 @@ La carga GLB sólo ocurre para una coincidencia aprobada exacta. Verifica tamañ
 
 Netlify sigue publicando `dist-public`. Vite emite exclusivamente archivos registrados/aprobados, no carpetas de entrada ni referencias. El verificador sólo permite esas rutas GLB adicionales. El worker sigue acotado a módulos/estilos/identidad propios; no se cachean modelos de terceros por defecto. Sin red, el visor puede volver al proxy.
 
-**Estado actual:** 39 pruebas de contrato/carga y laboratorio local de recuperación; cero mallas reales aprobadas. GLB oficial DJI descargado sólo en cuarentena local: 8.791.748 bytes, 192 mallas, 200 nodos y Draco; incluye cámara/óptica ajenas al catálogo. No se relajaron los controles para importarlo. El escaneo de Sketchfab requiere permiso/archivo/escala y reducción; no se extrajo contenido del visor. La nueva generación IA necesita referencias autorizadas y cuenta conectada. No afirmar todavía que los renders hayan sido reemplazados.
+## Reconstrucciones Propias 0.2.5
+
+14 mallas originales separadas sustituyen la geometría básica de los 14 nodos del visor. No son modelos exactos, CAD oficiales, escaneos ni resultados de Meshy. La ficha ofrece **Examinar pieza en 3D**, con giro y cinco vistas; precisión, origen y permiso bajo demanda. Las 13 entradas restantes se desglosan en la cola: cables, software y accesorios no modelados, sin nuevas activaciones.
+
+`npm run build:models` produce los GLB desde código propio en milímetros, convertido a metros con factor uniforme. No cambia el registro de revisión. La auditoría falla si una regeneración difiere de la huella aprobada: un cambio de generador obliga a revisar de nuevo, nunca a autoaprobar. La compilación de Netlify genera las mallas desde el mismo código y publica sólo las auditadas. La revisión documenta diferencias entre caja nominal y salientes/pose; no estira XYZ para disimularlas.
+
+39 pruebas de contrato/carga más 11 de reconstrucción comprueban cobertura, no mutación, separación de piezas, alineación visual de varillas/cabezal, ausencia de texturas ajenas y exportación repetida idéntica. No son pruebas físicas, de GPU ni certificaciones. [Procedencia propia](authored-model-rights.md).
+
+El GLB oficial DJI sigue sólo en cuarentena local: 8.791.748 bytes, 192 mallas, 200 nodos y Draco; incluye cámara/óptica ajenas al catálogo. No se relajaron controles para importarlo. El enlace exacto DJI_RS4_PRO_2 enviado por el usuario no tiene archivo/licencia confirmados. Se solicitó al autor el escaneo FX3 con autorización del usuario; archivo y permiso pendientes. Meshy está conectado, pero no se cargaron fotos, lanzaron tareas ni consumieron créditos. La petición de módulos exactos sigue abierta.

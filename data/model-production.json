@@ -1,13 +1,19 @@
 {
   "version": 1,
   "reviewed_on": "2026-10-06",
-  "status": "pipeline_prepared_assets_pending",
+  "status": "authored_approximate_batch_original_exact_assets_pending",
   "scope": "Mejorar fidelidad de productos ya canónicos, no ampliar catálogo ni activar accesorios en reserva.",
   "authority": {
     "identity_dimensions_mass": "parts-manifest.json",
     "pose_envelope_support": "layout-manifest.json",
-    "ports_connections": ["ports-manifest.json", "cables-manifest.json"],
-    "visual_references": ["geometry-references.json", "geometry-audit.json"],
+    "ports_connections": [
+      "ports-manifest.json",
+      "cables-manifest.json"
+    ],
+    "visual_references": [
+      "geometry-references.json",
+      "geometry-audit.json"
+    ],
     "approved_meshes": "model-assets.json"
   },
   "sequence": [
@@ -22,13 +28,165 @@
     "Probar ensamble, despiece, vertical, audio y montaje móvil sin mover puertos canónicos"
   ],
   "priorities": [
-    {"order":1,"part_id":"sony-fx3","subcomponent_id":null,"status":"reference_ready_rights_and_mesh_pending","required_views":["frontal sin óptica","posterior","lateral de puertos","lateral de empuñadura","superior","inferior"],"constraints":["ILME-FX3, no FX30 ni FX3A","Cotas publicadas excluyen salientes: no asumir bounding box del escaneo equivalente","Cuerpo separado de lente, XLR y jaula","630 g cuerpo solo según Sony US; 715 g con batería/tarjeta. 640 g anteriores sin respaldo corregidos en manifiesto"]},
-    {"order":2,"part_id":"smallrig-4770","subcomponent_id":null,"status":"reference_ready_rights_and_mesh_pending","required_views":["frontal sin cámara","posterior","superior con zapata inclinada","inferior con placa","lateral con abrazadera HDMI"],"constraints":["4770, no 4183 ni 4771","Conservar huecos y zapata; no cerrar la jaula como bloque sólido","Fotografías no verifican posición/tolerancia de roscas ni asiento"]},
-    {"order":3,"part_id":"sony-fe-16-35-gm","subcomponent_id":null,"status":"reference_ready_rights_and_mesh_pending","required_views":["lateral completo","frontal sin tapa","montura","lado de controles"],"constraints":["SEL1635GM primera generación, no GM II","Separar parasol de óptica si no se incluye en la configuración","Un anillo de follow focus imprimible no es el modelo del objetivo"]},
-    {"order":4,"part_id":"dji-mic-2-kit","subcomponent_id":"receiver","status":"reference_ready_rights_and_mesh_pending","required_views":["pantalla/dial","zapata integrada","lado OUT y auriculares","lado USB-C"],"constraints":["DMR02, sólo RX; no fusionar TX ni estuche","28 g y envolvente de receptor publicados","Posición de puertos y asiento conservan incertidumbre canónica"]},
-    {"order":5,"part_id":"dji-rs4-pro-combo","subcomponent_id":null,"status":"reference_ready_rights_and_mesh_pending","required_views":["frontal desplegado","posterior","ambos laterales","interfaces de placas y NATO"],"constraints":["RS 4 Pro, no RS 4","Separar BG30 y usar BG70 elegido","Dimensiones DJI desplegado con grip estándar no certifican rig con BG70","Malla decorativa no aporta cinemática ni límites de motores"]}
+    {
+      "order": 1,
+      "part_id": "sony-fx3",
+      "subcomponent_id": null,
+      "status": "authored_approximate_mesh_exact_asset_pending",
+      "required_views": [
+        "frontal sin óptica",
+        "posterior",
+        "lateral de puertos",
+        "lateral de empuñadura",
+        "superior",
+        "inferior"
+      ],
+      "constraints": [
+        "ILME-FX3, no FX30 ni FX3A",
+        "Cotas publicadas excluyen salientes: no asumir bounding box del escaneo equivalente",
+        "Cuerpo separado de lente, XLR y jaula",
+        "630 g cuerpo solo según Sony US; 715 g con batería/tarjeta. 640 g anteriores sin respaldo corregidos en manifiesto"
+      ]
+    },
+    {
+      "order": 2,
+      "part_id": "smallrig-4770",
+      "subcomponent_id": null,
+      "status": "authored_approximate_mesh_exact_asset_pending",
+      "required_views": [
+        "frontal sin cámara",
+        "posterior",
+        "superior con zapata inclinada",
+        "inferior con placa",
+        "lateral con abrazadera HDMI"
+      ],
+      "constraints": [
+        "4770, no 4183 ni 4771",
+        "Conservar huecos y zapata; no cerrar la jaula como bloque sólido",
+        "Fotografías no verifican posición/tolerancia de roscas ni asiento"
+      ]
+    },
+    {
+      "order": 3,
+      "part_id": "sony-fe-16-35-gm",
+      "subcomponent_id": null,
+      "status": "authored_approximate_mesh_exact_asset_pending",
+      "required_views": [
+        "lateral completo",
+        "frontal sin tapa",
+        "montura",
+        "lado de controles"
+      ],
+      "constraints": [
+        "SEL1635GM primera generación, no GM II",
+        "Separar parasol de óptica si no se incluye en la configuración",
+        "Un anillo de follow focus imprimible no es el modelo del objetivo"
+      ]
+    },
+    {
+      "order": 4,
+      "part_id": "dji-mic-2-kit",
+      "subcomponent_id": "receiver",
+      "status": "authored_approximate_mesh_exact_asset_pending",
+      "required_views": [
+        "pantalla/dial",
+        "zapata integrada",
+        "lado OUT y auriculares",
+        "lado USB-C"
+      ],
+      "constraints": [
+        "DMR02, sólo RX; no fusionar TX ni estuche",
+        "28 g y envolvente de receptor publicados",
+        "Posición de puertos y asiento conservan incertidumbre canónica"
+      ]
+    },
+    {
+      "order": 5,
+      "part_id": "dji-rs4-pro-combo",
+      "subcomponent_id": null,
+      "status": "authored_approximate_mesh_exact_asset_pending",
+      "required_views": [
+        "frontal desplegado",
+        "posterior",
+        "ambos laterales",
+        "interfaces de placas y NATO"
+      ],
+      "constraints": [
+        "RS 4 Pro, no RS 4",
+        "Separar BG30 y usar BG70 elegido",
+        "Dimensiones DJI desplegado con grip estándar no certifican rig con BG70",
+        "Malla decorativa no aporta cinemática ni límites de motores"
+      ]
+    }
   ],
-  "remaining_policy": "Después del piloto, recorrer todas las piezas físicas canónicas por prioridad de uso. Software sin objeto 3D y cables flexibles sin ruta fija inventada. Cada alta repite los mismos controles.",
+  "remaining_policy": "14 nodos del layout tienen reconstrucción propia aproximada. No se da por cumplida la petición de módulos exactos: CAD/escaneos y el resto de piezas físicas siguen pendientes. Software sin objeto 3D, cables sin trayectoria física inventada y accesorios en reserva sin soporte ficticio. Cada alta repite los controles.",
+  "unmodeled": [
+    {
+      "part_id": "smallrig-4253b",
+      "status": "cable_connector_geometry_pending",
+      "reason": "Circuito y extremos conservados en cables/puertos; dummy, regulador y conectores requieren forma verificada. No fingir un cable rígido exacto."
+    },
+    {
+      "part_id": "kondor-blue-hdmi-aa",
+      "status": "cable_connector_geometry_pending",
+      "reason": "Recorrido lógico flexible existente; forma y esfuerzo de cable espiral no medidos."
+    },
+    {
+      "part_id": "dji-hdmi-a-to-c",
+      "status": "cable_connector_geometry_pending",
+      "reason": "Extremos HDMI A/C documentados, ruta de banco; conectores no modelados."
+    },
+    {
+      "part_id": "dji-r-usbc-control",
+      "status": "cable_connector_geometry_pending",
+      "reason": "Ruta USB-C activa según selección; forma de conectores y radios por medir."
+    },
+    {
+      "part_id": "smallhd-dtap-to-2mm-barrel",
+      "status": "cable_connector_geometry_pending",
+      "reason": "Exterior 5.5 mm publicado; interior y pinout de monitor pendientes. No inventar diámetro para modelar."
+    },
+    {
+      "part_id": "dji-focus-pro-lidar",
+      "status": "reserve_component_geometry_pending",
+      "reason": "Modelo separado, revisión y soporte por verificar; sin activación ni cableado implícitos."
+    },
+    {
+      "part_id": "dji-focus-pro-motor",
+      "status": "reserve_component_geometry_pending",
+      "reason": "Motor separado; anillo y calibración SEL1635GM no resueltos."
+    },
+    {
+      "part_id": "dji-lidar-transmission-hub",
+      "status": "reserve_component_geometry_pending",
+      "reason": "No usar como RavenEye ni activarlo sin DJI Transmission correspondiente."
+    },
+    {
+      "part_id": "startech-st122hd4ku",
+      "status": "reserve_component_geometry_pending",
+      "reason": "Sin montaje de gimbal verificado; se conserva sólo en lógica de banco."
+    },
+    {
+      "part_id": "dji-ronin-image-transmitter",
+      "status": "reserve_component_geometry_pending",
+      "reason": "RavenEye separado; soporte y doble HDMI no verificados en rig móvil."
+    },
+    {
+      "part_id": "dji-lavalier",
+      "status": "off_camera_geometry_pending",
+      "reason": "Accesorio del sujeto conectado a TX; no se instala en cámara por seleccionar audio."
+    },
+    {
+      "part_id": "dji-ronin-app",
+      "status": "software_no_mesh",
+      "reason": "Aplicación, sin objeto mecánico ni masa física."
+    },
+    {
+      "part_id": "sony-monitor-control-app",
+      "status": "software_no_mesh",
+      "reason": "Aplicación, sin objeto mecánico ni masa física."
+    }
+  ],
   "licensed_references": [
     {
       "id": "fx3-henry-ccby2-front",
@@ -59,8 +217,22 @@
       "sha256": "4bca5abbb94becfa5ef6bae5d6b05de2b318dd932b5132c03f7ad3bc18518568",
       "license": null,
       "reviewed_on": "2026-10-06",
-      "structural_inspection": {"meshes":192,"nodes":200,"embedded_images":4,"triangles_from_accessors":457909,"required_decoder":"KHR_draco_mesh_compression","web_audit":"rejected_unsupported_extension"},
-      "observations": ["URL expuesta por model-viewer en la sección 3D oficial, no extraída de buffers privados", "Archivo descargado únicamente para referencia local, fuera del paquete público", "Grafo incluye CAMERA_CINE_DFM, óptica 50 F1P2, motor y cables; no es el componente RS 4 Pro aislado", "DJI advierte que las dimensiones de esa vista pueden diferir del producto real", "Permiso de modificación/redistribución y separación BG30/BG70 pendientes; no usar su cámara como Sony FX3", "No se relajó el importador ni se movieron puertos para admitir esta escena"]
+      "structural_inspection": {
+        "meshes": 192,
+        "nodes": 200,
+        "embedded_images": 4,
+        "triangles_from_accessors": 457909,
+        "required_decoder": "KHR_draco_mesh_compression",
+        "web_audit": "rejected_unsupported_extension"
+      },
+      "observations": [
+        "URL expuesta por model-viewer en la sección 3D oficial, no extraída de buffers privados",
+        "Archivo descargado únicamente para referencia local, fuera del paquete público",
+        "Grafo incluye CAMERA_CINE_DFM, óptica 50 F1P2, motor y cables; no es el componente RS 4 Pro aislado",
+        "DJI advierte que las dimensiones de esa vista pueden diferir del producto real",
+        "Permiso de modificación/redistribución y separación BG30/BG70 pendientes; no usar su cámara como Sony FX3",
+        "No se relajó el importador ni se movieron puertos para admitir esta escena"
+      ]
     },
     {
       "id": "yeggi-fx3-accessories-search",
@@ -70,18 +242,58 @@
       "status": "search_reviewed_no_matching_body_asset_confirmed",
       "downloaded": false,
       "license": null,
-      "observations": ["Resultados revisados: bandejas, protectores, jaulas de terceros y rigs DIY, no cuerpo ILME-FX3 autorizado confirmado", "Yeggi es un índice: descarga y licencia deben comprobarse en la página del creador", "No se usaron cotas de un accesorio imprimible como cotas de cámara o de HawkLock 4770"]
+      "observations": [
+        "Resultados revisados: bandejas, protectores, jaulas de terceros y rigs DIY, no cuerpo ILME-FX3 autorizado confirmado",
+        "Yeggi es un índice: descarga y licencia deben comprobarse en la página del creador",
+        "No se usaron cotas de un accesorio imprimible como cotas de cámara o de HawkLock 4770"
+      ]
     },
     {
       "id": "sketchfab-fx3-scan-punitsabnani",
       "part_id": "sony-fx3",
       "source_url": "https://sketchfab.com/3d-models/sony-fx3-camera-scan-8eaae19fabce47daa5c0d031a1f0fc5e",
       "author": "PunitSabnani",
-      "status": "quarantine_permission_download_scale_pending",
+      "status": "permission_requested_file_scale_pending",
       "downloaded": false,
       "published_triangles_approx": 2500000,
       "license": null,
-      "observations": ["Página visible sin descarga directa ni licencia reutilizable explícita; autor pide contacto","Escaneo declarado por autor, no CAD Sony","Visor de origen avisó modelo demasiado pesado para el dispositivo de revisión","No se contactó al autor ni se extrajeron buffers del visor"]
+      "observations": [
+        "Página visible sin descarga directa ni licencia reutilizable explícita; autor pide contacto",
+        "Escaneo declarado por autor, no CAD Sony; original PLY de aproximadamente 98 MB según descripción, sin UV/PBR",
+        "Visor de origen avisó modelo demasiado pesado para el dispositivo de revisión",
+        "Solicitud de archivo, uso web comercial, optimización y unidades enviada con autorización del usuario; respuesta y permiso pendientes. No se extrajeron buffers del visor"
+      ]
+    },
+    {
+      "id": "sketchfab-dji-rs4-pro-2-user-reference",
+      "part_id": "dji-rs4-pro-combo",
+      "source_url": "https://sketchfab.com/3d-models/dji-rs4-pro-2-3f1e362f18b842389f0e2d6172cd230a",
+      "author": "3DCoolHuman (@zhang1394725324)",
+      "status": "quarantine_download_license_component_scope_scale_pending",
+      "downloaded": false,
+      "published_triangles_approx": 458000,
+      "license": null,
+      "reviewed_on": "2026-10-06",
+      "observations": [
+        "Enlace exacto DJI_RS4_PRO_2 enviado por el usuario; revisado en navegador",
+        "Página no expone descarga ni licencia reutilizable verificadas",
+        "Archivo y separación de grip/cámara/lente no confirmados; no se extraen buffers",
+        "No se atribuye esta malla a la reconstrucción propia de Takegrid ni se afirma equivalencia con el GLB oficial DJI"
+      ]
+    },
+    {
+      "id": "sketchfab-a7iv-sel1635-scan-free-candidate",
+      "part_id": "sony-fe-16-35-gm",
+      "source_url": "https://sketchfab.com/3d-models/sony-a7m4-with-gm1635-f28-93fb2cac30e741f580faf022795f7d50",
+      "author": "Metazeon",
+      "status": "not_imported_fused_wrong_camera_lens_isolation_pending",
+      "downloaded": false,
+      "license": "CC Attribution publicada; versión y archivo pendientes de comprobar",
+      "observations": [
+        "Recurso gratuito con control Download 3D Model y atribución en página",
+        "Escaneo A7 IV con objetivo fusionado, no FX3; no sustituye el cuerpo canónico",
+        "Revisión exacta SEL1635GM, separación, escala y presupuesto web requieren revisión del archivo antes de usarlo"
+      ]
     },
     {
       "id": "cults-sel1635gm-focus-ring",
@@ -91,24 +303,55 @@
       "status": "rejected_wrong_asset_scope",
       "downloaded": false,
       "license": null,
-      "observations": ["Modelo de anillo accesorio; sus cotas no son la geometría ni dimensiones completas del objetivo"]
+      "observations": [
+        "Modelo de anillo accesorio; sus cotas no son la geometría ni dimensiones completas del objetivo"
+      ]
     }
   ],
   "ai": {
     "candidate_platform": "Meshy",
     "platform_identification": "Meshy confirmado expresamente por el usuario; Yeggi y Sketchfab para búsqueda de recursos existentes",
-    "status": "awaiting_sufficient_authorized_views_and_connected_account",
-    "access_check": "Formulario de registro gratuito abierto: pide correo o proveedor y avisa aceptación de términos al continuar. Usuario autoriza registro; pendiente correo y aceptación explícita de términos en este paso. No se creó cuenta, cargó foto ni consumió crédito.",
+    "status": "connected_free_account_authorized_views_pending",
+    "access_check": "Usuario inició sesión en Meshy en Edge. Cuenta gratuita observada el 6 de octubre: 100 créditos; no se cargó foto, lanzó tarea, descargó salida ni consumió crédito. El acceso no resuelve derechos ni vistas faltantes.",
     "source_images_policy": "Descarga oficial no equivale a permiso de IA ni de redistribución. No subir referencias sin prueba de permiso.",
     "method": "Image to 3D; Multi-View sólo si la cuenta/plan confirmado lo permite",
     "payment_policy": "No contratar planes, comprar créditos ni usar servicios de pago sin autorización específica",
     "output_accuracy": "Reconstrucción visual aproximada; no CAD ni evidencia de tornillería, roscas, masa, pinout o tolerancias",
     "sources": [
-      {"url":"https://help.meshy.ai/en/articles/9996860-how-to-use-meshy-image-to-3d","claim":"Conversión de foto a malla y exportación"},
-      {"url":"https://help.meshy.ai/en/articles/12634481-how-to-use-multi-view","claim":"Multi-View usa una imagen principal y hasta tres adicionales; requiere plan de pago"},
-      {"url":"https://help.meshy.ai/en/articles/16102098-can-i-use-meshy-assets-commercially","claim":"Derechos de resultado dependen del plan y de derechos sobre referencias; free CC BY 4.0 con atribución"}
+      {
+        "url": "https://help.meshy.ai/en/articles/9996860-how-to-use-meshy-image-to-3d",
+        "claim": "Conversión de foto a malla y exportación"
+      },
+      {
+        "url": "https://help.meshy.ai/en/articles/12634481-how-to-use-multi-view",
+        "claim": "Multi-View usa una imagen principal y hasta tres adicionales; requiere plan de pago"
+      },
+      {
+        "url": "https://help.meshy.ai/en/articles/16102098-can-i-use-meshy-assets-commercially",
+        "claim": "Derechos de resultado dependen del plan y de derechos sobre referencias; free CC BY 4.0 con atribución"
+      },
+      {
+        "url": "https://help.meshy.ai/en/articles/15696428-what-is-included-on-the-free-plan",
+        "claim": "Plan gratuito consultado: créditos mensuales y descargas limitadas de Meshy 6 Lite; no asumir funciones de planes de pago"
+      }
     ]
   },
-  "release_gates": ["Identidad/revisión y componente correctos","Licencia, modificación y distribución web comercial verificadas","Derechos de imágenes/IA comprobados si aplica","GLB autocontenido, hash y límites auditados","Escala uniforme, base de referencia y revisión visual documentadas","Puertos, soporte, masa y cables siguen en manifiestos","Atribución visible, regresiones y comparación móvil"],
-  "not_claimed": ["Modelo 3D generado por IA o integrado como pieza aprobada","Permiso del fabricante","Réplica mecánica certificada","Rendimiento GPU medido","Prueba física de montaje"]
+  "release_gates": [
+    "Identidad/revisión y componente correctos",
+    "Licencia, modificación y distribución web comercial verificadas",
+    "Derechos de imágenes/IA comprobados si aplica",
+    "GLB autocontenido, hash y límites auditados",
+    "Escala uniforme, base de referencia y revisión visual documentadas",
+    "Puertos, soporte, masa y cables siguen en manifiestos",
+    "Atribución visible, regresiones y comparación móvil"
+  ],
+  "not_claimed": [
+    "Modelo 3D generado por Meshy",
+    "Descarga del modelo DJI_RS4_PRO_2 o del escaneo FX3 de Sketchfab",
+    "Todos los productos del catálogo modelados",
+    "Permiso del fabricante",
+    "Réplica mecánica exacta o certificada",
+    "Rendimiento GPU medido",
+    "Prueba física de montaje"
+  ]
 }
