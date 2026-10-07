@@ -174,7 +174,7 @@
       "remaining": [
         "Extender revisión semántica documentada: cuatro de dieciocho circuitos cubiertos; montaje mecánico y demás interfaces pendientes",
         "Tres accesorios de monitor añadidos en el orden técnico, aún sin validación física",
-        "Incorporar un segundo conjunto real con manifiesto, poses, puertos, guía y recursos propios; el ecosistema sintético sólo valida el software"
+        "Integrar el segundo conjunto real FX30/SEL20F18G: ficha documental de soporte, energía nativa y guía preparada; poses, recursos propios y regresiones de interfaz pendientes"
       ],
       "depends_on": [
         "stabilize-core"
@@ -196,11 +196,11 @@
       "order": 3,
       "title": "Primer lote de catálogo ampliado",
       "status": "research_prepared_not_activated",
-      "verification_report": "docs/catalog-manifest-reviews.md",
+      "verification_report": "docs/catalog-pilot-qa.md",
       "remaining": [
-        "Completar manifiestos parciales: FX30, SEL20F18G y NP-FZ100 revisados con fuentes por campo; siete candidatos sin nueva revisión",
-        "Distribución, soportes, tablas de compatibilidad y conexiones del lote",
-        "Guías, geometría autorizada y configuraciones completas",
+        "FX30, SEL20F18G y NP-FZ100: faltan materiales, salientes y cotas de montaje; siete candidatos sin nueva revisión",
+        "Piloto FX30/4770/SEL20F18G/NP-FZ100 con pares oficiales y ficha relacional; holguras y masa instalada por medir",
+        "Crear geometría propia del piloto y después integrar reglas, guía dinámica, selección y guardado; no copiar mallas FX3",
         "Ensayos físicos y liberación"
       ],
       "depends_on": [

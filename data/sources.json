@@ -481,7 +481,9 @@
       "url": "https://static.smallrig.com/mall/img/public/1725874097334_.pdf",
       "local_path": "/references/smallrig-4770-manual.pdf",
       "sha256": "ad06ed589ec6beb368bffddeef96827c835790b44fdffd444be5846eef0f7498",
-      "notes": "Documento del fabricante descargado; especificaciones y diagramas de montaje revisados, sin certificación CAD de holguras."
+      "checked_on": "2026-10-07",
+      "review_subject_part_ids": ["smallrig-4770", "sony-fx3", "sony-fx30"],
+      "notes": "Documento del fabricante descargado. Revisión visual adicional de páginas 2-5: 160 x 101.2 x 66.2 mm, 208 +/-5 g, materiales, compatibilidad FX3/FX30, interfaces y sujeción inferior/laterales. No son cotas de agujeros, par de apriete ni certificación CAD de holguras."
     },
     {
       "id": "audit-doc-smallrig-1674-manual",
@@ -659,7 +661,7 @@
     {
       "id":"intake-sony-fx30-helpguide","brand":"Sony","type":"official",
       "url":"https://helpguide.sony.net/ilc/2220/v1/en/print.pdf",
-      "checked_on":"2026-10-07","notes":"Revisión textual de páginas 19, 89 y 525–526: diferencias FX30/FX30B, montaje de óptica, terminales y batería nativa. Sin descargar o redistribuir el manual ni afirmar coordenadas mecánicas."
+      "checked_on":"2026-10-07","review_subject_part_ids":["sony-fx30","sony-np-fz100"],"notes":"Revisión textual de páginas 19, 89-90 y 525–526: diferencias FX30/FX30B, montaje de óptica, terminales y batería nativa. Sin descargar o redistribuir el manual ni afirmar coordenadas mecánicas."
     },
     {
       "id":"intake-sony-sel20f18g-specs","brand":"Sony","type":"official",
@@ -670,6 +672,36 @@
       "id":"intake-sony-npfz100-regional","brand":"Sony","type":"official",
       "url":"https://www.sony.com/en-cm/electronics/interchangeable-lens-cameras-batteries-chargers/np-fz100",
       "checked_on":"2026-10-07","notes":"Texto oficial indexado: dimensiones/masa aproximadas y capacidad nominal. Acceso directo falló; verificación directa pendiente, no inferir rango o contactos."
+    },
+    {
+      "id":"intake-sony-fx30-specs-jp","brand":"Sony","type":"official",
+      "url":"https://www.sony.jp/pro-cam/products/ILME-FX30/spec.html",
+      "checked_on":"2026-10-07","notes":"Página oficial consultada directamente: cuerpo solo 562 g, con batería/tarjeta 646 g, con asa/batería/tarjeta 951 g; cotas aproximadas 129.7 x 77.8 x 84.5 mm; HDMI Type A x1 y USB-C x1. No sumar batería de nuevo a 646/951 g."
+    },
+    {
+      "id":"intake-sony-sel20f18g-specs-jp","brand":"Sony","type":"official",
+      "url":"https://www.sony.jp/ichigan/products/SEL20F18G/",
+      "checked_on":"2026-10-07","notes":"Ficha oficial revisada en navegador: 73.5 x 84.7 mm, 373 g aproximados, filtro 67 mm, E-mount. Parasol ALC-SH162 incluido; cotas y masa pendientes, sin añadirlo implícitamente."
+    },
+    {
+      "id":"intake-sony-fx30-sel20f18g-pair","brand":"Sony","type":"official",
+      "url":"https://support.d-imaging.sony.co.jp/www/cscs/lens_body/detail.php?area=jp&lang=es&prdct_name=ILME-FX30&rel_prdct_name=SEL20F18G",
+      "checked_on":"2026-10-07","review_subject_part_ids":["sony-fx30","sony-fe-20-f18-g"],"notes":"Página oficial revisada en navegador: encabezado ILME-FX30 - SEL20F18G y resultado Totalmente compatible. No indica firmware ni demuestra holgura con jaula, gimbal o matte box."
+    },
+    {
+      "id":"intake-sony-npfz100-us","brand":"Sony","type":"official",
+      "url":"https://electronics.sony.com/imaging/imaging-accessories/interchangeable-lens-camera-accessories/p/npfz100?sku=npfz100",
+      "checked_on":"2026-10-07","notes":"About This Item consultado directamente: dimensiones aproximadas W 38.7 x H 22.7 x D 51.7 mm, masa aproximada 83 g, 7.2 V nominal, 16.4 Wh y 2280 mAh. No publica pinout, intervalo de descarga ni autonomía del rig."
+    },
+    {
+      "id":"intake-sony-fx30-battery-install","brand":"Sony","type":"official",
+      "url":"https://helpguide.sony.net/ilc/2220/v1/en/contents/TP1000867601.html",
+      "checked_on":"2026-10-07","notes":"Guía FX30: insertar contra palanca de retención, cerrar y bloquear cubierta; apagar y comprobar lámpara de acceso antes de retirar. No demuestra acceso con jaula instalada."
+    },
+    {
+      "id":"intake-sony-fx30-bottom","brand":"Sony","type":"official",
+      "url":"https://helpguide.sony.net/ilc/2220/v1/en/contents/TP1000886849.html",
+      "checked_on":"2026-10-07","notes":"Cara inferior FX30: entrada de ventilación libre, compartimento de batería y rosca de trípode 1/4-20 UNC; tornillo de trípode menor de 5.5 mm. Esta cota no caracteriza todos los tornillos de jaula ni su longitud suministrada."
     }
   ],
   "audit_on": "2026-10-07"

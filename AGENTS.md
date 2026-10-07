@@ -48,6 +48,7 @@
 - Raíces, grupos excluyentes, rutas contextuales y acciones de completar piezas se declaran en esas reglas. Cadenas ausentes, ciclos o decisiones contradictorias no activan geometría ni se solucionan eligiendo por el usuario. `vertical_frame` y `visual_subassemblies` en la distribución describen el marco ilustrativo y los objetos de malla, no medidas mecánicas nuevas. Ejecutar las pruebas de extensibilidad incluidas en `test:planner`.
 - `data/catalog-intake.json`: investigación en cuarentena; no confundirla con piezas seleccionables.
 - Sus `manifest_reviews` enlazan campos reales con fuentes y localizadores; mantener revisiones parciales y acceso fallido explícitos. No activan productos ni autorizan geometría.
+- `data/catalog-pilot.json`: ficha relacional en cuarentena del conjunto exacto; referencia masas de las autoridades, sin duplicar especificaciones, coordenadas o piezas implícitas. Validar con `check:catalog` y `test:catalog`. Documentación, integración visual y ensayo físico son estados diferentes; el modo estricto no aprueba un piloto incompleto.
 - `data/catalog-contract.json`: índice generado desde manifiestos, nunca otra autoridad de especificaciones.
 - `data/connection-reviews.json`: evidencia por circuito y revisión exacta; los valores eléctricos permanecen en cables/puertos. No reutilizar una prueba para otro modelo, puerto o firmware.
 - `data/beta-protocol.json`, `data/beta-evidence.json`, `data/release.json`, `data/funding-plan.json`: criterios, evidencia y alcance; no fabricar usuarios, ensayos ni presupuestos.

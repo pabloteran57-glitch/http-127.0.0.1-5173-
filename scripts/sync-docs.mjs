@@ -1,4 +1,5 @@
 import { readFileSync, writeFileSync } from "node:fs";
+import { validateCatalogPilot } from "./lib/catalog-pilot.mjs";
 const read=name=>JSON.parse(readFileSync(new URL(`../data/${name}.json`,import.meta.url),"utf8"));
 const parts=read("parts-manifest"),layout=read("layout-manifest"),cables=read("cables-manifest"),ports=read("ports-manifest"),assembly=read("assembly-guide"),variants=read("variants"),refs=read("geometry-references"),audit=read("geometry-audit");
 const ui=read("ui-content");
@@ -6,6 +7,7 @@ const planner=read("planner-rules"),intake=read("catalog-intake");
 const roadmap=read("product-roadmap");
 const modelProduction=read("model-production"),modelAssets=read("model-assets");
 const connectionReviews=read("connection-reviews"),sourceList=read("sources").sources;
+const pilot=read("catalog-pilot"),pilotReport=validateCatalogPilot(pilot,{intake,parts,sources:{sources:sourceList}});
 const contract={version:1,catalog_revision:planner.catalog_revision,scope:"Índice derivado; identidad en parts-manifest, forma en layout-manifest y guía en assembly-profile-content.",products:parts.parts.map(p=>({part_id:p.id,record_revision:planner.catalog_revision,model_number:p.model_number,identity_source_url:p.primary_source_url,geometry_profile_id:layout.nodes.find(n=>n.id===p.id)?.id??null,geometry_status:layout.nodes.some(n=>n.id===p.id)?"approximate":"not_modeled",assembly_steps:planner.assembly_frames.filter(f=>f.add_part_ids.includes(p.id)).map(f=>f.step),release_status:planner.parked_part_ids.includes(p.id)?"reserve":"planning_candidate",physically_tested:false}))};
 writeFileSync(new URL("../data/catalog-contract.json",import.meta.url),JSON.stringify(contract,null,2)+"\n");
 const name=id=>ui.part_names[id]??parts.parts.find(p=>p.id===id)?.exact_product_name??id;
@@ -14,7 +16,66 @@ const join=list=>list.length?list.join("; "):"Ninguno";
 const bullets=list=>list.map(item=>"- "+item).join("\n");
 const write=(file,content)=>writeFileSync(new URL("../docs/"+file,import.meta.url),content.trim()+"\n");
 const intakeReviews=intake.manifest_reviews??[];
-write("catalog-manifest-reviews.md",`# Revisiones del manifiesto piloto\n\nFuente: \`data/catalog-intake.json\`. Revisión ${intake.reviewed_on}. ${intakeReviews.length} revisiones parciales, sin productos activados ni instrucciones físicas liberadas. Los otros candidatos conservan su fecha y alcance anteriores.\n\n${intakeReviews.map(review=>`## ${intake.products.find(p=>p.id===review.part_id).exact_product_name}\n\nRevisión: ${review.reviewed_on}.\n\n| Campos en investigación | Fuente y localizador | Método |\n|---|---|---|\n${review.citations.map(citation=>`| ${citation.field_paths.map(path=>`\`${path}\``).join(", ")} | [Sony](${sourceList.find(source=>source.id===citation.source_id).url}): ${citation.locator} | ${citation.method==="direct_official_page"?"Página oficial consultada":citation.method==="official_pdf_text_review"?"Sección textual del PDF oficial; no medición de figura":"Texto oficial indexado; acceso directo falló y sigue pendiente"} |`).join("\n")}\n\nPendiente:\n\n${bullets(review.remaining)}`).join("\n\n")}\n\n## Límites\n\nNo se copian puertos, mallas ni poses de FX3. La montura declarada no prueba funciones, firmware o holgura con jaula. NP-FZ100 es batería nativa de FX30 documentada; tensión nominal no equivale a rango completo ni pinout. Las diferencias ILME-FX30 / ILME-FX30B de contenido incluido se conservan sin añadir piezas al usuario. El catálogo instalable mantiene ${parts.parts.length} entradas.\n`);
+const reviewMethods={direct_official_page:"Página oficial consultada",official_browser_page_review:"Página oficial revisada en navegador",official_pdf_text_review:"Sección textual del PDF oficial; no medición de figura",official_pdf_visual_review:"Diagrama oficial revisado visualmente; no CAD",official_indexed_text_direct_access_failed:"Texto oficial indexado; acceso directo falló en esa revisión"};
+write("catalog-manifest-reviews.md",`# Revisiones del manifiesto piloto\n\nFuente: \`data/catalog-intake.json\`. Revisión ${intake.reviewed_on}. ${intakeReviews.length} revisiones parciales, sin productos activados ni instrucciones físicas liberadas. Los otros candidatos conservan su fecha y alcance anteriores.\n\n${intakeReviews.map(review=>`## ${intake.products.find(p=>p.id===review.part_id).exact_product_name}\n\nRevisión: ${review.reviewed_on}.\n\n| Campos en investigación | Fuente y localizador | Método |\n|---|---|---|\n${review.citations.map(citation=>`| ${citation.field_paths.map(path=>`\`${path}\``).join(", ")} | [Sony](${sourceList.find(source=>source.id===citation.source_id).url}): ${citation.locator} | ${reviewMethods[citation.method]??"Método no reconocido; revisar"} |`).join("\n")}\n\nPendiente:\n\n${bullets(review.remaining)}`).join("\n\n")}\n\n## Límites\n\nNo se copian puertos, mallas ni poses de FX3. El par exacto FX30/SEL20F18G tiene [confirmación Sony](${sourceList.find(s=>s.id==="intake-sony-fx30-sel20f18g-pair").url}); la tabla no especifica firmware ni certifica holguras. NP-FZ100 es batería nativa de FX30 documentada; tensión nominal no equivale a rango completo ni pinout. Las diferencias ILME-FX30 / ILME-FX30B de contenido incluido se conservan sin añadir piezas al usuario. La [ficha del conjunto](catalog-pilot-blueprint.md) define distribución relacional, alimentación y guía documental. El catálogo instalable mantiene ${parts.parts.length} entradas.\n`);
+const pilotName=id=>intake.products.find(p=>p.id===id)?.exact_product_name??name(id);
+const pilotSources=ids=>ids.map(id=>{const source=sourceList.find(s=>s.id===id);return `[${source.brand}](${source.url})`;}).join("; ");
+write("catalog-pilot-blueprint.md",`# ${pilot.title}
+
+Generado desde \`data/catalog-pilot.json\`, con especificaciones referenciadas de \`catalog-intake.json\` y \`parts-manifest.json\`. Revisión ${pilot.reviewed_on}.
+
+${pilot.scope}
+
+## 1. Manifiesto
+
+| Pieza | Modelo exacto | Autoridad | Fuentes |
+|---|---|---|---|
+${pilot.manifest.map(p=>`| ${pilotName(p.part_id)} | ${p.model_number} | \`${p.authority}\` | ${pilotSources(p.source_ids)} |`).join("\n")}
+
+Subtotal: **aproximadamente ${pilotReport.subtotal_g} g**. ${pilot.mass.note}
+
+Excluidos: ${join(pilot.mass.exclusions)}.
+
+${pilot.claims.map(c=>`- ${c.model_numbers.join(" + ")}: ${pilotSources([c.source_id])}, ${c.locator}. ${c.limitation}`).join("\n")}
+
+## 2. Distribución física
+
+No hay coordenadas ni rotaciones calibradas: sus campos permanecen \`null\`. El grafo expresa relaciones de montaje, no mediciones.
+
+${pilot.layout.map(p=>`### ${pilotName(p.part_id)}\n\n- Posición: ${p.placement}\n- Orientación: ${p.orientation}\n- Motivo: ${p.why}\n- Rechazado: ${join(p.rejected)}\n- Comprobar: ${join(p.checks)}`).join("\n\n")}
+
+## 3. Alimentación y conexiones
+
+${pilot.connections.map(c=>`- \`${c.id}\`: ${pilotName(c.from_part_id)} → ${pilotName(c.to_part_id)}; ${c.connector_a} → ${c.connector_b}.\n- Tipo: alimentación por contactos; ${intake.products.find(p=>p.id===c.nominal_voltage_ref.part_id)[c.nominal_voltage_ref.field]} V nominales, ${pilotSources([c.nominal_voltage_ref.source_id])}. Pinout y rango: pendientes. Longitud: no aplica.\n- Recorrido: ${c.routing}\n- Retención: ${c.retention}\n- Riesgos: ${join(c.risk_notes)}`).join("\n\n")}
+
+Vista ensamblada: ${pilot.routing_views.assembled} Vista separada: ${pilot.routing_views.exploded}
+
+Colores reservados para futuras rutas: energía \`${pilot.cable_overlays.power}\`, vídeo \`${pilot.cable_overlays.video}\`, datos \`${pilot.cable_overlays.data}\`. ${pilot.cable_overlays.note}
+
+## 4. Guía documental
+
+${pilot.assembly.map((s,index)=>`### ${index+1}. ${s.title}\n\n- Montar/preparar: ${s.mount}\n- Lugar: ${s.where}\n- Comprobar: ${join(s.verify)}\n- Equilibrio: ${s.rebalance}\n- Fuentes: ${pilotSources(s.source_ids)}.`).join("\n\n")}
+
+No prescribe un par de apriete inventado. La cota Sony menor de 5.5 mm pertenece al tornillo de trípode del cuerpo; no demuestra longitudes de los tornillos suministrados de la jaula.
+
+## 5. Visor
+
+${pilot.viewer.note} Sin modelo integrado ni reproducción de montaje del piloto.
+
+## 6. Variantes
+
+${pilot.variants.note}
+
+No incluidos: ${join(pilot.not_included)}.
+
+## Criterios pendientes
+
+${pilot.gates.map(g=>`- ${g.status==="documented"?"Documentado":"Pendiente"}: ${g.note}`).join("\n")}
+
+${pilot.physical_validation.note}
+
+Validar estructura: \`npm run check:catalog\`. Exigir liberación: \`npm run check:catalog -- --strict\` devuelve error mientras falten geometría e integración. Ensayo físico y aceptación de beta permanecen separados; un subtotal o una compilación no los certifica.
+`);
 const weight=n=>{const p=parts.parts.find(p=>p.id===n.id);return n.subcomponent_id?p.subcomponents?.find(c=>c.id===n.subcomponent_id)?.weight_g??0:p.planning_weight_g??0;};
 const mass=v=>layout.nodes.filter(n=>n.mass_domain==="moving"&&v.active_part_ids.includes(n.id)).reduce((sum,n)=>sum+weight(n),0);
 const disclaimer="Plan de ingeniería, no montaje certificado. Medidas publicadas no prueban forma exacta, enganche de tornillos, equilibrio, rigidez, holguras ni compatibilidad de toda la pila. Fotos y geometría aproximada no son CAD calibrado.";
@@ -229,7 +290,7 @@ Medios de fabricante para investigación local, no licencia abierta de redistrib
 
 No hay medición del conjunto físico ni certificación de producción. El plan conserva esos límites en datos, documentación e interfaz; los planes se guardan en Mis rigs, sin exportación de archivos.
 `);
-write("catalog-pilot.md",`# Lote piloto de catálogo\n\nFuente canónica de investigación: \`data/catalog-intake.json\`. Revisión ${intake.reviewed_on}. **Diez candidatos; ninguno activado.** No se incluyen imágenes sin permiso ni formas heredadas.\n\n## Manifiesto inicial\n\n| Producto | Modelo | Masa publicada (g) | Cotas publicadas (mm) | Fuente |\n|---|---|---:|---|---|\n${intake.products.map(p=>`| ${p.exact_product_name} | ${p.model_number} | ${p.weight_approximate?"~ ":""}${p.weight_g} | ${p.dimensions.approximate?"~ ":""}${p.dimensions.diameter_mm?`D ${p.dimensions.diameter_mm} × L ${p.dimensions.length_mm}`:`W ${p.dimensions.width_mm} × H ${p.dimensions.height_mm} × D ${p.dimensions.depth_mm}`} | [Sony](${p.source_url}) |`).join("\n")}\n\n## Límites y liberación\n\n${bullets(intake.common_limits)}\n\n${intake.release_gates.map((g,i)=>`${i+1}. ${g}.`).join("\n")}\n\n## Conjuntos candidatos\n\n${intake.configuration_candidates.map(c=>`- \`${c.id}\`: ${c.part_ids.join(", ")}. ${c.reason}`).join("\n")}\n\nDistribución, cableado, guía y representación pendientes. Este lote no modifica las ${parts.parts.length} entradas del catálogo actual.\n`);
+write("catalog-pilot.md",`# Lote piloto de catálogo\n\nFuente canónica de investigación: \`data/catalog-intake.json\`. Revisión ${intake.reviewed_on}. **Diez candidatos; ninguno activado.** No se incluyen imágenes sin permiso ni formas heredadas.\n\n## Manifiesto inicial\n\n| Producto | Modelo | Masa publicada (g) | Cotas publicadas (mm) | Fuente |\n|---|---|---:|---|---|\n${intake.products.map(p=>`| ${p.exact_product_name} | ${p.model_number} | ${p.weight_approximate?"~ ":""}${p.weight_g} | ${p.dimensions.approximate?"~ ":""}${p.dimensions.diameter_mm?`D ${p.dimensions.diameter_mm} × L ${p.dimensions.length_mm}`:`W ${p.dimensions.width_mm} × H ${p.dimensions.height_mm} × D ${p.dimensions.depth_mm}`} | [Sony](${p.source_url}) |`).join("\n")}\n\n## Límites y liberación\n\n${bullets(intake.common_limits)}\n\n${intake.release_gates.map((g,i)=>`${i+1}. ${g}.`).join("\n")}\n\n## Conjuntos candidatos\n\n${intake.configuration_candidates.map(c=>`- \`${c.id}\`: ${c.part_ids.join(", ")}. ${c.reason}`).join("\n")}\n\nFX30/SEL20F18G: [ficha técnica del conjunto](catalog-pilot-blueprint.md) con pares oficiales, distribución relacional, alimentación nativa y cinco etapas documentales. Geometría e integración pendientes; los demás conjuntos no reciben esa verificación por analogía. Este lote no modifica las ${parts.parts.length} entradas del catálogo actual.\n`);
 write("product-progress.md",`# Avance por fases\n\nFuente: \`data/product-roadmap.json\`. Estado: prototipo en curso. Ningún criterio externo se da por cumplido a partir de compilación.\n\n| Fase | Estado de preparación | Evidencia y trabajo restante |\n|---|---|---|\n${roadmap.phases.map(p=>`| ${p.order}. ${p.title} | \`${p.status}\` | [Documento](${p.verification_report.replace("docs/","")}); ${p.remaining.join("; ")} |`).join("\n")}\n\nDecisión del usuario: guardado local por ahora. Cuentas, sincronización y enlaces privados siguen en el plan futuro, aplazados. Catálogo activo sin ampliaciones no verificadas.\n`);
 write("connection-reviews.md",`# Revisión de conexiones
 

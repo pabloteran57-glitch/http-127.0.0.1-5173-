@@ -68,6 +68,7 @@ Ruta hacia beta: [plan de avance](docs/beta-roadmap.md), con fases, criterios y 
 - `data/planner-rules.json`: dependencias conservadoras del catálogo actual y fotogramas de montaje; no certifica compatibilidad universal.
 - `data/catalog-contract.json`: índice derivado de identidad, revisión, guía y geometría; se regenera, no es un segundo catálogo.
 - `data/catalog-intake.json`: diez candidatos Sony investigados, no activados; [lote piloto](docs/catalog-pilot.md).
+- `data/catalog-pilot.json`: [ficha FX30/SEL20F18G](docs/catalog-pilot-blueprint.md), cuatro piezas, relaciones de soporte y guía documental; no instala productos. `npm run check:catalog` comprueba estructura y `npm run test:catalog` prueba rechazos. Geometría, integración y ensayo físico pendientes.
 - `data/beta-protocol.json`, `data/beta-evidence.json`: tareas propuestas y observaciones reales; un registro vacío no certifica éxito.
 - `data/release.json`, `data/funding-plan.json`: alcance versionado y preparación financiera sin costes, fechas ni usuarios inventados.
 

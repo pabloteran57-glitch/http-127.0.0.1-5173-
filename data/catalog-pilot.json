@@ -1,0 +1,68 @@
+{
+  "version": 1,
+  "reviewed_on": "2026-10-07",
+  "status": "research_only",
+  "configuration_id": "fx30-handheld-prime",
+  "title": "Piloto FX30 a mano con objetivo fijo",
+  "context": "handheld",
+  "part_ids": ["sony-fx30", "smallrig-4770", "sony-fe-20-f18-g", "sony-np-fz100"],
+  "scope": "Ficha documental en cuarentena. No instala piezas ni modifica los rigs guardados. No es un conjunto ensayado ni una plantilla disponible.",
+  "phase_order": ["manifest", "layout", "cables_power", "assembly", "viewer", "variants"],
+  "manifest": [
+    {"part_id":"sony-fx30","authority":"catalog-intake","model_number":"ILME-FX30","mass_field":"weight_g","mass_basis":"body_only","source_ids":["intake-sony-fx30-specs-jp","intake-sony-fx30-helpguide"],"remaining":["Materiales no revisados","Coordenadas de montajes y salientes no medidos"]},
+    {"part_id":"smallrig-4770","authority":"parts-manifest","model_number":"4770","mass_field":"planning_weight_g","mass_basis":"complete_cage_kit","source_ids":["audit-doc-smallrig-4770-manual"],"remaining":["Masa del subconjunto realmente instalado","Longitudes de tornillos y par de apriete no verificados"]},
+    {"part_id":"sony-fe-20-f18-g","authority":"catalog-intake","model_number":"SEL20F18G","mass_field":"weight_g","mass_basis":"published_lens","source_ids":["intake-sony-sel20f18g-specs-jp"],"remaining":["Envolvente de salientes y parasol no medida","Materiales no revisados"]},
+    {"part_id":"sony-np-fz100","authority":"catalog-intake","model_number":"NP-FZ100","mass_field":"weight_g","mass_basis":"single_native_battery","source_ids":["intake-sony-npfz100-us"],"remaining":["Pinout y rango de descarga no publicados en las fuentes revisadas"]}
+  ],
+  "claims": [
+    {"id":"fx30-sel20-pair","kind":"camera_lens","part_ids":["sony-fx30","sony-fe-20-f18-g"],"model_numbers":["ILME-FX30","SEL20F18G"],"source_id":"intake-sony-fx30-sel20f18g-pair","locator":"Encabezado ILME-FX30 - SEL20F18G; resultado Totalmente compatible","method":"official_browser_page_review","status":"manufacturer_documented","firmware_basis":"not_specified_by_manufacturer","limitation":"Compatibilidad del par, no holgura de jaula ni certificación de todas las versiones de firmware."},
+    {"id":"fx30-4770-support","kind":"camera_cage","part_ids":["sony-fx30","smallrig-4770"],"model_numbers":["ILME-FX30","4770"],"source_id":"audit-doc-smallrig-4770-manual","locator":"Páginas 3 y 5: compatibilidad FX30 y secuencia de sujeción inferior/laterales","method":"official_pdf_visual_review","status":"manufacturer_documented","limitation":"Diagramas sin coordenadas, enganche medido ni par de apriete publicado."},
+    {"id":"fx30-npfz100-native","kind":"native_battery","part_ids":["sony-fx30","sony-np-fz100"],"model_numbers":["ILME-FX30","NP-FZ100"],"source_id":"intake-sony-fx30-helpguide","locator":"Página 19, contenido: NP-FZ100; página 526, especificaciones de batería","method":"official_pdf_text_review","status":"manufacturer_documented","limitation":"Batería nativa, no cable D-Tap ni especificación de pinout."}
+  ],
+  "layout": [
+    {"part_id":"sony-fx30","parent_id":null,"claim_id":null,"placement":"Núcleo sostenido por el operador; ventilación inferior libre.","orientation":"Objetivo hacia la escena, pantalla accesible al operador.","position_mm":null,"rotation_deg":null,"why":"Mantener controles, pantalla, tarjeta y acceso a batería sin accesorios implícitos.","rejected":["Copiar la pose y puertos del cuerpo FX3","Añadir un gimbal por defecto"],"checks":["Entrada y salida de ventilación despejadas","Controles y pantalla utilizables con la jaula elegida"]},
+    {"part_id":"smallrig-4770","parent_id":"sony-fx30","claim_id":"fx30-4770-support","placement":"Jaula en U alrededor del cuerpo; asientos inferior y laterales indicados por SmallRig.","orientation":"Coincidir con el diagrama del manual; no hay transformación mecánica calibrada.","position_mm":null,"rotation_deg":null,"why":"Soporte específico FX30 documentado, sin placa ni adaptador inventado.","rejected":["Usar un solo anclaje ignorando los laterales del manual","Usar el riel superior a la vez que un asa XLR"],"checks":["Usar fijaciones suministradas según manual, sin forzar","Comprobar asiento, acceso al compartimento y pantalla en el ejemplar real"]},
+    {"part_id":"sony-fe-20-f18-g","parent_id":"sony-fx30","claim_id":"fx30-sel20-pair","placement":"Montura E frontal de FX30, sin adaptador.","orientation":"Alinear índices blancos y girar según el manual hasta retención.","position_mm":null,"rotation_deg":null,"why":"Par exacto confirmado por Sony; núcleo compacto sin matte box ni parasol añadido.","rejected":["Heredar longitud, forma o parasol de SEL1635GM","Introducir un adaptador de montura sin necesidad"],"checks":["Bloqueo del objetivo y acceso al botón de liberación","Anillos accesibles; holguras con la jaula no certificadas"]},
+    {"part_id":"sony-np-fz100","parent_id":"sony-fx30","claim_id":"fx30-npfz100-native","placement":"Dentro del compartimento nativo; retenida por la palanca y cubierta bloqueada.","orientation":"Seguir la inserción del manual; contactos y posición interna sin coordenadas publicadas.","position_mm":null,"rotation_deg":null,"why":"Alimentación nativa sin dummy, V-mount, cables o soportes adicionales.","rejected":["Representar la batería como un bloque externo bajo la cámara","Sumarla otra vez a la masa de cuerpo con batería"],"checks":["Cubierta bloqueada y palanca reteniendo","Acceso con jaula y ventilación comprobados en el ejemplar real"]}
+  ],
+  "mass": {
+    "calculation": "sum_manifest_mass_fields",
+    "approximate": true,
+    "exclusions": ["Tarjeta de memoria no seleccionada", "Parasol ALC-SH162 no seleccionado", "Tapas retiradas para montar", "Diferencias del subconjunto de jaula instalado"],
+    "note": "Subtotal documental, no peso medido, centro de gravedad, equilibrio ni capacidad dinámica. 208 g representa el kit de jaula; pesar si se retiran riel o abrazadera. No deducir la masa de tarjeta por diferencias de cifras aproximadas."
+  },
+  "connections": [
+    {
+      "id":"pilot-pwr-npfz100-fx30","type":"power","display_kind":"contacts",
+      "from_part_id":"sony-np-fz100","to_part_id":"sony-fx30","claim_id":"fx30-npfz100-native",
+      "connector_a":"Contactos nativos NP-FZ100","connector_b":"Alojamiento nativo FX30",
+      "nominal_voltage_ref":{"part_id":"sony-np-fz100","field":"nominal_voltage_v","source_id":"intake-sony-npfz100-us"},
+      "voltage_range_v":null,"pinout":null,"source_port_position_mm":null,"destination_port_position_mm":null,
+      "cable_part_id":null,"ideal_length_mm":null,
+      "routing":"Contacto interno directo, no trazado de cable externo ni anclajes inventados.",
+      "retention":"Palanca y cubierta según la guía FX30; comprobar acceso con 4770.",
+      "risk_notes":["Tensión nominal no equivale a rango de descarga","No puentear contactos ni usar esta ficha para un dummy"],"mandatory":true
+    }
+  ],
+  "cable_overlays": {"power":"#e9ae68","video":"#6ebbc4","data":"#b1c876","note":"Este piloto no tiene cables externos. La energía se explica por contacto; no dibujar una curva desde batería a cámara."},
+  "routing_views": {"assembled":"Contacto interno de batería, sin líneas externas.","exploded":"Relación batería/compartimento etiquetada, no trayectoria de inserción físicamente simulada."},
+  "assembly": [
+    {"id":"pilot-core","title":"Preparar el cuerpo","introduced_part_ids":["sony-fx30"],"mount":"Cuerpo apagado, tapas protegidas y núcleo sin accesorios externos.","where":"Superficie estable y limpia, antes de montar la jaula.","source_ids":["intake-sony-fx30-helpguide","intake-sony-fx30-bottom"],"verify":["SKU y firmware del ejemplar registrados","Ventilación inferior identificada y sin cubrir"],"rebalance":"No aplica: sin gimbal; revisar reparto y comodidad al añadir masa."},
+    {"id":"pilot-cage","title":"Asegurar HawkLock 4770","introduced_part_ids":["smallrig-4770"],"mount":"Presentar el cuerpo en la jaula y seguir la sujeción inferior/laterales ilustrada, con las fijaciones suministradas.","where":"Alrededor del cuerpo, conforme a la página 5 del manual 4770.","source_ids":["audit-doc-smallrig-4770-manual","intake-sony-fx30-bottom"],"verify":["Asiento sin forzar y sin holgura evidente","Sin bloqueo de ventilación, pantalla o cubierta de batería","No extrapolar el límite de tornillo de trípode a todas las fijaciones de jaula; par de apriete pendiente"],"rebalance":"Sin equilibrio de motores; comprobar agarre. El kit no añade asa XLR ni monitor."},
+    {"id":"pilot-lens","title":"Acoplar FE 20mm F1.8 G","introduced_part_ids":["sony-fe-20-f18-g"],"mount":"Cámara apagada: alinear índices y girar suavemente hasta el bloqueo del manual Sony.","where":"Montura E del cuerpo; sin adaptador.","source_ids":["intake-sony-fx30-helpguide","intake-sony-fx30-sel20f18g-pair"],"verify":["Retención y acceso al botón de liberación","Anillos libres y ausencia de interferencias comprobada físicamente"],"rebalance":"Mayor masa frontal: comprobar comodidad; no asumir centro de gravedad a partir de envolventes."},
+    {"id":"pilot-battery","title":"Insertar batería nativa","introduced_part_ids":["sony-np-fz100"],"mount":"Usar una NP-FZ100 previamente cargada; insertar contra la palanca, cerrar y bloquear la cubierta según Sony.","where":"Compartimento de FX30; sin cable externo.","source_ids":["intake-sony-fx30-battery-install"],"verify":["Retención, cierre y apertura posibles con la jaula","No montar dummy o V-mount implícitamente"],"rebalance":"Masa interna incluida una sola vez; comprobar agarre del conjunto."},
+    {"id":"pilot-preflight","title":"Comprobar el conjunto antes de usar","introduced_part_ids":[],"mount":"Encender sólo tras verificar fijaciones, retención y ventilación.","where":"Rig a mano sin monitor, gimbal ni cables externos.","source_ids":["intake-sony-fx30-bottom","intake-sony-fx30-sel20f18g-pair","audit-doc-smallrig-4770-manual"],"verify":["Firmware, enfoque y exposición comprobados en el ejemplar","Pantalla, controles y ventilación libres","Para grabar: elegir aparte una tarjeta adecuada al modo; tarjeta y masa no incluidas en este piloto","Antes de retirar batería: apagar y comprobar lámpara de acceso según Sony"],"rebalance":"No certifica seguridad ni sustituye el manual: registrar ensayo físico y masa del conjunto instalado."}
+  ],
+  "viewer": {"enabled":false,"geometry_status":"not_created","model_ids":[],"coordinate_status":"unmeasured","note":"No reutilizar malla FX3 o SEL1635GM. Crear y auditar recursos propios aproximados antes de integrar; sin CAD exacto ni importación de fotos no autorizada."},
+  "variants": {"enabled":false,"template_ids":[],"note":"Una configuración candidata, no una octava plantilla ni modificación de las siete existentes."},
+  "gates": [
+    {"id":"identity","stage":"manifest","status":"documented","claim_ids":["fx30-sel20-pair","fx30-4770-support","fx30-npfz100-native"],"note":"Identidad y pares oficiales; materiales y cotas de montaje incompletos explícitos."},
+    {"id":"support","stage":"layout","status":"documented","claim_ids":["fx30-4770-support","fx30-sel20-pair"],"note":"Relaciones documentales, no poses ni holguras medidas."},
+    {"id":"native-power","stage":"cables_power","status":"documented","claim_ids":["fx30-npfz100-native"],"note":"Alimentación nativa documentada; sin inferir pinout ni rango."},
+    {"id":"guide","stage":"assembly","status":"documented","claim_ids":["fx30-4770-support","fx30-sel20-pair","fx30-npfz100-native"],"note":"Cinco etapas documentales aplicables, no reproducción ni montaje ensayado."},
+    {"id":"geometry","stage":"viewer","status":"pending","claim_ids":[],"note":"Geometría propia, escala, atribución y auditoría visual pendientes."},
+    {"id":"integration","stage":"variants","status":"pending","claim_ids":[],"note":"Reglas, guía dinámica, selección, guardado y regresiones de interfaz del conjunto pendientes."}
+  ],
+  "physical_validation": {"status":"pending","observations":[],"note":"Sin ensayo real, dispositivo ni participante inventado. Pruebas de software no cierran esta comprobación."},
+  "not_included": ["Monitor y soporte", "Asa XLR-H1", "Mic 2 o micrófono externo", "Gimbal y BG70", "Baseplate y varillas", "Matte box y parasol", "V-mount y dummy", "Splitters, RavenEye y LiDAR", "Tarjeta y cargador no elegidos"]
+}
