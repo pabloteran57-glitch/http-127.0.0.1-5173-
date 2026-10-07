@@ -2,7 +2,7 @@ import { readFileSync } from "node:fs";
 import { validateCatalogPilot } from "./lib/catalog-pilot.mjs";
 const read = name => JSON.parse(readFileSync(new URL(`../data/${name}.json`, import.meta.url), "utf8"));
 const pilot = read("catalog-pilot");
-const report = validateCatalogPilot(pilot, { intake: read("catalog-intake"), parts: read("parts-manifest"), sources: read("sources") });
+const report = validateCatalogPilot(pilot, { intake: read("catalog-intake"), parts: read("parts-manifest"), sources: read("sources"), pilotModels: read("pilot-model-assets") });
 console.log(`CORRECTO: ${pilot.title}; ${pilot.part_ids.length} piezas exactas en investigación.`);
 console.log(`MASA: aproximadamente ${report.subtotal_g} g; subtotal sin tarjeta ni parasol, no peso medido.`);
 for (const gate of pilot.gates) console.log(`${gate.status === "documented" ? "DOCUMENTADO" : "PENDIENTE"}: ${gate.note}`);

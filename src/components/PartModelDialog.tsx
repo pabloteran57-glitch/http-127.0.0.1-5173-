@@ -12,7 +12,7 @@ const views: { id: View; label: string }[] = [{ id: "iso", label: "Perspectiva" 
 function InspectionCamera({ view, distance, front }: { view: View; distance: number; front: number }) {
   const { camera, invalidate } = useThree();
   useEffect(() => {
-    const positions: Record<View, [number, number, number]> = { iso: [-.8, .5, -1], front: [0, 0, front], back: [0, 0, -front], side: [-1, 0, 0], top: [0, 1, .001] };
+    const positions: Record<View, [number, number, number]> = { iso: [-.8, .5, front], front: [0, 0, front], back: [0, 0, -front], side: [-1, 0, 0], top: [0, 1, .001] };
     camera.position.set(...positions[view]).normalize().multiplyScalar(distance);
     camera.lookAt(0, 0, 0); invalidate();
   }, [view, distance, front, camera, invalidate]);
@@ -26,15 +26,15 @@ class InspectionBoundary extends Component<{ children: ReactNode; onFail: () => 
   render() { return this.state.failed ? <div className="viewer-fallback">Visor no disponible. La ficha y tu rig no se han modificado.</div> : this.props.children; }
 }
 
-export default function PartModelDialog({ asset, label, onClose }: { asset: ModelAsset; label: string; onClose: () => void }) {
+export default function PartModelDialog({ asset, label, onClose, research = false }: { asset: ModelAsset; label: string; onClose: () => void; research?: boolean }) {
   const dialog = useRef<HTMLDialogElement>(null);
   const [view, setView] = useState<View>("iso"), [state, setState] = useState<ModelLoadState>("loading"), [attempt, setAttempt] = useState(0);
   useEffect(() => { dialog.current?.showModal(); }, []);
   const bounds = asset.calibration.bounds_mm.map(v => v / 100) as [number, number, number];
   const distance = Math.max(...bounds) * 2.25;
   const retry = () => { setState("loading"); setAttempt(v => v + 1); };
-  return <dialog ref={dialog} className="part-model-dialog" aria-labelledby="part-model-title" onCancel={onClose} onClose={onClose}>
-    <div className="dialog-heading"><div><p className="eyebrow">RECONSTRUCCIÓN PROPIA / APROXIMADA</p><h2 id="part-model-title">{label}</h2></div><button className="icon-button" onClick={onClose} aria-label="Cerrar detalle 3D"><Icon name="close" /></button></div>
+  return <dialog ref={dialog} className="part-model-dialog" aria-labelledby="part-model-title" onCancel={event => { event.stopPropagation(); onClose(); }} onClose={event => { event.stopPropagation(); onClose(); }}>
+    <div className="dialog-heading"><div><p className="eyebrow">{research ? "PILOTO EN REVISIÓN / APROXIMADO" : "RECONSTRUCCIÓN PROPIA / APROXIMADA"}</p><h2 id="part-model-title">{label}</h2></div><button className="icon-button" onClick={onClose} aria-label="Cerrar detalle 3D"><Icon name="close" /></button></div>
     <div className="part-model-stage" aria-label={`Detalle 3D de ${label}, aproximado`} data-model-state={state}>
       <InspectionBoundary key={attempt} onFail={() => setState("failed")}><Canvas frameloop="demand" dpr={[1, 1.5]} camera={{ position: [-distance, distance / 2, -distance], fov: 34 }} gl={{ antialias: true, alpha: true }}>
         <ambientLight intensity={1.8} /><directionalLight position={[-3, 7, -6]} intensity={4.5} /><directionalLight position={[5, 3, 5]} intensity={3} color="#aec3d8" />

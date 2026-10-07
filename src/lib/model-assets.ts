@@ -20,7 +20,7 @@ export interface ModelAsset {
   };
   review: {
     identity: boolean; scale: boolean; views: boolean; interfaces: boolean;
-    evidence: string; mechanical_accuracy: "approximate"; ports_authority: "ports-manifest.json";
+    evidence: string; mechanical_accuracy: "approximate"; ports_authority: "ports-manifest.json" | "catalog-intake.json";
   };
 }
 

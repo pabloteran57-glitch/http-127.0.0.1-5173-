@@ -19,6 +19,7 @@
       "id":"sony-fx30","exact_product_name":"Sony FX30","model_number":"ILME-FX30","brand":"Sony","category":"camera",
       "dimensions":{"width_mm":129.7,"height_mm":77.8,"depth_mm":84.5,"approximate":true,"note":"Cuerpo sin salientes; fabricante marca cotas aproximadas."},
       "weight_g":562,"weight_approximate":true,"additional_mass":{"with_battery_and_card_g":646,"with_handle_battery_and_card_g":951},
+      "sensor_mm":{"width":23.3,"height":15.5,"type":"APS-C","note":"Dimensiones publicadas por Sony; la pose interna del modelo visual es aproximada."},
       "mount":"Sony E-mount","filter_diameter_mm":null,
       "interfaces":[
         {"id":"hdmi-out","connector":"HDMI-A","direction":"output","count":1,"position_mm":null,"note":"Una salida Type A publicada; YCbCr 4:2:2 10 bit / RGB 8 bit. Modos del monitor y par exacto por revisar."},
@@ -43,9 +44,9 @@
         {"source_id":"intake-sony-fx30-specs","field_paths":["interfaces"],"locator":"Interface / USB, HDMI OUTPUT, MULTI INTERFACE SHOE","method":"direct_official_page"},
         {"source_id":"intake-sony-fx30-helpguide","field_paths":["interfaces.3","interfaces.4"],"locator":"Página 525 (índice PDF 524), especificaciones: micrófono y auriculares","method":"official_pdf_text_review"},
         {"source_id":"intake-sony-fx30-helpguide","field_paths":["native_battery_model","bundled_handle"],"locator":"Página 19 (índice PDF 18), contenido y tabla ILME-FX30 / ILME-FX30B","method":"official_pdf_text_review"},
-        {"source_id":"intake-sony-fx30-specs-jp","field_paths":["dimensions","weight_g","additional_mass","interfaces.0","interfaces.1","interfaces.2","native_battery_model"],"locator":"質量 / 外形寸法 / インターフェース / 電源: cuerpo solo 562 g; HDMI Type A x1","method":"direct_official_page"}
+        {"source_id":"intake-sony-fx30-specs-jp","field_paths":["dimensions","weight_g","additional_mass","interfaces.0","interfaces.1","interfaces.2","native_battery_model","sensor_mm"],"locator":"質量 / 外形寸法 / インターフェース / 電源 / 撮像素子: cuerpo solo 562 g; HDMI Type A x1; sensor APS-C 23.3 x 15.5 mm","method":"direct_official_page"}
       ],
-      "remaining":["Coordenadas de roscas, salientes y holguras medidas; rosca inferior identificada por Sony","Firmware del ejemplar registrado: la tabla Sony no fija una versión para SEL20F18G","Materiales y geometría propia pendientes","Ensamblaje físico del piloto y regresiones de interfaz pendientes; ficha relacional y guía documental en catalog-pilot.json"]
+      "remaining":["Coordenadas de roscas, salientes y holguras medidas; rosca inferior identificada por Sony","Firmware del ejemplar registrado: la tabla Sony no fija una versión para SEL20F18G","Materiales y poses de conjunto pendientes; malla propia aproximada revisada sólo para inspección aislada","Ensamblaje físico del piloto y regresiones de interfaz pendientes; ficha relacional y guía documental en catalog-pilot.json"]
     },
     {
       "part_id":"sony-fe-20-f18-g","reviewed_on":"2026-10-07","status":"partial_official_manifest_not_released",
@@ -53,7 +54,7 @@
         {"source_id":"intake-sony-sel20f18g-specs","field_paths":["dimensions","weight_g","mount","filter_diameter_mm"],"locator":"Size & Weight; Mount; Filter Diameter (mm)","method":"direct_official_page"},
         {"source_id":"intake-sony-sel20f18g-specs-jp","field_paths":["dimensions","weight_g","weight_approximate","mount","filter_diameter_mm"],"locator":"主な仕様: montura E, D 73.5 x L 84.7 mm, masa 約 373 g, filtro 67 mm","method":"official_browser_page_review"}
       ],
-      "remaining":["Parasol, salientes y holguras de jaula sin medición","Geometría propia sin heredar SEL1635GM","Firmware del ejemplar y pruebas del conjunto; par exacto ya documentado por Sony"]
+      "remaining":["Parasol, salientes y holguras de jaula sin medición","Malla propia revisada para inspección aislada sin heredar SEL1635GM; pose de conjunto pendiente","Firmware del ejemplar y pruebas del conjunto; par exacto ya documentado por Sony"]
     },
     {
       "part_id":"sony-np-fz100","reviewed_on":"2026-10-07","status":"partial_official_manifest_not_released",

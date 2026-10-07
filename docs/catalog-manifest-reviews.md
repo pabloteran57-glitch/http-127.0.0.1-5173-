@@ -12,13 +12,13 @@ Revisión: 2026-10-07.
 | `interfaces` | [Sony](https://www.sony.com/electronics/support/camcorders-and-video-cameras-interchangeable-lens-camcorders/ilme-fx30/specifications): Interface / USB, HDMI OUTPUT, MULTI INTERFACE SHOE | Página oficial consultada |
 | `interfaces.3`, `interfaces.4` | [Sony](https://helpguide.sony.net/ilc/2220/v1/en/print.pdf): Página 525 (índice PDF 524), especificaciones: micrófono y auriculares | Sección textual del PDF oficial; no medición de figura |
 | `native_battery_model`, `bundled_handle` | [Sony](https://helpguide.sony.net/ilc/2220/v1/en/print.pdf): Página 19 (índice PDF 18), contenido y tabla ILME-FX30 / ILME-FX30B | Sección textual del PDF oficial; no medición de figura |
-| `dimensions`, `weight_g`, `additional_mass`, `interfaces.0`, `interfaces.1`, `interfaces.2`, `native_battery_model` | [Sony](https://www.sony.jp/pro-cam/products/ILME-FX30/spec.html): 質量 / 外形寸法 / インターフェース / 電源: cuerpo solo 562 g; HDMI Type A x1 | Página oficial consultada |
+| `dimensions`, `weight_g`, `additional_mass`, `interfaces.0`, `interfaces.1`, `interfaces.2`, `native_battery_model`, `sensor_mm` | [Sony](https://www.sony.jp/pro-cam/products/ILME-FX30/spec.html): 質量 / 外形寸法 / インターフェース / 電源 / 撮像素子: cuerpo solo 562 g; HDMI Type A x1; sensor APS-C 23.3 x 15.5 mm | Página oficial consultada |
 
 Pendiente:
 
 - Coordenadas de roscas, salientes y holguras medidas; rosca inferior identificada por Sony
 - Firmware del ejemplar registrado: la tabla Sony no fija una versión para SEL20F18G
-- Materiales y geometría propia pendientes
+- Materiales y poses de conjunto pendientes; malla propia aproximada revisada sólo para inspección aislada
 - Ensamblaje físico del piloto y regresiones de interfaz pendientes; ficha relacional y guía documental en catalog-pilot.json
 
 ## Sony FE 20mm F1.8 G
@@ -33,7 +33,7 @@ Revisión: 2026-10-07.
 Pendiente:
 
 - Parasol, salientes y holguras de jaula sin medición
-- Geometría propia sin heredar SEL1635GM
+- Malla propia revisada para inspección aislada sin heredar SEL1635GM; pose de conjunto pendiente
 - Firmware del ejemplar y pruebas del conjunto; par exacto ya documentado por Sony
 
 ## Sony NP-FZ100 Rechargeable Battery Pack

@@ -115,7 +115,7 @@ No prescribe un par de apriete inventado. La cota Sony menor de 5.5 mm pertenece
 
 ## 5. Visor
 
-No reutilizar malla FX3 o SEL1635GM. Crear y auditar recursos propios aproximados antes de integrar; sin CAD exacto ni importación de fotos no autorizada. Sin modelo integrado ni reproducción de montaje del piloto.
+Tres mallas propias aproximadas revisadas en pilot-model-assets.json, disponibles para inspección aislada en Ayuda. Sin reutilizar FX3/SEL1635GM, poses de rig, CAD exacto ni fotografías redistribuidas. El conjunto ensamblado sigue pendiente. Sin modelo integrado ni reproducción de montaje del piloto.
 
 ## 6. Variantes
 
@@ -129,7 +129,7 @@ No incluidos: Monitor y soporte; Asa XLR-H1; Mic 2 o micrófono externo; Gimbal 
 - Documentado: Relaciones documentales, no poses ni holguras medidas.
 - Documentado: Alimentación nativa documentada; sin inferir pinout ni rango.
 - Documentado: Cinco etapas documentales aplicables, no reproducción ni montaje ensayado.
-- Pendiente: Geometría propia, escala, atribución y auditoría visual pendientes.
+- Pendiente: Tres modelos aislados aproximados revisados. Poses relacionales del conjunto, encajes y visor de montaje FX30 siguen pendientes; una malla no certifica ajuste.
 - Pendiente: Reglas, guía dinámica, selección, guardado y regresiones de interfaz del conjunto pendientes.
 
 Sin ensayo real, dispositivo ni participante inventado. Pruebas de software no cierran esta comprobación.

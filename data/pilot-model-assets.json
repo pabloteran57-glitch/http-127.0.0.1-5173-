@@ -1,0 +1,223 @@
+{
+  "version": 1,
+  "reviewed_on": "2026-10-07",
+  "scope": "research_preview_only",
+  "note": "Tres modelos propios aproximados para inspeccion aislada. No activan productos, montajes, poses, puertos, cables ni plantillas. No son CAD o modelos oficiales.",
+  "assets": [
+    {
+      "id": "sony-fx30-pilot-v1",
+      "part_id": "sony-fx30",
+      "subcomponent_id": null,
+      "exact_product_name": "Sony FX30",
+      "model_number": "ILME-FX30",
+      "status": "approved",
+      "source": {
+        "method": "manual",
+        "url": "https://github.com/pabloteran57-glitch/http-127.0.0.1-5173-/blob/main/scripts/lib/pilot-models.mjs",
+        "author": "Takegrid / reconstruccion propia en codigo"
+      },
+      "rights": {
+        "license": "custom-reviewed",
+        "evidence_url": "https://github.com/pabloteran57-glitch/http-127.0.0.1-5173-/blob/main/docs/authored-model-rights.md",
+        "reviewed_on": "2026-10-07",
+        "commercial": true,
+        "redistribution": true,
+        "modification": true,
+        "source_images_authorized": false,
+        "source_images_evidence": "Fotografias oficiales consultadas como referencias visuales; no incorporadas, redistribuidas ni enviadas a IA.",
+        "attribution": "Sony FX30: reconstruccion propia Takegrid, 2026. Materiales y formas aproximados, sin respaldo ni permiso de fabricacion del fabricante."
+      },
+      "artifact": {
+        "path": "/models/sony-fx30-pilot-v1.glb",
+        "bytes": 496976,
+        "sha256": "4606df81336ebe2156b08c666301df8f725a02d07fad5798b4caa52d762ecdd3",
+        "triangles": 10240
+      },
+      "calibration": {
+        "units": "metres",
+        "uniform_scale": 1,
+        "offset_mm": [
+          0,
+          0,
+          0
+        ],
+        "rotation_deg": [
+          0,
+          0,
+          0
+        ],
+        "bounds_mm": [
+          130.32884150743484,
+          81.85000345110893,
+          84.49999988079071
+        ],
+        "reference_url": "https://www.sony.jp/pro-cam/products/ILME-FX30/spec.html",
+        "reference_basis": "Sony publica cuerpo sin salientes aprox. 129.7 x 77.8 x 84.5 mm. La malla incluye cubiertas, zapata y controles estimados: envolvente visual 130.33 x 81.85 x 84.50 mm, no una correccion del dato oficial. Sensor APS-C 23.3 x 15.5 mm publicado, pose estimada. LCD cerrado. Cubiertas opacas: sin puertos, contactos, roscas o bayoneta mecanicos."
+      },
+      "review": {
+        "identity": true,
+        "scale": true,
+        "views": true,
+        "interfaces": true,
+        "evidence": "Revisado el 2026-10-07: perspectiva, frontal, posterior, lateral y superior del codigo propio cotejados con referencias oficiales del modelo exacto. Contact sheet local; encajes, materiales, controles y formas sin medicion mecanica.",
+        "mechanical_accuracy": "approximate",
+        "ports_authority": "catalog-intake.json"
+      },
+      "references": [
+        "https://www.sony.jp/products/picture/ILME-FX30_Gallery_02.jpg",
+        "https://www.sony.jp/products/picture/ILME-FX30_Gallery_05.jpg",
+        "https://www.sony.jp/products/picture/ILME-FX30_Gallery_07.jpg",
+        "https://www.sony.jp/products/picture/ILME-FX30_Gallery_08.jpg",
+        "https://www.sony.jp/products/picture/ILME-FX30_Gallery_09.jpg"
+      ],
+      "image": {
+        "path": "/product-visuals/sony-fx30-pilot-v1.webp",
+        "bytes": 10102,
+        "sha256": "578aef78803ceda71338441f43c75310a6c55bd4b0ed85bae1046abd0081bcbb",
+        "width": 400,
+        "height": 280
+      }
+    },
+    {
+      "id": "sony-fe-20-f18-g-pilot-v1",
+      "part_id": "sony-fe-20-f18-g",
+      "subcomponent_id": null,
+      "exact_product_name": "Sony FE 20mm F1.8 G",
+      "model_number": "SEL20F18G",
+      "status": "approved",
+      "source": {
+        "method": "manual",
+        "url": "https://github.com/pabloteran57-glitch/http-127.0.0.1-5173-/blob/main/scripts/lib/pilot-models.mjs",
+        "author": "Takegrid / reconstruccion propia en codigo"
+      },
+      "rights": {
+        "license": "custom-reviewed",
+        "evidence_url": "https://github.com/pabloteran57-glitch/http-127.0.0.1-5173-/blob/main/docs/authored-model-rights.md",
+        "reviewed_on": "2026-10-07",
+        "commercial": true,
+        "redistribution": true,
+        "modification": true,
+        "source_images_authorized": false,
+        "source_images_evidence": "Fotografias oficiales consultadas como referencias visuales; no incorporadas, redistribuidas ni enviadas a IA.",
+        "attribution": "Sony FE 20mm F1.8 G: reconstruccion propia Takegrid, 2026. Materiales y formas aproximados, sin respaldo ni permiso de fabricacion del fabricante."
+      },
+      "artifact": {
+        "path": "/models/sony-fe-20-f18-g-pilot-v1.glb",
+        "bytes": 309804,
+        "sha256": "17c7d9ddaf60f9761fcdfdaa3ea96c602aba5a421d594957b82c90254ed970eb",
+        "triangles": 7380
+      },
+      "calibration": {
+        "units": "metres",
+        "uniform_scale": 1,
+        "offset_mm": [
+          0,
+          0,
+          0
+        ],
+        "rotation_deg": [
+          0,
+          0,
+          0
+        ],
+        "bounds_mm": [
+          73.49999994039536,
+          73.49999994039536,
+          84.69999581575394
+        ],
+        "reference_url": "https://www.sony.jp/ichigan/products/SEL20F18G/",
+        "reference_basis": "D 73.5 x L 84.7 mm publicados; filtro nominal 67 mm. Perfil propio, enfoque, apertura, selector y boton estimados. Sin parasol ALC-SH162, tapas, texturas, contactos o patron mecanico de montura. No hereda el zoom SEL1635GM."
+      },
+      "review": {
+        "identity": true,
+        "scale": true,
+        "views": true,
+        "interfaces": true,
+        "evidence": "Revisado el 2026-10-07: perspectiva, frontal, posterior, lateral y superior del codigo propio cotejados con referencias oficiales del modelo exacto. Contact sheet local; encajes, materiales, controles y formas sin medicion mecanica.",
+        "mechanical_accuracy": "approximate",
+        "ports_authority": "catalog-intake.json"
+      },
+      "references": [
+        "https://www.sony.jp/ichigan/products/SEL20F18G/",
+        "https://www.sony.jp/products/picture/SEL20F18G.jpg"
+      ],
+      "image": {
+        "path": "/product-visuals/sony-fe-20-f18-g-pilot-v1.webp",
+        "bytes": 7632,
+        "sha256": "3c33a3982897f9df79a83609fdf9bdff30e10839dca75f98f43693f1a889f3ae",
+        "width": 400,
+        "height": 280
+      }
+    },
+    {
+      "id": "sony-np-fz100-pilot-v1",
+      "part_id": "sony-np-fz100",
+      "subcomponent_id": null,
+      "exact_product_name": "Sony NP-FZ100 Rechargeable Battery Pack",
+      "model_number": "NP-FZ100",
+      "status": "approved",
+      "source": {
+        "method": "manual",
+        "url": "https://github.com/pabloteran57-glitch/http-127.0.0.1-5173-/blob/main/scripts/lib/pilot-models.mjs",
+        "author": "Takegrid / reconstruccion propia en codigo"
+      },
+      "rights": {
+        "license": "custom-reviewed",
+        "evidence_url": "https://github.com/pabloteran57-glitch/http-127.0.0.1-5173-/blob/main/docs/authored-model-rights.md",
+        "reviewed_on": "2026-10-07",
+        "commercial": true,
+        "redistribution": true,
+        "modification": true,
+        "source_images_authorized": false,
+        "source_images_evidence": "Fotografias oficiales consultadas como referencias visuales; no incorporadas, redistribuidas ni enviadas a IA.",
+        "attribution": "Sony NP-FZ100 Rechargeable Battery Pack: reconstruccion propia Takegrid, 2026. Materiales y formas aproximados, sin respaldo ni permiso de fabricacion del fabricante."
+      },
+      "artifact": {
+        "path": "/models/sony-np-fz100-pilot-v1.glb",
+        "bytes": 80488,
+        "sha256": "b686452eb0158f6d9734bdaed1660573074b6afe99210f81cc838bd51f3de026",
+        "triangles": 1460
+      },
+      "calibration": {
+        "units": "metres",
+        "uniform_scale": 1,
+        "offset_mm": [
+          0,
+          0,
+          0
+        ],
+        "rotation_deg": [
+          0,
+          0,
+          0
+        ],
+        "bounds_mm": [
+          38.69999945163727,
+          22.77290355414152,
+          51.69999785721302
+        ],
+        "reference_url": "https://electronics.sony.com/imaging/imaging-accessories/interchangeable-lens-camera-accessories/p/npfz100?sku=npfz100",
+        "reference_basis": "Sony publica aprox. 38.7 x 22.7 x 51.7 mm. Carcasa propia y juntas estimadas; altura visual 22.77 mm, no cota de fabricacion. Cara de insercion opaca, sin inventar contactos, pinout o posicion interna en FX30. Sin etiqueta o imagen copiada."
+      },
+      "review": {
+        "identity": true,
+        "scale": true,
+        "views": true,
+        "interfaces": true,
+        "evidence": "Revisado el 2026-10-07: perspectiva, frontal, posterior, lateral y superior del codigo propio cotejados con referencias oficiales del modelo exacto. Contact sheet local; encajes, materiales, controles y formas sin medicion mecanica.",
+        "mechanical_accuracy": "approximate",
+        "ports_authority": "catalog-intake.json"
+      },
+      "references": [
+        "https://electronics.sony.com/imaging/imaging-accessories/interchangeable-lens-camera-accessories/p/npfz100?sku=npfz100"
+      ],
+      "image": {
+        "path": "/product-visuals/sony-np-fz100-pilot-v1.webp",
+        "bytes": 7498,
+        "sha256": "70c46983efdb61e48fdc3aa3bcf8093280a2d5254b06d5f5ff4feae8808ff590",
+        "width": 400,
+        "height": 280
+      }
+    }
+  ]
+}

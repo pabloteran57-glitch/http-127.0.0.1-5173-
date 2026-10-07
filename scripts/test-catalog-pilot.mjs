@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { validateCatalogPilot } from "./lib/catalog-pilot.mjs";
 const read = name => JSON.parse(readFileSync(new URL(`../data/${name}.json`, import.meta.url), "utf8"));
-const input = { pilot: read("catalog-pilot"), authorities: { intake: read("catalog-intake"), parts: read("parts-manifest"), sources: read("sources") } };
+const input = { pilot: read("catalog-pilot"), authorities: { intake: read("catalog-intake"), parts: read("parts-manifest"), sources: read("sources"), pilotModels: read("pilot-model-assets") } };
 let count = 0;
 const test = (name, run) => { run(); count++; console.log("CORRECTO: " + name); };
 const reject = (mutate, pattern) => {

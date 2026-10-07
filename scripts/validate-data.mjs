@@ -248,7 +248,7 @@ for(const review of intake.manifest_reviews??[]){
   for(const entry of product.interfaces??[]){assert(entry.id&&entry.connector&&entry.note);assert.equal(entry.position_mm,null,"No se inventan posiciones en un manifiesto inicial");assert(entry.count===null||(Number.isInteger(entry.count)&&entry.count>0));}
 }
 assert.deepEqual(new Set(contract.products.map(p=>p.part_id)),partIds);assert.equal(contract.catalog_revision,planner.catalog_revision);
-const pilotReport=validateCatalogPilot(read("catalog-pilot"),{intake,parts,sources});
+const pilotReport=validateCatalogPilot(read("catalog-pilot"),{intake,parts,sources,pilotModels:read("pilot-model-assets")});
 console.log(`CORRECTO: piloto documental aislado; subtotal aproximado ${pilotReport.subtotal_g} g, geometría/integración pendientes.`);
 for(const entry of contract.products){assert.equal(entry.physically_tested,false);assert.equal(entry.geometry_profile_id,layout.nodes.find(n=>n.id===entry.part_id)?.id??null);}
 const release=JSON.parse(readFileSync(new URL("../data/release.json",import.meta.url),"utf8")),pkg=JSON.parse(readFileSync(new URL("../package.json",import.meta.url),"utf8"));

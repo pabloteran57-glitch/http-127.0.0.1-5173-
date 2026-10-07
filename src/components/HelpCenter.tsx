@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import release from "../../data/release.json";
 import { prepareOffline } from "../lib/offline";
 import Icon from "./Icon";
+import PilotModels from "./PilotModels";
 
 export default function HelpCenter({onClose,onNew,onLibrary}:{onClose:()=>void;onNew:()=>void;onLibrary:()=>void}){
   const dialog=useRef<HTMLDialogElement>(null);
@@ -17,6 +18,7 @@ export default function HelpCenter({onClose,onNew,onLibrary}:{onClose:()=>void;o
       <details><summary>Describir un problema</summary><label className="report-label">Qué esperabas, qué pasó y pasos para reproducirlo<textarea value={description} onChange={e=>setDescription(e.target.value)} maxLength={2000} placeholder="No incluyas datos de clientes ni información confidencial."/></label><button className="quiet-button" disabled={!description.trim()} onClick={copyReport}>Copiar descripción</button><p role="status">{report}</p><p>Este formulario no envía informes ni exporta tu plan. Comparte la descripción por el canal acordado con el equipo; todavía no hay un servicio de soporte conectado.</p></details>
       <details><summary>Datos y privacidad</summary><p>Biblioteca, historial y borradores viven en el almacenamiento de este navegador y dominio. Eliminar un rig confirmado elimina su historial; los borradores de otras sesiones se descartan por separado. Borrar datos del sitio, usar una sesión privada o perder el equipo puede eliminar todo: no existe copia externa.</p><p>El laboratorio no envía telemetría. El alojamiento recibe las solicitudes web habituales; las fuentes tipográficas se solicitan a Google y los enlaces oficiales abren al fabricante. No se declara auditoría legal de privacidad.</p></details>
       <details><summary>Alcance de esta versión</summary><ul>{release.limitations.map(item=><li key={item}>{item}</li>)}</ul><a className="quiet-button" href="/?laboratorio=1">Abrir laboratorio de rendimiento</a></details>
+      <details><summary>Modelos del piloto en revisión</summary><PilotModels /></details>
     </div>
   </dialog>;
 }

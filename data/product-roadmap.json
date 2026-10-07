@@ -174,7 +174,7 @@
       "remaining": [
         "Extender revisión semántica documentada: cuatro de dieciocho circuitos cubiertos; montaje mecánico y demás interfaces pendientes",
         "Tres accesorios de monitor añadidos en el orden técnico, aún sin validación física",
-        "Integrar el segundo conjunto real FX30/SEL20F18G: ficha documental de soporte, energía nativa y guía preparada; poses, recursos propios y regresiones de interfaz pendientes"
+        "Integrar el segundo conjunto real FX30/SEL20F18G: ficha documental y tres mallas aisladas revisadas; poses de conjunto, reglas dinámicas y regresiones de interfaz pendientes"
       ],
       "depends_on": [
         "stabilize-core"
@@ -200,7 +200,7 @@
       "remaining": [
         "FX30, SEL20F18G y NP-FZ100: faltan materiales, salientes y cotas de montaje; siete candidatos sin nueva revisión",
         "Piloto FX30/4770/SEL20F18G/NP-FZ100 con pares oficiales y ficha relacional; holguras y masa instalada por medir",
-        "Crear geometría propia del piloto y después integrar reglas, guía dinámica, selección y guardado; no copiar mallas FX3",
+        "Tres mallas propias del piloto disponibles sólo para inspección en Ayuda; integrar poses, reglas, guía dinámica, selección y guardado sin copiar FX3",
         "Ensayos físicos y liberación"
       ],
       "depends_on": [

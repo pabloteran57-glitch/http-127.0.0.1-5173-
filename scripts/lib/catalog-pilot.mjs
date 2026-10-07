@@ -5,7 +5,7 @@ const methods = new Set(["direct_official_page", "official_browser_page_review",
 const fieldAt = (record, path) => path.split(".").reduce((value, key) => value?.[key], record);
 
 // La ficha referencia autoridades existentes; no crea otro catálogo de especificaciones.
-export function validateCatalogPilot(pilot, { intake, parts, sources }) {
+export function validateCatalogPilot(pilot, { intake, parts, sources, pilotModels }) {
   assert.equal(pilot.version, 1);
   assert.equal(pilot.status, "research_only", "La ficha de investigación no activa productos");
   assert.deepEqual(pilot.phase_order, stages, "Conservar el orden de ingeniería");
@@ -110,8 +110,25 @@ export function validateCatalogPilot(pilot, { intake, parts, sources }) {
   assert.deepEqual(new Set(introduced), selected, "La guía omite piezas elegidas");
   assert.equal(introduced.length, selected.size, "Montaje de una misma pieza repetido");
   assert.equal(pilot.viewer.enabled, false, "Ficha no integrada: no activar visor");
-  assert.equal(pilot.viewer.geometry_status, "not_created");
-  assert.deepEqual(pilot.viewer.model_ids, [], "No heredar geometría de otro producto");
+  if (pilot.viewer.research_preview_enabled) {
+    assert.equal(pilot.viewer.geometry_status, "isolated_models_reviewed");
+    assert.equal(pilotModels?.scope, "research_preview_only", "Inspección sin registro de revisión");
+    const researchIds = pilot.manifest.filter(binding => binding.authority === "catalog-intake").map(binding => binding.part_id);
+    assert.deepEqual(pilot.viewer.model_ids, researchIds.map(id => id + "-pilot-v1"), "No heredar geometría de otro producto");
+    assert.deepEqual(pilotModels.assets.map(asset => asset.id), pilot.viewer.model_ids, "Registro incompleto o duplicado");
+    for (const asset of pilotModels.assets) {
+      const record = records.get(asset.part_id);
+      assert.equal(asset.model_number, record?.model_number, "Malla de otro modelo");
+      assert.equal(asset.exact_product_name, record?.exact_product_name, "Malla de otra identidad");
+      assert.equal(asset.status, "approved", "Revisión visual pendiente");
+      assert.equal(asset.review.mechanical_accuracy, "approximate", "No certificar mecánica por malla");
+      assert.equal(asset.review.ports_authority, "catalog-intake.json", "No cambiar autoridad de puertos");
+      assert(asset.review.identity && asset.review.scale && asset.review.views && asset.review.interfaces && asset.review.evidence);
+    }
+  } else {
+    assert.equal(pilot.viewer.geometry_status, "not_created");
+    assert.deepEqual(pilot.viewer.model_ids, [], "No heredar geometría de otro producto");
+  }
   assert.equal(pilot.viewer.coordinate_status, "unmeasured");
   assert.equal(pilot.variants.enabled, false);
   assert.deepEqual(pilot.variants.template_ids, []);

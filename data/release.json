@@ -1,5 +1,5 @@
 {
-  "version": "0.2.8",
+  "version": "0.2.9",
   "released_on": "2026-10-07",
   "status": "engineering_prototype",
   "label": "Prototipo de ingeniería",
@@ -7,6 +7,8 @@
   "storage": "local_only",
   "account_sync": "deferred_by_user",
   "updates": [
+    "Ayuda: inspección aislada de tres mallas propias aproximadas FX30, SEL20F18G y NP-FZ100, con cinco vistas, medidas y masas oficiales; no añade piezas ni modifica Mis rigs",
+    "Revisión de escala, huellas GLB/WebP y derechos originales separada del catálogo; poses del conjunto y montaje FX30 todavía pendientes",
     "Ajustes locales acoplados: inclinación 2906B/3026B y giro 2906B documentados; cabezal, monitor, batería y extremos/tangentes de cables acompañan la pose aproximada",
     "3203B sin bisagra ficticia: deslizamiento axial de placa y batería sólo con recorrido aportado y confirmado por el usuario; historial, duplicados y recuperación conservan ajustes",
     "Ficha pública: enlace oficial compacto y legible, separado del contenedor de imagen; eliminado el bloque blanco vacío",
@@ -25,7 +27,7 @@
   ],
   "limitations": [
     "Pivotes y ceros angulares aproximados. Los rangos publicados del soporte no certifican recorrido libre del rig completo; no hay detección automática de colisiones ni equilibrio. Traslación V-mount depende de medición del usuario.",
-    "Las 17 mallas propias son aproximadas; no son CAD oficiales, modelos exactos, escaneos de Sketchfab ni resultados de Meshy",
+    "17 mallas activas y 3 modelos del piloto en inspección aislada: todos aproximados; no son CAD oficiales, modelos exactos, escaneos de Sketchfab ni resultados de Meshy",
     "13 entradas restantes del catálogo no tienen malla de producto: cables, software y accesorios en reserva requieren distinto alcance",
     "No validado con un rig físico completo; una malla no prueba asiento, holgura, pinout ni equilibrio",
     "Diez altas en investigación, no instalables",

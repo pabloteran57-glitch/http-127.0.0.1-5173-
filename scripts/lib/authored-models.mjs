@@ -311,6 +311,12 @@ export const authors = { camera, lens, cage, audioReceiver: receiver, baseplate,
 
 export function authoredModel(node) {
   const g = new Group(); g.name = node.id; authors[node.kind]?.(g, node);
+  return finalizeVisual(g, node);
+}
+
+export const visualPrimitives = { add, block, cylinder, ring, knurl, plate, shoe };
+
+export function finalizeVisual(g, node) {
   g.userData = { method: "manual", mechanical_accuracy: "approximate", geometry_units: "millimetres", canonical_ports_unchanged: true };
   g.updateMatrixWorld(true);
   // Agrupar por material conserva la silueta reduciendo draw calls y duplicados del GLB.
