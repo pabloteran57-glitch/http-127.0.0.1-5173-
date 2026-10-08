@@ -8,7 +8,8 @@
     "Conserva el inventario principal solicitado y separa las piezas activas en gimbal de las reservadas para cámara a mano, entrevistas o uso externo.",
     "Los valores aproximados deben confirmarse con báscula y calibre antes de mecanizar maletas o encargar cables a medida.",
     "Ronin Image Transmitter y Focus Pro Motor se incluyen como componentes del RS 4 Pro Combo por su impacto en cableado y masa.",
-    "2026-10-05: se distinguen las revisiones exactas 3026B, 3203B y 4253B. Las medidas nominales no verifican coordenadas de orificios ni holguras de movimiento."
+    "2026-10-05: se distinguen las revisiones exactas 3026B, 3203B y 4253B. Las medidas nominales no verifican coordenadas de orificios ni holguras de movimiento.",
+    "Tres altas de planificación del piloto FX30 a mano: manifiestos canónicos, geometría y poses aproximadas; no son montajes físicamente certificados."
   ],
   "parts": [
     {
@@ -1150,6 +1151,144 @@
       "primary_source_url": "https://www.sony.jp/products/catalog/SPC_NP-F970_PRO.pdf",
       "secondary_source_url": null,
       "confidence_level": "medium"
+    },
+    {
+      "id": "sony-fx30",
+      "exact_product_name": "Sony FX30",
+      "model_number": "ILME-FX30",
+      "brand": "Sony",
+      "category": "camera body",
+      "verified_dimensions_mm": {
+        "length": 129.7,
+        "width": 77.8,
+        "height": 84.5,
+        "approximate": true,
+        "note": "Campos históricos: ancho / alto / fondo, cotas aproximadas de fabricante; consultar layout-manifest para ejes. No son cotas de montaje."
+      },
+      "verified_weight_g": {
+        "value": 562,
+        "approximate": true,
+        "source_url": "https://www.sony.jp/pro-cam/products/ILME-FX30/spec.html",
+        "checked_on": "2026-10-07",
+        "note": "562 g aproximados: cuerpo solo, sin batería, tarjeta ni asa. No sumar 646 g con batería/tarjeta."
+      },
+      "planning_weight_g": 562,
+      "ports_interfaces": [
+        "Una salida HDMI tipo A",
+        "USB-C x1",
+        "Multi/Micro USB x1",
+        "Entrada de micrófono de 3.5 mm",
+        "Salida de auriculares de 3.5 mm",
+        "Sony Multi Interface Shoe",
+        "Compartimento nativo NP-FZ100"
+      ],
+      "mounting_method": "Núcleo a mano, montura E y jaula 4770 según el manual específico FX30.",
+      "likely_material": "Materiales no verificados en las fuentes revisadas; apariencia del modelo aproximada.",
+      "mandatory_or_optional": "optional",
+      "rig_role": "Captura APS-C; piloto a mano",
+      "physical_constraints": [
+        "562 g aproximados: cuerpo solo, sin batería, tarjeta ni asa. No sumar 646 g con batería/tarjeta.",
+        "Piloto de planificación sólo a mano y horizontal; gimbal, monitor, audio externo y control no revisados para este cuerpo.",
+        "Puertos identificados; coordenadas no medidas. No hereda puertos ni cables de FX3.",
+        "ILME-FX30 puede incluir asa según SKU/región; no se añade automáticamente.",
+        "Ventilación inferior y cubierta de batería deben quedar libres."
+      ],
+      "primary_source_url": "https://www.sony.jp/pro-cam/products/ILME-FX30/spec.html",
+      "secondary_source_url": null,
+      "confidence_level": "medium",
+      "catalog_release": {
+        "configuration_id": "fx30-handheld-prime",
+        "status": "planning_candidate",
+        "physical_validation": "pending"
+      }
+    },
+    {
+      "id": "sony-fe-20-f18-g",
+      "exact_product_name": "Sony FE 20mm F1.8 G",
+      "model_number": "SEL20F18G",
+      "brand": "Sony",
+      "category": "lens",
+      "verified_dimensions_mm": {
+        "length": 73.5,
+        "width": 73.5,
+        "height": 84.7,
+        "approximate": true,
+        "note": "Campos históricos: diámetro / diámetro / longitud; consultar size_xyz_mm para ejes. Medidas exteriores publicadas, no encajes mecánicos."
+      },
+      "verified_weight_g": {
+        "value": 373,
+        "approximate": true,
+        "source_url": "https://www.sony.jp/ichigan/products/SEL20F18G/spec.html",
+        "checked_on": "2026-10-07",
+        "note": "Dimensiones diámetro máximo 73.5 × longitud 84.7 mm; masa aproximada."
+      },
+      "planning_weight_g": 373,
+      "ports_interfaces": [
+        "Montura Sony E",
+        "Filtro nominal de 67 mm"
+      ],
+      "mounting_method": "Montura Sony E directa de FX30; par exacto documentado por Sony.",
+      "likely_material": "Materiales no verificados en las fuentes revisadas; apariencia del modelo aproximada.",
+      "mandatory_or_optional": "optional",
+      "rig_role": "Óptica fija del piloto FX30",
+      "physical_constraints": [
+        "Dimensiones diámetro máximo 73.5 × longitud 84.7 mm; masa aproximada.",
+        "Sin parasol ni tapas en la escena: no fueron seleccionados.",
+        "No hereda zoom, forma o longitud de SEL1635GM.",
+        "Otros pares cámara/objetivo quedan pendientes; no se aprueban por compartir montura."
+      ],
+      "primary_source_url": "https://www.sony.jp/ichigan/products/SEL20F18G/spec.html",
+      "secondary_source_url": null,
+      "confidence_level": "medium",
+      "catalog_release": {
+        "configuration_id": "fx30-handheld-prime",
+        "status": "planning_candidate",
+        "physical_validation": "pending"
+      }
+    },
+    {
+      "id": "sony-np-fz100",
+      "exact_product_name": "Sony NP-FZ100 Rechargeable Battery Pack",
+      "model_number": "NP-FZ100",
+      "brand": "Sony",
+      "category": "battery",
+      "verified_dimensions_mm": {
+        "length": 38.7,
+        "width": 22.7,
+        "height": 51.7,
+        "approximate": true,
+        "note": "Campos históricos: ancho / alto / fondo, cotas aproximadas de fabricante; consultar layout-manifest para ejes. No son cotas de montaje."
+      },
+      "verified_weight_g": {
+        "value": 83,
+        "approximate": true,
+        "source_url": "https://electronics.sony.com/imaging/imaging-accessories/interchangeable-lens-camera-accessories/p/npfz100?sku=npfz100",
+        "checked_on": "2026-10-07",
+        "note": "7.2 V nominales, 16.4 Wh, 2280 mAh; no son rango de descarga ni corriente admisible."
+      },
+      "planning_weight_g": 83,
+      "ports_interfaces": [
+        "Contactos nativos NP-FZ100; pinout no publicado"
+      ],
+      "mounting_method": "Alojamiento nativo FX30; palanca de retención y cubierta según Sony.",
+      "likely_material": "Materiales no verificados en las fuentes revisadas; apariencia del modelo aproximada.",
+      "mandatory_or_optional": "optional",
+      "rig_role": "Alimentación nativa del piloto FX30",
+      "physical_constraints": [
+        "7.2 V nominales, 16.4 Wh, 2280 mAh; no son rango de descarga ni corriente admisible.",
+        "Batería interna, no bloque externo ni cable D-Tap.",
+        "83 g aproximados, sumados una sola vez al cuerpo solo.",
+        "Cargador no elegido ni incluido en este plan; usar batería previamente cargada.",
+        "Pareja FX3 u otros cuerpos pendiente de revisión propia en la app."
+      ],
+      "primary_source_url": "https://electronics.sony.com/imaging/imaging-accessories/interchangeable-lens-camera-accessories/p/npfz100?sku=npfz100",
+      "secondary_source_url": null,
+      "confidence_level": "medium",
+      "catalog_release": {
+        "configuration_id": "fx30-handheld-prime",
+        "status": "planning_candidate",
+        "physical_validation": "pending"
+      }
     }
   ]
 }

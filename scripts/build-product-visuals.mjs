@@ -9,7 +9,7 @@ const registry = JSON.parse(readFileSync(new URL("../data/model-assets.json", im
 const output = new URL("../public/product-visuals/", import.meta.url);
 mkdirSync(output, { recursive: true });
 const report = [];
-for (const model of registry.assets.filter(asset => asset.status === "approved" && asset.source.method === "manual")) {
+for (const model of registry.assets.filter(asset => asset.status === "approved" && asset.source.method === "manual" && !asset.id.endsWith("-pilot-v1"))) {
   assert(model.rights.redistribution && model.rights.modification, "Permiso de derivación ausente");
   const bytes = readFileSync(new URL("../public" + model.artifact.path, import.meta.url));
   assert.equal(createHash("sha256").update(bytes).digest("hex"), model.artifact.sha256, "Malla cambiada después de revisión");

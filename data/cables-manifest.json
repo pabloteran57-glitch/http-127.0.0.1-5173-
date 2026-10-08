@@ -824,6 +824,34 @@
       "to_port_id": "indie7-l-series",
       "display_kind": "contacts",
       "route_control_offsets_mm": null
+    },
+    {
+      "cable_id": "pilot-pwr-npfz100-fx30",
+      "source": "NP-FZ100 elegida",
+      "destination": "Compartimento nativo FX30",
+      "connector_a": "Contactos nativos NP-FZ100",
+      "connector_b": "Alojamiento nativo NP-FZ100",
+      "type": "power",
+      "voltage_or_signal_standard": "NP-FZ100 nativa documentada para FX30; 7.2 V nominales. Rango y pinout no publicados.",
+      "ideal_length_estimate": "No aplica: sin cable externo.",
+      "routing_path": "Contacto directo interno en el alojamiento de batería; no dibujar una curva externa.",
+      "strain_relief_requirement": "Sin cable. Comprobar palanca, cubierta y acceso con jaula según Sony.",
+      "risk_notes": [
+        "Apagar y comprobar la lámpara de acceso antes de retirar batería.",
+        "Comprobar retención, ventilación y acceso con la jaula instalada.",
+        "No convertir tensión nominal en rango ni usar esta ficha para un adaptador de batería."
+      ],
+      "mandatory_or_optional": "optional",
+      "source_part_id": "sony-np-fz100",
+      "from_part_id": "sony-np-fz100",
+      "to_part_id": "sony-fx30",
+      "from_port_id": "npfz100-contacts",
+      "to_port_id": "fx30-native-battery",
+      "status": "candidate",
+      "motion_boundary": "internal_to_camera",
+      "route_geometry": "contacts_only_no_external_route",
+      "display_kind": "contacts",
+      "route_control_offsets_mm": null
     }
   ],
   "route_control_status": "Anotación aproximada; no determina longitudes para cortar ni valida holgura de barrido."

@@ -1,6 +1,6 @@
 # Takegrid - Planificador de rigs
 
-Planificador local React/TypeScript/Tailwind/React Three Fiber para DJI RS 4 Pro + Sony FX3. **Prototipo de planificación, no montaje certificado.** Nombre y logo provisionales.
+Planificador local React/TypeScript/Tailwind/React Three Fiber para DJI RS 4 Pro + Sony FX3 y un piloto FX30 a mano. **Prototipo de planificación, no montaje certificado.** Nombre y logo provisionales.
 
 Interfaz, descripciones, avisos y guías en español. Se conservan los nombres oficiales de productos, las siglas técnicas y los identificadores de datos. Fotografías y manuales del fabricante mantienen su contenido original, con explicación en español.
 
@@ -20,7 +20,7 @@ En PowerShell usar `npm.cmd` si la política bloquea npm.ps1. Vite anuncia el pu
 
 Cuatro tareas: **Rig**, **Conexiones**, **Montaje** y **Piezas**. El visor abre sin cableado superpuesto; Conexiones activa las rutas y resalta un circuito con sus extremos A/B. En móvil, navegación inferior fija y selector de conexión junto al visor. El doble HDMI es un circuito de banco independiente del perfil, no un montaje aprobado en el rig.
 
-La ficha despliega medidas, materiales y restricciones bajo demanda. Montaje deriva sólo las etapas pertinentes de las trece referencias canónicas y separa las revisiones de lectura por configuración durante la sesión. Piezas abre **Mi equipo**, incluyendo elecciones pendientes; las treinta entradas se consultan en **Catálogo**. Detalles del perfil conserva siete plantillas, desglose de peso y pruebas pendientes. Los planes se guardan y abren dentro de la app, sin exportar archivos.
+La ficha despliega medidas, materiales y restricciones bajo demanda. Montaje deriva las etapas pertinentes del perfil de cámara y separa las revisiones de lectura por configuración durante la sesión. Piezas abre **Mi equipo**, incluyendo elecciones pendientes; las 33 entradas se consultan en **Catálogo**. Detalles del perfil conserva siete plantillas, desglose de peso y pruebas pendientes. Los planes se guardan y abren dentro de la app, sin exportar archivos.
 
 Vista de marca: `/brand/preview.html`. SVG reutilizables en `public/brand`; nombre en `data/brand.json`.
 
@@ -50,14 +50,16 @@ Versión 0.2.8: **Crear rig** empieza a mano, sin imponer un gimbal; el selector
 
 Laboratorio optativo: `/?laboratorio=1`. Compara reposo/giro y demanda/continuo en la misma escena. Intervalos JavaScript, no tiempos GPU ni mejora porcentual contra la versión anterior. `npm run check:beta` muestra criterios y evidencia pendientes; `--strict` no permite declarar beta lista.
 
+Versión 0.2.10: **Crear rig** permite seleccionar FX30, FE 20mm F1.8 G y NP-FZ100 con HawkLock 4770 para un núcleo a mano y horizontal. La guía tiene cinco etapas propias, filtradas por elección; la batería es interna, sin cable ficticio. En Montaje, **Ver batería interna en despiece** permite inspeccionarla. Se conserva guardado, historial y perfiles existentes. Otros accesorios o contextos permanecen elegidos pero pendientes, sin heredar compatibilidad FX3. [Integración y límites](docs/pilot-integration.md).
+
 ## Datos Canónicos
 
 Ruta hacia beta: [plan de avance](docs/beta-roadmap.md), con fases, criterios y diagnóstico. `data/product-roadmap.json` distingue correcciones implementadas de trabajo pendiente; no sustituye los manifiestos técnicos. Evidencia de esta iteración en [estabilización](docs/stabilization-qa.md).
 
-- `data/parts-manifest.json`: 27 entradas originales + tres accesorios de monitor, con fuente y confianza por campo.
+- `data/parts-manifest.json`: 27 entradas originales + tres accesorios de monitor + tres altas acotadas del piloto FX30, con fuente y confianza por campo.
 - `data/layout-manifest.json`: envolventes XYZ, poses candidatas, soporte y pruebas pendientes.
-- `data/cables-manifest.json`, `data/ports-manifest.json`: 18 circuitos, puertos reales, coordenadas sólo aproximadas.
-- `data/connection-reviews.json`: evidencia documental de cuatro circuitos; rango, polaridad, firmware y límites visibles en Conexiones. Desconocido no equivale a compatible.
+- `data/cables-manifest.json`, `data/ports-manifest.json`: 19 circuitos, puertos identificados, coordenadas aproximadas o pendientes.
+- `data/connection-reviews.json`: evidencia documental de cinco circuitos; rango, polaridad, firmware y límites visibles en Conexiones. Desconocido no equivale a compatible.
 - `data/assembly-guide.json`, `data/variants.json`: 13 pasos y 7 perfiles.
 - `data/assembly-profile-content.json`: bloques de instrucciones condicionados a las piezas y circuitos existentes; no añade especificaciones ni compatibilidades.
 - `data/engineering-manifest.json`: límites publicados y políticas de masa/centros ponderados.
@@ -69,7 +71,7 @@ Ruta hacia beta: [plan de avance](docs/beta-roadmap.md), con fases, criterios y 
 - `data/catalog-contract.json`: índice derivado de identidad, revisión, guía y geometría; se regenera, no es un segundo catálogo.
 - `data/catalog-intake.json`: diez candidatos Sony investigados, no activados; [lote piloto](docs/catalog-pilot.md).
 - `data/catalog-pilot.json`: [ficha FX30/SEL20F18G](docs/catalog-pilot-blueprint.md), cuatro piezas, relaciones de soporte y guía documental; no instala productos. `npm run check:catalog` comprueba estructura y `npm run test:catalog` prueba rechazos. Poses, integración y ensayo físico pendientes.
-- Versión 0.2.9: **Ayuda → Modelos del piloto en revisión** permite inspeccionar FX30, SEL20F18G y NP-FZ100 en cinco vistas con mallas propias aproximadas y miniaturas revisadas. `data/pilot-model-assets.json` no activa el catálogo. `npm run build:pilot-models` genera candidatos, nunca aprueba automáticamente. [Registro y límites](docs/pilot-model-review.md).
+- Histórico 0.2.9: inspección aislada de FX30, SEL20F18G y NP-FZ100. Desde 0.2.10 también están disponibles en Crear rig bajo el alcance acotado del piloto; `data/pilot-integration.json` registra el alta explícita. `npm run build:pilot-models` genera recursos, nunca aprueba automáticamente. [Registro y límites](docs/pilot-model-review.md).
 - `data/beta-protocol.json`, `data/beta-evidence.json`: tareas propuestas y observaciones reales; un registro vacío no certifica éxito.
 - `data/release.json`, `data/funding-plan.json`: alcance versionado y preparación financiera sin costes, fechas ni usuarios inventados.
 

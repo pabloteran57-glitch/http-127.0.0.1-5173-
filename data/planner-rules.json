@@ -5,50 +5,371 @@
   "catalog_revision": "fx3-rs4-2026-10-05",
   "default_context": "handheld",
   "attachment_options": [
-    {"id":"camera-cage","anchor_part_id":"sony-fx3","label":"Jaula HawkLock para la cámara","add_part_ids":["smallrig-4770"],"condition":{},"source_ids":["audit-doc-smallrig-4770-manual"],"note":"Jaula específica FX3/FX30, dos tornillos 1/4-20 y sujeción HDMI documentados. No se añaden base, varillas ni accesorios sin elegirlos. Verificar apriete y acceso a batería y conexiones."},
-    {"id":"camera-xlr","anchor_part_id":"sony-fx3","label":"Asa Sony XLR-H1","add_part_ids":["sony-xlr-h1"],"condition":{"not_context":"gimbal"},"source_ids":["src-sony-xlr-h1","audit-doc-smallrig-4770-manual"],"note":"Asa específica sobre la interfaz Sony; con 4770 retirar su riel NATO superior. No se añaden 4830 ni micrófono automáticamente. Gimbal activo excluido."},
-    {"id":"cage-audio","anchor_part_id":"smallrig-4770","label":"Receptor Mic 2 en la zapata","add_part_ids":["dji-mic-2-kit"],"condition":{},"source_ids":["audit-doc-smallrig-4770-manual","audit-doc-dji-mic2-manual"],"note":"Sólo el RX sobre la zapata inclinada de 4770. TX y estuche fuera del rig; cable TRS incluido. Asiento, retención y barrido de motores pendientes."},
-    {"id":"cage-monitor","anchor_part_id":"smallrig-4770","label":"Monitor en el NATO de la jaula","add_part_ids":["smallrig-2906b","smallhd-indie-7","kondor-blue-hdmi-aa","sony-np-f970-pro"],"condition":{"not_context":"gimbal","none":["sony-xlr-h1"]},"source_ids":["audit-doc-smallrig-4770-manual","src-smallrig-2906b-manual","src-smallhd-indie7-specs","src-sony-npf970-pro"],"note":"Riel superior desmontable 4770 → abrazadera NATO 2906B → rosca inferior del Indie 7. Alimentación serie L incluida en la propuesta, no en el kit de jaula. Medir retención, manos e inclinación con la batería instalada."},
-    {"id":"cage-base","anchor_part_id":"smallrig-4770","label":"Base para varillas de 15 mm","add_part_ids":["smallrig-1674"],"condition":{},"source_ids":["audit-doc-smallrig-4770-manual","audit-doc-smallrig-1674-manual"],"note":"Tornillo 1/4-20 bajo la jaula. Longitud efectiva de rosca, antitorsión y pila real por medir; no promete extracción HawkLock a través de la base."},
-    {"id":"gimbal-monitor","anchor_part_id":"dji-rs4-pro-combo","label":"Monitor lateral del gimbal","add_part_ids":["smallrig-3026b","smallhd-indie-7","kondor-blue-hdmi-aa","sony-np-f970-pro"],"condition":{"context":"gimbal"},"source_ids":["audit-doc-smallrig-3026b-manual","src-smallhd-indie7-specs","src-sony-npf970-pro"],"note":"NATO lateral fijo del RS 4 Pro → 3026B → monitor fuera de cámara. Bucle HDMI y manos pendientes de medir; la batería serie L no necesita cable D-Tap."},
-    {"id":"xlr-monitor","anchor_part_id":"sony-xlr-h1","label":"Monitor en el riel del asa XLR","add_part_ids":["smallrig-4830","smallrig-2906b","smallhd-indie-7","kondor-blue-hdmi-aa","sony-np-f970-pro"],"condition":{"not_context":"gimbal"},"source_ids":["src-smallrig-4830-manual","src-smallrig-2906b-manual","src-smallhd-indie7-specs","src-sony-npf970-pro"],"note":"XLR-H1 → kit 4830 → NATO 2906B → monitor. Retirar el riel superior desmontable de 4770; 4830 no está incluido en 4770. Medir retención y acceso al agarre."},
-    {"id":"nato-monitor","anchor_part_id":"smallrig-2906b","label":"Monitor con vídeo y batería","add_part_ids":["smallhd-indie-7","kondor-blue-hdmi-aa","sony-np-f970-pro"],"condition":{"not_context":"gimbal"},"source_ids":["src-smallrig-2906b-manual","src-smallhd-indie7-specs","src-sony-npf970-pro"],"note":"Indie 7 sobre tornillo 1/4-20 del soporte elegido. Verificar carga al ángulo de trabajo, retención y señal HDMI real."},
-    {"id":"extension-monitor","anchor_part_id":"smallrig-4830","label":"Monitor sobre la extensión XLR","add_part_ids":["smallrig-2906b","smallhd-indie-7","kondor-blue-hdmi-aa","sony-np-f970-pro"],"condition":{"not_context":"gimbal"},"source_ids":["src-smallrig-4830-manual","src-smallrig-2906b-manual","src-smallhd-indie7-specs","src-sony-npf970-pro"],"note":"NATO del 4830 → 2906B → Indie 7. La extensión requiere XLR-H1 y se conserva la comprobación de manos y tornillos."},
-    {"id":"monitor-local-battery","anchor_part_id":"smallhd-indie-7","label":"Batería del monitor sin D-Tap","add_part_ids":["sony-np-f970-pro"],"condition":{},"source_ids":["src-smallhd-indie7-specs","src-sony-npf970-pro"],"note":"Una NP-F970/PRO en la placa serie L incluida. No alimenta la FX3 ni se conecta al barril DC. Cargador externo, autonomía y retención por comprobar."},
-    {"id":"base-rods","anchor_part_id":"smallrig-1674","label":"Par de varillas de 15 mm","add_part_ids":["smallrig-rods-8in"],"condition":{},"source_ids":["audit-doc-smallrig-1674-manual","src-smallrig-rods-8"],"note":"Varillas de 203.2 mm en abrazaderas dobles 1674; medir recorrido útil y apriete. No garantiza alcance simultáneo de batería y parasol."},
-    {"id":"rods-battery-plate","anchor_part_id":"smallrig-rods-8in","label":"Placa V-mount baja","add_part_ids":["smallrig-3203b"],"condition":{},"source_ids":["audit-doc-smallrig-3203b-manual"],"note":"Abrazadera incluida en el borde superior de 3203B, manual página 5. Placa bajo varillas; no usar un adaptador inventado. Holgura y capacidad de la pila pendientes."},
-    {"id":"plate-battery","anchor_part_id":"smallrig-3203b","label":"Batería VB99 Pro","add_part_ids":["smallrig-vb99-pro"],"condition":{},"source_ids":["audit-doc-smallrig-3203b-manual","audit-doc-smallrig-vb99-manual"],"note":"Bloqueo V-mount en la placa baja. No añade cables de alimentación ni certifica regulación, autonomía o equilibrio."}
+    {
+      "id": "camera-cage",
+      "anchor_part_id": "sony-fx3",
+      "label": "Jaula HawkLock para la cámara",
+      "add_part_ids": [
+        "smallrig-4770"
+      ],
+      "condition": {},
+      "source_ids": [
+        "audit-doc-smallrig-4770-manual"
+      ],
+      "note": "Jaula específica FX3/FX30, dos tornillos 1/4-20 y sujeción HDMI documentados. No se añaden base, varillas ni accesorios sin elegirlos. Verificar apriete y acceso a batería y conexiones."
+    },
+    {
+      "id": "camera-xlr",
+      "anchor_part_id": "sony-fx3",
+      "label": "Asa Sony XLR-H1",
+      "add_part_ids": [
+        "sony-xlr-h1"
+      ],
+      "condition": {
+        "not_context": "gimbal"
+      },
+      "source_ids": [
+        "src-sony-xlr-h1",
+        "audit-doc-smallrig-4770-manual"
+      ],
+      "note": "Asa específica sobre la interfaz Sony; con 4770 retirar su riel NATO superior. No se añaden 4830 ni micrófono automáticamente. Gimbal activo excluido."
+    },
+    {
+      "id": "cage-audio",
+      "anchor_part_id": "smallrig-4770",
+      "label": "Receptor Mic 2 en la zapata",
+      "add_part_ids": [
+        "dji-mic-2-kit"
+      ],
+      "condition": {
+        "none": [
+          "sony-fx30"
+        ]
+      },
+      "source_ids": [
+        "audit-doc-smallrig-4770-manual",
+        "audit-doc-dji-mic2-manual"
+      ],
+      "note": "Sólo el RX sobre la zapata inclinada de 4770. TX y estuche fuera del rig; cable TRS incluido. Asiento, retención y barrido de motores pendientes."
+    },
+    {
+      "id": "cage-monitor",
+      "anchor_part_id": "smallrig-4770",
+      "label": "Monitor en el NATO de la jaula",
+      "add_part_ids": [
+        "smallrig-2906b",
+        "smallhd-indie-7",
+        "kondor-blue-hdmi-aa",
+        "sony-np-f970-pro"
+      ],
+      "condition": {
+        "not_context": "gimbal",
+        "none": [
+          "sony-xlr-h1",
+          "sony-fx30"
+        ]
+      },
+      "source_ids": [
+        "audit-doc-smallrig-4770-manual",
+        "src-smallrig-2906b-manual",
+        "src-smallhd-indie7-specs",
+        "src-sony-npf970-pro"
+      ],
+      "note": "Riel superior desmontable 4770 → abrazadera NATO 2906B → rosca inferior del Indie 7. Alimentación serie L incluida en la propuesta, no en el kit de jaula. Medir retención, manos e inclinación con la batería instalada."
+    },
+    {
+      "id": "cage-base",
+      "anchor_part_id": "smallrig-4770",
+      "label": "Base para varillas de 15 mm",
+      "add_part_ids": [
+        "smallrig-1674"
+      ],
+      "condition": {
+        "none": [
+          "sony-fx30"
+        ]
+      },
+      "source_ids": [
+        "audit-doc-smallrig-4770-manual",
+        "audit-doc-smallrig-1674-manual"
+      ],
+      "note": "Tornillo 1/4-20 bajo la jaula. Longitud efectiva de rosca, antitorsión y pila real por medir; no promete extracción HawkLock a través de la base."
+    },
+    {
+      "id": "gimbal-monitor",
+      "anchor_part_id": "dji-rs4-pro-combo",
+      "label": "Monitor lateral del gimbal",
+      "add_part_ids": [
+        "smallrig-3026b",
+        "smallhd-indie-7",
+        "kondor-blue-hdmi-aa",
+        "sony-np-f970-pro"
+      ],
+      "condition": {
+        "context": "gimbal"
+      },
+      "source_ids": [
+        "audit-doc-smallrig-3026b-manual",
+        "src-smallhd-indie7-specs",
+        "src-sony-npf970-pro"
+      ],
+      "note": "NATO lateral fijo del RS 4 Pro → 3026B → monitor fuera de cámara. Bucle HDMI y manos pendientes de medir; la batería serie L no necesita cable D-Tap."
+    },
+    {
+      "id": "xlr-monitor",
+      "anchor_part_id": "sony-xlr-h1",
+      "label": "Monitor en el riel del asa XLR",
+      "add_part_ids": [
+        "smallrig-4830",
+        "smallrig-2906b",
+        "smallhd-indie-7",
+        "kondor-blue-hdmi-aa",
+        "sony-np-f970-pro"
+      ],
+      "condition": {
+        "not_context": "gimbal"
+      },
+      "source_ids": [
+        "src-smallrig-4830-manual",
+        "src-smallrig-2906b-manual",
+        "src-smallhd-indie7-specs",
+        "src-sony-npf970-pro"
+      ],
+      "note": "XLR-H1 → kit 4830 → NATO 2906B → monitor. Retirar el riel superior desmontable de 4770; 4830 no está incluido en 4770. Medir retención y acceso al agarre."
+    },
+    {
+      "id": "nato-monitor",
+      "anchor_part_id": "smallrig-2906b",
+      "label": "Monitor con vídeo y batería",
+      "add_part_ids": [
+        "smallhd-indie-7",
+        "kondor-blue-hdmi-aa",
+        "sony-np-f970-pro"
+      ],
+      "condition": {
+        "not_context": "gimbal"
+      },
+      "source_ids": [
+        "src-smallrig-2906b-manual",
+        "src-smallhd-indie7-specs",
+        "src-sony-npf970-pro"
+      ],
+      "note": "Indie 7 sobre tornillo 1/4-20 del soporte elegido. Verificar carga al ángulo de trabajo, retención y señal HDMI real."
+    },
+    {
+      "id": "extension-monitor",
+      "anchor_part_id": "smallrig-4830",
+      "label": "Monitor sobre la extensión XLR",
+      "add_part_ids": [
+        "smallrig-2906b",
+        "smallhd-indie-7",
+        "kondor-blue-hdmi-aa",
+        "sony-np-f970-pro"
+      ],
+      "condition": {
+        "not_context": "gimbal"
+      },
+      "source_ids": [
+        "src-smallrig-4830-manual",
+        "src-smallrig-2906b-manual",
+        "src-smallhd-indie7-specs",
+        "src-sony-npf970-pro"
+      ],
+      "note": "NATO del 4830 → 2906B → Indie 7. La extensión requiere XLR-H1 y se conserva la comprobación de manos y tornillos."
+    },
+    {
+      "id": "monitor-local-battery",
+      "anchor_part_id": "smallhd-indie-7",
+      "label": "Batería del monitor sin D-Tap",
+      "add_part_ids": [
+        "sony-np-f970-pro"
+      ],
+      "condition": {},
+      "source_ids": [
+        "src-smallhd-indie7-specs",
+        "src-sony-npf970-pro"
+      ],
+      "note": "Una NP-F970/PRO en la placa serie L incluida. No alimenta la FX3 ni se conecta al barril DC. Cargador externo, autonomía y retención por comprobar."
+    },
+    {
+      "id": "base-rods",
+      "anchor_part_id": "smallrig-1674",
+      "label": "Par de varillas de 15 mm",
+      "add_part_ids": [
+        "smallrig-rods-8in"
+      ],
+      "condition": {},
+      "source_ids": [
+        "audit-doc-smallrig-1674-manual",
+        "src-smallrig-rods-8"
+      ],
+      "note": "Varillas de 203.2 mm en abrazaderas dobles 1674; medir recorrido útil y apriete. No garantiza alcance simultáneo de batería y parasol."
+    },
+    {
+      "id": "rods-battery-plate",
+      "anchor_part_id": "smallrig-rods-8in",
+      "label": "Placa V-mount baja",
+      "add_part_ids": [
+        "smallrig-3203b"
+      ],
+      "condition": {},
+      "source_ids": [
+        "audit-doc-smallrig-3203b-manual"
+      ],
+      "note": "Abrazadera incluida en el borde superior de 3203B, manual página 5. Placa bajo varillas; no usar un adaptador inventado. Holgura y capacidad de la pila pendientes."
+    },
+    {
+      "id": "plate-battery",
+      "anchor_part_id": "smallrig-3203b",
+      "label": "Batería VB99 Pro",
+      "add_part_ids": [
+        "smallrig-vb99-pro"
+      ],
+      "condition": {},
+      "source_ids": [
+        "audit-doc-smallrig-3203b-manual",
+        "audit-doc-smallrig-vb99-manual"
+      ],
+      "note": "Bloqueo V-mount en la placa baja. No añade cables de alimentación ni certifica regulación, autonomía o equilibrio."
+    },
+    {
+      "id": "pilot-camera-cage",
+      "anchor_part_id": "sony-fx30",
+      "label": "Añadir jaula HawkLock",
+      "add_part_ids": [
+        "smallrig-4770"
+      ],
+      "condition": {
+        "context": "handheld",
+        "orientation": "landscape"
+      },
+      "source_ids": [
+        "audit-doc-smallrig-4770-manual"
+      ],
+      "note": "Relación específica documentada por fabricante; pose y retención pendientes de ensayo."
+    },
+    {
+      "id": "pilot-camera-lens",
+      "anchor_part_id": "sony-fx30",
+      "label": "Añadir FE 20mm F1.8 G",
+      "add_part_ids": [
+        "sony-fe-20-f18-g"
+      ],
+      "condition": {
+        "context": "handheld",
+        "orientation": "landscape"
+      },
+      "source_ids": [
+        "intake-sony-fx30-sel20f18g-pair"
+      ],
+      "note": "Relación específica documentada por fabricante; pose y retención pendientes de ensayo."
+    },
+    {
+      "id": "pilot-camera-battery",
+      "anchor_part_id": "sony-fx30",
+      "label": "Añadir batería nativa",
+      "add_part_ids": [
+        "sony-np-fz100"
+      ],
+      "condition": {
+        "context": "handheld",
+        "orientation": "landscape"
+      },
+      "source_ids": [
+        "intake-sony-fx30-helpguide"
+      ],
+      "note": "Relación específica documentada por fabricante; pose y retención pendientes de ensayo."
+    }
   ],
   "camera_part_ids": [
-    "sony-fx3"
+    "sony-fx3",
+    "sony-fx30"
   ],
-  "planning_root_part_ids": ["sony-fx3","dji-ronin-app","sony-monitor-control-app"],
+  "planning_root_part_ids": [
+    "sony-fx3",
+    "dji-ronin-app",
+    "sony-monitor-control-app",
+    "sony-fx30"
+  ],
   "exclusive_selection_groups": [
-    {"id":"camera-body","part_ids":["sony-fx3"],"max_active":1,"message":"Elige un solo cuerpo para este rig. Tus elecciones se conservan; no se decide por ti."},
-    {"id":"mounted-lens","part_ids":["sony-fe-16-35-gm"],"max_active":1,"message":"Elige una sola óptica montada para este rig. Las alternativas deben ir en otros planes."}
+    {
+      "id": "camera-body",
+      "part_ids": [
+        "sony-fx3",
+        "sony-fx30"
+      ],
+      "max_active": 1,
+      "message": "Elige un solo cuerpo para este rig. Tus elecciones se conservan; no se decide por ti."
+    },
+    {
+      "id": "mounted-lens",
+      "part_ids": [
+        "sony-fe-16-35-gm",
+        "sony-fe-20-f18-g"
+      ],
+      "max_active": 1,
+      "message": "Elige una sola óptica montada para este rig. Las alternativas deben ir en otros planes."
+    }
   ],
   "viewer_routes": [
-    {"id":"gimbal","condition":{"context":"gimbal"}},
-    {"id":"xlr","condition":{"not_context":"gimbal","all":["sony-xlr-h1"]}},
-    {"id":"cage","condition":{"not_context":"gimbal","none":["sony-xlr-h1"]}}
+    {
+      "id": "gimbal",
+      "condition": {
+        "context": "gimbal"
+      }
+    },
+    {
+      "id": "xlr",
+      "condition": {
+        "not_context": "gimbal",
+        "all": [
+          "sony-xlr-h1"
+        ]
+      }
+    },
+    {
+      "id": "cage",
+      "condition": {
+        "not_context": "gimbal",
+        "none": [
+          "sony-xlr-h1"
+        ]
+      }
+    }
   ],
-  "viewer_route_part_ids": ["smallhd-indie-7","smallrig-3026b","smallrig-2906b","smallrig-4830","sony-np-f970-pro"],
+  "viewer_route_part_ids": [
+    "smallhd-indie-7",
+    "smallrig-3026b",
+    "smallrig-2906b",
+    "smallrig-4830",
+    "sony-np-f970-pro"
+  ],
   "completion_rules": {
     "smallhd-indie-7": {
-      "label":"Completar monitor",
-      "required_all":["kondor-blue-hdmi-aa"],
-      "power_cable_ids":["pwr-plate-to-smallhd","pwr-npf-to-smallhd-contacts"],
-      "power_suggest_ids":["sony-np-f970-pro"]
+      "label": "Completar monitor",
+      "required_all": [
+        "kondor-blue-hdmi-aa"
+      ],
+      "power_cable_ids": [
+        "pwr-plate-to-smallhd",
+        "pwr-npf-to-smallhd-contacts"
+      ],
+      "power_suggest_ids": [
+        "sony-np-f970-pro"
+      ]
     }
   },
-  "camera_external_power_part_ids": ["smallrig-4253b"],
+  "camera_external_power_part_ids": [
+    "smallrig-4253b"
+  ],
   "extraction_step": 13,
   "selection_checks": [
     {
       "id": "camera",
       "condition": {},
       "required_any": [
-        "sony-fx3"
+        "sony-fx3",
+        "sony-fx30"
       ],
       "message": "Elige una cámara para iniciar el rig."
     },
@@ -171,6 +492,39 @@
         ]
       },
       "message": "NP-F970/PRO: una batería de 300 g aproximados en placa nativa serie L; cargador externo requerido. Comprobar retención y autonomía real. No conectar 7.2 V al barril DC."
+    },
+    {
+      "id": "fx30-lens",
+      "condition": {
+        "all": [
+          "sony-fx30"
+        ]
+      },
+      "required_all": [
+        "sony-fe-20-f18-g"
+      ],
+      "message": "El par documentado del piloto FX30 es SEL20F18G; otros objetivos requieren revisión propia."
+    },
+    {
+      "id": "fx30-native-power",
+      "condition": {
+        "all": [
+          "sony-fx30"
+        ]
+      },
+      "required_all": [
+        "sony-np-fz100"
+      ],
+      "message": "El piloto FX30 utiliza la batería nativa NP-FZ100 elegida. No se añade por defecto ni se hereda el adaptador de batería FX3."
+    },
+    {
+      "id": "fx30-preflight",
+      "condition": {
+        "all": [
+          "sony-fx30"
+        ]
+      },
+      "message": "Piloto de planificación: tarjeta, ventilación, masa real, retención con jaula y firmware requieren comprobación. No hay ensayo físico registrado."
     }
   ],
   "cable_exclusions": [
@@ -260,6 +614,12 @@
     ],
     "sony-np-f970-pro": [
       "smallhd-indie-7"
+    ],
+    "sony-fe-20-f18-g": [
+      "sony-fx30"
+    ],
+    "sony-np-fz100": [
+      "sony-fx30"
     ]
   },
   "gimbal_only_part_ids": [
@@ -305,7 +665,9 @@
       "label": "Cámara y óptica",
       "part_ids": [
         "sony-fx3",
-        "sony-fe-16-35-gm"
+        "sony-fe-16-35-gm",
+        "sony-fx30",
+        "sony-fe-20-f18-g"
       ]
     },
     {
@@ -338,7 +700,8 @@
         "smallrig-vb99-pro",
         "smallrig-4253b",
         "smallhd-dtap-to-2mm-barrel",
-        "sony-np-f970-pro"
+        "sony-np-f970-pro",
+        "sony-np-fz100"
       ]
     },
     {
@@ -561,7 +924,109 @@
       "required_all": [
         "smallrig-4830"
       ]
+    },
+    {
+      "part_id": "smallrig-4770",
+      "condition": {
+        "all": [
+          "sony-fx30"
+        ],
+        "context": "handheld",
+        "orientation": "landscape"
+      },
+      "required_all": [
+        "sony-fx30"
+      ]
     }
   ],
-  "catalog_additions_revision": "monitor-chains-2026-10-07"
+  "catalog_additions_revision": "monitor-chains-2026-10-07",
+  "camera_internal_power_part_ids": [
+    "sony-np-fz100"
+  ],
+  "part_context_constraints": [
+    {
+      "part_ids": [
+        "sony-fx30",
+        "sony-fe-20-f18-g",
+        "sony-np-fz100"
+      ],
+      "contexts": [
+        "handheld"
+      ],
+      "orientations": [
+        "landscape"
+      ],
+      "message": "Piloto documentado sólo a mano y horizontal. Otros montajes quedan pendientes; cambiar contexto no borra tu elección."
+    }
+  ],
+  "selection_scopes": [
+    {
+      "id": "fx30-pilot-scope",
+      "condition": {
+        "all": [
+          "sony-fx30"
+        ]
+      },
+      "allowed_part_ids": [
+        "sony-fx30",
+        "smallrig-4770",
+        "sony-fe-20-f18-g",
+        "sony-np-fz100"
+      ],
+      "message": "Accesorio fuera del piloto FX30 revisado. No hereda soportes, conexiones ni posiciones de FX3; se conserva elegido y pendiente."
+    }
+  ],
+  "assembly_profiles": [
+    {
+      "id": "fx30-handheld-prime",
+      "camera_part_id": "sony-fx30",
+      "frames": [
+        {
+          "step": 1,
+          "add_part_ids": [
+            "sony-fx30"
+          ],
+          "add_cable_ids": [],
+          "context_part_ids": [],
+          "note": "Pose aproximada del piloto FX30, sin heredar etapas ni accesorios de FX3."
+        },
+        {
+          "step": 2,
+          "add_part_ids": [
+            "smallrig-4770"
+          ],
+          "add_cable_ids": [],
+          "context_part_ids": [],
+          "note": "Pose aproximada del piloto FX30, sin heredar etapas ni accesorios de FX3."
+        },
+        {
+          "step": 3,
+          "add_part_ids": [
+            "sony-fe-20-f18-g"
+          ],
+          "add_cable_ids": [],
+          "context_part_ids": [],
+          "note": "Pose aproximada del piloto FX30, sin heredar etapas ni accesorios de FX3."
+        },
+        {
+          "step": 4,
+          "add_part_ids": [
+            "sony-np-fz100"
+          ],
+          "add_cable_ids": [
+            "pilot-pwr-npfz100-fx30"
+          ],
+          "context_part_ids": [],
+          "note": "Batería interna: relación ilustrativa. Usa Despiece para verla; no es una trayectoria de inserción."
+        },
+        {
+          "step": 5,
+          "add_part_ids": [],
+          "add_cable_ids": [],
+          "context_part_ids": [],
+          "note": "Pose aproximada del piloto FX30, sin heredar etapas ni accesorios de FX3."
+        }
+      ]
+    }
+  ]
 }

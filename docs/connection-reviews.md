@@ -1,6 +1,6 @@
 # Revisión de conexiones
 
-Fuente: `data/connection-reviews.json`, revisión `connection-review-2026-10-07-2`. Valores eléctricos canónicos en cables y puertos, con fuente por campo. 4 de 18 circuitos con revisión ampliada.
+Fuente: `data/connection-reviews.json`, revisión `connection-review-2026-10-07-2`. Valores eléctricos canónicos en cables y puertos, con fuente por campo. 5 de 19 circuitos con revisión ampliada.
 
 Revisión documental limitada a modelos, puertos y revisión vinculados. No es autorización para energizar ni ensayo físico. Fuentes de valores eléctricos en cables-manifest y ports-manifest; ausencia de rango, pinout o protocolo mantiene el resultado pendiente.
 
@@ -66,6 +66,17 @@ Antes de conectar: Una NP-F970/PRO en la placa serie L incluida del Indie 7, no 
 
 - [Sony](https://www.sony.jp/products/catalog/SPC_NP-F970_PRO.pdf): Página 1, especificaciones principales y advertencia de cargador. NP-F970/PRO: 7.2 V nominales, 45 Wh, dimensiones aproximadas y masa de aproximadamente 300 g; requiere cargador específico.
 - [SmallHD](https://smallhd.com/products/indie-7): In the Box: Sony L Series Battery Bracket; Technical Specs, Power: Battery Charging, Input Voltage Battery. Placa serie L incluida, contactos de batería admiten 6.0-16.8 V; el monitor no carga baterías.
+
+## pilot-pwr-npfz100-fx30
+
+Modelos vinculados: Sony NP-FZ100 / NP-FZ100; Sony FX30 / ILME-FX30. Puertos: `npfz100-contacts` -> `fx30-native-battery`.
+
+Antes de conectar: Usar batería nativa previamente cargada y seguir Sony. Comprobar retención, cubierta, ventilación y firmware del ejemplar; conjunto no ensayado.
+
+- **Batería nativa documentada:** La pareja nativa está identificada por Sony; no requiere D-Tap, cable ni regulador externo.
+- **Retención y ventilación reales:** Asiento, cubierta y ventilación deben comprobarse con el ejemplar y jaula reales. Sin ensayo registrado.
+
+- [Sony](https://helpguide.sony.net/ilc/2220/v1/en/print.pdf): Página 19: NP-FZ100 incluida; páginas de inserción de batería y 526: especificaciones.. Sony identifica NP-FZ100 como batería nativa para ILME-FX30; no documenta aquí pinout ni rango.
 
 
 ## Alcance pendiente

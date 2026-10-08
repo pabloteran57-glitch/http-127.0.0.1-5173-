@@ -1,6 +1,6 @@
 # Modelos del piloto
 
-Generado desde data/pilot-model-assets.json. Revisión 2026-10-07. Inspección aislada en Ayuda, no catálogo instalable.
+Generado desde data/pilot-model-assets.json. Revisión 2026-10-07. Expediente de revisión visual de origen. Integración actual acotada en [piloto de planificación](pilot-integration.md).
 
 ## Sony FX30
 
@@ -34,8 +34,8 @@ Generado desde data/pilot-model-assets.json. Revisión 2026-10-07. Inspección a
 
 ## Comprobación y alcance
 
-Tres GLB y tres WebP propios. No usan fotografías, texturas, escaneos, CAD o activos IA externos. Las 17 mallas activas conservan sus huellas. Los puertos FX30 permanecen sin coordenadas en catalog-intake; ninguna malla autoriza un cable, asiento o contacto.
+Tres GLB y tres WebP propios. No usan fotografías, texturas, escaneos, CAD o activos IA externos. Las 17 mallas originales conservan sus huellas; las tres mallas del piloto se promueven explícitamente sin modificar su geometría. Los puertos FX30 permanecen sin coordenadas en ports-manifest; ninguna malla autoriza un cable, asiento o contacto.
 
 El presupuesto público pasa de 6 a 7 MB para admitir 887268 bytes de modelos nuevos y 25232 bytes de miniaturas, más código de inspección. Carga GLB bajo demanda, sin precarga sin conexión.
 
-Regenerar candidatos: npm run build:pilot-models. Revisar las cinco vistas locales antes de actualizar manualmente huellas. Verificar: npm run test:catalog y npm run build:public. Las poses del conjunto, selección, reglas dinámicas, guía y ensayo físico siguen pendientes.
+Regenerar candidatos: npm run build:pilot-models. Revisar las cinco vistas locales antes de actualizar manualmente huellas. Verificar: npm run test:catalog y npm run build:public. La selección y guía propias están integradas; las poses del conjunto son sólo visuales y aproximadas. El ensayo físico sigue pendiente.

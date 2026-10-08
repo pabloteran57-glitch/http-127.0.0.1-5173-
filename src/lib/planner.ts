@@ -97,8 +97,16 @@ export function selectionPresentation(chosenIds: string[], variant: Variant, mod
   return chosenIds.map(id => ({id, state: !active.has(id) ? "pending" as const : modeled.has(id) ? "visual" as const : "list" as const}));
 }
 
+export function selectionScopeProblem(id:string,rig:CustomRig,rules:PlannerRules):string|null {
+  const context = rules.part_context_constraints?.find(rule => rule.part_ids.includes(id) && (!rule.contexts.includes(rig.context) || !rule.orientations.includes(rig.orientation)));
+  if(context)return context.message;
+  const selected=new Set(rig.part_ids);
+  return rules.selection_scopes?.find(scope=>conditionMatches(scope.condition,selected,rig)&&!scope.allowed_part_ids.includes(id))?.message??null;
+}
+
 export function availableSupportIds(ids: string[], rig: CustomRig, rules: PlannerRules): string[] {
   const allowed = (id: string) => !rules.parked_part_ids.includes(id)
+    && !selectionScopeProblem(id,rig,rules)
     && !mountChainProblem(id,rules,rig)
     && !(rig.context !== "gimbal" && rules.gimbal_only_part_ids.includes(id))
     && !(rig.context === "gimbal" && rules.gimbal_excluded_part_ids.includes(id))
@@ -122,15 +130,17 @@ export function resolveRig(rig: CustomRig, rules: PlannerRules, cables: Cable[],
   const routes=(rules.viewer_routes??[]).filter(route=>conditionMatches(route.condition,selected,rig));
   const route=routes.length===1?routes[0].id:undefined;
   for (const id of selected) {
-    if (rules.parked_part_ids.includes(id)) exclude(id, `${nameOf(id)}: montaje o sistema pendiente. Se conserva en reserva, no se instala en el visor.`);
+    const scopeProblem=selectionScopeProblem(id,rig,rules);
+    if(scopeProblem)exclude(id,`${nameOf(id)}: ${scopeProblem}`);
+    else if (rules.parked_part_ids.includes(id)) exclude(id, `${nameOf(id)}: montaje o sistema pendiente. Se conserva en reserva, no se instala en el visor.`);
     else if (rig.context !== "gimbal" && rules.gimbal_only_part_ids.includes(id)) exclude(id, `${nameOf(id)}: la cadena documentada requiere un gimbal. No se inventa soporte a mano o estático.`);
     else if (rig.context === "gimbal" && rules.gimbal_excluded_part_ids.includes(id)) exclude(id, `${nameOf(id)}: reservado para cámara a mano o estática, no gimbal activo.`);
     else if (rig.context === "gimbal" && rig.orientation === "vertical" && rules.vertical_excluded_part_ids.includes(id)) exclude(id, `${nameOf(id)}: fuera de la configuración vertical documentada; pila, soporte y holguras pendientes.`);
     else {const problem=mountChainProblem(id,rules,rig);if(problem)exclude(id,`${nameOf(id)}: ${problem} Se conserva pendiente, sin montaje ficticio.`);}
   }
   for(const group of rules.exclusive_selection_groups??[]){
-    const members=group.part_ids.filter(id=>active.has(id));
-    if(members.length>group.max_active)for(const id of members)exclude(id,`${nameOf(id)}: ${group.message}`);
+    const members=group.part_ids.filter(id=>selected.has(id));
+    if(members.length>group.max_active)for(const id of members.filter(id=>active.has(id)))exclude(id,`${nameOf(id)}: ${group.message}`);
   }
   if(!route)for(const id of rules.viewer_route_part_ids??[])if(active.has(id))exclude(id,`${nameOf(id)}: distribución contextual desconocida o ambigua. Se conserva pendiente, sin inventar una posición.`);
   let changed = true;
@@ -156,15 +166,19 @@ export function resolveRig(rig: CustomRig, rules: PlannerRules, cables: Cable[],
 }
 
 export function assemblyFrame(variant: Variant, step: number, rules: PlannerRules, cables: Cable[]) {
-  const frame = rules.assembly_frames[step-1];
-  const introduced = new Set(rules.assembly_frames.filter(f=>f.step<=step).flatMap(f=>f.add_part_ids));
+  const profile=rules.assembly_profiles?.find(profile=>variant.active_part_ids.includes(profile.camera_part_id));
+  const frames=profile?.frames??rules.assembly_frames;
+  const frame = frames.find(frame=>frame.step===step);
+  if(!frame)throw new Error("Etapa fuera del perfil de montaje seleccionado.");
+  const extraction=!profile&&step===rules.extraction_step;
+  const introduced = new Set(frames.filter(f=>f.step<=step).flatMap(f=>f.add_part_ids));
   let ids = variant.active_part_ids.filter(id=>introduced.has(id));
-  if (step === rules.extraction_step) ids = ids.filter(id=>rules.extraction_keep_part_ids.includes(id));
+  if (extraction) ids = ids.filter(id=>rules.extraction_keep_part_ids.includes(id));
   const contextIds = frame.context_part_ids.filter(id=>variant.active_part_ids.includes(id)&&!ids.includes(id));
   const visible = new Set([...ids,...contextIds]);
-  const available = new Set(rules.assembly_frames.filter(f=>f.step<=step).flatMap(f=>f.add_cable_ids));
+  const available = new Set(frames.filter(f=>f.step<=step).flatMap(f=>f.add_cable_ids));
   const cableIds = variant.cable_profile_ids.filter(id=>available.has(id)&&cables.some(c=>c.cable_id===id&&[c.from_part_id,c.to_part_id].every(p=>p===null||ids.includes(p))));
-  return {variant:{...variant,active_part_ids:[...visible],cable_profile_ids:cableIds,viewer:{...variant.viewer,mode:step===rules.extraction_step?"assembled" as const:variant.viewer.mode,rig_context:step===rules.extraction_step?"handheld":variant.viewer.rig_context}},new_ids:frame.add_part_ids.filter(id=>ids.includes(id)),context_ids:contextIds,note:frame.note};
+  return {variant:{...variant,active_part_ids:[...visible],cable_profile_ids:cableIds,viewer:{...variant.viewer,mode:extraction?"assembled" as const:variant.viewer.mode,rig_context:extraction?"handheld":variant.viewer.rig_context}},new_ids:frame.add_part_ids.filter(id=>ids.includes(id)),context_ids:contextIds,note:frame.note};
 }
 
 export function parseRig(value: unknown, catalogIds: string[]): CustomRig {

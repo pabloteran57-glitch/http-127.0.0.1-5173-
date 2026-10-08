@@ -35,12 +35,12 @@ const publicAssets: Plugin = {
       for(const file of [asset.artifact,asset.image]){
         const bytes=readFileSync(new URL("./public"+file.path,import.meta.url));
         if(bytes.length!==file.bytes||createHash("sha256").update(bytes).digest("hex")!==file.sha256)this.error("Recurso del piloto distinto de su huella: "+asset.id);
-        this.emitFile({type:"asset",fileName:file.path.slice(1),source:bytes});
+        if(!modelRegistry.assets.some(model=>model.artifact.path===file.path)&&!visualRegistry.assets.some(visual=>visual.image.path===file.path))this.emitFile({type:"asset",fileName:file.path.slice(1),source:bytes});
       }
     }
     this.emitFile({ type: "asset", fileName: "404.html", source: '<!doctype html><html lang="es"><meta charset="utf-8"><title>Referencia no publicada</title><h1>Referencia no publicada</h1><p>Los medios del fabricante permanecen en el archivo de investigación local. Consulta los enlaces oficiales desde la ficha de la pieza.</p><a href="/">Volver a Takegrid</a></html>' });
     this.emitFile({type:"asset",fileName:"manifest.webmanifest",source:readFileSync(new URL("./public/manifest.webmanifest",import.meta.url))});
-    const assets=["/index.html","/manifest.webmanifest","/brand/takegrid-mark.svg","/brand/takegrid-app-icon.svg",...visualRegistry.assets.map(v=>v.image.path),...pilotRegistry.assets.map(v=>v.image.path),...Object.keys(bundle).filter(name=>/^assets\/[\w-]+\.(js|css)$/.test(name)).map(name=>`/${name}`)].sort();
+    const assets=[...new Set(["/index.html","/manifest.webmanifest","/brand/takegrid-mark.svg","/brand/takegrid-app-icon.svg",...visualRegistry.assets.map(v=>v.image.path),...pilotRegistry.assets.map(v=>v.image.path),...Object.keys(bundle).filter(name=>/^assets\/[\w-]+\.(js|css)$/.test(name)).map(name=>`/${name}`)])].sort();
     const digest=createHash("sha256").update(assets.join("\n"));
     visualRegistry.assets.forEach(v=>digest.update(v.image.sha256));
     pilotRegistry.assets.forEach(v=>digest.update(v.image.sha256).update(v.artifact.sha256));

@@ -7,7 +7,7 @@ import { authoredModel, authors } from "./lib/authored-models.mjs";
 import { inspectGlb } from "./lib/inspect-glb.mjs";
 
 const read = name => JSON.parse(readFileSync(new URL(`../data/${name}.json`, import.meta.url), "utf8"));
-const nodes = read("layout-manifest").nodes, parts = read("parts-manifest").parts;
+const allNodes = read("layout-manifest").nodes, nodes=allNodes.filter(node=>node.model_authoring!=="pilot"), parts = read("parts-manifest").parts;
 const registry = read("model-assets"), production = read("model-production");
 const dispose = group => group.traverse(o => { if (o.isMesh) o.geometry.dispose(); });
 const source = node => { const group = new Group(); authors[node.kind](group, node); group.updateMatrixWorld(true); return group; };
@@ -16,8 +16,8 @@ let checks = 0;
 const test = (name, fn) => { fn(); checks++; console.log("CORRECTO: " + name); };
 
 test("El lote cubre los nodos, sin activar montajes implícitos", () => {
-  assert.equal(nodes.length, 17); assert.equal(registry.assets.length, 17);
-  assert.deepEqual(new Set(registry.assets.map(a => a.part_id)), new Set(nodes.map(n => n.id)));
+  assert.equal(nodes.length, 17); assert.equal(registry.assets.length, 20);
+  assert.deepEqual(new Set(registry.assets.map(a => a.part_id)), new Set(allNodes.map(n => n.id)));
   assert(registry.assets.every(a => a.source.method === "manual" && a.review.mechanical_accuracy === "approximate"));
 });
 test("Las entradas tienen alcance explícito: malla, cable, reserva o software", () => {

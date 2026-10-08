@@ -1,6 +1,6 @@
 # Producción de modelos realistas
 
-Fuentes canónicas: `data/model-production.json` y `data/model-assets.json`. Revisión 2026-10-06. Estado: `authored_approximate_batch_original_exact_assets_pending`. **17 mallas aprobadas. No se ha sustituido ninguna forma por un recurso sin auditar.**
+Fuentes canónicas: `data/model-production.json` y `data/model-assets.json`. Revisión 2026-10-06. Estado: `authored_approximate_batch_original_exact_assets_pending`. **20 mallas aprobadas. No se ha sustituido ninguna forma por un recurso sin auditar.**
 
 ## Acción por acción
 
@@ -37,6 +37,9 @@ Reconstrucciones propias aproximadas; no descargas de Sketchfab ni resultados de
 | Soporte NATO de monitor 2906B | `/models/smallrig-2906b-takegrid-v1.glb` | 2568 | 133268 | Envolvente de planificación XYZ 52.6 × 53.8 × 36 mm; malla 56.50 × 53.80 × 32.00 mm. Cabezal y horquilla separados para articular: revisión visual en cinco vistas el 2026-10-07, misma envolvente y triángulos. Manual página 2: inclinación 180° y giro 360° totales. Pivotes, controles, contactos y holguras aproximados; no CAD ni encaje probado. |
 | Extensión y riel XLR 4830 | `/models/smallrig-4830-takegrid-v1.glb` | 2292 | 113592 | Envolvente de planificación XYZ 55.8 × 77.5 × 124.8 mm; malla 66.00 × 59.55 × 122.00 mm. Contorno, controles, contactos y holguras aproximados desde referencias. No deformada para igualar cotas; no CAD ni encaje probado. |
 | Batería Sony NP-F970/PRO | `/models/sony-np-f970-pro-takegrid-v1.glb` | 1540 | 79280 | Envolvente de planificación XYZ 38.4 × 70.8 × 60 mm; malla 38.40 × 70.80 × 61.25 mm. Contorno, controles, contactos y holguras aproximados desde referencias. No deformada para igualar cotas; no CAD ni encaje probado. |
+| Sony FX30 | `/models/sony-fx30-pilot-v1.glb` | 10240 | 496976 | Sony publica cuerpo sin salientes aprox. 129.7 x 77.8 x 84.5 mm. La malla incluye cubiertas, zapata y controles estimados: envolvente visual 130.33 x 81.85 x 84.50 mm, no una correccion del dato oficial. Sensor APS-C 23.3 x 15.5 mm publicado, pose estimada. LCD cerrado. Cubiertas opacas: sin puertos, contactos, roscas o bayoneta mecanicos. |
+| FE 20mm F1.8 G | `/models/sony-fe-20-f18-g-pilot-v1.glb` | 7380 | 309804 | D 73.5 x L 84.7 mm publicados; filtro nominal 67 mm. Perfil propio, enfoque, apertura, selector y boton estimados. Sin parasol ALC-SH162, tapas, texturas, contactos o patron mecanico de montura. No hereda el zoom SEL1635GM. |
+| Sony NP-FZ100 | `/models/sony-np-fz100-pilot-v1.glb` | 1460 | 80488 | Sony publica aprox. 38.7 x 22.7 x 51.7 mm. Carcasa propia y juntas estimadas; altura visual 22.77 mm, no cota de fabricacion. Cara de insercion opaca, sin inventar contactos, pinout o posicion interna en FX30. Sin etiqueta o imagen copiada. |
 
 | Orden | Producto | Subcomponente | Estado | Referencias necesarias |
 |---|---|---|---|---|

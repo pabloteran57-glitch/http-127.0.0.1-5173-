@@ -1,6 +1,6 @@
 {
   "name": "rs4-pro-fx3-rig-planner",
-  "version": "0.2.9",
+  "version": "0.2.10",
   "private": true,
   "type": "module",
   "scripts": {
@@ -11,7 +11,7 @@
     "validate": "node scripts/validate-data.mjs && node scripts/audit-model-assets.mjs && npm run test:planner && npm run test:models && npm run test:catalog",
     "test:planner": "node scripts/test-planner.mjs && node scripts/test-extensible-engineering.mjs && node scripts/test-attachments.mjs && node scripts/test-adjustments.mjs && node scripts/test-connections.mjs && node scripts/test-offline.mjs && node scripts/test-profiles.mjs",
     "test:models": "node scripts/test-model-assets.mjs && node scripts/test-model-runtime.mjs && node scripts/test-authored-models.mjs && node scripts/test-product-visuals.mjs",
-    "test:catalog": "node scripts/test-catalog-pilot.mjs && node scripts/test-pilot-models.mjs",
+    "test:catalog": "node scripts/test-catalog-pilot.mjs && node scripts/test-pilot-models.mjs && node scripts/test-pilot-integration.mjs",
     "check:catalog": "node scripts/check-catalog-pilot.mjs",
     "check:beta": "node scripts/check-beta-readiness.mjs",
     "build": "npm run build:models && npm run build:visuals && npm run build:pilot-models && npm run validate && tsc --noEmit && vite build --config vite.config.ts",

@@ -4,22 +4,60 @@ const read=name=>JSON.parse(readFileSync(new URL(`../data/${name}.json`,import.m
 const parts=read("parts-manifest"),layout=read("layout-manifest"),cables=read("cables-manifest"),ports=read("ports-manifest"),assembly=read("assembly-guide"),variants=read("variants"),refs=read("geometry-references"),audit=read("geometry-audit");
 const ui=read("ui-content");
 const planner=read("planner-rules"),intake=read("catalog-intake");
-const roadmap=read("product-roadmap");
+const roadmap=read("product-roadmap"),integration=read("pilot-integration");
 const modelProduction=read("model-production"),modelAssets=read("model-assets");
 const connectionReviews=read("connection-reviews"),sourceList=read("sources").sources;
 const pilotModels=read("pilot-model-assets");
-writeFileSync(new URL("../docs/pilot-model-review.md",import.meta.url),`# Modelos del piloto\n\nGenerado desde data/pilot-model-assets.json. Revisión ${pilotModels.reviewed_on}. Inspección aislada en Ayuda, no catálogo instalable.\n\n${pilotModels.assets.map(asset=>`## ${asset.exact_product_name}\n\n- Modelo exacto: ${asset.model_number}. Autoría propia; geometría y materiales aproximados.\n- GLB: ${asset.artifact.bytes} bytes, ${asset.artifact.triangles} triángulos; huella SHA-256: ${asset.artifact.sha256}.\n- Envolvente visual X/Y/Z: ${asset.calibration.bounds_mm.map(value=>value.toFixed(2)).join(" / ")} mm, no cotas de mecanizado.\n- Referencia: [fuente oficial](${asset.calibration.reference_url}). ${asset.calibration.reference_basis}\n- Revisión: ${asset.review.evidence}\n- Derechos: ${asset.rights.attribution}\n- Referencias consultadas, no redistribuidas: ${asset.references.map(url=>`[Sony](${url})`).join("; ")}.`).join("\n\n")}\n\n## Comprobación y alcance\n\nTres GLB y tres WebP propios. No usan fotografías, texturas, escaneos, CAD o activos IA externos. Las 17 mallas activas conservan sus huellas. Los puertos FX30 permanecen sin coordenadas en catalog-intake; ninguna malla autoriza un cable, asiento o contacto.\n\nEl presupuesto público pasa de 6 a 7 MB para admitir ${pilotModels.assets.reduce((sum,asset)=>sum+asset.artifact.bytes,0)} bytes de modelos nuevos y ${pilotModels.assets.reduce((sum,asset)=>sum+asset.image.bytes,0)} bytes de miniaturas, más código de inspección. Carga GLB bajo demanda, sin precarga sin conexión.\n\nRegenerar candidatos: npm run build:pilot-models. Revisar las cinco vistas locales antes de actualizar manualmente huellas. Verificar: npm run test:catalog y npm run build:public. Las poses del conjunto, selección, reglas dinámicas, guía y ensayo físico siguen pendientes.\n`);
+writeFileSync(new URL("../docs/pilot-model-review.md",import.meta.url),`# Modelos del piloto\n\nGenerado desde data/pilot-model-assets.json. Revisión ${pilotModels.reviewed_on}. Expediente de revisión visual de origen. Integración actual acotada en [piloto de planificación](pilot-integration.md).\n\n${pilotModels.assets.map(asset=>`## ${asset.exact_product_name}\n\n- Modelo exacto: ${asset.model_number}. Autoría propia; geometría y materiales aproximados.\n- GLB: ${asset.artifact.bytes} bytes, ${asset.artifact.triangles} triángulos; huella SHA-256: ${asset.artifact.sha256}.\n- Envolvente visual X/Y/Z: ${asset.calibration.bounds_mm.map(value=>value.toFixed(2)).join(" / ")} mm, no cotas de mecanizado.\n- Referencia: [fuente oficial](${asset.calibration.reference_url}). ${asset.calibration.reference_basis}\n- Revisión: ${asset.review.evidence}\n- Derechos: ${asset.rights.attribution}\n- Referencias consultadas, no redistribuidas: ${asset.references.map(url=>`[Sony](${url})`).join("; ")}.`).join("\n\n")}\n\n## Comprobación y alcance\n\nTres GLB y tres WebP propios. No usan fotografías, texturas, escaneos, CAD o activos IA externos. Las 17 mallas originales conservan sus huellas; las tres mallas del piloto se promueven explícitamente sin modificar su geometría. Los puertos FX30 permanecen sin coordenadas en ports-manifest; ninguna malla autoriza un cable, asiento o contacto.\n\nEl presupuesto público pasa de 6 a 7 MB para admitir ${pilotModels.assets.reduce((sum,asset)=>sum+asset.artifact.bytes,0)} bytes de modelos nuevos y ${pilotModels.assets.reduce((sum,asset)=>sum+asset.image.bytes,0)} bytes de miniaturas, más código de inspección. Carga GLB bajo demanda, sin precarga sin conexión.\n\nRegenerar candidatos: npm run build:pilot-models. Revisar las cinco vistas locales antes de actualizar manualmente huellas. Verificar: npm run test:catalog y npm run build:public. La selección y guía propias están integradas; las poses del conjunto son sólo visuales y aproximadas. El ensayo físico sigue pendiente.\n`);
 const pilot=read("catalog-pilot"),pilotReport=validateCatalogPilot(pilot,{intake,parts,sources:{sources:sourceList},pilotModels});
-const contract={version:1,catalog_revision:planner.catalog_revision,scope:"Índice derivado; identidad en parts-manifest, forma en layout-manifest y guía en assembly-profile-content.",products:parts.parts.map(p=>({part_id:p.id,record_revision:planner.catalog_revision,model_number:p.model_number,identity_source_url:p.primary_source_url,geometry_profile_id:layout.nodes.find(n=>n.id===p.id)?.id??null,geometry_status:layout.nodes.some(n=>n.id===p.id)?"approximate":"not_modeled",assembly_steps:planner.assembly_frames.filter(f=>f.add_part_ids.includes(p.id)).map(f=>f.step),release_status:planner.parked_part_ids.includes(p.id)?"reserve":"planning_candidate",physically_tested:false}))};
+const contract={version:1,catalog_revision:planner.catalog_revision,scope:"Índice derivado; identidad en parts-manifest, forma en layout-manifest y guía en assembly-profile-content.",products:parts.parts.map(p=>({part_id:p.id,record_revision:planner.catalog_revision,model_number:p.model_number,identity_source_url:p.primary_source_url,geometry_profile_id:layout.nodes.find(n=>n.id===p.id)?.id??null,geometry_status:layout.nodes.some(n=>n.id===p.id)?"approximate":"not_modeled",assembly_steps:planner.assembly_frames.filter(f=>f.add_part_ids.includes(p.id)).map(f=>f.step),assembly_profiles:(planner.assembly_profiles??[]).filter(profile=>profile.frames.some(frame=>frame.add_part_ids.includes(p.id))).map(profile=>({id:profile.id,steps:profile.frames.filter(frame=>frame.add_part_ids.includes(p.id)).map(frame=>frame.step)})),release_status:planner.parked_part_ids.includes(p.id)?"reserve":"planning_candidate",physically_tested:false}))};
 writeFileSync(new URL("../data/catalog-contract.json",import.meta.url),JSON.stringify(contract,null,2)+"\n");
 const name=id=>ui.part_names[id]??parts.parts.find(p=>p.id===id)?.exact_product_name??id;
 const label=value=>ui.schema_labels[value]??value;
 const join=list=>list.length?list.join("; "):"Ninguno";
 const bullets=list=>list.map(item=>"- "+item).join("\n");
 const write=(file,content)=>writeFileSync(new URL("../docs/"+file,import.meta.url),content.trim()+"\n");
+write("pilot-integration.md",`# Piloto FX30 integrado para planificación
+
+Generado desde data/pilot-integration.json y manifiestos canónicos. Estado: ${integration.status}; revisión ${integration.reviewed_on}.
+
+## 1. Manifiesto
+
+${integration.promoted_part_ids.map(id=>{const p=parts.parts.find(p=>p.id===id);return `- ${p.exact_product_name}, ${p.model_number}: ${p.planning_weight_g} g aproximados. [Fuente oficial](${p.primary_source_url}).`;}).join("\n")}
+
+El cuerpo usa 562 g sin batería ni tarjeta; NP-FZ100 añade 83 g una sola vez. Con SEL20F18G (373 g) y kit 4770 (208 g), subtotal documental aproximado de 1226 g. Tarjeta, parasol, tapas y diferencias del subconjunto de jaula no incluidos.
+
+## 2. Distribución
+
+Cuerpo a mano, óptica coaxial sobre montura E, jaula 4770 alrededor y batería dentro del compartimento nativo. Poses del visor aproximadas, nunca coordenadas mecánicas. El expediente físico catalog-pilot conserva valores sin medir. La pose interna permite visualización y no describe orientación exacta de contactos ni inserción.
+
+## 3. Conexión
+
+NP-FZ100 → alojamiento FX30: contactos internos. No cable externo, D-Tap ni regulador. 7.2 V nominales, no rango de descarga o pinout. Puertos FX30 propios sin coordenadas publicadas; no se activan HDMI, audio ni USB-C heredados de FX3. Evidencia ampliada específica en connection-reviews.json.
+
+## 4. Guía
+
+Cinco etapas propias: preparar cuerpo, fijar jaula, acoplar objetivo, insertar batería y comprobar el conjunto. Si no eliges una pieza, no se añade ni se reproduce su etapa. Comprobación final se conserva. En Montaje, Ver batería interna en despiece muestra la pieza oculta; transición ilustrativa, no inserción física.
+
+## 5. Visor y guardado
+
+Tres mallas originales con sus huellas revisadas y miniaturas propias; no reutilizan FX3 o SEL1635GM. Selección directa en Crear rig, cuatro tareas y Mis rigs existentes. Guardado, historial y recuperación locales; revisión de biblioteca conservada mediante alta aditiva. Ninguna selección, plantilla o perfil anterior cambia automáticamente.
+
+## 6. Alcance y variantes
+
+Sólo a mano y horizontal. Elige cámara/óptica en Cámara y óptica, jaula en Jaulas y accesorios y batería en Alimentación. Las siete plantillas FX3 permanecen intactas. Puedes guardar combinaciones incompletas y accesorios adicionales como pendientes; no se fabrican sus montajes, guía o conexiones.
+
+## Evidencia y pendientes
+
+Software: ${integration.software_validation.status}. Ejecutar npm run test:catalog y npm run build:public. Registro de interfaz: [pruebas de integración](pilot-integration-qa.md).
+
+${integration.remaining.map(text=>"- "+text).join("\n")}
+
+Física: ${integration.physical_validation.status}. Sin ensayo, dispositivos ni participantes inventados. Esta integración no cierra catálogo completo, beta ni financiación.
+`);
 const intakeReviews=intake.manifest_reviews??[];
 const reviewMethods={direct_official_page:"Página oficial consultada",official_browser_page_review:"Página oficial revisada en navegador",official_pdf_text_review:"Sección textual del PDF oficial; no medición de figura",official_pdf_visual_review:"Diagrama oficial revisado visualmente; no CAD",official_indexed_text_direct_access_failed:"Texto oficial indexado; acceso directo falló en esa revisión"};
-write("catalog-manifest-reviews.md",`# Revisiones del manifiesto piloto\n\nFuente: \`data/catalog-intake.json\`. Revisión ${intake.reviewed_on}. ${intakeReviews.length} revisiones parciales, sin productos activados ni instrucciones físicas liberadas. Los otros candidatos conservan su fecha y alcance anteriores.\n\n${intakeReviews.map(review=>`## ${intake.products.find(p=>p.id===review.part_id).exact_product_name}\n\nRevisión: ${review.reviewed_on}.\n\n| Campos en investigación | Fuente y localizador | Método |\n|---|---|---|\n${review.citations.map(citation=>`| ${citation.field_paths.map(path=>`\`${path}\``).join(", ")} | [Sony](${sourceList.find(source=>source.id===citation.source_id).url}): ${citation.locator} | ${reviewMethods[citation.method]??"Método no reconocido; revisar"} |`).join("\n")}\n\nPendiente:\n\n${bullets(review.remaining)}`).join("\n\n")}\n\n## Límites\n\nNo se copian puertos, mallas ni poses de FX3. El par exacto FX30/SEL20F18G tiene [confirmación Sony](${sourceList.find(s=>s.id==="intake-sony-fx30-sel20f18g-pair").url}); la tabla no especifica firmware ni certifica holguras. NP-FZ100 es batería nativa de FX30 documentada; tensión nominal no equivale a rango completo ni pinout. Las diferencias ILME-FX30 / ILME-FX30B de contenido incluido se conservan sin añadir piezas al usuario. La [ficha del conjunto](catalog-pilot-blueprint.md) define distribución relacional, alimentación y guía documental. El catálogo instalable mantiene ${parts.parts.length} entradas.\n`);
+write("catalog-manifest-reviews.md",`# Revisiones del manifiesto piloto\n\nFuente: \`data/catalog-intake.json\`. Revisión ${intake.reviewed_on}. ${intakeReviews.length} revisiones documentales de origen. Tres altas posteriores de planificación en pilot-integration.json; sin certificación física. Los otros candidatos conservan su fecha y alcance anteriores.\n\n${intakeReviews.map(review=>`## ${intake.products.find(p=>p.id===review.part_id).exact_product_name}\n\nRevisión: ${review.reviewed_on}.\n\n| Campos en investigación | Fuente y localizador | Método |\n|---|---|---|\n${review.citations.map(citation=>`| ${citation.field_paths.map(path=>`\`${path}\``).join(", ")} | [Sony](${sourceList.find(source=>source.id===citation.source_id).url}): ${citation.locator} | ${reviewMethods[citation.method]??"Método no reconocido; revisar"} |`).join("\n")}\n\nPendiente:\n\n${bullets(review.remaining)}`).join("\n\n")}\n\n## Límites\n\nNo se copian puertos, mallas ni poses de FX3. El par exacto FX30/SEL20F18G tiene [confirmación Sony](${sourceList.find(s=>s.id==="intake-sony-fx30-sel20f18g-pair").url}); la tabla no especifica firmware ni certifica holguras. NP-FZ100 es batería nativa de FX30 documentada; tensión nominal no equivale a rango completo ni pinout. Las diferencias ILME-FX30 / ILME-FX30B de contenido incluido se conservan sin añadir piezas al usuario. La [ficha del conjunto](catalog-pilot-blueprint.md) define distribución relacional, alimentación y guía documental. El catálogo instalable mantiene ${parts.parts.length} entradas.\n`);
 const pilotName=id=>intake.products.find(p=>p.id===id)?.exact_product_name??name(id);
 const pilotSources=ids=>ids.map(id=>{const source=sourceList.find(s=>s.id===id);return `[${source.brand}](${source.url})`;}).join("; ");
 write("catalog-pilot-blueprint.md",`# ${pilot.title}
@@ -27,6 +65,8 @@ write("catalog-pilot-blueprint.md",`# ${pilot.title}
 Generado desde \`data/catalog-pilot.json\`, con especificaciones referenciadas de \`catalog-intake.json\` y \`parts-manifest.json\`. Revisión ${pilot.reviewed_on}.
 
 ${pilot.scope}
+
+Este es el expediente documental de origen. Estado actual: [integración de planificación](pilot-integration.md), con tres altas explícitas y guía propia; el ensayo físico permanece pendiente.
 
 ## 1. Manifiesto
 
@@ -62,7 +102,7 @@ No prescribe un par de apriete inventado. La cota Sony menor de 5.5 mm pertenece
 
 ## 5. Visor
 
-${pilot.viewer.note} Sin modelo integrado ni reproducción de montaje del piloto.
+${pilot.viewer.note} Describe el expediente previo. La integración actual, con poses visuales aproximadas y reproducción propia, está en [piloto de planificación](pilot-integration.md).
 
 ## 6. Variantes
 
@@ -76,7 +116,7 @@ ${pilot.gates.map(g=>`- ${g.status==="documented"?"Documentado":"Pendiente"}: ${
 
 ${pilot.physical_validation.note}
 
-Validar estructura: \`npm run check:catalog\`. Exigir liberación: \`npm run check:catalog -- --strict\` devuelve error mientras falten geometría e integración. Ensayo físico y aceptación de beta permanecen separados; un subtotal o una compilación no los certifica.
+Validar estructura: \`npm run check:catalog\`. Exigir liberación: \`npm run check:catalog -- --strict\` devuelve error mientras falte ensayo físico del conjunto. Ensayo físico y aceptación de beta permanecen separados; un subtotal o una compilación no los certifica.
 `);
 const weight=n=>{const p=parts.parts.find(p=>p.id===n.id);return n.subcomponent_id?p.subcomponents?.find(c=>c.id===n.subcomponent_id)?.weight_g??0:p.planning_weight_g??0;};
 const mass=v=>layout.nodes.filter(n=>n.mass_domain==="moving"&&v.active_part_ids.includes(n.id)).reduce((sum,n)=>sum+weight(n),0);
@@ -84,7 +124,7 @@ const disclaimer="Plan de ingeniería, no montaje certificado. Medidas publicada
 write("adjustable-layout.md",`# Ajustes de posición\n\nGenerado desde \`data/layout-manifest.json\`. Los ajustes se conservan en el borrador y se confirman con Guardar rig, dentro del perfil local. No modifican plantillas ni catálogo.\n\n## Monitor\n\n${Object.entries(layout.monitor_joints??{}).map(([route,joint])=>`### ${layout.monitor_mount_routes[route].label}\n\n- Soporte: ${name(joint.mount_id)}. Pantalla y batería elegida acompañan el cabezal; la abrazadera permanece fija.\n- Inclinación ilustrativa: ${joint.tilt_range_deg.join(" a ")} grados; giro: ${joint.swivel_range_deg.join(" a ")} grados. Son intervalos centrados en una pose aproximada, no topes medidos del rig.\n- [Manual oficial](${joint.source_url}): ${joint.source_locator}\n- ${joint.geometry_note}`).join("\n\n")}\n\n## Placa V-mount\n\n${layout.battery_plate_slide.source_locator}\n\n${layout.battery_plate_slide.note}\n\nEl control permanece sin recorrido hasta que el usuario indique las distancias medidas y confirme el asiento. Placa y batería se trasladan juntas en el eje de las varillas; no se permite inclinación ni movimiento libre. La entrada tiene un límite informático basado en el largo de la varilla, no una certificación del recorrido. [Manual oficial](${layout.battery_plate_slide.source_url}).\n\n## Cables y montaje\n\n- Puertos y tangentes de aproximación del cable acompañan la orientación del monitor; extremos de cables de batería acompañan la traslación.\n- Las curvas siguen siendo ilustrativas: comprobar holgura, radios, retención, manos y motores en el rig real. El rango angular del soporte no significa giro libre con cables.\n- Ajustar con motores apagados. Fijar articulaciones y abrazaderas; volver a equilibrar tras mover masa sobre la cámara/varillas.\n- La guía acumulativa conserva la pose elegida cuando el conjunto aparece. No simula una trayectoria de instalación física.\n- Guardado, historial, duplicados y recuperación conservan los ajustes; una cadena inactiva no los aplica.\n`);
 write("verified-build-manifest.md",`# Manifiesto verificado de piezas
 
-Generado desde \`data/parts-manifest.json\`. Auditoría ${parts.engineering_audit_on??parts.verified_on}. 25 productos solicitados y 2 componentes del Combo conservados, más 3 accesorios de monitor verificados: ${parts.parts.length} entradas.
+Generado desde \`data/parts-manifest.json\`. Auditoría ${parts.engineering_audit_on??parts.verified_on}. 25 productos solicitados y 2 componentes del Combo conservados, más 3 accesorios de monitor y 3 altas acotadas del piloto FX30: ${parts.parts.length} entradas.
 
 ${disclaimer}
 
@@ -292,7 +332,7 @@ Medios de fabricante para investigación local, no licencia abierta de redistrib
 
 No hay medición del conjunto físico ni certificación de producción. El plan conserva esos límites en datos, documentación e interfaz; los planes se guardan en Mis rigs, sin exportación de archivos.
 `);
-write("catalog-pilot.md",`# Lote piloto de catálogo\n\nFuente canónica de investigación: \`data/catalog-intake.json\`. Revisión ${intake.reviewed_on}. **Diez candidatos; ninguno activado.** No se incluyen imágenes sin permiso ni formas heredadas.\n\n## Manifiesto inicial\n\n| Producto | Modelo | Masa publicada (g) | Cotas publicadas (mm) | Fuente |\n|---|---|---:|---|---|\n${intake.products.map(p=>`| ${p.exact_product_name} | ${p.model_number} | ${p.weight_approximate?"~ ":""}${p.weight_g} | ${p.dimensions.approximate?"~ ":""}${p.dimensions.diameter_mm?`D ${p.dimensions.diameter_mm} × L ${p.dimensions.length_mm}`:`W ${p.dimensions.width_mm} × H ${p.dimensions.height_mm} × D ${p.dimensions.depth_mm}`} | [Sony](${p.source_url}) |`).join("\n")}\n\n## Límites y liberación\n\n${bullets(intake.common_limits)}\n\n${intake.release_gates.map((g,i)=>`${i+1}. ${g}.`).join("\n")}\n\n## Conjuntos candidatos\n\n${intake.configuration_candidates.map(c=>`- \`${c.id}\`: ${c.part_ids.join(", ")}. ${c.reason}`).join("\n")}\n\nFX30/SEL20F18G: [ficha técnica del conjunto](catalog-pilot-blueprint.md) con pares oficiales, distribución relacional, alimentación nativa y cinco etapas documentales. Geometría e integración pendientes; los demás conjuntos no reciben esa verificación por analogía. Este lote no modifica las ${parts.parts.length} entradas del catálogo actual.\n`);
+write("catalog-pilot.md",`# Lote piloto de catálogo\n\nFuente canónica de investigación: \`data/catalog-intake.json\`. Revisión ${intake.reviewed_on}. **Diez expedientes de origen; tres altas posteriores de planificación y siete pendientes.** No se incluyen imágenes sin permiso ni formas heredadas.\n\n## Manifiesto inicial\n\n| Producto | Modelo | Masa publicada (g) | Cotas publicadas (mm) | Fuente |\n|---|---|---:|---|---|\n${intake.products.map(p=>`| ${p.exact_product_name} | ${p.model_number} | ${p.weight_approximate?"~ ":""}${p.weight_g} | ${p.dimensions.approximate?"~ ":""}${p.dimensions.diameter_mm?`D ${p.dimensions.diameter_mm} × L ${p.dimensions.length_mm}`:`W ${p.dimensions.width_mm} × H ${p.dimensions.height_mm} × D ${p.dimensions.depth_mm}`} | [Sony](${p.source_url}) |`).join("\n")}\n\n## Límites y liberación\n\n${bullets(intake.common_limits)}\n\n${intake.release_gates.map((g,i)=>`${i+1}. ${g}.`).join("\n")}\n\n## Conjuntos candidatos\n\n${intake.configuration_candidates.map(c=>`- \`${c.id}\`: ${c.part_ids.join(", ")}. ${c.reason}`).join("\n")}\n\nFX30/SEL20F18G: [ficha técnica del conjunto](catalog-pilot-blueprint.md) con pares oficiales, distribución relacional, alimentación nativa y cinco etapas documentales. Integración actual en [piloto de planificación](pilot-integration.md), con geometría y poses aproximadas. Los demás conjuntos no reciben esa revisión por analogía. El catálogo actual tiene ${parts.parts.length} entradas; el ensayo físico sigue pendiente.\n`);
 write("product-progress.md",`# Avance por fases\n\nFuente: \`data/product-roadmap.json\`. Estado: prototipo en curso. Ningún criterio externo se da por cumplido a partir de compilación.\n\n| Fase | Estado de preparación | Evidencia y trabajo restante |\n|---|---|---|\n${roadmap.phases.map(p=>`| ${p.order}. ${p.title} | \`${p.status}\` | [Documento](${p.verification_report.replace("docs/","")}); ${p.remaining.join("; ")} |`).join("\n")}\n\nDecisión del usuario: guardado local por ahora. Cuentas, sincronización y enlaces privados siguen en el plan futuro, aplazados. Catálogo activo sin ampliaciones no verificadas.\n`);
 write("connection-reviews.md",`# Revisión de conexiones
 

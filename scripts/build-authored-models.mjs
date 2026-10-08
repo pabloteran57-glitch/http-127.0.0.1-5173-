@@ -12,7 +12,7 @@ globalThis.FileReader = class {
 const nodes = JSON.parse(readFileSync(new URL("../data/layout-manifest.json", import.meta.url), "utf8")).nodes;
 const root = new URL("../public/models/", import.meta.url); mkdirSync(root, { recursive: true });
 const report = [];
-for (const node of nodes) {
+for (const node of nodes.filter(node => node.model_authoring !== "pilot")) {
   const model = authoredModel(node), id = `${node.id}-takegrid-v1`;
   const buffer = Buffer.from(await new GLTFExporter().parseAsync(model, { binary: true, onlyVisible: true }));
   const calibration = { uniform_scale: 1, offset_mm: [0, 0, 0], rotation_deg: [0, 0, 0] };

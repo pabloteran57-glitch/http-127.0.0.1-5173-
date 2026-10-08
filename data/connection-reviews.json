@@ -442,6 +442,79 @@
           "detail": "La ficha Sony publica tensión nominal, no el rango completo de descarga de esta revisión. Comprobar batería real, retención, contactos, consumo y autonomía; no es un ensayo de compatibilidad del par."
         }
       ]
+    },
+    {
+      "cable_id": "pilot-pwr-npfz100-fx30",
+      "catalog_revision": "fx3-rs4-2026-10-05",
+      "reviewed_on": "2026-10-07",
+      "action": "Usar batería nativa previamente cargada y seguir Sony. Comprobar retención, cubierta, ventilación y firmware del ejemplar; conjunto no ensayado.",
+      "binding": {
+        "source_part_id": "sony-np-fz100",
+        "from_port_id": "npfz100-contacts",
+        "to_port_id": "fx30-native-battery",
+        "connector_a": "Contactos nativos NP-FZ100",
+        "connector_b": "Alojamiento nativo NP-FZ100",
+        "signal_standard": "NP-FZ100 nativa documentada para FX30; 7.2 V nominales. Rango y pinout no publicados.",
+        "electrical_revision": null,
+        "models": [
+          {
+            "part_id": "sony-np-fz100",
+            "model_number": "NP-FZ100",
+            "exact_product_name": "Sony NP-FZ100 Rechargeable Battery Pack"
+          },
+          {
+            "part_id": "sony-fx30",
+            "model_number": "ILME-FX30",
+            "exact_product_name": "Sony FX30"
+          }
+        ],
+        "ports": [
+          {
+            "id": "fx30-native-battery",
+            "connector": "Alojamiento nativo NP-FZ100",
+            "electrical_revision": null
+          },
+          {
+            "id": "npfz100-contacts",
+            "connector": "Contactos nativos NP-FZ100",
+            "electrical_revision": null
+          }
+        ]
+      },
+      "citations": {
+        "native": {
+          "source_id": "intake-sony-fx30-helpguide",
+          "source_url": "https://helpguide.sony.net/ilc/2220/v1/en/print.pdf",
+          "locator": "Página 19: NP-FZ100 incluida; páginas de inserción de batería y 526: especificaciones.",
+          "claim": "Sony identifica NP-FZ100 como batería nativa para ILME-FX30; no documenta aquí pinout ni rango.",
+          "part_ids": [
+            "sony-fx30",
+            "sony-np-fz100"
+          ]
+        }
+      },
+      "checks": [
+        {
+          "id": "native-identity",
+          "kind": "specification",
+          "label": "Batería nativa documentada",
+          "subject_part_ids": [
+            "sony-fx30",
+            "sony-np-fz100"
+          ],
+          "citation_ids": [
+            "native"
+          ],
+          "detail": "La pareja nativa está identificada por Sony; no requiere D-Tap, cable ni regulador externo."
+        },
+        {
+          "id": "native-retention",
+          "kind": "operational",
+          "label": "Retención y ventilación reales",
+          "citation_ids": [],
+          "detail": "Asiento, cubierta y ventilación deben comprobarse con el ejemplar y jaula reales. Sin ensayo registrado."
+        }
+      ]
     }
   ]
 }

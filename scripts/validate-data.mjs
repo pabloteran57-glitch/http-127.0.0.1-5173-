@@ -42,7 +42,7 @@ for(const port of ports.ports){
 }
 assert.equal(partIds.size, parts.parts.length, "Duplicate parts");
 assert.equal(cableIds.size, cables.cables.length, "Duplicate cables");
-assert.equal(parts.parts.length, 30, "Conservar 27 entradas originales y 3 accesorios verificados de monitor");
+assert.equal(parts.parts.length, 33, "Conservar las 30 entradas y las 3 altas explícitas del piloto");
 assert.equal(assembly.steps.length, 13, "All thirteen assembly stages required");
 assert.equal(variants.variants.length, 7, "All seven profiles required");
 assert(variants.variants.some(v => v.id === variants.master_variant_id));
@@ -236,7 +236,18 @@ profileContent.steps.forEach((step,i)=>{
 console.log(`CORRECTO: ${partIds.size} piezas, ${cableIds.size} conexiones, ${layout.nodes.length} elementos geométricos, 13 etapas, 7 plantillas y reglas de perfiles propios. Etiquetas en español comprobadas. No implica certificación mecánica.`);
 const intake=JSON.parse(readFileSync(new URL("../data/catalog-intake.json",import.meta.url),"utf8")),contract=JSON.parse(readFileSync(new URL("../data/catalog-contract.json",import.meta.url),"utf8"));
 assert.equal(intake.products.length,10);assert.equal(new Set(intake.products.map(p=>p.id)).size,10);
-for(const product of intake.products){assert(!partIds.has(product.id),"Una alta en investigación no debe ser una pieza activada");assert.equal(product.release_status,"research_only");assert(/^https:\/\/www\.sony\.(com|co\.uk)\//.test(product.source_url));assert(product.model_number&&product.dimensions.note&&Number.isFinite(product.weight_g));}
+const integration=read("pilot-integration");
+assert.equal(integration.status,"planning_candidate");
+assert.deepEqual(integration.promoted_part_ids,["sony-fx30","sony-fe-20-f18-g","sony-np-fz100"]);
+assert.deepEqual(integration.contexts,["handheld"]);assert.deepEqual(integration.orientations,["landscape"]);
+assert.equal(integration.physical_validation.status,"pending");assert.deepEqual(integration.physical_validation.observations,[]);
+for(const profile of planner.assembly_profiles??[]){
+  assert(planner.camera_part_ids.includes(profile.camera_part_id));
+  const guide=profileContent.profiles?.find(item=>item.id===profile.id);
+  assert(guide&&profile.frames.length===guide.steps.length,"Guía y fotogramas del piloto diferentes");
+  profile.frames.forEach((frame,index)=>{assert.equal(frame.step,index+1);frame.add_part_ids.forEach(id=>assert(partIds.has(id)));frame.add_cable_ids.forEach(id=>assert(cableIds.has(id)));assert.equal(guide.steps[index].number,frame.step);});
+}
+for(const product of intake.products){assert(!partIds.has(product.id)||integration.promoted_part_ids.includes(product.id),"Una alta sin promoción explícita no debe activarse");assert.equal(product.release_status,"research_only");assert(/^https:\/\/www\.sony\.(com|co\.uk)\//.test(product.source_url));assert(product.model_number&&product.dimensions.note&&Number.isFinite(product.weight_g));}
 assert.equal(new Set((intake.manifest_reviews??[]).map(review=>review.part_id)).size,(intake.manifest_reviews??[]).length);
 for(const review of intake.manifest_reviews??[]){
   const product=intake.products.find(item=>item.id===review.part_id);assert(product&&review.reviewed_on&&review.remaining.length);
@@ -249,13 +260,13 @@ for(const review of intake.manifest_reviews??[]){
 }
 assert.deepEqual(new Set(contract.products.map(p=>p.part_id)),partIds);assert.equal(contract.catalog_revision,planner.catalog_revision);
 const pilotReport=validateCatalogPilot(read("catalog-pilot"),{intake,parts,sources,pilotModels:read("pilot-model-assets")});
-console.log(`CORRECTO: piloto documental aislado; subtotal aproximado ${pilotReport.subtotal_g} g, geometría/integración pendientes.`);
+console.log(`CORRECTO: expediente de origen validado; subtotal aproximado ${pilotReport.subtotal_g} g. Integración de planificación explícita, física pendiente.`);
 for(const entry of contract.products){assert.equal(entry.physically_tested,false);assert.equal(entry.geometry_profile_id,layout.nodes.find(n=>n.id===entry.part_id)?.id??null);}
 const release=JSON.parse(readFileSync(new URL("../data/release.json",import.meta.url),"utf8")),pkg=JSON.parse(readFileSync(new URL("../package.json",import.meta.url),"utf8"));
 assert.equal(release.version,pkg.version);assert.equal(release.catalog_revision,planner.catalog_revision);
 const beta=JSON.parse(readFileSync(new URL("../data/beta-evidence.json",import.meta.url),"utf8")),protocol=JSON.parse(readFileSync(new URL("../data/beta-protocol.json",import.meta.url),"utf8"));
 for(const row of beta.observations){assert(typeof row.participant_alias==="string"&&row.participant_alias.trim());assert(protocol.tasks.some(t=>t.id===row.task_id));assert(typeof row.completed==="boolean");assert(Number.isFinite(row.assistance_count)&&row.assistance_count>=0);assert(Number.isFinite(row.elapsed_seconds)&&row.elapsed_seconds>=0);}
-console.log("CORRECTO: diez altas aisladas, índice derivado, versión de código y esquema de observaciones. No se inventan productos activos ni ensayos.");
+console.log("CORRECTO: diez altas investigadas, tres promociones explícitas y siete aún en cuarentena; índice derivado y versión de código coherentes. No se inventan ensayos.");
 const reviews=JSON.parse(readFileSync(new URL("../data/connection-reviews.json",import.meta.url),"utf8"));
 assert.equal(reviews.version,1);assert(reviews.revision);assert.equal(reviews.catalog_revision,planner.catalog_revision);
 assert.equal(new Set(reviews.reviews.map(r=>r.cable_id)).size,reviews.reviews.length);

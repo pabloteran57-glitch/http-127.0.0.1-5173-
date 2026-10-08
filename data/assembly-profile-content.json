@@ -150,7 +150,15 @@
     },
     {
       "number": 5,
-      "references": [{"part_id":"smallrig-3203b","document_id":"smallrig-3203b-manual","page":5,"image_path":"/references/3203b-diagram-5.png","alt":"Abrazadera 3203B documentada en el manual"}],
+      "references": [
+        {
+          "part_id": "smallrig-3203b",
+          "document_id": "smallrig-3203b-manual",
+          "page": 5,
+          "image_path": "/references/3203b-diagram-5.png",
+          "alt": "Abrazadera 3203B documentada en el manual"
+        }
+      ],
       "title": "Batería y soporte elegidos",
       "kind": "mount",
       "requires_any": [],
@@ -192,7 +200,15 @@
     },
     {
       "number": 6,
-      "references": [{"part_id":"smallrig-3026b","document_id":"smallrig-3026b-manual","page":7,"image_path":"/references/3026b-diagram-7.png","alt":"Orientación y límite estático publicado del 3026B"}],
+      "references": [
+        {
+          "part_id": "smallrig-3026b",
+          "document_id": "smallrig-3026b-manual",
+          "page": 7,
+          "image_path": "/references/3026b-diagram-7.png",
+          "alt": "Orientación y límite estático publicado del 3026B"
+        }
+      ],
       "title": "Montar el monitor elegido",
       "kind": "mount",
       "requires_any": [],
@@ -508,6 +524,151 @@
           "where": "Compartimiento de batería de cámara.",
           "verify": [
             "Tras desconectar energía externa, confirmar una batería interna cargada antes de usar cámara a mano. Es una dependencia fuera del catálogo actual."
+          ]
+        }
+      ]
+    }
+  ],
+  "profiles": [
+    {
+      "id": "fx30-handheld-prime",
+      "steps": [
+        {
+          "number": 1,
+          "title": "Preparar el cuerpo",
+          "kind": "mount",
+          "requires_any": [
+            "sony-fx30"
+          ],
+          "note": "Pose aproximada del piloto FX30, sin heredar etapas ni accesorios de FX3.",
+          "rebalance": "No aplica: sin gimbal; revisar reparto y comodidad al añadir masa.",
+          "source_ids": [
+            "intake-sony-fx30-helpguide",
+            "intake-sony-fx30-bottom"
+          ],
+          "blocks": [
+            {
+              "part_ids": [
+                "sony-fx30"
+              ],
+              "mount": "Cuerpo apagado, tapas protegidas y núcleo sin accesorios externos.",
+              "where": "Superficie estable y limpia, antes de montar la jaula.",
+              "verify": [
+                "SKU y firmware del ejemplar registrados",
+                "Ventilación inferior identificada y sin cubrir"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "title": "Asegurar HawkLock 4770",
+          "kind": "mount",
+          "requires_any": [
+            "smallrig-4770"
+          ],
+          "note": "Pose aproximada del piloto FX30, sin heredar etapas ni accesorios de FX3.",
+          "rebalance": "Sin equilibrio de motores; comprobar agarre. El kit no añade asa XLR ni monitor.",
+          "source_ids": [
+            "audit-doc-smallrig-4770-manual",
+            "intake-sony-fx30-bottom"
+          ],
+          "blocks": [
+            {
+              "part_ids": [
+                "smallrig-4770"
+              ],
+              "mount": "Presentar el cuerpo en la jaula y seguir la sujeción inferior/laterales ilustrada, con las fijaciones suministradas.",
+              "where": "Alrededor del cuerpo, conforme a la página 5 del manual 4770.",
+              "verify": [
+                "Asiento sin forzar y sin holgura evidente",
+                "Sin bloqueo de ventilación, pantalla o cubierta de batería",
+                "No extrapolar el límite de tornillo de trípode a todas las fijaciones de jaula; par de apriete pendiente"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "title": "Acoplar FE 20mm F1.8 G",
+          "kind": "mount",
+          "requires_any": [
+            "sony-fe-20-f18-g"
+          ],
+          "note": "Pose aproximada del piloto FX30, sin heredar etapas ni accesorios de FX3.",
+          "rebalance": "Mayor masa frontal: comprobar comodidad; no asumir centro de gravedad a partir de envolventes.",
+          "source_ids": [
+            "intake-sony-fx30-helpguide",
+            "intake-sony-fx30-sel20f18g-pair"
+          ],
+          "blocks": [
+            {
+              "part_ids": [
+                "sony-fe-20-f18-g"
+              ],
+              "mount": "Cámara apagada: alinear índices y girar suavemente hasta el bloqueo del manual Sony.",
+              "where": "Montura E del cuerpo; sin adaptador.",
+              "verify": [
+                "Retención y acceso al botón de liberación",
+                "Anillos libres y ausencia de interferencias comprobada físicamente"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "title": "Insertar batería nativa",
+          "kind": "mount",
+          "requires_any": [
+            "sony-np-fz100"
+          ],
+          "note": "Batería interna: relación ilustrativa. Usa Despiece para verla; no es una trayectoria de inserción.",
+          "rebalance": "Masa interna incluida una sola vez; comprobar agarre del conjunto.",
+          "source_ids": [
+            "intake-sony-fx30-battery-install"
+          ],
+          "blocks": [
+            {
+              "part_ids": [
+                "sony-np-fz100"
+              ],
+              "mount": "Usar una NP-FZ100 previamente cargada; insertar contra la palanca, cerrar y bloquear la cubierta según Sony.",
+              "where": "Compartimento de FX30; sin cable externo.",
+              "verify": [
+                "Retención, cierre y apertura posibles con la jaula",
+                "No montar adaptador de batería o V-mount implícitamente"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "title": "Comprobar el conjunto antes de usar",
+          "kind": "check",
+          "requires_any": [
+            "sony-fx30"
+          ],
+          "note": "Pose aproximada del piloto FX30, sin heredar etapas ni accesorios de FX3.",
+          "rebalance": "No certifica seguridad ni sustituye el manual: registrar ensayo físico y masa del conjunto instalado.",
+          "source_ids": [
+            "intake-sony-fx30-bottom",
+            "intake-sony-fx30-sel20f18g-pair",
+            "audit-doc-smallrig-4770-manual"
+          ],
+          "blocks": [
+            {
+              "part_ids": [
+                "sony-fx30"
+              ],
+              "mount": "Encender sólo tras verificar fijaciones, retención y ventilación.",
+              "where": "Rig a mano sin monitor, gimbal ni cables externos.",
+              "verify": [
+                "Firmware, enfoque y exposición comprobados en el ejemplar",
+                "Pantalla, controles y ventilación libres",
+                "Para grabar: elegir aparte una tarjeta adecuada al modo; tarjeta y masa no incluidas en este piloto",
+                "Antes de retirar batería: apagar y comprobar lámpara de acceso según Sony"
+              ]
+            }
           ]
         }
       ]

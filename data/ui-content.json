@@ -30,7 +30,10 @@
     "sony-monitor-control-app": "Monitor & Control",
     "smallrig-2906b": "Soporte NATO de monitor 2906B",
     "smallrig-4830": "Extensión y riel XLR 4830",
-    "sony-np-f970-pro": "Batería Sony NP-F970/PRO"
+    "sony-np-f970-pro": "Batería Sony NP-F970/PRO",
+    "sony-fx30": "Sony FX30",
+    "sony-fe-20-f18-g": "FE 20mm F1.8 G",
+    "sony-np-fz100": "Sony NP-FZ100"
   },
   "profile_hints": {
     "documentary-one-man-film": "Cámara, monitor lateral y audio para un solo operador.",
@@ -83,7 +86,9 @@
     "Adaptador NP-FZ100 regulado": "Adaptador NP-FZ100 regulado",
     "Cable cautivo integrado en el distribuidor": "Cable cautivo integrado en el distribuidor",
     "Contactos serie L de batería": "Contactos serie L de batería",
-    "Contactos de placa serie L": "Contactos de placa serie L"
+    "Contactos de placa serie L": "Contactos de placa serie L",
+    "Contactos nativos NP-FZ100": "Contactos nativos NP-FZ100",
+    "Alojamiento nativo NP-FZ100": "Alojamiento nativo NP-FZ100"
   },
   "task_hints": {
     "design": "Toca una pieza del rig para ver su ficha o añadirle accesorios.",
@@ -209,7 +214,10 @@
       "sony-monitor-control-app": "Monitorización en un dispositivo compatible",
       "smallrig-2906b": "Monitor sobre jaula o asa, fuera del gimbal.",
       "smallrig-4830": "Riel NATO para montar monitor con el asa Sony.",
-      "sony-np-f970-pro": "Alimenta sólo el monitor sin cable D-Tap."
+      "sony-np-f970-pro": "Alimenta sólo el monitor sin cable D-Tap.",
+      "sony-fx30": "Cuerpo APS-C · piloto a mano y horizontal",
+      "sony-fe-20-f18-g": "Óptica fija · par FX30 documentado",
+      "sony-np-fz100": "Batería interna nativa · piloto FX30"
     }
   },
   "language": "es"

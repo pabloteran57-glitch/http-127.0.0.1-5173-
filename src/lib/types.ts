@@ -129,7 +129,8 @@ export interface LayoutNode {
   dimension_source_url: string;
   id: string;
   label: string;
-  kind: "camera" | "lens" | "cage" | "baseplate" | "rods" | "matte" | "batteryPlate" | "battery" | "gimbal" | "grip" | "monitorMount" | "monitor" | "handle" | "audioReceiver" | "compactMonitorMount" | "handleExtension" | "monitorBattery";
+  kind: "camera" | "lens" | "cage" | "baseplate" | "rods" | "matte" | "batteryPlate" | "battery" | "gimbal" | "grip" | "monitorMount" | "monitor" | "handle" | "audioReceiver" | "compactMonitorMount" | "handleExtension" | "monitorBattery" | "nativeBattery";
+  internal?: boolean;
   position_mm: Vec3;
   size_xyz_mm: Vec3;
   explode_mm: Vec3;
@@ -148,6 +149,7 @@ export interface LayoutManifest {
   nominal_rod_center_spacing_mm: number;
   nodes: LayoutNode[];
   monitor_mount_routes?: Record<string, {label:string; overrides:Record<string, Partial<LayoutNode>>}>;
+  camera_layout_profiles?: {id:string;camera_part_id:string;overrides:Record<string,Partial<LayoutNode>>}[];
   clearance_gates: { id: string; title: string; detail: string; status: string }[];
 }
 export interface AssemblyStep {
@@ -171,7 +173,9 @@ export interface AssemblyContentBlock {
 }
 export interface AssemblyProfileContent {
   version: number;
+  profiles?: {id:string;steps:AssemblyProfileContent["steps"]}[];
   steps: {
+    source_ids?: string[];
     references?: {part_id:string;document_id:string;page:number;image_path:string;alt:string}[];
     number: number;
     title: string;
@@ -228,6 +232,10 @@ export interface PlannerRules {
   viewer_route_part_ids?: string[];
   completion_rules?: Record<string,{label:string;required_all:string[];power_cable_ids:string[];power_suggest_ids:string[]}>;
   camera_external_power_part_ids?: string[];
+  camera_internal_power_part_ids?: string[];
+  part_context_constraints?: {part_ids:string[];contexts:CustomRig["context"][];orientations:CustomRig["orientation"][];message:string}[];
+  selection_scopes?: {id:string;condition:RuleCondition;allowed_part_ids:string[];message:string}[];
+  assembly_profiles?: {id:string;camera_part_id:string;frames:PlannerRules["assembly_frames"]}[];
   extraction_step?: number;
   version: number;
   max_saved_rigs: number;

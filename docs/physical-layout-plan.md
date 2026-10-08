@@ -235,6 +235,42 @@ En gimbal conservar 3026B lateral fijo. A mano/estática usar 2906B sobre NATO 4
 - Rechazado: Montaje flotante, adaptación no elegida y extrapolación de cotas de tornillos.
 - [Referencia de medidas](https://www.sony.jp/products/catalog/SPC_NP-F970_PRO.pdf)
 
+## Sony FX30
+
+- Posición candidata XYZ: 0 / 0 / 0 mm; rotación XYZ: 0 / 0 / 0 grados.
+- Envolvente XYZ: 129.7 / 77.8 / 84.5 mm; estado: Medidas aproximadas. Una envolvente publicada no verifica los detalles internos.
+- Dominio de carga: Carga móvil; soporte candidato: raíz/sujeción externa no modelada.
+- Colocación: Núcleo sostenido por el operador; ventilación inferior libre. Pose visual aproximada, no coordenadas de montaje.
+- Orientación: Objetivo hacia la escena, pantalla accesible al operador. Rotación ilustrativa.
+- Montaje: Núcleo a mano, montura E y jaula 4770 según el manual específico FX30.
+- Motivo: Mantener controles, pantalla, tarjeta y acceso a batería sin accesorios implícitos.
+- Rechazado: Copiar la pose y puertos del cuerpo FX3; Añadir un gimbal por defecto
+- [Referencia de medidas](https://www.sony.jp/pro-cam/products/ILME-FX30/spec.html)
+
+## FE 20mm F1.8 G
+
+- Posición candidata XYZ: 0 / 0 / 84.6 mm; rotación XYZ: 0 / 0 / 0 grados.
+- Envolvente XYZ: 73.5 / 73.5 / 84.7 mm; estado: Medidas aproximadas. Una envolvente publicada no verifica los detalles internos.
+- Dominio de carga: Carga móvil; soporte candidato: Sony FX30.
+- Colocación: Montura E frontal de FX30, sin adaptador. Pose visual aproximada, no coordenadas de montaje.
+- Orientación: Alinear índices blancos y girar según el manual hasta retención. Rotación ilustrativa.
+- Montaje: Montura Sony E directa de FX30; par exacto documentado por Sony.
+- Motivo: Par exacto confirmado por Sony; núcleo compacto sin matte box ni parasol añadido.
+- Rechazado: Heredar longitud, forma o parasol de SEL1635GM; Introducir un adaptador de montura sin necesidad
+- [Referencia de medidas](https://www.sony.jp/ichigan/products/SEL20F18G/spec.html)
+
+## NP-FZ100 interna
+
+- Posición candidata XYZ: 48 / -8 / -4 mm; rotación XYZ: 0 / 0 / 90 grados.
+- Envolvente XYZ: 38.7 / 22.7 / 51.7 mm; estado: Medidas aproximadas. Una envolvente publicada no verifica los detalles internos.
+- Dominio de carga: Carga móvil; soporte candidato: Sony FX30.
+- Colocación: Dentro del compartimento nativo; retenida por la palanca y cubierta bloqueada. Pose visual aproximada, no coordenadas de montaje.
+- Orientación: Seguir la inserción del manual; contactos y posición interna sin coordenadas publicadas. Rotación ilustrativa.
+- Montaje: Alojamiento nativo FX30; palanca de retención y cubierta según Sony.
+- Motivo: Alimentación nativa sin adaptador de batería, V-mount, cables o soportes adicionales.
+- Rechazado: Representar la batería como un bloque externo bajo la cámara; Sumarla otra vez a la masa de cuerpo con batería
+- [Referencia de medidas](https://electronics.sony.com/imaging/imaging-accessories/interchangeable-lens-camera-accessories/p/npfz100?sku=npfz100)
+
 
 ## Componentes sin montaje 3D habilitado
 

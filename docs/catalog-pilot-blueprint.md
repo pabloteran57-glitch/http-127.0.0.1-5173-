@@ -4,6 +4,8 @@ Generado desde `data/catalog-pilot.json`, con especificaciones referenciadas de 
 
 Ficha documental en cuarentena. No instala piezas ni modifica los rigs guardados. No es un conjunto ensayado ni una plantilla disponible.
 
+Este es el expediente documental de origen. Estado actual: [integración de planificación](pilot-integration.md), con tres altas explícitas y guía propia; el ensayo físico permanece pendiente.
+
 ## 1. Manifiesto
 
 | Pieza | Modelo exacto | Autoridad | Fuentes |
@@ -115,7 +117,7 @@ No prescribe un par de apriete inventado. La cota Sony menor de 5.5 mm pertenece
 
 ## 5. Visor
 
-Tres mallas propias aproximadas revisadas en pilot-model-assets.json, disponibles para inspección aislada en Ayuda. Sin reutilizar FX3/SEL1635GM, poses de rig, CAD exacto ni fotografías redistribuidas. El conjunto ensamblado sigue pendiente. Sin modelo integrado ni reproducción de montaje del piloto.
+Tres mallas propias aproximadas revisadas en pilot-model-assets.json, disponibles para inspección aislada en Ayuda. Sin reutilizar FX3/SEL1635GM, poses de rig, CAD exacto ni fotografías redistribuidas. El conjunto ensamblado sigue pendiente. Describe el expediente previo. La integración actual, con poses visuales aproximadas y reproducción propia, está en [piloto de planificación](pilot-integration.md).
 
 ## 6. Variantes
 
@@ -134,4 +136,4 @@ No incluidos: Monitor y soporte; Asa XLR-H1; Mic 2 o micrófono externo; Gimbal 
 
 Sin ensayo real, dispositivo ni participante inventado. Pruebas de software no cierran esta comprobación.
 
-Validar estructura: `npm run check:catalog`. Exigir liberación: `npm run check:catalog -- --strict` devuelve error mientras falten geometría e integración. Ensayo físico y aceptación de beta permanecen separados; un subtotal o una compilación no los certifica.
+Validar estructura: `npm run check:catalog`. Exigir liberación: `npm run check:catalog -- --strict` devuelve error mientras falte ensayo físico del conjunto. Ensayo físico y aceptación de beta permanecen separados; un subtotal o una compilación no los certifica.

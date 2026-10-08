@@ -11,7 +11,7 @@ export default function PilotModels() {
   const trigger = useRef<HTMLButtonElement | null>(null);
   useEffect(() => { if (!selected) trigger.current?.focus(); }, [selected]);
   return <>
-    <p>Inspecciona las nuevas piezas antes de incorporarlas al catálogo. Son modelos propios aproximados: todavía no se pueden añadir a un rig.</p>
+    <p>Estas piezas ya están en Crear rig: FX30, FE 20mm F1.8 G y NP-FZ100 para el piloto a mano y horizontal. Aquí puedes inspeccionar sus modelos propios aproximados por separado.</p>
     <div className="pilot-model-cards">{models.map(asset => {
       const product = intake.products.find(item => item.id === asset.part_id)!;
       const dimensions = product.dimensions;
@@ -22,7 +22,7 @@ export default function PilotModels() {
       </button>;
     })}</div>
     {!models.length && <p role="status">Los modelos esperan una revisión válida; tus rigs siguen disponibles.</p>}
-    <p className="pilot-model-disclaimer">Montajes y holguras pendientes de medición. No se modifican tus piezas ni Mis rigs.</p>
+    <p className="pilot-model-disclaimer">Montajes y holguras pendientes de ensayo. Añade únicamente las piezas que quieras; tus rigs existentes no cambian.</p>
     {selected && <Suspense fallback={<p role="status">Abriendo inspección 3D…</p>}><PartModelDialog asset={selected} label={selected.exact_product_name} research onClose={() => setSelected(null)} /></Suspense>}
   </>;
 }

@@ -14,15 +14,18 @@ const registry = read("pilot-model-assets"), intake = read("catalog-intake"), ac
 const selected = read("catalog-pilot").viewer.model_ids;
 let count = 0;
 const test = (name, run) => { run(); count++; console.log("CORRECTO: " + name); };
-test("Tres recursos propios de investigación, separados del catálogo", () => {
+test("Tres recursos de origen revisados, con promoción explícita al catálogo", () => {
   assert.equal(registry.scope, "research_preview_only"); assert.equal(registry.assets.length, 3);
   assert.deepEqual(registry.assets.map(asset => asset.id), selected);
   assert.equal(new Set(selected).size, 3);
-  assert.equal(active.parts.length, 30); assert.equal(models.assets.length, 17); assert.equal(variants.variants.length, 7);
+  assert.equal(active.parts.length, 33); assert.equal(models.assets.length, 20); assert.equal(variants.variants.length, 7);
   registry.assets.forEach(asset => {
     const product = intake.products.find(item => item.id === asset.part_id);
     assert.deepEqual(pilotModelIssues(asset, product), []);
-    assert(!active.parts.some(item => item.id === asset.part_id));
+    assert(read("pilot-integration").promoted_part_ids.includes(asset.part_id));
+    const canonical=models.assets.find(model=>model.id===asset.id);
+    assert.equal(canonical.artifact.sha256,asset.artifact.sha256);
+    assert.equal(canonical.review.ports_authority,"ports-manifest.json");
     assert(modelIssues(asset, undefined, undefined).length > 0);
   });
 });

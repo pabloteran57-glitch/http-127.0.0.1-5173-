@@ -1,8 +1,8 @@
 # Takegrid: ruta a una beta utilizable
 
-Revisión: 7 de octubre de 2026. Estado: endurecimiento del prototipo en curso. Fuente estructurada: `data/product-roadmap.json`. El catálogo mantiene 30 entradas; diez altas están sólo en investigación. [Revisión actual por fases](contextual-attachments-qa.md).
+Revisión: 7 de octubre de 2026. Estado: endurecimiento del prototipo en curso. Fuente estructurada: `data/product-roadmap.json`. El catálogo tiene 33 entradas; tres altas del lote investigado están integradas para planificación FX30 a mano y horizontal. Las otras siete siguen en investigación. [Alcance vigente](pilot-integration.md).
 
-Takegrid 0.2.8 publicado: accesorios desde el visor, monitor sobre NATO sin imponer gimbal, ajustes acoplados y guardado de poses. Correcciones locales comprobadas, no finalización de beta; 228 pruebas de software y revisión de escritorio/viewport móvil. [Publicación confirmada](additional-hosting.md).
+Iteración 0.2.10: piloto FX30 en editor, biblioteca, conexiones nativas y guía propia de cinco etapas. Conserva los accesorios desde el visor, monitor sobre NATO sin imponer gimbal para las cadenas FX3 revisadas, ajustes y guardado de poses. No finaliza beta ni autoriza cadenas FX30 adicionales. [Verificación de integración](pilot-integration-qa.md) y [estado de publicación](additional-hosting.md).
 
 Mi equipo, guía filtrada y controles de reproducción ya tienen correcciones funcionales comprobadas. Se prepararon laboratorio, reglas declarativas, recuperación e historial, recursos sin conexión, protocolo de beta y paquete preliminar de financiación. La evidencia actual está en `docs/iteration-qa.md`; la previa en `docs/stabilization-qa.md`. Preparar entregables posteriores no cierra sus criterios de salida. Cuentas y sincronización quedan aplazadas por decisión del usuario, no eliminadas del plan.
 

@@ -2,7 +2,7 @@
   "version": 1,
   "reviewed_on": "2026-10-07",
   "status": "prototype_hardening_in_progress",
-  "progress_report": "docs/contextual-attachments-qa.md",
+  "progress_report": "docs/pilot-integration-qa.md",
   "user_decisions": [
     {
       "date": "2026-10-05",
@@ -25,14 +25,14 @@
     "Fuentes oficiales, derechos de uso y aproximaciones explícitas"
   ],
   "baseline": {
-    "part_entries": 30,
-    "geometry_nodes": 17,
+    "part_entries": 33,
+    "geometry_nodes": 20,
     "canonical_assembly_steps": 13,
     "templates": 7,
     "storage": "Local al navegador y origen; no sincronizado",
     "performance": "Laboratorio optativo de reposo/giro y demanda/continuo. Intervalos de render JavaScript; dispositivos físicos de referencia y objetivos pendientes.",
     "assessment": "Prototipo funcional; no liberado como beta de uso profesional",
-    "product_thumbnails": 17
+    "product_thumbnails": 20
   },
   "findings": [
     {
@@ -195,13 +195,13 @@
       "id": "verified-catalog-pilot",
       "order": 3,
       "title": "Primer lote de catálogo ampliado",
-      "status": "research_prepared_not_activated",
-      "verification_report": "docs/catalog-pilot-qa.md",
+      "status": "first_planning_configuration_integrated_pending_physical",
+      "verification_report": "docs/pilot-integration-qa.md",
       "remaining": [
-        "FX30, SEL20F18G y NP-FZ100: faltan materiales, salientes y cotas de montaje; siete candidatos sin nueva revisión",
-        "Piloto FX30/4770/SEL20F18G/NP-FZ100 con pares oficiales y ficha relacional; holguras y masa instalada por medir",
-        "Tres mallas propias del piloto disponibles sólo para inspección en Ayuda; integrar poses, reglas, guía dinámica, selección y guardado sin copiar FX3",
-        "Ensayos físicos y liberación"
+        "Ensayo físico del piloto FX30 a mano, retención/ventilación y masa instalada",
+        "Revisar siete candidatos restantes sin heredar compatibilidades",
+        "Cadenas completas adicionales de monitor, gimbal y audio por cuerpo antes de ampliar selección activa",
+        "Aceptación observada y mediciones en dispositivos reales"
       ],
       "depends_on": [
         "extensible-engineering"

@@ -1,6 +1,6 @@
 # Lote piloto de catálogo
 
-Fuente canónica de investigación: `data/catalog-intake.json`. Revisión 2026-10-07. **Diez candidatos; ninguno activado.** No se incluyen imágenes sin permiso ni formas heredadas.
+Fuente canónica de investigación: `data/catalog-intake.json`. Revisión 2026-10-07. **Diez expedientes de origen; tres altas posteriores de planificación y siete pendientes.** No se incluyen imágenes sin permiso ni formas heredadas.
 
 ## Manifiesto inicial
 
@@ -38,4 +38,4 @@ Fuente canónica de investigación: `data/catalog-intake.json`. Revisión 2026-1
 - `fx3-light-prime`: sony-fx3, smallrig-4770, sony-fe-35-f18, sony-np-fz100. Priorizar un núcleo compacto sin monitor ni V-mount. Verificar tablas Sony, alojamiento de batería, jaula y guía antes de activar.
 - `fx30-handheld-prime`: sony-fx30, smallrig-4770, sony-fe-20-f18-g, sony-np-fz100. Segundo cuerpo candidato. 4770 menciona FX3/FX30, pero no se copia el rig de FX3 ni su control, señales o masa.
 
-FX30/SEL20F18G: [ficha técnica del conjunto](catalog-pilot-blueprint.md) con pares oficiales, distribución relacional, alimentación nativa y cinco etapas documentales. Geometría e integración pendientes; los demás conjuntos no reciben esa verificación por analogía. Este lote no modifica las 30 entradas del catálogo actual.
+FX30/SEL20F18G: [ficha técnica del conjunto](catalog-pilot-blueprint.md) con pares oficiales, distribución relacional, alimentación nativa y cinco etapas documentales. Integración actual en [piloto de planificación](pilot-integration.md), con geometría y poses aproximadas. Los demás conjuntos no reciben esa revisión por analogía. El catálogo actual tiene 33 entradas; el ensayo físico sigue pendiente.

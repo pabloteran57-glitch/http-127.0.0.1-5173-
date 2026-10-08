@@ -13,6 +13,7 @@
       "assembly_steps": [
         7
       ],
+      "assembly_profiles": [],
       "release_status": "planning_candidate",
       "physically_tested": false
     },
@@ -26,6 +27,7 @@
       "assembly_steps": [
         7
       ],
+      "assembly_profiles": [],
       "release_status": "planning_candidate",
       "physically_tested": false
     },
@@ -39,6 +41,7 @@
       "assembly_steps": [
         1
       ],
+      "assembly_profiles": [],
       "release_status": "planning_candidate",
       "physically_tested": false
     },
@@ -52,6 +55,7 @@
       "assembly_steps": [
         2
       ],
+      "assembly_profiles": [],
       "release_status": "planning_candidate",
       "physically_tested": false
     },
@@ -65,6 +69,7 @@
       "assembly_steps": [
         1
       ],
+      "assembly_profiles": [],
       "release_status": "planning_candidate",
       "physically_tested": false
     },
@@ -77,6 +82,14 @@
       "geometry_status": "approximate",
       "assembly_steps": [
         2
+      ],
+      "assembly_profiles": [
+        {
+          "id": "fx30-handheld-prime",
+          "steps": [
+            2
+          ]
+        }
       ],
       "release_status": "planning_candidate",
       "physically_tested": false
@@ -91,6 +104,7 @@
       "assembly_steps": [
         3
       ],
+      "assembly_profiles": [],
       "release_status": "planning_candidate",
       "physically_tested": false
     },
@@ -104,6 +118,7 @@
       "assembly_steps": [
         3
       ],
+      "assembly_profiles": [],
       "release_status": "planning_candidate",
       "physically_tested": false
     },
@@ -117,6 +132,7 @@
       "assembly_steps": [
         4
       ],
+      "assembly_profiles": [],
       "release_status": "planning_candidate",
       "physically_tested": false
     },
@@ -130,6 +146,7 @@
       "assembly_steps": [
         6
       ],
+      "assembly_profiles": [],
       "release_status": "planning_candidate",
       "physically_tested": false
     },
@@ -143,6 +160,7 @@
       "assembly_steps": [
         6
       ],
+      "assembly_profiles": [],
       "release_status": "planning_candidate",
       "physically_tested": false
     },
@@ -156,6 +174,7 @@
       "assembly_steps": [
         5
       ],
+      "assembly_profiles": [],
       "release_status": "planning_candidate",
       "physically_tested": false
     },
@@ -169,6 +188,7 @@
       "assembly_steps": [
         5
       ],
+      "assembly_profiles": [],
       "release_status": "planning_candidate",
       "physically_tested": false
     },
@@ -182,6 +202,7 @@
       "assembly_steps": [
         5
       ],
+      "assembly_profiles": [],
       "release_status": "planning_candidate",
       "physically_tested": false
     },
@@ -193,6 +214,7 @@
       "geometry_profile_id": null,
       "geometry_status": "not_modeled",
       "assembly_steps": [],
+      "assembly_profiles": [],
       "release_status": "reserve",
       "physically_tested": false
     },
@@ -204,6 +226,7 @@
       "geometry_profile_id": null,
       "geometry_status": "not_modeled",
       "assembly_steps": [],
+      "assembly_profiles": [],
       "release_status": "reserve",
       "physically_tested": false
     },
@@ -215,6 +238,7 @@
       "geometry_profile_id": null,
       "geometry_status": "not_modeled",
       "assembly_steps": [],
+      "assembly_profiles": [],
       "release_status": "reserve",
       "physically_tested": false
     },
@@ -228,6 +252,7 @@
       "assembly_steps": [
         2
       ],
+      "assembly_profiles": [],
       "release_status": "planning_candidate",
       "physically_tested": false
     },
@@ -241,6 +266,7 @@
       "assembly_steps": [
         2
       ],
+      "assembly_profiles": [],
       "release_status": "planning_candidate",
       "physically_tested": false
     },
@@ -252,6 +278,7 @@
       "geometry_profile_id": null,
       "geometry_status": "not_modeled",
       "assembly_steps": [],
+      "assembly_profiles": [],
       "release_status": "reserve",
       "physically_tested": false
     },
@@ -265,6 +292,7 @@
       "assembly_steps": [
         9
       ],
+      "assembly_profiles": [],
       "release_status": "planning_candidate",
       "physically_tested": false
     },
@@ -276,6 +304,7 @@
       "geometry_profile_id": null,
       "geometry_status": "not_modeled",
       "assembly_steps": [],
+      "assembly_profiles": [],
       "release_status": "reserve",
       "physically_tested": false
     },
@@ -289,6 +318,7 @@
       "assembly_steps": [
         10
       ],
+      "assembly_profiles": [],
       "release_status": "planning_candidate",
       "physically_tested": false
     },
@@ -302,6 +332,7 @@
       "assembly_steps": [
         11
       ],
+      "assembly_profiles": [],
       "release_status": "planning_candidate",
       "physically_tested": false
     },
@@ -313,6 +344,7 @@
       "geometry_profile_id": null,
       "geometry_status": "not_modeled",
       "assembly_steps": [],
+      "assembly_profiles": [],
       "release_status": "reserve",
       "physically_tested": false
     },
@@ -326,6 +358,7 @@
       "assembly_steps": [
         12
       ],
+      "assembly_profiles": [],
       "release_status": "planning_candidate",
       "physically_tested": false
     },
@@ -339,6 +372,7 @@
       "assembly_steps": [
         12
       ],
+      "assembly_profiles": [],
       "release_status": "planning_candidate",
       "physically_tested": false
     },
@@ -352,6 +386,7 @@
       "assembly_steps": [
         6
       ],
+      "assembly_profiles": [],
       "release_status": "planning_candidate",
       "physically_tested": false
     },
@@ -365,6 +400,7 @@
       "assembly_steps": [
         2
       ],
+      "assembly_profiles": [],
       "release_status": "planning_candidate",
       "physically_tested": false
     },
@@ -377,6 +413,64 @@
       "geometry_status": "approximate",
       "assembly_steps": [
         11
+      ],
+      "assembly_profiles": [],
+      "release_status": "planning_candidate",
+      "physically_tested": false
+    },
+    {
+      "part_id": "sony-fx30",
+      "record_revision": "fx3-rs4-2026-10-05",
+      "model_number": "ILME-FX30",
+      "identity_source_url": "https://www.sony.jp/pro-cam/products/ILME-FX30/spec.html",
+      "geometry_profile_id": "sony-fx30",
+      "geometry_status": "approximate",
+      "assembly_steps": [],
+      "assembly_profiles": [
+        {
+          "id": "fx30-handheld-prime",
+          "steps": [
+            1
+          ]
+        }
+      ],
+      "release_status": "planning_candidate",
+      "physically_tested": false
+    },
+    {
+      "part_id": "sony-fe-20-f18-g",
+      "record_revision": "fx3-rs4-2026-10-05",
+      "model_number": "SEL20F18G",
+      "identity_source_url": "https://www.sony.jp/ichigan/products/SEL20F18G/spec.html",
+      "geometry_profile_id": "sony-fe-20-f18-g",
+      "geometry_status": "approximate",
+      "assembly_steps": [],
+      "assembly_profiles": [
+        {
+          "id": "fx30-handheld-prime",
+          "steps": [
+            3
+          ]
+        }
+      ],
+      "release_status": "planning_candidate",
+      "physically_tested": false
+    },
+    {
+      "part_id": "sony-np-fz100",
+      "record_revision": "fx3-rs4-2026-10-05",
+      "model_number": "NP-FZ100",
+      "identity_source_url": "https://electronics.sony.com/imaging/imaging-accessories/interchangeable-lens-camera-accessories/p/npfz100?sku=npfz100",
+      "geometry_profile_id": "sony-np-fz100",
+      "geometry_status": "approximate",
+      "assembly_steps": [],
+      "assembly_profiles": [
+        {
+          "id": "fx30-handheld-prime",
+          "steps": [
+            4
+          ]
+        }
       ],
       "release_status": "planning_candidate",
       "physically_tested": false

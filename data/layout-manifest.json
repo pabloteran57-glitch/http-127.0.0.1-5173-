@@ -13,8 +13,14 @@
   "battery_plate_slide": {
     "plate_id": "smallrig-3203b",
     "rod_id": "smallrig-rods-8in",
-    "attached_part_ids": ["smallrig-vb99-pro"],
-    "rod_axis_local": [0, 0, 1],
+    "attached_part_ids": [
+      "smallrig-vb99-pro"
+    ],
+    "rod_axis_local": [
+      0,
+      0,
+      1
+    ],
     "source_url": "https://static.smallrig.com/mall/img/public/1714289722871_.pdf",
     "source_locator": "Página 5: posiciones de abrazadera atornillada; sin bisagra. Desplazar sólo tras aflojar y volver a fijar abrazaderas sobre varillas.",
     "travel_status": "user_measurement_required",
@@ -24,11 +30,27 @@
     "gimbal": {
       "mount_id": "smallrig-3026b",
       "monitor_id": "smallhd-indie-7",
-      "attached_part_ids": ["sony-np-f970-pro"],
-      "tilt_range_deg": [-85, 85],
-      "swivel_range_deg": [0, 0],
-      "tilt_pivot_local_mm": [-65, 5.3, 0],
-      "swivel_pivot_local_mm": [-65, 5.3, 0],
+      "attached_part_ids": [
+        "sony-np-f970-pro"
+      ],
+      "tilt_range_deg": [
+        -85,
+        85
+      ],
+      "swivel_range_deg": [
+        0,
+        0
+      ],
+      "tilt_pivot_local_mm": [
+        -65,
+        5.3,
+        0
+      ],
+      "swivel_pivot_local_mm": [
+        -65,
+        5.3,
+        0
+      ],
       "head_object_name": "monitor-head",
       "source_url": "https://static.smallrig.com/mall/img/public/m1twezvd88j-1751250182064_.pdf",
       "source_locator": "Página 2: inclinación total hasta 170°. No declara giro independiente.",
@@ -37,11 +59,27 @@
     "cage": {
       "mount_id": "smallrig-2906b",
       "monitor_id": "smallhd-indie-7",
-      "attached_part_ids": ["sony-np-f970-pro"],
-      "tilt_range_deg": [-90, 90],
-      "swivel_range_deg": [-180, 180],
-      "tilt_pivot_local_mm": [0, 9, 0],
-      "swivel_pivot_local_mm": [0, -8.4, 0],
+      "attached_part_ids": [
+        "sony-np-f970-pro"
+      ],
+      "tilt_range_deg": [
+        -90,
+        90
+      ],
+      "swivel_range_deg": [
+        -180,
+        180
+      ],
+      "tilt_pivot_local_mm": [
+        0,
+        9,
+        0
+      ],
+      "swivel_pivot_local_mm": [
+        0,
+        -8.4,
+        0
+      ],
       "head_object_name": "monitor-head",
       "swivel_object_name": "monitor-swivel",
       "source_url": "https://static.smallrig.com/mall/img/public/0g141qmktenu-1751249917074_.pdf",
@@ -51,11 +89,27 @@
     "xlr": {
       "mount_id": "smallrig-2906b",
       "monitor_id": "smallhd-indie-7",
-      "attached_part_ids": ["sony-np-f970-pro"],
-      "tilt_range_deg": [-90, 90],
-      "swivel_range_deg": [-180, 180],
-      "tilt_pivot_local_mm": [0, 9, 0],
-      "swivel_pivot_local_mm": [0, -8.4, 0],
+      "attached_part_ids": [
+        "sony-np-f970-pro"
+      ],
+      "tilt_range_deg": [
+        -90,
+        90
+      ],
+      "swivel_range_deg": [
+        -180,
+        180
+      ],
+      "tilt_pivot_local_mm": [
+        0,
+        9,
+        0
+      ],
+      "swivel_pivot_local_mm": [
+        0,
+        -8.4,
+        0
+      ],
       "head_object_name": "monitor-head",
       "swivel_object_name": "monitor-swivel",
       "source_url": "https://static.smallrig.com/mall/img/public/0g141qmktenu-1751249917074_.pdf",
@@ -141,7 +195,14 @@
       "label": "Jaula HawkLock 4770",
       "kind": "cage",
       "vertical_frame": "camera",
-      "visual_subassemblies": [{"object_name":"smallrig-4770/natoRail","hide_if_any_part_ids":["sony-xlr-h1"]}],
+      "visual_subassemblies": [
+        {
+          "object_name": "smallrig-4770/natoRail",
+          "hide_if_any_part_ids": [
+            "sony-xlr-h1"
+          ]
+        }
+      ],
       "position_mm": [
         0,
         0,
@@ -444,7 +505,11 @@
     {
       "id": "smallrig-3026b",
       "articulated_subassemblies": {
-        "monitor-head": ["Horquilla nativa", "Rueda de fijación", "Tornillo de monitor ilustrativo"]
+        "monitor-head": [
+          "Horquilla nativa",
+          "Rueda de fijación",
+          "Tornillo de monitor ilustrativo"
+        ]
       },
       "label": "Soporte NATO 3026B",
       "kind": "monitorMount",
@@ -598,8 +663,16 @@
     {
       "id": "smallrig-2906b",
       "articulated_subassemblies": {
-        "monitor-head": ["Placa de apoyo monitor", "Rueda de tornillo", "Tornillo 1/4-20 ilustrativo"],
-        "monitor-swivel": ["Horquilla", "Pivote inclinable", "Mando lateral"]
+        "monitor-head": [
+          "Placa de apoyo monitor",
+          "Rueda de tornillo",
+          "Tornillo 1/4-20 ilustrativo"
+        ],
+        "monitor-swivel": [
+          "Horquilla",
+          "Pivote inclinable",
+          "Mando lateral"
+        ]
       },
       "label": "2906B",
       "kind": "compactMonitorMount",
@@ -703,6 +776,117 @@
       "rationale": "Alimentación autónoma del monitor, también en gimbal vertical.",
       "rejected": "Montaje flotante, adaptación no elegida y extrapolación de cotas de tornillos.",
       "pose_status": "approximate_not_clearance_checked"
+    },
+    {
+      "id": "sony-fx30",
+      "label": "Sony FX30",
+      "kind": "camera",
+      "position_mm": [
+        0,
+        0,
+        0
+      ],
+      "rotation_deg": [
+        0,
+        0,
+        0
+      ],
+      "size_xyz_mm": [
+        129.7,
+        77.8,
+        84.5
+      ],
+      "explode_mm": [
+        0,
+        90,
+        0
+      ],
+      "parent_id": null,
+      "envelope": "approximate",
+      "mass_domain": "moving",
+      "mount": "Núcleo a mano, montura E y jaula 4770 según el manual específico FX30.",
+      "placement": "Núcleo sostenido por el operador; ventilación inferior libre. Pose visual aproximada, no coordenadas de montaje.",
+      "orientation": "Objetivo hacia la escena, pantalla accesible al operador. Rotación ilustrativa.",
+      "rationale": "Mantener controles, pantalla, tarjeta y acceso a batería sin accesorios implícitos.",
+      "rejected": "Copiar la pose y puertos del cuerpo FX3; Añadir un gimbal por defecto",
+      "dimension_source_url": "https://www.sony.jp/pro-cam/products/ILME-FX30/spec.html",
+      "pose_status": "approximate_visual_only_not_mechanical",
+      "model_authoring": "pilot",
+      "internal": false
+    },
+    {
+      "id": "sony-fe-20-f18-g",
+      "label": "FE 20mm F1.8 G",
+      "kind": "lens",
+      "position_mm": [
+        0,
+        0,
+        84.6
+      ],
+      "rotation_deg": [
+        0,
+        0,
+        0
+      ],
+      "size_xyz_mm": [
+        73.5,
+        73.5,
+        84.7
+      ],
+      "explode_mm": [
+        0,
+        90,
+        90
+      ],
+      "parent_id": "sony-fx30",
+      "envelope": "approximate",
+      "mass_domain": "moving",
+      "mount": "Montura Sony E directa de FX30; par exacto documentado por Sony.",
+      "placement": "Montura E frontal de FX30, sin adaptador. Pose visual aproximada, no coordenadas de montaje.",
+      "orientation": "Alinear índices blancos y girar según el manual hasta retención. Rotación ilustrativa.",
+      "rationale": "Par exacto confirmado por Sony; núcleo compacto sin matte box ni parasol añadido.",
+      "rejected": "Heredar longitud, forma o parasol de SEL1635GM; Introducir un adaptador de montura sin necesidad",
+      "dimension_source_url": "https://www.sony.jp/ichigan/products/SEL20F18G/spec.html",
+      "pose_status": "approximate_visual_only_not_mechanical",
+      "model_authoring": "pilot",
+      "internal": false
+    },
+    {
+      "id": "sony-np-fz100",
+      "label": "NP-FZ100 interna",
+      "kind": "nativeBattery",
+      "position_mm": [
+        48,
+        -8,
+        -4
+      ],
+      "rotation_deg": [
+        0,
+        0,
+        90
+      ],
+      "size_xyz_mm": [
+        38.7,
+        22.7,
+        51.7
+      ],
+      "explode_mm": [
+        115,
+        -90,
+        0
+      ],
+      "parent_id": "sony-fx30",
+      "envelope": "approximate",
+      "mass_domain": "moving",
+      "mount": "Alojamiento nativo FX30; palanca de retención y cubierta según Sony.",
+      "placement": "Dentro del compartimento nativo; retenida por la palanca y cubierta bloqueada. Pose visual aproximada, no coordenadas de montaje.",
+      "orientation": "Seguir la inserción del manual; contactos y posición interna sin coordenadas publicadas. Rotación ilustrativa.",
+      "rationale": "Alimentación nativa sin adaptador de batería, V-mount, cables o soportes adicionales.",
+      "rejected": "Representar la batería como un bloque externo bajo la cámara; Sumarla otra vez a la masa de cuerpo con batería",
+      "dimension_source_url": "https://electronics.sony.com/imaging/imaging-accessories/interchangeable-lens-camera-accessories/p/npfz100?sku=npfz100",
+      "pose_status": "approximate_visual_only_not_mechanical",
+      "model_authoring": "pilot",
+      "internal": true
     }
   ],
   "clearance_gates": [
@@ -837,5 +1021,21 @@
         }
       }
     }
-  }
+  },
+  "camera_layout_profiles": [
+    {
+      "id": "fx30-handheld-prime",
+      "camera_part_id": "sony-fx30",
+      "overrides": {
+        "smallrig-4770": {
+          "parent_id": "sony-fx30",
+          "mount": "Jaula FX3/FX30 según manual 4770 páginas 3 y 5; sin baseplate añadida.",
+          "placement": "Jaula alrededor del cuerpo FX30; asiento inferior/laterales del fabricante.",
+          "orientation": "Alineación visual aproximada con FX30.",
+          "rationale": "Relación documentada por SmallRig; no prueba holguras de batería o ventilación.",
+          "rejected": "Añadir baseplate, asa o monitor sin elección ni evidencia de conjunto."
+        }
+      }
+    }
+  ]
 }

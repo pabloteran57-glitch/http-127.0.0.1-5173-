@@ -1,6 +1,6 @@
 # Manifiesto verificado de piezas
 
-Generado desde `data/parts-manifest.json`. Auditoría 2026-10-06. 25 productos solicitados y 2 componentes del Combo conservados, más 3 accesorios de monitor verificados: 30 entradas.
+Generado desde `data/parts-manifest.json`. Auditoría 2026-10-06. 25 productos solicitados y 2 componentes del Combo conservados, más 3 accesorios de monitor y 3 altas acotadas del piloto FX30: 33 entradas.
 
 Plan de ingeniería, no montaje certificado. Medidas publicadas no prueban forma exacta, enganche de tornillos, equilibrio, rigidez, holguras ni compatibilidad de toda la pila. Fotos y geometría aproximada no son CAD calibrado.
 
@@ -573,3 +573,60 @@ Plan de ingeniería, no montaje certificado. Medidas publicadas no prueban forma
 - Restricciones: Tensión nominal 7.2 V; ficha Sony: 45 Wh / 6300 mAh. No es NP-FZ100 ni alimenta la FX3.; Usar cargador específico externo. El Indie 7 no carga baterías.; Una batería elegida: no representar dos paquetes ni prometer autonomía calculada.; Comprobar retención, carga disponible y tensión real bajo carga; interfaz serie L documentada, combinación física no ensayada.
 - Confianza: Media.
 - [Fuente principal](https://www.sony.jp/products/catalog/SPC_NP-F970_PRO.pdf)
+
+## Sony FX30
+
+- ID: `sony-fx30`
+- Nombre oficial del fabricante: Sony FX30.
+- Modelo: ILME-FX30; fabricante: Sony; categoría: Cuerpo de cámara.
+- Medidas publicadas L/W/H: 129.7 / 77.8 / 84.5 mm. Aproximadas/incompletas: sí.
+- Nota de dimensiones: Campos históricos: ancho / alto / fondo, cotas aproximadas de fabricante; consultar layout-manifest para ejes. No son cotas de montaje.
+- Masa publicada: 562 g. Aproximada: sí.
+- Nota de masa: 562 g aproximados: cuerpo solo, sin batería, tarjeta ni asa. No sumar 646 g con batería/tarjeta.
+- Fuente de masa: [Sony](https://www.sony.jp/pro-cam/products/ILME-FX30/spec.html).
+- Masa de planificación: 562 g; no sustituye pesaje del subconjunto instalado.
+- Interfaces: Una salida HDMI tipo A; USB-C x1; Multi/Micro USB x1; Entrada de micrófono de 3.5 mm; Salida de auriculares de 3.5 mm; Sony Multi Interface Shoe; Compartimento nativo NP-FZ100
+- Montaje: Núcleo a mano, montura E y jaula 4770 según el manual específico FX30.
+- Material: Materiales no verificados en las fuentes revisadas; apariencia del modelo aproximada.
+- Obligatorio/opcional: Opcional; función: Captura APS-C; piloto a mano.
+- Restricciones: 562 g aproximados: cuerpo solo, sin batería, tarjeta ni asa. No sumar 646 g con batería/tarjeta.; Piloto de planificación sólo a mano y horizontal; gimbal, monitor, audio externo y control no revisados para este cuerpo.; Puertos identificados; coordenadas no medidas. No hereda puertos ni cables de FX3.; ILME-FX30 puede incluir asa según SKU/región; no se añade automáticamente.; Ventilación inferior y cubierta de batería deben quedar libres.
+- Confianza: Media.
+- [Fuente principal](https://www.sony.jp/pro-cam/products/ILME-FX30/spec.html)
+
+## FE 20mm F1.8 G
+
+- ID: `sony-fe-20-f18-g`
+- Nombre oficial del fabricante: Sony FE 20mm F1.8 G.
+- Modelo: SEL20F18G; fabricante: Sony; categoría: Objetivo.
+- Medidas publicadas L/W/H: 73.5 / 73.5 / 84.7 mm. Aproximadas/incompletas: sí.
+- Nota de dimensiones: Campos históricos: diámetro / diámetro / longitud; consultar size_xyz_mm para ejes. Medidas exteriores publicadas, no encajes mecánicos.
+- Masa publicada: 373 g. Aproximada: sí.
+- Nota de masa: Dimensiones diámetro máximo 73.5 × longitud 84.7 mm; masa aproximada.
+- Fuente de masa: [Sony](https://www.sony.jp/ichigan/products/SEL20F18G/spec.html).
+- Masa de planificación: 373 g; no sustituye pesaje del subconjunto instalado.
+- Interfaces: Montura Sony E; Filtro nominal de 67 mm
+- Montaje: Montura Sony E directa de FX30; par exacto documentado por Sony.
+- Material: Materiales no verificados en las fuentes revisadas; apariencia del modelo aproximada.
+- Obligatorio/opcional: Opcional; función: Óptica fija del piloto FX30.
+- Restricciones: Dimensiones diámetro máximo 73.5 × longitud 84.7 mm; masa aproximada.; Sin parasol ni tapas en la escena: no fueron seleccionados.; No hereda zoom, forma o longitud de SEL1635GM.; Otros pares cámara/objetivo quedan pendientes; no se aprueban por compartir montura.
+- Confianza: Media.
+- [Fuente principal](https://www.sony.jp/ichigan/products/SEL20F18G/spec.html)
+
+## Sony NP-FZ100
+
+- ID: `sony-np-fz100`
+- Nombre oficial del fabricante: Sony NP-FZ100 Rechargeable Battery Pack.
+- Modelo: NP-FZ100; fabricante: Sony; categoría: Batería.
+- Medidas publicadas L/W/H: 38.7 / 22.7 / 51.7 mm. Aproximadas/incompletas: sí.
+- Nota de dimensiones: Campos históricos: ancho / alto / fondo, cotas aproximadas de fabricante; consultar layout-manifest para ejes. No son cotas de montaje.
+- Masa publicada: 83 g. Aproximada: sí.
+- Nota de masa: 7.2 V nominales, 16.4 Wh, 2280 mAh; no son rango de descarga ni corriente admisible.
+- Fuente de masa: [Sony](https://electronics.sony.com/imaging/imaging-accessories/interchangeable-lens-camera-accessories/p/npfz100?sku=npfz100).
+- Masa de planificación: 83 g; no sustituye pesaje del subconjunto instalado.
+- Interfaces: Contactos nativos NP-FZ100; pinout no publicado
+- Montaje: Alojamiento nativo FX30; palanca de retención y cubierta según Sony.
+- Material: Materiales no verificados en las fuentes revisadas; apariencia del modelo aproximada.
+- Obligatorio/opcional: Opcional; función: Alimentación nativa del piloto FX30.
+- Restricciones: 7.2 V nominales, 16.4 Wh, 2280 mAh; no son rango de descarga ni corriente admisible.; Batería interna, no bloque externo ni cable D-Tap.; 83 g aproximados, sumados una sola vez al cuerpo solo.; Cargador no elegido ni incluido en este plan; usar batería previamente cargada.; Pareja FX3 u otros cuerpos pendiente de revisión propia en la app.
+- Confianza: Media.
+- [Fuente principal](https://electronics.sony.com/imaging/imaging-accessories/interchangeable-lens-camera-accessories/p/npfz100?sku=npfz100)

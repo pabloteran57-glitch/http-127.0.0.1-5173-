@@ -289,6 +289,57 @@
       },
       "caption": "Modelo aproximado",
       "reviewed_on": "2026-10-07"
+    },
+    {
+      "id": "sony-fx30-pilot-v1",
+      "part_id": "sony-fx30",
+      "subcomponent_id": null,
+      "model_sha256": "4606df81336ebe2156b08c666301df8f725a02d07fad5798b4caa52d762ecdd3",
+      "status": "approved",
+      "method": "rendered_approved_mesh",
+      "image": {
+        "path": "/product-visuals/sony-fx30-pilot-v1.webp",
+        "bytes": 10102,
+        "sha256": "578aef78803ceda71338441f43c75310a6c55bd4b0ed85bae1046abd0081bcbb",
+        "width": 400,
+        "height": 280
+      },
+      "caption": "Modelo aproximado",
+      "reviewed_on": "2026-10-07"
+    },
+    {
+      "id": "sony-fe-20-f18-g-pilot-v1",
+      "part_id": "sony-fe-20-f18-g",
+      "subcomponent_id": null,
+      "model_sha256": "17c7d9ddaf60f9761fcdfdaa3ea96c602aba5a421d594957b82c90254ed970eb",
+      "status": "approved",
+      "method": "rendered_approved_mesh",
+      "image": {
+        "path": "/product-visuals/sony-fe-20-f18-g-pilot-v1.webp",
+        "bytes": 7632,
+        "sha256": "3c33a3982897f9df79a83609fdf9bdff30e10839dca75f98f43693f1a889f3ae",
+        "width": 400,
+        "height": 280
+      },
+      "caption": "Modelo aproximado",
+      "reviewed_on": "2026-10-07"
+    },
+    {
+      "id": "sony-np-fz100-pilot-v1",
+      "part_id": "sony-np-fz100",
+      "subcomponent_id": null,
+      "model_sha256": "b686452eb0158f6d9734bdaed1660573074b6afe99210f81cc838bd51f3de026",
+      "status": "approved",
+      "method": "rendered_approved_mesh",
+      "image": {
+        "path": "/product-visuals/sony-np-fz100-pilot-v1.webp",
+        "bytes": 7498,
+        "sha256": "70c46983efdb61e48fdc3aa3bcf8093280a2d5254b06d5f5ff4feae8808ff590",
+        "width": 400,
+        "height": 280
+      },
+      "caption": "Modelo aproximado",
+      "reviewed_on": "2026-10-07"
     }
   ],
   "scope": "Miniaturas de mallas propias revisadas, aproximadas y encuadradas por pieza. No fotos oficiales, CAD ni comparación de escala entre tarjetas."

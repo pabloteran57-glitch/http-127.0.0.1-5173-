@@ -45,7 +45,9 @@ export function cableForVariant(cable:Cable,variant:Variant):Cable {
 export function layoutForVariant(variant:Variant,layout:LayoutManifest):LayoutManifest {
   const route=monitorRoute(variant);
   const overrides=(route?layout.monitor_mount_routes?.[route]?.overrides:undefined)??{};
-  const nodes=layout.nodes.map(node=>({...node,...overrides[node.id]}));
+  const profiles=(layout.camera_layout_profiles??[]).filter(profile=>variant.active_part_ids.includes(profile.camera_part_id));
+  const cameraOverrides=profiles.length===1?profiles[0].overrides:{};
+  const nodes=layout.nodes.map(node=>({...node,...cameraOverrides[node.id],...overrides[node.id]}));
   const joint=monitorJoint(variant,layout),transforms=monitorTransforms(variant,layout);
   const mount=nodes.find(node=>node.id===joint?.mount_id);
   const pose=monitorPose(variant,layout);

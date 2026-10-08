@@ -44,7 +44,7 @@ interface Props {
 }
 const scale = (v: number) => v / 100;
 const vector = (values: Vec3): Vec3 => values.map(scale) as Vec3;
-const primaryKinds = new Set<LayoutNode["kind"]>(["camera", "lens", "matte", "battery", "monitor", "grip", "audioReceiver"]);
+const primaryKinds = new Set<LayoutNode["kind"]>(["camera", "lens", "matte", "battery", "monitor", "grip", "audioReceiver", "nativeBattery"]);
 
 function EnvelopeGeometry({node,selected}:{node:LayoutNode;selected:boolean}) {
   const size=vector(node.size_xyz_mm);

@@ -1,6 +1,6 @@
 import {readFileSync,existsSync} from "node:fs";
 const read=name=>JSON.parse(readFileSync(new URL(`../data/${name}.json`,import.meta.url),"utf8"));
-const evidence=read("beta-evidence"),protocol=read("beta-protocol"),intake=read("catalog-intake"),funding=read("funding-plan");
+const evidence=read("beta-evidence"),protocol=read("beta-protocol"),integration=read("pilot-integration"),funding=read("funding-plan");
 const valid=evidence.observations.filter(o=>protocol.tasks.some(t=>t.id===o.task_id)&&typeof o.completed==="boolean"&&Number.isFinite(o.assistance_count)&&Number.isFinite(o.elapsed_seconds));
 const completed=valid.filter(o=>o.completed&&o.assistance_count===0).length;
 const participants=new Set(valid.map(o=>o.participant_alias)).size;
@@ -11,7 +11,7 @@ const gates=[
   {name:`Finalización sin ayuda: ${completed} / ${valid.length} tareas válidas${valid.length?` (${(completed/valid.length*100).toFixed(1)}%)`:"; sin tasa calculable"}`,pass:valid.length>0&&completed/valid.length>=protocol.proposed_success_rate},
   {name:"Dispositivos físicos de referencia y comparación",pass:evidence.reference_devices.length>=2},
   {name:"Ensayos físicos trazables",pass:evidence.physical_trials.some(t=>t.status==="passed"&&t.evidence_paths?.length)},
-  {name:"Productos piloto liberados con cadenas completas",pass:intake.products.some(p=>p.release_status==="planning_candidate")},
+  {name:"Integración piloto de planificación comprobada en software, no físicamente",pass:integration.status==="planning_candidate"&&integration.software_validation.status==="verified_software_only"&&integration.promoted_part_ids.every(id=>read("parts-manifest").parts.some(p=>p.id===id&&p.catalog_release?.status==="planning_candidate"))},
   {name:"Privacidad revisada con evidencia",pass:evidence.privacy_review?.status==="approved"&&evidence.privacy_review.evidence_paths?.length>0},
   {name:"Canal y responsable de soporte comprobados",pass:evidence.support_setup?.status==="verified"&&!!evidence.support_setup.channel&&!!evidence.support_setup.responsible&&evidence.support_setup.evidence_paths?.length>0},
   {name:`Incidencias críticas/altas abiertas: ${failures.length}; registro sin observaciones no certifica ausencia de errores`,pass:valid.length>0&&failures.length===0},
