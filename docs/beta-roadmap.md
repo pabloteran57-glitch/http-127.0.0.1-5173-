@@ -1,6 +1,6 @@
 # Takegrid: ruta a una beta utilizable
 
-Revisión: 7 de octubre de 2026. Estado: endurecimiento del prototipo en curso. Fuente estructurada: `data/product-roadmap.json`. El catálogo tiene 33 entradas; tres altas del lote investigado están integradas para planificación FX30 a mano y horizontal. Las otras siete siguen en investigación. [Alcance vigente](pilot-integration.md).
+Revisión: 8 de octubre de 2026. Estado: endurecimiento del prototipo en curso. Fuente estructurada: `data/product-roadmap.json`. El catálogo tiene 33 entradas; tres altas del lote investigado están integradas para planificación FX30 a mano y horizontal. Las otras siete siguen en investigación. [Alcance vigente](pilot-integration.md).
 
 Iteración 0.2.10: piloto FX30 en editor, biblioteca, conexiones nativas y guía propia de cinco etapas. Conserva los accesorios desde el visor, monitor sobre NATO sin imponer gimbal para las cadenas FX3 revisadas, ajustes y guardado de poses. No finaliza beta ni autoriza cadenas FX30 adicionales. [Verificación de integración](pilot-integration-qa.md) y [estado de publicación](additional-hosting.md).
 

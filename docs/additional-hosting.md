@@ -2,25 +2,31 @@
 
 ## Estado Confirmado
 
-- Enlace adicional público: [Takegrid 0.2.11](https://takegrid-rigs.pabloteran57.chatgpt.site).
+- Enlace adicional público: [Takegrid 0.2.12](https://takegrid-rigs.pabloteran57.chatgpt.site).
 - Enlace anterior conservado: [Takegrid en Netlify](https://takegrid.netlify.app/), versión anterior sin sustituir.
-- No se contrató un plan ni cambió facturación. El código 0.2.11 se respaldó en el repositorio GitHub existente, sin forzar ni reescribir historial.
-- Confirmación de Sites: `succeeded`, `2026-10-08T04:27:26.110653+00:00` (7 de octubre, 23:27 en Ecuador).
+- No se contrató un plan ni cambió facturación. Código 0.2.12 respaldado en el repositorio GitHub existente con autorización explícita, sin forzar ni reescribir historial.
+- Confirmación de Sites: `succeeded`, `2026-10-08T05:11:43.393631+00:00` (8 de octubre, 00:11 en Ecuador).
 - Proyecto: `appgprj_6ac5ca6c160c819191d2bacd7366c426`.
-- Versión guardada: `appgprj_6ac5ca6c160c819191d2bacd7366c426~appgver_43f6b35b64c48191afc846a774971b0a` (versión 8 del proveedor).
-- Despliegue: `appgdep_6ac71ba5f3308191ae56473b53155dc0`.
-- Revisión principal de origen: `563532e794cc1bfc0a5007d11146897680898814`.
-- Revisión del repositorio estático adicional: `5a1230da627f43dd12634a49c4953cb1395b0dbb`.
+- Versión guardada: `appgprj_6ac5ca6c160c819191d2bacd7366c426~appgver_1e8700b99b048191b4ce35d208094bf2` (versión 9 del proveedor).
+- Despliegue: `appgdep_6ac726077b84819195327aea834a56ae`.
+- Revisión principal de código publicado: `c05819b1cec953e6b393d7832661687e090c563f`.
+- Revisión del repositorio estático adicional: `cd181f62471a7fa139c158bb8f7d83acec7e547a`.
 
 La URL confirmada de producción, no la URL provisional de registro, es la indicada arriba. La confirmación del proveedor acredita el despliegue; las pruebas de interfaz se realizaron en la compilación pública local.
 
 ## Contenido Actual
 
-La 0.2.11 contiene una copia exacta de 56 archivos de `dist-public`, 6 318 907 bytes sin comprimir, más el manifiesto de alojamiento. Sites confirmó 57 archivos y tar de 6 369 280 bytes, huella `sha256:e6c6fffa6b59c856da4d25b95d5ca95e29c0a9d20e2c9ce6db471cc24a1c6705`. Gzip local: 1 573 722 bytes, huella `sha256:1dc6fb795a2f1492823acbd008d416b1b43477f81450ab442d4213b3c3107aec`.
+La 0.2.12 contiene una copia exacta de 56 archivos de `dist-public`, 6 336 646 bytes sin comprimir, más el manifiesto de alojamiento. Sites confirmó 57 archivos y tar de 6 389 760 bytes, huella `sha256:7bf986f6675e7c429e74128c653bdbf64fbdaab59acbf167906d0749b104d6fd`. Gzip local: 1 578 147 bytes, huella `sha256:d52760ee536c03f057ceb487f683ab0077a2db2d019ffff8e36cad5f660abc26`.
 
-Conserva 33 piezas, 20 mallas y 20 miniaturas propias aproximadas, siete plantillas, perfiles locales y cuatro tareas. Amplía NP-FZ100 nativa a FX3 con revisión propia, contactos internos y marco vertical acoplado al cuerpo. Conflictos con 4253B conservan ambas elecciones pendientes sin sugerir soportes innecesarios; la V-mount de monitor no impone adaptador de cámara con batería nativa. [Verificación](native-camera-power-qa.md): 303 comprobaciones de software, recorrido local de escritorio y pruebas DOM en ventana móvil; sin ensayos de teléfono o rig físicos.
+Conserva 33 piezas, 20 mallas y 20 miniaturas propias aproximadas, siete plantillas, perfiles locales y cuatro tareas. Amplía FX30 a mano/horizontal con monitor sobre 4770/2906B, batería serie L y RX Mic 2; HDMI y TRS tienen circuitos y puertos propios. Guía de cinco etapas del núcleo o hasta diez con los accesorios elegidos. No impone brazo de gimbal ni añade piezas sin elección explícita. Retirar soporte conserva pendientes y audio independiente. [Verificación](fx30-accessories-qa.md): 329 comprobaciones, incluidas 512 subselecciones del conjunto ampliado; creación, guardado, recarga, ajustes, reproducción y completado en interfaz local de escritorio y viewport móvil. Sin ensayos de teléfono o rig físicos.
 
-Paquete preparado con validador estático oficial después de verificar la revisión remota exacta. Staging `hosting/prepared-0211`, `hosting/package-0211` y archivo `hosting/takegrid-sites-0211-verified.tar.gz` permanecen fuera del repositorio principal y de la web; captura de QA privada bajo `research/model-incoming/qa-0211`. No se forzó recarga de pestañas del usuario. El [plan por fases](beta-roadmap.md) mantiene criterios físicos, de usuarios y de financiación pendientes.
+Paquete preparado con validador estático oficial después de verificar la revisión remota exacta. Staging `hosting/prepared-0212`, `hosting/package-0212` y archivo `hosting/takegrid-sites-0212-verified.tar.gz` permanecen fuera del repositorio principal y de la web. Copia local de código `hosting/source-backup-0212.zip`, huella `sha256:be3886e705b4e3f7a6deedba0525b5086f11f9d170be47d892be9179ed58ded7`, y capturas de QA bajo `research/model-incoming/qa-0212`, también excluidas. No se forzó recarga de pestañas del usuario. El [plan por fases](beta-roadmap.md) mantiene criterios físicos, de usuarios y de financiación pendientes.
+
+## Histórico 0.2.11
+
+Confirmado `succeeded` el 7 de octubre a las 23:27 en Ecuador. Versión `appgprj_6ac5ca6c160c819191d2bacd7366c426~appgver_43f6b35b64c48191afc846a774971b0a`, despliegue `appgdep_6ac71ba5f3308191ae56473b53155dc0`, revisión de fuente `563532e794cc1bfc0a5007d11146897680898814` y estática `5a1230da627f43dd12634a49c4953cb1395b0dbb`. Conservada para recuperación.
+
+Copia exacta de 56 archivos públicos, 6 318 907 bytes sin comprimir. Tar confirmado: 57 archivos, 6 369 280 bytes, `sha256:e6c6fffa6b59c856da4d25b95d5ca95e29c0a9d20e2c9ce6db471cc24a1c6705`. Gzip local: 1 573 722 bytes, `sha256:1dc6fb795a2f1492823acbd008d416b1b43477f81450ab442d4213b3c3107aec`. Añadió NP-FZ100 nativa a FX3 con contactos propios y exclusión de 4253B, 303 comprobaciones de software. [Verificación histórica](native-camera-power-qa.md).
 
 ## Histórico 0.2.10
 
@@ -66,7 +72,7 @@ Los perfiles, borradores e historiales se guardan en el navegador del dominio do
 
 El directorio `hosting/sites-public/` está excluido del repositorio principal: su Git es independiente y contiene sólo la copia estática pública y su procedencia. Nunca guardar credenciales del proveedor en ese directorio, documentos, argumentos de shell ni historial.
 
-El flujo de Sites completó y verificó el envío del código, pero su empaquetador Bash no estaba disponible en este Windows. Se utilizó el mismo validador estático oficial `prepare-site-build.cjs` y `tar.exe` para empaquetar sin modificar la fuente enviada. El manifiesto y todos los recursos fueron incluidos en el guardado nativo de versión. El staging y archivo de transporte quedan en `research/private/`, fuera de la publicación.
+El flujo de Sites completó y verificó el envío del código, pero su empaquetador Bash no estaba disponible en este Windows. Se utilizó el mismo validador estático oficial `prepare-site-build.cjs` y `tar.exe` para empaquetar sin modificar la fuente enviada. El manifiesto y todos los recursos fueron incluidos en el guardado nativo de versión. Los staging y archivos de transporte permanecen en directorios locales ignorados, fuera de la publicación.
 
 ## Límites Pendientes
 

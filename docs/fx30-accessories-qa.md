@@ -1,6 +1,6 @@
 # FX30: verificación de monitor y audio
 
-Versión de trabajo: 0.2.12. Fecha de revisión: 7 de octubre de 2026, Ecuador. Fase 3 del plan; no libera beta.
+Versión comprobada: 0.2.12. Investigación e implementación: 7 de octubre de 2026; cierre de interfaz y publicación: 8 de octubre de 2026, Ecuador. Fase 3 del plan; no libera beta.
 
 ## Orden Y Evidencia
 
@@ -32,6 +32,8 @@ Prueba local en Edge sobre `http://127.0.0.1:4174/`, compilación pública 0.2.1
 - Viewport de 390 × 844: editor con selección directa y completado, selector móvil de circuito; ancho de documento y contenido coincidentes, sin desbordamiento horizontal observado. El viewport se restableció al finalizar. No es prueba en teléfono físico, táctil o de rendimiento GPU.
 
 Capturas locales de evidencia en `research/model-incoming/qa-0212/`, excluidas de Git y de la web. Registro de consola de la pestaña consultado al terminar, sin errores o advertencias registrados en ese recorrido; no demuestra ausencia de fallos en otros dispositivos. Software no sustituye ensayo físico o aceptación observada.
+
+Publicación confirmada por Sites en el mismo dominio, estado `succeeded`, 8 de octubre a las 00:11 de Ecuador. Respaldo de código autorizado en GitHub, revisión `c05819b1cec953e6b393d7832661687e090c563f`. [Registro de publicación](additional-hosting.md). La comprobación de interfaz fue local; no se atribuye una navegación de producción no realizada.
 
 ## Pendientes Reales
 

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "reviewed_on": "2026-10-07",
+  "reviewed_on": "2026-10-08",
   "status": "prototype_hardening_in_progress",
   "progress_report": "docs/fx30-accessories-qa.md",
   "current_milestone": {
@@ -183,7 +183,7 @@
       "status": "declarative_runtime_verified_semantic_reviews_pending",
       "verification_report": "docs/extensible-engineering-qa.md",
       "remaining": [
-        "Extender revisión semántica documentada: seis de veinte circuitos cubiertos; montaje mecánico y demás interfaces pendientes",
+        "Extender revisión semántica documentada: ocho de veintidós circuitos con revisión ampliada; comprobaciones operativas, montaje mecánico y demás interfaces pendientes",
         "Tres accesorios de monitor añadidos en el orden técnico, aún sin validación física",
         "Segundo conjunto FX30/SEL20F18G integrado para planificación con poses aproximadas, reglas declarativas y regresiones de interfaz; validación física y aceptación pendientes"
       ],
