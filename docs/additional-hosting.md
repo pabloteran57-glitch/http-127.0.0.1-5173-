@@ -2,6 +2,23 @@
 
 ## Estado Confirmado
 
+- Enlace público: [Takegrid 0.2.14](https://takegrid-rigs.pabloteran57.chatgpt.site).
+- Confirmación de Sites: `succeeded`, `2026-10-08T17:17:31.072287+00:00`.
+- Versión guardada: `appgprj_6ac5ca6c160c819191d2bacd7366c426~appgver_c8c6d1c884c481918c96341bf939c821` (versión 11 del proveedor).
+- Despliegue: `appgdep_6ac7d01edc348191a2e4f61d8eb65f23`.
+- Revisión del código fuente: `f975d6ab87830ad2daf261626be50f0bae8232e1`, respaldo autorizado sin forzar historial.
+- Revisión estática enviada y verificada: `c474ce786f6a8ec88be293451df3c509dd9b423b`.
+
+Copia idéntica de 62 archivos de `dist-public`, 7128133 bytes sin comprimir, más el manifiesto de alojamiento. Sites confirmó 63 archivos, 7178240 bytes de tar y `sha256:7e2816e8909e65576691816d89cb88c185929969ef9913d648806af390903edd`. Gzip local: 1770509 bytes y `sha256:f9e4dc6d94075fad7228f580792a8df8b8fa8920a62555cf1047ced421ee9f3e`.
+
+36 entradas, 23 mallas y miniaturas propias aproximadas. SmallRig 2905B/4152 añadidos como candidatos documentales, con recursos de montaje condicionados, guía y ajuste por elección. 388 comprobaciones de software y 2048 subselecciones del lote. Creación, guardar/recargar, monitor/audio, reproducción y selección móvil local revisados. [Evidencia y pendientes](shoe-monitor-qa.md). No son ensayos físicos ni de teléfono; 26 candidatos de investigación no se activan automáticamente.
+
+El flujo oficial envió y verificó la nueva fuente, pero el empaquetador dependiente de Bash no arrancó en Windows. El validador estático oficial preparó `hosting/prepared-0214`; `hosting/package-0214` y el archivo `hosting/takegrid-sites-0214-verified.tar.gz` se compararon byte por byte con la compilación pública. Capturas, manuales, fotos, investigación privada, credenciales y bibliotecas excluidos. Netlify no cambia.
+
+La confirmación del proveedor acredita el despliegue; las pruebas fueron sobre la compilación pública local. No se forzó recarga ni activación del service worker sobre las pestañas del usuario. [Plan por criterios](beta-roadmap.md): dispositivos, montajes físicos, aceptación, beta y financiación siguen pendientes.
+
+## Histórico 0.2.13
+
 - Enlace adicional público: [Takegrid 0.2.13](https://takegrid-rigs.pabloteran57.chatgpt.site).
 - Netlify conserva su versión anterior; no se cambió facturación ni contrató un plan.
 - Confirmación de Sites: `succeeded`, `2026-10-08T15:56:09.707969+00:00` (8 de octubre, 10:56 en Ecuador).
@@ -11,7 +28,7 @@
 - Revisión principal de código: `7aba129bc3140b1b65a8f631a26d45980888cf16`, respaldada con autorización en GitHub sin forzar historial.
 - Revisión estática enviada y verificada: `63a8a0fb84798fabefd26884e38b05e9ac7b9dbb`.
 
-## Contenido Actual
+### Contenido 0.2.13
 
 Copia exacta por huellas de 58 archivos permitidos de `dist-public`, 6 588 743 bytes, más el manifiesto de alojamiento. Sites confirmó 59 archivos, tar de 6 635 520 bytes y huella `sha256:1cc97fbe670c9d7812014136e3dba8be6f68ff36ddd3fc587cc0b73ba5712821`. Gzip local: 1 641 007 bytes y `sha256:427c25d319ea38eb882cd3d6796f96c6094f0356578a724e88babb14deb472fb`.
 

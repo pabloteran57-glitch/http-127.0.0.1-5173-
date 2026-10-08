@@ -46,3 +46,7 @@ Capturas locales excluidas de publicación: `research/model-incoming/rigging-021
 Retención de zapata, longitud de tornillo, antirrotación, holgura, mano, palanca, masa instalada, señal y audio requieren ejemplares reales. No se habilita rotación del asa en la app ni uso simultáneo de ambas zapatas posteriores. La discrepancia 170/180 grados del 2905B queda abierta; rango visual conservador de 170 grados totales.
 
 `npm run check:beta` conserva participantes, dispositivos, ensayos, privacidad, soporte y financiación pendientes. Cuentas y nube siguen aplazadas. El siguiente lote de montaje se trabaja con el mismo criterio; compartir marca, rosca o diámetro no certifica una cadena.
+
+## Publicación Confirmada
+
+0.2.14 publicada en el mismo enlace público el 2026-10-08T17:17:31.072287+00:00; Sites confirmó `succeeded`. Código `f975d6ab87830ad2daf261626be50f0bae8232e1`, copia estática `c474ce786f6a8ec88be293451df3c509dd9b423b`; paquete exacto de 62 archivos propios más configuración. [Registro de publicación](additional-hosting.md). La confirmación de alojamiento no se presenta como prueba física o navegación de producción.
