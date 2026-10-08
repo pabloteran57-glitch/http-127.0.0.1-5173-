@@ -31,6 +31,8 @@ Edge sobre `http://127.0.0.1:4174/`, compilación pública local. Perfil de prue
 
 Capturas privadas bajo `research/model-incoming/qa-0213/`: `editor-mobile.png`, `hdmi-desktop.png` y `lens-stage-desktop.png`. Excluidas de Git y de la web. Override móvil restablecido.
 
+Publicación confirmada por Sites en el mismo dominio, estado `succeeded`, 8 de octubre a las 10:56 de Ecuador. Revisión de código `7aba129bc3140b1b65a8f631a26d45980888cf16`; paquete comparado por huellas con la compilación pública probada. [Registro de publicación](additional-hosting.md). No se atribuye una prueba de interfaz de producción: el recorrido fue local.
+
 ## Prioridad y pendientes
 
 La nueva prioridad del catálogo es montaje SmallRig/Tilta: [inventario de 26 candidatos](rigging-catalog.md), 12 familias y nueve índices oficiales. Ninguno de esos candidatos está activo ni tiene geometría inventada. Inventario completo, variantes regionales, paginación, derechos, cadenas mecánicas, tornillería y ensayos siguen pendientes.

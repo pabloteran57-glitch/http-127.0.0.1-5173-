@@ -2,6 +2,29 @@
 
 ## Estado Confirmado
 
+- Enlace adicional público: [Takegrid 0.2.13](https://takegrid-rigs.pabloteran57.chatgpt.site).
+- Netlify conserva su versión anterior; no se cambió facturación ni contrató un plan.
+- Confirmación de Sites: `succeeded`, `2026-10-08T15:56:09.707969+00:00` (8 de octubre, 10:56 en Ecuador).
+- Proyecto: `appgprj_6ac5ca6c160c819191d2bacd7366c426`.
+- Versión guardada: `appgprj_6ac5ca6c160c819191d2bacd7366c426~appgver_d601d44115dc8191b047d7fd0a9d8a6c` (versión 10 del proveedor).
+- Despliegue: `appgdep_6ac7bd0d7d408191ac189fdb5138e3c8`.
+- Revisión principal de código: `7aba129bc3140b1b65a8f631a26d45980888cf16`, respaldada con autorización en GitHub sin forzar historial.
+- Revisión estática enviada y verificada: `63a8a0fb84798fabefd26884e38b05e9ac7b9dbb`.
+
+## Contenido Actual
+
+Copia exacta por huellas de 58 archivos permitidos de `dist-public`, 6 588 743 bytes, más el manifiesto de alojamiento. Sites confirmó 59 archivos, tar de 6 635 520 bytes y huella `sha256:1cc97fbe670c9d7812014136e3dba8be6f68ff36ddd3fc587cc0b73ba5712821`. Gzip local: 1 641 007 bytes y `sha256:427c25d319ea38eb882cd3d6796f96c6094f0356578a724e88babb14deb472fb`.
+
+34 piezas, 21 mallas y 21 miniaturas propias aproximadas; siete plantillas, cuatro tareas y bibliotecas locales conservadas. SEL35F18F añadido para FX3/FX30 a mano/horizontal, sin parasol, adaptador ni otros accesorios implícitos. Guía y fuentes por selección. [Verificación de integración](sel35-integration-qa.md): 362 comprobaciones de software, 1024 subselecciones, creación/guardado/recarga, reproducción y selección móvil local. No son ensayos físicos o de teléfonos.
+
+Montaje SmallRig/Tilta priorizado: [26 candidatos, 12 familias y nueve índices oficiales](rigging-catalog.md). Todavía en investigación, no seleccionables ni catálogo completo. No se inventan cotas, tornillos o cadenas universales para cámaras futuras.
+
+El flujo oficial envió la fuente, pero no completó la preparación del paquete en Windows. Se verificó de nuevo su revisión remota exacta y se usó el validador estático oficial para `hosting/prepared-0213` y `hosting/package-0213`. Archivo `hosting/takegrid-sites-0213-verified.tar.gz`, capturas y checkout de comparación excluidos de Git y de la publicación. Sin fotos/manuales de fabricantes, notas privadas, bibliotecas de usuarios ni credenciales.
+
+La confirmación del proveedor acredita el despliegue; QA fue sobre la compilación pública local. No se realizó una navegación de producción para certificar una prueba que no ocurrió. No se forzó activación del service worker ni recarga de pestañas del usuario. [Plan y pendientes](beta-roadmap.md).
+
+## Histórico 0.2.12
+
 - Enlace adicional público: [Takegrid 0.2.12](https://takegrid-rigs.pabloteran57.chatgpt.site).
 - Enlace anterior conservado: [Takegrid en Netlify](https://takegrid.netlify.app/), versión anterior sin sustituir.
 - No se contrató un plan ni cambió facturación. Código 0.2.12 respaldado en el repositorio GitHub existente con autorización explícita, sin forzar ni reescribir historial.
@@ -14,7 +37,7 @@
 
 La URL confirmada de producción, no la URL provisional de registro, es la indicada arriba. La confirmación del proveedor acredita el despliegue; las pruebas de interfaz se realizaron en la compilación pública local.
 
-## Contenido Actual
+### Contenido 0.2.12
 
 La 0.2.12 contiene una copia exacta de 56 archivos de `dist-public`, 6 336 646 bytes sin comprimir, más el manifiesto de alojamiento. Sites confirmó 57 archivos y tar de 6 389 760 bytes, huella `sha256:7bf986f6675e7c429e74128c653bdbf64fbdaab59acbf167906d0749b104d6fd`. Gzip local: 1 578 147 bytes, huella `sha256:d52760ee536c03f057ceb487f683ab0077a2db2d019ffff8e36cad5f660abc26`.
 
