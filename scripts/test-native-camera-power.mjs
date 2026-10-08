@@ -99,6 +99,15 @@ test("Subtotal 713 g suma cuerpo solo 630 y batería 83 sin tarjeta implícita",
   const result = viewer.movingMass(resolve(rig()).variant, layout, Object.fromEntries(parts.map(p => [p.id, p])));
   assert.equal(result.subtotal, 713); assert(result.approximate); assert.notEqual(result.subtotal, 715);
 });
+test("Batería interior gira con FX3 en vertical, también en despiece", () => {
+  const adjusted = viewer.layoutForVariant(resolve(rig(undefined, "gimbal", "vertical")).variant, layout).nodes.find(n => n.id === battery);
+  assert.equal(adjusted.vertical_frame, "camera");
+  for (const exploded of [false, true]) {
+    const horizontal = viewer.nodePose(adjusted, false, exploded), vertical = viewer.nodePose(adjusted, true, exploded);
+    assert.deepEqual(vertical.position_mm, [-horizontal.position_mm[1], horizontal.position_mm[0], horizontal.position_mm[2]]);
+    assert.equal(vertical.rotation_deg[2], horizontal.rotation_deg[2] + 90);
+  }
+});
 test("Montaje incorpora batería y contactos sólo si fueron elegidos", () => {
   const v = resolve(rig()).variant, frame = planner.assemblyFrame(v, 1, rules, cables);
   assert.deepEqual(frame.variant.active_part_ids, v.active_part_ids); assert.deepEqual(frame.variant.cable_profile_ids, [native]);

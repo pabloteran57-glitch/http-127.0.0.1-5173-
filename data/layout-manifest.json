@@ -855,6 +855,7 @@
       "id": "sony-np-fz100",
       "label": "NP-FZ100 interna",
       "kind": "nativeBattery",
+      "vertical_frame": "camera",
       "position_mm": [
         48,
         -8,
