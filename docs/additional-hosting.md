@@ -2,25 +2,31 @@
 
 ## Estado Confirmado
 
-- Enlace adicional público: [Takegrid 0.2.9](https://takegrid-rigs.pabloteran57.chatgpt.site).
+- Enlace adicional público: [Takegrid 0.2.10](https://takegrid-rigs.pabloteran57.chatgpt.site).
 - Enlace anterior conservado: [Takegrid en Netlify](https://takegrid.netlify.app/), versión anterior sin sustituir.
-- No se contrató un plan ni cambió facturación. El código 0.2.9 se respaldó en el repositorio GitHub existente, sin forzar ni reescribir historial.
-- Confirmación de Sites: `succeeded`, `2026-10-07T23:37:24.097817+00:00` (7 de octubre, 18:37 en Ecuador).
+- No se contrató un plan ni cambió facturación. El código 0.2.10 se respaldó en el repositorio GitHub existente, sin forzar ni reescribir historial.
+- Confirmación de Sites: `succeeded`, `2026-10-08T01:53:49.960858+00:00` (7 de octubre, 20:53 en Ecuador).
 - Proyecto: `appgprj_6ac5ca6c160c819191d2bacd7366c426`.
-- Versión guardada: `appgprj_6ac5ca6c160c819191d2bacd7366c426~appgver_1c0c0e9fea60819182aa30a606f9d07f` (versión 6 del proveedor).
-- Despliegue: `appgdep_6ac6d7aba7c08191a5a1455dbfeaa291`.
-- Revisión principal de origen: `d75f28724339c727040b3099623e404a9e281b3c`.
-- Revisión del repositorio estático adicional: `a068b4010274076ab7f08f9a4c93b06d0555ccd4`.
+- Versión guardada: `appgprj_6ac5ca6c160c819191d2bacd7366c426~appgver_32b62b26b6f48191bbf223e404774ba1` (versión 7 del proveedor).
+- Despliegue: `appgdep_6ac6f7a5a2d081918bdd44d158406f3d`.
+- Revisión principal de origen: `e215195fa96b544eb06265fbd2e8ba1460d89ceb`.
+- Revisión del repositorio estático adicional: `1e912b17b09b783efecd4b75c532ab158e6ccffb`.
 
 La URL confirmada de producción, no la URL provisional de registro, es la indicada arriba. La confirmación del proveedor acredita el despliegue; las pruebas de interfaz se realizaron en la compilación pública local.
 
 ## Contenido Actual
 
-La 0.2.9 contiene una copia exacta de 56 archivos de `dist-public`, 6 279 896 bytes sin comprimir, más el manifiesto de alojamiento. Sites confirmó 57 archivos y un tar de 6 328 320 bytes, huella `sha256:ffdcb1e599b45d50c3c353b8f07a61a51c2c2213847f735a0b4cbbb91ee272c5`. El gzip local mide 1 564 960 bytes, huella `sha256:86cf973ec27344a2c7ba96c2638bb96c0a7f99e155f72c5028b3bdcc95070741`.
+La 0.2.10 contiene una copia exacta de 56 archivos de `dist-public`, 6 310 753 bytes sin comprimir, más el manifiesto de alojamiento. Sites confirmó 57 archivos y un tar de 6 359 040 bytes, huella `sha256:3eac3317cb74b00bfd02800e8ed86db57ee8ff9f521ede3752dd7acc8418e511`. El gzip local mide 1 572 131 bytes, huella `sha256:bd9e78647e54092b03114942933493263859b72382a788ae9c21ff9366738a65`.
 
-Son 17 mallas activas y 3 modelos propios aproximados en inspección aislada (FX30, SEL20F18G y NP-FZ100), con 20 miniaturas propias. Ayuda ofrece cinco vistas del piloto, medidas y masas oficiales sin activar productos, montajes o cables. Los perfiles y rigs guardados no se migran ni se modifican. [Revisión visual y de interfaz](pilot-model-ui-qa.md): 261 comprobaciones de software y pantalla móvil simulada, no dispositivos o rigs físicos. La publicación conserva el dominio y las versiones previas para recuperación, sin forzar recarga de pestañas.
+Son 20 mallas y 20 miniaturas propias aproximadas activas. FX30, SEL20F18G y NP-FZ100 ahora están disponibles en Crear rig para planificación a mano y horizontal, junto a la jaula 4770. Guía propia de cinco etapas, batería interna y contactos sin cable externo. Accesorios/contextos no revisados siguen elegidos pendientes; no heredan cadenas FX3. Los perfiles y rigs guardados no se migran ni se modifican. [Revisión de integración](pilot-integration-qa.md): 285 comprobaciones de software y recorridos de escritorio/viewport móvil, no dispositivos o rigs físicos. Las siete plantillas y el dominio permanecen; versiones anteriores conservadas, sin recarga forzada.
 
-El empaquetador Bash no completó el empaquetado en Windows después de enviar la fuente. Se verificó de nuevo la revisión remota exacta; el validador estático oficial y `tar.exe` generaron el archivo sin modificarla. Staging y transporte de esta versión en `research/model-incoming/`, ignorados por Git y excluidos del sitio público.
+El empaquetador no completó el paso de preparación en Windows después de enviar la fuente. Se verificó de nuevo la revisión remota exacta; el validador estático oficial y `tar.exe` generaron el archivo sin modificarla. Staging y transporte de esta versión en `research/model-incoming/`, ignorados por Git y excluidos del sitio público.
+
+## Histórico 0.2.9
+
+Confirmado `succeeded` a las 18:37 de Ecuador, 7 de octubre. Versión `appgprj_6ac5ca6c160c819191d2bacd7366c426~appgver_1c0c0e9fea60819182aa30a606f9d07f`, despliegue `appgdep_6ac6d7aba7c08191a5a1455dbfeaa291`, revisión estática `a068b4010274076ab7f08f9a4c93b06d0555ccd4`, fuente `d75f28724339c727040b3099623e404a9e281b3c`. Copia exacta de 56 archivos públicos, 6 279 896 bytes. Tar confirmado: 57 archivos, 6 328 320 bytes, `sha256:ffdcb1e599b45d50c3c353b8f07a61a51c2c2213847f735a0b4cbbb91ee272c5`.
+
+Diecisiete mallas activas y tres del piloto en inspección aislada, veinte miniaturas propias y 261 comprobaciones de software. No activaba el piloto en Crear rig. [Revisión conservada](pilot-model-ui-qa.md).
 
 ## Histórico 0.2.8
 
