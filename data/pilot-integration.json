@@ -69,11 +69,16 @@
     "smallhd-indie-7",
     "kondor-blue-hdmi-aa",
     "sony-np-f970-pro",
-    "dji-mic-2-kit"
+    "dji-mic-2-kit",
+    "smallrig-2905b",
+    "smallrig-4152"
   ],
   "accessory_circuit_ids": [
     "vid-fx30-to-smallhd",
     "audio-rx-to-fx30",
     "pwr-npf-to-smallhd-contacts"
+  ],
+  "later_accessory_review_ids": [
+    "shoe-monitor-and-handle"
   ]
 }

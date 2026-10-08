@@ -4,6 +4,10 @@ Generado desde data/rigging-intake.json. Revisión 2026-10-08. **26 candidatos d
 
 Inventario inicial de montaje SmallRig/Tilta; no catálogo completo ni piezas seleccionables. Las autoridades activas permanecen en parts-manifest y planner-rules.
 
+## Altas funcionales separadas de la cuarentena
+
+- SmallRig 2905B · soporte de zapata; SmallRig 4152 · asa NATO: selección, soporte, conexiones, guía y mallas propias integrados como candidatos de planificación. No ensayo físico ni catálogo completo. [Expediente](catalog-promotions.md).
+
 ## Prioridad y cobertura
 
 Montaje SmallRig/Tilta antes de nuevas cámaras/ópticas; primero cadenas completas para monitor/audio, varillas/extensiones y follow focus. Conservar los siete perfiles y las bibliotecas.

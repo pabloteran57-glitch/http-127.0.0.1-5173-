@@ -41,7 +41,11 @@
       "add_part_ids": [
         "dji-mic-2-kit"
       ],
-      "condition": {},
+      "condition": {
+        "none": [
+          "smallrig-2905b"
+        ]
+      },
       "source_ids": [
         "audit-doc-smallrig-4770-manual",
         "audit-doc-dji-mic2-manual"
@@ -61,7 +65,9 @@
       "condition": {
         "not_context": "gimbal",
         "none": [
-          "sony-xlr-h1"
+          "sony-xlr-h1",
+          "smallrig-2905b",
+          "smallrig-4152"
         ]
       },
       "source_ids": [
@@ -337,6 +343,100 @@
         "src-sony-fx30-sel35f18f-pair"
       ],
       "note": "Par exacto Sony. No sustituye un objetivo ya elegido, no añade parasol ni accesorios. Retención y holgura por ensayar."
+    },
+    {
+      "id": "cage-top-handle",
+      "anchor_part_id": "smallrig-4770",
+      "label": "Asa superior NATO 4152",
+      "add_part_ids": [
+        "smallrig-4152"
+      ],
+      "condition": {
+        "not_context": "gimbal",
+        "orientation": "landscape",
+        "none": [
+          "sony-xlr-h1",
+          "smallrig-2906b"
+        ]
+      },
+      "source_ids": [
+        "src-smallrig-4152-manual",
+        "audit-doc-smallrig-4770-manual"
+      ],
+      "note": "Usa NATO superior existente; riel incluido no apilado. No incorpora monitor ni audio por defecto. Sostener cámara al liberar giro; manos y retención por ensayar."
+    },
+    {
+      "id": "cage-monitor-shoe",
+      "anchor_part_id": "smallrig-4770",
+      "label": "Monitor en zapata libre · 2905B",
+      "add_part_ids": [
+        "smallrig-2905b",
+        "smallhd-indie-7",
+        "kondor-blue-hdmi-aa",
+        "sony-np-f970-pro"
+      ],
+      "condition": {
+        "not_context": "gimbal",
+        "orientation": "landscape",
+        "none": [
+          "sony-xlr-h1",
+          "smallrig-4152",
+          "smallrig-2906b",
+          "dji-mic-2-kit"
+        ]
+      },
+      "source_ids": [
+        "src-smallrig-2905b-manual",
+        "src-smallrig-4152-manual",
+        "audit-doc-smallrig-4770-manual"
+      ],
+      "note": "Ocupa zapata inclinada 4770, incompatible con RX en ese mismo asiento. Añade la cadena indicada sólo con tu acción. No habilita monitor en gimbal."
+    },
+    {
+      "id": "handle-monitor-shoe",
+      "anchor_part_id": "smallrig-4152",
+      "label": "Monitor en zapata frontal · 2905B",
+      "add_part_ids": [
+        "smallrig-2905b",
+        "smallhd-indie-7",
+        "kondor-blue-hdmi-aa",
+        "sony-np-f970-pro"
+      ],
+      "condition": {
+        "not_context": "gimbal",
+        "orientation": "landscape",
+        "none": [
+          "sony-xlr-h1",
+          "smallrig-2906b"
+        ]
+      },
+      "source_ids": [
+        "src-smallrig-2905b-manual",
+        "src-smallrig-4152-manual",
+        "audit-doc-smallrig-4770-manual"
+      ],
+      "note": "Zapata frontal superior del asa, no las dos posteriores. RX puede permanecer en zapata inclinada 4770. Medir agarre, palanca y recorridos; no certificación física."
+    },
+    {
+      "id": "cage-audio-with-handle",
+      "anchor_part_id": "smallrig-4770",
+      "label": "Mic 2 en zapata libre de la jaula",
+      "add_part_ids": [
+        "dji-mic-2-kit"
+      ],
+      "condition": {
+        "not_context": "gimbal",
+        "orientation": "landscape",
+        "all": [
+          "smallrig-2905b",
+          "smallrig-4152"
+        ]
+      },
+      "source_ids": [
+        "audit-doc-smallrig-4770-manual",
+        "audit-doc-dji-mic2-manual"
+      ],
+      "note": "Monitor sobre asa 4152, RX sobre zapata 4770: dos asientos distintos. TX y estuche fuera del rig; sin alimentación por zapata pasiva."
     }
   ],
   "camera_part_ids": [
@@ -377,6 +477,48 @@
       ],
       "max_active": 1,
       "message": "Elige una sola óptica montada para este rig. Las alternativas deben ir en otros planes."
+    },
+    {
+      "id": "monitor-support",
+      "part_ids": [
+        "smallrig-2906b",
+        "smallrig-2905b"
+      ],
+      "max_active": 1,
+      "condition": {
+        "not_context": "gimbal"
+      },
+      "message": "El monitor tiene un solo soporte: elegir 2906B NATO o 2905B zapata. No se sustituyen elecciones automáticamente."
+    },
+    {
+      "id": "cage-top-nato",
+      "part_ids": [
+        "smallrig-2906b",
+        "smallrig-4152"
+      ],
+      "max_active": 1,
+      "condition": {
+        "not_context": "gimbal",
+        "none": [
+          "sony-xlr-h1"
+        ]
+      },
+      "message": "El asiento NATO superior representado de 4770 no admite a la vez asa 4152 y monitor 2906B. No se presume espacio extra del riel."
+    },
+    {
+      "id": "cage-cold-shoe",
+      "part_ids": [
+        "smallrig-2905b",
+        "dji-mic-2-kit"
+      ],
+      "max_active": 1,
+      "condition": {
+        "not_context": "gimbal",
+        "none": [
+          "smallrig-4152"
+        ]
+      },
+      "message": "La zapata inclinada 4770 está compartida: 2905B y RX Mic 2 no caben simultáneamente. Elige otra cadena de monitor; tus piezas quedan conservadas."
     }
   ],
   "viewer_routes": [
@@ -392,6 +534,9 @@
         "not_context": "gimbal",
         "all": [
           "sony-xlr-h1"
+        ],
+        "none": [
+          "smallrig-2905b"
         ]
       }
     },
@@ -399,6 +544,33 @@
       "id": "cage",
       "condition": {
         "not_context": "gimbal",
+        "none": [
+          "sony-xlr-h1",
+          "smallrig-2905b"
+        ]
+      }
+    },
+    {
+      "id": "cold_shoe",
+      "condition": {
+        "not_context": "gimbal",
+        "all": [
+          "smallrig-2905b"
+        ],
+        "none": [
+          "smallrig-4152",
+          "sony-xlr-h1"
+        ]
+      }
+    },
+    {
+      "id": "handle_shoe",
+      "condition": {
+        "not_context": "gimbal",
+        "all": [
+          "smallrig-2905b",
+          "smallrig-4152"
+        ],
         "none": [
           "sony-xlr-h1"
         ]
@@ -410,7 +582,8 @@
     "smallrig-3026b",
     "smallrig-2906b",
     "smallrig-4830",
-    "sony-np-f970-pro"
+    "sony-np-f970-pro",
+    "smallrig-2905b"
   ],
   "completion_rules": {
     "smallhd-indie-7": {
@@ -601,6 +774,16 @@
         ]
       },
       "message": "Piloto de planificación: tarjeta, ventilación, masa real, retención con jaula y firmware requieren comprobación. No hay ensayo físico registrado."
+    },
+    {
+      "id": "shoe-chain-preflight",
+      "condition": {
+        "any": [
+          "smallrig-2905b",
+          "smallrig-4152"
+        ]
+      },
+      "message": "Cadena candidata: comprobar asiento NATO/zapata, rosca, agarre, carga con batería y cable. Límite del soporte no certifica retención del conjunto; no hay ensayo físico registrado."
     }
   ],
   "cable_exclusions": [
@@ -699,6 +882,12 @@
     ],
     "sony-fe-35-f18": [
       "sony-fx3"
+    ],
+    "smallrig-2905b": [
+      "smallrig-4770"
+    ],
+    "smallrig-4152": [
+      "smallrig-4770"
     ]
   },
   "gimbal_only_part_ids": [
@@ -711,7 +900,9 @@
   "gimbal_excluded_part_ids": [
     "sony-xlr-h1",
     "smallrig-2906b",
-    "smallrig-4830"
+    "smallrig-4830",
+    "smallrig-2905b",
+    "smallrig-4152"
   ],
   "vertical_excluded_part_ids": [
     "smallrig-1674",
@@ -762,7 +953,9 @@
         "sony-xlr-h1",
         "smallrig-3203b",
         "smallrig-2906b",
-        "smallrig-4830"
+        "smallrig-4830",
+        "smallrig-2905b",
+        "smallrig-4152"
       ]
     },
     {
@@ -838,7 +1031,8 @@
         "sony-xlr-h1",
         "dji-mic-2-kit",
         "dji-lavalier",
-        "smallrig-4830"
+        "smallrig-4830",
+        "smallrig-4152"
       ],
       "add_cable_ids": [
         "audio-rx-to-fx3",
@@ -883,7 +1077,8 @@
       "add_part_ids": [
         "smallrig-3026b",
         "smallhd-indie-7",
-        "smallrig-2906b"
+        "smallrig-2906b",
+        "smallrig-2905b"
       ],
       "add_cable_ids": [],
       "context_part_ids": [
@@ -975,7 +1170,8 @@
     "dji-lavalier",
     "sony-monitor-control-app",
     "sony-np-fz100",
-    "sony-fe-35-f18"
+    "sony-fe-35-f18",
+    "smallrig-4152"
   ],
   "dynamic_mount_dependencies": [
     {
@@ -992,7 +1188,10 @@
     {
       "part_id": "smallhd-indie-7",
       "condition": {
-        "not_context": "gimbal"
+        "not_context": "gimbal",
+        "none": [
+          "smallrig-2905b"
+        ]
       },
       "required_all": [
         "smallrig-2906b"
@@ -1061,6 +1260,30 @@
       "required_all": [
         "sony-fx30"
       ]
+    },
+    {
+      "part_id": "smallhd-indie-7",
+      "condition": {
+        "not_context": "gimbal",
+        "all": [
+          "smallrig-2905b"
+        ]
+      },
+      "required_all": [
+        "smallrig-2905b"
+      ]
+    },
+    {
+      "part_id": "smallrig-2905b",
+      "condition": {
+        "not_context": "gimbal",
+        "all": [
+          "smallrig-4152"
+        ]
+      },
+      "required_all": [
+        "smallrig-4152"
+      ]
     }
   ],
   "catalog_additions_revision": "monitor-chains-2026-10-07",
@@ -1092,6 +1315,32 @@
         "landscape"
       ],
       "message": "SEL35F18F revisado para planificación a mano y horizontal. Otros montajes conservan la elección pendiente; no certifican equilibrio."
+    },
+    {
+      "part_ids": [
+        "smallrig-2905b"
+      ],
+      "contexts": [
+        "handheld",
+        "static"
+      ],
+      "orientations": [
+        "landscape"
+      ],
+      "message": "Cadena candidata sólo a mano/estática y horizontal; otros montajes conservan la elección pendiente. Retención, cargas y manos por comprobar."
+    },
+    {
+      "part_ids": [
+        "smallrig-4152"
+      ],
+      "contexts": [
+        "handheld",
+        "static"
+      ],
+      "orientations": [
+        "landscape"
+      ],
+      "message": "Cadena candidata sólo a mano/estática y horizontal; otros montajes conservan la elección pendiente. Retención, cargas y manos por comprobar."
     }
   ],
   "selection_scopes": [
@@ -1112,9 +1361,56 @@
         "kondor-blue-hdmi-aa",
         "sony-np-f970-pro",
         "dji-mic-2-kit",
-        "sony-fe-35-f18"
+        "sony-fe-35-f18",
+        "smallrig-2905b",
+        "smallrig-4152"
       ],
       "message": "Accesorio fuera de las cadenas FX30 revisadas: núcleo, monitor NATO con serie L y RX en zapata. Otros soportes, fuentes y contextos siguen elegidos pendientes, sin heredar FX3."
+    },
+    {
+      "id": "xlr-new-accessory-exclusion",
+      "condition": {
+        "all": [
+          "sony-xlr-h1"
+        ]
+      },
+      "allowed_part_ids": [
+        "dji-rs4-pro-combo",
+        "dji-rs-bg70",
+        "sony-fx3",
+        "sony-xlr-h1",
+        "sony-fe-16-35-gm",
+        "smallrig-4770",
+        "smallrig-1674",
+        "smallrig-rods-8in",
+        "smallrig-3645",
+        "smallrig-3026b",
+        "smallhd-indie-7",
+        "smallrig-vb99-pro",
+        "smallrig-3203b",
+        "smallrig-4253b",
+        "dji-focus-pro-lidar",
+        "dji-focus-pro-motor",
+        "dji-lidar-transmission-hub",
+        "dji-mic-2-kit",
+        "dji-lavalier",
+        "startech-st122hd4ku",
+        "kondor-blue-hdmi-aa",
+        "dji-hdmi-a-to-c",
+        "dji-r-usbc-control",
+        "smallhd-dtap-to-2mm-barrel",
+        "dji-ronin-image-transmitter",
+        "dji-ronin-app",
+        "sony-monitor-control-app",
+        "smallrig-2906b",
+        "smallrig-4830",
+        "sony-np-f970-pro",
+        "sony-fx30",
+        "sony-fe-20-f18-g",
+        "sony-np-fz100",
+        "sony-fe-35-f18"
+      ],
+      "message": "4152/2905B con XLR-H1 no revisados: conservar en reserva. XLR requiere retirar NATO superior 4770; no apilar interfaces."
     }
   ],
   "assembly_profiles": [
@@ -1134,7 +1430,8 @@
         {
           "step": 2,
           "add_part_ids": [
-            "smallrig-4770"
+            "smallrig-4770",
+            "smallrig-4152"
           ],
           "add_cable_ids": [],
           "context_part_ids": [],
@@ -1165,7 +1462,8 @@
           "step": 5,
           "add_part_ids": [
             "smallrig-2906b",
-            "smallhd-indie-7"
+            "smallhd-indie-7",
+            "smallrig-2905b"
           ],
           "add_cable_ids": [],
           "context_part_ids": [],

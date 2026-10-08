@@ -175,6 +175,7 @@ for(const id of planner.camera_part_ids)assert(planner.planning_root_part_ids.in
 for(const id of planner.planning_root_part_ids)assert(!planner.mount_dependencies[id],"Raíz con soporte contradictorio: "+id);
 for(const id of partIds)assert(planner.parked_part_ids.includes(id)||planner.planning_root_part_ids.includes(id)||planner.mount_dependencies[id]?.length,"Pieza sin cadena ni raíz declarada: "+id);
 assert.equal(new Set(planner.exclusive_selection_groups.map(g=>g.id)).size,planner.exclusive_selection_groups.length);
+for(const group of planner.exclusive_selection_groups)if(group.condition)checkCondition(group.condition);
 for(const group of planner.exclusive_selection_groups){assert(group.id&&group.message&&Number.isInteger(group.max_active)&&group.max_active>0);assert(group.part_ids.length);assert.equal(new Set(group.part_ids).size,group.part_ids.length);group.part_ids.forEach(id=>assert(partIds.has(id)));}
 assert(planner.viewer_routes.length);assert.equal(new Set(planner.viewer_routes.map(r=>r.id)).size,planner.viewer_routes.length);
 assert(["gimbal","handheld","static"].includes(planner.default_context));
@@ -196,7 +197,7 @@ for(const node of layout.nodes){
 for(const variant of variants.variants){assert(["gimbal","handheld","static"].includes(variant.viewer.rig_context));assert(layout.monitor_mount_routes[variant.viewer.monitor_mount_route]);}
 for(const rule of planner.dynamic_mount_dependencies??[]){assert(partIds.has(rule.part_id));checkCondition(rule.condition);assert(rule.required_all.length);rule.required_all.forEach(id=>assert(partIds.has(id)&&id!==rule.part_id));}
 for(const check of planner.selection_checks)for(const id of check.suggest_ids??[])assert(partIds.has(id)&&check.required_any?.includes(id));
-assert.deepEqual(Object.keys(layout.monitor_mount_routes??{}).sort(),["cage","gimbal","xlr"]);
+assert.deepEqual(Object.keys(layout.monitor_mount_routes??{}).sort(),planner.viewer_routes.map(route=>route.id).sort());
 for(const route of Object.values(layout.monitor_mount_routes??{}))for(const [id,override]of Object.entries(route.overrides)){
   assert(layout.nodes.some(n=>n.id===id));assert(override.parent_id===undefined||layout.nodes.some(n=>n.id===override.parent_id));
   for(const key of ["position_mm","rotation_deg"])if(override[key])assert(override[key].length===3&&override[key].every(Number.isFinite));

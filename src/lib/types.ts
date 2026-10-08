@@ -228,7 +228,7 @@ export interface PlannerRules {
   default_context?: CustomRig["context"];
   attachment_options?: AttachmentOption[];
   planning_root_part_ids: string[];
-  exclusive_selection_groups?: {id:string;part_ids:string[];max_active:number;message:string}[];
+  exclusive_selection_groups?: {id:string;part_ids:string[];max_active:number;condition?:RuleCondition;message:string}[];
   viewer_routes?: {id:string;condition:RuleCondition}[];
   viewer_route_part_ids?: string[];
   completion_rules?: Record<string,{label:string;required_all:string[];power_cable_ids:string[];power_suggest_ids:string[]}>;

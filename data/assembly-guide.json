@@ -26,7 +26,9 @@
         "RX: verificar retención y holgura de motores, conectar OUT TRS al MIC del cuerpo o INPUT3 del asa. Sólo RX en cámara; TX y estuche fuera."
       ],
       "rebalance": "Volver a equilibrar si cambia cualquier accesorio superior.",
-      "applies_if_any_part_ids": []
+      "applies_if_any_part_ids": [
+        "smallrig-4152"
+      ]
     },
     {
       "number": 3,
@@ -83,7 +85,8 @@
       "rebalance": "Monitor fijo fuera de la carga móvil; revisar ergonomía y tirón de cables.",
       "applies_if_any_part_ids": [
         "smallhd-indie-7",
-        "smallrig-2906b"
+        "smallrig-2906b",
+        "smallrig-2905b"
       ]
     },
     {

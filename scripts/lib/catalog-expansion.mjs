@@ -101,12 +101,25 @@ export function validateCatalogPromotions(register, {parts, sources, layout, rul
     for (const claim of promotion.claims) {
       const source = sourceById.get(claim.source_id);
       assert(source?.type === "official" && promotion.source_ids.includes(claim.source_id));
-      assert.equal(claim.method, "official_browser_visible");
+      assert(["official_browser_visible","documented_interfaces_inference"].includes(claim.method));
       assert(claim.locator && claim.limitation && claim.part_ids.length === 2 && claim.model_numbers.length === 2);
+      assert.equal(new Set(claim.part_ids).size, 2, "Una pareja requiere dos piezas distintas");
+      assert(source.review_subject_part_ids?.some(id => claim.part_ids.includes(id)), "Fuente principal ajena a la cadena");
       claim.part_ids.forEach((id, index) => {
         assert.equal(parts.parts.find(part => part.id === id)?.model_number, claim.model_numbers[index], "Evidencia de otra revisión");
-        assert(source.review_subject_part_ids?.includes(id), "Fuente ajena al par exacto");
+        if(claim.method==="official_browser_visible")assert(source.review_subject_part_ids?.includes(id), "Fuente ajena al par exacto");
       });
+      if(claim.method==="documented_interfaces_inference") {
+        assert.equal(claim.status,"candidate_not_manufacturer_pair");
+        assert(claim.interface_citations?.length>=2);
+        for(const id of claim.part_ids)assert(claim.interface_citations.some(citation=>citation.part_id===id),"Interfaz sin fuente propia");
+        for(const citation of claim.interface_citations){
+          const own=sourceById.get(citation.source_id);
+          assert(claim.part_ids.includes(citation.part_id)&&promotion.source_ids.includes(citation.source_id));
+          assert(own?.type==="official"&&own.review_subject_part_ids?.includes(citation.part_id));
+          assert(citation.interface&&citation.locator);
+        }
+      }
     }
     assert.equal(promotion.physical_validation.status, "pending");
     assert.deepEqual(promotion.physical_validation.observations, []);

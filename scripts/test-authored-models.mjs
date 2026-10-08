@@ -16,7 +16,7 @@ let checks = 0;
 const test = (name, fn) => { fn(); checks++; console.log("CORRECTO: " + name); };
 
 test("El lote cubre los nodos, sin activar montajes implícitos", () => {
-  assert.equal(nodes.length, 18); assert.equal(registry.assets.length, 21);
+  assert.equal(nodes.length, 20); assert.equal(registry.assets.length, 23);
   assert.deepEqual(new Set(registry.assets.map(a => a.part_id)), new Set(allNodes.map(n => n.id)));
   assert(registry.assets.every(a => a.source.method === "manual" && a.review.mechanical_accuracy === "approximate"));
 });

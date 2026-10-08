@@ -1,6 +1,6 @@
 # Revisiones del manifiesto piloto
 
-Fuente: `data/catalog-intake.json`. Revisión 2026-10-08. 4 revisiones documentales de origen. 4 altas posteriores de planificación en pilot-integration.json y catalog-promotions.json; sin certificación física. Los otros candidatos conservan su fecha y alcance anteriores.
+Fuente: `data/catalog-intake.json`. Revisión 2026-10-08. 4 revisiones documentales de origen. 6 altas posteriores de planificación en pilot-integration.json y catalog-promotions.json; sin certificación física. Los otros candidatos conservan su fecha y alcance anteriores.
 
 ## Sony FX30
 
@@ -68,4 +68,4 @@ Pendiente:
 
 ## Límites
 
-No se copian puertos, mallas ni poses de FX3. El par exacto FX30/SEL20F18G tiene [confirmación Sony](https://support.d-imaging.sony.co.jp/www/cscs/lens_body/detail.php?area=jp&lang=es&prdct_name=ILME-FX30&rel_prdct_name=SEL20F18G); la tabla no especifica firmware ni certifica holguras. NP-FZ100 es batería nativa de FX30 documentada; tensión nominal no equivale a rango completo ni pinout. Las diferencias ILME-FX30 / ILME-FX30B de contenido incluido se conservan sin añadir piezas al usuario. La [ficha del conjunto](catalog-pilot-blueprint.md) define distribución relacional, alimentación y guía documental. El catálogo instalable mantiene 34 entradas.
+No se copian puertos, mallas ni poses de FX3. El par exacto FX30/SEL20F18G tiene [confirmación Sony](https://support.d-imaging.sony.co.jp/www/cscs/lens_body/detail.php?area=jp&lang=es&prdct_name=ILME-FX30&rel_prdct_name=SEL20F18G); la tabla no especifica firmware ni certifica holguras. NP-FZ100 es batería nativa de FX30 documentada; tensión nominal no equivale a rango completo ni pinout. Las diferencias ILME-FX30 / ILME-FX30B de contenido incluido se conservan sin añadir piezas al usuario. La [ficha del conjunto](catalog-pilot-blueprint.md) define distribución relacional, alimentación y guía documental. El catálogo instalable mantiene 36 entradas.

@@ -1,6 +1,6 @@
 # Producción de modelos realistas
 
-Fuentes canónicas: `data/model-production.json` y `data/model-assets.json`. Revisión 2026-10-06. Estado: `authored_approximate_batch_original_exact_assets_pending`. **21 mallas aprobadas. No se ha sustituido ninguna forma por un recurso sin auditar.**
+Fuentes canónicas: `data/model-production.json` y `data/model-assets.json`. Revisión 2026-10-06. Estado: `authored_approximate_batch_original_exact_assets_pending`. **23 mallas aprobadas. No se ha sustituido ninguna forma por un recurso sin auditar.**
 
 ## Acción por acción
 
@@ -41,6 +41,8 @@ Reconstrucciones propias aproximadas; no descargas de Sketchfab ni resultados de
 | FE 20mm F1.8 G | `/models/sony-fe-20-f18-g-pilot-v1.glb` | 7380 | 309804 | D 73.5 x L 84.7 mm publicados; filtro nominal 67 mm. Perfil propio, enfoque, apertura, selector y boton estimados. Sin parasol ALC-SH162, tapas, texturas, contactos o patron mecanico de montura. No hereda el zoom SEL1635GM. |
 | Sony NP-FZ100 | `/models/sony-np-fz100-pilot-v1.glb` | 1460 | 80488 | Sony publica aprox. 38.7 x 22.7 x 51.7 mm. Carcasa propia y juntas estimadas; altura visual 22.77 mm, no cota de fabricacion. Cara de insercion opaca, sin inventar contactos, pinout o posicion interna en FX30. Sin etiqueta o imagen copiada. |
 | FE 35mm F1.8 | `/models/sony-fe-35-f18-takegrid-v1.glb` | 5376 | 219020 | D 65.6 × L 73 mm publicados, filtro 55 mm. Cinco vistas propias y diagrama Sony de enfoque, botón y selector revisados. Sin anillo de apertura, parasol, tapas, contactos o bayoneta CAD. |
+| SmallRig 2905B · soporte de zapata | `/models/smallrig-2905b-takegrid-v1.glb` | 2604 | 122696 | Envolvente de planificación XYZ 52.6 × 45 × 30 mm; malla 44.30 × 45.00 × 30.60 mm. Cinco vistas propias cotejadas con manual oficial el 2026-10-08; detalles y asientos aproximados. No se autoriza CAD de fabricación. |
+| SmallRig 4152 · asa NATO | `/models/smallrig-4152-takegrid-v1.glb` | 7800 | 371012 | Envolvente de planificación XYZ 39.7 × 81.2 × 161.6 mm; malla 37.50 × 80.20 × 162.80 mm. Cinco vistas propias cotejadas con manual oficial el 2026-10-08; detalles y asientos aproximados. No se autoriza CAD de fabricación. |
 
 | Orden | Producto | Subcomponente | Estado | Referencias necesarias |
 |---|---|---|---|---|

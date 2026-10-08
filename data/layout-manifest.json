@@ -115,6 +115,66 @@
       "source_url": "https://static.smallrig.com/mall/img/public/0g141qmktenu-1751249917074_.pdf",
       "source_locator": "Página 2: inclinación total 180° y giro 360°; el giro se ajusta con llave Allen.",
       "geometry_note": "Pose y pivotes aproximados; comprobar colisiones con XLR-H1/4830 y agarre. Los intervalos no prueban recorrido libre en el rig completo."
+    },
+    "cold_shoe": {
+      "mount_id": "smallrig-2905b",
+      "monitor_id": "smallhd-indie-7",
+      "attached_part_ids": [
+        "sony-np-f970-pro"
+      ],
+      "tilt_range_deg": [
+        -85,
+        85
+      ],
+      "swivel_range_deg": [
+        -180,
+        180
+      ],
+      "tilt_pivot_local_mm": [
+        0,
+        4,
+        0
+      ],
+      "swivel_pivot_local_mm": [
+        0,
+        -9,
+        0
+      ],
+      "head_object_name": "monitor-head",
+      "swivel_object_name": "monitor-swivel",
+      "source_url": "https://static.smallrig.com/mall/img/public/2kibtbq6c5h-1745977694815_.pdf",
+      "source_locator": "Manual páginas 2-3: 180°/360°; ficha publica 170°. Intervalo conservador de 170° en la app; giro mediante Allen.",
+      "geometry_note": "Cero y pivotes aproximados; no certifica barrido libre, retención ni par de la zapata."
+    },
+    "handle_shoe": {
+      "mount_id": "smallrig-2905b",
+      "monitor_id": "smallhd-indie-7",
+      "attached_part_ids": [
+        "sony-np-f970-pro"
+      ],
+      "tilt_range_deg": [
+        -85,
+        85
+      ],
+      "swivel_range_deg": [
+        -180,
+        180
+      ],
+      "tilt_pivot_local_mm": [
+        0,
+        4,
+        0
+      ],
+      "swivel_pivot_local_mm": [
+        0,
+        -9,
+        0
+      ],
+      "head_object_name": "monitor-head",
+      "swivel_object_name": "monitor-swivel",
+      "source_url": "https://static.smallrig.com/mall/img/public/2kibtbq6c5h-1745977694815_.pdf",
+      "source_locator": "Manual páginas 2-3: 180°/360°; ficha publica 170°. Intervalo conservador de 170° en la app; giro mediante Allen.",
+      "geometry_note": "Cero y pivotes aproximados; no certifica barrido libre, retención ni par de la zapata."
     }
   },
   "rod_spacing_status": "Separación entre centros de 60 mm verificada en el manual 1674; medir alineación de abrazaderas e inserción de varillas.",
@@ -925,6 +985,116 @@
       "pose_status": "approximate_visual_only_not_mechanical",
       "model_authoring": "sel35f18f",
       "internal": false
+    },
+    {
+      "envelope": "verified",
+      "mass_domain": "moving",
+      "vertical_frame": "camera",
+      "pose_status": "approximate_not_clearance_checked",
+      "placement": "Posición de planificación aproximada; asientos, manos y holguras requieren medición.",
+      "rationale": "Cadena alternativa explícita, sin brazo de gimbal ni adaptador invisible.",
+      "rejected": "Montaje en gimbal, palancas libres no medidas y dos piezas en un mismo asiento.",
+      "orientation": "Pose neutra ilustrativa, no cero mecánico medido.",
+      "id": "smallrig-2905b",
+      "label": "2905B · zapata",
+      "kind": "compactMonitorMount",
+      "model_authoring": "coldShoeMonitorMount",
+      "position_mm": [
+        -60.124,
+        67.032,
+        8
+      ],
+      "size_xyz_mm": [
+        52.6,
+        45,
+        30
+      ],
+      "rotation_deg": [
+        0,
+        0,
+        -25
+      ],
+      "explode_mm": [
+        -80,
+        155,
+        -55
+      ],
+      "parent_id": "smallrig-4770",
+      "mount_point_id": "tilted-cold-shoe",
+      "dimension_source_url": "https://static.smallrig.com/mall/img/public/2kibtbq6c5h-1745977694815_.pdf",
+      "mount": "Zapata macho en 4770 o zapata frontal del asa 4152; tornillo 1/4-20 al monitor.",
+      "articulated_subassemblies": {
+        "monitor-head": [
+          "Placa de apoyo monitor",
+          "Rueda de tornillo",
+          "Tornillo 1/4-20 ilustrativo"
+        ],
+        "monitor-swivel": [
+          "Horquilla",
+          "Pivote inclinable",
+          "Mando lateral"
+        ]
+      }
+    },
+    {
+      "envelope": "verified",
+      "mass_domain": "moving",
+      "vertical_frame": "camera",
+      "pose_status": "approximate_not_clearance_checked",
+      "placement": "Posición de planificación aproximada; asientos, manos y holguras requieren medición.",
+      "rationale": "Cadena alternativa explícita, sin brazo de gimbal ni adaptador invisible.",
+      "rejected": "Montaje en gimbal, palancas libres no medidas y dos piezas en un mismo asiento.",
+      "orientation": "Pose neutra ilustrativa, no cero mecánico medido.",
+      "id": "smallrig-4152",
+      "label": "4152 · asa NATO",
+      "kind": "handle",
+      "model_authoring": "natoTopHandle",
+      "position_mm": [
+        -18,
+        88.65,
+        6
+      ],
+      "size_xyz_mm": [
+        39.7,
+        81.2,
+        161.6
+      ],
+      "rotation_deg": [
+        0,
+        0,
+        0
+      ],
+      "explode_mm": [
+        75,
+        220,
+        35
+      ],
+      "parent_id": "smallrig-4770",
+      "dimension_source_url": "https://static.smallrig.com/mall/img/public/yq5buifh3ha-1742372936152_.pdf",
+      "mount": "NATO superior existente 4770; riel incluido no apilado ni representado.",
+      "mounting_points": [
+        {
+          "id": "front-top-shoe",
+          "local_position_mm": [
+            0,
+            39,
+            55
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            0
+          ],
+          "size_xyz_mm": [
+            24,
+            6,
+            24
+          ],
+          "source_url": "https://static.smallrig.com/mall/img/public/yq5buifh3ha-1742372936152_.pdf",
+          "confidence": "approximate_photo_based_not_mechanical_CAD",
+          "note": "Manual página 2, llamada 1: zapata superior frontal. Cotas y posición estimadas; no se ofrecen las dos zapatas posteriores simultáneas."
+        }
+      ]
     }
   ],
   "clearance_gates": [
@@ -1049,6 +1219,94 @@
             26,
             238.6,
             21.75
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            0
+          ],
+          "mass_domain": "moving"
+        }
+      }
+    },
+    "cold_shoe": {
+      "label": "Zapata inclinada 4770 / 2905B",
+      "overrides": {
+        "smallhd-indie-7": {
+          "position_mm": [
+            -25.55382618961079,
+            141.16797697959794,
+            8
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            -25
+          ],
+          "parent_id": "smallrig-2905b",
+          "mass_domain": "moving",
+          "mount": "Rosca inferior 1/4-20 en 2905B, zapata inclinada 4770.",
+          "placement": "Sobre zapata inclinada; medir pantalla, mano, HDMI y deformación de retención.",
+          "orientation": "Monitor sigue inclinación aproximada de la zapata; ajuste no certifica holgura.",
+          "rationale": "Alternativa sin NATO ni asa, sólo si zapata libre.",
+          "rejected": "Mic 2 RX simultáneo en la misma zapata; gimbal y XLR no revisados."
+        },
+        "sony-np-f970-pro": {
+          "position_mm": [
+            5.6173049846747,
+            146.49344234099945,
+            54.75
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            -25
+          ],
+          "mass_domain": "moving"
+        }
+      }
+    },
+    "handle_shoe": {
+      "label": "NATO 4770 / asa 4152 / zapata frontal / 2905B",
+      "overrides": {
+        "smallrig-2905b": {
+          "position_mm": [
+            -18,
+            149.25,
+            61
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            0
+          ],
+          "parent_id": "smallrig-4152",
+          "mount_point_id": "front-top-shoe"
+        },
+        "smallhd-indie-7": {
+          "position_mm": [
+            -18,
+            231.05,
+            61
+          ],
+          "rotation_deg": [
+            0,
+            0,
+            0
+          ],
+          "parent_id": "smallrig-2905b",
+          "mass_domain": "moving",
+          "mount": "Rosca inferior en 2905B sobre zapata superior frontal 4152.",
+          "placement": "Frontal del asa, no sobre centro del agarre; distancia a mano y par de palanca no medidos.",
+          "orientation": "Pantalla hacia operador; posición neutra ilustrativa.",
+          "rationale": "Libera zapata inclinada 4770 para RX elegido; no instala audio automáticamente.",
+          "rejected": "Monitor sobre zapatas posteriores en conflicto, riel adicional apilado y monitor sin soporte."
+        },
+        "sony-np-f970-pro": {
+          "position_mm": [
+            8,
+            249.05,
+            107.75
           ],
           "rotation_deg": [
             0,

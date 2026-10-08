@@ -20,11 +20,13 @@ En PowerShell usar `npm.cmd` si la política bloquea npm.ps1. Vite anuncia el pu
 
 Cuatro tareas: **Rig**, **Conexiones**, **Montaje** y **Piezas**. El visor abre sin cableado superpuesto; Conexiones activa las rutas y resalta un circuito con sus extremos A/B. En móvil, navegación inferior fija y selector de conexión junto al visor. El doble HDMI es un circuito de banco independiente del perfil, no un montaje aprobado en el rig.
 
-La ficha despliega medidas, materiales y restricciones bajo demanda. Montaje deriva las etapas pertinentes del perfil de cámara y separa las revisiones de lectura por configuración durante la sesión. Piezas abre **Mi equipo**, incluyendo elecciones pendientes; las 34 entradas se consultan en **Catálogo**. Detalles del perfil conserva siete plantillas, desglose de peso y pruebas pendientes. Los planes se guardan y abren dentro de la app, sin exportar archivos.
+La ficha despliega medidas, materiales y restricciones bajo demanda. Montaje deriva las etapas pertinentes del perfil de cámara y separa las revisiones de lectura por configuración durante la sesión. Piezas abre **Mi equipo**, incluyendo elecciones pendientes; las 36 entradas se consultan en **Catálogo**. Detalles del perfil conserva siete plantillas, desglose de peso y pruebas pendientes. Los planes se guardan y abren dentro de la app, sin exportar archivos.
 
 Vista de marca: `/brand/preview.html`. SVG reutilizables en `public/brand`; nombre en `data/brand.json`.
 
 ## Rigs Propios
+
+Versión 0.2.14: **SmallRig 2905B** ofrece una cadena candidata por zapata inclinada de HawkLock 4770; **SmallRig 4152** ofrece asa NATO y zapata superior frontal para ese soporte. Con el asa, RX Mic 2 y monitor usan anclajes separados; sin ella, ambos no pueden ocupar la misma zapata. Sólo a mano/estático y horizontal con FX3; FX30 conserva su alcance a mano/horizontal. Sin XLR ni gimbal en estas cadenas nuevas. Ajustes de monitor ligados al 2905B, guía condicionada y dos mallas propias aproximadas; no son parejas certificadas ni ensayos físicos. [Altas y fuentes](docs/catalog-promotions.md), [ciclo de verificación](docs/shoe-monitor-qa.md).
 
 Versión 0.2.13: FE 35mm F1.8 **SEL35F18F**, no SEL35F18 OSS, elegible con FX3 o FX30 a mano/horizontal. Parejas oficiales Sony propias, guía de óptica seleccionada, miniatura y malla propias aproximadas. No añade parasol, adaptadores ni piezas implícitas; filtro 55 mm no acopla el 3645. [Altas aditivas](docs/catalog-promotions.md).
 
@@ -64,7 +66,7 @@ Versión 0.2.10: **Crear rig** permite seleccionar FX30, FE 20mm F1.8 G y NP-FZ1
 
 Ruta hacia beta: [plan de avance](docs/beta-roadmap.md), con fases, criterios y diagnóstico. `data/product-roadmap.json` distingue correcciones implementadas de trabajo pendiente; no sustituye los manifiestos técnicos. Evidencia de esta iteración en [estabilización](docs/stabilization-qa.md).
 
-- `data/parts-manifest.json`: 27 entradas originales + tres accesorios de monitor + cuatro altas acotadas de planificación, con fuente y confianza por campo.
+- `data/parts-manifest.json`: 36 entradas: 27 originales, tres accesorios de monitor, cuatro altas Sony y dos accesorios de montaje; fuentes y confianza por campo.
 - `data/layout-manifest.json`: envolventes XYZ, poses candidatas, soporte y pruebas pendientes.
 - `data/cables-manifest.json`, `data/ports-manifest.json`: 22 circuitos, puertos identificados, coordenadas aproximadas o pendientes.
 - `data/connection-reviews.json`: evidencia documental de ocho circuitos; rango, polaridad, firmware y límites visibles en Conexiones. Desconocido no equivale a compatible.
@@ -72,8 +74,8 @@ Ruta hacia beta: [plan de avance](docs/beta-roadmap.md), con fases, criterios y 
 - `data/assembly-profile-content.json`: bloques de instrucciones condicionados a las piezas y circuitos existentes; no añade especificaciones ni compatibilidades.
 - `data/engineering-manifest.json`: límites publicados y políticas de masa/centros ponderados.
 - `data/sources.json`, `data/geometry-references.json`, `data/geometry-audit.json`: atribución, descargas SHA-256 y referencias revisadas.
-- `data/model-production.json`, `data/model-assets.json`: trabajo de fidelidad y registro de 20 GLB propios aproximados auditados; las otras 13 entradas tienen alcance pendiente o no físico explícito. [Producción](docs/model-production.md) y [contrato](docs/model-asset-contract.md).
-- `data/product-visuals.json`: 21 miniaturas originales WebP vinculadas a huellas de malla y derechos revisados; nunca aprobación automática.
+- `data/model-production.json`, `data/model-assets.json`: trabajo de fidelidad y registro de 23 GLB propios aproximados auditados; las otras 13 entradas tienen alcance pendiente o no físico explícito. [Producción](docs/model-production.md) y [contrato](docs/model-asset-contract.md).
+- `data/product-visuals.json`: 23 miniaturas originales WebP vinculadas a huellas de malla y derechos revisados; nunca aprobación automática.
 - `data/ui-content.json`: nombres cortos y traducciones de presentación; no reemplaza especificaciones ni interfaces canónicas.
 - `data/planner-rules.json`: dependencias conservadoras del catálogo actual y fotogramas de montaje; no certifica compatibilidad universal.
 - `data/catalog-contract.json`: índice derivado de identidad, revisión, guía y geometría; se regenera, no es un segundo catálogo.

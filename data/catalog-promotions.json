@@ -87,6 +87,233 @@
       "connections": "Sin cable externo del objetivo. Los circuitos seleccionados siguen perteneciendo a cada cuerpo, monitor o RX.",
       "viewer": "Reconstrucción propia aproximada y miniatura revisadas en cinco vistas contra referencias Sony; sin CAD ni texturas del fabricante. Inspección visual no certifica asientos.",
       "variants": "Dos ejemplos a mano/horizontal; monitor y RX sólo mediante selección explícita y sus cadenas revisadas."
+    },
+    {
+      "id": "shoe-monitor-and-handle",
+      "part_ids": [
+        "smallrig-2905b",
+        "smallrig-4152"
+      ],
+      "status": "planning_candidate",
+      "contexts": [
+        "handheld",
+        "static"
+      ],
+      "orientations": [
+        "landscape"
+      ],
+      "source_ids": [
+        "src-smallrig-2905b-manual",
+        "src-smallrig-2905b-page",
+        "src-smallrig-4152-manual",
+        "src-smallrig-4152-page",
+        "audit-doc-smallrig-4770-manual",
+        "src-smallhd-indie7-hdmi-guide"
+      ],
+      "claims": [
+        {
+          "id": "4770-2905b",
+          "part_ids": [
+            "smallrig-4770",
+            "smallrig-2905b"
+          ],
+          "model_numbers": [
+            "4770",
+            "2905B"
+          ],
+          "source_id": "audit-doc-smallrig-4770-manual",
+          "method": "documented_interfaces_inference",
+          "status": "candidate_not_manufacturer_pair",
+          "locator": "Manuales oficiales separados, revisión exacta de cada interfaz.",
+          "limitation": "Inferencia de interfaces documentadas, no pareja certificada por fabricante ni encaje físico. Geometría, retención, manos y palancas pendientes.",
+          "interface_citations": [
+            {
+              "part_id": "smallrig-4770",
+              "source_id": "audit-doc-smallrig-4770-manual",
+              "interface": "Zapata hembra inclinada",
+              "locator": "Sección de interfaces del manual"
+            },
+            {
+              "part_id": "smallrig-2905b",
+              "source_id": "src-smallrig-2905b-manual",
+              "interface": "Zapata macho inferior",
+              "locator": "Sección de montaje/interfaces del producto"
+            }
+          ]
+        },
+        {
+          "id": "4770-4152",
+          "part_ids": [
+            "smallrig-4770",
+            "smallrig-4152"
+          ],
+          "model_numbers": [
+            "4770",
+            "4152"
+          ],
+          "source_id": "audit-doc-smallrig-4770-manual",
+          "method": "documented_interfaces_inference",
+          "status": "candidate_not_manufacturer_pair",
+          "locator": "Manuales oficiales separados, revisión exacta de cada interfaz.",
+          "limitation": "Inferencia de interfaces documentadas, no pareja certificada por fabricante ni encaje físico. Geometría, retención, manos y palancas pendientes.",
+          "interface_citations": [
+            {
+              "part_id": "smallrig-4770",
+              "source_id": "audit-doc-smallrig-4770-manual",
+              "interface": "Riel NATO superior desmontable",
+              "locator": "Sección de interfaces del manual"
+            },
+            {
+              "part_id": "smallrig-4152",
+              "source_id": "src-smallrig-4152-manual",
+              "interface": "Abrazadera NATO inferior",
+              "locator": "Sección de montaje/interfaces del producto"
+            }
+          ]
+        },
+        {
+          "id": "4152-2905b",
+          "part_ids": [
+            "smallrig-4152",
+            "smallrig-2905b"
+          ],
+          "model_numbers": [
+            "4152",
+            "2905B"
+          ],
+          "source_id": "src-smallrig-4152-manual",
+          "method": "documented_interfaces_inference",
+          "status": "candidate_not_manufacturer_pair",
+          "locator": "Manuales oficiales separados, revisión exacta de cada interfaz.",
+          "limitation": "Inferencia de interfaces documentadas, no pareja certificada por fabricante ni encaje físico. Geometría, retención, manos y palancas pendientes.",
+          "interface_citations": [
+            {
+              "part_id": "smallrig-4152",
+              "source_id": "src-smallrig-4152-manual",
+              "interface": "Zapata hembra superior frontal",
+              "locator": "Sección de interfaces del manual"
+            },
+            {
+              "part_id": "smallrig-2905b",
+              "source_id": "src-smallrig-2905b-manual",
+              "interface": "Zapata macho inferior",
+              "locator": "Sección de montaje/interfaces del producto"
+            }
+          ]
+        },
+        {
+          "id": "2905b-indie",
+          "part_ids": [
+            "smallrig-2905b",
+            "smallhd-indie-7"
+          ],
+          "model_numbers": [
+            "2905B",
+            "MON-INDIE-7"
+          ],
+          "source_id": "src-smallrig-2905b-manual",
+          "method": "documented_interfaces_inference",
+          "status": "candidate_not_manufacturer_pair",
+          "locator": "Manuales oficiales separados, revisión exacta de cada interfaz.",
+          "limitation": "Inferencia de interfaces documentadas, no pareja certificada por fabricante ni encaje físico. Geometría, retención, manos y palancas pendientes.",
+          "interface_citations": [
+            {
+              "part_id": "smallrig-2905b",
+              "source_id": "src-smallrig-2905b-manual",
+              "interface": "Tornillo 1/4-20 superior",
+              "locator": "Sección de interfaces del manual"
+            },
+            {
+              "part_id": "smallhd-indie-7",
+              "source_id": "src-smallhd-indie7-hdmi-guide",
+              "interface": "Rosca inferior 1/4-20",
+              "locator": "Sección de montaje/interfaces del producto"
+            }
+          ]
+        }
+      ],
+      "physical_validation": {
+        "status": "pending",
+        "observations": []
+      },
+      "examples": [
+        {
+          "id": "sony-fx3-shoe-monitor",
+          "part_ids": [
+            "sony-fx3",
+            "smallrig-4770",
+            "sony-fe-35-f18",
+            "sony-np-fz100",
+            "smallrig-2905b",
+            "smallhd-indie-7",
+            "sony-np-f970-pro",
+            "kondor-blue-hdmi-aa"
+          ],
+          "context": "handheld",
+          "orientation": "landscape",
+          "note": "Selección explícita de ejemplo; sin prueba física ni añadidos automáticos."
+        },
+        {
+          "id": "sony-fx3-handle-monitor-audio",
+          "part_ids": [
+            "sony-fx3",
+            "smallrig-4770",
+            "sony-fe-35-f18",
+            "sony-np-fz100",
+            "smallrig-4152",
+            "smallrig-2905b",
+            "smallhd-indie-7",
+            "sony-np-f970-pro",
+            "kondor-blue-hdmi-aa",
+            "dji-mic-2-kit"
+          ],
+          "context": "handheld",
+          "orientation": "landscape",
+          "note": "Selección explícita de ejemplo; sin prueba física ni añadidos automáticos."
+        },
+        {
+          "id": "sony-fx30-shoe-monitor",
+          "part_ids": [
+            "sony-fx30",
+            "smallrig-4770",
+            "sony-fe-35-f18",
+            "sony-np-fz100",
+            "smallrig-2905b",
+            "smallhd-indie-7",
+            "sony-np-f970-pro",
+            "kondor-blue-hdmi-aa"
+          ],
+          "context": "handheld",
+          "orientation": "landscape",
+          "note": "Selección explícita de ejemplo; sin prueba física ni añadidos automáticos."
+        },
+        {
+          "id": "sony-fx30-handle-monitor-audio",
+          "part_ids": [
+            "sony-fx30",
+            "smallrig-4770",
+            "sony-fe-35-f18",
+            "sony-np-fz100",
+            "smallrig-4152",
+            "smallrig-2905b",
+            "smallhd-indie-7",
+            "sony-np-f970-pro",
+            "kondor-blue-hdmi-aa",
+            "dji-mic-2-kit"
+          ],
+          "context": "handheld",
+          "orientation": "landscape",
+          "note": "Selección explícita de ejemplo; sin prueba física ni añadidos automáticos."
+        }
+      ],
+      "assembly": "Bloques condicionados al soporte; asa antes de monitor. FX30 tiene perfil propio.",
+      "connections": "Mismos circuitos del cuerpo elegido; rutas esquemáticas nuevas y contactos nativos sin cable externo.",
+      "viewer": "Dos mallas y miniaturas propias aproximadas; cinco vistas cotejadas con diagramas de los manuales. Sin CAD ni fotos redistribuidas.",
+      "variants": "Alternativas elegibles, no sustituyen las siete plantillas ni bibliotecas.",
+      "regression_scripts": [
+        "scripts/test-mount-resources.mjs",
+        "scripts/test-shoe-monitor-integration.mjs"
+      ]
     }
   ],
   "queue": [

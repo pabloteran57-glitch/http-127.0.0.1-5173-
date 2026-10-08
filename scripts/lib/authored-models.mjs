@@ -327,7 +327,37 @@ function sel35f18f(g) {
 }
 
 export const authors = { camera, lens, cage, audioReceiver: receiver, baseplate, rods, matte, batteryPlate, battery, gimbal, grip, monitorMount, monitor, handle, compactMonitorMount, handleExtension, monitorBattery };
-export const productAuthors = { sel35f18f };
+function coldShoeMonitorMount(g) {
+  block(g,"Zapata macho / asiento no mecanizado",[18,2,18],[0,-21.5,0],"steel",.5);
+  cylinder(g,"Cuello de zapata",6,2,[0,-19.5,0],"dark","y");
+  knurl(g,"Rueda inferior de bloqueo",15,5,[0,-16,0],"steel","y",36);
+  cylinder(g,"Pivote de giro",10.5,9,[0,-9,0],"dark","y");
+  for(const x of [-15,15])block(g,"Horquilla",[6,23,22],[x,1,0],"dark",2);
+  cylinder(g,"Pivote inclinable",8,36,[0,4,0],"dark","x");
+  block(g,"Mando lateral",[6.6,20,12],[23,4,0],"dark",2);
+  block(g,"Placa de apoyo monitor",[36,3,28],[0,17,0],"dark",1);
+  knurl(g,"Rueda de tornillo",11,3,[0,14,0],"steel","y",30);
+  cylinder(g,"Tornillo 1/4-20 ilustrativo",3,4,[0,20.5,0],"steel","y",16);
+}
+
+function natoTopHandle(g) {
+  block(g,"Abrazadera NATO / sin riel adicional",[36,14,31],[0,-33.6,0],"dark",2);
+  block(g,"Canal de asiento NATO aproximado",[24,.7,24],[0,-40.2,0],"black",.5);
+  cylinder(g,"Apriete NATO",5,5,[-17,-30,0],"steel","x");
+  block(g,"Palanca NATO ilustrativa",[3,17,7],[-18,-24,0],"dark",1);
+  cylinder(g,"Columna de giro",8,35,[0,-9.1,0],"alloy","y");
+  ring(g,"Anillo de giro ilustrativo",11,8,4,[0,5,0],"dark","y");
+  block(g,"Empuñadura / forma aproximada",[28,22,161.6],[0,25.6,0],"dark",4);
+  for(const z of [-42,17])for(const x of [-14.1,14.1])block(g,"Rebaje longitudinal ilustrativo",[.6,11,37],[x,25.6,z],"recess",2);
+  block(g,"Superficie de agarre de silicona",[22,1,82],[0,36.1,-12],"rubber",2);
+  for(const z of [-69,-54,64,74])jack(g,"Rosca superior / posicion no mecanizada",[0,36.7,z],2.6,"y");
+  cylinder(g,"Boton de desbloqueo / giro no habilitado en app",5,1,[0,36.8,0],"steel","y");
+  shoe(g,[0,36.6,55],[0,0,0],24,23);
+  shoe(g,[0,36.6,-69],[0,0,0],24,22);
+  shoe(g,[0,24.6,-79],[Math.PI/2,0,0],24,18);
+}
+
+export const productAuthors = { sel35f18f, coldShoeMonitorMount, natoTopHandle };
 
 export function visualAuthor(node) {
   if (node.model_authoring && node.model_authoring !== "pilot") {
@@ -352,7 +382,17 @@ export function finalizeVisual(g, node) {
   const byMaterial = new Map();
   g.traverse(o => { if (o instanceof Mesh) { const geometry = o.geometry.clone().applyMatrix4(o.matrixWorld); geometry.scale(.001, .001, .001); const articulation=Object.entries(node.articulated_subassemblies??{}).find(([,names])=>names.includes(o.name))?.[0]??""; const key = articulation?`${articulation}/${o.material.name}`:o.material.name; if (!byMaterial.has(key)) byMaterial.set(key, []); byMaterial.get(key).push(geometry); } });
   const out = new Group(); out.name = g.name; out.userData = g.userData;
-  for (const [key, geometries] of byMaterial) { const geom = mergeGeometries(geometries.map(x => x.index ? x : mergeVertices(x)), false); if (!geom) throw new Error("No se pudo consolidar " + node.id); geom.deleteAttribute("uv"); geom.normalizeNormals(); const mesh = new Mesh(geom, materials[key.split("/").at(-1)]); mesh.name = node.id + "/" + key; out.add(mesh); for (const geo of geometries) geo.dispose(); }
+  for (const [key, geometries] of byMaterial) {
+    let geom = mergeGeometries(geometries.map(x => x.index ? x : mergeVertices(x)), false);
+    if (!geom) throw new Error("No se pudo consolidar " + node.id);
+    geom.deleteAttribute("uv"); geom.normalizeNormals();
+    // Las mallas nuevas no usan texturas: soldar duplicados de UV conserva caras y normales.
+    if (["coldShoeMonitorMount", "natoTopHandle"].includes(node.model_authoring)) {
+      const welded = mergeVertices(geom, 1e-8); geom.dispose(); geom = welded;
+    }
+    const mesh = new Mesh(geom, materials[key.split("/").at(-1)]); mesh.name = node.id + "/" + key; out.add(mesh);
+    for (const geo of geometries) geo.dispose();
+  }
   g.traverse(o => { if (o instanceof Mesh) o.geometry.dispose(); });
   out.updateMatrixWorld(true); out.userData.bounds_mm = new Box3().setFromObject(out).getSize(new Vector3()).multiplyScalar(1000).toArray();
   return out;

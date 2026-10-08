@@ -34,7 +34,9 @@
     "sony-fx30": "Sony FX30",
     "sony-fe-20-f18-g": "FE 20mm F1.8 G",
     "sony-np-fz100": "Sony NP-FZ100",
-    "sony-fe-35-f18": "FE 35mm F1.8"
+    "sony-fe-35-f18": "FE 35mm F1.8",
+    "smallrig-2905b": "SmallRig 2905B · soporte de zapata",
+    "smallrig-4152": "SmallRig 4152 · asa NATO"
   },
   "profile_hints": {
     "documentary-one-man-film": "Cámara, monitor lateral y audio para un solo operador.",
@@ -219,7 +221,9 @@
       "sony-fx30": "Cuerpo APS-C · piloto a mano y horizontal",
       "sony-fe-20-f18-g": "Óptica fija · par FX30 documentado",
       "sony-np-fz100": "Batería interna nativa · FX3 y piloto FX30",
-      "sony-fe-35-f18": "Óptica fija · FX3/FX30 a mano"
+      "sony-fe-35-f18": "Óptica fija · FX3/FX30 a mano",
+      "smallrig-2905b": "Monitor en zapata libre de jaula o asa",
+      "smallrig-4152": "Agarre superior y zapata frontal para monitor"
     }
   },
   "language": "es"

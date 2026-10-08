@@ -132,6 +132,20 @@
             "Retirar el riel superior desmontable de 4770 al instalar XLR; no apilarlo debajo del asa.",
             "Usar los tornillos incluidos sólo en sus posiciones documentadas; comprobar retención y acceso al agarre."
           ]
+        },
+        {
+          "part_ids": [
+            "smallrig-4152"
+          ],
+          "source_ids": [
+            "src-smallrig-4152-manual"
+          ],
+          "mount": "Deslizar la abrazadera 4152 en NATO superior 4770 y bloquear con la cámara sostenida.",
+          "where": "Riel existente de la jaula; no apilar el riel incluido ni instalar asa XLR simultáneamente.",
+          "verify": [
+            "Comprobar cierre, topes, retención y acceso al agarre. No interpretar 15 kg como seguridad dinámica del rig.",
+            "Para liberar giro, sostener cámara; las dos zapatas posteriores no se usan simultáneamente. La app representa sólo pose superior neutra."
+          ]
         }
       ]
     },
@@ -250,7 +264,7 @@
       "title": "Montar el monitor elegido",
       "kind": "mount",
       "requires_any": [],
-      "note": "Usar la cadena elegida: lateral fija en gimbal; sobre riel de jaula o XLR en cámara a mano/estática.",
+      "note": "Sólo la cadena elegida: 3026B lateral en gimbal; 2906B NATO o 2905B en zapata para cámara a mano/estática.",
       "rebalance": "En gimbal el monitor es fijo; a mano aumenta masa superior. Comprobar retención y esfuerzo de cables.",
       "blocks": [
         {
@@ -268,10 +282,13 @@
             "smallhd-indie-7"
           ],
           "mount": "Fijar el monitor al cabezal nativo del soporte.",
-          "where": "Rosca inferior 1/4-20 al soporte activo. Lateral 3026B en gimbal; sobre 2906B en cámara a mano o estática.",
+          "where": "Rosca inferior 1/4-20 al soporte activo: lateral 3026B en gimbal o 2906B NATO a mano/estática.",
           "verify": [
             "Comprobar acceso a conectores y espacio de la mano. En vertical el monitor permanece en el lateral fijo: medir de nuevo todos los ejes y el bucle HDMI.",
             "La alimentación y señal deben verificarse en sus etapas; representación no significa monitor energizado."
+          ],
+          "unless_any": [
+            "smallrig-2905b"
           ]
         },
         {
@@ -283,6 +300,60 @@
           "verify": [
             "Verificar retención NATO y rosca; pines para Atomos no certifican antitorsión del Indie 7.",
             "Medir espacio del asa, palanca del monitor/batería y holgura de HDMI. No garantiza soporte externo de cámara."
+          ]
+        },
+        {
+          "part_ids": [
+            "smallrig-2905b"
+          ],
+          "unless_any": [
+            "smallrig-4152"
+          ],
+          "source_ids": [
+            "src-smallrig-2905b-manual",
+            "src-smallrig-2905b-page"
+          ],
+          "mount": "Deslizar zapata macho 2905B en zapata inclinada 4770 y ajustar rueda de bloqueo.",
+          "where": "Único asiento inclinado de la jaula, libre de RX Mic 2.",
+          "verify": [
+            "Con monitor sostenido, fijar rosca inferior 1/4-20. Pines elásticos no certifican antitorsión del Indie 7.",
+            "Comprobar apoyo, apriete, deformación, manos y cables. Ficha 170°/PDF 180°: app usa 170° conservadores; no recorrido libre garantizado."
+          ]
+        },
+        {
+          "part_ids": [
+            "smallrig-2905b"
+          ],
+          "require_all": [
+            "smallrig-4152"
+          ],
+          "source_ids": [
+            "src-smallrig-2905b-manual",
+            "src-smallrig-4152-manual"
+          ],
+          "mount": "Asegurar 2905B en zapata superior frontal del asa 4152 y fijar rosca inferior del monitor con éste sostenido.",
+          "where": "Frontal del asa, no las dos zapatas posteriores. La zapata inclinada 4770 queda para RX elegido.",
+          "verify": [
+            "Comprobar retención y giro del soporte con llave Allen. Medir palanca y holgura con batería instalada.",
+            "No pasar HDMI por la zona de agarre; holgura real debe medirse durante tilt/giro."
+          ]
+        },
+        {
+          "part_ids": [
+            "smallhd-indie-7"
+          ],
+          "require_all": [
+            "smallrig-2905b"
+          ],
+          "source_ids": [
+            "src-smallrig-2905b-manual",
+            "src-smallhd-indie7-hdmi-guide"
+          ],
+          "mount": "Fijar la rosca inferior del Indie 7 al tornillo 1/4-20 del 2905B elegido.",
+          "where": "Cabezal del soporte de zapata activo; pantalla hacia operador y batería posterior elegida.",
+          "verify": [
+            "Sostener monitor mientras se ajusta; verificar retención de rosca y carga sobre zapata.",
+            "Comprobar HDMI, manos y batería en todo el recorrido medido. No garantiza alimentación, holgura ni antitorsión."
           ]
         }
       ]
@@ -624,6 +695,20 @@
                 "Sin bloqueo de ventilación, pantalla o cubierta de batería",
                 "No extrapolar el límite de tornillo de trípode a todas las fijaciones de jaula; par de apriete pendiente"
               ]
+            },
+            {
+              "part_ids": [
+                "smallrig-4152"
+              ],
+              "source_ids": [
+                "src-smallrig-4152-manual"
+              ],
+              "mount": "Deslizar la abrazadera 4152 en NATO superior 4770 y bloquear con la cámara sostenida.",
+              "where": "Riel existente de la jaula; no apilar el riel incluido ni instalar asa XLR simultáneamente.",
+              "verify": [
+                "Comprobar cierre, topes, retención y acceso al agarre. No interpretar 15 kg como seguridad dinámica del rig.",
+                "Para liberar giro, sostener cámara; las dos zapatas posteriores no se usan simultáneamente. La app representa sólo pose superior neutra."
+              ]
             }
           ]
         },
@@ -704,10 +789,11 @@
         },
         {
           "number": 5,
-          "title": "Preparar soporte y monitor NATO",
+          "title": "Montar soporte y monitor elegido",
           "requires_any": [
             "smallrig-2906b",
-            "smallhd-indie-7"
+            "smallhd-indie-7",
+            "smallrig-2905b"
           ],
           "source_ids": [
             "audit-doc-smallrig-4770-manual",
@@ -741,6 +827,58 @@
               "verify": [
                 "Contacto de rosca y resistencia al giro comprobados físicamente.",
                 "Ajustar tilt/giro sosteniendo el monitor y revisar manos, pantalla y puertos."
+              ]
+            },
+            {
+              "part_ids": [
+                "smallrig-2905b"
+              ],
+              "unless_any": [
+                "smallrig-4152"
+              ],
+              "source_ids": [
+                "src-smallrig-2905b-manual",
+                "src-smallrig-2905b-page"
+              ],
+              "mount": "Deslizar zapata macho 2905B en zapata inclinada 4770 y ajustar rueda de bloqueo.",
+              "where": "Único asiento inclinado de la jaula, libre de RX Mic 2.",
+              "verify": [
+                "Con monitor sostenido, fijar rosca inferior 1/4-20. Pines elásticos no certifican antitorsión del Indie 7.",
+                "Comprobar apoyo, apriete, deformación, manos y cables. Ficha 170°/PDF 180°: app usa 170° conservadores; no recorrido libre garantizado."
+              ]
+            },
+            {
+              "part_ids": [
+                "smallrig-2905b"
+              ],
+              "require_all": [
+                "smallrig-4152"
+              ],
+              "source_ids": [
+                "src-smallrig-2905b-manual",
+                "src-smallrig-4152-manual"
+              ],
+              "mount": "Asegurar 2905B en zapata superior frontal del asa 4152 y fijar rosca inferior del monitor con éste sostenido.",
+              "where": "Frontal del asa, no las dos zapatas posteriores. La zapata inclinada 4770 queda para RX elegido.",
+              "verify": [
+                "Comprobar retención y giro del soporte con llave Allen. Medir palanca y holgura con batería instalada.",
+                "No pasar HDMI por la zona de agarre; holgura real debe medirse durante tilt/giro."
+              ]
+            },
+            {
+              "part_ids": [
+                "smallhd-indie-7"
+              ],
+              "require_all": [
+                "smallrig-2905b"
+              ],
+              "source_ids": [
+                "src-smallrig-2905b-manual"
+              ],
+              "mount": "Verificar fijación del monitor al cabezal 2905B elegido.",
+              "where": "Rosca inferior 1/4-20; sin inventar antitorsión ni adaptador.",
+              "verify": [
+                "Sostener monitor para ajustar tilt/giro; comprobar retención, manos y bucle HDMI."
               ]
             }
           ]

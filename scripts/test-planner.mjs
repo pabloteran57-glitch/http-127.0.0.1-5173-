@@ -7,7 +7,8 @@ const read=name=>JSON.parse(readFileSync(new URL(`../data/${name}.json`,import.m
 const rules=read("planner-rules"),parts=read("parts-manifest").parts,cables=read("cables-manifest").cables;
 const variants=read("variants").variants,master=variants.find(v=>v.id==="commercial-solo-gimbal");
 const catalog=parts.map(p=>p.id);
-const originalCatalog=catalog.filter(id=>!read("pilot-integration").promoted_part_ids.includes(id));
+const laterAdditions=read("catalog-promotions").promotions.flatMap(promotion=>promotion.part_ids);
+const originalCatalog=catalog.filter(id=>!read("pilot-integration").promoted_part_ids.includes(id)&&!laterAdditions.includes(id));
 const compiled=ts.transpileModule(readFileSync(new URL("../src/lib/planner.ts",import.meta.url),"utf8"),{compilerOptions:{target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.ES2022}}).outputText;
 const {resolveRig,mountDependencies,dependencyClosure,selectionPresentation,availableSupportIds,assemblyFrame,parseRig,parseLibrary,newRig,writeLibrary,LIBRARY_KEY,LEGACY_LIBRARY_KEY,libraryFingerprint,compatibilityDecision,CATALOG_REVISION}=await import(`data:text/javascript;base64,${Buffer.from(compiled).toString("base64")}`);
 const moduleOf=async name=>{

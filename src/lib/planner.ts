@@ -54,9 +54,11 @@ export function attachmentCandidates(anchorId:string,rig:CustomRig,rules:Planner
   if(!rig.part_ids.includes(anchorId))return [];
   return (rules.attachment_options??[]).flatMap(option=>{
     if(option.anchor_part_id!==anchorId||!option.source_ids.length||!conditionMatches(option.condition,new Set(rig.part_ids),rig))return [];
-    const closure=dependencyClosure(option.add_part_ids,rules,rig);
+    // Evaluar la cadena propuesta completa: un soporte nuevo puede cambiar dependencias.
+    const intended={...rig,part_ids:[...new Set([...rig.part_ids,...option.add_part_ids])]};
+    const closure=dependencyClosure(option.add_part_ids,rules,intended);
     const additions=closure.filter(id=>!rig.part_ids.includes(id));
-    if(!additions.length||additions.some(id=>!availableSupportIds([id],rig,rules).includes(id)))return [];
+    if(!additions.length)return [];
     const proposal={...rig,part_ids:[...rig.part_ids,...additions]};
     const result=resolveRig(proposal,rules,cables,master,id=>id);
     if(![anchorId,...closure].every(id=>result.variant.active_part_ids.includes(id)))return [];
@@ -107,6 +109,7 @@ export function selectionScopeProblem(id:string,rig:CustomRig,rules:PlannerRules
 export function selectionConflictProblem(id: string, rig: CustomRig, rules: PlannerRules): string | null {
   const selected = new Set([...rig.part_ids, id]);
   return rules.exclusive_selection_groups?.find(group => group.part_ids.includes(id)
+    && conditionMatches(group.condition??{},selected,rig)
     && group.part_ids.filter(part => selected.has(part)).length > group.max_active)?.message ?? null;
 }
 
@@ -146,6 +149,7 @@ export function resolveRig(rig: CustomRig, rules: PlannerRules, cables: Cable[],
     else {const problem=mountChainProblem(id,rules,rig);if(problem)exclude(id,`${nameOf(id)}: ${problem} Se conserva pendiente, sin montaje ficticio.`);}
   }
   for(const group of rules.exclusive_selection_groups??[]){
+    if(!conditionMatches(group.condition??{},selected,rig))continue;
     const members=group.part_ids.filter(id=>selected.has(id));
     if(members.length>group.max_active)for(const id of members.filter(id=>active.has(id)))exclude(id,`${nameOf(id)}: ${group.message}`);
   }

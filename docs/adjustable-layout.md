@@ -25,6 +25,20 @@ Generado desde `data/layout-manifest.json`. Los ajustes se conservan en el borra
 - [Manual oficial](https://static.smallrig.com/mall/img/public/0g141qmktenu-1751249917074_.pdf): Página 2: inclinación total 180° y giro 360°; el giro se ajusta con llave Allen.
 - Pose y pivotes aproximados; comprobar colisiones con XLR-H1/4830 y agarre. Los intervalos no prueban recorrido libre en el rig completo.
 
+### Zapata inclinada 4770 / 2905B
+
+- Soporte: SmallRig 2905B · soporte de zapata. Pantalla y batería elegida acompañan el cabezal; la abrazadera permanece fija.
+- Inclinación ilustrativa: -85 a 85 grados; giro: -180 a 180 grados. Son intervalos centrados en una pose aproximada, no topes medidos del rig.
+- [Manual oficial](https://static.smallrig.com/mall/img/public/2kibtbq6c5h-1745977694815_.pdf): Manual páginas 2-3: 180°/360°; ficha publica 170°. Intervalo conservador de 170° en la app; giro mediante Allen.
+- Cero y pivotes aproximados; no certifica barrido libre, retención ni par de la zapata.
+
+### NATO 4770 / asa 4152 / zapata frontal / 2905B
+
+- Soporte: SmallRig 2905B · soporte de zapata. Pantalla y batería elegida acompañan el cabezal; la abrazadera permanece fija.
+- Inclinación ilustrativa: -85 a 85 grados; giro: -180 a 180 grados. Son intervalos centrados en una pose aproximada, no topes medidos del rig.
+- [Manual oficial](https://static.smallrig.com/mall/img/public/2kibtbq6c5h-1745977694815_.pdf): Manual páginas 2-3: 180°/360°; ficha publica 170°. Intervalo conservador de 170° en la app; giro mediante Allen.
+- Cero y pivotes aproximados; no certifica barrido libre, retención ni par de la zapata.
+
 ## Placa V-mount
 
 Página 5: posiciones de abrazadera atornillada; sin bisagra. Desplazar sólo tras aflojar y volver a fijar abrazaderas sobre varillas.

@@ -357,6 +357,40 @@
       },
       "caption": "Modelo aproximado",
       "reviewed_on": "2026-10-08"
+    },
+    {
+      "id": "smallrig-2905b-takegrid-v1",
+      "part_id": "smallrig-2905b",
+      "subcomponent_id": null,
+      "model_sha256": "7eb198942dacd4adf1cf6db90afc73c45dd04be082dc10d8b240916d425f9f7a",
+      "status": "approved",
+      "method": "rendered_approved_mesh",
+      "image": {
+        "path": "/product-visuals/smallrig-2905b-takegrid-v1.webp",
+        "sha256": "750ab72a8565e2d1db8b1f47eed5e4233c0ed2949be233887fe465db328d99cd",
+        "bytes": 9500,
+        "width": 400,
+        "height": 280
+      },
+      "caption": "Modelo aproximado",
+      "reviewed_on": "2026-10-08"
+    },
+    {
+      "id": "smallrig-4152-takegrid-v1",
+      "part_id": "smallrig-4152",
+      "subcomponent_id": null,
+      "model_sha256": "f43e305e4abf6890f3a0c6cebe84e2337b20f71656762df882fe265e39085bae",
+      "status": "approved",
+      "method": "rendered_approved_mesh",
+      "image": {
+        "path": "/product-visuals/smallrig-4152-takegrid-v1.webp",
+        "sha256": "f9b91997a317845601def9306b33e632f8b879332c311268dd427e76ccb2cc66",
+        "bytes": 7298,
+        "width": 400,
+        "height": 280
+      },
+      "caption": "Modelo aproximado",
+      "reviewed_on": "2026-10-08"
     }
   ],
   "scope": "Miniaturas de mallas propias revisadas, aproximadas y encuadradas por pieza. No fotos oficiales, CAD ni comparación de escala entre tarjetas."

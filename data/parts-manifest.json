@@ -1336,6 +1336,90 @@
         "status": "planning_candidate",
         "physical_validation": "pending"
       }
+    },
+    {
+      "id": "smallrig-2905b",
+      "exact_product_name": "SmallRig Swivel and Tilt Adjustable Monitor Mount with Cold Shoe Mount",
+      "model_number": "2905B",
+      "brand": "SmallRig",
+      "category": "monitor mount",
+      "verified_dimensions_mm": {
+        "length": 52.6,
+        "width": 30,
+        "height": 45,
+        "approximate": false,
+        "note": "Envolvente publicada; eje XYZ y asientos del visor aproximados, no CAD."
+      },
+      "verified_weight_g": {
+        "value": 78,
+        "approximate": false,
+        "note": "Masa nominal ±5 g publicada; no incluye carga instalada.",
+        "source_url": "https://static.smallrig.com/mall/img/public/2kibtbq6c5h-1745977694815_.pdf",
+        "checked_on": "2026-10-08"
+      },
+      "planning_weight_g": 83,
+      "ports_interfaces": [
+        "Zapata macho inferior pasiva",
+        "Tornillo superior 1/4-20",
+        "Giro 360°; inclinación 180° en manual, 170° en ficha"
+      ],
+      "mounting_method": "Zapata inclinada 4770 sin RX simultáneo, o zapata superior frontal del asa 4152 elegida. Tornillo superior a rosca inferior del Indie 7.",
+      "likely_material": "Aleación de aluminio y acero inoxidable, manual página 5",
+      "mandatory_or_optional": "optional",
+      "rig_role": "Alternativa de monitor a mano/estática; no reemplaza soporte lateral 3026B en gimbal.",
+      "physical_constraints": [
+        "Manual titulado 2905B, texto introductorio dice 2905; conservar discrepancia. La ficha publica 170° y manual 180°; visor limitado conservadoramente a 170° totales, no recorrido libre del rig.",
+        "La ficha publica 1.5 kg; no certifica carga dinámica ni retención de la zapata. Pines elásticos descritos para Ninja V/V+, no antitorsión Indie 7.",
+        "En 4770 comparte una sola zapata con RX Mic 2. Con 4152 el monitor usa la zapata frontal superior y RX permanece en la jaula.",
+        "No habilitado junto a XLR-H1 ni en gimbal/vertical: holguras de esos conjuntos pendientes."
+      ],
+      "primary_source_url": "https://static.smallrig.com/mall/img/public/2kibtbq6c5h-1745977694815_.pdf",
+      "secondary_source_url": null,
+      "confidence_level": "medium"
+    },
+    {
+      "id": "smallrig-4152",
+      "exact_product_name": "SmallRig Rotating Top Handle with NATO Clamp",
+      "model_number": "4152",
+      "brand": "SmallRig",
+      "category": "top handle",
+      "verified_dimensions_mm": {
+        "length": 161.6,
+        "width": 39.7,
+        "height": 81.2,
+        "approximate": false,
+        "note": "Envolvente publicada; eje XYZ y asientos del visor aproximados, no CAD."
+      },
+      "verified_weight_g": {
+        "value": 236,
+        "approximate": false,
+        "note": "Masa nominal ±5 g publicada; no incluye carga instalada.",
+        "source_url": "https://static.smallrig.com/mall/img/public/yq5buifh3ha-1742372936152_.pdf",
+        "checked_on": "2026-10-08"
+      },
+      "planning_weight_g": 241,
+      "ports_interfaces": [
+        "Abrazadera NATO inferior",
+        "Zapata superior frontal",
+        "Dos zapatas posteriores mutuamente excluyentes",
+        "Roscas 1/4-20 y orificios de localización",
+        "Rosca ARRI 3/8-16 con localización",
+        "Giro 360° por botón, sólo ajuste con cámara sostenida"
+      ],
+      "mounting_method": "Abrazadera en NATO superior existente de 4770. No apilar el riel incluido; queda fuera de la escena y no se añade como SKU independiente.",
+      "likely_material": "Aleación de aluminio y silicona, manual página 6",
+      "mandatory_or_optional": "optional",
+      "rig_role": "Agarre superior y zapata frontal independiente para monitor 2905B, preservando RX en zapata 4770.",
+      "physical_constraints": [
+        "Manual páginas 3-5: comprobar NATO existente, deslizar y cerrar; sostener cámara antes de liberar giro.",
+        "Ocupa el NATO superior reservado también al 2906B: esas dos cadenas no se instalan simultáneamente en el mismo asiento representado.",
+        "No junto a XLR-H1: éste requiere retirar el NATO superior 4770. Gimbal y vertical no revisados.",
+        "Las dos zapatas posteriores no se usan simultáneamente; no se ofrecen como dos recursos libres. Se representa sólo la zapata superior frontal.",
+        "15 kg publicado en ficha, no certificación dinámica del conjunto, profundidad de tornillos, manos ni carga de la zapata."
+      ],
+      "primary_source_url": "https://static.smallrig.com/mall/img/public/yq5buifh3ha-1742372936152_.pdf",
+      "secondary_source_url": null,
+      "confidence_level": "medium"
     }
   ]
 }

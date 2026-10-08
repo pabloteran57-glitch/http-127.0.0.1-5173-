@@ -1223,6 +1223,51 @@
       "url": "https://tilta.com/product-category/gear-lab/baseplate-dovetail/",
       "verified_on": "2026-10-08",
       "notes": "Índice oficial de descubrimiento; la consulta no prueba inventario total ni revisión individual."
+    },
+    {
+      "id": "src-smallrig-2905b-manual",
+      "brand": "SmallRig",
+      "type": "official",
+      "url": "https://static.smallrig.com/mall/img/public/2kibtbq6c5h-1745977694815_.pdf",
+      "checked_on": "2026-10-08",
+      "review_subject_part_ids": [
+        "smallrig-2905b"
+      ],
+      "notes": "PDF descargado y páginas 2-5 revisadas: interfaces, pines elásticos, giro, discrepancia 170/180°, 45 × 52.6 × 30 mm y 78 ±5 g; no CAD."
+    },
+    {
+      "id": "src-smallrig-4152-manual",
+      "brand": "SmallRig",
+      "type": "official",
+      "url": "https://static.smallrig.com/mall/img/public/yq5buifh3ha-1742372936152_.pdf",
+      "checked_on": "2026-10-08",
+      "review_subject_part_ids": [
+        "smallrig-4152"
+      ],
+      "notes": "PDF descargado y páginas 2-6 revisadas: interfaces, instalación, zapatas, giro, 161.6 × 81.2 × 39.7 mm, 236 ±5 g. Material aluminio/silicona."
+    },
+    {
+      "id": "src-smallrig-2905b-page",
+      "brand": "SmallRig",
+      "type": "official",
+      "url": "https://www.smallrig.com/smallrig-swivel-and-tilt-adjustable-monitor-mount-with-cold-shoe-mount-2905.html",
+      "checked_on": "2026-10-08",
+      "review_subject_part_ids": [
+        "smallrig-2905b"
+      ],
+      "notes": "Ficha pública y enlace al manual B; 1.5 kg y 170° frente a 180° en PDF. Discrepancia preservada; rango conservador."
+    },
+    {
+      "id": "src-smallrig-4152-page",
+      "brand": "SmallRig",
+      "type": "official",
+      "url": "https://www.smallrig.com/Rotating-Top-Handle-with-NATO-Clamp-4152.html",
+      "checked_on": "2026-10-08",
+      "review_subject_part_ids": [
+        "smallrig-4152",
+        "smallrig-2905b"
+      ],
+      "notes": "Descripción oficial indexada menciona 2905B en zapata y 15 kg del asa; no prueba par exacto con Indie 7 ni 4770."
     }
   ],
   "audit_on": "2026-10-07"

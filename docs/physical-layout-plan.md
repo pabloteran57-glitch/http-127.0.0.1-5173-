@@ -29,6 +29,21 @@ Ruta `xlr`; posiciones ilustrativas, no asiento verificado.
 - Indie 7: posición 0 / 220.6 / -25 mm; soporte Soporte NATO de monitor 2906B; carga moving.
 - Batería Sony NP-F970/PRO: posición 26 / 238.6 / 21.75 mm; soporte heredado; carga moving.
 
+### Zapata inclinada 4770 / 2905B
+
+Ruta `cold_shoe`; posiciones ilustrativas, no asiento verificado.
+
+- Indie 7: posición -25.55382618961079 / 141.16797697959794 / 8 mm; soporte SmallRig 2905B · soporte de zapata; carga moving.
+- Batería Sony NP-F970/PRO: posición 5.6173049846747 / 146.49344234099945 / 54.75 mm; soporte heredado; carga moving.
+
+### NATO 4770 / asa 4152 / zapata frontal / 2905B
+
+Ruta `handle_shoe`; posiciones ilustrativas, no asiento verificado.
+
+- SmallRig 2905B · soporte de zapata: posición -18 / 149.25 / 61 mm; soporte SmallRig 4152 · asa NATO; carga heredada.
+- Indie 7: posición -18 / 231.05 / 61 mm; soporte SmallRig 2905B · soporte de zapata; carga moving.
+- Batería Sony NP-F970/PRO: posición 8 / 249.05 / 107.75 mm; soporte heredado; carga moving.
+
 En gimbal conservar 3026B lateral fijo. A mano/estática usar 2906B sobre NATO 4770 sin XLR, o kit 4830 sobre XLR-H1 si el asa está elegida. No ocupar simultáneamente el riel superior 4770 y la interfaz XLR. Cada pieza se añade sólo por elección del usuario. NP-F970/PRO elegida alimenta el monitor en su placa nativa incluida, sin cable al barril.
 
 ## Sony FX3
@@ -282,6 +297,30 @@ En gimbal conservar 3026B lateral fijo. A mano/estática usar 2906B sobre NATO 4
 - Motivo: Óptica fija de 280 g aproximados; enfoque interno publicado. No traslada masa ni forma del zoom o del 20mm.
 - Rechazado: Dos objetivos simultáneos; adaptador implícito; parasol o matte box con anillo 82 mm sobre filtro de 55 mm.
 - [Referencia de medidas](https://www.sony.jp/ichigan/products/SEL35F18F/spec.html)
+
+## 2905B · zapata
+
+- Posición candidata XYZ: -60.124 / 67.032 / 8 mm; rotación XYZ: 0 / 0 / -25 grados.
+- Envolvente XYZ: 52.6 / 45 / 30 mm; estado: Medidas exteriores publicadas. Una envolvente publicada no verifica los detalles internos.
+- Dominio de carga: Carga móvil; soporte candidato: Jaula HawkLock.
+- Colocación: Posición de planificación aproximada; asientos, manos y holguras requieren medición.
+- Orientación: Pose neutra ilustrativa, no cero mecánico medido.
+- Montaje: Zapata macho en 4770 o zapata frontal del asa 4152; tornillo 1/4-20 al monitor.
+- Motivo: Cadena alternativa explícita, sin brazo de gimbal ni adaptador invisible.
+- Rechazado: Montaje en gimbal, palancas libres no medidas y dos piezas en un mismo asiento.
+- [Referencia de medidas](https://static.smallrig.com/mall/img/public/2kibtbq6c5h-1745977694815_.pdf)
+
+## 4152 · asa NATO
+
+- Posición candidata XYZ: -18 / 88.65 / 6 mm; rotación XYZ: 0 / 0 / 0 grados.
+- Envolvente XYZ: 39.7 / 81.2 / 161.6 mm; estado: Medidas exteriores publicadas. Una envolvente publicada no verifica los detalles internos.
+- Dominio de carga: Carga móvil; soporte candidato: Jaula HawkLock.
+- Colocación: Posición de planificación aproximada; asientos, manos y holguras requieren medición.
+- Orientación: Pose neutra ilustrativa, no cero mecánico medido.
+- Montaje: NATO superior existente 4770; riel incluido no apilado ni representado.
+- Motivo: Cadena alternativa explícita, sin brazo de gimbal ni adaptador invisible.
+- Rechazado: Montaje en gimbal, palancas libres no medidas y dos piezas en un mismo asiento.
+- [Referencia de medidas](https://static.smallrig.com/mall/img/public/yq5buifh3ha-1742372936152_.pdf)
 
 
 ## Componentes sin montaje 3D habilitado

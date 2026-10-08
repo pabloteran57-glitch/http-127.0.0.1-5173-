@@ -28,7 +28,7 @@ Ubicación: Tornillos de cámara anti-giro; RX en zapata inclinada 4770. Zapata 
 
 **Equilibrio:** Volver a equilibrar si cambia cualquier accesorio superior.
 
-Aplicabilidad del perfil: guía general.
+Aplicabilidad del perfil: SmallRig 4152 · asa NATO.
 
 ## 3. Base y varillas
 
@@ -81,7 +81,7 @@ Ubicación: Usar la cadena elegida: lateral fija en gimbal; sobre riel de jaula 
 
 **Equilibrio:** Monitor fijo fuera de la carga móvil; revisar ergonomía y tirón de cables.
 
-Aplicabilidad del perfil: Indie 7; Soporte NATO de monitor 2906B.
+Aplicabilidad del perfil: Indie 7; Soporte NATO de monitor 2906B; SmallRig 2905B · soporte de zapata.
 
 ## 7. Montaje en estabilizador
 

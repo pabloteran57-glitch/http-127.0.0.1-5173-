@@ -1,6 +1,6 @@
 # Manifiesto verificado de piezas
 
-Generado desde `data/parts-manifest.json`. Auditoría 2026-10-06. 25 productos solicitados y 2 componentes del Combo conservados, más 3 accesorios de monitor y 4 altas acotadas: 34 entradas.
+Generado desde `data/parts-manifest.json`. Auditoría 2026-10-06. 25 productos solicitados y 2 componentes del Combo conservados, más 3 accesorios de monitor y 6 altas acotadas: 36 entradas.
 
 Plan de ingeniería, no montaje certificado. Medidas publicadas no prueban forma exacta, enganche de tornillos, equilibrio, rigidez, holguras ni compatibilidad de toda la pila. Fotos y geometría aproximada no son CAD calibrado.
 
@@ -649,3 +649,41 @@ Plan de ingeniería, no montaje certificado. Medidas publicadas no prueban forma
 - Restricciones: SEL35F18F no es SEL35F18 E 35mm F1.8 OSS.; Enfoque interno publicado; sin zoom ni anillo de apertura representado.; Parasol ALC-SH159 y tapas incluidos comercialmente, no elegidos ni representados.; Filtro 55 mm: no hereda anillo 82-95 mm del 3645 ni adaptador implícito.; Gimbal, vertical y estático pendientes. Compatibilidad electrónica no certifica holgura, retención ni equilibrio.
 - Confianza: Media.
 - [Fuente principal](https://www.sony.jp/ichigan/products/SEL35F18F/spec.html)
+
+## SmallRig 2905B · soporte de zapata
+
+- ID: `smallrig-2905b`
+- Nombre oficial del fabricante: SmallRig Swivel and Tilt Adjustable Monitor Mount with Cold Shoe Mount.
+- Modelo: 2905B; fabricante: SmallRig; categoría: Soporte de monitor.
+- Medidas publicadas L/W/H: 52.6 / 30 / 45 mm. Aproximadas/incompletas: no.
+- Nota de dimensiones: Envolvente publicada; eje XYZ y asientos del visor aproximados, no CAD.
+- Masa publicada: 78 g. Aproximada: no.
+- Nota de masa: Masa nominal ±5 g publicada; no incluye carga instalada.
+- Fuente de masa: [SmallRig](https://static.smallrig.com/mall/img/public/2kibtbq6c5h-1745977694815_.pdf).
+- Masa de planificación: 83 g; no sustituye pesaje del subconjunto instalado.
+- Interfaces: Zapata macho inferior pasiva; Tornillo superior 1/4-20; Giro 360°; inclinación 180° en manual, 170° en ficha
+- Montaje: Zapata inclinada 4770 sin RX simultáneo, o zapata superior frontal del asa 4152 elegida. Tornillo superior a rosca inferior del Indie 7.
+- Material: Aleación de aluminio y acero inoxidable, manual página 5
+- Obligatorio/opcional: Opcional; función: Alternativa de monitor a mano/estática; no reemplaza soporte lateral 3026B en gimbal..
+- Restricciones: Manual titulado 2905B, texto introductorio dice 2905; conservar discrepancia. La ficha publica 170° y manual 180°; visor limitado conservadoramente a 170° totales, no recorrido libre del rig.; La ficha publica 1.5 kg; no certifica carga dinámica ni retención de la zapata. Pines elásticos descritos para Ninja V/V+, no antitorsión Indie 7.; En 4770 comparte una sola zapata con RX Mic 2. Con 4152 el monitor usa la zapata frontal superior y RX permanece en la jaula.; No habilitado junto a XLR-H1 ni en gimbal/vertical: holguras de esos conjuntos pendientes.
+- Confianza: Media.
+- [Fuente principal](https://static.smallrig.com/mall/img/public/2kibtbq6c5h-1745977694815_.pdf)
+
+## SmallRig 4152 · asa NATO
+
+- ID: `smallrig-4152`
+- Nombre oficial del fabricante: SmallRig Rotating Top Handle with NATO Clamp.
+- Modelo: 4152; fabricante: SmallRig; categoría: top handle.
+- Medidas publicadas L/W/H: 161.6 / 39.7 / 81.2 mm. Aproximadas/incompletas: no.
+- Nota de dimensiones: Envolvente publicada; eje XYZ y asientos del visor aproximados, no CAD.
+- Masa publicada: 236 g. Aproximada: no.
+- Nota de masa: Masa nominal ±5 g publicada; no incluye carga instalada.
+- Fuente de masa: [SmallRig](https://static.smallrig.com/mall/img/public/yq5buifh3ha-1742372936152_.pdf).
+- Masa de planificación: 241 g; no sustituye pesaje del subconjunto instalado.
+- Interfaces: Abrazadera NATO inferior; Zapata superior frontal; Dos zapatas posteriores mutuamente excluyentes; Roscas 1/4-20 y orificios de localización; Rosca ARRI 3/8-16 con localización; Giro 360° por botón, sólo ajuste con cámara sostenida
+- Montaje: Abrazadera en NATO superior existente de 4770. No apilar el riel incluido; queda fuera de la escena y no se añade como SKU independiente.
+- Material: Aleación de aluminio y silicona, manual página 6
+- Obligatorio/opcional: Opcional; función: Agarre superior y zapata frontal independiente para monitor 2905B, preservando RX en zapata 4770..
+- Restricciones: Manual páginas 3-5: comprobar NATO existente, deslizar y cerrar; sostener cámara antes de liberar giro.; Ocupa el NATO superior reservado también al 2906B: esas dos cadenas no se instalan simultáneamente en el mismo asiento representado.; No junto a XLR-H1: éste requiere retirar el NATO superior 4770. Gimbal y vertical no revisados.; Las dos zapatas posteriores no se usan simultáneamente; no se ofrecen como dos recursos libres. Se representa sólo la zapata superior frontal.; 15 kg publicado en ficha, no certificación dinámica del conjunto, profundidad de tornillos, manos ni carga de la zapata.
+- Confianza: Media.
+- [Fuente principal](https://static.smallrig.com/mall/img/public/yq5buifh3ha-1742372936152_.pdf)

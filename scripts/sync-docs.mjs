@@ -25,6 +25,10 @@ Generado desde data/rigging-intake.json. Revisión ${rigging.reviewed_on}. **${r
 
 ${rigging.scope}
 
+## Altas funcionales separadas de la cuarentena
+
+${promotions.promotions.filter(p=>p.part_ids.some(id=>parts.parts.find(part=>part.id===id)?.brand==="SmallRig")).map(p=>`- ${p.part_ids.map(name).join("; ")}: selección, soporte, conexiones, guía y mallas propias integrados como candidatos de planificación. No ensayo físico ni catálogo completo. [Expediente](catalog-promotions.md).`).join("\n")}
+
 ## Prioridad y cobertura
 
 ${rigging.priority_policy}
@@ -80,18 +84,18 @@ Generado desde data/catalog-promotions.json. Revisión ${promotions.reviewed_on}
 ${promotions.promotions.map(p=>`## ${p.part_ids.map(name).join("; ")}
 
 1. Manifiesto: ${p.part_ids.map(id=>{const item=parts.parts.find(part=>part.id===id);return `${item.model_number}: ${item.planning_weight_g} g aproximados; [fuente oficial](${item.primary_source_url})`;}).join("; ")}.
-2. Distribución: sólo ${p.contexts.join(", ")} / ${p.orientations.join(", ")}; poses aproximadas. Filtro 55 mm no adapta automáticamente el 3645.
+2. Distribución: sólo ${p.contexts.join(", ")} / ${p.orientations.join(", ")}; poses aproximadas. ${p.part_ids.includes("sony-fe-35-f18")?"Filtro 55 mm no adapta automáticamente el 3645.":"No duplicar asiento NATO ni zapata; asa 4152 ofrece asiento frontal separado del RX en jaula."}
 3. Conexiones: ${p.connections}
 4. Guía: ${p.assembly}
 5. Visor: ${p.viewer}
 6. Variantes: ${p.variants}
 
-${p.claims.map(c=>`- Par ${c.model_numbers.join(" + ")}: [Sony](${sourceList.find(s=>s.id===c.source_id).url}); ${c.locator} ${c.limitation}`).join("\n")}
+${p.claims.map(c=>`- Par ${c.model_numbers.join(" + ")}: [fuente oficial](${sourceList.find(s=>s.id===c.source_id).url}); ${c.locator} ${c.limitation}${c.interface_citations?` Interfaces: ${c.interface_citations.map(i=>`[${i.interface}](${sourceList.find(s=>s.id===i.source_id).url})`).join("; ")}.`:""}`).join("\n")}
 
 Ejemplos, no plantillas añadidas:
 ${p.examples.map(e=>`- ${e.id}: ${e.part_ids.map(name).join("; ")}. ${e.note}`).join("\n")}
 
-Física pendiente. Regresiones: scripts/test-sel35-integration.mjs, incluidas 1024 subselecciones con monitor/audio. No cambian las siete plantillas ni la revisión de biblioteca.`).join("\n\n")}
+Física pendiente. Regresiones: ${p.regression_scripts?.join(", ")??"scripts/test-sel35-integration.mjs"}. No cambian las siete plantillas ni la revisión de biblioteca.`).join("\n\n")}
 
 ## Prioridad siguiente
 

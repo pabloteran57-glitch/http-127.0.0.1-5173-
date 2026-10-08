@@ -1262,6 +1262,126 @@
         "mechanical_accuracy": "approximate",
         "ports_authority": "ports-manifest.json"
       }
+    },
+    {
+      "id": "smallrig-2905b-takegrid-v1",
+      "part_id": "smallrig-2905b",
+      "subcomponent_id": null,
+      "exact_product_name": "SmallRig Swivel and Tilt Adjustable Monitor Mount with Cold Shoe Mount",
+      "model_number": "2905B",
+      "status": "approved",
+      "source": {
+        "method": "manual",
+        "url": "https://github.com/pabloteran57-glitch/http-127.0.0.1-5173-/blob/main/scripts/lib/authored-models.mjs",
+        "author": "Takegrid / reconstrucción propia en código"
+      },
+      "rights": {
+        "license": "custom-reviewed",
+        "evidence_url": "https://github.com/pabloteran57-glitch/http-127.0.0.1-5173-/blob/main/docs/authored-model-rights.md",
+        "reviewed_on": "2026-10-08",
+        "commercial": true,
+        "redistribution": true,
+        "modification": true,
+        "source_images_authorized": false,
+        "source_images_evidence": "No usa imágenes, texturas ni archivos ajenos en el GLB; referencias de fabricante consultadas localmente, no cargadas a IA ni redistribuidas.",
+        "attribution": "2905B: reconstrucción propia Takegrid, 2026; geometría/materiales aproximados, sin CAD ni respaldo del fabricante."
+      },
+      "artifact": {
+        "path": "/models/smallrig-2905b-takegrid-v1.glb",
+        "sha256": "7eb198942dacd4adf1cf6db90afc73c45dd04be082dc10d8b240916d425f9f7a",
+        "bytes": 122696,
+        "triangles": 2604
+      },
+      "calibration": {
+        "units": "metres",
+        "uniform_scale": 1,
+        "offset_mm": [
+          0,
+          0,
+          0
+        ],
+        "rotation_deg": [
+          0,
+          0,
+          0
+        ],
+        "bounds_mm": [
+          44.29999925196171,
+          45.00000178813934,
+          30.60000017285347
+        ],
+        "reference_url": "https://static.smallrig.com/mall/img/public/2kibtbq6c5h-1745977694815_.pdf",
+        "reference_basis": "Envolvente de planificación XYZ 52.6 × 45 × 30 mm; malla 44.30 × 45.00 × 30.60 mm. Cinco vistas propias cotejadas con manual oficial el 2026-10-08; detalles y asientos aproximados. No se autoriza CAD de fabricación."
+      },
+      "review": {
+        "identity": true,
+        "scale": true,
+        "views": true,
+        "interfaces": true,
+        "evidence": "Cinco vistas propias de smallrig-2905b revisadas contra páginas 3-5 del manual. Envolvente del GLB registrada; controles, roscas y retención estimados. No ensayo físico.",
+        "mechanical_accuracy": "approximate",
+        "ports_authority": "ports-manifest.json"
+      }
+    },
+    {
+      "id": "smallrig-4152-takegrid-v1",
+      "part_id": "smallrig-4152",
+      "subcomponent_id": null,
+      "exact_product_name": "SmallRig Rotating Top Handle with NATO Clamp",
+      "model_number": "4152",
+      "status": "approved",
+      "source": {
+        "method": "manual",
+        "url": "https://github.com/pabloteran57-glitch/http-127.0.0.1-5173-/blob/main/scripts/lib/authored-models.mjs",
+        "author": "Takegrid / reconstrucción propia en código"
+      },
+      "rights": {
+        "license": "custom-reviewed",
+        "evidence_url": "https://github.com/pabloteran57-glitch/http-127.0.0.1-5173-/blob/main/docs/authored-model-rights.md",
+        "reviewed_on": "2026-10-08",
+        "commercial": true,
+        "redistribution": true,
+        "modification": true,
+        "source_images_authorized": false,
+        "source_images_evidence": "No usa imágenes, texturas ni archivos ajenos en el GLB; referencias de fabricante consultadas localmente, no cargadas a IA ni redistribuidas.",
+        "attribution": "4152: reconstrucción propia Takegrid, 2026; geometría/materiales aproximados, sin CAD ni respaldo del fabricante."
+      },
+      "artifact": {
+        "path": "/models/smallrig-4152-takegrid-v1.glb",
+        "sha256": "f43e305e4abf6890f3a0c6cebe84e2337b20f71656762df882fe265e39085bae",
+        "bytes": 371012,
+        "triangles": 7800
+      },
+      "calibration": {
+        "units": "metres",
+        "uniform_scale": 1,
+        "offset_mm": [
+          0,
+          0,
+          0
+        ],
+        "rotation_deg": [
+          0,
+          0,
+          0
+        ],
+        "bounds_mm": [
+          37.49999962747097,
+          80.19999787211418,
+          162.79999911785126
+        ],
+        "reference_url": "https://static.smallrig.com/mall/img/public/yq5buifh3ha-1742372936152_.pdf",
+        "reference_basis": "Envolvente de planificación XYZ 39.7 × 81.2 × 161.6 mm; malla 37.50 × 80.20 × 162.80 mm. Cinco vistas propias cotejadas con manual oficial el 2026-10-08; detalles y asientos aproximados. No se autoriza CAD de fabricación."
+      },
+      "review": {
+        "identity": true,
+        "scale": true,
+        "views": true,
+        "interfaces": true,
+        "evidence": "Cinco vistas propias de smallrig-4152 revisadas contra páginas 2-6 del manual. Envolvente del GLB registrada; controles, roscas y retención estimados. No ensayo físico.",
+        "mechanical_accuracy": "approximate",
+        "ports_authority": "ports-manifest.json"
+      }
     }
   ]
 }

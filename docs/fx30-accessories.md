@@ -4,7 +4,7 @@ Generado desde data/fx30-accessories-review.json y autoridades canónicas. Estad
 
 ## 1. Manifiesto
 
-Productos existentes, no altas implícitas. Soporte NATO de monitor 2906B; Indie 7; HDMI Kondor Blue; Batería Sony NP-F970/PRO; Mic 2. Identidad, masa y cotas siguen en parts-manifest; sólo RX representa el kit Mic 2 en el rig.
+Productos existentes, no altas implícitas. Soporte NATO de monitor 2906B; Indie 7; HDMI Kondor Blue; Batería Sony NP-F970/PRO; Mic 2; SmallRig 2905B · soporte de zapata; SmallRig 4152 · asa NATO. Identidad, masa y cotas siguen en parts-manifest; sólo RX representa el kit Mic 2 en el rig.
 
 ## 2. Distribución
 
@@ -25,7 +25,7 @@ Puertos ilustrativos: fx30-hdmi-out, fx30-mic-in. Diagrama Sony Sides, página 4
 2. Asegurar HawkLock 4770: sólo si piezas/circuitos están activos. Sin equilibrio de motores; comprobar agarre. El kit no añade asa XLR ni monitor.
 3. Óptica elegida: sólo si piezas/circuitos están activos. Cambio de óptica altera masa y palanca. Pesar el conjunto real; este perfil no admite gimbal.
 4. Insertar batería nativa: sólo si piezas/circuitos están activos. Masa interna incluida una sola vez; comprobar agarre del conjunto.
-5. Preparar soporte y monitor NATO: sólo si piezas/circuitos están activos. Carga superior adicional: comprobar agarre y reparto; no hay motores ni equilibrio certificado.
+5. Montar soporte y monitor elegido: sólo si piezas/circuitos están activos. Carga superior adicional: comprobar agarre y reparto; no hay motores ni equilibrio certificado.
 6. Colocar batería del monitor: sólo si piezas/circuitos están activos. Añade unos 300 g detrás del monitor: sostenerlo al ajustar y revisar manos, no deducir CG real.
 7. Montar receptor Mic 2: sólo si piezas/circuitos están activos. Comprobar agarre al añadir RX; pose y retención reales no ensayadas.
 8. Conectar vídeo FX30: sólo si piezas/circuitos están activos. La espiral ejerce fuerza: comprobar agarre y articulación tras conectar, sin afirmar ruta física exacta.

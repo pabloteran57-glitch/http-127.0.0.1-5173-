@@ -3,18 +3,7 @@
   "reviewed_on": "2026-10-08",
   "status": "prototype_hardening_in_progress",
   "progress_report": "docs/rigging-catalog.md",
-  "current_milestone": {
-    "phase_id": "verified-catalog-pilot",
-    "release_version": "0.2.13",
-    "scope": "Alta SEL35F18F acotada a FX3/FX30 a mano/horizontal. Montaje SmallRig/Tilta pasa a prioridad siguiente: inventario trazable, no catálogo entero ni compatibilidad universal.",
-    "next_actions": [
-      "Enumerar SKU/revisión/variantes del catálogo de montaje SmallRig/Tilta; total oficial y paginación siguen pendientes",
-      "Revisar primero cadenas completas de monitor/audio, luego varillas/extensiones y follow focus; activar sólo tras las seis fases",
-      "Continuar seis candidatos Sony restantes después del lote de montaje prioritario, sin heredar parejas",
-      "Ensayos físicos, dispositivos y usuarios observados siguen necesarios para cerrar criterios de beta",
-      "Conservar cuentas/nube aplazadas; beta pública y financiación requieren evidencia externa"
-    ]
-  },
+  "current_milestone": "Integración 2905B/4152 y recursos de montaje condicionados; continuar cadenas SmallRig/Tilta por lotes. Ensayos físicos, dispositivos reales y aceptación de beta pendientes.",
   "user_decisions": [
     {
       "date": "2026-10-05",
@@ -42,14 +31,14 @@
     "Fuentes oficiales, derechos de uso y aproximaciones explícitas"
   ],
   "baseline": {
-    "part_entries": 34,
-    "geometry_nodes": 21,
+    "part_entries": 36,
+    "geometry_nodes": 23,
     "canonical_assembly_steps": 13,
     "templates": 7,
     "storage": "Local al navegador y origen; no sincronizado",
     "performance": "Laboratorio optativo de reposo/giro y demanda/continuo. Intervalos de render JavaScript; dispositivos físicos de referencia y objetivos pendientes.",
     "assessment": "Prototipo funcional; no liberado como beta de uso profesional",
-    "product_thumbnails": 21
+    "product_thumbnails": 23
   },
   "findings": [
     {
@@ -165,7 +154,7 @@
         "Medición sostenida en dispositivos físicos de referencia",
         "Comparación reproducible y objetivos de fluidez",
         "Aceptación observada del editor directo y montaje con usuarios",
-        "Archivos exactos y derechos de terceros pendientes; 21 mallas y miniaturas propias aproximadas integradas"
+        "Archivos exactos y derechos de terceros pendientes; 23 mallas y miniaturas propias aproximadas integradas"
       ],
       "depends_on": [],
       "deliverables": [
@@ -190,7 +179,7 @@
       "verification_report": "docs/extensible-engineering-qa.md",
       "remaining": [
         "Extender revisión semántica documentada: ocho de veintidós circuitos con revisión ampliada; comprobaciones operativas, montaje mecánico y demás interfaces pendientes",
-        "Tres accesorios de monitor añadidos en el orden técnico, aún sin validación física",
+        "Cinco accesorios de monitor/asa añadidos en el orden técnico; parejas documentales candidatas sin validación física.",
         "Segundo conjunto FX30/SEL20F18G integrado para planificación con poses aproximadas, reglas declarativas y regresiones de interfaz; validación física y aceptación pendientes"
       ],
       "depends_on": [
@@ -215,7 +204,7 @@
       "status": "planning_additions_rigging_intake_in_progress",
       "verification_report": "docs/rigging-catalog.md",
       "remaining": [
-        "Montaje SmallRig/Tilta prioritario: 26 candidatos iniciales, sin inventario completo ni altas activas; auditar tornillos, orientación, cargas y parejas por cadena.",
+        "Montaje SmallRig/Tilta prioritario: 26 candidatos iniciales, sin inventario completo; 2905B/4152 activados separadamente como candidatos documentales; auditar tornillos, orientación, cargas y parejas por cadena.",
         "Ensayo físico del piloto FX30 a mano, retención/ventilación y masa instalada",
         "Revisar seis candidatos restantes sin heredar compatibilidades",
         "Gimbal, asa XLR y fuentes externas FX30 requieren revisión propia antes de activación; monitor/audio actuales siguen sin ensayo físico",

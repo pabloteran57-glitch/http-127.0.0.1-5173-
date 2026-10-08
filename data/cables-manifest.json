@@ -227,6 +227,40 @@
               -18
             ]
           }
+        },
+        "cold_shoe": {
+          "routing_path": "Al monitor sobre 2905B en la zapata inclinada 4770, sólo con la cadena de alimentación elegida. Dejar bucle de servicio fuera del agarre; no cortar cable por las coordenadas del visor.",
+          "motion_boundary": "same_camera_core",
+          "route_control_frame": "world",
+          "route_control_offsets_mm": {
+            "a": [
+              -35,
+              18,
+              -15
+            ],
+            "b": [
+              -20,
+              -20,
+              -18
+            ]
+          }
+        },
+        "handle_shoe": {
+          "routing_path": "Al monitor sobre 2905B en la zapata frontal superior del asa 4152, sólo con la cadena de alimentación elegida. Dejar bucle de servicio fuera del agarre; no cortar cable por las coordenadas del visor.",
+          "motion_boundary": "same_camera_core",
+          "route_control_frame": "world",
+          "route_control_offsets_mm": {
+            "a": [
+              -35,
+              18,
+              -15
+            ],
+            "b": [
+              -20,
+              -20,
+              -18
+            ]
+          }
         }
       }
     },
@@ -290,6 +324,40 @@
         },
         "xlr": {
           "routing_path": "Desde HDMI izquierdo de FX3, retenido en la abrazadera de jaula, hacia el monitor sobre riel 4830 del XLR-H1. Ambos extremos siguen el núcleo; dejar bucle para inclinación del monitor y acceso a conectores, sin cruzar el agarre.",
+          "motion_boundary": "same_camera_core",
+          "route_control_frame": "world",
+          "route_control_offsets_mm": {
+            "a": [
+              -35,
+              18,
+              -15
+            ],
+            "b": [
+              -20,
+              -20,
+              -18
+            ]
+          }
+        },
+        "cold_shoe": {
+          "routing_path": "Desde HDMI izquierdo del cuerpo elegido, retenido en la jaula, al monitor sobre 2905B en la zapata inclinada 4770. Dejar bucle para inclinación/giro, sin cruzar agarre ni carga en conectores. No trayectoria física verificada.",
+          "motion_boundary": "same_camera_core",
+          "route_control_frame": "world",
+          "route_control_offsets_mm": {
+            "a": [
+              -35,
+              18,
+              -15
+            ],
+            "b": [
+              -20,
+              -20,
+              -18
+            ]
+          }
+        },
+        "handle_shoe": {
+          "routing_path": "Desde HDMI izquierdo del cuerpo elegido, retenido en la jaula, al monitor sobre 2905B en la zapata frontal superior del asa 4152. Dejar bucle para inclinación/giro, sin cruzar agarre ni carga en conectores. No trayectoria física verificada.",
           "motion_boundary": "same_camera_core",
           "route_control_frame": "world",
           "route_control_offsets_mm": {

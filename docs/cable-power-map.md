@@ -72,6 +72,8 @@ Revisión por circuito y fuentes: [comprobaciones de conexiones](connection-revi
 - Cruce de movimiento: De móvil a fijo; geometría: Esquema, no CAD de puertos.
 - Recorrido cage: Desde D-Tap de placa sobre varillas hasta monitor sobre jaula 4770. Ambos extremos pertenecen al núcleo; recoger sobrante lejos del asa, pantalla y liberación de la batería. Cruce: same_camera_core. Curva ilustrativa, no ruta física medida.
 - Recorrido xlr: Desde D-Tap de placa sobre varillas hasta monitor sobre kit 4830 del XLR-H1. Ambos extremos pertenecen al núcleo; recoger sobrante lejos del asa, pantalla y liberación de la batería. Cruce: same_camera_core. Curva ilustrativa, no ruta física medida.
+- Recorrido cold_shoe: Al monitor sobre 2905B en la zapata inclinada 4770, sólo con la cadena de alimentación elegida. Dejar bucle de servicio fuera del agarre; no cortar cable por las coordenadas del visor. Cruce: same_camera_core. Curva ilustrativa, no ruta física medida.
+- Recorrido handle_shoe: Al monitor sobre 2905B en la zapata frontal superior del asa 4152, sólo con la cadena de alimentación elegida. Dejar bucle de servicio fuera del agarre; no cortar cable por las coordenadas del visor. Cruce: same_camera_core. Curva ilustrativa, no ruta física medida.
 
 ### vid-fx3-to-smallhd
 
@@ -88,6 +90,8 @@ Revisión por circuito y fuentes: [comprobaciones de conexiones](connection-revi
 - Cruce de movimiento: De móvil a fijo; geometría: Esquema, no CAD de puertos.
 - Recorrido cage: Desde HDMI izquierdo de FX3, retenido en la abrazadera de jaula, hacia el monitor sobre NATO 4770. Ambos extremos siguen el núcleo; dejar bucle para inclinación del monitor y acceso a conectores, sin cruzar el agarre. Cruce: same_camera_core. Curva ilustrativa, no ruta física medida.
 - Recorrido xlr: Desde HDMI izquierdo de FX3, retenido en la abrazadera de jaula, hacia el monitor sobre riel 4830 del XLR-H1. Ambos extremos siguen el núcleo; dejar bucle para inclinación del monitor y acceso a conectores, sin cruzar el agarre. Cruce: same_camera_core. Curva ilustrativa, no ruta física medida.
+- Recorrido cold_shoe: Desde HDMI izquierdo del cuerpo elegido, retenido en la jaula, al monitor sobre 2905B en la zapata inclinada 4770. Dejar bucle para inclinación/giro, sin cruzar agarre ni carga en conectores. No trayectoria física verificada. Cruce: same_camera_core. Curva ilustrativa, no ruta física medida.
+- Recorrido handle_shoe: Desde HDMI izquierdo del cuerpo elegido, retenido en la jaula, al monitor sobre 2905B en la zapata frontal superior del asa 4152. Dejar bucle para inclinación/giro, sin cruzar agarre ni carga en conectores. No trayectoria física verificada. Cruce: same_camera_core. Curva ilustrativa, no ruta física medida.
 
 ### vid-smallhd-to-ronin-transmitter
 
