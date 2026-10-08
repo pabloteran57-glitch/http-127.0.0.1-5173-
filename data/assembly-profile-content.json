@@ -10,7 +10,9 @@
       "note": "Posiciones finales aproximadas, no una trayectoria de acople medida.",
       "rebalance": "El equilibrio inicial se comprueba después de completar la carga móvil.",
       "source_ids": [
-        "src-sony-fx3-battery-install"
+        "src-sony-fx3-battery-install",
+        "src-sony-fx3-sel35f18f-pair",
+        "src-sony-sel35f18f-features"
       ],
       "blocks": [
         {
@@ -49,6 +51,21 @@
           "where": "Montura Sony E del cuerpo.",
           "verify": [
             "Comprobar el bloqueo de la bayoneta y el recorrido del zoom."
+          ]
+        },
+        {
+          "part_ids": [
+            "sony-fe-35-f18"
+          ],
+          "require_all": [
+            "sony-fx3"
+          ],
+          "mount": "Con cámara apagada, retirar tapas, alinear índices de montura y girar hasta retención sin forzar.",
+          "where": "Montura E del cuerpo FX3 elegido, sin adaptador ni parasol implícito.",
+          "verify": [
+            "Verificar modelo SEL35F18F, bloqueo y reconocimiento de la óptica en el ejemplar.",
+            "Probar AF/MF, botón de retención y enfoque; enfoque interno no certifica espacio libre del rig.",
+            "Filtro 55 mm: no montar el anillo 82-95 mm del 3645. Comprobar acceso a controles, manos y cables del equipo elegido."
           ]
         }
       ]
@@ -612,16 +629,16 @@
         },
         {
           "number": 3,
-          "title": "Acoplar FE 20mm F1.8 G",
+          "title": "Óptica elegida",
           "kind": "mount",
           "requires_any": [
-            "sony-fe-20-f18-g"
+            "sony-fe-20-f18-g",
+            "sony-fe-35-f18"
           ],
-          "note": "Pose aproximada del piloto FX30, sin heredar etapas ni accesorios de FX3.",
-          "rebalance": "Mayor masa frontal: comprobar comodidad; no asumir centro de gravedad a partir de envolventes.",
+          "note": "Sólo la óptica activa elegida; posiciones finales aproximadas, sin trayectoria de bayoneta.",
+          "rebalance": "Cambio de óptica altera masa y palanca. Pesar el conjunto real; este perfil no admite gimbal.",
           "source_ids": [
-            "intake-sony-fx30-helpguide",
-            "intake-sony-fx30-sel20f18g-pair"
+            "intake-sony-fx30-helpguide"
           ],
           "blocks": [
             {
@@ -633,6 +650,28 @@
               "verify": [
                 "Retención y acceso al botón de liberación",
                 "Anillos libres y ausencia de interferencias comprobada físicamente"
+              ],
+              "source_ids": [
+                "intake-sony-fx30-sel20f18g-pair"
+              ]
+            },
+            {
+              "part_ids": [
+                "sony-fe-35-f18"
+              ],
+              "require_all": [
+                "sony-fx30"
+              ],
+              "mount": "Con cámara apagada, retirar tapas, alinear índices de montura y girar hasta retención sin forzar.",
+              "where": "Montura E del cuerpo FX30 elegido, sin adaptador ni parasol implícito.",
+              "verify": [
+                "Verificar modelo SEL35F18F, bloqueo y reconocimiento de la óptica en el ejemplar.",
+                "Probar AF/MF, botón de retención y enfoque; enfoque interno no certifica espacio libre del rig.",
+                "Filtro 55 mm: no montar el anillo 82-95 mm del 3645. Comprobar acceso a controles, manos y cables del equipo elegido."
+              ],
+              "source_ids": [
+                "src-sony-fx30-sel35f18f-pair",
+                "src-sony-sel35f18f-features"
               ]
             }
           ]
@@ -836,8 +875,7 @@
           "rebalance": "No certifica seguridad ni sustituye el manual: registrar ensayo físico y masa del conjunto instalado.",
           "source_ids": [
             "intake-sony-fx30-bottom",
-            "intake-sony-fx30-sel20f18g-pair",
-            "audit-doc-smallrig-4770-manual"
+            "intake-sony-fx30-helpguide"
           ],
           "blocks": [
             {
@@ -863,6 +901,10 @@
               "cable_ids": [
                 "vid-fx30-to-smallhd"
               ],
+              "source_ids": [
+                "src-smallhd-indie7-hdmi-guide",
+                "src-smallhd-indie7-specs"
+              ],
               "mount": "Encender cámara y monitor tras revisar todas las fijaciones.",
               "where": "Monitor elegido sobre NATO; no hay transmisor implícito.",
               "verify": [
@@ -878,6 +920,10 @@
                 "audio-rx-to-fx30"
               ],
               "mount": "Comprobar audio en un clip real antes de rodar.",
+              "source_ids": [
+                "src-sony-fx30-av-guide",
+                "audit-doc-dji-mic2-manual"
+              ],
               "where": "Entrada MIC del cuerpo FX30 con RX elegido.",
               "verify": [
                 "Escuchar toma reproducida y comprobar niveles/canales sin saturación.",

@@ -340,6 +340,23 @@
       },
       "caption": "Modelo aproximado",
       "reviewed_on": "2026-10-07"
+    },
+    {
+      "id": "sony-fe-35-f18-takegrid-v1",
+      "part_id": "sony-fe-35-f18",
+      "subcomponent_id": null,
+      "model_sha256": "389f0c97dec82be24afeaa11e690c1647e8aed326cc6fcec25d68c392ff6ea4a",
+      "status": "approved",
+      "method": "rendered_approved_mesh",
+      "image": {
+        "path": "/product-visuals/sony-fe-35-f18-takegrid-v1.webp",
+        "bytes": 8662,
+        "sha256": "108c510bef751601426fa8d0c27c37193c2b9c266c9dc00ddc225faa0911e5f8",
+        "width": 400,
+        "height": 280
+      },
+      "caption": "Modelo aproximado",
+      "reviewed_on": "2026-10-08"
     }
   ],
   "scope": "Miniaturas de mallas propias revisadas, aproximadas y encuadradas por pieza. No fotos oficiales, CAD ni comparación de escala entre tarjetas."

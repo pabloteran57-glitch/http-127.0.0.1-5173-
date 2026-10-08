@@ -1,0 +1,2261 @@
+{
+  "version": 1,
+  "reviewed_on": "2026-10-08",
+  "status": "research_only",
+  "scope": "Inventario inicial de montaje SmallRig/Tilta; no catálogo completo ni piezas seleccionables. Las autoridades activas permanecen en parts-manifest y planner-rules.",
+  "priority_policy": "Montaje SmallRig/Tilta antes de nuevas cámaras/ópticas; primero cadenas completas para monitor/audio, varillas/extensiones y follow focus. Conservar los siete perfiles y las bibliotecas.",
+  "phase_order": [
+    "manifest",
+    "layout",
+    "cables_power",
+    "assembly",
+    "viewer",
+    "variants"
+  ],
+  "coverage": {
+    "goal": "Inventariar el catálogo de accesorios de montaje de ambas marcas por región, revisión y variante. Cada SKU sólo se activa después de cadena completa y revisión propia.",
+    "catalog_complete": false,
+    "known_official_total": null,
+    "percentage_complete": null,
+    "selectable_promotions": 0,
+    "availability_checked": false
+  },
+  "families": [
+    {
+      "id": "fasteners",
+      "label": "Tornillería y reductores",
+      "required_fields": [
+        "rosca y paso",
+        "longitud útil",
+        "cabeza y herramienta",
+        "espesor de pila",
+        "profundidad del receptor",
+        "retención y par documentado"
+      ]
+    },
+    {
+      "id": "nato",
+      "label": "Rieles y abrazaderas NATO",
+      "required_fields": [
+        "riel o abrazadera",
+        "longitud y perfil",
+        "topes de seguridad",
+        "orientación de entrada",
+        "tornillos y asiento",
+        "carga del conjunto"
+      ]
+    },
+    {
+      "id": "rods",
+      "label": "Varillas y abrazaderas",
+      "required_fields": [
+        "diámetro",
+        "largo",
+        "separación si es doble",
+        "rosca interna si se extiende",
+        "material",
+        "despeje y flexión"
+      ]
+    },
+    {
+      "id": "bases",
+      "label": "Bases y liberación rápida",
+      "required_fields": [
+        "perfil exacto de placa/receptor",
+        "tornillos",
+        "altura del eje óptico",
+        "retención",
+        "separación de varillas",
+        "masa instalada"
+      ]
+    },
+    {
+      "id": "extensions",
+      "label": "Extensiones y adaptadores",
+      "required_fields": [
+        "entrada y salida diferenciadas",
+        "roscas internas",
+        "longitud añadida",
+        "retención",
+        "apalancamiento",
+        "restricciones del fabricante"
+      ]
+    },
+    {
+      "id": "monitor",
+      "label": "Soportes de monitor y brazos",
+      "required_fields": [
+        "carga publicada y ámbito",
+        "retención",
+        "rosca/antirrotación del monitor",
+        "rango angular",
+        "cables y manos",
+        "cadena completa"
+      ]
+    },
+    {
+      "id": "audio",
+      "label": "Zapata y soportes de audio",
+      "required_fields": [
+        "zapata fría o interfaz eléctrica",
+        "adaptador exacto",
+        "retención",
+        "posición de antenas",
+        "masa RX o micrófono",
+        "cable y alcance"
+      ]
+    },
+    {
+      "id": "follow_focus",
+      "label": "Follow focus y control de óptica",
+      "required_fields": [
+        "diámetro de varilla",
+        "engranaje y módulo",
+        "anillo de óptica",
+        "alcance",
+        "alimentación/control si procede",
+        "calibración"
+      ]
+    },
+    {
+      "id": "rosettes",
+      "label": "Rosetas y empuñaduras",
+      "required_fields": [
+        "perfil y dientes",
+        "diámetro",
+        "rosca y sexo",
+        "antirrotación",
+        "orientación",
+        "carga"
+      ]
+    },
+    {
+      "id": "cages",
+      "label": "Jaulas y extensiones de cámara",
+      "required_fields": [
+        "cuerpo y revisión exactos",
+        "puntos de fijación",
+        "puertos/ventilación",
+        "tornillos suministrados",
+        "interfaces libres",
+        "acceso a batería"
+      ]
+    },
+    {
+      "id": "battery_support",
+      "label": "Placas y soporte de batería",
+      "required_fields": [
+        "acople y retención",
+        "varillas/base",
+        "masa/lever",
+        "puertos reales",
+        "voltajes/pinout propios",
+        "cableado"
+      ]
+    },
+    {
+      "id": "lens_support",
+      "label": "Soportes ópticos y matte box",
+      "required_fields": [
+        "diámetro/anillo exacto",
+        "eje óptico",
+        "recorrido de óptica",
+        "varillas",
+        "peso",
+        "sin presión lateral"
+      ]
+    }
+  ],
+  "inventory": [
+    {
+      "id": "smallrig-nato",
+      "brand": "SmallRig",
+      "family_id": "nato",
+      "source_id": "src-rigging-index-smallrig-nato",
+      "status": "enumeration_pending",
+      "official_total": null,
+      "enumerated_sku_count": null,
+      "pagination_complete": false,
+      "reviewed_on": "2026-10-08",
+      "note": "Página de categoría consultada; variantes y todas las páginas aún no enumeradas."
+    },
+    {
+      "id": "smallrig-fasteners",
+      "brand": "SmallRig",
+      "family_id": "fasteners",
+      "source_id": "src-rigging-index-smallrig-fasteners",
+      "status": "enumeration_pending",
+      "official_total": null,
+      "enumerated_sku_count": null,
+      "pagination_complete": false,
+      "reviewed_on": "2026-10-08",
+      "note": "Página de categoría consultada; variantes y todas las páginas aún no enumeradas."
+    },
+    {
+      "id": "smallrig-rods",
+      "brand": "SmallRig",
+      "family_id": "rods",
+      "source_id": "src-rigging-index-smallrig-rods",
+      "status": "enumeration_pending",
+      "official_total": null,
+      "enumerated_sku_count": null,
+      "pagination_complete": false,
+      "reviewed_on": "2026-10-08",
+      "note": "Página de categoría consultada; variantes y todas las páginas aún no enumeradas."
+    },
+    {
+      "id": "smallrig-audio",
+      "brand": "SmallRig",
+      "family_id": "audio",
+      "source_id": "src-rigging-index-smallrig-audio",
+      "status": "enumeration_pending",
+      "official_total": null,
+      "enumerated_sku_count": null,
+      "pagination_complete": false,
+      "reviewed_on": "2026-10-08",
+      "note": "Página de categoría consultada; variantes y todas las páginas aún no enumeradas."
+    },
+    {
+      "id": "smallrig-bases",
+      "brand": "SmallRig",
+      "family_id": "bases",
+      "source_id": "src-rigging-index-smallrig-bases",
+      "status": "enumeration_pending",
+      "official_total": null,
+      "enumerated_sku_count": null,
+      "pagination_complete": false,
+      "reviewed_on": "2026-10-08",
+      "note": "Página de categoría consultada; variantes y todas las páginas aún no enumeradas."
+    },
+    {
+      "id": "tilta-accessories",
+      "brand": "Tilta",
+      "family_id": null,
+      "source_id": "src-rigging-index-tilta-accessories",
+      "status": "enumeration_pending",
+      "official_total": null,
+      "enumerated_sku_count": null,
+      "pagination_complete": false,
+      "reviewed_on": "2026-10-08",
+      "note": "Página de categoría consultada; variantes y todas las páginas aún no enumeradas."
+    },
+    {
+      "id": "tilta-fasteners",
+      "brand": "Tilta",
+      "family_id": "fasteners",
+      "source_id": "src-rigging-index-tilta-fasteners",
+      "status": "enumeration_pending",
+      "official_total": null,
+      "enumerated_sku_count": null,
+      "pagination_complete": false,
+      "reviewed_on": "2026-10-08",
+      "note": "Página de categoría consultada; variantes y todas las páginas aún no enumeradas."
+    },
+    {
+      "id": "tilta-rods",
+      "brand": "Tilta",
+      "family_id": "rods",
+      "source_id": "src-rigging-index-tilta-rods",
+      "status": "enumeration_pending",
+      "official_total": null,
+      "enumerated_sku_count": null,
+      "pagination_complete": false,
+      "reviewed_on": "2026-10-08",
+      "note": "Página de categoría consultada; variantes y todas las páginas aún no enumeradas."
+    },
+    {
+      "id": "tilta-bases",
+      "brand": "Tilta",
+      "family_id": "bases",
+      "source_id": "src-rigging-index-tilta-bases",
+      "status": "enumeration_pending",
+      "official_total": null,
+      "enumerated_sku_count": null,
+      "pagination_complete": false,
+      "reviewed_on": "2026-10-08",
+      "note": "Página de categoría consultada; variantes y todas las páginas aún no enumeradas."
+    }
+  ],
+  "existing_part_ids": [
+    "smallrig-4770",
+    "smallrig-1674",
+    "smallrig-rods-8in",
+    "smallrig-3645",
+    "smallrig-3026b",
+    "smallrig-3203b",
+    "smallrig-2906b",
+    "smallrig-4830"
+  ],
+  "products": [
+    {
+      "id": "rigging-smallrig-1409",
+      "brand": "SmallRig",
+      "exact_product_name": "Quick Release Safety Rail (46mm)",
+      "model_number": "1409",
+      "family_ids": [
+        "nato"
+      ],
+      "status": "research_only",
+      "selectable": false,
+      "reviewed_on": "2026-10-08",
+      "confidence_level": "partial_documentary",
+      "source_ids": [
+        "src-rigging-smallrig-1409"
+      ],
+      "secondary_source_url": null,
+      "interfaces": [
+        {
+          "kind": "nato",
+          "direction": "rail",
+          "description": "Riel de 46 mm con pasadores de retención en ambos extremos.",
+          "source_id": "src-rigging-smallrig-1409"
+        }
+      ],
+      "published_dimensions_mm": null,
+      "published_weight_g": 38,
+      "published_material": "Aleación de aluminio.",
+      "included_items": [
+        "Riel",
+        "Llave hexagonal",
+        "Dos tornillos 1/4"
+      ],
+      "physical_validation": {
+        "status": "pending",
+        "observations": []
+      },
+      "geometry": {
+        "status": "not_authored",
+        "position_mm": null,
+        "rights": "not_granted_for_manufacturer_media"
+      },
+      "compatibility": {
+        "status": "unknown",
+        "exact_pairs": []
+      },
+      "field_citations": [
+        {
+          "source_id": "src-rigging-smallrig-1409",
+          "field_paths": [
+            "exact_product_name",
+            "model_number",
+            "interfaces",
+            "published_weight_g",
+            "published_material",
+            "included_items"
+          ],
+          "method": "official_indexed_text_direct_incomplete",
+          "locator": "Descripción oficial indexada, dimensiones de longitud, Net Weight y Package Includes."
+        }
+      ],
+      "remaining": [
+        "Revisar dimensiones y masa netas, sin usar valores del embalaje.",
+        "Documentar tornillos, asiento, carga y cadena exacta antes de alta.",
+        "Distribución, conexiones, guía, modelo auditado y ensayos físicos pendientes."
+      ],
+      "method": "official_indexed_text_direct_incomplete",
+      "source_note": "Texto oficial indexado revisado; la página directa no mostró todos los datos. Disponibilidad no determinada.",
+      "locator": "Descripción oficial indexada: riel 46 mm, pasadores, peso neto y contenido.",
+      "included_items_scope": "Elementos revisados; confirmar contenido completo y revisión antes de compra."
+    },
+    {
+      "id": "rigging-smallrig-3011",
+      "brand": "SmallRig",
+      "exact_product_name": "Rod Clamp (with NATO rail)",
+      "model_number": "3011",
+      "family_ids": [
+        "rods"
+      ],
+      "status": "research_only",
+      "selectable": false,
+      "reviewed_on": "2026-10-08",
+      "confidence_level": "partial_documentary",
+      "source_ids": [
+        "src-rigging-smallrig-3011"
+      ],
+      "secondary_source_url": null,
+      "interfaces": [
+        {
+          "kind": "rod_15",
+          "direction": "clamp",
+          "description": "Abrazadera para varilla de 15 mm.",
+          "source_id": "src-rigging-smallrig-3011"
+        },
+        {
+          "kind": "nato",
+          "direction": "rail",
+          "description": "Riel para abrazadera NATO; no es una abrazadera NATO.",
+          "source_id": "src-rigging-smallrig-3011"
+        },
+        {
+          "kind": "thread_1_4_20",
+          "direction": "unspecified",
+          "description": "Fijación a jaula por tornillo 1/4-20; agujeros y profundidades requieren revisión de figura.",
+          "source_id": "src-rigging-smallrig-3011"
+        }
+      ],
+      "published_dimensions_mm": {
+        "values": [
+          78,
+          28.8,
+          20.8
+        ],
+        "basis": "Producto según manual; ejes no asignados."
+      },
+      "published_weight_g": 34,
+      "published_material": "Aleación de aluminio.",
+      "included_items": [
+        "Abrazadera",
+        "Tornillo 1/4-20",
+        "Destornillador",
+        "Tarjeta de garantía"
+      ],
+      "physical_validation": {
+        "status": "pending",
+        "observations": []
+      },
+      "geometry": {
+        "status": "not_authored",
+        "position_mm": null,
+        "rights": "not_granted_for_manufacturer_media"
+      },
+      "compatibility": {
+        "status": "unknown",
+        "exact_pairs": []
+      },
+      "field_citations": [
+        {
+          "source_id": "src-rigging-smallrig-3011",
+          "field_paths": [
+            "exact_product_name",
+            "model_number",
+            "interfaces",
+            "published_dimensions_mm",
+            "published_weight_g",
+            "weight_tolerance_g",
+            "published_material",
+            "included_items"
+          ],
+          "method": "official_pdf_text_review",
+          "locator": "Manual, páginas 2 y 5."
+        }
+      ],
+      "remaining": [
+        "Revisar visualmente el asiento y longitud de tornillo del manual.",
+        "La relación publicada con 2906 no se extrapola a 2906B.",
+        "No asumir ajuste a 4770; validar antirrotación, manos y alcance de varilla."
+      ],
+      "weight_tolerance_g": 5,
+      "method": "official_pdf_text_review",
+      "locator": "Manual, páginas 2 y 5: varilla/NATO, tornillo, dimensiones y peso.",
+      "included_items_scope": "Elementos revisados; confirmar contenido completo y revisión antes de compra."
+    },
+    {
+      "id": "rigging-smallrig-3010b",
+      "brand": "SmallRig",
+      "exact_product_name": "Mini Follow Focus",
+      "model_number": "3010B",
+      "family_ids": [
+        "follow_focus"
+      ],
+      "status": "research_only",
+      "selectable": false,
+      "reviewed_on": "2026-10-08",
+      "confidence_level": "partial_documentary",
+      "source_ids": [
+        "src-rigging-smallrig-3010b"
+      ],
+      "secondary_source_url": null,
+      "interfaces": [
+        {
+          "kind": "rod_15",
+          "direction": "clamp",
+          "description": "Soporte de varilla mediante 3011 incluido.",
+          "source_id": "src-rigging-smallrig-3010b"
+        },
+        {
+          "kind": "gear_m0_8",
+          "direction": "driving",
+          "description": "Engranaje M0.8-43T publicado; no prueba anillo/alcance de una óptica.",
+          "source_id": "src-rigging-smallrig-3010b"
+        }
+      ],
+      "published_dimensions_mm": null,
+      "published_weight_g": null,
+      "published_material": null,
+      "included_items": [
+        "Varilla 15 mm 1050",
+        "Abrazadera 3011",
+        "Anillo dentado de sujeción"
+      ],
+      "physical_validation": {
+        "status": "pending",
+        "observations": []
+      },
+      "geometry": {
+        "status": "not_authored",
+        "position_mm": null,
+        "rights": "not_granted_for_manufacturer_media"
+      },
+      "compatibility": {
+        "status": "unknown",
+        "exact_pairs": []
+      },
+      "field_citations": [
+        {
+          "source_id": "src-rigging-smallrig-3010b",
+          "field_paths": [
+            "exact_product_name",
+            "model_number",
+            "interfaces",
+            "included_items"
+          ],
+          "method": "official_indexed_text_direct_incomplete",
+          "locator": "Cabecera/SKU y descripción del producto exacto; no sustituyen dibujo mecánico."
+        }
+      ],
+      "remaining": [
+        "Revisar contenido completo y la revisión B, no reutilizar 195 g de 3010.",
+        "Elegir objetivo y anillo exactos; comprobar enfoque electrónico, engrane y calibración.",
+        "Distribución, carga y modelo propio pendientes."
+      ],
+      "method": "official_indexed_text_direct_incomplete",
+      "included_items_scope": "Elementos revisados; confirmar contenido completo y revisión antes de compra."
+    },
+    {
+      "id": "rigging-smallrig-2113",
+      "brand": "SmallRig",
+      "exact_product_name": "EVF Mount with NATO Rail",
+      "model_number": "2113",
+      "family_ids": [
+        "monitor"
+      ],
+      "status": "research_only",
+      "selectable": false,
+      "reviewed_on": "2026-10-08",
+      "confidence_level": "partial_documentary",
+      "source_ids": [
+        "src-rigging-smallrig-2113"
+      ],
+      "secondary_source_url": null,
+      "interfaces": [
+        {
+          "kind": "nato",
+          "direction": "clamp",
+          "description": "Abrazadera NATO en un extremo.",
+          "source_id": "src-rigging-smallrig-2113"
+        },
+        {
+          "kind": "nato",
+          "direction": "rail",
+          "description": "Riel NATO en el otro; la orientación completa requiere revisión.",
+          "source_id": "src-rigging-smallrig-2113"
+        },
+        {
+          "kind": "thread_1_4",
+          "direction": "unspecified",
+          "description": "Ranura para fijación de monitor por tornillo 1/4.",
+          "source_id": "src-rigging-smallrig-2113"
+        }
+      ],
+      "published_dimensions_mm": {
+        "values": [
+          110,
+          67,
+          47
+        ],
+        "basis": "Producto publicado; ejes no asignados."
+      },
+      "published_weight_g": 128,
+      "published_material": "Aleación de aluminio.",
+      "included_items": [
+        "Dos tornillos 1/4",
+        "Tornillo M5",
+        "Llave hexagonal"
+      ],
+      "physical_validation": {
+        "status": "pending",
+        "observations": []
+      },
+      "geometry": {
+        "status": "not_authored",
+        "position_mm": null,
+        "rights": "not_granted_for_manufacturer_media"
+      },
+      "compatibility": {
+        "status": "unknown",
+        "exact_pairs": []
+      },
+      "field_citations": [
+        {
+          "source_id": "src-rigging-smallrig-2113",
+          "field_paths": [
+            "exact_product_name",
+            "model_number",
+            "interfaces",
+            "published_dimensions_mm",
+            "published_weight_g",
+            "published_material",
+            "included_items",
+            "published_load_limit"
+          ],
+          "method": "official_indexed_text_direct_incomplete",
+          "locator": "Descripción oficial indexada, compatibilidad, dimensiones, peso y contenido."
+        }
+      ],
+      "remaining": [
+        "Revisar dimensiones y masa netas, sin usar valores del embalaje.",
+        "Documentar tornillos, asiento, carga y cadena exacta antes de alta.",
+        "Distribución, conexiones, guía, modelo auditado y ensayos físicos pendientes."
+      ],
+      "published_load_limit": {
+        "value": 1.5,
+        "unit": "kg",
+        "basis": "La ficha indica monitores de menos de 1.5 kg; no ensayo dinámico."
+      },
+      "method": "official_indexed_text_direct_incomplete",
+      "included_items_scope": "Elementos revisados; confirmar contenido completo y revisión antes de compra."
+    },
+    {
+      "id": "rigging-smallrig-2069",
+      "brand": "SmallRig",
+      "exact_product_name": "Right-Angle 15mm Rod Clamp",
+      "model_number": "2069",
+      "family_ids": [
+        "rods"
+      ],
+      "status": "research_only",
+      "selectable": false,
+      "reviewed_on": "2026-10-08",
+      "confidence_level": "partial_documentary",
+      "source_ids": [
+        "src-rigging-smallrig-2069"
+      ],
+      "secondary_source_url": null,
+      "interfaces": [
+        {
+          "kind": "rod_15",
+          "direction": "clamp",
+          "description": "Dos abrazaderas de 15 mm a 90 grados; bloqueo por dos palometas.",
+          "source_id": "src-rigging-smallrig-2069"
+        }
+      ],
+      "published_dimensions_mm": {
+        "values": [
+          68.5,
+          26.5,
+          26.5
+        ],
+        "basis": "Product Dimensions; ejes no asignados."
+      },
+      "published_weight_g": 46,
+      "published_material": "Aleación de aluminio.",
+      "included_items": [
+        "Una abrazadera 2069"
+      ],
+      "physical_validation": {
+        "status": "pending",
+        "observations": []
+      },
+      "geometry": {
+        "status": "not_authored",
+        "position_mm": null,
+        "rights": "not_granted_for_manufacturer_media"
+      },
+      "compatibility": {
+        "status": "unknown",
+        "exact_pairs": []
+      },
+      "field_citations": [
+        {
+          "source_id": "src-rigging-smallrig-2069",
+          "field_paths": [
+            "exact_product_name",
+            "model_number",
+            "interfaces",
+            "published_dimensions_mm",
+            "published_weight_g",
+            "published_material",
+            "included_items"
+          ],
+          "method": "direct_official_page",
+          "locator": "Description, Product Dimensions, Net Weight, Material y Package Includes."
+        }
+      ],
+      "remaining": [
+        "Revisar dimensiones y masa netas, sin usar valores del embalaje.",
+        "Documentar tornillos, asiento, carga y cadena exacta antes de alta.",
+        "Distribución, conexiones, guía, modelo auditado y ensayos físicos pendientes."
+      ],
+      "included_items_scope": "Elementos revisados; confirmar contenido completo y revisión antes de compra."
+    },
+    {
+      "id": "rigging-smallrig-dcs2279",
+      "brand": "SmallRig",
+      "exact_product_name": "15mm Single Rod Clamp for BMPCC 4K & 6K Camera Cage",
+      "model_number": "DCS2279",
+      "family_ids": [
+        "rods"
+      ],
+      "status": "research_only",
+      "selectable": false,
+      "reviewed_on": "2026-10-08",
+      "confidence_level": "partial_documentary",
+      "source_ids": [
+        "src-rigging-smallrig-dcs2279"
+      ],
+      "secondary_source_url": null,
+      "interfaces": [
+        {
+          "kind": "rod_15",
+          "direction": "clamp",
+          "description": "Varilla de 15 mm para motor follow focus.",
+          "source_id": "src-rigging-smallrig-dcs2279"
+        },
+        {
+          "kind": "thread_1_4",
+          "direction": "unspecified",
+          "description": "Dos tornillos 1/4 sobre jaulas 2203/CVB2254/CVB2255; no 4770 por analogía.",
+          "source_id": "src-rigging-smallrig-dcs2279"
+        }
+      ],
+      "published_dimensions_mm": {
+        "values": [
+          59,
+          29,
+          27
+        ],
+        "basis": "Product Dimensions; ejes no asignados."
+      },
+      "published_weight_g": 28,
+      "published_material": "Aleación de aluminio.",
+      "included_items": [
+        "Abrazadera",
+        "Llave hexagonal",
+        "Dos tornillos 1/4"
+      ],
+      "physical_validation": {
+        "status": "pending",
+        "observations": []
+      },
+      "geometry": {
+        "status": "not_authored",
+        "position_mm": null,
+        "rights": "not_granted_for_manufacturer_media"
+      },
+      "compatibility": {
+        "status": "unknown",
+        "exact_pairs": []
+      },
+      "field_citations": [
+        {
+          "source_id": "src-rigging-smallrig-dcs2279",
+          "field_paths": [
+            "exact_product_name",
+            "model_number",
+            "interfaces",
+            "published_dimensions_mm",
+            "published_weight_g",
+            "published_material",
+            "included_items"
+          ],
+          "method": "direct_official_page",
+          "locator": "SKU DCS2279 y Description / Compatibility / Package Includes / Net Weight."
+        }
+      ],
+      "remaining": [
+        "Revisar dimensiones y masa netas, sin usar valores del embalaje.",
+        "Documentar tornillos, asiento, carga y cadena exacta antes de alta.",
+        "Distribución, conexiones, guía, modelo auditado y ensayos físicos pendientes."
+      ],
+      "included_items_scope": "Elementos revisados; confirmar contenido completo y revisión antes de compra."
+    },
+    {
+      "id": "rigging-smallrig-4171",
+      "brand": "SmallRig",
+      "exact_product_name": "15mm ARRI Locating Single Rod Clamp",
+      "model_number": "4171",
+      "family_ids": [
+        "rods"
+      ],
+      "status": "research_only",
+      "selectable": false,
+      "reviewed_on": "2026-10-08",
+      "confidence_level": "partial_documentary",
+      "source_ids": [
+        "src-rigging-smallrig-4171"
+      ],
+      "secondary_source_url": null,
+      "interfaces": [
+        {
+          "kind": "rod_15",
+          "direction": "clamp",
+          "description": "Abrazadera de varilla 15 mm.",
+          "source_id": "src-rigging-smallrig-4171"
+        },
+        {
+          "kind": "thread_3_8_16",
+          "direction": "male_locating",
+          "description": "Fijación ARRI 3/8-16 con localizadores; el patrón de pasadores es obligatorio.",
+          "source_id": "src-rigging-smallrig-4171"
+        }
+      ],
+      "published_dimensions_mm": null,
+      "published_weight_g": null,
+      "published_material": null,
+      "included_items": null,
+      "physical_validation": {
+        "status": "pending",
+        "observations": []
+      },
+      "geometry": {
+        "status": "not_authored",
+        "position_mm": null,
+        "rights": "not_granted_for_manufacturer_media"
+      },
+      "compatibility": {
+        "status": "unknown",
+        "exact_pairs": []
+      },
+      "field_citations": [
+        {
+          "source_id": "src-rigging-smallrig-4171",
+          "field_paths": [
+            "exact_product_name",
+            "model_number",
+            "interfaces"
+          ],
+          "method": "official_indexed_text_direct_incomplete",
+          "locator": "Identidad 4171 en URL oficial y descripción indexada; la variante dinámica no se mostró seleccionada. Confirmar SKU visible y manual antes de alta."
+        }
+      ],
+      "remaining": [
+        "SKU y manual completos por revisar; la página dinámica no mostró la variante seleccionada.",
+        "Medir/revisar patrón de pasadores, profundidad y carga; rosca 3/8 sola no prueba ajuste.",
+        "No crear pareja universal con jaulas futuras."
+      ],
+      "method": "official_indexed_text_direct_incomplete",
+      "included_items_scope": "Contenido pendiente."
+    },
+    {
+      "id": "rigging-smallrig-2172b",
+      "brand": "SmallRig",
+      "exact_product_name": "Mini Quick Release NATO Rail (48mm)",
+      "model_number": "2172B",
+      "family_ids": [
+        "nato"
+      ],
+      "status": "research_only",
+      "selectable": false,
+      "reviewed_on": "2026-10-08",
+      "confidence_level": "partial_documentary",
+      "source_ids": [
+        "src-rigging-smallrig-2172b"
+      ],
+      "secondary_source_url": null,
+      "interfaces": [
+        {
+          "kind": "nato",
+          "direction": "rail",
+          "description": "Riel NATO 48 mm; grosor publicado 6 mm y retención en extremos.",
+          "source_id": "src-rigging-smallrig-2172b"
+        }
+      ],
+      "published_dimensions_mm": null,
+      "published_weight_g": null,
+      "published_material": null,
+      "included_items": null,
+      "physical_validation": {
+        "status": "pending",
+        "observations": []
+      },
+      "geometry": {
+        "status": "not_authored",
+        "position_mm": null,
+        "rights": "not_granted_for_manufacturer_media"
+      },
+      "compatibility": {
+        "status": "unknown",
+        "exact_pairs": []
+      },
+      "field_citations": [
+        {
+          "source_id": "src-rigging-smallrig-2172b",
+          "field_paths": [
+            "exact_product_name",
+            "model_number",
+            "interfaces"
+          ],
+          "method": "official_indexed_text_direct_incomplete",
+          "locator": "Identidad 2172B en URL oficial y descripción indexada; revisión B y SKU visible pendientes. No es dibujo mecánico ni confirmación de variante seleccionada."
+        }
+      ],
+      "remaining": [
+        "Confirmar SKU visible/manual de revisión B; la identidad se localiza en URL.",
+        "Cotas parciales no proporcionan taladros ni largo útil de tornillos.",
+        "Contenido y ajuste a abrazaderas exactas pendientes."
+      ],
+      "method": "official_indexed_text_direct_incomplete",
+      "included_items_scope": "Contenido pendiente."
+    },
+    {
+      "id": "rigging-smallrig-1642",
+      "brand": "SmallRig",
+      "exact_product_name": "Baseplate (Arri Style) with Dual 15mm Rod Clamp",
+      "model_number": "1642",
+      "family_ids": [
+        "bases"
+      ],
+      "status": "research_only",
+      "selectable": false,
+      "reviewed_on": "2026-10-08",
+      "confidence_level": "partial_documentary",
+      "source_ids": [
+        "src-rigging-smallrig-1642"
+      ],
+      "secondary_source_url": null,
+      "interfaces": [
+        {
+          "kind": "rod_15",
+          "direction": "clamp",
+          "description": "Abrazadera doble 15 mm; separación/altura por verificar.",
+          "source_id": "src-rigging-smallrig-1642"
+        },
+        {
+          "kind": "dovetail",
+          "direction": "unspecified",
+          "description": "Perfil Arri Style; no intercambiabilidad universal demostrada.",
+          "source_id": "src-rigging-smallrig-1642"
+        }
+      ],
+      "published_dimensions_mm": null,
+      "published_weight_g": null,
+      "published_material": null,
+      "included_items": null,
+      "physical_validation": {
+        "status": "pending",
+        "observations": []
+      },
+      "geometry": {
+        "status": "not_authored",
+        "position_mm": null,
+        "rights": "not_granted_for_manufacturer_media"
+      },
+      "compatibility": {
+        "status": "unknown",
+        "exact_pairs": []
+      },
+      "field_citations": [
+        {
+          "source_id": "src-rigging-smallrig-1642",
+          "field_paths": [
+            "exact_product_name",
+            "model_number",
+            "interfaces"
+          ],
+          "method": "direct_official_page",
+          "locator": "Cabecera/SKU y descripción del producto exacto; no sustituyen dibujo mecánico."
+        }
+      ],
+      "remaining": [
+        "No usar Package Weight 0.3 kg como masa del producto.",
+        "Revisar placa/receptor y altura óptica exactos.",
+        "Contenido, dimensiones y restricciones comerciales regionales por comprobar."
+      ],
+      "included_items_scope": "Contenido pendiente."
+    },
+    {
+      "id": "rigging-smallrig-915",
+      "brand": "SmallRig",
+      "exact_product_name": "15mm Micro Rod (1.5inch) with 1/4 inch thread",
+      "model_number": "915",
+      "family_ids": [
+        "extensions"
+      ],
+      "status": "research_only",
+      "selectable": false,
+      "reviewed_on": "2026-10-08",
+      "confidence_level": "partial_documentary",
+      "source_ids": [
+        "src-rigging-smallrig-915"
+      ],
+      "secondary_source_url": null,
+      "interfaces": [
+        {
+          "kind": "rod_15",
+          "direction": "rod",
+          "description": "Identidad nominal de varilla 15 mm; dimensiones publicadas contradictorias.",
+          "source_id": "src-rigging-smallrig-915"
+        },
+        {
+          "kind": "thread_1_4",
+          "direction": "male",
+          "description": "Tornillo 1/4; paso y largo útil pendientes.",
+          "source_id": "src-rigging-smallrig-915"
+        }
+      ],
+      "published_dimensions_mm": {
+        "values": [
+          50,
+          10,
+          10
+        ],
+        "basis": "Texto Product Dimensions contradice 15 mm y 1.5 inch; NO usar para geometría."
+      },
+      "published_weight_g": 30,
+      "published_material": null,
+      "included_items": null,
+      "physical_validation": {
+        "status": "pending",
+        "observations": []
+      },
+      "geometry": {
+        "status": "not_authored",
+        "position_mm": null,
+        "rights": "not_granted_for_manufacturer_media"
+      },
+      "compatibility": {
+        "status": "unknown",
+        "exact_pairs": []
+      },
+      "field_citations": [
+        {
+          "source_id": "src-rigging-smallrig-915",
+          "field_paths": [
+            "exact_product_name",
+            "model_number",
+            "interfaces",
+            "published_dimensions_mm",
+            "published_weight_g",
+            "discrepancies"
+          ],
+          "method": "direct_official_page",
+          "locator": "Cabecera, Description, Product Dimensions y Net Weight; discrepancia conservada."
+        }
+      ],
+      "remaining": [
+        "Resolver discrepancia con fabricante/manual antes de modelar o promover.",
+        "Verificar paso, diámetro real y largo útil.",
+        "No resolver contradicción adivinando 38.1 mm."
+      ],
+      "discrepancies": [
+        "Nombre 15 mm / 1.5 inch frente a Product Dimensions 50 x 10 x 10 mm."
+      ],
+      "included_items_scope": "Contenido pendiente."
+    },
+    {
+      "id": "rigging-tilta-ta-15rh-nta-b",
+      "brand": "Tilta",
+      "exact_product_name": "15mm Rod Holder to NATO Adapter - Black",
+      "model_number": "TA-15RH-NTA-B",
+      "family_ids": [
+        "nato"
+      ],
+      "status": "research_only",
+      "selectable": false,
+      "reviewed_on": "2026-10-08",
+      "confidence_level": "partial_documentary",
+      "source_ids": [
+        "src-rigging-tilta-ta-15rh-nta-b"
+      ],
+      "secondary_source_url": null,
+      "interfaces": [
+        {
+          "kind": "nato",
+          "direction": "clamp",
+          "description": "Abrazadera NATO de entrada sobre riel; no riel NATO de salida.",
+          "source_id": "src-rigging-tilta-ta-15rh-nta-b"
+        },
+        {
+          "kind": "rod_15",
+          "direction": "clamp",
+          "description": "Abrazadera para varilla 15 mm.",
+          "source_id": "src-rigging-tilta-ta-15rh-nta-b"
+        }
+      ],
+      "published_dimensions_mm": null,
+      "published_weight_g": null,
+      "published_material": "Aleación de aluminio y acero inoxidable.",
+      "included_items": null,
+      "physical_validation": {
+        "status": "pending",
+        "observations": []
+      },
+      "geometry": {
+        "status": "not_authored",
+        "position_mm": null,
+        "rights": "not_granted_for_manufacturer_media"
+      },
+      "compatibility": {
+        "status": "unknown",
+        "exact_pairs": []
+      },
+      "field_citations": [
+        {
+          "source_id": "src-rigging-tilta-ta-15rh-nta-b",
+          "field_paths": [
+            "exact_product_name",
+            "model_number",
+            "interfaces",
+            "published_weight_raw",
+            "published_dimensions_raw",
+            "published_material"
+          ],
+          "method": "direct_official_page",
+          "locator": "SKU, descripción y Technical Data; alcance de Dimensions/Weight ambiguo."
+        }
+      ],
+      "remaining": [
+        "Revisar dimensiones y masa netas, sin usar valores del embalaje.",
+        "Documentar tornillos, asiento, carga y cadena exacta antes de alta.",
+        "Distribución, conexiones, guía, modelo auditado y ensayos físicos pendientes."
+      ],
+      "published_weight_raw": {
+        "value": 0.21,
+        "unit": "lb",
+        "basis": "Weight publicado; confirmar producto frente a envío antes de planificación."
+      },
+      "published_dimensions_raw": {
+        "values": [
+          5,
+          4,
+          3
+        ],
+        "unit": "inch",
+        "basis": "Dimensions: producto/embalaje no aclarados; no geometría."
+      },
+      "included_items_scope": "Contenido pendiente."
+    },
+    {
+      "id": "rigging-tilta-ta-15rh-nato-b",
+      "brand": "Tilta",
+      "exact_product_name": "Tilta 15mm Rod Holder to NATO Rail Attachment - Black",
+      "model_number": "TA-15RH-NATO-B",
+      "family_ids": [
+        "nato"
+      ],
+      "status": "research_only",
+      "selectable": false,
+      "reviewed_on": "2026-10-08",
+      "confidence_level": "partial_documentary",
+      "source_ids": [
+        "src-rigging-tilta-ta-15rh-nato-b"
+      ],
+      "secondary_source_url": null,
+      "interfaces": [
+        {
+          "kind": "rod_15",
+          "direction": "clamp",
+          "description": "Entrada por varilla de 15 mm.",
+          "source_id": "src-rigging-tilta-ta-15rh-nato-b"
+        },
+        {
+          "kind": "nato",
+          "direction": "rail",
+          "description": "Salida mediante riel NATO unidireccional con pasador de seguridad.",
+          "source_id": "src-rigging-tilta-ta-15rh-nato-b"
+        }
+      ],
+      "published_dimensions_mm": null,
+      "published_weight_g": null,
+      "published_material": null,
+      "included_items": null,
+      "physical_validation": {
+        "status": "pending",
+        "observations": []
+      },
+      "geometry": {
+        "status": "not_authored",
+        "position_mm": null,
+        "rights": "not_granted_for_manufacturer_media"
+      },
+      "compatibility": {
+        "status": "unknown",
+        "exact_pairs": []
+      },
+      "field_citations": [
+        {
+          "source_id": "src-rigging-tilta-ta-15rh-nato-b",
+          "field_paths": [
+            "exact_product_name",
+            "model_number",
+            "interfaces"
+          ],
+          "method": "direct_official_page",
+          "locator": "Cabecera/SKU y descripción del producto exacto; no sustituyen dibujo mecánico."
+        }
+      ],
+      "remaining": [
+        "Revisar dimensiones y masa netas, sin usar valores del embalaje.",
+        "Documentar tornillos, asiento, carga y cadena exacta antes de alta.",
+        "Distribución, conexiones, guía, modelo auditado y ensayos físicos pendientes."
+      ],
+      "included_items_scope": "Contenido pendiente."
+    },
+    {
+      "id": "rigging-tilta-r15-c",
+      "brand": "Tilta",
+      "exact_product_name": "15mm Rod Connection Screw for Aluminum Rod",
+      "model_number": "R15-C",
+      "family_ids": [
+        "extensions"
+      ],
+      "status": "research_only",
+      "selectable": false,
+      "reviewed_on": "2026-10-08",
+      "confidence_level": "partial_documentary",
+      "source_ids": [
+        "src-rigging-tilta-r15-c"
+      ],
+      "secondary_source_url": null,
+      "interfaces": [
+        {
+          "kind": "rod_extension_15",
+          "direction": "male",
+          "description": "Conector para varillas Tilta de aluminio de 15 mm; rosca interna no publicada.",
+          "source_id": "src-rigging-tilta-r15-c"
+        }
+      ],
+      "published_dimensions_mm": null,
+      "published_weight_g": null,
+      "published_material": "Aleación de aluminio.",
+      "included_items": [
+        "Un tornillo, según Packing List; la URL contiene pair pero no demuestra dos."
+      ],
+      "physical_validation": {
+        "status": "pending",
+        "observations": []
+      },
+      "geometry": {
+        "status": "not_authored",
+        "position_mm": null,
+        "rights": "not_granted_for_manufacturer_media"
+      },
+      "compatibility": {
+        "status": "unknown",
+        "exact_pairs": []
+      },
+      "field_citations": [
+        {
+          "source_id": "src-rigging-tilta-r15-c",
+          "field_paths": [
+            "exact_product_name",
+            "model_number",
+            "interfaces",
+            "published_material",
+            "included_items"
+          ],
+          "method": "direct_official_page",
+          "locator": "SKU R15-C, Overview, Packing List y Technical Data."
+        }
+      ],
+      "remaining": [
+        "Rosca, longitud y variantes exactas de varilla pendientes.",
+        "No asumir ajuste a varillas de fibra de carbono SmallRig.",
+        "Comprobar rigidez, retención y palanca del conjunto extendido."
+      ],
+      "included_items_scope": "Elementos revisados; confirmar contenido completo y revisión antes de compra."
+    },
+    {
+      "id": "rigging-tilta-ta-15rh-1420f-b",
+      "brand": "Tilta",
+      "exact_product_name": "15mm Rod Holder to 1/4-20 Adapter - Front Mounted - Black",
+      "model_number": "TA-15RH-1420F-B",
+      "family_ids": [
+        "rods"
+      ],
+      "status": "research_only",
+      "selectable": false,
+      "reviewed_on": "2026-10-08",
+      "confidence_level": "partial_documentary",
+      "source_ids": [
+        "src-rigging-tilta-ta-15rh-1420f-b"
+      ],
+      "secondary_source_url": null,
+      "interfaces": [
+        {
+          "kind": "rod_15",
+          "direction": "clamp",
+          "description": "Abrazadera de varilla 15 mm.",
+          "source_id": "src-rigging-tilta-ta-15rh-1420f-b"
+        },
+        {
+          "kind": "thread_1_4_20",
+          "direction": "male_locating",
+          "description": "Fijación frontal 1/4-20 con pasador; patrón pendiente.",
+          "source_id": "src-rigging-tilta-ta-15rh-1420f-b"
+        }
+      ],
+      "published_dimensions_mm": null,
+      "published_weight_g": null,
+      "published_material": null,
+      "included_items": null,
+      "physical_validation": {
+        "status": "pending",
+        "observations": []
+      },
+      "geometry": {
+        "status": "not_authored",
+        "position_mm": null,
+        "rights": "not_granted_for_manufacturer_media"
+      },
+      "compatibility": {
+        "status": "unknown",
+        "exact_pairs": []
+      },
+      "field_citations": [
+        {
+          "source_id": "src-rigging-tilta-ta-15rh-1420f-b",
+          "field_paths": [
+            "exact_product_name",
+            "model_number",
+            "interfaces"
+          ],
+          "method": "direct_official_page",
+          "locator": "Cabecera/SKU y descripción del producto exacto; no sustituyen dibujo mecánico."
+        }
+      ],
+      "remaining": [
+        "Revisar dimensiones y masa netas, sin usar valores del embalaje.",
+        "Documentar tornillos, asiento, carga y cadena exacta antes de alta.",
+        "Distribución, conexiones, guía, modelo auditado y ensayos físicos pendientes."
+      ],
+      "included_items_scope": "Contenido pendiente."
+    },
+    {
+      "id": "rigging-tilta-ta-15rh-1420s-b",
+      "brand": "Tilta",
+      "exact_product_name": "15mm Rod Holder to 1/4-20 Adapter - Side Mounted - Black",
+      "model_number": "TA-15RH-1420S-B",
+      "family_ids": [
+        "rods"
+      ],
+      "status": "research_only",
+      "selectable": false,
+      "reviewed_on": "2026-10-08",
+      "confidence_level": "partial_documentary",
+      "source_ids": [
+        "src-rigging-tilta-ta-15rh-1420s-b"
+      ],
+      "secondary_source_url": null,
+      "interfaces": [
+        {
+          "kind": "rod_15",
+          "direction": "clamp",
+          "description": "Abrazadera de varilla 15 mm.",
+          "source_id": "src-rigging-tilta-ta-15rh-1420s-b"
+        },
+        {
+          "kind": "thread_1_4_20",
+          "direction": "male_locating",
+          "description": "Fijación lateral/superior 1/4-20 con pasador; patrón pendiente.",
+          "source_id": "src-rigging-tilta-ta-15rh-1420s-b"
+        }
+      ],
+      "published_dimensions_mm": null,
+      "published_weight_g": null,
+      "published_material": null,
+      "included_items": null,
+      "physical_validation": {
+        "status": "pending",
+        "observations": []
+      },
+      "geometry": {
+        "status": "not_authored",
+        "position_mm": null,
+        "rights": "not_granted_for_manufacturer_media"
+      },
+      "compatibility": {
+        "status": "unknown",
+        "exact_pairs": []
+      },
+      "field_citations": [
+        {
+          "source_id": "src-rigging-tilta-ta-15rh-1420s-b",
+          "field_paths": [
+            "exact_product_name",
+            "model_number",
+            "interfaces"
+          ],
+          "method": "direct_official_page",
+          "locator": "Cabecera/SKU y descripción del producto exacto; no sustituyen dibujo mecánico."
+        }
+      ],
+      "remaining": [
+        "Revisar dimensiones y masa netas, sin usar valores del embalaje.",
+        "Documentar tornillos, asiento, carga y cadena exacta antes de alta.",
+        "Distribución, conexiones, guía, modelo auditado y ensayos físicos pendientes."
+      ],
+      "included_items_scope": "Contenido pendiente."
+    },
+    {
+      "id": "rigging-tilta-ta-15rh-d1420-b",
+      "brand": "Tilta",
+      "exact_product_name": "15mm Rod Holder to Dual 1/4-20 Adapter - Black",
+      "model_number": "TA-15RH-D1420-B",
+      "family_ids": [
+        "rods"
+      ],
+      "status": "research_only",
+      "selectable": false,
+      "reviewed_on": "2026-10-08",
+      "confidence_level": "partial_documentary",
+      "source_ids": [
+        "src-rigging-tilta-ta-15rh-d1420-b"
+      ],
+      "secondary_source_url": null,
+      "interfaces": [
+        {
+          "kind": "rod_15",
+          "direction": "clamp",
+          "description": "Abrazadera de varilla 15 mm.",
+          "source_id": "src-rigging-tilta-ta-15rh-d1420-b"
+        },
+        {
+          "kind": "thread_1_4_20",
+          "direction": "male_dual",
+          "description": "Dos tornillos 1/4-20; separación de centros pendiente.",
+          "source_id": "src-rigging-tilta-ta-15rh-d1420-b"
+        }
+      ],
+      "published_dimensions_mm": null,
+      "published_weight_g": null,
+      "published_material": null,
+      "included_items": null,
+      "physical_validation": {
+        "status": "pending",
+        "observations": []
+      },
+      "geometry": {
+        "status": "not_authored",
+        "position_mm": null,
+        "rights": "not_granted_for_manufacturer_media"
+      },
+      "compatibility": {
+        "status": "unknown",
+        "exact_pairs": []
+      },
+      "field_citations": [
+        {
+          "source_id": "src-rigging-tilta-ta-15rh-d1420-b",
+          "field_paths": [
+            "exact_product_name",
+            "model_number",
+            "interfaces"
+          ],
+          "method": "direct_official_page",
+          "locator": "Cabecera/SKU y descripción del producto exacto; no sustituyen dibujo mecánico."
+        }
+      ],
+      "remaining": [
+        "Revisar dimensiones y masa netas, sin usar valores del embalaje.",
+        "Documentar tornillos, asiento, carga y cadena exacta antes de alta.",
+        "Distribución, conexiones, guía, modelo auditado y ensayos físicos pendientes."
+      ],
+      "included_items_scope": "Contenido pendiente."
+    },
+    {
+      "id": "rigging-tilta-ta-dra-15-b",
+      "brand": "Tilta",
+      "exact_product_name": "15mm LWS Dual Rosette Adapter - Black",
+      "model_number": "TA-DRA-15-B",
+      "family_ids": [
+        "rosettes"
+      ],
+      "status": "research_only",
+      "selectable": false,
+      "reviewed_on": "2026-10-08",
+      "confidence_level": "partial_documentary",
+      "source_ids": [
+        "src-rigging-tilta-ta-dra-15-b"
+      ],
+      "secondary_source_url": null,
+      "interfaces": [
+        {
+          "kind": "rod_15",
+          "direction": "clamp",
+          "description": "Puente doble 15 mm LWS; revisar separación y altura.",
+          "source_id": "src-rigging-tilta-ta-dra-15-b"
+        },
+        {
+          "kind": "rosette",
+          "direction": "unspecified",
+          "description": "Dos rosetas; perfil/dientes/rosca no inferidos del nombre.",
+          "source_id": "src-rigging-tilta-ta-dra-15-b"
+        },
+        {
+          "kind": "thread_3_8_16",
+          "direction": "female",
+          "description": "Orificio central 3/8-16 con reductor 1/4-20 publicado.",
+          "source_id": "src-rigging-tilta-ta-dra-15-b"
+        }
+      ],
+      "published_dimensions_mm": null,
+      "published_weight_g": null,
+      "published_material": "Aleación de aluminio y acero inoxidable.",
+      "included_items": null,
+      "physical_validation": {
+        "status": "pending",
+        "observations": []
+      },
+      "geometry": {
+        "status": "not_authored",
+        "position_mm": null,
+        "rights": "not_granted_for_manufacturer_media"
+      },
+      "compatibility": {
+        "status": "unknown",
+        "exact_pairs": []
+      },
+      "field_citations": [
+        {
+          "source_id": "src-rigging-tilta-ta-dra-15-b",
+          "field_paths": [
+            "exact_product_name",
+            "model_number",
+            "interfaces",
+            "published_material"
+          ],
+          "method": "direct_official_page",
+          "locator": "SKU, descripción y Technical Data."
+        }
+      ],
+      "remaining": [
+        "Revisar dimensiones y masa netas, sin usar valores del embalaje.",
+        "Documentar tornillos, asiento, carga y cadena exacta antes de alta.",
+        "Distribución, conexiones, guía, modelo auditado y ensayos físicos pendientes."
+      ],
+      "included_items_scope": "Contenido pendiente."
+    },
+    {
+      "id": "rigging-tilta-tt-ls1-4",
+      "brand": "Tilta",
+      "exact_product_name": "1/4-20 Screw TT-LS1/4",
+      "model_number": "TT-LS1/4",
+      "family_ids": [
+        "fasteners"
+      ],
+      "status": "research_only",
+      "selectable": false,
+      "reviewed_on": "2026-10-08",
+      "confidence_level": "partial_documentary",
+      "source_ids": [
+        "src-rigging-tilta-tt-ls1-4"
+      ],
+      "secondary_source_url": null,
+      "interfaces": [
+        {
+          "kind": "thread_1_4_20",
+          "direction": "male",
+          "description": "Tornillo ranurado; una rosca coincidente no prueba largo útil ni fondo del receptor.",
+          "source_id": "src-rigging-tilta-tt-ls1-4"
+        }
+      ],
+      "published_dimensions_mm": null,
+      "published_weight_g": null,
+      "published_material": "Acero inoxidable.",
+      "included_items": [
+        "Un tornillo del SKU indicado."
+      ],
+      "physical_validation": {
+        "status": "pending",
+        "observations": []
+      },
+      "geometry": {
+        "status": "not_authored",
+        "position_mm": null,
+        "rights": "not_granted_for_manufacturer_media"
+      },
+      "compatibility": {
+        "status": "unknown",
+        "exact_pairs": []
+      },
+      "field_citations": [
+        {
+          "source_id": "src-rigging-tilta-tt-ls1-4",
+          "field_paths": [
+            "exact_product_name",
+            "model_number",
+            "interfaces",
+            "published_material",
+            "included_items",
+            "fastener"
+          ],
+          "method": "direct_official_page",
+          "locator": "SKU, Description, Packing List y Technical Data. Longitudes y par no publicados."
+        }
+      ],
+      "remaining": [
+        "Revisar largo roscado, hombro, cabeza y espesor de pila por SKU.",
+        "Revisar profundidad del receptor y retención; no sustituir A/B/C/D por analogía.",
+        "No añadir automáticamente ni duplicar tornillos incluidos en un kit."
+      ],
+      "fastener": {
+        "thread": "1/4-20",
+        "threaded_length_mm": null,
+        "head_dimensions_mm": null,
+        "tool": "Ranura para destornillador plano.",
+        "torque_nm": null
+      },
+      "included_items_scope": "Elementos revisados; confirmar contenido completo y revisión antes de compra."
+    },
+    {
+      "id": "rigging-tilta-tt-ls1-4-a",
+      "brand": "Tilta",
+      "exact_product_name": "1/4-20 Screw TT-LS1/4-A",
+      "model_number": "TT-LS1/4-A",
+      "family_ids": [
+        "fasteners"
+      ],
+      "status": "research_only",
+      "selectable": false,
+      "reviewed_on": "2026-10-08",
+      "confidence_level": "partial_documentary",
+      "source_ids": [
+        "src-rigging-tilta-tt-ls1-4-a"
+      ],
+      "secondary_source_url": null,
+      "interfaces": [
+        {
+          "kind": "thread_1_4_20",
+          "direction": "male",
+          "description": "Tornillo ranurado; una rosca coincidente no prueba largo útil ni fondo del receptor.",
+          "source_id": "src-rigging-tilta-tt-ls1-4-a"
+        }
+      ],
+      "published_dimensions_mm": null,
+      "published_weight_g": null,
+      "published_material": "Acero inoxidable.",
+      "included_items": [
+        "Un tornillo del SKU indicado."
+      ],
+      "physical_validation": {
+        "status": "pending",
+        "observations": []
+      },
+      "geometry": {
+        "status": "not_authored",
+        "position_mm": null,
+        "rights": "not_granted_for_manufacturer_media"
+      },
+      "compatibility": {
+        "status": "unknown",
+        "exact_pairs": []
+      },
+      "field_citations": [
+        {
+          "source_id": "src-rigging-tilta-tt-ls1-4-a",
+          "field_paths": [
+            "exact_product_name",
+            "model_number",
+            "interfaces",
+            "published_material",
+            "included_items",
+            "fastener"
+          ],
+          "method": "direct_official_page",
+          "locator": "SKU, Description, Packing List y Technical Data. Longitudes y par no publicados."
+        }
+      ],
+      "remaining": [
+        "Revisar largo roscado, hombro, cabeza y espesor de pila por SKU.",
+        "Revisar profundidad del receptor y retención; no sustituir A/B/C/D por analogía.",
+        "No añadir automáticamente ni duplicar tornillos incluidos en un kit."
+      ],
+      "fastener": {
+        "thread": "1/4-20",
+        "threaded_length_mm": null,
+        "head_dimensions_mm": null,
+        "tool": "Ranura para destornillador plano.",
+        "torque_nm": null
+      },
+      "included_items_scope": "Elementos revisados; confirmar contenido completo y revisión antes de compra."
+    },
+    {
+      "id": "rigging-tilta-tt-ls1-4-b",
+      "brand": "Tilta",
+      "exact_product_name": "1/4-20 Screw TT-LS1/4-B",
+      "model_number": "TT-LS1/4-B",
+      "family_ids": [
+        "fasteners"
+      ],
+      "status": "research_only",
+      "selectable": false,
+      "reviewed_on": "2026-10-08",
+      "confidence_level": "partial_documentary",
+      "source_ids": [
+        "src-rigging-tilta-tt-ls1-4-b"
+      ],
+      "secondary_source_url": null,
+      "interfaces": [
+        {
+          "kind": "thread_1_4_20",
+          "direction": "male",
+          "description": "Tornillo ranurado; una rosca coincidente no prueba largo útil ni fondo del receptor.",
+          "source_id": "src-rigging-tilta-tt-ls1-4-b"
+        }
+      ],
+      "published_dimensions_mm": null,
+      "published_weight_g": null,
+      "published_material": "Acero inoxidable.",
+      "included_items": [
+        "Un tornillo del SKU indicado."
+      ],
+      "physical_validation": {
+        "status": "pending",
+        "observations": []
+      },
+      "geometry": {
+        "status": "not_authored",
+        "position_mm": null,
+        "rights": "not_granted_for_manufacturer_media"
+      },
+      "compatibility": {
+        "status": "unknown",
+        "exact_pairs": []
+      },
+      "field_citations": [
+        {
+          "source_id": "src-rigging-tilta-tt-ls1-4-b",
+          "field_paths": [
+            "exact_product_name",
+            "model_number",
+            "interfaces",
+            "published_material",
+            "included_items",
+            "fastener"
+          ],
+          "method": "direct_official_page",
+          "locator": "SKU, Description, Packing List y Technical Data. Longitudes y par no publicados."
+        }
+      ],
+      "remaining": [
+        "Revisar largo roscado, hombro, cabeza y espesor de pila por SKU.",
+        "Revisar profundidad del receptor y retención; no sustituir A/B/C/D por analogía.",
+        "No añadir automáticamente ni duplicar tornillos incluidos en un kit."
+      ],
+      "fastener": {
+        "thread": "1/4-20",
+        "threaded_length_mm": null,
+        "head_dimensions_mm": null,
+        "tool": "Ranura para destornillador plano.",
+        "torque_nm": null
+      },
+      "included_items_scope": "Elementos revisados; confirmar contenido completo y revisión antes de compra."
+    },
+    {
+      "id": "rigging-tilta-tt-ls3-8",
+      "brand": "Tilta",
+      "exact_product_name": "3/8-16 Screw TT-LS3/8",
+      "model_number": "TT-LS3/8",
+      "family_ids": [
+        "fasteners"
+      ],
+      "status": "research_only",
+      "selectable": false,
+      "reviewed_on": "2026-10-08",
+      "confidence_level": "partial_documentary",
+      "source_ids": [
+        "src-rigging-tilta-tt-ls3-8"
+      ],
+      "secondary_source_url": null,
+      "interfaces": [
+        {
+          "kind": "thread_3_8_16",
+          "direction": "male",
+          "description": "Tornillo ranurado; una rosca coincidente no prueba largo útil ni fondo del receptor.",
+          "source_id": "src-rigging-tilta-tt-ls3-8"
+        }
+      ],
+      "published_dimensions_mm": null,
+      "published_weight_g": null,
+      "published_material": "Acero inoxidable.",
+      "included_items": [
+        "Un tornillo del SKU indicado."
+      ],
+      "physical_validation": {
+        "status": "pending",
+        "observations": []
+      },
+      "geometry": {
+        "status": "not_authored",
+        "position_mm": null,
+        "rights": "not_granted_for_manufacturer_media"
+      },
+      "compatibility": {
+        "status": "unknown",
+        "exact_pairs": []
+      },
+      "field_citations": [
+        {
+          "source_id": "src-rigging-tilta-tt-ls3-8",
+          "field_paths": [
+            "exact_product_name",
+            "model_number",
+            "interfaces",
+            "published_material",
+            "included_items",
+            "fastener"
+          ],
+          "method": "direct_official_page",
+          "locator": "SKU, Description, Packing List y Technical Data. Longitudes y par no publicados."
+        }
+      ],
+      "remaining": [
+        "Revisar largo roscado, hombro, cabeza y espesor de pila por SKU.",
+        "Revisar profundidad del receptor y retención; no sustituir A/B/C/D por analogía.",
+        "No añadir automáticamente ni duplicar tornillos incluidos en un kit."
+      ],
+      "fastener": {
+        "thread": "3/8-16",
+        "threaded_length_mm": null,
+        "head_dimensions_mm": null,
+        "tool": "Ranura para destornillador plano.",
+        "torque_nm": null
+      },
+      "included_items_scope": "Elementos revisados; confirmar contenido completo y revisión antes de compra."
+    },
+    {
+      "id": "rigging-tilta-tt-ls3-8-b",
+      "brand": "Tilta",
+      "exact_product_name": "3/8-16 Screw TT-LS3/8-B",
+      "model_number": "TT-LS3/8-B",
+      "family_ids": [
+        "fasteners"
+      ],
+      "status": "research_only",
+      "selectable": false,
+      "reviewed_on": "2026-10-08",
+      "confidence_level": "partial_documentary",
+      "source_ids": [
+        "src-rigging-tilta-tt-ls3-8-b"
+      ],
+      "secondary_source_url": null,
+      "interfaces": [
+        {
+          "kind": "thread_3_8_16",
+          "direction": "male",
+          "description": "Tornillo ranurado; una rosca coincidente no prueba largo útil ni fondo del receptor.",
+          "source_id": "src-rigging-tilta-tt-ls3-8-b"
+        }
+      ],
+      "published_dimensions_mm": null,
+      "published_weight_g": null,
+      "published_material": "Acero inoxidable.",
+      "included_items": [
+        "Un tornillo del SKU indicado."
+      ],
+      "physical_validation": {
+        "status": "pending",
+        "observations": []
+      },
+      "geometry": {
+        "status": "not_authored",
+        "position_mm": null,
+        "rights": "not_granted_for_manufacturer_media"
+      },
+      "compatibility": {
+        "status": "unknown",
+        "exact_pairs": []
+      },
+      "field_citations": [
+        {
+          "source_id": "src-rigging-tilta-tt-ls3-8-b",
+          "field_paths": [
+            "exact_product_name",
+            "model_number",
+            "interfaces",
+            "published_material",
+            "included_items",
+            "fastener"
+          ],
+          "method": "direct_official_page",
+          "locator": "SKU, Description, Packing List y Technical Data. Longitudes y par no publicados."
+        }
+      ],
+      "remaining": [
+        "Revisar largo roscado, hombro, cabeza y espesor de pila por SKU.",
+        "Revisar profundidad del receptor y retención; no sustituir A/B/C/D por analogía.",
+        "No añadir automáticamente ni duplicar tornillos incluidos en un kit."
+      ],
+      "fastener": {
+        "thread": "3/8-16",
+        "threaded_length_mm": null,
+        "head_dimensions_mm": null,
+        "tool": "Ranura para destornillador plano.",
+        "torque_nm": null
+      },
+      "included_items_scope": "Elementos revisados; confirmar contenido completo y revisión antes de compra."
+    },
+    {
+      "id": "rigging-tilta-tt-ls3-8-c",
+      "brand": "Tilta",
+      "exact_product_name": "3/8-16 Screw TT-LS3/8-C",
+      "model_number": "TT-LS3/8-C",
+      "family_ids": [
+        "fasteners"
+      ],
+      "status": "research_only",
+      "selectable": false,
+      "reviewed_on": "2026-10-08",
+      "confidence_level": "partial_documentary",
+      "source_ids": [
+        "src-rigging-tilta-tt-ls3-8-c"
+      ],
+      "secondary_source_url": null,
+      "interfaces": [
+        {
+          "kind": "thread_3_8_16",
+          "direction": "male",
+          "description": "Tornillo ranurado; una rosca coincidente no prueba largo útil ni fondo del receptor.",
+          "source_id": "src-rigging-tilta-tt-ls3-8-c"
+        }
+      ],
+      "published_dimensions_mm": null,
+      "published_weight_g": null,
+      "published_material": "Acero inoxidable.",
+      "included_items": [
+        "Un tornillo del SKU indicado."
+      ],
+      "physical_validation": {
+        "status": "pending",
+        "observations": []
+      },
+      "geometry": {
+        "status": "not_authored",
+        "position_mm": null,
+        "rights": "not_granted_for_manufacturer_media"
+      },
+      "compatibility": {
+        "status": "unknown",
+        "exact_pairs": []
+      },
+      "field_citations": [
+        {
+          "source_id": "src-rigging-tilta-tt-ls3-8-c",
+          "field_paths": [
+            "exact_product_name",
+            "model_number",
+            "interfaces",
+            "published_material",
+            "included_items",
+            "fastener"
+          ],
+          "method": "direct_official_page",
+          "locator": "SKU, Description, Packing List y Technical Data. Longitudes y par no publicados."
+        }
+      ],
+      "remaining": [
+        "Revisar largo roscado, hombro, cabeza y espesor de pila por SKU.",
+        "Revisar profundidad del receptor y retención; no sustituir A/B/C/D por analogía.",
+        "No añadir automáticamente ni duplicar tornillos incluidos en un kit."
+      ],
+      "fastener": {
+        "thread": "3/8-16",
+        "threaded_length_mm": null,
+        "head_dimensions_mm": null,
+        "tool": "Ranura para destornillador plano.",
+        "torque_nm": null
+      },
+      "included_items_scope": "Elementos revisados; confirmar contenido completo y revisión antes de compra."
+    },
+    {
+      "id": "rigging-tilta-tt-ls3-8-d",
+      "brand": "Tilta",
+      "exact_product_name": "3/8-16 Screw TT-LS3/8-D",
+      "model_number": "TT-LS3/8-D",
+      "family_ids": [
+        "fasteners"
+      ],
+      "status": "research_only",
+      "selectable": false,
+      "reviewed_on": "2026-10-08",
+      "confidence_level": "partial_documentary",
+      "source_ids": [
+        "src-rigging-tilta-tt-ls3-8-d"
+      ],
+      "secondary_source_url": null,
+      "interfaces": [
+        {
+          "kind": "thread_3_8_16",
+          "direction": "male",
+          "description": "Tornillo ranurado; una rosca coincidente no prueba largo útil ni fondo del receptor.",
+          "source_id": "src-rigging-tilta-tt-ls3-8-d"
+        }
+      ],
+      "published_dimensions_mm": null,
+      "published_weight_g": null,
+      "published_material": "Acero inoxidable.",
+      "included_items": [
+        "Un tornillo del SKU indicado."
+      ],
+      "physical_validation": {
+        "status": "pending",
+        "observations": []
+      },
+      "geometry": {
+        "status": "not_authored",
+        "position_mm": null,
+        "rights": "not_granted_for_manufacturer_media"
+      },
+      "compatibility": {
+        "status": "unknown",
+        "exact_pairs": []
+      },
+      "field_citations": [
+        {
+          "source_id": "src-rigging-tilta-tt-ls3-8-d",
+          "field_paths": [
+            "exact_product_name",
+            "model_number",
+            "interfaces",
+            "published_material",
+            "included_items",
+            "fastener"
+          ],
+          "method": "direct_official_page",
+          "locator": "SKU, Description, Packing List y Technical Data. Longitudes y par no publicados."
+        }
+      ],
+      "remaining": [
+        "Revisar largo roscado, hombro, cabeza y espesor de pila por SKU.",
+        "Revisar profundidad del receptor y retención; no sustituir A/B/C/D por analogía.",
+        "No añadir automáticamente ni duplicar tornillos incluidos en un kit."
+      ],
+      "fastener": {
+        "thread": "3/8-16",
+        "threaded_length_mm": null,
+        "head_dimensions_mm": null,
+        "tool": "Ranura para destornillador plano.",
+        "torque_nm": null
+      },
+      "included_items_scope": "Elementos revisados; confirmar contenido completo y revisión antes de compra."
+    },
+    {
+      "id": "rigging-tilta-rs19-c",
+      "brand": "Tilta",
+      "exact_product_name": "19mm Rod Connection Screw for Stainless Steel Rods",
+      "model_number": "RS19-C",
+      "family_ids": [
+        "extensions"
+      ],
+      "status": "research_only",
+      "selectable": false,
+      "reviewed_on": "2026-10-08",
+      "confidence_level": "partial_documentary",
+      "source_ids": [
+        "src-rigging-tilta-rs19-c"
+      ],
+      "secondary_source_url": null,
+      "interfaces": [
+        {
+          "kind": "rod_extension_19",
+          "direction": "male",
+          "description": "Conector para varillas Tilta de 19 mm del material nombrado; paso interno pendiente.",
+          "source_id": "src-rigging-tilta-rs19-c"
+        }
+      ],
+      "published_dimensions_mm": null,
+      "published_weight_g": null,
+      "published_material": "Acero inoxidable.",
+      "included_items": [
+        "Un tornillo."
+      ],
+      "physical_validation": {
+        "status": "pending",
+        "observations": []
+      },
+      "geometry": {
+        "status": "not_authored",
+        "position_mm": null,
+        "rights": "not_granted_for_manufacturer_media"
+      },
+      "compatibility": {
+        "status": "unknown",
+        "exact_pairs": []
+      },
+      "field_citations": [
+        {
+          "source_id": "src-rigging-tilta-rs19-c",
+          "field_paths": [
+            "exact_product_name",
+            "model_number",
+            "interfaces",
+            "published_material",
+            "included_items"
+          ],
+          "method": "direct_official_page",
+          "locator": "SKU, Overview, Packing List y Technical Data."
+        }
+      ],
+      "remaining": [
+        "No intercambiar RS19-C y R19-C sin verificar roscas y varillas exactas.",
+        "No es un adaptador entre varillas 15 y 19 mm.",
+        "Largo útil, retención y carga extendida pendientes."
+      ],
+      "included_items_scope": "Elementos revisados; confirmar contenido completo y revisión antes de compra."
+    },
+    {
+      "id": "rigging-tilta-r19-c",
+      "brand": "Tilta",
+      "exact_product_name": "19mm Rod Connection Screw for Aluminum Rods",
+      "model_number": "R19-C",
+      "family_ids": [
+        "extensions"
+      ],
+      "status": "research_only",
+      "selectable": false,
+      "reviewed_on": "2026-10-08",
+      "confidence_level": "partial_documentary",
+      "source_ids": [
+        "src-rigging-tilta-r19-c"
+      ],
+      "secondary_source_url": null,
+      "interfaces": [
+        {
+          "kind": "rod_extension_19",
+          "direction": "male",
+          "description": "Conector para varillas Tilta de 19 mm del material nombrado; paso interno pendiente.",
+          "source_id": "src-rigging-tilta-r19-c"
+        }
+      ],
+      "published_dimensions_mm": null,
+      "published_weight_g": null,
+      "published_material": "Aleación de aluminio.",
+      "included_items": [
+        "Un tornillo."
+      ],
+      "physical_validation": {
+        "status": "pending",
+        "observations": []
+      },
+      "geometry": {
+        "status": "not_authored",
+        "position_mm": null,
+        "rights": "not_granted_for_manufacturer_media"
+      },
+      "compatibility": {
+        "status": "unknown",
+        "exact_pairs": []
+      },
+      "field_citations": [
+        {
+          "source_id": "src-rigging-tilta-r19-c",
+          "field_paths": [
+            "exact_product_name",
+            "model_number",
+            "interfaces",
+            "published_material",
+            "included_items"
+          ],
+          "method": "direct_official_page",
+          "locator": "SKU, Overview, Packing List y Technical Data."
+        }
+      ],
+      "remaining": [
+        "No intercambiar RS19-C y R19-C sin verificar roscas y varillas exactas.",
+        "No es un adaptador entre varillas 15 y 19 mm.",
+        "Largo útil, retención y carga extendida pendientes."
+      ],
+      "included_items_scope": "Elementos revisados; confirmar contenido completo y revisión antes de compra."
+    }
+  ],
+  "batches": [
+    {
+      "id": "rigging-monitor-audio",
+      "order": 1,
+      "title": "Monitor y audio con soportes concretos",
+      "family_ids": [
+        "nato",
+        "fasteners",
+        "monitor",
+        "audio",
+        "cages"
+      ],
+      "status": "research_only",
+      "exit_checks": [
+        "SKU/revisión exactos; riel y abrazadera complementarios.",
+        "No ocupar el mismo anclaje del asa XLR/jaula.",
+        "Carga, tornillo, antirrotación y trayectoria de cables revisados.",
+        "Montaje, guía filtrada, ajuste y regresión móvil documentados."
+      ]
+    },
+    {
+      "id": "rigging-rods-extensions",
+      "order": 2,
+      "title": "Varillas, bases y extensiones",
+      "family_ids": [
+        "rods",
+        "bases",
+        "extensions",
+        "rosettes",
+        "battery_support",
+        "lens_support"
+      ],
+      "status": "research_only",
+      "exit_checks": [
+        "Separación de varillas, altura y perfil de placa comprobados.",
+        "Rosca interior del conector y varillas exactas; nunca inferida por diámetro.",
+        "Apalancamiento, masa y acceso sin colisión comprobados.",
+        "Sin trayectoria física ni seguridad universal inventadas."
+      ]
+    },
+    {
+      "id": "rigging-follow-focus",
+      "order": 3,
+      "title": "Follow focus y soportes de óptica",
+      "family_ids": [
+        "follow_focus",
+        "rods",
+        "lens_support"
+      ],
+      "status": "research_only",
+      "exit_checks": [
+        "Engranaje/anillo/objetivo exactos.",
+        "Alimentación y control independientes si hay motor.",
+        "Enfoque electrónico no se anuncia como anillo mecánico calibrado.",
+        "Holguras y balance reales; no gimbal sólo por masa bajo límite."
+      ]
+    }
+  ],
+  "activation_gates": [
+    {
+      "phase": "manifest",
+      "status": "partial",
+      "requirement": "Identidad, datos por campo, manual, variante, contenido y licencias."
+    },
+    {
+      "phase": "layout",
+      "status": "pending",
+      "requirement": "Expediente por cadena exacta y regresión antes de activar."
+    },
+    {
+      "phase": "cables_power",
+      "status": "pending",
+      "requirement": "Expediente por cadena exacta y regresión antes de activar."
+    },
+    {
+      "phase": "assembly",
+      "status": "pending",
+      "requirement": "Expediente por cadena exacta y regresión antes de activar."
+    },
+    {
+      "phase": "viewer",
+      "status": "pending",
+      "requirement": "Expediente por cadena exacta y regresión antes de activar."
+    },
+    {
+      "phase": "variants",
+      "status": "pending",
+      "requirement": "Expediente por cadena exacta y regresión antes de activar."
+    }
+  ],
+  "rules": [
+    "Los kits y sus tornillos son inventario relacionado, no piezas añadidas implícitamente ni masas duplicadas.",
+    "M4/M5/M6 métricos no son 1/4-20 ni 3/8-16; no inventar adaptadores.",
+    "NATO, HawkLock, Arca y Manfrotto son identidades distintas; el nombre no certifica encaje cruzado.",
+    "Diámetro de varilla no demuestra rosca interna, separación LWS ni altura óptica.",
+    "Interfaces candidatas describen el producto, nunca un par exacto de compatibilidad.",
+    "Dimensiones del paquete o contradictorias nunca alimentan geometría.",
+    "Fotos oficiales como enlaces; ninguna licencia de redistribución o de carga a IA inferida."
+  ]
+}

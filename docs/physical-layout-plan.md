@@ -271,6 +271,18 @@ En gimbal conservar 3026B lateral fijo. A mano/estática usar 2906B sobre NATO 4
 - Rechazado: Representar la batería como un bloque externo bajo la cámara; Sumarla otra vez a la masa de cuerpo con batería
 - [Referencia de medidas](https://electronics.sony.com/imaging/imaging-accessories/interchangeable-lens-camera-accessories/p/npfz100?sku=npfz100)
 
+## FE 35mm F1.8
+
+- Posición candidata XYZ: 0 / 0 / 78.75 mm; rotación XYZ: 0 / 0 / 0 grados.
+- Envolvente XYZ: 65.6 / 65.6 / 73 mm; estado: Medidas aproximadas. Una envolvente publicada no verifica los detalles internos.
+- Dominio de carga: Carga móvil; soporte candidato: FX3.
+- Colocación: Coaxial frente al cuerpo elegido. Centro y asiento visuales aproximados; no coordenadas mecánicas.
+- Orientación: Alinear índices y bloquear según Sony. No simula giro de bayoneta.
+- Montaje: Montura E directa: pares exactos Sony, sin adaptador.
+- Motivo: Óptica fija de 280 g aproximados; enfoque interno publicado. No traslada masa ni forma del zoom o del 20mm.
+- Rechazado: Dos objetivos simultáneos; adaptador implícito; parasol o matte box con anillo 82 mm sobre filtro de 55 mm.
+- [Referencia de medidas](https://www.sony.jp/ichigan/products/SEL35F18F/spec.html)
+
 
 ## Componentes sin montaje 3D habilitado
 

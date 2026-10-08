@@ -1,6 +1,6 @@
 # Takegrid: ruta a una beta utilizable
 
-Revisión: 8 de octubre de 2026. Estado: endurecimiento del prototipo en curso. Fuente estructurada: `data/product-roadmap.json`. El catálogo tiene 33 entradas; tres altas del lote investigado están integradas para planificación FX30 a mano y horizontal. Las otras siete siguen en investigación. [Alcance vigente](pilot-integration.md).
+Revisión: 8 de octubre de 2026. Estado: endurecimiento del prototipo en curso. Fuente estructurada: `data/product-roadmap.json`. El catálogo tiene 34 entradas; cuatro altas del lote investigado están integradas con alcance explícito de planificación. Las otras seis siguen en investigación. [Piloto inicial](pilot-integration.md) y [altas aditivas](catalog-promotions.md).
 
 Iteración 0.2.10: piloto FX30 en editor, biblioteca, conexiones nativas y guía propia de cinco etapas. Conserva los accesorios desde el visor, monitor sobre NATO sin imponer gimbal para las cadenas FX3 revisadas, ajustes y guardado de poses. No finaliza beta ni autoriza cadenas FX30 adicionales. [Verificación de integración](pilot-integration-qa.md) y [estado de publicación](additional-hosting.md).
 
@@ -8,11 +8,13 @@ Iteración 0.2.11: ampliación documental de NP-FZ100 nativa a FX3, con contacto
 
 ## Punto Actual
 
-La fase 3 avanza por configuraciones completas: tres de diez candidatos ya tienen alta explícita de planificación. Las fases 1 y 2 cuentan con correcciones y pruebas de software, pero conservan pendientes de dispositivo, semántica y aceptación. La fase 4 tiene guardado, historial y perfiles locales; cuentas y nube aplazadas. Fases 5-7 preparadas documentalmente, no superadas.
+La fase 3 avanza por configuraciones completas: cuatro de diez candidatos ya tienen alta explícita de planificación. Las fases 1 y 2 cuentan con correcciones y pruebas de software, pero conservan pendientes de dispositivo, semántica y aceptación. La fase 4 tiene guardado, historial y perfiles locales; cuentas y nube aplazadas. Fases 5-7 preparadas documentalmente, no superadas.
 
 Iteración 0.2.12: monitor NATO y RX Mic 2 para FX30 a mano/horizontal con circuitos propios, guía por selección y ejemplos explícitos. [Cadenas](fx30-accessories.md) y [verificación](fx30-accessories-qa.md). No habilita gimbal, vertical, asa XLR ni fuentes externas por analogía.
 
-Siguiente bloque: revisar los siete candidatos restantes y parejas exactas, después ensayos físicos, dispositivos y aceptación observada. Un despliegue no sustituye pruebas físicas, usuarios ni presupuesto. Las fases 4-7 conservan su estado y la nube aplazada.
+Iteración 0.2.13: SEL35F18F para FX3 o FX30 a mano/horizontal, con geometría propia aproximada y guía por elección. [Alta documentada](catalog-promotions.md). La prioridad cambia a accesorios de montaje SmallRig/Tilta: 26 candidatos en 12 familias y nueve índices oficiales, todavía en cuarentena, no seleccionables. [Inventario y controles de alta](rigging-catalog.md).
+
+Siguiente bloque: completar cadenas de montaje de monitor/audio y sus fijaciones; después varillas, extensiones y follow focus. Las seis cámaras/ópticas restantes quedan detrás de esa prioridad. La meta de cobertura SmallRig/Tilta incluye enumeración por región, SKU y revisión, no montaje universal. Un despliegue no sustituye pruebas físicas, usuarios ni presupuesto. Las fases 4-7 conservan su estado y la nube aplazada.
 
 Mi equipo, guía filtrada y controles de reproducción ya tienen correcciones funcionales comprobadas. Se prepararon laboratorio, reglas declarativas, recuperación e historial, recursos sin conexión, protocolo de beta y paquete preliminar de financiación. La evidencia actual está en `docs/iteration-qa.md`; la previa en `docs/stabilization-qa.md`. Preparar entregables posteriores no cierra sus criterios de salida. Cuentas y sincronización quedan aplazadas por decisión del usuario, no eliminadas del plan.
 

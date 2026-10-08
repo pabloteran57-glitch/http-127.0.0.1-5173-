@@ -307,10 +307,39 @@ function monitorBattery(g) {
   for(const x of [-8,8])block(g,"Contacto / sin pinout geométrico",[3,4,.4],[x,-29,-30.2],"gold",.2);
   block(g,"Etiqueta visual sin marca copiada",[23,36,.3],[0,3,30.1],"dark",1);
 }
+function sel35f18f(g) {
+  // Perfil y controles propios estimados; sin zoom, apertura, parasol ni bayoneta CAD.
+  const profile = [[29.8, -36.5], [30.5, -34], [31.6, -27], [32.4, -20], [32.4, 26], [32.8, 31], [32.8, 36.5], [27.5, 36.5], [26.5, 31], [22, 28]];
+  const barrel = new LatheGeometry(profile.map(point => new Vector2(...point)), 64);
+  barrel.rotateX(Math.PI / 2);
+  add(g, "SEL35F18F / perfil propio sin parasol", barrel, [0, 0, 0], "black");
+  ring(g, "Montura posterior sin contactos ni patron mecanico", 30.5, 24, 1.3, [0, 0, -35.85]);
+  cylinder(g, "Cristal posterior ilustrativo", 16, .3, [0, 0, -34.6], "glass");
+  knurl(g, "Unico anillo de enfoque / estimado", 32.4, 29, [0, 0, 11], "rubber", "z", 80);
+  for (const z of [-3.8, 25.8]) ring(g, "Union visual del anillo", 32.5, 31.9, .5, [0, 0, z], "dark");
+  ring(g, "Frontal filtro nominal 55 mm / sin rosca CAD", 32.8, 27.5, 1.6, [0, 0, 35.7], "dark");
+  ring(g, "Aro interior visual", 26.5, 23.8, .5, [0, 0, 31], "black");
+  cylinder(g, "Elemento frontal ilustrativo", 23.8, .4, [0, 0, 29], "glass", "z", 64);
+  cylinder(g, "Boton de retencion de enfoque / posicion estimada", 4.3, 1.2, [-31.6, 0, -12], "rubber", "x");
+  block(g, "Panel AF MF ilustrativo", [.6, 6, 9], [-31, -9, -23], "black", .4);
+  block(g, "Selector AF MF / estimado", [.7, 3, 3], [-31.5, -9, -23], "steel", .2);
+  cylinder(g, "Indice de montura ilustrativo", .7, .25, [-30.8, 0, -29], "steel", "x", 12);
+}
+
 export const authors = { camera, lens, cage, audioReceiver: receiver, baseplate, rods, matte, batteryPlate, battery, gimbal, grip, monitorMount, monitor, handle, compactMonitorMount, handleExtension, monitorBattery };
+export const productAuthors = { sel35f18f };
+
+export function visualAuthor(node) {
+  if (node.model_authoring && node.model_authoring !== "pilot") {
+    const author = productAuthors[node.model_authoring];
+    if (!author) throw new Error("Autor de producto no registrado: " + node.model_authoring);
+    return author;
+  }
+  return authors[node.kind];
+}
 
 export function authoredModel(node) {
-  const g = new Group(); g.name = node.id; authors[node.kind]?.(g, node);
+  const g = new Group(); g.name = node.id; visualAuthor(node)?.(g, node);
   return finalizeVisual(g, node);
 }
 

@@ -2,6 +2,12 @@ node_modules
 dist
 dist-public
 hosting/sites-public/
+hosting/source-baseline-*/
+hosting/prepared-*/
+hosting/package-*/
+hosting/*.tar
+hosting/*.tar.gz
+hosting/source-backup-*.zip
 public/references/
 public/previews/
 public/models/*-takegrid-v1.glb

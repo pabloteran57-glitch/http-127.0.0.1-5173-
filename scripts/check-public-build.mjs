@@ -36,5 +36,5 @@ assert(precache.filter(path=>path.startsWith("/assets/")).length===names.filter(
 const html = readFileSync(join(root, "index.html"), "utf8");
 assert(html.includes('lang="es"'));
 const total = files.reduce((sum, file) => sum + statSync(file).size, 0);
-assert(total < 7_000_000, "La demo pública superó el presupuesto explícito de 7 MB: 20 mallas de planificación y 20 miniaturas propias");
+assert(total < 7_000_000, "La demo pública superó el presupuesto explícito de 7 MB de recursos propios auditados");
 console.log(`PUBLICACIÓN VERIFICADA: ${names.length} archivos permitidos, ${(total / 1_000_000).toFixed(2)} MB; ${modelPaths.size} mallas de planificación; ${pilot.assets.length} también disponibles para inspección aislada, sin fotos, manuales, capturas de investigación ni credenciales.`);

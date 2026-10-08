@@ -1,0 +1,137 @@
+{
+  "version": 1,
+  "reviewed_on": "2026-10-08",
+  "scope": "Altas aditivas posteriores al piloto. No sustituye partes, reglas, distribución ni conexiones. Sin ensayos físicos; no modifica plantillas o bibliotecas.",
+  "promotions": [
+    {
+      "id": "sel35-handheld",
+      "part_ids": [
+        "sony-fe-35-f18"
+      ],
+      "status": "planning_candidate",
+      "contexts": [
+        "handheld"
+      ],
+      "orientations": [
+        "landscape"
+      ],
+      "claims": [
+        {
+          "id": "fx3-sel35f18f",
+          "part_ids": [
+            "sony-fx3",
+            "sony-fe-35-f18"
+          ],
+          "model_numbers": [
+            "ILME-FX3",
+            "SEL35F18F"
+          ],
+          "source_id": "src-sony-fx3-sel35f18f-pair",
+          "method": "official_browser_visible",
+          "locator": "Cabecera del par exacto y resultado Totalmente compatible.",
+          "limitation": "Compatibilidad Sony de cámara/objetivo, no certificación mecánica del rig ni revisión de firmware."
+        },
+        {
+          "id": "fx30-sel35f18f",
+          "part_ids": [
+            "sony-fx30",
+            "sony-fe-35-f18"
+          ],
+          "model_numbers": [
+            "ILME-FX30",
+            "SEL35F18F"
+          ],
+          "source_id": "src-sony-fx30-sel35f18f-pair",
+          "method": "official_browser_visible",
+          "locator": "Cabecera del par exacto y resultado Totalmente compatible.",
+          "limitation": "Compatibilidad Sony de cámara/objetivo, no certificación mecánica del rig ni revisión de firmware."
+        }
+      ],
+      "source_ids": [
+        "src-sony-sel35f18f-specs",
+        "src-sony-sel35f18f-features",
+        "src-sony-fx3-sel35f18f-pair",
+        "src-sony-fx30-sel35f18f-pair"
+      ],
+      "physical_validation": {
+        "status": "pending",
+        "observations": []
+      },
+      "examples": [
+        {
+          "id": "fx3-handheld-35",
+          "part_ids": [
+            "sony-fx3",
+            "smallrig-4770",
+            "sony-fe-35-f18",
+            "sony-np-fz100"
+          ],
+          "context": "handheld",
+          "orientation": "landscape",
+          "note": "Selección de ejemplo, no plantilla nueva ni piezas instaladas automáticamente."
+        },
+        {
+          "id": "fx30-handheld-35",
+          "part_ids": [
+            "sony-fx30",
+            "smallrig-4770",
+            "sony-fe-35-f18",
+            "sony-np-fz100"
+          ],
+          "context": "handheld",
+          "orientation": "landscape",
+          "note": "Selección de ejemplo, no plantilla nueva ni piezas instaladas automáticamente."
+        }
+      ],
+      "assembly": "Bloque propio en cámara FX3 y etapa de óptica FX30; guías canónicas filtradas por selección.",
+      "connections": "Sin cable externo del objetivo. Los circuitos seleccionados siguen perteneciendo a cada cuerpo, monitor o RX.",
+      "viewer": "Reconstrucción propia aproximada y miniatura revisadas en cinco vistas contra referencias Sony; sin CAD ni texturas del fabricante. Inspección visual no certifica asientos.",
+      "variants": "Dos ejemplos a mano/horizontal; monitor y RX sólo mediante selección explícita y sus cadenas revisadas."
+    }
+  ],
+  "queue": [
+    {
+      "part_id": "sony-fe-85-f18",
+      "priority": 1,
+      "status": "research_only",
+      "note": "Óptica fija compacta; priorizar parejas exactas y controles propios.",
+      "pair_review": "pending"
+    },
+    {
+      "part_id": "sony-fe-24-f14-gm",
+      "priority": 2,
+      "status": "research_only",
+      "note": "Óptica fija; revisar apertura, parasol y pares sin analogías.",
+      "pair_review": "pending"
+    },
+    {
+      "part_id": "sony-fe-50-f14-gm",
+      "priority": 3,
+      "status": "research_only",
+      "note": "Óptica fija; comprobar carga y acceso a controles.",
+      "pair_review": "pending"
+    },
+    {
+      "part_id": "sony-fe-16-35-gm-ii",
+      "priority": 4,
+      "status": "research_only",
+      "note": "GM II no sustituye GM; longitud de zoom y montaje frontal por comprobar.",
+      "pair_review": "pending"
+    },
+    {
+      "part_id": "sony-fe-24-70-gm-ii",
+      "priority": 5,
+      "status": "research_only",
+      "note": "Zoom; extensión y soportes requieren revisión propia.",
+      "pair_review": "pending"
+    },
+    {
+      "part_id": "sony-fe-24-105-g",
+      "priority": 6,
+      "status": "research_only",
+      "note": "Zoom OSS; extensión, modos y filtro 77 mm no heredan otros montajes.",
+      "pair_review": "pending"
+    }
+  ],
+  "queue_policy": "Montaje SmallRig/Tilta en rigging-intake.json tiene prioridad antes de esta cola de nuevas ópticas."
+}

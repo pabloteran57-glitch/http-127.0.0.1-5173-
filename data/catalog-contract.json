@@ -504,6 +504,27 @@
       ],
       "release_status": "planning_candidate",
       "physically_tested": false
+    },
+    {
+      "part_id": "sony-fe-35-f18",
+      "record_revision": "fx3-rs4-2026-10-05",
+      "model_number": "SEL35F18F",
+      "identity_source_url": "https://www.sony.jp/ichigan/products/SEL35F18F/spec.html",
+      "geometry_profile_id": "sony-fe-35-f18",
+      "geometry_status": "approximate",
+      "assembly_steps": [
+        1
+      ],
+      "assembly_profiles": [
+        {
+          "id": "fx30-handheld-prime",
+          "steps": [
+            3
+          ]
+        }
+      ],
+      "release_status": "planning_candidate",
+      "physically_tested": false
     }
   ]
 }

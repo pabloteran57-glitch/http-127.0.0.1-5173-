@@ -1202,6 +1202,66 @@
         "mechanical_accuracy": "approximate",
         "ports_authority": "ports-manifest.json"
       }
+    },
+    {
+      "id": "sony-fe-35-f18-takegrid-v1",
+      "part_id": "sony-fe-35-f18",
+      "subcomponent_id": null,
+      "exact_product_name": "Sony FE 35mm F1.8",
+      "model_number": "SEL35F18F",
+      "status": "approved",
+      "source": {
+        "method": "manual",
+        "url": "https://github.com/pabloteran57-glitch/http-127.0.0.1-5173-/blob/main/scripts/lib/authored-models.mjs",
+        "author": "Takegrid / reconstrucción propia en código"
+      },
+      "rights": {
+        "license": "custom-reviewed",
+        "evidence_url": "https://github.com/pabloteran57-glitch/http-127.0.0.1-5173-/blob/main/docs/authored-model-rights.md",
+        "reviewed_on": "2026-10-08",
+        "commercial": true,
+        "redistribution": true,
+        "modification": true,
+        "source_images_authorized": false,
+        "source_images_evidence": "Referencia oficial consultada y descargada para revisión local. No incrustada, redistribuida ni enviada a IA.",
+        "attribution": "Sony FE 35mm F1.8: reconstrucción propia Takegrid, 2026. Forma y acabados aproximados; sin aval del fabricante ni permiso para fabricar."
+      },
+      "artifact": {
+        "path": "/models/sony-fe-35-f18-takegrid-v1.glb",
+        "bytes": 219020,
+        "sha256": "389f0c97dec82be24afeaa11e690c1647e8aed326cc6fcec25d68c392ff6ea4a",
+        "triangles": 5376
+      },
+      "calibration": {
+        "units": "metres",
+        "uniform_scale": 1,
+        "offset_mm": [
+          0,
+          0,
+          0
+        ],
+        "rotation_deg": [
+          0,
+          0,
+          0
+        ],
+        "bounds_mm": [
+          65.60000032186508,
+          65.60000032186508,
+          72.9999989271164
+        ],
+        "reference_url": "https://www.sony.jp/ichigan/products/SEL35F18F/feature_1.html#L1_130",
+        "reference_basis": "D 65.6 × L 73 mm publicados, filtro 55 mm. Cinco vistas propias y diagrama Sony de enfoque, botón y selector revisados. Sin anillo de apertura, parasol, tapas, contactos o bayoneta CAD."
+      },
+      "review": {
+        "identity": true,
+        "scale": true,
+        "views": true,
+        "interfaces": true,
+        "evidence": "2026-10-08: cinco vistas de la malla propia, foto descargada y diagrama de componentes Sony revisados visualmente. Silueta compacta y controles diferenciados del 20mm; escala exterior comprobada por GLB. Pose, acabados, tolerancias y encajes siguen aproximados; no ensayo físico.",
+        "mechanical_accuracy": "approximate",
+        "ports_authority": "ports-manifest.json"
+      }
     }
   ]
 }

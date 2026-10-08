@@ -808,6 +808,421 @@
         "smallhd-indie-7"
       ],
       "notes": "POWER AND CONNECT: HDMI hasta 4Kp30, batería serie L y cuatro roscas 1/4-20 incluida inferior. No es una prueba FX30/Indie 7 ni certifica RAW o 4K60."
+    },
+    {
+      "id": "src-sony-sel35f18f-specs",
+      "brand": "Sony",
+      "type": "official",
+      "url": "https://www.sony.jp/ichigan/products/SEL35F18F/spec.html",
+      "checked_on": "2026-10-08",
+      "review_subject_part_ids": [
+        "sony-fe-35-f18"
+      ],
+      "notes": "Tabla de modelo, montura, diámetro/longitud, masa aproximada y filtro; sin encajes mecánicos."
+    },
+    {
+      "id": "src-sony-sel35f18f-features",
+      "brand": "Sony",
+      "type": "official",
+      "url": "https://www.sony.jp/ichigan/products/SEL35F18F/feature_1.html",
+      "checked_on": "2026-10-08",
+      "review_subject_part_ids": [
+        "sony-fe-35-f18"
+      ],
+      "notes": "Controles y enfoque interno; exterior de aleación de aluminio. Sin cotas de mecanizado."
+    },
+    {
+      "id": "src-sony-fx3-sel35f18f-pair",
+      "brand": "Sony",
+      "type": "official",
+      "url": "https://support.d-imaging.sony.co.jp/www/cscs/lens_body/detail.php?area=jp&lang=es&prdct_name=ILME-FX3&rel_prdct_name=SEL35F18F",
+      "checked_on": "2026-10-08",
+      "review_subject_part_ids": [
+        "sony-fx3",
+        "sony-fe-35-f18"
+      ],
+      "notes": "Par exacto abierto en navegador: totalmente compatible. Firmware no especificado; no prueba accesorios, holguras o equilibrio."
+    },
+    {
+      "id": "src-sony-fx30-sel35f18f-pair",
+      "brand": "Sony",
+      "type": "official",
+      "url": "https://support.d-imaging.sony.co.jp/www/cscs/lens_body/detail.php?area=jp&lang=es&prdct_name=ILME-FX30&rel_prdct_name=SEL35F18F",
+      "checked_on": "2026-10-08",
+      "review_subject_part_ids": [
+        "sony-fx30",
+        "sony-fe-35-f18"
+      ],
+      "notes": "Par exacto abierto en navegador: totalmente compatible. Firmware no especificado; no prueba accesorios, holguras o equilibrio."
+    },
+    {
+      "id": "src-sony-sel35f18f-photo",
+      "brand": "Sony",
+      "type": "official",
+      "url": "https://www.sony.jp/ichigan/products/SEL35F18F/",
+      "checked_on": "2026-10-08",
+      "review_subject_part_ids": [
+        "sony-fe-35-f18"
+      ],
+      "notes": "Fotografía descargada para inspección privada. No autorizada para redistribución ni IA; reconstrucción propia aproximada."
+    },
+    {
+      "id": "src-rigging-smallrig-1409",
+      "brand": "SmallRig",
+      "type": "official",
+      "url": "https://www.smallrig.com/smallrig-quick-release-safety-rail-46mm-1409.html",
+      "verified_on": "2026-10-08",
+      "review_subject_part_ids": [
+        "rigging-smallrig-1409"
+      ],
+      "notes": "Texto oficial indexado revisado; la página directa no mostró todos los datos. Disponibilidad no determinada."
+    },
+    {
+      "id": "src-rigging-smallrig-3011",
+      "brand": "SmallRig",
+      "type": "official",
+      "url": "https://static.smallrig.com/mall/img/public/06a37p47kde4-1751251198523_.pdf",
+      "verified_on": "2026-10-08",
+      "review_subject_part_ids": [
+        "rigging-smallrig-3011"
+      ],
+      "notes": "Identidad e interfaces revisadas para investigación; no declara compatibilidad del rig, disponibilidad ni derechos de redistribución."
+    },
+    {
+      "id": "src-rigging-smallrig-3010b",
+      "brand": "SmallRig",
+      "type": "official",
+      "url": "https://www.smallrig.com/smallrig-mini-follow-focus-3010b.html?skuId=1555387822993616897",
+      "verified_on": "2026-10-08",
+      "review_subject_part_ids": [
+        "rigging-smallrig-3010b"
+      ],
+      "notes": "Identidad e interfaces revisadas para investigación; no declara compatibilidad del rig, disponibilidad ni derechos de redistribución."
+    },
+    {
+      "id": "src-rigging-smallrig-2113",
+      "brand": "SmallRig",
+      "type": "official",
+      "url": "https://www.smallrig.com/smallrig-evf-mount-with-nato-rail-2113.html?setCurrencyId=20",
+      "verified_on": "2026-10-08",
+      "review_subject_part_ids": [
+        "rigging-smallrig-2113"
+      ],
+      "notes": "Identidad e interfaces revisadas para investigación; no declara compatibilidad del rig, disponibilidad ni derechos de redistribución."
+    },
+    {
+      "id": "src-rigging-smallrig-2069",
+      "brand": "SmallRig",
+      "type": "official",
+      "url": "https://www.smallrig.com/eu/smallrig-90-degrees-15mm-rod-clamp-2069.html",
+      "verified_on": "2026-10-08",
+      "review_subject_part_ids": [
+        "rigging-smallrig-2069"
+      ],
+      "notes": "Identidad e interfaces revisadas para investigación; no declara compatibilidad del rig, disponibilidad ni derechos de redistribución."
+    },
+    {
+      "id": "src-rigging-smallrig-dcs2279",
+      "brand": "SmallRig",
+      "type": "official",
+      "url": "https://www.smallrig.com/smallrig-15mm-single-rod-clamp-for-bmpcc-4k-cage-2279.html",
+      "verified_on": "2026-10-08",
+      "review_subject_part_ids": [
+        "rigging-smallrig-dcs2279"
+      ],
+      "notes": "Identidad e interfaces revisadas para investigación; no declara compatibilidad del rig, disponibilidad ni derechos de redistribución."
+    },
+    {
+      "id": "src-rigging-smallrig-4171",
+      "brand": "SmallRig",
+      "type": "official",
+      "url": "https://www.smallrig.com/SmallRig-15mm-ARRI-Locating-Single-Rod-Clamp-4171.html?skuId=1626163069635911682",
+      "verified_on": "2026-10-08",
+      "review_subject_part_ids": [
+        "rigging-smallrig-4171"
+      ],
+      "notes": "Identidad e interfaces revisadas para investigación; no declara compatibilidad del rig, disponibilidad ni derechos de redistribución."
+    },
+    {
+      "id": "src-rigging-smallrig-2172b",
+      "brand": "SmallRig",
+      "type": "official",
+      "url": "https://www.smallrig.com/global/Universal-NATO-Rail-48mm-2172B.html?noRedirect=1&skuId=1907276509442240513",
+      "verified_on": "2026-10-08",
+      "review_subject_part_ids": [
+        "rigging-smallrig-2172b"
+      ],
+      "notes": "Identidad e interfaces revisadas para investigación; no declara compatibilidad del rig, disponibilidad ni derechos de redistribución."
+    },
+    {
+      "id": "src-rigging-smallrig-1642",
+      "brand": "SmallRig",
+      "type": "official",
+      "url": "https://www.smallrig.com/smallrig-baseplate-arri-style-with-dual-15mm-rod-clamp-1642.html",
+      "verified_on": "2026-10-08",
+      "review_subject_part_ids": [
+        "rigging-smallrig-1642"
+      ],
+      "notes": "Identidad e interfaces revisadas para investigación; no declara compatibilidad del rig, disponibilidad ni derechos de redistribución."
+    },
+    {
+      "id": "src-rigging-smallrig-915",
+      "brand": "SmallRig",
+      "type": "official",
+      "url": "https://www.smallrig.com/smallrig-15mm-micro-rod-1-5inch-with-1-4-thread-915.html",
+      "verified_on": "2026-10-08",
+      "review_subject_part_ids": [
+        "rigging-smallrig-915"
+      ],
+      "notes": "Identidad e interfaces revisadas para investigación; no declara compatibilidad del rig, disponibilidad ni derechos de redistribución."
+    },
+    {
+      "id": "src-rigging-tilta-ta-15rh-nta-b",
+      "brand": "Tilta",
+      "type": "official",
+      "url": "https://tilta.com/shop/15mm-rod-holder-to-nato-adapter-black/",
+      "verified_on": "2026-10-08",
+      "review_subject_part_ids": [
+        "rigging-tilta-ta-15rh-nta-b"
+      ],
+      "notes": "Identidad e interfaces revisadas para investigación; no declara compatibilidad del rig, disponibilidad ni derechos de redistribución."
+    },
+    {
+      "id": "src-rigging-tilta-ta-15rh-nato-b",
+      "brand": "Tilta",
+      "type": "official",
+      "url": "https://tilta.com/shop/tilta-15mm-rod-holder-to-nato-rail-attachment-black/",
+      "verified_on": "2026-10-08",
+      "review_subject_part_ids": [
+        "rigging-tilta-ta-15rh-nato-b"
+      ],
+      "notes": "Identidad e interfaces revisadas para investigación; no declara compatibilidad del rig, disponibilidad ni derechos de redistribución."
+    },
+    {
+      "id": "src-rigging-tilta-r15-c",
+      "brand": "Tilta",
+      "type": "official",
+      "url": "https://tilta.com/shop/15mm-rod-connection-screw-pair-r15-c/",
+      "verified_on": "2026-10-08",
+      "review_subject_part_ids": [
+        "rigging-tilta-r15-c"
+      ],
+      "notes": "Identidad e interfaces revisadas para investigación; no declara compatibilidad del rig, disponibilidad ni derechos de redistribución."
+    },
+    {
+      "id": "src-rigging-tilta-ta-15rh-1420f-b",
+      "brand": "Tilta",
+      "type": "official",
+      "url": "https://tilta.com/shop/15mm-rod-holder-to-1-4-20-adapter-front-mounted-black/",
+      "verified_on": "2026-10-08",
+      "review_subject_part_ids": [
+        "rigging-tilta-ta-15rh-1420f-b"
+      ],
+      "notes": "Identidad e interfaces revisadas para investigación; no declara compatibilidad del rig, disponibilidad ni derechos de redistribución."
+    },
+    {
+      "id": "src-rigging-tilta-ta-15rh-1420s-b",
+      "brand": "Tilta",
+      "type": "official",
+      "url": "https://tilta.com/shop/15mm-rod-holder-to-1-4-20-adapter-side-mounted-black/",
+      "verified_on": "2026-10-08",
+      "review_subject_part_ids": [
+        "rigging-tilta-ta-15rh-1420s-b"
+      ],
+      "notes": "Identidad e interfaces revisadas para investigación; no declara compatibilidad del rig, disponibilidad ni derechos de redistribución."
+    },
+    {
+      "id": "src-rigging-tilta-ta-15rh-d1420-b",
+      "brand": "Tilta",
+      "type": "official",
+      "url": "https://tilta.com/shop/15mm-rod-holder-to-dual-1-4-20-adapter-black/",
+      "verified_on": "2026-10-08",
+      "review_subject_part_ids": [
+        "rigging-tilta-ta-15rh-d1420-b"
+      ],
+      "notes": "Identidad e interfaces revisadas para investigación; no declara compatibilidad del rig, disponibilidad ni derechos de redistribución."
+    },
+    {
+      "id": "src-rigging-tilta-ta-dra-15-b",
+      "brand": "Tilta",
+      "type": "official",
+      "url": "https://tilta.com/shop/15mm-lws-dual-rosette-adapter-black/",
+      "verified_on": "2026-10-08",
+      "review_subject_part_ids": [
+        "rigging-tilta-ta-dra-15-b"
+      ],
+      "notes": "Identidad e interfaces revisadas para investigación; no declara compatibilidad del rig, disponibilidad ni derechos de redistribución."
+    },
+    {
+      "id": "src-rigging-tilta-tt-ls1-4",
+      "brand": "Tilta",
+      "type": "official",
+      "url": "https://tilta.com/shop/14-20-screw-tt-ls14/",
+      "verified_on": "2026-10-08",
+      "review_subject_part_ids": [
+        "rigging-tilta-tt-ls1-4"
+      ],
+      "notes": "Identidad e interfaces revisadas para investigación; no declara compatibilidad del rig, disponibilidad ni derechos de redistribución."
+    },
+    {
+      "id": "src-rigging-tilta-tt-ls1-4-a",
+      "brand": "Tilta",
+      "type": "official",
+      "url": "https://tilta.com/shop/14-20-screw-tt-ls14-2/",
+      "verified_on": "2026-10-08",
+      "review_subject_part_ids": [
+        "rigging-tilta-tt-ls1-4-a"
+      ],
+      "notes": "Identidad e interfaces revisadas para investigación; no declara compatibilidad del rig, disponibilidad ni derechos de redistribución."
+    },
+    {
+      "id": "src-rigging-tilta-tt-ls1-4-b",
+      "brand": "Tilta",
+      "type": "official",
+      "url": "https://tilta.com/shop/14-screw-tt-ls14-b/",
+      "verified_on": "2026-10-08",
+      "review_subject_part_ids": [
+        "rigging-tilta-tt-ls1-4-b"
+      ],
+      "notes": "Identidad e interfaces revisadas para investigación; no declara compatibilidad del rig, disponibilidad ni derechos de redistribución."
+    },
+    {
+      "id": "src-rigging-tilta-tt-ls3-8",
+      "brand": "Tilta",
+      "type": "official",
+      "url": "https://tilta.com/shop/38-16-screw-tt-ls38/",
+      "verified_on": "2026-10-08",
+      "review_subject_part_ids": [
+        "rigging-tilta-tt-ls3-8"
+      ],
+      "notes": "Identidad e interfaces revisadas para investigación; no declara compatibilidad del rig, disponibilidad ni derechos de redistribución."
+    },
+    {
+      "id": "src-rigging-tilta-tt-ls3-8-b",
+      "brand": "Tilta",
+      "type": "official",
+      "url": "https://tilta.com/shop/38-16-screw-tt-ls38-b/",
+      "verified_on": "2026-10-08",
+      "review_subject_part_ids": [
+        "rigging-tilta-tt-ls3-8-b"
+      ],
+      "notes": "Identidad e interfaces revisadas para investigación; no declara compatibilidad del rig, disponibilidad ni derechos de redistribución."
+    },
+    {
+      "id": "src-rigging-tilta-tt-ls3-8-c",
+      "brand": "Tilta",
+      "type": "official",
+      "url": "https://tilta.com/shop/38-16-screw-tt_ls38-c/",
+      "verified_on": "2026-10-08",
+      "review_subject_part_ids": [
+        "rigging-tilta-tt-ls3-8-c"
+      ],
+      "notes": "Identidad e interfaces revisadas para investigación; no declara compatibilidad del rig, disponibilidad ni derechos de redistribución."
+    },
+    {
+      "id": "src-rigging-tilta-tt-ls3-8-d",
+      "brand": "Tilta",
+      "type": "official",
+      "url": "https://tilta.com/shop/38-16-screw-tt-ls38-d/",
+      "verified_on": "2026-10-08",
+      "review_subject_part_ids": [
+        "rigging-tilta-tt-ls3-8-d"
+      ],
+      "notes": "Identidad e interfaces revisadas para investigación; no declara compatibilidad del rig, disponibilidad ni derechos de redistribución."
+    },
+    {
+      "id": "src-rigging-tilta-rs19-c",
+      "brand": "Tilta",
+      "type": "official",
+      "url": "https://tilta.com/shop/19mm-rod-connection-screw-rs19-c/",
+      "verified_on": "2026-10-08",
+      "review_subject_part_ids": [
+        "rigging-tilta-rs19-c"
+      ],
+      "notes": "Identidad e interfaces revisadas para investigación; no declara compatibilidad del rig, disponibilidad ni derechos de redistribución."
+    },
+    {
+      "id": "src-rigging-tilta-r19-c",
+      "brand": "Tilta",
+      "type": "official",
+      "url": "https://tilta.com/shop/19mm-rod-connection-screw-r19-c/",
+      "verified_on": "2026-10-08",
+      "review_subject_part_ids": [
+        "rigging-tilta-r19-c"
+      ],
+      "notes": "Identidad e interfaces revisadas para investigación; no declara compatibilidad del rig, disponibilidad ni derechos de redistribución."
+    },
+    {
+      "id": "src-rigging-index-smallrig-nato",
+      "brand": "SmallRig",
+      "type": "official",
+      "url": "https://www.smallrig.com/list/NATO-Rail-Clamp.html",
+      "verified_on": "2026-10-08",
+      "notes": "Índice oficial de descubrimiento; la consulta no prueba inventario total ni revisión individual."
+    },
+    {
+      "id": "src-rigging-index-smallrig-fasteners",
+      "brand": "SmallRig",
+      "type": "official",
+      "url": "https://www.smallrig.com/list/Screw-Driver.html",
+      "verified_on": "2026-10-08",
+      "notes": "Índice oficial de descubrimiento; la consulta no prueba inventario total ni revisión individual."
+    },
+    {
+      "id": "src-rigging-index-smallrig-rods",
+      "brand": "SmallRig",
+      "type": "official",
+      "url": "https://www.smallrig.com/list/Rod-Clamp.html",
+      "verified_on": "2026-10-08",
+      "notes": "Índice oficial de descubrimiento; la consulta no prueba inventario total ni revisión individual."
+    },
+    {
+      "id": "src-rigging-index-smallrig-audio",
+      "brand": "SmallRig",
+      "type": "official",
+      "url": "https://www.smallrig.com/list/Microphone-Support.html",
+      "verified_on": "2026-10-08",
+      "notes": "Índice oficial de descubrimiento; la consulta no prueba inventario total ni revisión individual."
+    },
+    {
+      "id": "src-rigging-index-smallrig-bases",
+      "brand": "SmallRig",
+      "type": "official",
+      "url": "https://www.smallrig.com/list/Camera-Plate.html",
+      "verified_on": "2026-10-08",
+      "notes": "Índice oficial de descubrimiento; la consulta no prueba inventario total ni revisión individual."
+    },
+    {
+      "id": "src-rigging-index-tilta-accessories",
+      "brand": "Tilta",
+      "type": "official",
+      "url": "https://tilta.com/product-category/accessories/",
+      "verified_on": "2026-10-08",
+      "notes": "Índice oficial de descubrimiento; la consulta no prueba inventario total ni revisión individual."
+    },
+    {
+      "id": "src-rigging-index-tilta-fasteners",
+      "brand": "Tilta",
+      "type": "official",
+      "url": "https://tilta.com/product-category/accessories/screws-drivers/",
+      "verified_on": "2026-10-08",
+      "notes": "Índice oficial de descubrimiento; la consulta no prueba inventario total ni revisión individual."
+    },
+    {
+      "id": "src-rigging-index-tilta-rods",
+      "brand": "Tilta",
+      "type": "official",
+      "url": "https://tilta.com/product-category/accessories/rod-rod-holders/",
+      "verified_on": "2026-10-08",
+      "notes": "Índice oficial de descubrimiento; la consulta no prueba inventario total ni revisión individual."
+    },
+    {
+      "id": "src-rigging-index-tilta-bases",
+      "brand": "Tilta",
+      "type": "official",
+      "url": "https://tilta.com/product-category/gear-lab/baseplate-dovetail/",
+      "verified_on": "2026-10-08",
+      "notes": "Índice oficial de descubrimiento; la consulta no prueba inventario total ni revisión individual."
     }
   ],
   "audit_on": "2026-10-07"

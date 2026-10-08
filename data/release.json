@@ -1,12 +1,14 @@
 {
-  "version": "0.2.12",
-  "released_on": "2026-10-07",
+  "version": "0.2.13",
+  "released_on": "2026-10-08",
   "status": "engineering_prototype",
   "label": "Prototipo de ingeniería",
   "catalog_revision": "fx3-rs4-2026-10-05",
   "storage": "local_only",
   "account_sync": "deferred_by_user",
   "updates": [
+    "FE 35mm F1.8 SEL35F18F elegible a mano/horizontal con FX3 o FX30; parejas Sony propias, miniatura/malla aproximadas y guía filtrada por óptica.",
+    "Inventario de montaje SmallRig/Tilta priorizado: 26 candidatos de investigación en 12 familias; aún no son piezas seleccionables ni catálogo completo.",
     "FX30: monitor NATO 4770/2906B con Indie 7 y NP-F970/PRO; RX Mic 2 en zapata. No requiere brazo ni empuñadura de gimbal.",
     "HDMI y audio FX30 tienen puertos, circuitos y revisión propios. Dos anclajes visuales aproximados desde Sony; no CAD ni puertos copiados.",
     "Guía FX30 crece sólo por selección: cinco etapas del núcleo o hasta diez con monitor y RX, sin pasos de gimbal.",
@@ -21,10 +23,12 @@
     "Monitor NATO, ajustes acoplados, selección desde visor y las cuatro tareas originales conservados"
   ],
   "limitations": [
+    "SEL35F18F sólo a mano/horizontal; filtro 55 mm no adapta el 3645. Holgura, retención y conjunto real por ensayar.",
+    "Montaje SmallRig/Tilta: inventario parcial, compatibilidades desconocidas, cobertura total sin determinar; ningún SKU de investigación se activa por compartir rosca.",
     "Batería nativa FX3: identidad documental, pose interna aproximada y 83 g contados una sola vez. Retención, cubierta, acceso y ventilación con jaula no ensayados.",
-    "Piloto FX30 sólo a mano y horizontal: núcleo, monitor NATO/serie L y audio TRS de RX son candidatos documentales. Gimbal, asa XLR, fuentes externas y otros objetivos siguen pendientes. Formato/ganancia, retención y holguras no ensayados.",
-    "20 mallas propias aproximadas; no CAD oficiales, modelos exactos, escaneos de Sketchfab ni resultados Meshy. Batería interna y poses visuales no certifican encajes.",
-    "Siete candidatos restantes del lote documental no se activan; tarjetas, cargadores y parasol del piloto no se añaden automáticamente.",
+    "Piloto FX30 sólo a mano y horizontal: núcleo, monitor NATO/serie L y audio TRS de RX son candidatos documentales. Gimbal, asa XLR, fuentes externas y otros objetivos fuera de las altas acotadas siguen pendientes. Formato/ganancia, retención y holguras no ensayados.",
+    "21 mallas propias aproximadas; no CAD oficiales, modelos exactos, escaneos de Sketchfab ni resultados Meshy. Batería interna y poses visuales no certifican encajes.",
+    "Seis candidatos restantes del lote documental no se activan; tarjetas, cargadores y parasol del piloto no se añaden automáticamente.",
     "Pivotes y ceros angulares aproximados. Los rangos publicados del soporte no certifican recorrido libre del rig completo; no hay detección automática de colisiones ni equilibrio. Traslación V-mount depende de medición del usuario.",
     "13 entradas restantes del catálogo no tienen malla de producto: cables, software y accesorios en reserva requieren distinto alcance",
     "No validado con un rig físico completo; una malla no prueba asiento, holgura, pinout ni equilibrio",

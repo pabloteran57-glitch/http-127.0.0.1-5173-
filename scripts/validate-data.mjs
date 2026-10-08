@@ -1,6 +1,7 @@
 import { existsSync, readFileSync } from "node:fs";
 import assert from "node:assert/strict";
 import { validateCatalogPilot } from "./lib/catalog-pilot.mjs";
+import { validateCatalogPromotions, validateRiggingIntake } from "./lib/catalog-expansion.mjs";
 
 const publicValidation = process.argv.includes("--public");
 const read = (name) => JSON.parse(readFileSync(new URL(`../data/${name}.json`, import.meta.url), "utf8"));
@@ -42,7 +43,12 @@ for(const port of ports.ports){
 }
 assert.equal(partIds.size, parts.parts.length, "Duplicate parts");
 assert.equal(cableIds.size, cables.cables.length, "Duplicate cables");
-assert.equal(parts.parts.length, 33, "Conservar las 30 entradas y las 3 altas explícitas del piloto");
+const promotions=read("catalog-promotions");
+validateCatalogPromotions(promotions,{parts,sources,layout,rules:read("planner-rules"),assets:read("model-assets"),visuals:read("product-visuals")});
+validateRiggingIntake(read("rigging-intake"),{parts,sources});
+const laterPromoted=promotions.promotions.flatMap(item=>item.part_ids);
+assert.equal(new Set(laterPromoted).size,laterPromoted.length,"Altas repetidas");
+assert.equal(parts.parts.length, 33+laterPromoted.length, "Conservar el catálogo original y las altas explícitas");
 assert.equal(assembly.steps.length, 13, "All thirteen assembly stages required");
 assert.equal(variants.variants.length, 7, "All seven profiles required");
 assert(variants.variants.some(v => v.id === variants.master_variant_id));
@@ -219,6 +225,7 @@ profileContent.steps.forEach((step,i)=>{
   assert.equal(step.number,i+1);assert(["mount","check","optional"].includes(step.kind));
   assert(step.title&&step.note&&step.rebalance&&step.blocks.length);
   step.requires_any.forEach(id=>assert(partIds.has(id)));
+  (step.source_ids??[]).forEach(id=>assert(sources.sources.some(source=>source.id===id&&source.type==="official"),"Fuente de etapa no registrada"));
   for(const reference of step.references??[]){
     assert(partIds.has(reference.part_id)&&step.blocks.some(block=>block.part_ids.includes(reference.part_id)),"Referencia ajena a la etapa");
     assert(references.documents.some(document=>document.id===reference.document_id),"Manual no registrado");
@@ -230,6 +237,7 @@ profileContent.steps.forEach((step,i)=>{
     assert(block.part_ids.length&&block.mount&&block.where&&block.verify.length);
     [...block.part_ids,...(block.require_all??[]),...(block.unless_any??[])].forEach(id=>assert(partIds.has(id)));
     (block.cable_ids??[]).forEach(id=>assert(cableIds.has(id)));
+    (block.source_ids??[]).forEach(id=>assert(sources.sources.some(source=>source.id===id&&source.type==="official"),"Fuente de bloque no registrada"));
     for(const text of [step.title,step.note,step.rebalance,block.mount,block.where,...block.verify])assert(!legacyEnglish.test(text),"Texto sin localizar: "+text);
   }
 });
@@ -247,7 +255,7 @@ for(const profile of planner.assembly_profiles??[]){
   assert(guide&&profile.frames.length===guide.steps.length,"Guía y fotogramas del piloto diferentes");
   profile.frames.forEach((frame,index)=>{assert.equal(frame.step,index+1);frame.add_part_ids.forEach(id=>assert(partIds.has(id)));frame.add_cable_ids.forEach(id=>assert(cableIds.has(id)));assert.equal(guide.steps[index].number,frame.step);});
 }
-for(const product of intake.products){assert(!partIds.has(product.id)||integration.promoted_part_ids.includes(product.id),"Una alta sin promoción explícita no debe activarse");assert.equal(product.release_status,"research_only");assert(/^https:\/\/www\.sony\.(com|co\.uk)\//.test(product.source_url));assert(product.model_number&&product.dimensions.note&&Number.isFinite(product.weight_g));}
+for(const product of intake.products){assert(!partIds.has(product.id)||[...integration.promoted_part_ids,...laterPromoted].includes(product.id),"Una alta sin promoción explícita no debe activarse");assert.equal(product.release_status,"research_only");assert(/^https:\/\/www\.sony\.(com|co\.uk)\//.test(product.source_url));assert(product.model_number&&product.dimensions.note&&Number.isFinite(product.weight_g));}
 assert.equal(new Set((intake.manifest_reviews??[]).map(review=>review.part_id)).size,(intake.manifest_reviews??[]).length);
 for(const review of intake.manifest_reviews??[]){
   const product=intake.products.find(item=>item.id===review.part_id);assert(product&&review.reviewed_on&&review.remaining.length);
@@ -266,7 +274,7 @@ const release=JSON.parse(readFileSync(new URL("../data/release.json",import.meta
 assert.equal(release.version,pkg.version);assert.equal(release.catalog_revision,planner.catalog_revision);
 const beta=JSON.parse(readFileSync(new URL("../data/beta-evidence.json",import.meta.url),"utf8")),protocol=JSON.parse(readFileSync(new URL("../data/beta-protocol.json",import.meta.url),"utf8"));
 for(const row of beta.observations){assert(typeof row.participant_alias==="string"&&row.participant_alias.trim());assert(protocol.tasks.some(t=>t.id===row.task_id));assert(typeof row.completed==="boolean");assert(Number.isFinite(row.assistance_count)&&row.assistance_count>=0);assert(Number.isFinite(row.elapsed_seconds)&&row.elapsed_seconds>=0);}
-console.log("CORRECTO: diez altas investigadas, tres promociones explícitas y siete aún en cuarentena; índice derivado y versión de código coherentes. No se inventan ensayos.");
+console.log(`CORRECTO: diez expedientes Sony, ${integration.promoted_part_ids.length+laterPromoted.length} altas explícitas; índice y versión coherentes. Sin ensayos inventados.`);
 const reviews=JSON.parse(readFileSync(new URL("../data/connection-reviews.json",import.meta.url),"utf8"));
 assert.equal(reviews.version,1);assert(reviews.revision);assert.equal(reviews.catalog_revision,planner.catalog_revision);
 assert.equal(new Set(reviews.reviews.map(r=>r.cable_id)).size,reviews.reviews.length);

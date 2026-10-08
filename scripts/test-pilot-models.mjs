@@ -18,7 +18,8 @@ test("Tres recursos de origen revisados, con promoción explícita al catálogo"
   assert.equal(registry.scope, "research_preview_only"); assert.equal(registry.assets.length, 3);
   assert.deepEqual(registry.assets.map(asset => asset.id), selected);
   assert.equal(new Set(selected).size, 3);
-  assert.equal(active.parts.length, 33); assert.equal(models.assets.length, 20); assert.equal(variants.variants.length, 7);
+  const later=read("catalog-promotions").promotions.flatMap(p=>p.part_ids);
+  assert.equal(active.parts.length, 33+later.length); assert.equal(models.assets.length, 20+later.length); assert.equal(variants.variants.length, 7);
   registry.assets.forEach(asset => {
     const product = intake.products.find(item => item.id === asset.part_id);
     assert.deepEqual(pilotModelIssues(asset, product), []);

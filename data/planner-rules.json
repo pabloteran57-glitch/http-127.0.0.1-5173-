@@ -253,7 +253,11 @@
       ],
       "condition": {
         "context": "handheld",
-        "orientation": "landscape"
+        "orientation": "landscape",
+        "none": [
+          "sony-fe-35-f18",
+          "sony-fe-16-35-gm"
+        ]
       },
       "source_ids": [
         "intake-sony-fx30-sel20f18g-pair"
@@ -293,6 +297,46 @@
         "intake-sony-fx30-helpguide"
       ],
       "note": "Relación específica documentada por fabricante; pose y retención pendientes de ensayo."
+    },
+    {
+      "id": "fx3-camera-sel35",
+      "anchor_part_id": "sony-fx3",
+      "label": "Añadir FE 35mm F1.8",
+      "add_part_ids": [
+        "sony-fe-35-f18"
+      ],
+      "condition": {
+        "context": "handheld",
+        "orientation": "landscape",
+        "none": [
+          "sony-fe-16-35-gm",
+          "sony-fe-20-f18-g"
+        ]
+      },
+      "source_ids": [
+        "src-sony-fx3-sel35f18f-pair"
+      ],
+      "note": "Par exacto Sony. No sustituye un objetivo ya elegido, no añade parasol ni accesorios. Retención y holgura por ensayar."
+    },
+    {
+      "id": "fx30-camera-sel35",
+      "anchor_part_id": "sony-fx30",
+      "label": "Añadir FE 35mm F1.8",
+      "add_part_ids": [
+        "sony-fe-35-f18"
+      ],
+      "condition": {
+        "context": "handheld",
+        "orientation": "landscape",
+        "none": [
+          "sony-fe-16-35-gm",
+          "sony-fe-20-f18-g"
+        ]
+      },
+      "source_ids": [
+        "src-sony-fx30-sel35f18f-pair"
+      ],
+      "note": "Par exacto Sony. No sustituye un objetivo ya elegido, no añade parasol ni accesorios. Retención y holgura por ensayar."
     }
   ],
   "camera_part_ids": [
@@ -328,7 +372,8 @@
       "id": "mounted-lens",
       "part_ids": [
         "sony-fe-16-35-gm",
-        "sony-fe-20-f18-g"
+        "sony-fe-20-f18-g",
+        "sony-fe-35-f18"
       ],
       "max_active": 1,
       "message": "Elige una sola óptica montada para este rig. Las alternativas deben ir en otros planes."
@@ -404,7 +449,8 @@
         ]
       },
       "required_any": [
-        "sony-fe-16-35-gm"
+        "sony-fe-16-35-gm",
+        "sony-fe-35-f18"
       ],
       "message": "Falta una óptica para completar el núcleo de cámara."
     },
@@ -529,10 +575,11 @@
           "sony-fx30"
         ]
       },
-      "required_all": [
-        "sony-fe-20-f18-g"
-      ],
-      "message": "El par documentado del piloto FX30 es SEL20F18G; otros objetivos requieren revisión propia."
+      "message": "Elige una óptica revisada para FX30: SEL20F18G o SEL35F18F. Otros pares siguen pendientes.",
+      "required_any": [
+        "sony-fe-20-f18-g",
+        "sony-fe-35-f18"
+      ]
     },
     {
       "id": "fx30-native-power",
@@ -649,6 +696,9 @@
     ],
     "sony-np-fz100": [
       "sony-fx30"
+    ],
+    "sony-fe-35-f18": [
+      "sony-fx3"
     ]
   },
   "gimbal_only_part_ids": [
@@ -696,7 +746,8 @@
         "sony-fx3",
         "sony-fe-16-35-gm",
         "sony-fx30",
-        "sony-fe-20-f18-g"
+        "sony-fe-20-f18-g",
+        "sony-fe-35-f18"
       ]
     },
     {
@@ -771,7 +822,8 @@
       "add_part_ids": [
         "sony-fx3",
         "sony-fe-16-35-gm",
-        "sony-np-fz100"
+        "sony-np-fz100",
+        "sony-fe-35-f18"
       ],
       "add_cable_ids": [
         "pwr-npfz100-to-fx3-contacts"
@@ -922,7 +974,8 @@
     "dji-mic-2-kit",
     "dji-lavalier",
     "sony-monitor-control-app",
-    "sony-np-fz100"
+    "sony-np-fz100",
+    "sony-fe-35-f18"
   ],
   "dynamic_mount_dependencies": [
     {
@@ -995,6 +1048,19 @@
         "sony-fx30",
         "smallhd-indie-7"
       ]
+    },
+    {
+      "part_id": "sony-fe-35-f18",
+      "condition": {
+        "all": [
+          "sony-fx30"
+        ],
+        "context": "handheld",
+        "orientation": "landscape"
+      },
+      "required_all": [
+        "sony-fx30"
+      ]
     }
   ],
   "catalog_additions_revision": "monitor-chains-2026-10-07",
@@ -1014,6 +1080,18 @@
         "landscape"
       ],
       "message": "Piloto documentado sólo a mano y horizontal. Otros montajes quedan pendientes; cambiar contexto no borra tu elección."
+    },
+    {
+      "part_ids": [
+        "sony-fe-35-f18"
+      ],
+      "contexts": [
+        "handheld"
+      ],
+      "orientations": [
+        "landscape"
+      ],
+      "message": "SEL35F18F revisado para planificación a mano y horizontal. Otros montajes conservan la elección pendiente; no certifican equilibrio."
     }
   ],
   "selection_scopes": [
@@ -1033,7 +1111,8 @@
         "smallhd-indie-7",
         "kondor-blue-hdmi-aa",
         "sony-np-f970-pro",
-        "dji-mic-2-kit"
+        "dji-mic-2-kit",
+        "sony-fe-35-f18"
       ],
       "message": "Accesorio fuera de las cadenas FX30 revisadas: núcleo, monitor NATO con serie L y RX en zapata. Otros soportes, fuentes y contextos siguen elegidos pendientes, sin heredar FX3."
     }
@@ -1064,7 +1143,8 @@
         {
           "step": 3,
           "add_part_ids": [
-            "sony-fe-20-f18-g"
+            "sony-fe-20-f18-g",
+            "sony-fe-35-f18"
           ],
           "add_cable_ids": [],
           "context_part_ids": [],

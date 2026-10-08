@@ -23,7 +23,7 @@ Puertos ilustrativos: fx30-hdmi-out, fx30-mic-in. Diagrama Sony Sides, página 4
 
 1. Preparar el cuerpo: sólo si piezas/circuitos están activos. No aplica: sin gimbal; revisar reparto y comodidad al añadir masa.
 2. Asegurar HawkLock 4770: sólo si piezas/circuitos están activos. Sin equilibrio de motores; comprobar agarre. El kit no añade asa XLR ni monitor.
-3. Acoplar FE 20mm F1.8 G: sólo si piezas/circuitos están activos. Mayor masa frontal: comprobar comodidad; no asumir centro de gravedad a partir de envolventes.
+3. Óptica elegida: sólo si piezas/circuitos están activos. Cambio de óptica altera masa y palanca. Pesar el conjunto real; este perfil no admite gimbal.
 4. Insertar batería nativa: sólo si piezas/circuitos están activos. Masa interna incluida una sola vez; comprobar agarre del conjunto.
 5. Preparar soporte y monitor NATO: sólo si piezas/circuitos están activos. Carga superior adicional: comprobar agarre y reparto; no hay motores ni equilibrio certificado.
 6. Colocar batería del monitor: sólo si piezas/circuitos están activos. Añade unos 300 g detrás del monitor: sostenerlo al ajustar y revisar manos, no deducir CG real.

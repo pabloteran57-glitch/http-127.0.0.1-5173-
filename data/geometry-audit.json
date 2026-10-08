@@ -1,6 +1,24 @@
 {
   "audit_on": "2026-10-06",
-  "interface_reviews": [{"part_ids":["smallrig-4770","dji-mic-2-kit"],"reviewed_on":"2026-10-06","sources":["https://static.smallrig.com/mall/img/public/1725874097334_.pdf","https://dl.djicdn.com/downloads/DJI_Mic_2/20240426/UM/DJI_Mic_2_User_Manual_V1.2_EN.pdf"],"locators":["4770 página 4, llamada 5 y fotografía oficial 1","Mic 2 v1.2 página 8, llamadas 5/6 y página 13"],"status":"documented_interfaces_approximate_pose_not_physical_test","note":"Zapata inclinada 4770 y zapata integrada RX identificadas. El modelo propio no reproduce CAD calibrado; asiento, ángulo, retención y barrido por medir."}],
+  "interface_reviews": [
+    {
+      "part_ids": [
+        "smallrig-4770",
+        "dji-mic-2-kit"
+      ],
+      "reviewed_on": "2026-10-06",
+      "sources": [
+        "https://static.smallrig.com/mall/img/public/1725874097334_.pdf",
+        "https://dl.djicdn.com/downloads/DJI_Mic_2/20240426/UM/DJI_Mic_2_User_Manual_V1.2_EN.pdf"
+      ],
+      "locators": [
+        "4770 página 4, llamada 5 y fotografía oficial 1",
+        "Mic 2 v1.2 página 8, llamadas 5/6 y página 13"
+      ],
+      "status": "documented_interfaces_approximate_pose_not_physical_test",
+      "note": "Zapata inclinada 4770 y zapata integrada RX identificadas. El modelo propio no reproduce CAD calibrado; asiento, ángulo, retención y barrido por medir."
+    }
+  ],
   "publication_warning": "Las imágenes descargadas del fabricante son material de referencia, no una autorización de redistribución. Publicar en App Store requiere revisar los derechos de uso.",
   "references": [
     {
@@ -179,6 +197,14 @@
       "review": "technical_specification_reference",
       "cad_status": "no_CAD / source_electrical_table_only",
       "review_note": "Referencia de especificación técnica; fotografía del producto pendiente."
+    },
+    {
+      "part_id": "sony-fe-35-f18",
+      "display_image": "/references/sony-sel35f18f.jpg",
+      "source_url": "https://www.sony.jp/ichigan/products/SEL35F18F/",
+      "review": "visual_identity_checked",
+      "cad_status": "photo_based_proxy_not_manufacturer_CAD",
+      "review_note": "Referencia local descargada y cotejada con diagrama de componentes. Imagen del fabricante excluida del build público; malla propia y enlace oficial."
     }
   ],
   "community_candidates": [

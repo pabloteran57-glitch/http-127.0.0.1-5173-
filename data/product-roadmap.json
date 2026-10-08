@@ -2,16 +2,17 @@
   "version": 1,
   "reviewed_on": "2026-10-08",
   "status": "prototype_hardening_in_progress",
-  "progress_report": "docs/fx30-accessories-qa.md",
+  "progress_report": "docs/rigging-catalog.md",
   "current_milestone": {
     "phase_id": "verified-catalog-pilot",
-    "release_version": "0.2.12",
-    "scope": "Monitor NATO y audio del piloto FX30 integrados mediante cadenas propias; no añade productos implícitos, contextos gimbal/vertical ni certificación física.",
+    "release_version": "0.2.13",
+    "scope": "Alta SEL35F18F acotada a FX3/FX30 a mano/horizontal. Montaje SmallRig/Tilta pasa a prioridad siguiente: inventario trazable, no catálogo entero ni compatibilidad universal.",
     "next_actions": [
-      "Revisar los siete candidatos restantes del lote y sus parejas exactas, por prioridad y evidencia propia",
-      "Incorporar otra cadena completa sólo tras manifiesto, distribución, conexiones, guía, visor, variantes y regresiones",
-      "Realizar ensayos físicos, mediciones en dispositivos y tareas observadas para cerrar criterios de fases 1–5",
-      "Conservar cuentas/nube aplazadas; beta pública y financiación requieren sus criterios externos"
+      "Enumerar SKU/revisión/variantes del catálogo de montaje SmallRig/Tilta; total oficial y paginación siguen pendientes",
+      "Revisar primero cadenas completas de monitor/audio, luego varillas/extensiones y follow focus; activar sólo tras las seis fases",
+      "Continuar seis candidatos Sony restantes después del lote de montaje prioritario, sin heredar parejas",
+      "Ensayos físicos, dispositivos y usuarios observados siguen necesarios para cerrar criterios de beta",
+      "Conservar cuentas/nube aplazadas; beta pública y financiación requieren evidencia externa"
     ]
   },
   "user_decisions": [
@@ -24,6 +25,11 @@
       "date": "2026-10-06",
       "decision": "Perfiles locales ahora, sin contraseña ni nube",
       "effect": "Bibliotecas, historial y borradores independientes por perfil del navegador. Perfil inicial conserva claves v1/v2 anteriores. No se interpreta como autorización para cuentas o nube."
+    },
+    {
+      "date": "2026-10-08",
+      "decision": "Priorizar catálogo de montaje SmallRig y Tilta para futuras cámaras, monitores, audio y follow focus",
+      "effect": "Cobertura objetivo amplia por SKU y revisión; primer inventario de 26 candidatos en cuarentena, doce familias y nueve índices oficiales. No cambia elecciones ni activa compatibilidad desconocida."
     }
   ],
   "scope": "Hoja de ruta de producto; no contiene nuevas especificaciones de equipo ni certifica montajes.",
@@ -36,14 +42,14 @@
     "Fuentes oficiales, derechos de uso y aproximaciones explícitas"
   ],
   "baseline": {
-    "part_entries": 33,
-    "geometry_nodes": 20,
+    "part_entries": 34,
+    "geometry_nodes": 21,
     "canonical_assembly_steps": 13,
     "templates": 7,
     "storage": "Local al navegador y origen; no sincronizado",
     "performance": "Laboratorio optativo de reposo/giro y demanda/continuo. Intervalos de render JavaScript; dispositivos físicos de referencia y objetivos pendientes.",
     "assessment": "Prototipo funcional; no liberado como beta de uso profesional",
-    "product_thumbnails": 20
+    "product_thumbnails": 21
   },
   "findings": [
     {
@@ -159,7 +165,7 @@
         "Medición sostenida en dispositivos físicos de referencia",
         "Comparación reproducible y objetivos de fluidez",
         "Aceptación observada del editor directo y montaje con usuarios",
-        "Archivos exactos y derechos de terceros pendientes; 20 mallas y miniaturas propias aproximadas integradas"
+        "Archivos exactos y derechos de terceros pendientes; 21 mallas y miniaturas propias aproximadas integradas"
       ],
       "depends_on": [],
       "deliverables": [
@@ -206,11 +212,12 @@
       "id": "verified-catalog-pilot",
       "order": 3,
       "title": "Primer lote de catálogo ampliado",
-      "status": "first_planning_configuration_integrated_pending_physical",
-      "verification_report": "docs/fx30-accessories-qa.md",
+      "status": "planning_additions_rigging_intake_in_progress",
+      "verification_report": "docs/rigging-catalog.md",
       "remaining": [
+        "Montaje SmallRig/Tilta prioritario: 26 candidatos iniciales, sin inventario completo ni altas activas; auditar tornillos, orientación, cargas y parejas por cadena.",
         "Ensayo físico del piloto FX30 a mano, retención/ventilación y masa instalada",
-        "Revisar siete candidatos restantes sin heredar compatibilidades",
+        "Revisar seis candidatos restantes sin heredar compatibilidades",
         "Gimbal, asa XLR y fuentes externas FX30 requieren revisión propia antes de activación; monitor/audio actuales siguen sin ensayo físico",
         "Aceptación observada y mediciones en dispositivos reales"
       ],

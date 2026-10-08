@@ -606,6 +606,23 @@
       "physical": false,
       "status": "software_no_physical_model",
       "images": []
+    },
+    {
+      "id": "sony-fe-35-f18",
+      "name": "Sony FE 35mm F1.8",
+      "page_url": "https://www.sony.jp/ichigan/products/SEL35F18F/",
+      "physical": true,
+      "resolved_page": "https://www.sony.jp/ichigan/products/SEL35F18F/",
+      "status": "downloaded_visual_identity_checked_private_only",
+      "images": [
+        {
+          "url": "https://www.sony.jp/products/picture/middle/SEL35F18F.jpg",
+          "local_path": "/references/sony-sel35f18f.jpg",
+          "bytes": 4665,
+          "sha256": "3b06f21258baeceb9b2ef8136a73181db0bc9d2c65dcd8d72ebb6e2bf3791bef",
+          "content_type": "image/jpeg"
+        }
+      ]
     }
   ],
   "documents": [

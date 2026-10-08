@@ -1,6 +1,6 @@
 # Producción de modelos realistas
 
-Fuentes canónicas: `data/model-production.json` y `data/model-assets.json`. Revisión 2026-10-06. Estado: `authored_approximate_batch_original_exact_assets_pending`. **20 mallas aprobadas. No se ha sustituido ninguna forma por un recurso sin auditar.**
+Fuentes canónicas: `data/model-production.json` y `data/model-assets.json`. Revisión 2026-10-06. Estado: `authored_approximate_batch_original_exact_assets_pending`. **21 mallas aprobadas. No se ha sustituido ninguna forma por un recurso sin auditar.**
 
 ## Acción por acción
 
@@ -40,6 +40,7 @@ Reconstrucciones propias aproximadas; no descargas de Sketchfab ni resultados de
 | Sony FX30 | `/models/sony-fx30-pilot-v1.glb` | 10240 | 496976 | Sony publica cuerpo sin salientes aprox. 129.7 x 77.8 x 84.5 mm. La malla incluye cubiertas, zapata y controles estimados: envolvente visual 130.33 x 81.85 x 84.50 mm, no una correccion del dato oficial. Sensor APS-C 23.3 x 15.5 mm publicado, pose estimada. LCD cerrado. Cubiertas opacas: sin puertos, contactos, roscas o bayoneta mecanicos. |
 | FE 20mm F1.8 G | `/models/sony-fe-20-f18-g-pilot-v1.glb` | 7380 | 309804 | D 73.5 x L 84.7 mm publicados; filtro nominal 67 mm. Perfil propio, enfoque, apertura, selector y boton estimados. Sin parasol ALC-SH162, tapas, texturas, contactos o patron mecanico de montura. No hereda el zoom SEL1635GM. |
 | Sony NP-FZ100 | `/models/sony-np-fz100-pilot-v1.glb` | 1460 | 80488 | Sony publica aprox. 38.7 x 22.7 x 51.7 mm. Carcasa propia y juntas estimadas; altura visual 22.77 mm, no cota de fabricacion. Cara de insercion opaca, sin inventar contactos, pinout o posicion interna en FX30. Sin etiqueta o imagen copiada. |
+| FE 35mm F1.8 | `/models/sony-fe-35-f18-takegrid-v1.glb` | 5376 | 219020 | D 65.6 × L 73 mm publicados, filtro 55 mm. Cinco vistas propias y diagrama Sony de enfoque, botón y selector revisados. Sin anillo de apertura, parasol, tapas, contactos o bayoneta CAD. |
 
 | Orden | Producto | Subcomponente | Estado | Referencias necesarias |
 |---|---|---|---|---|

@@ -1291,7 +1291,51 @@
         "status": "planning_candidate",
         "physical_validation": "pending"
       }
+    },
+    {
+      "id": "sony-fe-35-f18",
+      "exact_product_name": "Sony FE 35mm F1.8",
+      "model_number": "SEL35F18F",
+      "brand": "Sony",
+      "category": "lens",
+      "verified_dimensions_mm": {
+        "length": 65.6,
+        "width": 65.6,
+        "height": 73,
+        "approximate": true,
+        "note": "D 65.6 × L 73 mm publicados; ejes en layout. No cotas de bayoneta ni parasol."
+      },
+      "verified_weight_g": {
+        "value": 280,
+        "approximate": true,
+        "source_url": "https://www.sony.jp/ichigan/products/SEL35F18F/spec.html",
+        "checked_on": "2026-10-08",
+        "note": "Masa aproximada publicada por Sony; pesar el ejemplar instalado."
+      },
+      "planning_weight_g": 280,
+      "ports_interfaces": [
+        "Montura Sony E",
+        "Filtro nominal de 55 mm"
+      ],
+      "mounting_method": "Montura E directa en FX3 o FX30; pares exactos revisados. Alta sólo a mano y horizontal.",
+      "likely_material": "Exterior de aleación de aluminio publicado por Sony; interior y acabados sin verificar.",
+      "mandatory_or_optional": "optional",
+      "rig_role": "Óptica fija alternativa de rigs propios FX3/FX30",
+      "physical_constraints": [
+        "SEL35F18F no es SEL35F18 E 35mm F1.8 OSS.",
+        "Enfoque interno publicado; sin zoom ni anillo de apertura representado.",
+        "Parasol ALC-SH159 y tapas incluidos comercialmente, no elegidos ni representados.",
+        "Filtro 55 mm: no hereda anillo 82-95 mm del 3645 ni adaptador implícito.",
+        "Gimbal, vertical y estático pendientes. Compatibilidad electrónica no certifica holgura, retención ni equilibrio."
+      ],
+      "primary_source_url": "https://www.sony.jp/ichigan/products/SEL35F18F/spec.html",
+      "secondary_source_url": null,
+      "confidence_level": "medium",
+      "catalog_release": {
+        "configuration_id": "sel35-handheld",
+        "status": "planning_candidate",
+        "physical_validation": "pending"
+      }
     }
   ]
 }
-

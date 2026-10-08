@@ -1,6 +1,6 @@
 # Manifiesto verificado de piezas
 
-Generado desde `data/parts-manifest.json`. Auditoría 2026-10-06. 25 productos solicitados y 2 componentes del Combo conservados, más 3 accesorios de monitor y 3 altas acotadas del piloto FX30: 33 entradas.
+Generado desde `data/parts-manifest.json`. Auditoría 2026-10-06. 25 productos solicitados y 2 componentes del Combo conservados, más 3 accesorios de monitor y 4 altas acotadas: 34 entradas.
 
 Plan de ingeniería, no montaje certificado. Medidas publicadas no prueban forma exacta, enganche de tornillos, equilibrio, rigidez, holguras ni compatibilidad de toda la pila. Fotos y geometría aproximada no son CAD calibrado.
 
@@ -630,3 +630,22 @@ Plan de ingeniería, no montaje certificado. Medidas publicadas no prueban forma
 - Restricciones: 7.2 V nominales, 16.4 Wh, 2280 mAh; no son rango de descarga ni corriente admisible.; Batería interna, no bloque externo ni cable D-Tap.; 83 g aproximados, sumados una sola vez al cuerpo solo.; Cargador no elegido ni incluido en este plan; usar batería previamente cargada.; FX3 documentada por Sony en su guía propia; FX30 conserva su revisión independiente. Otros cuerpos pendientes.; No instalar simultáneamente con SmallRig 4253B: ambos ocupan el mismo alojamiento.
 - Confianza: Media.
 - [Fuente principal](https://electronics.sony.com/imaging/imaging-accessories/interchangeable-lens-camera-accessories/p/npfz100?sku=npfz100)
+
+## FE 35mm F1.8
+
+- ID: `sony-fe-35-f18`
+- Nombre oficial del fabricante: Sony FE 35mm F1.8.
+- Modelo: SEL35F18F; fabricante: Sony; categoría: Objetivo.
+- Medidas publicadas L/W/H: 65.6 / 65.6 / 73 mm. Aproximadas/incompletas: sí.
+- Nota de dimensiones: D 65.6 × L 73 mm publicados; ejes en layout. No cotas de bayoneta ni parasol.
+- Masa publicada: 280 g. Aproximada: sí.
+- Nota de masa: Masa aproximada publicada por Sony; pesar el ejemplar instalado.
+- Fuente de masa: [Sony](https://www.sony.jp/ichigan/products/SEL35F18F/spec.html).
+- Masa de planificación: 280 g; no sustituye pesaje del subconjunto instalado.
+- Interfaces: Montura Sony E; Filtro nominal de 55 mm
+- Montaje: Montura E directa en FX3 o FX30; pares exactos revisados. Alta sólo a mano y horizontal.
+- Material: Exterior de aleación de aluminio publicado por Sony; interior y acabados sin verificar.
+- Obligatorio/opcional: Opcional; función: Óptica fija alternativa de rigs propios FX3/FX30.
+- Restricciones: SEL35F18F no es SEL35F18 E 35mm F1.8 OSS.; Enfoque interno publicado; sin zoom ni anillo de apertura representado.; Parasol ALC-SH159 y tapas incluidos comercialmente, no elegidos ni representados.; Filtro 55 mm: no hereda anillo 82-95 mm del 3645 ni adaptador implícito.; Gimbal, vertical y estático pendientes. Compatibilidad electrónica no certifica holgura, retención ni equilibrio.
+- Confianza: Media.
+- [Fuente principal](https://www.sony.jp/ichigan/products/SEL35F18F/spec.html)

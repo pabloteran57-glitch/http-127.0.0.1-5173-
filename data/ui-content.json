@@ -33,7 +33,8 @@
     "sony-np-f970-pro": "Batería Sony NP-F970/PRO",
     "sony-fx30": "Sony FX30",
     "sony-fe-20-f18-g": "FE 20mm F1.8 G",
-    "sony-np-fz100": "Sony NP-FZ100"
+    "sony-np-fz100": "Sony NP-FZ100",
+    "sony-fe-35-f18": "FE 35mm F1.8"
   },
   "profile_hints": {
     "documentary-one-man-film": "Cámara, monitor lateral y audio para un solo operador.",
@@ -217,7 +218,8 @@
       "sony-np-f970-pro": "Alimenta sólo el monitor sin cable D-Tap.",
       "sony-fx30": "Cuerpo APS-C · piloto a mano y horizontal",
       "sony-fe-20-f18-g": "Óptica fija · par FX30 documentado",
-      "sony-np-fz100": "Batería interna nativa · FX3 y piloto FX30"
+      "sony-np-fz100": "Batería interna nativa · FX3 y piloto FX30",
+      "sony-fe-35-f18": "Óptica fija · FX3/FX30 a mano"
     }
   },
   "language": "es"

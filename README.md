@@ -20,11 +20,15 @@ En PowerShell usar `npm.cmd` si la política bloquea npm.ps1. Vite anuncia el pu
 
 Cuatro tareas: **Rig**, **Conexiones**, **Montaje** y **Piezas**. El visor abre sin cableado superpuesto; Conexiones activa las rutas y resalta un circuito con sus extremos A/B. En móvil, navegación inferior fija y selector de conexión junto al visor. El doble HDMI es un circuito de banco independiente del perfil, no un montaje aprobado en el rig.
 
-La ficha despliega medidas, materiales y restricciones bajo demanda. Montaje deriva las etapas pertinentes del perfil de cámara y separa las revisiones de lectura por configuración durante la sesión. Piezas abre **Mi equipo**, incluyendo elecciones pendientes; las 33 entradas se consultan en **Catálogo**. Detalles del perfil conserva siete plantillas, desglose de peso y pruebas pendientes. Los planes se guardan y abren dentro de la app, sin exportar archivos.
+La ficha despliega medidas, materiales y restricciones bajo demanda. Montaje deriva las etapas pertinentes del perfil de cámara y separa las revisiones de lectura por configuración durante la sesión. Piezas abre **Mi equipo**, incluyendo elecciones pendientes; las 34 entradas se consultan en **Catálogo**. Detalles del perfil conserva siete plantillas, desglose de peso y pruebas pendientes. Los planes se guardan y abren dentro de la app, sin exportar archivos.
 
 Vista de marca: `/brand/preview.html`. SVG reutilizables en `public/brand`; nombre en `data/brand.json`.
 
 ## Rigs Propios
+
+Versión 0.2.13: FE 35mm F1.8 **SEL35F18F**, no SEL35F18 OSS, elegible con FX3 o FX30 a mano/horizontal. Parejas oficiales Sony propias, guía de óptica seleccionada, miniatura y malla propias aproximadas. No añade parasol, adaptadores ni piezas implícitas; filtro 55 mm no acopla el 3645. [Altas aditivas](docs/catalog-promotions.md).
+
+Montaje SmallRig/Tilta es ahora prioritario frente a más cámaras/ópticas: **26 candidatos en doce familias**, nueve índices oficiales y datos por campo. No son el catálogo completo ni piezas seleccionables todavía. [Inventario y lotes](docs/rigging-catalog.md). Cada cadena conserva el orden de seis fases; rosca o NATO coincidentes no declaran compatibilidad universal.
 
 Versión 0.2.12: FX30 a mano/horizontal admite **monitor sobre NATO HawkLock + 2906B**, Indie 7 con NP-F970/PRO y RX Mic 2 en zapata. **Añadir accesorio** desde la jaula o **Completar monitor** propone sólo piezas revisadas; no impone gimbal ni V-mount. HDMI y TRS tienen circuitos FX30 propios, con puertos ilustrativos aproximados. Guía: cinco etapas sin accesorios, ocho con monitor, diez con monitor/RX. [Cadenas y ejemplos](docs/fx30-accessories.md), [verificación](docs/fx30-accessories-qa.md). Retención, señal, niveles y conjunto físico siguen pendientes.
 
@@ -60,7 +64,7 @@ Versión 0.2.10: **Crear rig** permite seleccionar FX30, FE 20mm F1.8 G y NP-FZ1
 
 Ruta hacia beta: [plan de avance](docs/beta-roadmap.md), con fases, criterios y diagnóstico. `data/product-roadmap.json` distingue correcciones implementadas de trabajo pendiente; no sustituye los manifiestos técnicos. Evidencia de esta iteración en [estabilización](docs/stabilization-qa.md).
 
-- `data/parts-manifest.json`: 27 entradas originales + tres accesorios de monitor + tres altas acotadas del piloto FX30, con fuente y confianza por campo.
+- `data/parts-manifest.json`: 27 entradas originales + tres accesorios de monitor + cuatro altas acotadas de planificación, con fuente y confianza por campo.
 - `data/layout-manifest.json`: envolventes XYZ, poses candidatas, soporte y pruebas pendientes.
 - `data/cables-manifest.json`, `data/ports-manifest.json`: 22 circuitos, puertos identificados, coordenadas aproximadas o pendientes.
 - `data/connection-reviews.json`: evidencia documental de ocho circuitos; rango, polaridad, firmware y límites visibles en Conexiones. Desconocido no equivale a compatible.
@@ -69,11 +73,13 @@ Ruta hacia beta: [plan de avance](docs/beta-roadmap.md), con fases, criterios y 
 - `data/engineering-manifest.json`: límites publicados y políticas de masa/centros ponderados.
 - `data/sources.json`, `data/geometry-references.json`, `data/geometry-audit.json`: atribución, descargas SHA-256 y referencias revisadas.
 - `data/model-production.json`, `data/model-assets.json`: trabajo de fidelidad y registro de 20 GLB propios aproximados auditados; las otras 13 entradas tienen alcance pendiente o no físico explícito. [Producción](docs/model-production.md) y [contrato](docs/model-asset-contract.md).
-- `data/product-visuals.json`: 20 miniaturas originales WebP vinculadas a huellas de malla y derechos revisados; nunca aprobación automática.
+- `data/product-visuals.json`: 21 miniaturas originales WebP vinculadas a huellas de malla y derechos revisados; nunca aprobación automática.
 - `data/ui-content.json`: nombres cortos y traducciones de presentación; no reemplaza especificaciones ni interfaces canónicas.
 - `data/planner-rules.json`: dependencias conservadoras del catálogo actual y fotogramas de montaje; no certifica compatibilidad universal.
 - `data/catalog-contract.json`: índice derivado de identidad, revisión, guía y geometría; se regenera, no es un segundo catálogo.
-- `data/catalog-intake.json`: diez expedientes Sony; tres altas acotadas de planificación y siete candidatos aún en investigación; [lote piloto](docs/catalog-pilot.md).
+- `data/catalog-intake.json`: diez expedientes Sony; cuatro altas acotadas de planificación y seis candidatos aún en investigación; [lote piloto](docs/catalog-pilot.md).
+- `data/catalog-promotions.json`: altas aditivas y evidencia de pares exactos posteriores al piloto; sin modificar bibliotecas ni plantillas.
+- `data/rigging-intake.json`: inventario de montaje SmallRig/Tilta separado del selector. `scripts/test-rigging-intake.mjs` rechaza fuentes ajenas, CAD inventado, altas implícitas y falsas coberturas.
 - `data/catalog-pilot.json`: [ficha de origen FX30/SEL20F18G](docs/catalog-pilot-blueprint.md), cuatro piezas y relaciones documentales; no instala productos. Alta actual en `pilot-integration.json`, sin certificación física. `npm run check:catalog` conserva pendientes externos y `npm run test:catalog` prueba regresiones.
 - `data/fx30-accessories-review.json`: relaciones y ejemplos de monitor/audio FX30, referencias a autoridades sin duplicar cotas ni ensayos. Pruebas de las 512 subselecciones posibles, sin piezas implícitas.
 - Histórico 0.2.9: inspección aislada de FX30, SEL20F18G y NP-FZ100. Desde 0.2.10 también están disponibles en Crear rig bajo el alcance acotado del piloto; `data/pilot-integration.json` registra el alta explícita. `npm run build:pilot-models` genera recursos, nunca aprueba automáticamente. [Registro y límites](docs/pilot-model-review.md).

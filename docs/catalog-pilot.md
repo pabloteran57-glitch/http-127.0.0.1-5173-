@@ -1,6 +1,6 @@
 # Lote piloto de catálogo
 
-Fuente canónica de investigación: `data/catalog-intake.json`. Revisión 2026-10-07. **Diez expedientes de origen; tres altas posteriores de planificación y siete pendientes.** No se incluyen imágenes sin permiso ni formas heredadas.
+Fuente canónica de investigación: `data/catalog-intake.json`. Revisión 2026-10-08. **10 expedientes de origen; 4 altas posteriores de planificación y 6 pendientes.** No se incluyen imágenes sin permiso ni formas heredadas.
 
 ## Manifiesto inicial
 
@@ -9,7 +9,7 @@ Fuente canónica de investigación: `data/catalog-intake.json`. Revisión 2026-1
 | Sony FE 16-35mm F2.8 GM II | SEL1635GM2 | 547 | D 87.8 × L 111.5 | [Sony](https://www.sony.co.uk/electronics/support/lenses-e-mount-lenses/sel1635gm2/specifications) |
 | Sony FE 24-70mm F2.8 GM II | SEL2470GM2 | 695 | D 87.8 × L 119.9 | [Sony](https://www.sony.com/electronics/support/lenses-e-mount-lenses/sel2470gm2/specifications) |
 | Sony FE 24-105mm F4 G OSS | SEL24105G | 663 | D 83.4 × L 113.3 | [Sony](https://www.sony.co.uk/electronics/interchangeable-lenses/sel24105g/specifications) |
-| Sony FE 35mm F1.8 | SEL35F18F | 280 | D 65.6 × L 73 | [Sony](https://www.sony.com/electronics/support/lenses-e-mount-lenses/sel35f18f/specifications) |
+| Sony FE 35mm F1.8 | SEL35F18F | ~ 280 | D 65.6 × L 73 | [Sony](https://www.sony.com/electronics/support/lenses-e-mount-lenses/sel35f18f/specifications) |
 | Sony FE 20mm F1.8 G | SEL20F18G | ~ 373 | D 73.5 × L 84.7 | [Sony](https://www.sony.com/electronics/support/lenses-e-mount-lenses/sel20f18g/specifications) |
 | Sony FE 24mm F1.4 GM | SEL24F14GM | 445 | D 75.4 × L 92.4 | [Sony](https://www.sony.com/electronics/support/lenses-e-mount-lenses/sel24f14gm/specifications) |
 | Sony FE 50mm F1.4 GM | SEL50F14GM | 516 | D 80.6 × L 96 | [Sony](https://www.sony.com/electronics/support/lenses-e-mount-lenses/sel50f14gm/specifications) |
@@ -38,4 +38,4 @@ Fuente canónica de investigación: `data/catalog-intake.json`. Revisión 2026-1
 - `fx3-light-prime`: sony-fx3, smallrig-4770, sony-fe-35-f18, sony-np-fz100. Priorizar un núcleo compacto sin monitor ni V-mount. Verificar tablas Sony, alojamiento de batería, jaula y guía antes de activar.
 - `fx30-handheld-prime`: sony-fx30, smallrig-4770, sony-fe-20-f18-g, sony-np-fz100. Segundo cuerpo candidato. 4770 menciona FX3/FX30, pero no se copia el rig de FX3 ni su control, señales o masa.
 
-FX30/SEL20F18G: [ficha técnica del conjunto](catalog-pilot-blueprint.md) con pares oficiales, distribución relacional, alimentación nativa y cinco etapas documentales. Integración actual en [piloto de planificación](pilot-integration.md), con geometría y poses aproximadas. Los demás conjuntos no reciben esa revisión por analogía. El catálogo actual tiene 33 entradas; el ensayo físico sigue pendiente.
+FX30/SEL20F18G: [ficha técnica del conjunto](catalog-pilot-blueprint.md) con pares oficiales, distribución relacional, alimentación nativa y cinco etapas documentales. Integración actual en [piloto de planificación](pilot-integration.md), con geometría y poses aproximadas. Los demás conjuntos no reciben esa revisión por analogía. El catálogo actual tiene 34 entradas; el ensayo físico sigue pendiente.

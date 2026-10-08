@@ -20,7 +20,7 @@ export function assemblyTimeline(variant: Variant, rules: PlannerRules, cables: 
     const hasCables = frame.add_cable_ids.some(id => circuits.has(id) && cables.some(c => c.cable_id === id));
     const relevant = step.requires_any.length ? step.requires_any.some(id => active.has(id)) : true;
     if (!relevant || !blocks.length || (step.kind === "mount" && !hasParts && !hasCables)) return [];
-    return [{...step, blocks, part_ids: [...new Set(blocks.flatMap(block => block.part_ids.filter(id => active.has(id))))], cable_ids: frame.add_cable_ids.filter(id => circuits.has(id)), playable: step.kind !== "optional"}];
+    return [{...step, source_ids: [...new Set([...(step.source_ids ?? []), ...blocks.flatMap(block => block.source_ids ?? [])])], blocks, part_ids: [...new Set(blocks.flatMap(block => block.part_ids.filter(id => active.has(id))))], cable_ids: frame.add_cable_ids.filter(id => circuits.has(id)), playable: step.kind !== "optional"}];
   });
 }
 

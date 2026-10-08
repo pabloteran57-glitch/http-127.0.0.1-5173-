@@ -164,6 +164,7 @@ export interface AssemblyStep {
 
 export interface AssemblyContentBlock {
   part_ids: string[];
+  source_ids?: string[];
   require_all?: string[];
   unless_any?: string[];
   cable_ids?: string[];
