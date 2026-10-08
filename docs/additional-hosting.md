@@ -2,19 +2,29 @@
 
 ## Estado Confirmado
 
-- Enlace adicional público: [Takegrid 0.2.10](https://takegrid-rigs.pabloteran57.chatgpt.site).
+- Enlace adicional público: [Takegrid 0.2.11](https://takegrid-rigs.pabloteran57.chatgpt.site).
 - Enlace anterior conservado: [Takegrid en Netlify](https://takegrid.netlify.app/), versión anterior sin sustituir.
-- No se contrató un plan ni cambió facturación. El código 0.2.10 se respaldó en el repositorio GitHub existente, sin forzar ni reescribir historial.
-- Confirmación de Sites: `succeeded`, `2026-10-08T01:53:49.960858+00:00` (7 de octubre, 20:53 en Ecuador).
+- No se contrató un plan ni cambió facturación. El código 0.2.11 se respaldó en el repositorio GitHub existente, sin forzar ni reescribir historial.
+- Confirmación de Sites: `succeeded`, `2026-10-08T04:27:26.110653+00:00` (7 de octubre, 23:27 en Ecuador).
 - Proyecto: `appgprj_6ac5ca6c160c819191d2bacd7366c426`.
-- Versión guardada: `appgprj_6ac5ca6c160c819191d2bacd7366c426~appgver_32b62b26b6f48191bbf223e404774ba1` (versión 7 del proveedor).
-- Despliegue: `appgdep_6ac6f7a5a2d081918bdd44d158406f3d`.
-- Revisión principal de origen: `e215195fa96b544eb06265fbd2e8ba1460d89ceb`.
-- Revisión del repositorio estático adicional: `1e912b17b09b783efecd4b75c532ab158e6ccffb`.
+- Versión guardada: `appgprj_6ac5ca6c160c819191d2bacd7366c426~appgver_43f6b35b64c48191afc846a774971b0a` (versión 8 del proveedor).
+- Despliegue: `appgdep_6ac71ba5f3308191ae56473b53155dc0`.
+- Revisión principal de origen: `563532e794cc1bfc0a5007d11146897680898814`.
+- Revisión del repositorio estático adicional: `5a1230da627f43dd12634a49c4953cb1395b0dbb`.
 
 La URL confirmada de producción, no la URL provisional de registro, es la indicada arriba. La confirmación del proveedor acredita el despliegue; las pruebas de interfaz se realizaron en la compilación pública local.
 
 ## Contenido Actual
+
+La 0.2.11 contiene una copia exacta de 56 archivos de `dist-public`, 6 318 907 bytes sin comprimir, más el manifiesto de alojamiento. Sites confirmó 57 archivos y tar de 6 369 280 bytes, huella `sha256:e6c6fffa6b59c856da4d25b95d5ca95e29c0a9d20e2c9ce6db471cc24a1c6705`. Gzip local: 1 573 722 bytes, huella `sha256:1dc6fb795a2f1492823acbd008d416b1b43477f81450ab442d4213b3c3107aec`.
+
+Conserva 33 piezas, 20 mallas y 20 miniaturas propias aproximadas, siete plantillas, perfiles locales y cuatro tareas. Amplía NP-FZ100 nativa a FX3 con revisión propia, contactos internos y marco vertical acoplado al cuerpo. Conflictos con 4253B conservan ambas elecciones pendientes sin sugerir soportes innecesarios; la V-mount de monitor no impone adaptador de cámara con batería nativa. [Verificación](native-camera-power-qa.md): 303 comprobaciones de software, recorrido local de escritorio y pruebas DOM en ventana móvil; sin ensayos de teléfono o rig físicos.
+
+Paquete preparado con validador estático oficial después de verificar la revisión remota exacta. Staging `hosting/prepared-0211`, `hosting/package-0211` y archivo `hosting/takegrid-sites-0211-verified.tar.gz` permanecen fuera del repositorio principal y de la web; captura de QA privada bajo `research/model-incoming/qa-0211`. No se forzó recarga de pestañas del usuario. El [plan por fases](beta-roadmap.md) mantiene criterios físicos, de usuarios y de financiación pendientes.
+
+## Histórico 0.2.10
+
+Confirmado `succeeded` el 7 de octubre a las 20:53 en Ecuador. Versión `appgprj_6ac5ca6c160c819191d2bacd7366c426~appgver_32b62b26b6f48191bbf223e404774ba1`, despliegue `appgdep_6ac6f7a5a2d081918bdd44d158406f3d`, revisión de fuente `e215195fa96b544eb06265fbd2e8ba1460d89ceb` y estática `1e912b17b09b783efecd4b75c532ab158e6ccffb`.
 
 La 0.2.10 contiene una copia exacta de 56 archivos de `dist-public`, 6 310 753 bytes sin comprimir, más el manifiesto de alojamiento. Sites confirmó 57 archivos y un tar de 6 359 040 bytes, huella `sha256:3eac3317cb74b00bfd02800e8ed86db57ee8ff9f521ede3752dd7acc8418e511`. El gzip local mide 1 572 131 bytes, huella `sha256:bd9e78647e54092b03114942933493263859b72382a788ae9c21ff9366738a65`.
 
