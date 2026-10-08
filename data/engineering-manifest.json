@@ -1,6 +1,7 @@
 {
   "audit_on": "2026-10-05",
   "release_status": "planning_only",
+  "profile_limit_part_ids": ["dji-rs4-pro-combo", "smallrig-3026b", "smallrig-2906b", "smallrig-3203b", "smallrig-vb99-pro"],
   "limits": {
     "rs4_pro_tested_payload_g": 4500,
     "rs4_source_url": "https://www.dji.com/rs-4-pro/specs",
@@ -16,7 +17,7 @@
     "Pila completa de cámara, jaula, base y placa de liberación DJI y su retención",
     "Centros de gravedad internos de cámara, objetivo y batería V-mount",
     "Posiciones de ejes de motores, rango de ajuste y holgura de barrido",
-    "Diámetro interior del barril y pinout de entrada DC del Indie 7; el cable CBL-PWR-DTAP-BAR-36 sí publica centro positivo. Salientes HDMI/DC y radios de curvatura pendientes",
+    "Interior del barril del cable CBL-PWR-DTAP-BAR-36, ajuste físico y pinout detallado pendientes. Entrada Indie 7 de 2.0 mm interior / 5.5 mm exterior y centro positivo documentados por SmallHD; salientes HDMI/DC y radios de curvatura sin medir",
     "Retención y holgura física del RX Mic 2 en zapata inclinada HawkLock 4770; 28 g publicados incluidos en la carga modelada, masa del cableado pendiente",
     "Masa total transportada con BG70, monitor fijo, accesorios y cables"
   ]

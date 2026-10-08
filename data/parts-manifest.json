@@ -1186,10 +1186,10 @@
       "mounting_method": "Núcleo a mano, montura E y jaula 4770 según el manual específico FX30.",
       "likely_material": "Materiales no verificados en las fuentes revisadas; apariencia del modelo aproximada.",
       "mandatory_or_optional": "optional",
-      "rig_role": "Captura APS-C; piloto a mano",
+      "rig_role": "Captura APS-C; piloto a mano con monitor y audio opcionales",
       "physical_constraints": [
         "562 g aproximados: cuerpo solo, sin batería, tarjeta ni asa. No sumar 646 g con batería/tarjeta.",
-        "Piloto de planificación sólo a mano y horizontal; gimbal, monitor, audio externo y control no revisados para este cuerpo.",
+        "Piloto de planificación a mano y horizontal; monitor NATO 2906B/Indie 7 con NP-F970/PRO y RX Mic 2 sobre 4770 revisados como candidatos. Gimbal, asa XLR y otras fuentes requieren revisión propia.",
         "Puertos identificados; coordenadas no medidas. No hereda puertos ni cables de FX3.",
         "ILME-FX30 puede incluir asa según SKU/región; no se añade automáticamente.",
         "Ventilación inferior y cubierta de batería deben quedar libres."
@@ -1280,8 +1280,8 @@
         "Batería interna, no bloque externo ni cable D-Tap.",
         "83 g aproximados, sumados una sola vez al cuerpo solo.",
         "Cargador no elegido ni incluido en este plan; usar batería previamente cargada.",
-      "FX3 documentada por Sony en su guía propia; FX30 conserva su revisión independiente. Otros cuerpos pendientes.",
-      "No instalar simultáneamente con SmallRig 4253B: ambos ocupan el mismo alojamiento."
+        "FX3 documentada por Sony en su guía propia; FX30 conserva su revisión independiente. Otros cuerpos pendientes.",
+        "No instalar simultáneamente con SmallRig 4253B: ambos ocupan el mismo alojamiento."
       ],
       "primary_source_url": "https://electronics.sony.com/imaging/imaging-accessories/interchangeable-lens-camera-accessories/p/npfz100?sku=npfz100",
       "secondary_source_url": null,
@@ -1294,3 +1294,4 @@
     }
   ]
 }
+

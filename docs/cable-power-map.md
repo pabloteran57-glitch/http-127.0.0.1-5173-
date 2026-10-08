@@ -1,6 +1,6 @@
 # Mapa de cables y alimentación
 
-Canónicos: `data/cables-manifest.json` y `data/ports-manifest.json`. 20 circuitos, 41 puertos. Identidad de conectores documentada; coordenadas 3D y curvas aproximadas.
+Canónicos: `data/cables-manifest.json` y `data/ports-manifest.json`. 22 circuitos, 41 puertos. Identidad de conectores documentada; coordenadas 3D y curvas aproximadas.
 
 ## Arquitectura
 
@@ -15,7 +15,7 @@ Canónicos: `data/cables-manifest.json` y `data/ports-manifest.json`. 20 circuit
 
 **Corrección eléctrica:** Cable CBL-PWR-DTAP-BAR-36: exterior 5.5 mm y centro positivo publicados, interior del cable por confirmar. Fuente independiente SmallHD, tabla técnica Power: entrada del Indie 7 de 2.0 mm interior / 5.5 mm exterior y centro positivo, DC 10–34 V; terminales batería 6.0–16.8 V. El ID histórico del cable no es prueba de conector. 4253B: entrada 9.6–20 V / mínimo 2 A, salida 8.0–8.4 V / máximo continuo 2 A. Todas las cargas y ajustes reales siguen pendientes.
 
-Revisión por circuito y fuentes: [comprobaciones de conexiones](connection-reviews.md). 6 enlaces revisados documentalmente; los demás no se dan por compatibles por tener puertos identificados.
+Revisión por circuito y fuentes: [comprobaciones de conexiones](connection-reviews.md). 8 enlaces revisados documentalmente; los demás no se dan por compatibles por tener puertos identificados.
 
 ## Colores
 
@@ -329,6 +329,36 @@ Revisión por circuito y fuentes: [comprobaciones de conexiones](connection-revi
 - Cruce de movimiento: internal_to_camera; geometría: contacts_only_no_external_route.
 
 
+### vid-fx30-to-smallhd
+
+- Producto/fuente: HDMI Kondor Blue.
+- Origen: Única salida HDMI-A de FX30; puerto `fx30-hdmi-out`.
+- Destino: Entrada HDMI del Indie 7; puerto `indie7-hdmi-in`.
+- Conector A: HDMI tipo A macho; conector B: HDMI tipo A macho.
+- Tipo: Vídeo; estándar/tensión: HDMI no RAW; Indie 7 hasta 4Kp30. Configurar salida 1080p y verificar frecuencia/color en el ejemplar..
+- Longitud estimada: KB-FHDMI-12: 304.8–609.6 mm espiral a extendido; alcance útil y fuerza por medir.
+- Ruta candidata: HDMI izquierdo de FX30 hacia monitor sobre NATO 4770/2906B. Bucle local para inclinación; no cruza una base fija ni tapa ventilación. Trazado ilustrativo, no longitud de corte.
+- Alivio de tensión: Usar abrazadera suministrada de 4770 si asienta este conector sin forzar; proteger ambos extremos, dejar holgura para tilt y comprobar puertas/pantalla.
+- Riesgos: Una sola salida HDMI de cámara: no añadir RavenEye directo en paralelo.; El cable admite más modos que el monitor; 4K60 o RAW no quedan autorizados.; Confirmar señal, firmware, color, frecuencia y tensión de espiral con el conjunto real.
+- Obligatorio/opcional: Opcional; estado: Candidato; visualización: Cable.
+- Cruce de movimiento: same_camera_core; geometría: Esquema, no CAD de puertos.
+
+
+### audio-rx-to-fx30
+
+- Producto/fuente: Mic 2.
+- Origen: OUT TRS del RX Mic 2 DMR02; puerto `mic2-rx-out`.
+- Destino: Entrada MIC de FX30; puerto `fx30-mic-in`.
+- Conector A: TRS de 3.5 mm macho; conector B: TRS de 3.5 mm macho.
+- Tipo: Datos/control; estándar/tensión: Audio analógico de cámara por TRS; nivel y ganancia reales por comprobar..
+- Longitud estimada: Cable de cámara incluido en Mic 2; longitud exacta no publicada en las fuentes revisadas.
+- Ruta candidata: RX sobre zapata 4770 → OUT TRS → MIC de FX30. Bucle local fuera de ventilación, puertas y HDMI. Coordenadas y curva aproximadas, sin cruzar gimbal.
+- Alivio de tensión: Holgura suave en ambos conectores; no pinzar en puertas, pantalla o soporte de monitor. No fijar al participante.
+- Riesgos: No confundir OUT con monitor de auriculares del RX ni MIC con auriculares de cámara.; Usar TRS, no TRRS. Ajustar niveles mirando medidores y revisar una grabación real.; La FX30 prioriza MIC externo sobre micrófono interno/asa; no son fuentes simultáneas.; TX y estuche fuera del rig. Audio S&Q y respaldo de TX no equivalen a audio grabado por cámara.
+- Obligatorio/opcional: Opcional; estado: Candidato; visualización: Cable.
+- Cruce de movimiento: same_camera_core; geometría: Esquema, no CAD de puertos.
+
+
 
 ## Puertos identificados
 
@@ -364,10 +394,10 @@ Revisión por circuito y fuentes: [comprobaciones de conexiones](connection-revi
 - `xlrh1-input3`: Entrada 3 / TRS de 3.5 mm hembra; sin pose habilitada; [fuente](https://electronics.sony.com/imaging/imaging-accessories/imaging-compact-camera-accessories/p/xlrh1).
 - `npf970-contacts`: Contactos de batería serie L / Contactos serie L de batería; anclaje visual XYZ 0/-35.4/-30 mm aproximado; [fuente](https://www.sony.jp/products/catalog/SPC_NP-F970_PRO.pdf).
 - `indie7-l-series`: Placa serie L incluida / una bahía / Contactos de placa serie L; anclaje visual XYZ 26/-17.4/16.75 mm aproximado; [fuente](https://smallhd.com/products/indie-7).
-- `fx30-hdmi-out`: Salida HDMI FX30 / HDMI-A; sin pose habilitada; [fuente](https://www.sony.jp/pro-cam/products/ILME-FX30/spec.html).
+- `fx30-hdmi-out`: Salida HDMI FX30 / HDMI-A; anclaje visual XYZ -65/2/-19 mm aproximado; [fuente](https://helpguide.sony.net/ilc/2220/v1/en/print.pdf).
 - `fx30-usb-c`: USB-C / USB-C; sin pose habilitada; [fuente](https://www.sony.jp/pro-cam/products/ILME-FX30/spec.html).
 - `fx30-multi-usb`: Multi/Micro USB / Multi/Micro USB; sin pose habilitada; [fuente](https://www.sony.jp/pro-cam/products/ILME-FX30/spec.html).
-- `fx30-mic-in`: 3.5 mm stereo minijack / 3.5 mm stereo minijack; sin pose habilitada; [fuente](https://www.sony.jp/pro-cam/products/ILME-FX30/spec.html).
+- `fx30-mic-in`: 3.5 mm stereo minijack / 3.5 mm stereo minijack; anclaje visual XYZ -65/26/-4 mm aproximado; [fuente](https://helpguide.sony.net/ilc/2220/v1/en/print.pdf).
 - `fx30-headphones`: 3.5 mm stereo minijack / 3.5 mm stereo minijack; sin pose habilitada; [fuente](https://www.sony.jp/pro-cam/products/ILME-FX30/spec.html).
 - `fx30-multi-interface-shoe`: Sony Multi Interface Shoe / Sony Multi Interface Shoe; sin pose habilitada; [fuente](https://www.sony.jp/pro-cam/products/ILME-FX30/spec.html).
 - `fx3-native-battery`: Compartimento nativo FX3 / Alojamiento nativo NP-FZ100; sin pose habilitada; [fuente](https://helpguide.sony.net/ilc/2210/v1/en/contents/TP1000886922.html).

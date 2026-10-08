@@ -1,6 +1,6 @@
 # Revisión de conexiones
 
-Fuente: `data/connection-reviews.json`, revisión `connection-review-2026-10-07-2`. Valores eléctricos canónicos en cables y puertos, con fuente por campo. 6 de 20 circuitos con revisión ampliada.
+Fuente: `data/connection-reviews.json`, revisión `connection-review-2026-10-07-3`. Valores eléctricos canónicos en cables y puertos, con fuente por campo. 8 de 22 circuitos con revisión ampliada.
 
 Revisión documental limitada a modelos, puertos y revisión vinculados. No es autorización para energizar ni ensayo físico. Fuentes de valores eléctricos en cables-manifest y ports-manifest; ausencia de rango, pinout o protocolo mantiene el resultado pendiente.
 
@@ -89,6 +89,31 @@ Antes de conectar: Usar batería nativa previamente cargada y seguir Sony. Compr
 - **Retención y ventilación reales:** Asiento, cubierta y ventilación deben comprobarse con el ejemplar y jaula reales. Sin ensayo registrado.
 
 - [Sony](https://helpguide.sony.net/ilc/2220/v1/en/print.pdf): Página 19: NP-FZ100 incluida; páginas de inserción de batería y 526: especificaciones.. Sony identifica NP-FZ100 como batería nativa para ILME-FX30; no documenta aquí pinout ni rango.
+
+## vid-fx30-to-smallhd
+
+Modelos vinculados: HDMI Kondor Blue / KB-FHDMI-12; Sony FX30 / ILME-FX30; Indie 7 / MON-INDIE-7. Puertos: `fx30-hdmi-out` -> `indie7-hdmi-in`.
+
+Antes de conectar: Configurar salida de monitor no RAW y 1080p como punto de partida; verificar señal, formato, firmware y bucle de inclinación antes de usar. No es un par ensayado por Takegrid.
+
+- **Interfaces y límites publicados:** Extremos documentados de forma independiente. Intersección candidata, no prueba de este par ni modo universal.
+- **Señal y holgura del conjunto real:** Formato, firmware, señal recibida, retención HDMI e inclinación con cable no ensayados.
+
+- [Sony](https://helpguide.sony.net/ilc/2220/v1/en/print.pdf): Sides, página 44 de copia descargada; HDMI Output Settings (movie), Output Resolution y RAW Output.. Sony documenta salida HDMI-A y selección de resolución no RAW; no acredita recepción en este monitor.
+- [SmallHD](https://guide.smallhd.com/a/1634747-indie-7-quick-start-guide): POWER AND CONNECT / INPUT-OUTPUT.. SmallHD publica HDMI hasta 4Kp30; no es grabador RAW ni una prueba 4K60.
+- [Kondor Blue](https://kondorblue.com/products/12-to-24-coiled-braided-hdmi-cable-for-camera-mounted-monitors): TECH SPECS, KB-FHDMI-12.. Dos HDMI-A macho, HDMI 2.0 / 18 Gbps; extensión 12–24 pulgadas.
+
+## audio-rx-to-fx30
+
+Modelos vinculados: Mic 2; Sony FX30 / ILME-FX30. Puertos: `mic2-rx-out` -> `fx30-mic-in`.
+
+Antes de conectar: Conectar OUT a MIC mediante TRS incluido y ajustar ganancia sin saturar. Revisar una toma con el ejemplar real; confirmar modo de grabación, niveles y retención del RX.
+
+- **OUT y MIC documentados:** Interfaces revisadas para estos modelos; no asegura valores de ganancia, ruido ni compatibilidad de cualquier modo.
+- **Niveles, canales y grabación real:** Sin ensayo de niveles, monitorización, toma reproducida, firmware o retención con monitor inclinado.
+
+- [Sony](https://helpguide.sony.net/ilc/2220/v1/en/print.pdf): Sides, página 44 de copia descargada: llamada 5 MIC; Audio Recording y Audio Rec Level.. MIC externo priorizado sobre micrófono interno y asa. No confundir salida de auriculares con entrada.
+- [DJI](https://dl.djicdn.com/downloads/DJI_Mic_2/20240426/UM/DJI_Mic_2_User_Manual_V1.2_EN.pdf): v1.2 páginas 8 y 13: OUT TRS, zapata integrada y cable de cámara incluido.. RX transmite audio analógico a entrada de micrófono mediante TRS; alimentación interna, sin adaptador Sony MI.
 
 
 ## Alcance pendiente

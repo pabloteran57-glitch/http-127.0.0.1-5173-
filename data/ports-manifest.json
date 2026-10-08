@@ -428,10 +428,14 @@
       "part_id": "sony-fx30",
       "label": "Salida HDMI FX30",
       "connector": "HDMI-A",
-      "local_position_mm": null,
-      "position_confidence": "unmeasured_not_routable",
-      "identity_source_url": "https://www.sony.jp/pro-cam/products/ILME-FX30/spec.html",
-      "note": "Una salida Type A publicada; YCbCr 4:2:2 10 bit / RGB 8 bit. Modos del monitor y par exacto por revisar."
+      "local_position_mm": [
+        -65,
+        2,
+        -19
+      ],
+      "position_confidence": "approximate_visual_annotation_not_port_CAD",
+      "identity_source_url": "https://helpguide.sony.net/ilc/2220/v1/en/print.pdf",
+      "note": "Única HDMI-A. Anclaje visual aproximado desde diagrama Sony Sides, edición descargada página 44; no coordenada CAD ni recorrido físico medido. Usar salida no RAW compatible con monitor, nunca extrapolar 4K60."
     },
     {
       "id": "fx30-usb-c",
@@ -458,10 +462,14 @@
       "part_id": "sony-fx30",
       "label": "3.5 mm stereo minijack",
       "connector": "3.5 mm stereo minijack",
-      "local_position_mm": null,
-      "position_confidence": "unmeasured_not_routable",
-      "identity_source_url": "https://www.sony.jp/pro-cam/products/ILME-FX30/spec.html",
-      "note": "Identidad independiente del manual; recorrido, nivel y par Mic 2 pendientes."
+      "local_position_mm": [
+        -65,
+        26,
+        -4
+      ],
+      "position_confidence": "approximate_visual_annotation_not_port_CAD",
+      "identity_source_url": "https://helpguide.sony.net/ilc/2220/v1/en/print.pdf",
+      "note": "Entrada MIC distinta de auriculares, diagrama Sony Sides página 44. Anclaje visual aproximado, no asiento medido. Con micrófono externo se desactivan micrófono interno y audio del asa; no garantizar nivel ni ganancia."
     },
     {
       "id": "fx30-headphones",

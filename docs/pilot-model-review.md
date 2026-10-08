@@ -34,7 +34,7 @@ Generado desde data/pilot-model-assets.json. Revisión 2026-10-07. Expediente de
 
 ## Comprobación y alcance
 
-Tres GLB y tres WebP propios. No usan fotografías, texturas, escaneos, CAD o activos IA externos. Las 17 mallas originales conservan sus huellas; las tres mallas del piloto se promueven explícitamente sin modificar su geometría. Los puertos FX30 permanecen sin coordenadas en ports-manifest; ninguna malla autoriza un cable, asiento o contacto.
+Tres GLB y tres WebP propios. No usan fotografías, texturas, escaneos, CAD o activos IA externos. Las 17 mallas originales conservan sus huellas; las tres mallas del piloto se promueven explícitamente sin modificar su geometría. HDMI/MIC de FX30 tienen anclajes de anotación aproximados revisados aparte; los demás puertos y contactos siguen sin coordenadas. Ninguna malla autoriza un asiento o contacto.
 
 El presupuesto público pasa de 6 a 7 MB para admitir 887268 bytes de modelos nuevos y 25232 bytes de miniaturas, más código de inspección. Carga GLB bajo demanda, sin precarga sin conexión.
 

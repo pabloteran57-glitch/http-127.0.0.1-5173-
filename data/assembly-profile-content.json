@@ -9,7 +9,9 @@
       "requires_any": [],
       "note": "Posiciones finales aproximadas, no una trayectoria de acople medida.",
       "rebalance": "El equilibrio inicial se comprueba después de completar la carga móvil.",
-      "source_ids": ["src-sony-fx3-battery-install"],
+      "source_ids": [
+        "src-sony-fx3-battery-install"
+      ],
       "blocks": [
         {
           "part_ids": [
@@ -22,9 +24,15 @@
           ]
         },
         {
-          "part_ids": ["sony-np-fz100"],
-          "require_all": ["sony-fx3"],
-          "unless_any": ["smallrig-4253b"],
+          "part_ids": [
+            "sony-np-fz100"
+          ],
+          "require_all": [
+            "sony-fx3"
+          ],
+          "unless_any": [
+            "smallrig-4253b"
+          ],
           "mount": "Insertar la batería nativa elegida y previamente cargada contra la palanca de retención; cerrar cubierta y bloquear según Sony.",
           "where": "Compartimento interno FX3; sin cable externo.",
           "verify": [
@@ -657,12 +665,174 @@
         },
         {
           "number": 5,
+          "title": "Preparar soporte y monitor NATO",
+          "requires_any": [
+            "smallrig-2906b",
+            "smallhd-indie-7"
+          ],
+          "source_ids": [
+            "audit-doc-smallrig-4770-manual",
+            "src-smallrig-2906b-manual",
+            "src-smallhd-indie7-hdmi-guide"
+          ],
+          "rebalance": "Carga superior adicional: comprobar agarre y reparto; no hay motores ni equilibrio certificado.",
+          "kind": "mount",
+          "note": "Relaciones documentadas; posiciones y transición ilustrativas, no trayectoria física.",
+          "blocks": [
+            {
+              "part_ids": [
+                "smallrig-2906b"
+              ],
+              "mount": "Abrir la abrazadera NATO del 2906B, asentar sobre el riel superior 4770 y cerrar sin forzar.",
+              "where": "NATO de la jaula, sin brazo de gimbal ni asa XLR.",
+              "verify": [
+                "Retención NATO y apriete comprobados físicamente.",
+                "No deducir antitorsión, holgura o seguridad dinámica por el límite de carga."
+              ]
+            },
+            {
+              "part_ids": [
+                "smallhd-indie-7"
+              ],
+              "require_all": [
+                "smallrig-2906b"
+              ],
+              "mount": "Con el monitor sostenido, fijar su rosca inferior al tornillo 1/4-20 del 2906B.",
+              "where": "Cabezal del soporte elegido, pantalla hacia operador.",
+              "verify": [
+                "Contacto de rosca y resistencia al giro comprobados físicamente.",
+                "Ajustar tilt/giro sosteniendo el monitor y revisar manos, pantalla y puertos."
+              ]
+            }
+          ]
+        },
+        {
+          "number": 6,
+          "title": "Colocar batería del monitor",
+          "requires_any": [
+            "sony-np-f970-pro"
+          ],
+          "source_ids": [
+            "src-smallhd-indie7-specs",
+            "src-sony-npf970-pro"
+          ],
+          "rebalance": "Añade unos 300 g detrás del monitor: sostenerlo al ajustar y revisar manos, no deducir CG real.",
+          "kind": "mount",
+          "note": "Relaciones documentadas; posiciones y transición ilustrativas, no trayectoria física.",
+          "blocks": [
+            {
+              "part_ids": [
+                "sony-np-f970-pro"
+              ],
+              "mount": "Con monitor apagado, insertar una NP-F970/PRO cargada en una bahía nativa serie L y comprobar el seguro.",
+              "where": "Parte posterior del Indie 7; contactos directos, sin cable al barril DC.",
+              "verify": [
+                "Una batería elegida, no dos paquetes implícitos.",
+                "Revisar retención y corriente/tensión real bajo carga; cargador externo no incluido.",
+                "El Indie 7 no carga batería y 7.2 V nominales no autorizan el barril DC."
+              ]
+            }
+          ]
+        },
+        {
+          "number": 7,
+          "title": "Montar receptor Mic 2",
+          "requires_any": [
+            "dji-mic-2-kit"
+          ],
+          "source_ids": [
+            "audit-doc-smallrig-4770-manual",
+            "audit-doc-dji-mic2-manual"
+          ],
+          "rebalance": "Comprobar agarre al añadir RX; pose y retención reales no ensayadas.",
+          "kind": "mount",
+          "note": "Relaciones documentadas; posiciones y transición ilustrativas, no trayectoria física.",
+          "blocks": [
+            {
+              "part_ids": [
+                "dji-mic-2-kit"
+              ],
+              "mount": "Insertar la zapata integrada del RX DMR02 en la zapata inclinada del 4770 y verificar asiento, retención y lectura.",
+              "where": "Esquina de la jaula; transmisores y estuche fuera de cámara.",
+              "verify": [
+                "Sólo el RX de 28 g como carga del rig; batería propia, no alimentación por zapata pasiva.",
+                "Comprobar separación del monitor y sus posiciones ajustadas.",
+                "No bloquear MIC, HDMI, pantalla, ventilación ni el agarre."
+              ]
+            }
+          ]
+        },
+        {
+          "number": 8,
+          "title": "Conectar vídeo FX30",
+          "requires_any": [
+            "kondor-blue-hdmi-aa"
+          ],
+          "source_ids": [
+            "src-sony-fx30-av-guide",
+            "src-smallhd-indie7-hdmi-guide",
+            "src-kondor-blue-hdmi"
+          ],
+          "rebalance": "La espiral ejerce fuerza: comprobar agarre y articulación tras conectar, sin afirmar ruta física exacta.",
+          "kind": "mount",
+          "note": "Relaciones documentadas; posiciones y transición ilustrativas, no trayectoria física.",
+          "blocks": [
+            {
+              "part_ids": [
+                "kondor-blue-hdmi-aa"
+              ],
+              "cable_ids": [
+                "vid-fx30-to-smallhd"
+              ],
+              "mount": "Con equipos apagados, unir HDMI-A de FX30 a HDMI IN del Indie 7 con KB-FHDMI-12.",
+              "where": "Bucle local izquierdo al monitor NATO; alivio de tensión en ambos extremos.",
+              "verify": [
+                "No confundir HDMI IN con OUT; una única salida de cámara.",
+                "Salida no RAW; comenzar en 1080p y comprobar formato/frecuencia real. No prometer 4K60 por capacidad del cable.",
+                "Recorrer tilt/giro con monitor sostenido: ninguna tensión, puerta pinzada ni ventilación cubierta."
+              ]
+            }
+          ]
+        },
+        {
+          "number": 9,
+          "title": "Conectar audio FX30",
+          "requires_any": [
+            "dji-mic-2-kit"
+          ],
+          "source_ids": [
+            "src-sony-fx30-av-guide",
+            "audit-doc-dji-mic2-manual"
+          ],
+          "rebalance": "Comprobar cables sin tirones y acceso a mandos; no requiere equilibrio de motores.",
+          "kind": "mount",
+          "note": "Relaciones documentadas; posiciones y transición ilustrativas, no trayectoria física.",
+          "blocks": [
+            {
+              "part_ids": [
+                "dji-mic-2-kit"
+              ],
+              "cable_ids": [
+                "audio-rx-to-fx30"
+              ],
+              "mount": "Usar el TRS de cámara incluido desde OUT del RX hasta MIC de FX30, no auriculares.",
+              "where": "Bucle local sobre lado izquierdo; cable de participante no va al rig.",
+              "verify": [
+                "Ajustar ganancia RX/cámara sin saturación; comprobar canales y reproducir una toma real.",
+                "MIC externo prioriza sobre audio interno/asa; no asumir grabación simultánea ni audio S&Q.",
+                "Verificar holgura junto a HDMI y monitor, carga del RX y conexión con TX."
+              ]
+            }
+          ]
+        },
+        {
+          "number": 10,
           "title": "Comprobar el conjunto antes de usar",
           "kind": "check",
           "requires_any": [
             "sony-fx30"
           ],
-          "note": "Pose aproximada del piloto FX30, sin heredar etapas ni accesorios de FX3.",
+          "note": "Prueba final por selección; no certifica el montaje físico.",
           "rebalance": "No certifica seguridad ni sustituye el manual: registrar ensayo físico y masa del conjunto instalado.",
           "source_ids": [
             "intake-sony-fx30-bottom",
@@ -675,12 +845,43 @@
                 "sony-fx30"
               ],
               "mount": "Encender sólo tras verificar fijaciones, retención y ventilación.",
-              "where": "Rig a mano sin monitor, gimbal ni cables externos.",
+              "where": "Rig a mano: comprobar únicamente monitor, RX y cables que elegiste; sin gimbal.",
               "verify": [
                 "Firmware, enfoque y exposición comprobados en el ejemplar",
                 "Pantalla, controles y ventilación libres",
                 "Para grabar: elegir aparte una tarjeta adecuada al modo; tarjeta y masa no incluidas en este piloto",
                 "Antes de retirar batería: apagar y comprobar lámpara de acceso según Sony"
+              ]
+            },
+            {
+              "part_ids": [
+                "smallhd-indie-7"
+              ],
+              "require_all": [
+                "sony-np-f970-pro"
+              ],
+              "cable_ids": [
+                "vid-fx30-to-smallhd"
+              ],
+              "mount": "Encender cámara y monitor tras revisar todas las fijaciones.",
+              "where": "Monitor elegido sobre NATO; no hay transmisor implícito.",
+              "verify": [
+                "Imagen estable al inclinar, ajustes no RAW y lectura de exposición revisados.",
+                "Comprobar batería y acceso a manos/ventilación en el conjunto real."
+              ]
+            },
+            {
+              "part_ids": [
+                "dji-mic-2-kit"
+              ],
+              "cable_ids": [
+                "audio-rx-to-fx30"
+              ],
+              "mount": "Comprobar audio en un clip real antes de rodar.",
+              "where": "Entrada MIC del cuerpo FX30 con RX elegido.",
+              "verify": [
+                "Escuchar toma reproducida y comprobar niveles/canales sin saturación.",
+                "Apagar antes de cambiar conexiones; no usar modo S&Q como prueba de captura de audio."
               ]
             }
           ]

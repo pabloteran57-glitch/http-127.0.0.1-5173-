@@ -4,11 +4,11 @@ const read=name=>JSON.parse(readFileSync(new URL(`../data/${name}.json`,import.m
 const parts=read("parts-manifest"),layout=read("layout-manifest"),cables=read("cables-manifest"),ports=read("ports-manifest"),assembly=read("assembly-guide"),variants=read("variants"),refs=read("geometry-references"),audit=read("geometry-audit");
 const ui=read("ui-content");
 const planner=read("planner-rules"),intake=read("catalog-intake");
-const roadmap=read("product-roadmap"),integration=read("pilot-integration");
+const roadmap=read("product-roadmap"),integration=read("pilot-integration"),accessoryReview=read("fx30-accessories-review"),profileContent=read("assembly-profile-content");
 const modelProduction=read("model-production"),modelAssets=read("model-assets");
 const connectionReviews=read("connection-reviews"),sourceList=read("sources").sources;
 const pilotModels=read("pilot-model-assets");
-writeFileSync(new URL("../docs/pilot-model-review.md",import.meta.url),`# Modelos del piloto\n\nGenerado desde data/pilot-model-assets.json. Revisión ${pilotModels.reviewed_on}. Expediente de revisión visual de origen. Integración actual acotada en [piloto de planificación](pilot-integration.md).\n\n${pilotModels.assets.map(asset=>`## ${asset.exact_product_name}\n\n- Modelo exacto: ${asset.model_number}. Autoría propia; geometría y materiales aproximados.\n- GLB: ${asset.artifact.bytes} bytes, ${asset.artifact.triangles} triángulos; huella SHA-256: ${asset.artifact.sha256}.\n- Envolvente visual X/Y/Z: ${asset.calibration.bounds_mm.map(value=>value.toFixed(2)).join(" / ")} mm, no cotas de mecanizado.\n- Referencia: [fuente oficial](${asset.calibration.reference_url}). ${asset.calibration.reference_basis}\n- Revisión: ${asset.review.evidence}\n- Derechos: ${asset.rights.attribution}\n- Referencias consultadas, no redistribuidas: ${asset.references.map(url=>`[Sony](${url})`).join("; ")}.`).join("\n\n")}\n\n## Comprobación y alcance\n\nTres GLB y tres WebP propios. No usan fotografías, texturas, escaneos, CAD o activos IA externos. Las 17 mallas originales conservan sus huellas; las tres mallas del piloto se promueven explícitamente sin modificar su geometría. Los puertos FX30 permanecen sin coordenadas en ports-manifest; ninguna malla autoriza un cable, asiento o contacto.\n\nEl presupuesto público pasa de 6 a 7 MB para admitir ${pilotModels.assets.reduce((sum,asset)=>sum+asset.artifact.bytes,0)} bytes de modelos nuevos y ${pilotModels.assets.reduce((sum,asset)=>sum+asset.image.bytes,0)} bytes de miniaturas, más código de inspección. Carga GLB bajo demanda, sin precarga sin conexión.\n\nRegenerar candidatos: npm run build:pilot-models. Revisar las cinco vistas locales antes de actualizar manualmente huellas. Verificar: npm run test:catalog y npm run build:public. La selección y guía propias están integradas; las poses del conjunto son sólo visuales y aproximadas. El ensayo físico sigue pendiente.\n`);
+writeFileSync(new URL("../docs/pilot-model-review.md",import.meta.url),`# Modelos del piloto\n\nGenerado desde data/pilot-model-assets.json. Revisión ${pilotModels.reviewed_on}. Expediente de revisión visual de origen. Integración actual acotada en [piloto de planificación](pilot-integration.md).\n\n${pilotModels.assets.map(asset=>`## ${asset.exact_product_name}\n\n- Modelo exacto: ${asset.model_number}. Autoría propia; geometría y materiales aproximados.\n- GLB: ${asset.artifact.bytes} bytes, ${asset.artifact.triangles} triángulos; huella SHA-256: ${asset.artifact.sha256}.\n- Envolvente visual X/Y/Z: ${asset.calibration.bounds_mm.map(value=>value.toFixed(2)).join(" / ")} mm, no cotas de mecanizado.\n- Referencia: [fuente oficial](${asset.calibration.reference_url}). ${asset.calibration.reference_basis}\n- Revisión: ${asset.review.evidence}\n- Derechos: ${asset.rights.attribution}\n- Referencias consultadas, no redistribuidas: ${asset.references.map(url=>`[Sony](${url})`).join("; ")}.`).join("\n\n")}\n\n## Comprobación y alcance\n\nTres GLB y tres WebP propios. No usan fotografías, texturas, escaneos, CAD o activos IA externos. Las 17 mallas originales conservan sus huellas; las tres mallas del piloto se promueven explícitamente sin modificar su geometría. HDMI/MIC de FX30 tienen anclajes de anotación aproximados revisados aparte; los demás puertos y contactos siguen sin coordenadas. Ninguna malla autoriza un asiento o contacto.\n\nEl presupuesto público pasa de 6 a 7 MB para admitir ${pilotModels.assets.reduce((sum,asset)=>sum+asset.artifact.bytes,0)} bytes de modelos nuevos y ${pilotModels.assets.reduce((sum,asset)=>sum+asset.image.bytes,0)} bytes de miniaturas, más código de inspección. Carga GLB bajo demanda, sin precarga sin conexión.\n\nRegenerar candidatos: npm run build:pilot-models. Revisar las cinco vistas locales antes de actualizar manualmente huellas. Verificar: npm run test:catalog y npm run build:public. La selección y guía propias están integradas; las poses del conjunto son sólo visuales y aproximadas. El ensayo físico sigue pendiente.\n`);
 const pilot=read("catalog-pilot"),pilotReport=validateCatalogPilot(pilot,{intake,parts,sources:{sources:sourceList},pilotModels});
 const contract={version:1,catalog_revision:planner.catalog_revision,scope:"Índice derivado; identidad en parts-manifest, forma en layout-manifest y guía en assembly-profile-content.",products:parts.parts.map(p=>({part_id:p.id,record_revision:planner.catalog_revision,model_number:p.model_number,identity_source_url:p.primary_source_url,geometry_profile_id:layout.nodes.find(n=>n.id===p.id)?.id??null,geometry_status:layout.nodes.some(n=>n.id===p.id)?"approximate":"not_modeled",assembly_steps:planner.assembly_frames.filter(f=>f.add_part_ids.includes(p.id)).map(f=>f.step),assembly_profiles:(planner.assembly_profiles??[]).filter(profile=>profile.frames.some(frame=>frame.add_part_ids.includes(p.id))).map(profile=>({id:profile.id,steps:profile.frames.filter(frame=>frame.add_part_ids.includes(p.id)).map(frame=>frame.step)})),release_status:planner.parked_part_ids.includes(p.id)?"reserve":"planning_candidate",physically_tested:false}))};
 writeFileSync(new URL("../data/catalog-contract.json",import.meta.url),JSON.stringify(contract,null,2)+"\n");
@@ -33,11 +33,11 @@ Cuerpo a mano, óptica coaxial sobre montura E, jaula 4770 alrededor y batería 
 
 ## 3. Conexión
 
-NP-FZ100 → alojamiento FX30: contactos internos. No cable externo, D-Tap ni regulador. 7.2 V nominales, no rango de descarga o pinout. Puertos FX30 propios sin coordenadas publicadas; no se activan HDMI, audio ni USB-C heredados de FX3. Evidencia ampliada específica en connection-reviews.json.
+NP-FZ100 → alojamiento FX30: contactos internos. No cable externo, D-Tap ni regulador. 7.2 V nominales, no rango de descarga o pinout. Puertos FX30 propios; HDMI/MIC tienen anotaciones visuales aproximadas y circuitos revisados aparte. No se activa control USB-C heredado de FX3. Evidencia específica en connection-reviews.json. Monitor serie L usa su placa nativa, no el barril DC.
 
 ## 4. Guía
 
-Cinco etapas propias: preparar cuerpo, fijar jaula, acoplar objetivo, insertar batería y comprobar el conjunto. Si no eliges una pieza, no se añade ni se reproduce su etapa. Comprobación final se conserva. En Montaje, Ver batería interna en despiece muestra la pieza oculta; transición ilustrativa, no inserción física.
+Cinco etapas del núcleo; hasta diez al elegir monitor NATO y RX. Soporte, pantalla, batería del monitor, RX, HDMI y TRS tienen pasos propios que sólo aparecen por selección. Si no eliges una pieza, no se añade ni se reproduce su etapa. Comprobación final se conserva. En Montaje, Ver batería interna en despiece muestra la pieza oculta; transición ilustrativa, no inserción física.
 
 ## 5. Visor y guardado
 
@@ -45,16 +45,65 @@ Tres mallas originales con sus huellas revisadas y miniaturas propias; no reutil
 
 ## 6. Alcance y variantes
 
-Sólo a mano y horizontal. Elige cámara/óptica en Cámara y óptica, jaula en Jaulas y accesorios y batería en Alimentación. Las siete plantillas FX3 permanecen intactas. Puedes guardar combinaciones incompletas y accesorios adicionales como pendientes; no se fabrican sus montajes, guía o conexiones.
+Sólo a mano y horizontal. Elige cámara/óptica en Cámara y óptica, jaula en Jaulas y accesorios y batería en Alimentación. Las siete plantillas FX3 permanecen intactas. Monitor NATO/serie L y RX sobre jaula son candidatos documentales. [Cadenas y ejemplos](fx30-accessories.md). Puedes guardar combinaciones incompletas y accesorios fuera de ese alcance como pendientes; no se fabrican sus montajes, guía o conexiones.
 
 ## Evidencia y pendientes
 
-Software: ${integration.software_validation.status}. Ejecutar npm run test:catalog y npm run build:public. Registro de interfaz: [pruebas de integración](pilot-integration-qa.md).
+Software: ${integration.software_validation.status}. Ejecutar npm run test:catalog y npm run build:public. Registro de interfaz: [pruebas del núcleo](pilot-integration-qa.md) y [monitor/audio](fx30-accessories-qa.md).
 
 ${integration.remaining.map(text=>"- "+text).join("\n")}
 
 Física: ${integration.physical_validation.status}. Sin ensayo, dispositivos ni participantes inventados. Esta integración no cierra catálogo completo, beta ni financiación.
 `);
+
+write("fx30-accessories.md",`# FX30: monitor y audio a mano
+
+Generado desde data/fx30-accessories-review.json y autoridades canónicas. Estado: ${accessoryReview.status}. Sólo a mano y horizontal, sin certificación física.
+
+## 1. Manifiesto
+
+Productos existentes, no altas implícitas. ${integration.accessory_part_ids.map(id=>name(id)).join("; ")}. Identidad, masa y cotas siguen en parts-manifest; sólo RX representa el kit Mic 2 en el rig.
+
+## 2. Distribución
+
+${accessoryReview.relations.map(r=>`- ${r.id}: ${r.part_ids.map(name).join(" -> ")}. ${r.remaining.join("; ")}.`).join("\n")}
+
+## 3. Cables y energía
+
+${accessoryReview.circuit_ids.map(id=>{const c=cables.cables.find(c=>c.cable_id===id);return `- \`${id}\`: ${c.source} -> ${c.destination}; ${c.voltage_or_signal_standard} ${c.routing_path}`;}).join("\n")}
+
+Puertos ilustrativos: ${accessoryReview.geometry.port_ids.join(", ")}. ${accessoryReview.geometry.basis} Sin pinout, topes o holgura inventados.
+
+## 4. Montaje
+
+${profileContent.profiles.find(p=>p.id===accessoryReview.assembly_profile_id).steps.map(s=>`${s.number}. ${s.title}: sólo si piezas/circuitos están activos. ${s.rebalance}`).join("\n")}
+
+Sin accesorios, quedan las cinco etapas del núcleo. Reproducción es ilustrativa, no una trayectoria física.
+
+## 5. Visor y biblioteca
+
+Monitor/batería/cabezal conservan articulación acoplada. Curvas HDMI/TRS enlazan puertos propios; contactos internos nunca se dibujan como cable. Quitar un soporte conserva elecciones pendientes. Guardado e historial local sin otra revisión de biblioteca, cuenta o nube.
+
+## 6. Ejemplos de selección
+
+${accessoryReview.selection_examples.map(e=>`### ${e.label}
+
+- Elegidas: ${e.part_ids.map(name).join("; ")}.
+- Cambio frente al núcleo: ${e.part_ids.filter(id=>!integration.part_ids.includes(id)).map(name).join("; ")||"Sin adiciones"}.
+- Flujo: ${e.workflow_impact}
+- Reparto: ${e.balance_impact}
+- Presupuesto: ${e.budget_impact}
+- Complejidad: ${e.complexity_impact}`).join("\n\n")}
+
+Son ejemplos, no otra plantilla o modificación automática de Mis rigs. Siete plantillas originales conservadas.
+
+## Fuentes y pendientes
+
+${accessoryReview.source_ids.map(id=>{const s=sourceList.find(s=>s.id===id);return `- [${s.brand}](${s.url}): ${s.notes}`;}).join("\n")}
+
+Física: ${accessoryReview.physical_validation.status}; sin observaciones inventadas. Fuera de alcance: ${accessoryReview.not_enabled.join("; ")}.
+`);
+
 const intakeReviews=intake.manifest_reviews??[];
 const reviewMethods={direct_official_page:"Página oficial consultada",official_browser_page_review:"Página oficial revisada en navegador",official_pdf_text_review:"Sección textual del PDF oficial; no medición de figura",official_pdf_visual_review:"Diagrama oficial revisado visualmente; no CAD",official_indexed_text_direct_access_failed:"Texto oficial indexado; acceso directo falló en esa revisión"};
 write("catalog-manifest-reviews.md",`# Revisiones del manifiesto piloto\n\nFuente: \`data/catalog-intake.json\`. Revisión ${intake.reviewed_on}. ${intakeReviews.length} revisiones documentales de origen. Tres altas posteriores de planificación en pilot-integration.json; sin certificación física. Los otros candidatos conservan su fecha y alcance anteriores.\n\n${intakeReviews.map(review=>`## ${intake.products.find(p=>p.id===review.part_id).exact_product_name}\n\nRevisión: ${review.reviewed_on}.\n\n| Campos en investigación | Fuente y localizador | Método |\n|---|---|---|\n${review.citations.map(citation=>`| ${citation.field_paths.map(path=>`\`${path}\``).join(", ")} | [Sony](${sourceList.find(source=>source.id===citation.source_id).url}): ${citation.locator} | ${reviewMethods[citation.method]??"Método no reconocido; revisar"} |`).join("\n")}\n\nPendiente:\n\n${bullets(review.remaining)}`).join("\n\n")}\n\n## Límites\n\nNo se copian puertos, mallas ni poses de FX3. El par exacto FX30/SEL20F18G tiene [confirmación Sony](${sourceList.find(s=>s.id==="intake-sony-fx30-sel20f18g-pair").url}); la tabla no especifica firmware ni certifica holguras. NP-FZ100 es batería nativa de FX30 documentada; tensión nominal no equivale a rango completo ni pinout. Las diferencias ILME-FX30 / ILME-FX30B de contenido incluido se conservan sin añadir piezas al usuario. La [ficha del conjunto](catalog-pilot-blueprint.md) define distribución relacional, alimentación y guía documental. El catálogo instalable mantiene ${parts.parts.length} entradas.\n`);

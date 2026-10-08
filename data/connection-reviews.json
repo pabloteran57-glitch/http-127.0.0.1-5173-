@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "revision": "connection-review-2026-10-07-2",
+  "revision": "connection-review-2026-10-07-3",
   "catalog_revision": "fx3-rs4-2026-10-05",
   "policy": "Revisión documental limitada a modelos, puertos y revisión vinculados. No es autorización para energizar ni ensayo físico. Fuentes de valores eléctricos en cables-manifest y ports-manifest; ausencia de rango, pinout o protocolo mantiene el resultado pendiente.",
   "reviews": [
@@ -457,12 +457,28 @@
         "signal_standard": "NP-FZ100 nativa documentada para FX3; 7.2 V nominales. Rango y pinout no publicados.",
         "electrical_revision": null,
         "models": [
-          {"part_id": "sony-np-fz100", "model_number": "NP-FZ100", "exact_product_name": "Sony NP-FZ100 Rechargeable Battery Pack"},
-          {"part_id": "sony-fx3", "model_number": "ILME-FX3", "exact_product_name": "Sony FX3 Full-Frame Cinema Line Camera"}
+          {
+            "part_id": "sony-np-fz100",
+            "model_number": "NP-FZ100",
+            "exact_product_name": "Sony NP-FZ100 Rechargeable Battery Pack"
+          },
+          {
+            "part_id": "sony-fx3",
+            "model_number": "ILME-FX3",
+            "exact_product_name": "Sony FX3 Full-Frame Cinema Line Camera"
+          }
         ],
         "ports": [
-          {"id": "fx3-native-battery", "connector": "Alojamiento nativo NP-FZ100", "electrical_revision": null},
-          {"id": "npfz100-contacts", "connector": "Contactos nativos NP-FZ100", "electrical_revision": null}
+          {
+            "id": "fx3-native-battery",
+            "connector": "Alojamiento nativo NP-FZ100",
+            "electrical_revision": null
+          },
+          {
+            "id": "npfz100-contacts",
+            "connector": "Contactos nativos NP-FZ100",
+            "electrical_revision": null
+          }
         ]
       },
       "citations": {
@@ -471,14 +487,20 @@
           "source_url": "https://helpguide.sony.net/ilc/2210/v1/en/contents/TP1000886922.html",
           "locator": "Power, general: Rated input; Rechargeable battery pack NP-FZ100: Rated voltage.",
           "claim": "Sony identifica NP-FZ100 para ILME-FX3; 7.2 V nominales. Sin pinout ni rango completo.",
-          "part_ids": ["sony-fx3", "sony-np-fz100"]
+          "part_ids": [
+            "sony-fx3",
+            "sony-np-fz100"
+          ]
         },
         "installation": {
           "source_id": "src-sony-fx3-battery-install",
           "source_url": "https://helpguide.sony.net/ilc/2210/v1/en/print.pdf",
           "locator": "Página impresa 82: Inserting/removing the battery pack.",
           "claim": "Retención por palanca y cubierta bloqueada; apagar y comprobar lámpara de acceso antes de retirar.",
-          "part_ids": ["sony-fx3", "sony-np-fz100"]
+          "part_ids": [
+            "sony-fx3",
+            "sony-np-fz100"
+          ]
         }
       },
       "checks": [
@@ -486,8 +508,14 @@
           "id": "native-identity",
           "kind": "specification",
           "label": "Batería nativa FX3 documentada",
-          "subject_part_ids": ["sony-fx3", "sony-np-fz100"],
-          "citation_ids": ["native", "installation"],
+          "subject_part_ids": [
+            "sony-fx3",
+            "sony-np-fz100"
+          ],
+          "citation_ids": [
+            "native",
+            "installation"
+          ],
           "detail": "Pareja propia documentada por Sony; no se reutiliza la revisión FX30 ni la del adaptador."
         },
         {
@@ -569,6 +597,186 @@
           "label": "Retención y ventilación reales",
           "citation_ids": [],
           "detail": "Asiento, cubierta y ventilación deben comprobarse con el ejemplar y jaula reales. Sin ensayo registrado."
+        }
+      ]
+    },
+    {
+      "cable_id": "vid-fx30-to-smallhd",
+      "catalog_revision": "fx3-rs4-2026-10-05",
+      "reviewed_on": "2026-10-07",
+      "action": "Configurar salida de monitor no RAW y 1080p como punto de partida; verificar señal, formato, firmware y bucle de inclinación antes de usar. No es un par ensayado por Takegrid.",
+      "binding": {
+        "source_part_id": "kondor-blue-hdmi-aa",
+        "from_port_id": "fx30-hdmi-out",
+        "to_port_id": "indie7-hdmi-in",
+        "connector_a": "HDMI tipo A macho",
+        "connector_b": "HDMI tipo A macho",
+        "signal_standard": "HDMI no RAW; Indie 7 hasta 4Kp30. Configurar salida 1080p y verificar frecuencia/color en el ejemplar.",
+        "electrical_revision": null,
+        "models": [
+          {
+            "part_id": "kondor-blue-hdmi-aa",
+            "model_number": "KB-FHDMI-12",
+            "exact_product_name": "Kondor Blue Full HDMI Cable for On-Camera Monitors, 12 to 24 in Braided Coiled"
+          },
+          {
+            "part_id": "sony-fx30",
+            "model_number": "ILME-FX30",
+            "exact_product_name": "Sony FX30"
+          },
+          {
+            "part_id": "smallhd-indie-7",
+            "model_number": "MON-INDIE-7",
+            "exact_product_name": "SmallHD Indie 7 Touchscreen On-Camera Monitor"
+          }
+        ],
+        "ports": [
+          {
+            "id": "fx30-hdmi-out",
+            "connector": "HDMI-A",
+            "electrical_revision": null
+          },
+          {
+            "id": "indie7-hdmi-in",
+            "connector": "HDMI tipo A hembra",
+            "electrical_revision": null
+          }
+        ]
+      },
+      "citations": {
+        "camera": {
+          "source_id": "src-sony-fx30-av-guide",
+          "source_url": "https://helpguide.sony.net/ilc/2220/v1/en/print.pdf",
+          "locator": "Sides, página 44 de copia descargada; HDMI Output Settings (movie), Output Resolution y RAW Output.",
+          "claim": "Sony documenta salida HDMI-A y selección de resolución no RAW; no acredita recepción en este monitor.",
+          "part_ids": [
+            "sony-fx30"
+          ]
+        },
+        "monitor": {
+          "source_id": "src-smallhd-indie7-hdmi-guide",
+          "source_url": "https://guide.smallhd.com/a/1634747-indie-7-quick-start-guide",
+          "locator": "POWER AND CONNECT / INPUT-OUTPUT.",
+          "claim": "SmallHD publica HDMI hasta 4Kp30; no es grabador RAW ni una prueba 4K60.",
+          "part_ids": [
+            "smallhd-indie-7"
+          ]
+        },
+        "cable": {
+          "source_id": "src-kondor-blue-hdmi",
+          "source_url": "https://kondorblue.com/products/12-to-24-coiled-braided-hdmi-cable-for-camera-mounted-monitors",
+          "locator": "TECH SPECS, KB-FHDMI-12.",
+          "claim": "Dos HDMI-A macho, HDMI 2.0 / 18 Gbps; extensión 12–24 pulgadas.",
+          "part_ids": [
+            "kondor-blue-hdmi-aa"
+          ]
+        }
+      },
+      "checks": [
+        {
+          "id": "video-interfaces",
+          "kind": "specification",
+          "label": "Interfaces y límites publicados",
+          "subject_part_ids": [
+            "sony-fx30",
+            "smallhd-indie-7",
+            "kondor-blue-hdmi-aa"
+          ],
+          "citation_ids": [
+            "camera",
+            "monitor",
+            "cable"
+          ],
+          "detail": "Extremos documentados de forma independiente. Intersección candidata, no prueba de este par ni modo universal."
+        },
+        {
+          "id": "video-format-test",
+          "kind": "operational",
+          "label": "Señal y holgura del conjunto real",
+          "citation_ids": [],
+          "detail": "Formato, firmware, señal recibida, retención HDMI e inclinación con cable no ensayados."
+        }
+      ]
+    },
+    {
+      "cable_id": "audio-rx-to-fx30",
+      "catalog_revision": "fx3-rs4-2026-10-05",
+      "reviewed_on": "2026-10-07",
+      "action": "Conectar OUT a MIC mediante TRS incluido y ajustar ganancia sin saturar. Revisar una toma con el ejemplar real; confirmar modo de grabación, niveles y retención del RX.",
+      "binding": {
+        "source_part_id": "dji-mic-2-kit",
+        "from_port_id": "mic2-rx-out",
+        "to_port_id": "fx30-mic-in",
+        "connector_a": "TRS de 3.5 mm macho",
+        "connector_b": "TRS de 3.5 mm macho",
+        "signal_standard": "Audio analógico de cámara por TRS; nivel y ganancia reales por comprobar.",
+        "electrical_revision": null,
+        "models": [
+          {
+            "part_id": "dji-mic-2-kit",
+            "model_number": null,
+            "exact_product_name": "DJI Mic 2 (2 TX + 1 RX + Charging Case)"
+          },
+          {
+            "part_id": "sony-fx30",
+            "model_number": "ILME-FX30",
+            "exact_product_name": "Sony FX30"
+          }
+        ],
+        "ports": [
+          {
+            "id": "mic2-rx-out",
+            "connector": "TRS de 3.5 mm hembra",
+            "electrical_revision": null
+          },
+          {
+            "id": "fx30-mic-in",
+            "connector": "3.5 mm stereo minijack",
+            "electrical_revision": null
+          }
+        ]
+      },
+      "citations": {
+        "camera": {
+          "source_id": "src-sony-fx30-av-guide",
+          "source_url": "https://helpguide.sony.net/ilc/2220/v1/en/print.pdf",
+          "locator": "Sides, página 44 de copia descargada: llamada 5 MIC; Audio Recording y Audio Rec Level.",
+          "claim": "MIC externo priorizado sobre micrófono interno y asa. No confundir salida de auriculares con entrada.",
+          "part_ids": [
+            "sony-fx30"
+          ]
+        },
+        "rx": {
+          "source_id": "audit-doc-dji-mic2-manual",
+          "source_url": "https://dl.djicdn.com/downloads/DJI_Mic_2/20240426/UM/DJI_Mic_2_User_Manual_V1.2_EN.pdf",
+          "locator": "v1.2 páginas 8 y 13: OUT TRS, zapata integrada y cable de cámara incluido.",
+          "claim": "RX transmite audio analógico a entrada de micrófono mediante TRS; alimentación interna, sin adaptador Sony MI.",
+          "part_ids": [
+            "dji-mic-2-kit"
+          ]
+        }
+      },
+      "checks": [
+        {
+          "id": "audio-interfaces",
+          "kind": "specification",
+          "label": "OUT y MIC documentados",
+          "subject_part_ids": [
+            "sony-fx30",
+            "dji-mic-2-kit"
+          ],
+          "citation_ids": [
+            "camera",
+            "rx"
+          ],
+          "detail": "Interfaces revisadas para estos modelos; no asegura valores de ganancia, ruido ni compatibilidad de cualquier modo."
+        },
+        {
+          "id": "audio-recording-test",
+          "kind": "operational",
+          "label": "Niveles, canales y grabación real",
+          "citation_ids": [],
+          "detail": "Sin ensayo de niveles, monitorización, toma reproducida, firmware o retención con monitor inclinado."
         }
       ]
     }

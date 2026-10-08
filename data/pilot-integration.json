@@ -4,18 +4,76 @@
   "configuration_id": "fx30-handheld-prime",
   "status": "planning_candidate",
   "documentary_origin": "catalog-pilot.json",
-  "promoted_part_ids": ["sony-fx30", "sony-fe-20-f18-g", "sony-np-fz100"],
-  "part_ids": ["sony-fx30", "smallrig-4770", "sony-fe-20-f18-g", "sony-np-fz100"],
-  "contexts": ["handheld"],
-  "orientations": ["landscape"],
+  "promoted_part_ids": [
+    "sony-fx30",
+    "sony-fe-20-f18-g",
+    "sony-np-fz100"
+  ],
+  "part_ids": [
+    "sony-fx30",
+    "smallrig-4770",
+    "sony-fe-20-f18-g",
+    "sony-np-fz100"
+  ],
+  "contexts": [
+    "handheld"
+  ],
+  "orientations": [
+    "landscape"
+  ],
   "assembly_profile_id": "fx30-handheld-prime",
   "power_circuit_id": "pilot-pwr-npfz100-fx30",
-  "model_ids": ["sony-fx30-pilot-v1", "sony-fe-20-f18-g-pilot-v1", "sony-np-fz100-pilot-v1"],
-  "source_ids": ["intake-sony-fx30-specs-jp", "intake-sony-sel20f18g-specs-jp", "intake-sony-npfz100-us", "intake-sony-fx30-sel20f18g-pair", "audit-doc-smallrig-4770-manual", "intake-sony-fx30-helpguide"],
+  "model_ids": [
+    "sony-fx30-pilot-v1",
+    "sony-fe-20-f18-g-pilot-v1",
+    "sony-np-fz100-pilot-v1"
+  ],
+  "source_ids": [
+    "intake-sony-fx30-specs-jp",
+    "intake-sony-sel20f18g-specs-jp",
+    "intake-sony-npfz100-us",
+    "intake-sony-fx30-sel20f18g-pair",
+    "audit-doc-smallrig-4770-manual",
+    "intake-sony-fx30-helpguide",
+    "src-sony-fx30-av-guide",
+    "src-smallhd-indie7-hdmi-guide",
+    "src-smallrig-2906b-manual",
+    "src-sony-npf970-pro",
+    "audit-doc-dji-mic2-manual"
+  ],
   "coordinate_status": "approximate_visual_only_not_mechanical",
   "storage_compatibility": "additive_existing_revision",
-  "note": "Alta explícita y acotada para planificación, no certificación de rig ni liberación de beta. Datos vigentes en manifiestos canónicos; catalog-intake y catalog-pilot conservan el expediente documental de origen. No se añaden piezas a rigs guardados ni se alteran las siete plantillas.",
-  "software_validation": {"status":"verified_software_only","evidence_paths":["scripts/test-pilot-integration.mjs","docs/pilot-integration-qa.md"]},
-  "physical_validation": {"status":"pending","observations":[]},
-  "remaining": ["Ensayo del conjunto y masa del subconjunto real de jaula", "Retención, cubierta de batería y ventilación con jaula", "Tarjeta apropiada al modo de grabación elegida aparte", "Puertos, firmware y cadenas propias antes de añadir monitor, gimbal, audio externo, adaptador de batería o V-mount", "Usuarios y dispositivos físicos de referencia para beta"]
+  "note": "Alta explícita y acotada para planificación, no certificación de rig ni liberación de beta. Datos vigentes en manifiestos canónicos; catalog-intake y catalog-pilot conservan el expediente documental de origen. No se añaden piezas a rigs guardados ni se alteran las siete plantillas. Monitor NATO/serie L y audio RX incorporados por relaciones propias en 0.2.12; no instala extras en planes existentes.",
+  "software_validation": {
+    "status": "verified_software_only",
+    "evidence_paths": [
+      "scripts/test-pilot-integration.mjs",
+      "docs/pilot-integration-qa.md",
+      "scripts/test-fx30-accessories.mjs",
+      "docs/fx30-accessories-qa.md"
+    ]
+  },
+  "physical_validation": {
+    "status": "pending",
+    "observations": []
+  },
+  "remaining": [
+    "Ensayo del conjunto y masa del subconjunto real de jaula",
+    "Retención, cubierta de batería y ventilación con jaula",
+    "Tarjeta apropiada al modo de grabación elegida aparte",
+    "Gimbal, asa XLR, control, adaptador de cámara y V-mount requieren cadenas FX30 propias. Monitor y RX son candidatos documentales, sin ensayos de señal, niveles o retención.",
+    "Usuarios y dispositivos físicos de referencia para beta"
+  ],
+  "accessory_part_ids": [
+    "smallrig-2906b",
+    "smallhd-indie-7",
+    "kondor-blue-hdmi-aa",
+    "sony-np-f970-pro",
+    "dji-mic-2-kit"
+  ],
+  "accessory_circuit_ids": [
+    "vid-fx30-to-smallhd",
+    "audio-rx-to-fx30",
+    "pwr-npf-to-smallhd-contacts"
+  ]
 }

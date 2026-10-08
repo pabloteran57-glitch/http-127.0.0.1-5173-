@@ -10,7 +10,9 @@ Iteración 0.2.11: ampliación documental de NP-FZ100 nativa a FX3, con contacto
 
 La fase 3 avanza por configuraciones completas: tres de diez candidatos ya tienen alta explícita de planificación. Las fases 1 y 2 cuentan con correcciones y pruebas de software, pero conservan pendientes de dispositivo, semántica y aceptación. La fase 4 tiene guardado, historial y perfiles locales; cuentas y nube aplazadas. Fases 5-7 preparadas documentalmente, no superadas.
 
-Siguiente bloque: revisar monitor y audio para FX30 sin copiar montajes FX3. Cada cadena debe pasar manifiesto, distribución física, conexiones, guía, visor y variantes antes de activarse. Después continuarán los otros candidatos, protección y evidencia para beta. Un despliegue no sustituye pruebas físicas, usuarios ni presupuesto.
+Iteración 0.2.12: monitor NATO y RX Mic 2 para FX30 a mano/horizontal con circuitos propios, guía por selección y ejemplos explícitos. [Cadenas](fx30-accessories.md) y [verificación](fx30-accessories-qa.md). No habilita gimbal, vertical, asa XLR ni fuentes externas por analogía.
+
+Siguiente bloque: revisar los siete candidatos restantes y parejas exactas, después ensayos físicos, dispositivos y aceptación observada. Un despliegue no sustituye pruebas físicas, usuarios ni presupuesto. Las fases 4-7 conservan su estado y la nube aplazada.
 
 Mi equipo, guía filtrada y controles de reproducción ya tienen correcciones funcionales comprobadas. Se prepararon laboratorio, reglas declarativas, recuperación e historial, recursos sin conexión, protocolo de beta y paquete preliminar de financiación. La evidencia actual está en `docs/iteration-qa.md`; la previa en `docs/stabilization-qa.md`. Preparar entregables posteriores no cierra sus criterios de salida. Cuentas y sincronización quedan aplazadas por decisión del usuario, no eliminadas del plan.
 

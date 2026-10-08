@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "reviewed_on": "2026-10-07",
+  "status": "documented_planning_candidate",
+  "camera_part_id": "sony-fx30",
+  "context": "handheld",
+  "orientation": "landscape",
+  "phase_order": ["manifest", "layout", "cables_power", "assembly", "viewer", "variants"],
+  "authorities": ["parts-manifest.json", "layout-manifest.json", "ports-manifest.json", "cables-manifest.json", "planner-rules.json", "assembly-profile-content.json", "connection-reviews.json"],
+  "source_ids": ["src-sony-fx30-av-guide", "audit-doc-smallrig-4770-manual", "src-smallrig-2906b-manual", "src-smallhd-indie7-hdmi-guide", "src-smallhd-indie7-specs", "src-sony-npf970-pro", "audit-doc-dji-mic2-manual"],
+  "relations": [
+    {"id":"fx30-nato-monitor","part_ids":["sony-fx30","smallrig-4770","smallrig-2906b","smallhd-indie-7"],"source_ids":["audit-doc-smallrig-4770-manual","src-smallrig-2906b-manual","src-smallhd-indie7-hdmi-guide"],"status":"interface_documented_candidate","remaining":["Retención de NATO y rosca inferior real","Carga al ángulo de trabajo y resistencia al giro","Manos, ventilación, puerta y pantalla con batería del monitor instalada"]},
+    {"id":"fx30-shoe-rx","part_ids":["sony-fx30","smallrig-4770","dji-mic-2-kit"],"source_ids":["audit-doc-smallrig-4770-manual","audit-doc-dji-mic2-manual"],"status":"interface_documented_candidate","remaining":["Asiento y retención de la zapata inclinada","Separación del RX/monitor a todas las poses reales","Sólo receptor en rig; participantes llevan TX"]}
+  ],
+  "circuit_ids": ["vid-fx30-to-smallhd", "audio-rx-to-fx30", "pwr-npf-to-smallhd-contacts"],
+  "geometry": {"port_ids":["fx30-hdmi-out","fx30-mic-in"],"status":"approximate_visual_annotation_not_port_CAD","basis":"Diagrama Sony Sides, página 44 de edición descargada; sin escala de agujeros o longitud de corte. Soportes y RX son el mismo hardware 4770/2906B y DMR02, no un cuerpo FX3 reutilizado.","clearance_validation":"pending"},
+  "assembly_profile_id": "fx30-handheld-prime",
+  "selection_examples": [
+    {"id":"fx30-minimal","label":"FX30 a mano esencial","part_ids":["sony-fx30","smallrig-4770","sony-fe-20-f18-g","sony-np-fz100"],"workflow_impact":"Sin monitor ni audio inalámbrico; cinco etapas relevantes.","balance_impact":"Subtotal de envolventes, no CG medido. Menor carga superior.","budget_impact":"Menos accesorios, sin precios cotizados.","complexity_impact":"Núcleo y contactos internos; sin cable externo."},
+    {"id":"fx30-monitor","label":"FX30 con monitor NATO","part_ids":["sony-fx30","smallrig-4770","sony-fe-20-f18-g","sony-np-fz100","smallrig-2906b","smallhd-indie-7","kondor-blue-hdmi-aa","sony-np-f970-pro"],"workflow_impact":"Monitor elegido, alimentado en placa nativa y con HDMI propio; ocho etapas relevantes.","balance_impact":"Mayor carga superior/posterior; agarre y retención por comprobar.","budget_impact":"Añade soporte, pantalla, HDMI y batería; sin precios cotizados.","complexity_impact":"Un cable local y dos circuitos de contactos; no necesita gimbal ni V-mount."},
+    {"id":"fx30-monitor-audio","label":"FX30 documental con monitor y RX","part_ids":["sony-fx30","smallrig-4770","sony-fe-20-f18-g","sony-np-fz100","smallrig-2906b","smallhd-indie-7","kondor-blue-hdmi-aa","sony-np-f970-pro","dji-mic-2-kit"],"workflow_impact":"Diez etapas relevantes; comprobar imagen y toma de audio real.","balance_impact":"Sólo RX de 28 g en jaula; TX y estuche no se suman como carga.","budget_impact":"Añade kit Mic 2; sin compra, cotización o autonomía garantizada.","complexity_impact":"HDMI y TRS locales, baterías independientes; retención y niveles pendientes."}
+  ],
+  "storage_policy": "Ejemplos de selección, no plantillas añadidas ni modificaciones de Mis rigs. Nunca completar piezas sin acción del usuario.",
+  "software_evidence": ["scripts/test-fx30-accessories.mjs", "docs/fx30-accessories-qa.md"],
+  "physical_validation": {"status":"pending","observations":[]},
+  "not_enabled": ["Gimbal", "Vertical", "Asa XLR-H1 y extensión 4830", "V-mount y adaptador 4253B", "Control DJI", "RavenEye y distribuidor", "Otras ópticas sin revisión del par"]
+}

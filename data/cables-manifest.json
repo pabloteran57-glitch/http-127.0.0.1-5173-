@@ -881,6 +881,91 @@
       "route_geometry": "contacts_only_no_external_route",
       "display_kind": "contacts",
       "route_control_offsets_mm": null
+    },
+    {
+      "cable_id": "vid-fx30-to-smallhd",
+      "source": "Única salida HDMI-A de FX30",
+      "destination": "Entrada HDMI del Indie 7",
+      "connector_a": "HDMI tipo A macho",
+      "connector_b": "HDMI tipo A macho",
+      "type": "video",
+      "voltage_or_signal_standard": "HDMI no RAW; Indie 7 hasta 4Kp30. Configurar salida 1080p y verificar frecuencia/color en el ejemplar.",
+      "ideal_length_estimate": "KB-FHDMI-12: 304.8–609.6 mm espiral a extendido; alcance útil y fuerza por medir.",
+      "routing_path": "HDMI izquierdo de FX30 hacia monitor sobre NATO 4770/2906B. Bucle local para inclinación; no cruza una base fija ni tapa ventilación. Trazado ilustrativo, no longitud de corte.",
+      "strain_relief_requirement": "Usar abrazadera suministrada de 4770 si asienta este conector sin forzar; proteger ambos extremos, dejar holgura para tilt y comprobar puertas/pantalla.",
+      "risk_notes": [
+        "Una sola salida HDMI de cámara: no añadir RavenEye directo en paralelo.",
+        "El cable admite más modos que el monitor; 4K60 o RAW no quedan autorizados.",
+        "Confirmar señal, firmware, color, frecuencia y tensión de espiral con el conjunto real."
+      ],
+      "mandatory_or_optional": "optional",
+      "source_part_id": "kondor-blue-hdmi-aa",
+      "from_part_id": "sony-fx30",
+      "to_part_id": "smallhd-indie-7",
+      "status": "candidate",
+      "motion_boundary": "same_camera_core",
+      "route_geometry": "schematic_only_not_port_CAD",
+      "from_port_id": "fx30-hdmi-out",
+      "to_port_id": "indie7-hdmi-in",
+      "display_kind": "cable",
+      "geometry_confidence": "approximate",
+      "route_control_frame": "world",
+      "route_control_offsets_mm": {
+        "a": [
+          -35,
+          18,
+          -15
+        ],
+        "b": [
+          -20,
+          -20,
+          -18
+        ]
+      },
+      "route_control_status": "approximate_annotation_not_cable_cut_or_swept_clearance"
+    },
+    {
+      "cable_id": "audio-rx-to-fx30",
+      "source": "OUT TRS del RX Mic 2 DMR02",
+      "destination": "Entrada MIC de FX30",
+      "connector_a": "TRS de 3.5 mm macho",
+      "connector_b": "TRS de 3.5 mm macho",
+      "type": "data",
+      "voltage_or_signal_standard": "Audio analógico de cámara por TRS; nivel y ganancia reales por comprobar.",
+      "ideal_length_estimate": "Cable de cámara incluido en Mic 2; longitud exacta no publicada en las fuentes revisadas.",
+      "routing_path": "RX sobre zapata 4770 → OUT TRS → MIC de FX30. Bucle local fuera de ventilación, puertas y HDMI. Coordenadas y curva aproximadas, sin cruzar gimbal.",
+      "strain_relief_requirement": "Holgura suave en ambos conectores; no pinzar en puertas, pantalla o soporte de monitor. No fijar al participante.",
+      "risk_notes": [
+        "No confundir OUT con monitor de auriculares del RX ni MIC con auriculares de cámara.",
+        "Usar TRS, no TRRS. Ajustar niveles mirando medidores y revisar una grabación real.",
+        "La FX30 prioriza MIC externo sobre micrófono interno/asa; no son fuentes simultáneas.",
+        "TX y estuche fuera del rig. Audio S&Q y respaldo de TX no equivalen a audio grabado por cámara."
+      ],
+      "mandatory_or_optional": "optional",
+      "source_part_id": "dji-mic-2-kit",
+      "from_part_id": "dji-mic-2-kit",
+      "to_part_id": "sony-fx30",
+      "status": "candidate",
+      "motion_boundary": "same_camera_core",
+      "route_geometry": "schematic_only_not_port_CAD",
+      "from_port_id": "mic2-rx-out",
+      "to_port_id": "fx30-mic-in",
+      "display_kind": "cable",
+      "geometry_confidence": "approximate",
+      "route_control_frame": "camera",
+      "route_control_offsets_mm": {
+        "a": [
+          -18,
+          8,
+          -12
+        ],
+        "b": [
+          -15,
+          12,
+          -10
+        ]
+      },
+      "route_control_status": "approximate_annotation_not_cable_cut_or_swept_clearance"
     }
   ],
   "route_control_status": "Anotación aproximada; no determina longitudes para cortar ni valida holgura de barrido."

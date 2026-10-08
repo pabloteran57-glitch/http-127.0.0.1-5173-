@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "scope": "Reglas conservadoras para el catálogo FX3 actual; no certifican compatibilidad universal ni sustituyen mediciones físicas.",
+  "scope": "Reglas conservadoras por modelo y contexto del catálogo actual; no certifican compatibilidad universal ni sustituyen mediciones físicas.",
   "max_saved_rigs": 40,
   "catalog_revision": "fx3-rs4-2026-10-05",
   "default_context": "handheld",
@@ -41,16 +41,12 @@
       "add_part_ids": [
         "dji-mic-2-kit"
       ],
-      "condition": {
-        "none": [
-          "sony-fx30"
-        ]
-      },
+      "condition": {},
       "source_ids": [
         "audit-doc-smallrig-4770-manual",
         "audit-doc-dji-mic2-manual"
       ],
-      "note": "Sólo el RX sobre la zapata inclinada de 4770. TX y estuche fuera del rig; cable TRS incluido. Asiento, retención y barrido de motores pendientes."
+      "note": "Sólo el RX sobre la zapata inclinada de 4770. TX y estuche fuera del rig; cable TRS incluido. Asiento, retención y barrido de motores pendientes. FX30 usa su circuito MIC propio revisado, no el de FX3."
     },
     {
       "id": "cage-monitor",
@@ -65,17 +61,17 @@
       "condition": {
         "not_context": "gimbal",
         "none": [
-          "sony-xlr-h1",
-          "sony-fx30"
+          "sony-xlr-h1"
         ]
       },
       "source_ids": [
         "audit-doc-smallrig-4770-manual",
         "src-smallrig-2906b-manual",
         "src-smallhd-indie7-specs",
-        "src-sony-npf970-pro"
+        "src-sony-npf970-pro",
+        "src-sony-fx30-av-guide"
       ],
-      "note": "Riel superior desmontable 4770 → abrazadera NATO 2906B → rosca inferior del Indie 7. Alimentación serie L incluida en la propuesta, no en el kit de jaula. Medir retención, manos e inclinación con la batería instalada."
+      "note": "Riel superior desmontable 4770 → abrazadera NATO 2906B → rosca inferior del Indie 7. Alimentación serie L incluida en la propuesta, no en el kit de jaula. Medir retención, manos e inclinación con la batería instalada. FX30: cadena candidata sólo a mano y horizontal, HDMI no RAW revisado por separado."
     },
     {
       "id": "cage-base",
@@ -268,9 +264,18 @@
       "id": "fx3-camera-native-battery",
       "anchor_part_id": "sony-fx3",
       "label": "Añadir batería nativa",
-      "add_part_ids": ["sony-np-fz100"],
-      "condition": {"all": ["sony-fx3"]},
-      "source_ids": ["src-sony-fx3-native-battery", "src-sony-fx3-battery-install"],
+      "add_part_ids": [
+        "sony-np-fz100"
+      ],
+      "condition": {
+        "all": [
+          "sony-fx3"
+        ]
+      },
+      "source_ids": [
+        "src-sony-fx3-native-battery",
+        "src-sony-fx3-battery-install"
+      ],
       "note": "Pareja FX3 documentada por Sony; excluye adaptador 4253B. Acceso y retención con jaula pendientes de ensayo."
     },
     {
@@ -303,7 +308,10 @@
   "exclusive_selection_groups": [
     {
       "id": "camera-battery-bay",
-      "part_ids": ["sony-np-fz100", "smallrig-4253b"],
+      "part_ids": [
+        "sony-np-fz100",
+        "smallrig-4253b"
+      ],
       "max_active": 1,
       "message": "Elige NP-FZ100 nativa o adaptador 4253B, nunca ambos en el mismo compartimento. Tus elecciones se conservan pendientes hasta resolverlo."
     },
@@ -457,7 +465,9 @@
           "smallrig-vb99-pro",
           "sony-fx3"
         ],
-        "none": ["sony-np-fz100"]
+        "none": [
+          "sony-np-fz100"
+        ]
       },
       "required_all": [
         "smallrig-4253b"
@@ -474,7 +484,9 @@
           "smallrig-4253b"
         ]
       },
-      "required_all": ["sony-np-fz100"],
+      "required_all": [
+        "sony-np-fz100"
+      ],
       "message": "La FX3 necesita una fuente elegida: NP-FZ100 nativa cargada o adaptador regulado 4253B. No se instala una batería implícita."
     },
     {
@@ -761,7 +773,9 @@
         "sony-fe-16-35-gm",
         "sony-np-fz100"
       ],
-      "add_cable_ids": ["pwr-npfz100-to-fx3-contacts"],
+      "add_cable_ids": [
+        "pwr-npfz100-to-fx3-contacts"
+      ],
       "context_part_ids": [],
       "note": "Presentación del cuerpo y la óptica en posición final aproximada; no simula el giro de bayoneta."
     },
@@ -913,8 +927,14 @@
   "dynamic_mount_dependencies": [
     {
       "part_id": "sony-np-fz100",
-      "condition": {"all": ["sony-fx3"]},
-      "required_all": ["sony-fx3"]
+      "condition": {
+        "all": [
+          "sony-fx3"
+        ]
+      },
+      "required_all": [
+        "sony-fx3"
+      ]
     },
     {
       "part_id": "smallhd-indie-7",
@@ -961,6 +981,20 @@
       "required_all": [
         "sony-fx30"
       ]
+    },
+    {
+      "part_id": "kondor-blue-hdmi-aa",
+      "condition": {
+        "all": [
+          "sony-fx30"
+        ],
+        "context": "handheld",
+        "orientation": "landscape"
+      },
+      "required_all": [
+        "sony-fx30",
+        "smallhd-indie-7"
+      ]
     }
   ],
   "catalog_additions_revision": "monitor-chains-2026-10-07",
@@ -994,9 +1028,14 @@
         "sony-fx30",
         "smallrig-4770",
         "sony-fe-20-f18-g",
-        "sony-np-fz100"
+        "sony-np-fz100",
+        "smallrig-2906b",
+        "smallhd-indie-7",
+        "kondor-blue-hdmi-aa",
+        "sony-np-f970-pro",
+        "dji-mic-2-kit"
       ],
-      "message": "Accesorio fuera del piloto FX30 revisado. No hereda soportes, conexiones ni posiciones de FX3; se conserva elegido y pendiente."
+      "message": "Accesorio fuera de las cadenas FX30 revisadas: núcleo, monitor NATO con serie L y RX en zapata. Otros soportes, fuentes y contextos siguen elegidos pendientes, sin heredar FX3."
     }
   ],
   "assembly_profiles": [
@@ -1044,6 +1083,54 @@
         },
         {
           "step": 5,
+          "add_part_ids": [
+            "smallrig-2906b",
+            "smallhd-indie-7"
+          ],
+          "add_cable_ids": [],
+          "context_part_ids": [],
+          "note": "FX30: sólo añade elecciones activas. Anclajes y trazados aproximados; contactos sin curva externa."
+        },
+        {
+          "step": 6,
+          "add_part_ids": [
+            "sony-np-f970-pro"
+          ],
+          "add_cable_ids": [
+            "pwr-npf-to-smallhd-contacts"
+          ],
+          "context_part_ids": [],
+          "note": "FX30: sólo añade elecciones activas. Anclajes y trazados aproximados; contactos sin curva externa."
+        },
+        {
+          "step": 7,
+          "add_part_ids": [
+            "dji-mic-2-kit"
+          ],
+          "add_cable_ids": [],
+          "context_part_ids": [],
+          "note": "FX30: sólo añade elecciones activas. Anclajes y trazados aproximados; contactos sin curva externa."
+        },
+        {
+          "step": 8,
+          "add_part_ids": [],
+          "add_cable_ids": [
+            "vid-fx30-to-smallhd"
+          ],
+          "context_part_ids": [],
+          "note": "FX30: sólo añade elecciones activas. Anclajes y trazados aproximados; contactos sin curva externa."
+        },
+        {
+          "step": 9,
+          "add_part_ids": [],
+          "add_cable_ids": [
+            "audio-rx-to-fx30"
+          ],
+          "context_part_ids": [],
+          "note": "FX30: sólo añade elecciones activas. Anclajes y trazados aproximados; contactos sin curva externa."
+        },
+        {
+          "step": 10,
           "add_part_ids": [],
           "add_cable_ids": [],
           "context_part_ids": [],

@@ -2,16 +2,16 @@
   "version": 1,
   "reviewed_on": "2026-10-07",
   "status": "prototype_hardening_in_progress",
-  "progress_report": "docs/native-camera-power-qa.md",
+  "progress_report": "docs/fx30-accessories-qa.md",
   "current_milestone": {
     "phase_id": "verified-catalog-pilot",
-    "release_version": "0.2.11",
-    "scope": "Ampliar una cadena existente: NP-FZ100 nativa FX3 con revisión propia y exclusión del adaptador 4253B. No activa otros siete candidatos ni certifica equipo físico.",
+    "release_version": "0.2.12",
+    "scope": "Monitor NATO y audio del piloto FX30 integrados mediante cadenas propias; no añade productos implícitos, contextos gimbal/vertical ni certificación física.",
     "next_actions": [
-      "Revisar cadenas de monitor y audio del piloto FX30, en orden manifiesto, distribución, conexiones, guía, visor y variantes",
-      "Integrar una configuración adicional sólo tras revisión documental y regresiones completas",
-      "Mantener abiertas pruebas de dispositivos, conjuntos físicos y aceptación observada",
-      "No abrir beta pública ni financiación antes de superar sus criterios; cuentas y nube aplazadas"
+      "Revisar los siete candidatos restantes del lote y sus parejas exactas, por prioridad y evidencia propia",
+      "Incorporar otra cadena completa sólo tras manifiesto, distribución, conexiones, guía, visor, variantes y regresiones",
+      "Realizar ensayos físicos, mediciones en dispositivos y tareas observadas para cerrar criterios de fases 1–5",
+      "Conservar cuentas/nube aplazadas; beta pública y financiación requieren sus criterios externos"
     ]
   },
   "user_decisions": [
@@ -207,11 +207,11 @@
       "order": 3,
       "title": "Primer lote de catálogo ampliado",
       "status": "first_planning_configuration_integrated_pending_physical",
-      "verification_report": "docs/pilot-integration-qa.md",
+      "verification_report": "docs/fx30-accessories-qa.md",
       "remaining": [
         "Ensayo físico del piloto FX30 a mano, retención/ventilación y masa instalada",
         "Revisar siete candidatos restantes sin heredar compatibilidades",
-        "Cadenas completas adicionales de monitor, gimbal y audio por cuerpo antes de ampliar selección activa",
+        "Gimbal, asa XLR y fuentes externas FX30 requieren revisión propia antes de activación; monitor/audio actuales siguen sin ensayo físico",
         "Aceptación observada y mediciones en dispositivos reales"
       ],
       "depends_on": [

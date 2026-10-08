@@ -79,6 +79,14 @@ export function visibleCableIds(availableIds: string[], showAll: boolean, select
   return availableIds.filter(id => showAll || id === selectedId);
 }
 
+export function routingSummary(variant: Variant, cables: Cable[]): string {
+  const links = cables.filter(c => variant.cable_profile_ids.includes(c.cable_id)).map(c => cableForVariant(c, variant));
+  if (!links.length) return "Sin conexiones activas. Elige piezas y sus cables; no se añaden automáticamente.";
+  if (links.every(c => c.display_kind !== "cable")) return "Alimentación por contactos internos o batería propia, sin cable externo. Comprobar retención antes de encender.";
+  if (links.some(c => c.display_kind === "cable" && c.motion_boundary === "moving_to_fixed")) return "Hay cables entre el núcleo móvil y el soporte fijo. Medir bucles y holgura en cada eje con motores apagados; la curva 3D no certifica el recorrido.";
+  return "Cables locales al núcleo de cámara y accesorios elegidos. Dejar holgura para pantalla, puertas y monitor ajustable; la curva 3D no certifica el recorrido.";
+}
+
 export function nodeWeight(node:LayoutNode,part:Part) {
   if(node.subcomponent_id){
     const component=part.subcomponents?.find(c=>c.id===node.subcomponent_id);
@@ -133,6 +141,6 @@ export function movingMass(variant: Variant, layout: LayoutManifest, parts: Reco
     envelopeCentroid: subtotal ? [0,1,2].map(axis=>moving.reduce((sum,n)=>sum+(nodeWeight(n,parts[n.id]).value??0)*nodePose(n,variant.viewer.mode==="vertical").position_mm[axis],0)/subtotal) : null,
     unknown: moving.filter(n => nodeWeight(n,parts[n.id]).value === null).length,
     approximate: moving.some(n => nodeWeight(n,parts[n.id]).approximate),
-    excluded: "Cables, fijaciones y adiciones de la pila pendientes de pesaje. TX y estuche fuera del rig; gimbal y monitor lateral fuera de carga móvil.",
+    excluded: "Cables, fijaciones y adiciones de la pila pendientes de pesaje. TX y estuche fuera del rig. " + (moving.some(n => n.kind === "monitor") ? "Monitor sobre el núcleo y batería elegida incluidos en este subtotal." : "Gimbal y monitor lateral fijo fuera de carga móvil."),
   };
 }

@@ -26,6 +26,8 @@ Vista de marca: `/brand/preview.html`. SVG reutilizables en `public/brand`; nomb
 
 ## Rigs Propios
 
+Versión 0.2.12: FX30 a mano/horizontal admite **monitor sobre NATO HawkLock + 2906B**, Indie 7 con NP-F970/PRO y RX Mic 2 en zapata. **Añadir accesorio** desde la jaula o **Completar monitor** propone sólo piezas revisadas; no impone gimbal ni V-mount. HDMI y TRS tienen circuitos FX30 propios, con puertos ilustrativos aproximados. Guía: cinco etapas sin accesorios, ocho con monitor, diez con monitor/RX. [Cadenas y ejemplos](docs/fx30-accessories.md), [verificación](docs/fx30-accessories-qa.md). Retención, señal, niveles y conjunto físico siguen pendientes.
+
 Versión 0.2.11: NP-FZ100 nativa seleccionable para FX3 con revisión Sony propia. No se instala implícitamente ni junto con 4253B; conserva 83 g una sola vez, contactos internos sin curva externa y pose aproximada. Las siete plantillas mantienen sus elecciones. [Estado del plan](docs/product-progress.md) y [comprobaciones](docs/native-camera-power-qa.md).
 
 **Crear rig** abre una selección vacía. **Personalizar** crea una copia editable de la plantilla actual. Elige productos, revisa dependencias y guarda el perfil en **Mis rigs**. **Guardar rig** también puede guardar directamente una copia de una plantilla. El guardado es local a este navegador, no una cuenta sincronizada. Las piezas pendientes se conservan sin inventar un montaje.
@@ -60,19 +62,20 @@ Ruta hacia beta: [plan de avance](docs/beta-roadmap.md), con fases, criterios y 
 
 - `data/parts-manifest.json`: 27 entradas originales + tres accesorios de monitor + tres altas acotadas del piloto FX30, con fuente y confianza por campo.
 - `data/layout-manifest.json`: envolventes XYZ, poses candidatas, soporte y pruebas pendientes.
-- `data/cables-manifest.json`, `data/ports-manifest.json`: 19 circuitos, puertos identificados, coordenadas aproximadas o pendientes.
-- `data/connection-reviews.json`: evidencia documental de cinco circuitos; rango, polaridad, firmware y límites visibles en Conexiones. Desconocido no equivale a compatible.
+- `data/cables-manifest.json`, `data/ports-manifest.json`: 22 circuitos, puertos identificados, coordenadas aproximadas o pendientes.
+- `data/connection-reviews.json`: evidencia documental de ocho circuitos; rango, polaridad, firmware y límites visibles en Conexiones. Desconocido no equivale a compatible.
 - `data/assembly-guide.json`, `data/variants.json`: 13 pasos y 7 perfiles.
 - `data/assembly-profile-content.json`: bloques de instrucciones condicionados a las piezas y circuitos existentes; no añade especificaciones ni compatibilidades.
 - `data/engineering-manifest.json`: límites publicados y políticas de masa/centros ponderados.
 - `data/sources.json`, `data/geometry-references.json`, `data/geometry-audit.json`: atribución, descargas SHA-256 y referencias revisadas.
-- `data/model-production.json`, `data/model-assets.json`: trabajo de fidelidad y registro de 17 GLB propios aproximados auditados; las otras 13 entradas tienen alcance pendiente o no físico explícito. [Producción](docs/model-production.md) y [contrato](docs/model-asset-contract.md).
-- `data/product-visuals.json`: 17 miniaturas originales WebP vinculadas a huellas de malla y derechos revisados; nunca aprobación automática.
+- `data/model-production.json`, `data/model-assets.json`: trabajo de fidelidad y registro de 20 GLB propios aproximados auditados; las otras 13 entradas tienen alcance pendiente o no físico explícito. [Producción](docs/model-production.md) y [contrato](docs/model-asset-contract.md).
+- `data/product-visuals.json`: 20 miniaturas originales WebP vinculadas a huellas de malla y derechos revisados; nunca aprobación automática.
 - `data/ui-content.json`: nombres cortos y traducciones de presentación; no reemplaza especificaciones ni interfaces canónicas.
 - `data/planner-rules.json`: dependencias conservadoras del catálogo actual y fotogramas de montaje; no certifica compatibilidad universal.
 - `data/catalog-contract.json`: índice derivado de identidad, revisión, guía y geometría; se regenera, no es un segundo catálogo.
-- `data/catalog-intake.json`: diez candidatos Sony investigados, no activados; [lote piloto](docs/catalog-pilot.md).
-- `data/catalog-pilot.json`: [ficha FX30/SEL20F18G](docs/catalog-pilot-blueprint.md), cuatro piezas, relaciones de soporte y guía documental; no instala productos. `npm run check:catalog` comprueba estructura y `npm run test:catalog` prueba rechazos. Poses, integración y ensayo físico pendientes.
+- `data/catalog-intake.json`: diez expedientes Sony; tres altas acotadas de planificación y siete candidatos aún en investigación; [lote piloto](docs/catalog-pilot.md).
+- `data/catalog-pilot.json`: [ficha de origen FX30/SEL20F18G](docs/catalog-pilot-blueprint.md), cuatro piezas y relaciones documentales; no instala productos. Alta actual en `pilot-integration.json`, sin certificación física. `npm run check:catalog` conserva pendientes externos y `npm run test:catalog` prueba regresiones.
+- `data/fx30-accessories-review.json`: relaciones y ejemplos de monitor/audio FX30, referencias a autoridades sin duplicar cotas ni ensayos. Pruebas de las 512 subselecciones posibles, sin piezas implícitas.
 - Histórico 0.2.9: inspección aislada de FX30, SEL20F18G y NP-FZ100. Desde 0.2.10 también están disponibles en Crear rig bajo el alcance acotado del piloto; `data/pilot-integration.json` registra el alta explícita. `npm run build:pilot-models` genera recursos, nunca aprueba automáticamente. [Registro y límites](docs/pilot-model-review.md).
 - `data/beta-protocol.json`, `data/beta-evidence.json`: tareas propuestas y observaciones reales; un registro vacío no certifica éxito.
 - `data/release.json`, `data/funding-plan.json`: alcance versionado y preparación financiera sin costes, fechas ni usuarios inventados.

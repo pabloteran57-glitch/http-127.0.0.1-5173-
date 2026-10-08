@@ -204,7 +204,11 @@
       "brand": "Kondor Blue",
       "type": "official",
       "url": "https://kondorblue.com/products/12-to-24-coiled-braided-hdmi-cable-for-camera-mounted-monitors",
-      "notes": "Cable espiral HDMI tipo A-A de 12 a 24 pulgadas."
+      "notes": "Ficha KB-FHDMI-12 revisada: dos HDMI-A macho, 12–24 pulgadas espiral, HDMI 2.0 / 18 Gbps. Fuerza, longitud útil y masa reales pendientes.",
+      "review_subject_part_ids": [
+        "kondor-blue-hdmi-aa"
+      ],
+      "checked_on": "2026-10-07"
     },
     {
       "id": "src-startech-st122hd4ku",
@@ -598,7 +602,10 @@
       "local_path": "/references/dji-mic-2-manual.pdf",
       "sha256": "3152b7874f075a59c9ac83a47030a65a10081cf36484495b937a87eba32f357c",
       "checked_on": "2026-10-06",
-      "notes": "v1.2: página 8, RX, llamada 5 OUT TRS y 6 zapata integrada; página 13, conexión a cámara con cable incluido. Esquemas revisados visualmente; no son CAD ni prueba física de 4770."
+      "notes": "v1.2: página 8, RX, llamada 5 OUT TRS y 6 zapata integrada; página 13, conexión a cámara con cable incluido. Esquemas revisados visualmente; no son CAD ni prueba física de 4770.",
+      "review_subject_part_ids": [
+        "dji-mic-2-kit"
+      ]
     },
     {
       "id": "src-dji-rs4-fx3-control-matrix",
@@ -751,7 +758,10 @@
       "type": "official",
       "url": "https://helpguide.sony.net/ilc/2210/v1/en/contents/TP1000886922.html",
       "checked_on": "2026-10-07",
-      "review_subject_part_ids": ["sony-fx3", "sony-np-fz100"],
+      "review_subject_part_ids": [
+        "sony-fx3",
+        "sony-np-fz100"
+      ],
       "notes": "Guía ILME-FX3 Ver.2 o posterior: Power, general indica entrada nominal 7.2 V y Rechargeable battery pack NP-FZ100 identifica batería de 7.2 V. No publica pinout, rango completo ni prueba de jaula."
     },
     {
@@ -760,7 +770,10 @@
       "type": "official",
       "url": "https://helpguide.sony.net/ilc/2210/v1/en/print.pdf",
       "checked_on": "2026-10-07",
-      "review_subject_part_ids": ["sony-fx3", "sony-np-fz100"],
+      "review_subject_part_ids": [
+        "sony-fx3",
+        "sony-np-fz100"
+      ],
       "notes": "Página impresa 82, Inserting/removing the battery pack: retención por palanca, cierre y LOCK; apagar y lámpara de acceso apagada antes de retirar. Texto y diagrama consultados; sin redistribuir manual ni inferir coordenadas interiores."
     },
     {
@@ -773,6 +786,28 @@
         "sony-fe-20-f18-g"
       ],
       "notes": "Tabla oficial abierta directamente: SEL20F18G, montura E, filtro 67 mm, diámetro máximo 73.5 × longitud 84.7 mm y masa aproximada 373 g. Cotas exteriores, sin patrón de bayoneta ni holgura de jaula."
+    },
+    {
+      "id": "src-sony-fx30-av-guide",
+      "brand": "Sony",
+      "type": "official",
+      "url": "https://helpguide.sony.net/ilc/2220/v1/en/print.pdf",
+      "checked_on": "2026-10-07",
+      "review_subject_part_ids": [
+        "sony-fx30"
+      ],
+      "notes": "Manual consultado y descargado para revisión local, SHA256 b178cdd35f7cd03abf10b159aa12f866c0255ad21dcddc22be1e0ec2ccf39be6. Edición descargada: página 44 Sides, HDMI-A y MIC; salida HDMI no RAW y ajuste de audio verificados en secciones por título. La copia web puede diferir en paginación. Sin derechos de redistribución ni cotas mecánicas."
+    },
+    {
+      "id": "src-smallhd-indie7-hdmi-guide",
+      "brand": "SmallHD",
+      "type": "official",
+      "url": "https://guide.smallhd.com/a/1634747-indie-7-quick-start-guide",
+      "checked_on": "2026-10-07",
+      "review_subject_part_ids": [
+        "smallhd-indie-7"
+      ],
+      "notes": "POWER AND CONNECT: HDMI hasta 4Kp30, batería serie L y cuatro roscas 1/4-20 incluida inferior. No es una prueba FX30/Indie 7 ni certifica RAW o 4K60."
     }
   ],
   "audit_on": "2026-10-07"

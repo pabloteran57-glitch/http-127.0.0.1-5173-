@@ -588,8 +588,8 @@ Plan de ingeniería, no montaje certificado. Medidas publicadas no prueban forma
 - Interfaces: Una salida HDMI tipo A; USB-C x1; Multi/Micro USB x1; Entrada de micrófono de 3.5 mm; Salida de auriculares de 3.5 mm; Sony Multi Interface Shoe; Compartimento nativo NP-FZ100
 - Montaje: Núcleo a mano, montura E y jaula 4770 según el manual específico FX30.
 - Material: Materiales no verificados en las fuentes revisadas; apariencia del modelo aproximada.
-- Obligatorio/opcional: Opcional; función: Captura APS-C; piloto a mano.
-- Restricciones: 562 g aproximados: cuerpo solo, sin batería, tarjeta ni asa. No sumar 646 g con batería/tarjeta.; Piloto de planificación sólo a mano y horizontal; gimbal, monitor, audio externo y control no revisados para este cuerpo.; Puertos identificados; coordenadas no medidas. No hereda puertos ni cables de FX3.; ILME-FX30 puede incluir asa según SKU/región; no se añade automáticamente.; Ventilación inferior y cubierta de batería deben quedar libres.
+- Obligatorio/opcional: Opcional; función: Captura APS-C; piloto a mano con monitor y audio opcionales.
+- Restricciones: 562 g aproximados: cuerpo solo, sin batería, tarjeta ni asa. No sumar 646 g con batería/tarjeta.; Piloto de planificación a mano y horizontal; monitor NATO 2906B/Indie 7 con NP-F970/PRO y RX Mic 2 sobre 4770 revisados como candidatos. Gimbal, asa XLR y otras fuentes requieren revisión propia.; Puertos identificados; coordenadas no medidas. No hereda puertos ni cables de FX3.; ILME-FX30 puede incluir asa según SKU/región; no se añade automáticamente.; Ventilación inferior y cubierta de batería deben quedar libres.
 - Confianza: Media.
 - [Fuente principal](https://www.sony.jp/pro-cam/products/ILME-FX30/spec.html)
 

@@ -432,624 +432,160 @@
         0
       ]
     },
-    {
-      "id": "dji-rs4-pro-combo",
-      "label": "DJI RS 4 Pro",
-      "kind": "gimbal",
-      "position_mm": [
-        0,
-        -155,
-        -25
+  …20591 tokens truncated…erie L / InfoLITHIUM",
+        "7.2 V nominales; no salida de barril ni USB"
       ],
-      "size_xyz_mm": [
-        201.9,
-        415,
-        267.8
+      "mounting_method": "Un paquete serie L en una de las dos bahías de la placa nativa incluida del Indie 7. Sin adaptador D-Tap ni cable a barril.",
+      "likely_material": "Celdas de ion-litio publicadas; carcasa plástica estimada, no composición certificada.",
+      "mandatory_or_optional": "optional",
+      "rig_role": "Alimentación autónoma del monitor, también en gimbal vertical.",
+      "physical_constraints": [
+        "Tensión nominal 7.2 V; ficha Sony: 45 Wh / 6300 mAh. No es NP-FZ100 ni alimenta la FX3.",
+        "Usar cargador específico externo. El Indie 7 no carga baterías.",
+        "Una batería elegida: no representar dos paquetes ni prometer autonomía calculada.",
+        "Comprobar retención, carga disponible y tensión real bajo carga; interfaz serie L documentada, combinación física no ensayada."
       ],
-      "envelope": "approximate",
-      "mass_domain": "fixed",
-      "mount": "Placas de liberación rápida DJI; compatibilidad de la pila de bases pendiente de prueba física.",
-      "placement": "Representación estructural aproximada del gimbal; 201.9 de ancho × 415 de alto × 267.8 de fondo describen el conjunto estándar, NO los ejes internos ni el rig con BG70.",
-      "orientation": "Las formas de brazos y ejes son aproximaciones visuales.",
-      "rationale": "Zonas de motores y manos como comprobaciones medibles antes de uso.",
-      "rejected": "Tratar la carga nominal como garantía de encaje.",
-      "explode_mm": [
-        0,
-        -130,
-        0
-      ],
-      "pose_status": "approximate_not_clearance_checked",
-      "dimension_source_url": "https://www.dji.com/rs-4-pro/specs",
-      "parent_id": null,
-      "rotation_deg": [
-        0,
-        0,
-        0
-      ]
-    },
-    {
-      "id": "dji-rs-bg70",
-      "label": "Empuñadura BG70",
-      "kind": "grip",
-      "position_mm": [
-        0,
-        -265,
-        -25
-      ],
-      "size_xyz_mm": [
-        43,
-        165,
-        43
-      ],
-      "envelope": "approximate",
-      "mass_domain": "fixed",
-      "mount": "Interfaz de empuñadura DJI; sustituye BG30.",
-      "placement": "Debajo del cuerpo RS; conservar libre la zona de agarre.",
-      "orientation": "Vertical, debajo de la carcasa de giro horizontal.",
-      "rationale": "Alimentación principal del gimbal independiente de V-mount.",
-      "rejected": "Contar BG30 y BG70 como dos empuñaduras instaladas.",
-      "explode_mm": [
-        0,
-        -165,
-        0
-      ],
-      "pose_status": "approximate_not_clearance_checked",
-      "dimension_source_url": "https://store.dji.com/product/dji-rs-bg70-high-capacity-battery-grip",
-      "parent_id": "dji-rs4-pro-combo",
-      "rotation_deg": [
-        0,
-        0,
-        0
-      ]
-    },
-    {
-      "id": "smallrig-3026b",
-      "articulated_subassemblies": {
-        "monitor-head": [
-          "Horquilla nativa",
-          "Rueda de fijación",
-          "Tornillo de monitor ilustrativo"
-        ]
-      },
-      "label": "Soporte NATO 3026B",
-      "kind": "monitorMount",
-      "position_mm": [
-        -119,
-        -134,
-        -25
-      ],
-      "size_xyz_mm": [
-        152.6,
-        38,
-        54.8
-      ],
-      "envelope": "verified",
-      "mass_domain": "fixed",
-      "mount": "Abrazadera NATO en riel lateral fijo RS; cabezal nativo inclinable con tornillo 1/4-20. Inclinación publicada de 170 grados; verificar orientación con la rosca real del Indie 7.",
-      "placement": "Soporte lateral corto fuera de la cámara; coordenadas de riel/cabezal por medir. Cadena candidata conservada en rigs propios verticales: el NATO lateral fijo no gira con la plataforma de cámara. Medir holguras y manos en ambos encuadres.",
-      "orientation": "Soporte nativo de 152.6 mm hacia la izquierda del operador, sin brazo extra. Articulación y tornillo con coordenadas aproximadas.",
-      "rationale": "Monitor fuera de la carga móvil de cámara.",
-      "rejected": "Monitor sobre cámara o brazo largo inventado.",
-      "explode_mm": [
-        -95,
-        -20,
-        0
-      ],
-      "dimension_source_url": "https://static.smallrig.com/mall/img/public/m1twezvd88j-1751250182064_.pdf",
-      "pose_status": "approximate_not_clearance_checked",
-      "parent_id": "dji-rs4-pro-combo",
-      "rotation_deg": [
-        0,
-        0,
-        0
-      ]
-    },
-    {
-      "id": "smallhd-indie-7",
-      "label": "SmallHD Indie 7",
-      "kind": "monitor",
-      "position_mm": [
-        -185,
-        -205,
-        -25
-      ],
-      "size_xyz_mm": [
-        180.1,
-        118.6,
-        33.5
-      ],
-      "envelope": "verified",
-      "mass_domain": "fixed",
-      "mount": "Rosca inferior 1/4-20 del Indie 7 al tornillo del cabezal 3026B orientado hacia abajo; no se inventa una rosca superior.",
-      "placement": "Fuera de cámara, a la izquierda del operador. Posición candidata, no prueba de holgura de todos los ejes.",
-      "orientation": "Monitor bajo el cabezal nativo 3026B, invertido para que la rosca inferior 1/4-20 mire hacia arriba, según ejemplos del fabricante. Verificar inversión de imagen y lectura.",
-      "rationale": "Monitor fuera de cámara móvil, con visualización directa.",
-      "rejected": "Monitor flotante sin soporte o bloqueando la empuñadura.",
-      "explode_mm": [
-        -205,
-        10,
-        0
-      ],
-      "dimension_source_url": "https://www.bhphotovideo.com/c/product/1593398-REG/smallhd_mon_indie_7_indie_7_touchscreen_on_camera.html",
-      "pose_status": "approximate_not_clearance_checked",
-      "parent_id": "smallrig-3026b",
-      "rotation_deg": [
-        0,
-        0,
-        180
-      ]
-    },
-    {
-      "id": "dji-mic-2-kit",
-      "subcomponent_id": "receiver",
-      "mount_point_id": "tilted-cold-shoe",
-      "label": "DJI Mic 2 / receptor RX",
-      "kind": "audioReceiver",
-      "vertical_frame": "camera",
-      "position_mm": [
-        -64.247,
-        58.191,
-        8
-      ],
-      "size_xyz_mm": [
-        54.2,
-        22.49,
-        28.36
-      ],
-      "envelope": "verified",
-      "mass_domain": "moving",
-      "mount": "Zapata integrada DMR02 en zapata inclinada 4770, sin brazo ni adaptador adicional. Interfaces documentadas; asiento y retención reales por comprobar.",
-      "placement": "Esquina superior izquierda de la jaula. Sólo RX; TX, lavalier y estuche permanecen fuera de cámara. Posición aproximada desde el punto candidato de zapata.",
-      "orientation": "Pantalla hacia el operador y hacia arriba, paralela a la zapata inclinada. Ángulo -25 grados ilustrativo, no medición del fabricante. En vertical gira con la jaula y mantiene el vínculo de soporte.",
-      "rationale": "Representar el audio elegido usando una interfaz existente documentada. Se cuentan 28 g publicados del RX, nunca el kit completo.",
-      "rejected": "RX flotante, transmisores/estuche en cámara, adaptador MI no elegido, zapata tratada como alimentación y ángulo presentado como cota exacta.",
-      "explode_mm": [
-        -45,
-        140,
-        0
-      ],
-      "dimension_source_url": "https://www.dji.com/mic-2/specs",
-      "pose_status": "approximate_not_clearance_checked",
-      "parent_id": "smallrig-4770",
-      "rotation_deg": [
-        0,
-        0,
-        -25
-      ],
-      "mount_evidence_urls": [
-        "https://static.smallrig.com/mall/img/public/1725874097334_.pdf",
-        "https://dl.djicdn.com/downloads/DJI_Mic_2/20240426/UM/DJI_Mic_2_User_Manual_V1.2_EN.pdf"
-      ],
-      "mount_evidence_locators": [
-        "4770, página 4, llamada 5: Cold Shoe",
-        "DJI Mic 2 v1.2, página 8, llamada 6 y página 13: Using with a Camera"
-      ]
-    },
-    {
-      "id": "sony-xlr-h1",
-      "label": "Sony XLR-H1",
-      "kind": "handle",
-      "position_mm": [
-        0,
-        83,
-        6
-      ],
-      "size_xyz_mm": [
-        65,
-        78,
-        128
-      ],
-      "envelope": "approximate",
-      "mass_domain": "moving",
-      "mount": "Zapata MI y tornillos Sony; comprobar retirada del riel superior de jaula.",
-      "placement": "Sólo cámara a mano o configuración estática por defecto.",
-      "orientation": "Asa longitudinal sobre cámara.",
-      "rationale": "Manejo de audio sin masa superior adicional en gimbal.",
-      "rejected": "Asa superior activa por defecto en gimbal.",
-      "explode_mm": [
-        0,
-        140,
-        0
-      ],
-      "pose_status": "approximate_not_clearance_checked",
-      "dimension_source_url": "https://electronics.sony.com/imaging/imaging-accessories/imaging-compact-camera-accessories/p/xlrh1",
-      "parent_id": "sony-fx3",
-      "rotation_deg": [
-        0,
-        0,
-        0
-      ]
-    },
-    {
-      "id": "smallrig-2906b",
-      "articulated_subassemblies": {
-        "monitor-head": [
-          "Placa de apoyo monitor",
-          "Rueda de tornillo",
-          "Tornillo 1/4-20 ilustrativo"
-        ],
-        "monitor-swivel": [
-          "Horquilla",
-          "Pivote inclinable",
-          "Mando lateral"
-        ]
-      },
-      "label": "2906B",
-      "kind": "compactMonitorMount",
-      "position_mm": [
-        -18,
-        75.15,
-        6
-      ],
-      "size_xyz_mm": [
-        52.6,
-        53.8,
-        36
-      ],
-      "explode_mm": [
-        50,
-        140,
-        -40
-      ],
-      "rotation_deg": [
-        0,
-        0,
-        0
-      ],
-      "parent_id": "smallrig-4770",
-      "dimension_source_url": "https://static.smallrig.com/mall/img/public/0g141qmktenu-1751249917074_.pdf",
-      "envelope": "verified",
-      "mass_domain": "moving",
-      "mount": "Abrazadera NATO sobre riel superior 4770 sin XLR, o riel del kit 4830 sobre XLR-H1. Tornillo superior 1/4-20 a rosca inferior del Indie 7.",
-      "placement": "Posición candidata aproximada; comprobar asiento, manos y acceso a conexiones.",
-      "orientation": "Orientación de visualización aproximada, no transformación de montaje medida.",
-      "rationale": "Monitor sobre núcleo a mano o estático; no sustituye 3026B lateral en gimbal.",
-      "rejected": "Montaje flotante, adaptación no elegida y extrapolación de cotas de tornillos.",
-      "pose_status": "approximate_not_clearance_checked"
-    },
-    {
-      "id": "smallrig-4830",
-      "label": "4830",
-      "kind": "handleExtension",
-      "position_mm": [
-        0,
-        92,
-        -42
-      ],
-      "size_xyz_mm": [
-        55.8,
-        77.5,
-        124.8
-      ],
-      "explode_mm": [
-        50,
-        140,
-        -40
-      ],
-      "rotation_deg": [
-        0,
-        0,
-        0
-      ],
-      "parent_id": "sony-xlr-h1",
-      "dimension_source_url": "https://static.smallrig.com/mall/img/public/1725874097334_.pdf",
-      "envelope": "verified",
-      "mass_domain": "moving",
-      "mount": "Extensión, pieza de bloqueo y riel NATO nativos sobre XLR-H1; seguir montaje del manual página 8. Retirar riel superior desmontable de 4770 antes de instalar XLR.",
-      "placement": "Posición candidata aproximada; comprobar asiento, manos y acceso a conexiones.",
-      "orientation": "Orientación de visualización aproximada, no transformación de montaje medida.",
-      "rationale": "Proporcionar riel de monitor cuando el asa Sony ocupa el techo de cámara.",
-      "rejected": "Montaje flotante, adaptación no elegida y extrapolación de cotas de tornillos.",
-      "pose_status": "approximate_not_clearance_checked"
-    },
-    {
-      "id": "sony-np-f970-pro",
-      "label": "NP-F970/PRO",
-      "kind": "monitorBattery",
-      "position_mm": [
-        -211,
-        -223,
-        21.75
-      ],
-      "size_xyz_mm": [
-        38.4,
-        70.8,
-        60
-      ],
-      "explode_mm": [
-        50,
-        140,
-        -40
-      ],
-      "rotation_deg": [
-        0,
-        0,
-        180
-      ],
-      "parent_id": "smallhd-indie-7",
-      "dimension_source_url": "https://www.sony.jp/products/catalog/SPC_NP-F970_PRO.pdf",
-      "envelope": "approximate",
-      "mass_domain": "fixed",
-      "mount": "Un paquete serie L en una de las dos bahías de la placa nativa incluida del Indie 7. Sin adaptador D-Tap ni cable a barril.",
-      "placement": "Posición candidata aproximada; comprobar asiento, manos y acceso a conexiones.",
-      "orientation": "Orientación de visualización aproximada, no transformación de montaje medida.",
-      "rationale": "Alimentación autónoma del monitor, también en gimbal vertical.",
-      "rejected": "Montaje flotante, adaptación no elegida y extrapolación de cotas de tornillos.",
-      "pose_status": "approximate_not_clearance_checked"
+      "primary_source_url": "https://www.sony.jp/products/catalog/SPC_NP-F970_PRO.pdf",
+      "secondary_source_url": null,
+      "confidence_level": "medium"
     },
     {
       "id": "sony-fx30",
-      "label": "Sony FX30",
-      "kind": "camera",
-      "position_mm": [
-        0,
-        0,
-        0
+      "exact_product_name": "Sony FX30",
+      "model_number": "ILME-FX30",
+      "brand": "Sony",
+      "category": "camera body",
+      "verified_dimensions_mm": {
+        "length": 129.7,
+        "width": 77.8,
+        "height": 84.5,
+        "approximate": true,
+        "note": "Campos históricos: ancho / alto / fondo, cotas aproximadas de fabricante; consultar layout-manifest para ejes. No son cotas de montaje."
+      },
+      "verified_weight_g": {
+        "value": 562,
+        "approximate": true,
+        "source_url": "https://www.sony.jp/pro-cam/products/ILME-FX30/spec.html",
+        "checked_on": "2026-10-07",
+        "note": "562 g aproximados: cuerpo solo, sin batería, tarjeta ni asa. No sumar 646 g con batería/tarjeta."
+      },
+      "planning_weight_g": 562,
+      "ports_interfaces": [
+        "Una salida HDMI tipo A",
+        "USB-C x1",
+        "Multi/Micro USB x1",
+        "Entrada de micrófono de 3.5 mm",
+        "Salida de auriculares de 3.5 mm",
+        "Sony Multi Interface Shoe",
+        "Compartimento nativo NP-FZ100"
       ],
-      "rotation_deg": [
-        0,
-        0,
-        0
+      "mounting_method": "Núcleo a mano, montura E y jaula 4770 según el manual específico FX30.",
+      "likely_material": "Materiales no verificados en las fuentes revisadas; apariencia del modelo aproximada.",
+      "mandatory_or_optional": "optional",
+      "rig_role": "Captura APS-C; piloto a mano con monitor y audio opcionales",
+      "physical_constraints": [
+        "562 g aproximados: cuerpo solo, sin batería, tarjeta ni asa. No sumar 646 g con batería/tarjeta.",
+        "Piloto de planificación a mano y horizontal; monitor NATO 2906B/Indie 7 con NP-F970/PRO y RX Mic 2 sobre 4770 revisados como candidatos. Gimbal, asa XLR y otras fuentes requieren revisión propia.",
+        "Puertos identificados; coordenadas no medidas. No hereda puertos ni cables de FX3.",
+        "ILME-FX30 puede incluir asa según SKU/región; no se añade automáticamente.",
+        "Ventilación inferior y cubierta de batería deben quedar libres."
       ],
-      "size_xyz_mm": [
-        129.7,
-        77.8,
-        84.5
-      ],
-      "explode_mm": [
-        0,
-        90,
-        0
-      ],
-      "parent_id": null,
-      "envelope": "approximate",
-      "mass_domain": "moving",
-      "mount": "Núcleo a mano, montura E y jaula 4770 según el manual específico FX30.",
-      "placement": "Núcleo sostenido por el operador; ventilación inferior libre. Pose visual aproximada, no coordenadas de montaje.",
-      "orientation": "Objetivo hacia la escena, pantalla accesible al operador. Rotación ilustrativa.",
-      "rationale": "Mantener controles, pantalla, tarjeta y acceso a batería sin accesorios implícitos.",
-      "rejected": "Copiar la pose y puertos del cuerpo FX3; Añadir un gimbal por defecto",
-      "dimension_source_url": "https://www.sony.jp/pro-cam/products/ILME-FX30/spec.html",
-      "pose_status": "approximate_visual_only_not_mechanical",
-      "model_authoring": "pilot",
-      "internal": false
+      "primary_source_url": "https://www.sony.jp/pro-cam/products/ILME-FX30/spec.html",
+      "secondary_source_url": null,
+      "confidence_level": "medium",
+      "catalog_release": {
+        "configuration_id": "fx30-handheld-prime",
+        "status": "planning_candidate",
+        "physical_validation": "pending"
+      }
     },
     {
       "id": "sony-fe-20-f18-g",
-      "label": "FE 20mm F1.8 G",
-      "kind": "lens",
-      "position_mm": [
-        0,
-        0,
-        84.6
+      "exact_product_name": "Sony FE 20mm F1.8 G",
+      "model_number": "SEL20F18G",
+      "brand": "Sony",
+      "category": "lens",
+      "verified_dimensions_mm": {
+        "length": 73.5,
+        "width": 73.5,
+        "height": 84.7,
+        "approximate": true,
+        "note": "Campos históricos: diámetro / diámetro / longitud; consultar size_xyz_mm para ejes. Medidas exteriores publicadas, no encajes mecánicos."
+      },
+      "verified_weight_g": {
+        "value": 373,
+        "approximate": true,
+        "source_url": "https://www.sony.jp/ichigan/products/SEL20F18G/spec.html",
+        "checked_on": "2026-10-07",
+        "note": "Dimensiones diámetro máximo 73.5 × longitud 84.7 mm; masa aproximada."
+      },
+      "planning_weight_g": 373,
+      "ports_interfaces": [
+        "Montura Sony E",
+        "Filtro nominal de 67 mm"
       ],
-      "rotation_deg": [
-        0,
-        0,
-        0
+      "mounting_method": "Montura Sony E directa de FX30; par exacto documentado por Sony.",
+      "likely_material": "Materiales no verificados en las fuentes revisadas; apariencia del modelo aproximada.",
+      "mandatory_or_optional": "optional",
+      "rig_role": "Óptica fija del piloto FX30",
+      "physical_constraints": [
+        "Dimensiones diámetro máximo 73.5 × longitud 84.7 mm; masa aproximada.",
+        "Sin parasol ni tapas en la escena: no fueron seleccionados.",
+        "No hereda zoom, forma o longitud de SEL1635GM.",
+        "Otros pares cámara/objetivo quedan pendientes; no se aprueban por compartir montura."
       ],
-      "size_xyz_mm": [
-        73.5,
-        73.5,
-        84.7
-      ],
-      "explode_mm": [
-        0,
-        90,
-        90
-      ],
-      "parent_id": "sony-fx30",
-      "envelope": "approximate",
-      "mass_domain": "moving",
-      "mount": "Montura Sony E directa de FX30; par exacto documentado por Sony.",
-      "placement": "Montura E frontal de FX30, sin adaptador. Pose visual aproximada, no coordenadas de montaje.",
-      "orientation": "Alinear índices blancos y girar según el manual hasta retención. Rotación ilustrativa.",
-      "rationale": "Par exacto confirmado por Sony; núcleo compacto sin matte box ni parasol añadido.",
-      "rejected": "Heredar longitud, forma o parasol de SEL1635GM; Introducir un adaptador de montura sin necesidad",
-      "dimension_source_url": "https://www.sony.jp/ichigan/products/SEL20F18G/spec.html",
-      "pose_status": "approximate_visual_only_not_mechanical",
-      "model_authoring": "pilot",
-      "internal": false
+      "primary_source_url": "https://www.sony.jp/ichigan/products/SEL20F18G/spec.html",
+      "secondary_source_url": null,
+      "confidence_level": "medium",
+      "catalog_release": {
+        "configuration_id": "fx30-handheld-prime",
+        "status": "planning_candidate",
+        "physical_validation": "pending"
+      }
     },
     {
       "id": "sony-np-fz100",
-      "label": "NP-FZ100 interna",
-      "kind": "nativeBattery",
-      "vertical_frame": "camera",
-      "position_mm": [
-        48,
-        -8,
-        -4
+      "exact_product_name": "Sony NP-FZ100 Rechargeable Battery Pack",
+      "model_number": "NP-FZ100",
+      "brand": "Sony",
+      "category": "battery",
+      "verified_dimensions_mm": {
+        "length": 38.7,
+        "width": 22.7,
+        "height": 51.7,
+        "approximate": true,
+        "note": "Campos históricos: ancho / alto / fondo, cotas aproximadas de fabricante; consultar layout-manifest para ejes. No son cotas de montaje."
+      },
+      "verified_weight_g": {
+        "value": 83,
+        "approximate": true,
+        "source_url": "https://electronics.sony.com/imaging/imaging-accessories/interchangeable-lens-camera-accessories/p/npfz100?sku=npfz100",
+        "checked_on": "2026-10-07",
+        "note": "7.2 V nominales, 16.4 Wh, 2280 mAh; no son rango de descarga ni corriente admisible."
+      },
+      "planning_weight_g": 83,
+      "ports_interfaces": [
+        "Contactos nativos NP-FZ100; pinout no publicado"
       ],
-      "rotation_deg": [
-        0,
-        0,
-        90
+      "mounting_method": "Alojamiento nativo FX3 o FX30; palanca de retención y cubierta según la guía propia de cada cuerpo.",
+      "likely_material": "Materiales no verificados en las fuentes revisadas; apariencia del modelo aproximada.",
+      "mandatory_or_optional": "optional",
+      "rig_role": "Alimentación interna nativa de FX3 o del piloto FX30",
+      "physical_constraints": [
+        "7.2 V nominales, 16.4 Wh, 2280 mAh; no son rango de descarga ni corriente admisible.",
+        "Batería interna, no bloque externo ni cable D-Tap.",
+        "83 g aproximados, sumados una sola vez al cuerpo solo.",
+        "Cargador no elegido ni incluido en este plan; usar batería previamente cargada.",
+        "FX3 documentada por Sony en su guía propia; FX30 conserva su revisión independiente. Otros cuerpos pendientes.",
+        "No instalar simultáneamente con SmallRig 4253B: ambos ocupan el mismo alojamiento."
       ],
-      "size_xyz_mm": [
-        38.7,
-        22.7,
-        51.7
-      ],
-      "explode_mm": [
-        115,
-        -90,
-        0
-      ],
-      "parent_id": "sony-fx30",
-      "envelope": "approximate",
-      "mass_domain": "moving",
-      "mount": "Alojamiento nativo FX30; palanca de retención y cubierta según Sony.",
-      "placement": "Dentro del compartimento nativo; retenida por la palanca y cubierta bloqueada. Pose visual aproximada, no coordenadas de montaje.",
-      "orientation": "Seguir la inserción del manual; contactos y posición interna sin coordenadas publicadas. Rotación ilustrativa.",
-      "rationale": "Alimentación nativa sin adaptador de batería, V-mount, cables o soportes adicionales.",
-      "rejected": "Representar la batería como un bloque externo bajo la cámara; Sumarla otra vez a la masa de cuerpo con batería",
-      "dimension_source_url": "https://electronics.sony.com/imaging/imaging-accessories/interchangeable-lens-camera-accessories/p/npfz100?sku=npfz100",
-      "pose_status": "approximate_visual_only_not_mechanical",
-      "model_authoring": "pilot",
-      "internal": true
-    }
-  ],
-  "clearance_gates": [
-    {
-      "id": "rx-shoe-clearance",
-      "title": "Receptor Mic 2 y zapata HawkLock",
-      "detail": "Verificar asiento y retención del RX en la zapata inclinada 4770, acceso a MIC/HDMI, pantalla y holgura en todos los ejes con motores apagados. Pesar el cable TRS y rebalancear con RX instalado; no inferir holgura por los 28 g publicados.",
-      "status": "bench_required"
-    },
-    {
-      "id": "battery-sweep",
-      "title": "Batería y recorrido de motores",
-      "detail": "Abrazadera superior 3203B documentada en manual, página 5. Placa bajo varillas cerca del motor de giro. Con motores apagados, medir la holgura mínima en extremos de inclinación/rotación. No operar hasta superar la prueba.",
-      "status": "bench_required"
-    },
-    {
-      "id": "hand-zone",
-      "title": "Espacio para las manos",
-      "detail": "Gimbal: ajustar monitor en 3026B, sin obstaculizar empuñadura. A mano/estático: medir acceso al asa y mandos con 2906B, incluyendo 4830 si hay XLR-H1. Usar guantes sin tocar pantalla, batería ni soporte; no se da por validado por la pose.",
-      "status": "bench_required"
-    },
-    {
-      "id": "motion-boundary",
-      "title": "Cables entre partes móviles y fijas",
-      "detail": "En gimbal HDMI y D-Tap cruzan de móvil a fijo y requieren bucles medidos; batería serie L no añade cable de potencia. A mano/estático ambos extremos HDMI/D-Tap siguen el núcleo y deben dejar holgura para monitor y agarre. No se promete giro ilimitado.",
-      "status": "bench_required"
-    },
-    {
-      "id": "quick-release",
-      "title": "Interfaz de extracción",
-      "detail": "1674 está atornillada. HawkLock no garantiza extracción de cámara por sí sola a través de la pila. Desconectar todos los cables que cruzan partes móviles/fijas, liberar la placa DJI y retirar las varillas si hace falta.",
-      "status": "bench_required"
-    },
-    {
-      "id": "dual-video",
-      "title": "Doble salida HDMI",
-      "detail": "StarTech y RavenEye quedan en reserva para gimbal. Circuito completo de banco hasta verificar soporte, alimentación de 5 V y negociación EDID.",
-      "status": "conditional"
-    },
-    {
-      "id": "focus-calibration",
-      "title": "Calibración LiDAR y objetivo",
-      "detail": "No se ha demostrado calibración del motor con SEL1635GM. Sensor/motor Focus Pro y hub Transmission se conservan en inventario, sin simularlos operativos.",
-      "status": "conditional"
-    }
-  ],
-  "support_graph_note": "parent_id representa la cadena candidata de soporte mecánico, no una jerarquía de transformaciones. En cámara a mano se omiten soportes inactivos; no se inventan manos o soportes externos. Medir la pila de jaula, base y placa DJI.",
-  "monitor_mount_routes": {
-    "gimbal": {
-      "label": "NATO lateral RS / 3026B",
-      "overrides": {}
-    },
-    "cage": {
-      "label": "NATO superior 4770 / 2906B",
-      "overrides": {
-        "smallhd-indie-7": {
-          "position_mm": [
-            -18,
-            161.35,
-            6
-          ],
-          "rotation_deg": [
-            0,
-            0,
-            0
-          ],
-          "parent_id": "smallrig-2906b",
-          "mass_domain": "moving",
-          "mount": "Rosca inferior del Indie 7 al tornillo superior 2906B; NATO de jaula 4770 sin XLR.",
-          "placement": "Sobre la jaula, fuera del agarre previsto. Pose aproximada; medir acceso de manos y conectores.",
-          "orientation": "Rosca inferior hacia abajo, pantalla hacia operador; inclinación real ajustable en 2906B, posición neutra ilustrativa.",
-          "rationale": "Conjunto autónomo sobre el núcleo para cámara a mano/estática, sin inventar gimbal ni brazo articulado.",
-          "rejected": "Usar 3026B sin riel RS documentado, dejar monitor sin NATO, o ocupar simultáneamente interfaz XLR y riel superior removible 4770."
-        },
-        "sony-np-f970-pro": {
-          "position_mm": [
-            8,
-            179.35,
-            52.75
-          ],
-          "rotation_deg": [
-            0,
-            0,
-            0
-          ],
-          "mass_domain": "moving"
-        }
-      }
-    },
-    "xlr": {
-      "label": "XLR-H1 / 4830 / 2906B",
-      "overrides": {
-        "smallrig-2906b": {
-          "position_mm": [
-            0,
-            134.4,
-            -25
-          ],
-          "parent_id": "smallrig-4830"
-        },
-        "smallhd-indie-7": {
-          "position_mm": [
-            0,
-            220.6,
-            -25
-          ],
-          "rotation_deg": [
-            0,
-            0,
-            0
-          ],
-          "parent_id": "smallrig-2906b",
-          "mass_domain": "moving",
-          "mount": "Rosca inferior Indie 7 al 2906B sobre riel NATO 4830 del XLR-H1. No usar riel 4770 retirado.",
-          "placement": "Sobre el riel 4830 del asa XLR, fuera del agarre previsto. Pose aproximada; medir acceso de manos y conectores.",
-          "orientation": "Rosca inferior hacia abajo, pantalla hacia operador; inclinación real ajustable en 2906B, posición neutra ilustrativa.",
-          "rationale": "Conjunto autónomo sobre el núcleo para cámara a mano/estática, sin inventar gimbal ni brazo articulado.",
-          "rejected": "Usar 3026B sin riel RS documentado, dejar monitor sin NATO, o ocupar simultáneamente interfaz XLR y riel superior removible 4770."
-        },
-        "sony-np-f970-pro": {
-          "position_mm": [
-            26,
-            238.6,
-            21.75
-          ],
-          "rotation_deg": [
-            0,
-            0,
-            0
-          ],
-          "mass_domain": "moving"
-        }
-      }
-    }
-  },
-  "camera_layout_profiles": [
-    {
-      "id": "fx3-native-battery",
-      "camera_part_id": "sony-fx3",
-      "overrides": {
-        "sony-np-fz100": {
-          "parent_id": "sony-fx3",
-          "mount": "Alojamiento nativo FX3 según Sony, guía página 82; excluye adaptador 4253B.",
-          "placement": "Dentro del compartimento de la empuñadura FX3. Pose visual aproximada, sin coordenadas de asiento publicadas.",
-          "orientation": "Inserción según la guía FX3; rotación visual aproximada, no patrón de contactos ni trayectoria de inserción.",
-          "rationale": "Batería nativa documentada para este cuerpo; no requiere cables externos ni placa V-mount.",
-          "rejected": "Batería exterior o simultánea con adaptador de batería; duplicar masa sobre cuerpo con batería."
-        }
-      }
-    },
-    {
-      "id": "fx30-handheld-prime",
-      "camera_part_id": "sony-fx30",
-      "overrides": {
-        "smallrig-4770": {
-          "parent_id": "sony-fx30",
-          "mount": "Jaula FX3/FX30 según manual 4770 páginas 3 y 5; sin baseplate añadida.",
-          "placement": "Jaula alrededor del cuerpo FX30; asiento inferior/laterales del fabricante.",
-          "orientation": "Alineación visual aproximada con FX30.",
-          "rationale": "Relación documentada por SmallRig; no prueba holguras de batería o ventilación.",
-          "rejected": "Añadir baseplate, asa o monitor sin elección ni evidencia de conjunto."
-        }
+      "primary_source_url": "https://electronics.sony.com/imaging/imaging-accessories/interchangeable-lens-camera-accessories/p/npfz100?sku=npfz100",
+      "secondary_source_url": null,
+      "confidence_level": "medium",
+      "catalog_release": {
+        "configuration_id": "fx30-handheld-prime",
+        "status": "planning_candidate",
+        "physical_validation": "pending"
       }
     }
   ]
