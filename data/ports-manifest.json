@@ -484,6 +484,16 @@
       "note": "Interfaz de audio digital publicada; no equivale a una zapata pasiva genérica."
     },
     {
+      "id": "fx3-native-battery",
+      "part_id": "sony-fx3",
+      "label": "Compartimento nativo FX3",
+      "connector": "Alojamiento nativo NP-FZ100",
+      "local_position_mm": null,
+      "position_confidence": "unmeasured_internal",
+      "identity_source_url": "https://helpguide.sony.net/ilc/2210/v1/en/contents/TP1000886922.html",
+      "note": "Contactos internos sin pinout ni coordenadas publicados; ruta distinta del cable 4253B."
+    },
+    {
       "id": "fx30-native-battery",
       "part_id": "sony-fx30",
       "label": "Compartimento nativo FX30",

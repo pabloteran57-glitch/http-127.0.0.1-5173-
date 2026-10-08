@@ -463,7 +463,9 @@
       "identity_source_url": "https://electronics.sony.com/imaging/imaging-accessories/interchangeable-lens-camera-accessories/p/npfz100?sku=npfz100",
       "geometry_profile_id": "sony-np-fz100",
       "geometry_status": "approximate",
-      "assembly_steps": [],
+      "assembly_steps": [
+        1
+      ],
       "assembly_profiles": [
         {
           "id": "fx30-handheld-prime",

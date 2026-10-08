@@ -1,5 +1,5 @@
 {
-  "audit_on": "2026-10-05",
+  "audit_on": "2026-10-07",
   "status": "bench_validation_required",
   "steps": [
     {
@@ -9,7 +9,8 @@
       "where": "Montura Sony E, objetivo bloqueado.",
       "verify": [
         "Revisar firmware, tarjetas y modo de grabación.",
-        "Instalar el adaptador de batería sólo con la alimentación apagada; comprobar la salida del cable en la puerta de batería."
+        "Según el plan, elegir batería nativa NP-FZ100 o adaptador 4253B, nunca ambos. Mantener cámara apagada y lámpara de acceso apagada al retirar batería.",
+        "Batería nativa: retención y cubierta bloqueada según Sony; adaptador: comprobar salida del cable en la puerta. Verificar acceso y ventilación con jaula."
       ],
       "rebalance": "Equilibrio inicial después de completar la carga móvil.",
       "applies_if_any_part_ids": []

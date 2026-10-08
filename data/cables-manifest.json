@@ -826,6 +826,35 @@
       "route_control_offsets_mm": null
     },
     {
+      "cable_id": "pwr-npfz100-to-fx3-contacts",
+      "source": "NP-FZ100 elegida",
+      "destination": "Compartimento nativo FX3",
+      "connector_a": "Contactos nativos NP-FZ100",
+      "connector_b": "Alojamiento nativo NP-FZ100",
+      "type": "power",
+      "voltage_or_signal_standard": "NP-FZ100 nativa documentada para FX3; 7.2 V nominales. Rango y pinout no publicados.",
+      "ideal_length_estimate": "No aplica: sin cable externo.",
+      "routing_path": "Contacto directo interno; sin curva externa ni anclajes de cable inventados.",
+      "strain_relief_requirement": "Sin cable. Comprobar palanca, cubierta bloqueada y acceso real con jaula.",
+      "risk_notes": [
+        "Apagar y comprobar lámpara de acceso antes de retirar batería.",
+        "No instalar junto con 4253B; ocupa el mismo compartimento.",
+        "Retención, ventilación y acceso con jaula requieren comprobación física.",
+        "7.2 V nominales no definen pinout, rango de descarga ni autonomía."
+      ],
+      "mandatory_or_optional": "optional",
+      "source_part_id": "sony-np-fz100",
+      "from_part_id": "sony-np-fz100",
+      "to_part_id": "sony-fx3",
+      "from_port_id": "npfz100-contacts",
+      "to_port_id": "fx3-native-battery",
+      "status": "candidate",
+      "motion_boundary": "internal_to_camera",
+      "route_geometry": "contacts_only_no_external_route",
+      "display_kind": "contacts",
+      "route_control_offsets_mm": null
+    },
+    {
       "cable_id": "pilot-pwr-npfz100-fx30",
       "source": "NP-FZ100 elegida",
       "destination": "Compartimento nativo FX30",

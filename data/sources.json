@@ -746,6 +746,24 @@
       "notes": "Cara inferior FX30: entrada de ventilación libre, compartimento de batería y rosca de trípode 1/4-20 UNC; tornillo de trípode menor de 5.5 mm. Esta cota no caracteriza todos los tornillos de jaula ni su longitud suministrada."
     },
     {
+      "id": "src-sony-fx3-native-battery",
+      "brand": "Sony",
+      "type": "official",
+      "url": "https://helpguide.sony.net/ilc/2210/v1/en/contents/TP1000886922.html",
+      "checked_on": "2026-10-07",
+      "review_subject_part_ids": ["sony-fx3", "sony-np-fz100"],
+      "notes": "Guía ILME-FX3 Ver.2 o posterior: Power, general indica entrada nominal 7.2 V y Rechargeable battery pack NP-FZ100 identifica batería de 7.2 V. No publica pinout, rango completo ni prueba de jaula."
+    },
+    {
+      "id": "src-sony-fx3-battery-install",
+      "brand": "Sony",
+      "type": "official",
+      "url": "https://helpguide.sony.net/ilc/2210/v1/en/print.pdf",
+      "checked_on": "2026-10-07",
+      "review_subject_part_ids": ["sony-fx3", "sony-np-fz100"],
+      "notes": "Página impresa 82, Inserting/removing the battery pack: retención por palanca, cierre y LOCK; apagar y lámpara de acceso apagada antes de retirar. Texto y diagrama consultados; sin redistribuir manual ni inferir coordenadas interiores."
+    },
+    {
       "id": "pilot-sony-sel20f18g-spec-table",
       "brand": "Sony",
       "type": "official",

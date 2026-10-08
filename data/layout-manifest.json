@@ -1024,6 +1024,20 @@
   },
   "camera_layout_profiles": [
     {
+      "id": "fx3-native-battery",
+      "camera_part_id": "sony-fx3",
+      "overrides": {
+        "sony-np-fz100": {
+          "parent_id": "sony-fx3",
+          "mount": "Alojamiento nativo FX3 según Sony, guía página 82; excluye adaptador 4253B.",
+          "placement": "Dentro del compartimento de la empuñadura FX3. Pose visual aproximada, sin coordenadas de asiento publicadas.",
+          "orientation": "Inserción según la guía FX3; rotación visual aproximada, no patrón de contactos ni trayectoria de inserción.",
+          "rationale": "Batería nativa documentada para este cuerpo; no requiere cables externos ni placa V-mount.",
+          "rejected": "Batería exterior o simultánea con adaptador de batería; duplicar masa sobre cuerpo con batería."
+        }
+      }
+    },
+    {
       "id": "fx30-handheld-prime",
       "camera_part_id": "sony-fx30",
       "overrides": {

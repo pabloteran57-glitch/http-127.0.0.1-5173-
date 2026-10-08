@@ -444,6 +444,62 @@
       ]
     },
     {
+      "cable_id": "pwr-npfz100-to-fx3-contacts",
+      "catalog_revision": "fx3-rs4-2026-10-05",
+      "reviewed_on": "2026-10-07",
+      "action": "Elegir batería nativa previamente cargada o adaptador 4253B, nunca ambos. Seguir la guía FX3 y comprobar retención, cubierta y ventilación con el ejemplar real.",
+      "binding": {
+        "source_part_id": "sony-np-fz100",
+        "from_port_id": "npfz100-contacts",
+        "to_port_id": "fx3-native-battery",
+        "connector_a": "Contactos nativos NP-FZ100",
+        "connector_b": "Alojamiento nativo NP-FZ100",
+        "signal_standard": "NP-FZ100 nativa documentada para FX3; 7.2 V nominales. Rango y pinout no publicados.",
+        "electrical_revision": null,
+        "models": [
+          {"part_id": "sony-np-fz100", "model_number": "NP-FZ100", "exact_product_name": "Sony NP-FZ100 Rechargeable Battery Pack"},
+          {"part_id": "sony-fx3", "model_number": "ILME-FX3", "exact_product_name": "Sony FX3 Full-Frame Cinema Line Camera"}
+        ],
+        "ports": [
+          {"id": "fx3-native-battery", "connector": "Alojamiento nativo NP-FZ100", "electrical_revision": null},
+          {"id": "npfz100-contacts", "connector": "Contactos nativos NP-FZ100", "electrical_revision": null}
+        ]
+      },
+      "citations": {
+        "native": {
+          "source_id": "src-sony-fx3-native-battery",
+          "source_url": "https://helpguide.sony.net/ilc/2210/v1/en/contents/TP1000886922.html",
+          "locator": "Power, general: Rated input; Rechargeable battery pack NP-FZ100: Rated voltage.",
+          "claim": "Sony identifica NP-FZ100 para ILME-FX3; 7.2 V nominales. Sin pinout ni rango completo.",
+          "part_ids": ["sony-fx3", "sony-np-fz100"]
+        },
+        "installation": {
+          "source_id": "src-sony-fx3-battery-install",
+          "source_url": "https://helpguide.sony.net/ilc/2210/v1/en/print.pdf",
+          "locator": "Página impresa 82: Inserting/removing the battery pack.",
+          "claim": "Retención por palanca y cubierta bloqueada; apagar y comprobar lámpara de acceso antes de retirar.",
+          "part_ids": ["sony-fx3", "sony-np-fz100"]
+        }
+      },
+      "checks": [
+        {
+          "id": "native-identity",
+          "kind": "specification",
+          "label": "Batería nativa FX3 documentada",
+          "subject_part_ids": ["sony-fx3", "sony-np-fz100"],
+          "citation_ids": ["native", "installation"],
+          "detail": "Pareja propia documentada por Sony; no se reutiliza la revisión FX30 ni la del adaptador."
+        },
+        {
+          "id": "native-retention",
+          "kind": "operational",
+          "label": "Retención y ventilación reales",
+          "citation_ids": [],
+          "detail": "Sin ensayo físico registrado del ejemplar con jaula, cubierta y fijaciones reales."
+        }
+      ]
+    },
+    {
       "cable_id": "pilot-pwr-npfz100-fx30",
       "catalog_revision": "fx3-rs4-2026-10-05",
       "reviewed_on": "2026-10-07",

@@ -26,6 +26,8 @@ Vista de marca: `/brand/preview.html`. SVG reutilizables en `public/brand`; nomb
 
 ## Rigs Propios
 
+Versión 0.2.11: NP-FZ100 nativa seleccionable para FX3 con revisión Sony propia. No se instala implícitamente ni junto con 4253B; conserva 83 g una sola vez, contactos internos sin curva externa y pose aproximada. Las siete plantillas mantienen sus elecciones. [Estado del plan](docs/product-progress.md) y [comprobaciones](docs/native-camera-power-qa.md).
+
 **Crear rig** abre una selección vacía. **Personalizar** crea una copia editable de la plantilla actual. Elige productos, revisa dependencias y guarda el perfil en **Mis rigs**. **Guardar rig** también puede guardar directamente una copia de una plantilla. El guardado es local a este navegador, no una cuenta sincronizada. Las piezas pendientes se conservan sin inventar un montaje.
 
 Versión 0.2.3: selección directa en **Catálogo**, **Elegidas** y **Datos del rig**, sin pasos obligatorios. Añadir o quitar no te saca del catálogo; guardar está disponible en todas las vistas. Jaulas y accesorios tienen su categoría. Un rig propio vertical conserva el monitor lateral candidato con 3026B, sin activar la pila V-mount ni presuponer alimentación. El RX de DJI Mic 2 se representa sobre la zapata documentada de HawkLock 4770, con 28 g publicados y pose aproximada pendiente de ensayo. Miniaturas propias aproximadas y enlaces oficiales, sin redistribución de medios del fabricante. Las siete plantillas mantienen sus listas originales.

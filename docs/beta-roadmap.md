@@ -4,6 +4,14 @@ Revisión: 7 de octubre de 2026. Estado: endurecimiento del prototipo en curso. 
 
 Iteración 0.2.10: piloto FX30 en editor, biblioteca, conexiones nativas y guía propia de cinco etapas. Conserva los accesorios desde el visor, monitor sobre NATO sin imponer gimbal para las cadenas FX3 revisadas, ajustes y guardado de poses. No finaliza beta ni autoriza cadenas FX30 adicionales. [Verificación de integración](pilot-integration-qa.md) y [estado de publicación](additional-hosting.md).
 
+Iteración 0.2.11: ampliación documental de NP-FZ100 nativa a FX3, con contactos propios y exclusión de 4253B. No es otro producto ni una promoción de los siete candidatos restantes. [Verificación de alimentación](native-camera-power-qa.md).
+
+## Punto Actual
+
+La fase 3 avanza por configuraciones completas: tres de diez candidatos ya tienen alta explícita de planificación. Las fases 1 y 2 cuentan con correcciones y pruebas de software, pero conservan pendientes de dispositivo, semántica y aceptación. La fase 4 tiene guardado, historial y perfiles locales; cuentas y nube aplazadas. Fases 5-7 preparadas documentalmente, no superadas.
+
+Siguiente bloque: revisar monitor y audio para FX30 sin copiar montajes FX3. Cada cadena debe pasar manifiesto, distribución física, conexiones, guía, visor y variantes antes de activarse. Después continuarán los otros candidatos, protección y evidencia para beta. Un despliegue no sustituye pruebas físicas, usuarios ni presupuesto.
+
 Mi equipo, guía filtrada y controles de reproducción ya tienen correcciones funcionales comprobadas. Se prepararon laboratorio, reglas declarativas, recuperación e historial, recursos sin conexión, protocolo de beta y paquete preliminar de financiación. La evidencia actual está en `docs/iteration-qa.md`; la previa en `docs/stabilization-qa.md`. Preparar entregables posteriores no cierra sus criterios de salida. Cuentas y sincronización quedan aplazadas por decisión del usuario, no eliminadas del plan.
 
 ## Decisión recomendada

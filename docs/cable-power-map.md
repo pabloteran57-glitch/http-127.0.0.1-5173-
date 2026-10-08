@@ -1,6 +1,6 @@
 # Mapa de cables y alimentación
 
-Canónicos: `data/cables-manifest.json` y `data/ports-manifest.json`. 19 circuitos, 40 puertos. Identidad de conectores documentada; coordenadas 3D y curvas aproximadas.
+Canónicos: `data/cables-manifest.json` y `data/ports-manifest.json`. 20 circuitos, 41 puertos. Identidad de conectores documentada; coordenadas 3D y curvas aproximadas.
 
 ## Arquitectura
 
@@ -15,7 +15,7 @@ Canónicos: `data/cables-manifest.json` y `data/ports-manifest.json`. 19 circuit
 
 **Corrección eléctrica:** Cable CBL-PWR-DTAP-BAR-36: exterior 5.5 mm y centro positivo publicados, interior del cable por confirmar. Fuente independiente SmallHD, tabla técnica Power: entrada del Indie 7 de 2.0 mm interior / 5.5 mm exterior y centro positivo, DC 10–34 V; terminales batería 6.0–16.8 V. El ID histórico del cable no es prueba de conector. 4253B: entrada 9.6–20 V / mínimo 2 A, salida 8.0–8.4 V / máximo continuo 2 A. Todas las cargas y ajustes reales siguen pendientes.
 
-Revisión por circuito y fuentes: [comprobaciones de conexiones](connection-reviews.md). 5 enlaces revisados documentalmente; los demás no se dan por compatibles por tener puertos identificados.
+Revisión por circuito y fuentes: [comprobaciones de conexiones](connection-reviews.md). 6 enlaces revisados documentalmente; los demás no se dan por compatibles por tener puertos identificados.
 
 ## Colores
 
@@ -299,6 +299,21 @@ Revisión por circuito y fuentes: [comprobaciones de conexiones](connection-revi
 - Cruce de movimiento: local_to_monitor; geometría: contacts_only_not_port_CAD.
 
 
+### pwr-npfz100-to-fx3-contacts
+
+- Producto/fuente: Sony NP-FZ100.
+- Origen: NP-FZ100 elegida; puerto `npfz100-contacts`.
+- Destino: Compartimento nativo FX3; puerto `fx3-native-battery`.
+- Conector A: Contactos nativos NP-FZ100; conector B: Alojamiento nativo NP-FZ100.
+- Tipo: Alimentación; estándar/tensión: NP-FZ100 nativa documentada para FX3; 7.2 V nominales. Rango y pinout no publicados..
+- Longitud estimada: No aplica: sin cable externo.
+- Ruta candidata: Contacto directo interno; sin curva externa ni anclajes de cable inventados.
+- Alivio de tensión: Sin cable. Comprobar palanca, cubierta bloqueada y acceso real con jaula.
+- Riesgos: Apagar y comprobar lámpara de acceso antes de retirar batería.; No instalar junto con 4253B; ocupa el mismo compartimento.; Retención, ventilación y acceso con jaula requieren comprobación física.; 7.2 V nominales no definen pinout, rango de descarga ni autonomía.
+- Obligatorio/opcional: Opcional; estado: Candidato; visualización: Contactos sin cable.
+- Cruce de movimiento: internal_to_camera; geometría: contacts_only_no_external_route.
+
+
 ### pilot-pwr-npfz100-fx30
 
 - Producto/fuente: Sony NP-FZ100.
@@ -355,6 +370,7 @@ Revisión por circuito y fuentes: [comprobaciones de conexiones](connection-revi
 - `fx30-mic-in`: 3.5 mm stereo minijack / 3.5 mm stereo minijack; sin pose habilitada; [fuente](https://www.sony.jp/pro-cam/products/ILME-FX30/spec.html).
 - `fx30-headphones`: 3.5 mm stereo minijack / 3.5 mm stereo minijack; sin pose habilitada; [fuente](https://www.sony.jp/pro-cam/products/ILME-FX30/spec.html).
 - `fx30-multi-interface-shoe`: Sony Multi Interface Shoe / Sony Multi Interface Shoe; sin pose habilitada; [fuente](https://www.sony.jp/pro-cam/products/ILME-FX30/spec.html).
+- `fx3-native-battery`: Compartimento nativo FX3 / Alojamiento nativo NP-FZ100; sin pose habilitada; [fuente](https://helpguide.sony.net/ilc/2210/v1/en/contents/TP1000886922.html).
 - `fx30-native-battery`: Compartimento nativo FX30 / Alojamiento nativo NP-FZ100; sin pose habilitada; [fuente](https://helpguide.sony.net/ilc/2220/v1/en/print.pdf).
 - `npfz100-contacts`: Contactos NP-FZ100 / Contactos nativos NP-FZ100; sin pose habilitada; [fuente](https://electronics.sony.com/imaging/imaging-accessories/interchangeable-lens-camera-accessories/p/npfz100?sku=npfz100).
 

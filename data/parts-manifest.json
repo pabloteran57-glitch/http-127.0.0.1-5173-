@@ -9,7 +9,8 @@
     "Los valores aproximados deben confirmarse con báscula y calibre antes de mecanizar maletas o encargar cables a medida.",
     "Ronin Image Transmitter y Focus Pro Motor se incluyen como componentes del RS 4 Pro Combo por su impacto en cableado y masa.",
     "2026-10-05: se distinguen las revisiones exactas 3026B, 3203B y 4253B. Las medidas nominales no verifican coordenadas de orificios ni holguras de movimiento.",
-    "Tres altas de planificación del piloto FX30 a mano: manifiestos canónicos, geometría y poses aproximadas; no son montajes físicamente certificados."
+    "Tres altas de planificación del piloto FX30 a mano: manifiestos canónicos, geometría y poses aproximadas; no son montajes físicamente certificados.",
+    "NP-FZ100 nativa documentada también para FX3; no puede ocupar el compartimento simultáneamente con el adaptador 4253B. Sin ensayo físico del conjunto."
   ],
   "parts": [
     {
@@ -1270,16 +1271,17 @@
       "ports_interfaces": [
         "Contactos nativos NP-FZ100; pinout no publicado"
       ],
-      "mounting_method": "Alojamiento nativo FX30; palanca de retención y cubierta según Sony.",
+      "mounting_method": "Alojamiento nativo FX3 o FX30; palanca de retención y cubierta según la guía propia de cada cuerpo.",
       "likely_material": "Materiales no verificados en las fuentes revisadas; apariencia del modelo aproximada.",
       "mandatory_or_optional": "optional",
-      "rig_role": "Alimentación nativa del piloto FX30",
+      "rig_role": "Alimentación interna nativa de FX3 o del piloto FX30",
       "physical_constraints": [
         "7.2 V nominales, 16.4 Wh, 2280 mAh; no son rango de descarga ni corriente admisible.",
         "Batería interna, no bloque externo ni cable D-Tap.",
         "83 g aproximados, sumados una sola vez al cuerpo solo.",
         "Cargador no elegido ni incluido en este plan; usar batería previamente cargada.",
-        "Pareja FX3 u otros cuerpos pendiente de revisión propia en la app."
+      "FX3 documentada por Sony en su guía propia; FX30 conserva su revisión independiente. Otros cuerpos pendientes.",
+      "No instalar simultáneamente con SmallRig 4253B: ambos ocupan el mismo alojamiento."
       ],
       "primary_source_url": "https://electronics.sony.com/imaging/imaging-accessories/interchangeable-lens-camera-accessories/p/npfz100?sku=npfz100",
       "secondary_source_url": null,

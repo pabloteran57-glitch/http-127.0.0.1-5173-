@@ -2,7 +2,18 @@
   "version": 1,
   "reviewed_on": "2026-10-07",
   "status": "prototype_hardening_in_progress",
-  "progress_report": "docs/pilot-integration-qa.md",
+  "progress_report": "docs/native-camera-power-qa.md",
+  "current_milestone": {
+    "phase_id": "verified-catalog-pilot",
+    "release_version": "0.2.11",
+    "scope": "Ampliar una cadena existente: NP-FZ100 nativa FX3 con revisión propia y exclusión del adaptador 4253B. No activa otros siete candidatos ni certifica equipo físico.",
+    "next_actions": [
+      "Revisar cadenas de monitor y audio del piloto FX30, en orden manifiesto, distribución, conexiones, guía, visor y variantes",
+      "Integrar una configuración adicional sólo tras revisión documental y regresiones completas",
+      "Mantener abiertas pruebas de dispositivos, conjuntos físicos y aceptación observada",
+      "No abrir beta pública ni financiación antes de superar sus criterios; cuentas y nube aplazadas"
+    ]
+  },
   "user_decisions": [
     {
       "date": "2026-10-05",
@@ -148,7 +159,7 @@
         "Medición sostenida en dispositivos físicos de referencia",
         "Comparación reproducible y objetivos de fluidez",
         "Aceptación observada del editor directo y montaje con usuarios",
-        "Archivos exactos y derechos de terceros pendientes; 17 mallas y miniaturas propias aproximadas integradas"
+        "Archivos exactos y derechos de terceros pendientes; 20 mallas y miniaturas propias aproximadas integradas"
       ],
       "depends_on": [],
       "deliverables": [
@@ -172,9 +183,9 @@
       "status": "declarative_runtime_verified_semantic_reviews_pending",
       "verification_report": "docs/extensible-engineering-qa.md",
       "remaining": [
-        "Extender revisión semántica documentada: cuatro de dieciocho circuitos cubiertos; montaje mecánico y demás interfaces pendientes",
+        "Extender revisión semántica documentada: seis de veinte circuitos cubiertos; montaje mecánico y demás interfaces pendientes",
         "Tres accesorios de monitor añadidos en el orden técnico, aún sin validación física",
-        "Integrar el segundo conjunto real FX30/SEL20F18G: ficha documental y tres mallas aisladas revisadas; poses de conjunto, reglas dinámicas y regresiones de interfaz pendientes"
+        "Segundo conjunto FX30/SEL20F18G integrado para planificación con poses aproximadas, reglas declarativas y regresiones de interfaz; validación física y aceptación pendientes"
       ],
       "depends_on": [
         "stabilize-core"

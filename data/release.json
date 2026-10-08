@@ -1,5 +1,5 @@
 {
-  "version": "0.2.10",
+  "version": "0.2.11",
   "released_on": "2026-10-07",
   "status": "engineering_prototype",
   "label": "Prototipo de ingeniería",
@@ -7,6 +7,9 @@
   "storage": "local_only",
   "account_sync": "deferred_by_user",
   "updates": [
+    "NP-FZ100 nativa también seleccionable para FX3 con pareja y contactos revisados en la guía Sony; no cable externo ni revisión FX30 reutilizada",
+    "Batería nativa y adaptador 4253B son excluyentes; elecciones en conflicto se conservan pendientes sin fuente implícita",
+    "Guía FX3 incorpora sólo la batería elegida; V-mount del monitor no impone adaptador de cámara si usa fuente nativa",
     "Piloto FX30 a mano y horizontal: tres altas de planificación con fuentes oficiales, selección explícita, miniaturas propias y modelos separados de FX3",
     "Guía y fotogramas por perfil declarativo: cinco etapas del piloto filtradas por elección, reproducción, pausa, reinicio y vista de batería interna en despiece",
     "Energía nativa NP-FZ100 por contacto interno; puertos FX30 independientes sin coordenadas, cables ni control heredados",
@@ -15,6 +18,7 @@
     "Monitor NATO, ajustes acoplados, selección desde visor y las cuatro tareas originales conservados"
   ],
   "limitations": [
+    "Batería nativa FX3: identidad documental, pose interna aproximada y 83 g contados una sola vez. Retención, cubierta, acceso y ventilación con jaula no ensayados.",
     "Piloto FX30 disponible únicamente para planificación a mano y horizontal con SEL20F18G, 4770 y NP-FZ100. Monitor, gimbal, audio externo y otros objetivos requieren revisión propia; se conservan elegidos pendientes.",
     "20 mallas propias aproximadas; no CAD oficiales, modelos exactos, escaneos de Sketchfab ni resultados Meshy. Batería interna y poses visuales no certifican encajes.",
     "Siete candidatos restantes del lote documental no se activan; tarjetas, cargadores y parasol del piloto no se añaden automáticamente.",

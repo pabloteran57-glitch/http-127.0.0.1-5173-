@@ -624,9 +624,9 @@ Plan de ingeniería, no montaje certificado. Medidas publicadas no prueban forma
 - Fuente de masa: [Sony](https://electronics.sony.com/imaging/imaging-accessories/interchangeable-lens-camera-accessories/p/npfz100?sku=npfz100).
 - Masa de planificación: 83 g; no sustituye pesaje del subconjunto instalado.
 - Interfaces: Contactos nativos NP-FZ100; pinout no publicado
-- Montaje: Alojamiento nativo FX30; palanca de retención y cubierta según Sony.
+- Montaje: Alojamiento nativo FX3 o FX30; palanca de retención y cubierta según la guía propia de cada cuerpo.
 - Material: Materiales no verificados en las fuentes revisadas; apariencia del modelo aproximada.
-- Obligatorio/opcional: Opcional; función: Alimentación nativa del piloto FX30.
-- Restricciones: 7.2 V nominales, 16.4 Wh, 2280 mAh; no son rango de descarga ni corriente admisible.; Batería interna, no bloque externo ni cable D-Tap.; 83 g aproximados, sumados una sola vez al cuerpo solo.; Cargador no elegido ni incluido en este plan; usar batería previamente cargada.; Pareja FX3 u otros cuerpos pendiente de revisión propia en la app.
+- Obligatorio/opcional: Opcional; función: Alimentación interna nativa de FX3 o del piloto FX30.
+- Restricciones: 7.2 V nominales, 16.4 Wh, 2280 mAh; no son rango de descarga ni corriente admisible.; Batería interna, no bloque externo ni cable D-Tap.; 83 g aproximados, sumados una sola vez al cuerpo solo.; Cargador no elegido ni incluido en este plan; usar batería previamente cargada.; FX3 documentada por Sony en su guía propia; FX30 conserva su revisión independiente. Otros cuerpos pendientes.; No instalar simultáneamente con SmallRig 4253B: ambos ocupan el mismo alojamiento.
 - Confianza: Media.
 - [Fuente principal](https://electronics.sony.com/imaging/imaging-accessories/interchangeable-lens-camera-accessories/p/npfz100?sku=npfz100)

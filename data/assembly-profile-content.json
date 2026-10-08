@@ -9,6 +9,7 @@
       "requires_any": [],
       "note": "Posiciones finales aproximadas, no una trayectoria de acople medida.",
       "rebalance": "El equilibrio inicial se comprueba después de completar la carga móvil.",
+      "source_ids": ["src-sony-fx3-battery-install"],
       "blocks": [
         {
           "part_ids": [
@@ -18,6 +19,18 @@
           "where": "Núcleo de cámara.",
           "verify": [
             "Revisar firmware, tarjetas y modo de grabación."
+          ]
+        },
+        {
+          "part_ids": ["sony-np-fz100"],
+          "require_all": ["sony-fx3"],
+          "unless_any": ["smallrig-4253b"],
+          "mount": "Insertar la batería nativa elegida y previamente cargada contra la palanca de retención; cerrar cubierta y bloquear según Sony.",
+          "where": "Compartimento interno FX3; sin cable externo.",
+          "verify": [
+            "Cámara apagada y lámpara de acceso apagada antes de retirar batería",
+            "Comprobar retención, cierre, ventilación y acceso con la jaula real",
+            "No instalar simultáneamente el adaptador 4253B; la vista en despiece no es una trayectoria de inserción"
           ]
         },
         {
@@ -406,12 +419,13 @@
             "sony-fx3"
           ],
           "unless_any": [
-            "smallrig-4253b"
+            "smallrig-4253b",
+            "sony-np-fz100"
           ],
-          "mount": "Confirmar alimentación interna antes de grabar.",
-          "where": "Compartimiento de batería; dependencia fuera del catálogo actual.",
+          "mount": "Elegir alimentación de cámara antes de grabar.",
+          "where": "Compartimento de batería; fuente aún no elegida.",
           "verify": [
-            "Comprobar una NP-FZ100 interna cargada. No se añade como pieza elegida, su masa no se incluye y no se representa instalada."
+            "Elegir NP-FZ100 nativa cargada o adaptador regulado 4253B. No se añade ni representa una batería implícita."
           ]
         },
         {
@@ -523,7 +537,7 @@
           "mount": "Resolver la alimentación del núcleo extraído.",
           "where": "Compartimiento de batería de cámara.",
           "verify": [
-            "Tras desconectar energía externa, confirmar una batería interna cargada antes de usar cámara a mano. Es una dependencia fuera del catálogo actual."
+            "Apagar, comprobar lámpara de acceso y desconectar energía externa antes de retirar 4253B. Para usar NP-FZ100 nativa, cambiar explícitamente la elección de fuente en el plan; no se instala ni sustituye automáticamente."
           ]
         }
       ]

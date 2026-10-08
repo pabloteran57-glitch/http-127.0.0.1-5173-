@@ -1,6 +1,6 @@
 # Revisión de conexiones
 
-Fuente: `data/connection-reviews.json`, revisión `connection-review-2026-10-07-2`. Valores eléctricos canónicos en cables y puertos, con fuente por campo. 5 de 19 circuitos con revisión ampliada.
+Fuente: `data/connection-reviews.json`, revisión `connection-review-2026-10-07-2`. Valores eléctricos canónicos en cables y puertos, con fuente por campo. 6 de 20 circuitos con revisión ampliada.
 
 Revisión documental limitada a modelos, puertos y revisión vinculados. No es autorización para energizar ni ensayo físico. Fuentes de valores eléctricos en cables-manifest y ports-manifest; ausencia de rango, pinout o protocolo mantiene el resultado pendiente.
 
@@ -66,6 +66,18 @@ Antes de conectar: Una NP-F970/PRO en la placa serie L incluida del Indie 7, no 
 
 - [Sony](https://www.sony.jp/products/catalog/SPC_NP-F970_PRO.pdf): Página 1, especificaciones principales y advertencia de cargador. NP-F970/PRO: 7.2 V nominales, 45 Wh, dimensiones aproximadas y masa de aproximadamente 300 g; requiere cargador específico.
 - [SmallHD](https://smallhd.com/products/indie-7): In the Box: Sony L Series Battery Bracket; Technical Specs, Power: Battery Charging, Input Voltage Battery. Placa serie L incluida, contactos de batería admiten 6.0-16.8 V; el monitor no carga baterías.
+
+## pwr-npfz100-to-fx3-contacts
+
+Modelos vinculados: Sony NP-FZ100 / NP-FZ100; FX3 / ILME-FX3. Puertos: `npfz100-contacts` -> `fx3-native-battery`.
+
+Antes de conectar: Elegir batería nativa previamente cargada o adaptador 4253B, nunca ambos. Seguir la guía FX3 y comprobar retención, cubierta y ventilación con el ejemplar real.
+
+- **Batería nativa FX3 documentada:** Pareja propia documentada por Sony; no se reutiliza la revisión FX30 ni la del adaptador.
+- **Retención y ventilación reales:** Sin ensayo físico registrado del ejemplar con jaula, cubierta y fijaciones reales.
+
+- [Sony](https://helpguide.sony.net/ilc/2210/v1/en/contents/TP1000886922.html): Power, general: Rated input; Rechargeable battery pack NP-FZ100: Rated voltage.. Sony identifica NP-FZ100 para ILME-FX3; 7.2 V nominales. Sin pinout ni rango completo.
+- [Sony](https://helpguide.sony.net/ilc/2210/v1/en/print.pdf): Página impresa 82: Inserting/removing the battery pack.. Retención por palanca y cubierta bloqueada; apagar y comprobar lámpara de acceso antes de retirar.
 
 ## pilot-pwr-npfz100-fx30
 

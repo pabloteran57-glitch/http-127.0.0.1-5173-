@@ -265,6 +265,15 @@
       "note": "Relación específica documentada por fabricante; pose y retención pendientes de ensayo."
     },
     {
+      "id": "fx3-camera-native-battery",
+      "anchor_part_id": "sony-fx3",
+      "label": "Añadir batería nativa",
+      "add_part_ids": ["sony-np-fz100"],
+      "condition": {"all": ["sony-fx3"]},
+      "source_ids": ["src-sony-fx3-native-battery", "src-sony-fx3-battery-install"],
+      "note": "Pareja FX3 documentada por Sony; excluye adaptador 4253B. Acceso y retención con jaula pendientes de ensayo."
+    },
+    {
       "id": "pilot-camera-battery",
       "anchor_part_id": "sony-fx30",
       "label": "Añadir batería nativa",
@@ -292,6 +301,12 @@
     "sony-fx30"
   ],
   "exclusive_selection_groups": [
+    {
+      "id": "camera-battery-bay",
+      "part_ids": ["sony-np-fz100", "smallrig-4253b"],
+      "max_active": 1,
+      "message": "Elige NP-FZ100 nativa o adaptador 4253B, nunca ambos en el mismo compartimento. Tus elecciones se conservan pendientes hasta resolverlo."
+    },
     {
       "id": "camera-body",
       "part_ids": [
@@ -441,12 +456,13 @@
         "all": [
           "smallrig-vb99-pro",
           "sony-fx3"
-        ]
+        ],
+        "none": ["sony-np-fz100"]
       },
       "required_all": [
         "smallrig-4253b"
       ],
-      "message": "V-mount elegida sin adaptador regulado para la FX3."
+      "message": "Elige alimentación nativa NP-FZ100 o adaptador regulado 4253B para la FX3. La V-mount puede alimentar sólo el monitor."
     },
     {
       "id": "internal-battery",
@@ -458,7 +474,8 @@
           "smallrig-4253b"
         ]
       },
-      "message": "Planifica una NP-FZ100 interna cargada: disponibilidad y masa no incluidas en el catálogo actual."
+      "required_all": ["sony-np-fz100"],
+      "message": "La FX3 necesita una fuente elegida: NP-FZ100 nativa cargada o adaptador regulado 4253B. No se instala una batería implícita."
     },
     {
       "id": "rx-mount",
@@ -741,9 +758,10 @@
       "step": 1,
       "add_part_ids": [
         "sony-fx3",
-        "sony-fe-16-35-gm"
+        "sony-fe-16-35-gm",
+        "sony-np-fz100"
       ],
-      "add_cable_ids": [],
+      "add_cable_ids": ["pwr-npfz100-to-fx3-contacts"],
       "context_part_ids": [],
       "note": "Presentación del cuerpo y la óptica en posición final aproximada; no simula el giro de bayoneta."
     },
@@ -889,9 +907,15 @@
     "sony-xlr-h1",
     "dji-mic-2-kit",
     "dji-lavalier",
-    "sony-monitor-control-app"
+    "sony-monitor-control-app",
+    "sony-np-fz100"
   ],
   "dynamic_mount_dependencies": [
+    {
+      "part_id": "sony-np-fz100",
+      "condition": {"all": ["sony-fx3"]},
+      "required_all": ["sony-fx3"]
+    },
     {
       "part_id": "smallhd-indie-7",
       "condition": {
@@ -947,8 +971,7 @@
     {
       "part_ids": [
         "sony-fx30",
-        "sony-fe-20-f18-g",
-        "sony-np-fz100"
+        "sony-fe-20-f18-g"
       ],
       "contexts": [
         "handheld"

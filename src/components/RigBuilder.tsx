@@ -1,6 +1,6 @@
 import { useDeferredValue, useEffect, useRef, useState } from "react";
 import { layoutData, partById, partsData, plannerData } from "../data";
-import { availableSupportIds, completionIds, mountDependencies, selectionPresentation, selectionScopeProblem, type RigResolution } from "../lib/planner";
+import { availableSupportIds, completionIds, mountDependencies, selectionConflictProblem, selectionPresentation, selectionScopeProblem, type RigResolution } from "../lib/planner";
 import type { CustomRig } from "../lib/types";
 import { partName } from "../lib/ui";
 import { builderEntries } from "../lib/inventory";
@@ -44,7 +44,7 @@ export default function RigBuilder({open, onClose, rig, resolution, onChange, on
 
   const renderCard = (id: string) => {
     const part = partById[id], chosen = rig.part_ids.includes(id), state = stateById[id];
-    const supports = availableSupportIds(mountDependencies(id,plannerData,rig), rig, plannerData);
+    const supports = selectionConflictProblem(id,rig,plannerData) ? [] : availableSupportIds(mountDependencies(id,plannerData,rig), rig, plannerData);
     const reference = officialVisualLink(id);
     const completion=selectionScopeProblem(id,rig,plannerData)?undefined:plannerData.completion_rules?.[id];
     const completionParts=completionIds(id,rig,plannerData,resolution.variant.cable_profile_ids);

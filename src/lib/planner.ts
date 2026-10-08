@@ -104,9 +104,16 @@ export function selectionScopeProblem(id:string,rig:CustomRig,rules:PlannerRules
   return rules.selection_scopes?.find(scope=>conditionMatches(scope.condition,selected,rig)&&!scope.allowed_part_ids.includes(id))?.message??null;
 }
 
+export function selectionConflictProblem(id: string, rig: CustomRig, rules: PlannerRules): string | null {
+  const selected = new Set([...rig.part_ids, id]);
+  return rules.exclusive_selection_groups?.find(group => group.part_ids.includes(id)
+    && group.part_ids.filter(part => selected.has(part)).length > group.max_active)?.message ?? null;
+}
+
 export function availableSupportIds(ids: string[], rig: CustomRig, rules: PlannerRules): string[] {
   const allowed = (id: string) => !rules.parked_part_ids.includes(id)
     && !selectionScopeProblem(id,rig,rules)
+    && !selectionConflictProblem(id,rig,rules)
     && !mountChainProblem(id,rules,rig)
     && !(rig.context !== "gimbal" && rules.gimbal_only_part_ids.includes(id))
     && !(rig.context === "gimbal" && rules.gimbal_excluded_part_ids.includes(id))
@@ -117,7 +124,7 @@ export function availableSupportIds(ids: string[], rig: CustomRig, rules: Planne
 
 export function completionIds(id:string,rig:CustomRig,rules:PlannerRules,activeCableIds:string[]):string[] {
   const completion=rules.completion_rules?.[id];
-  if(!completion||!rig.part_ids.includes(id))return [];
+  if(!completion||!rig.part_ids.includes(id)||selectionConflictProblem(id,rig,rules))return [];
   const power=completion.power_cable_ids.some(cable=>activeCableIds.includes(cable));
   return availableSupportIds([...mountDependencies(id,rules,rig),...completion.required_all,...(power?[]:completion.power_suggest_ids)],rig,rules);
 }

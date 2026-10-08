@@ -9,7 +9,8 @@ Montar: FX3 + FE 16-35mm F2.8 GM (SEL1635GM original)
 Ubicación: Montura Sony E, objetivo bloqueado.
 
 - Revisar firmware, tarjetas y modo de grabación.
-- Instalar el adaptador de batería sólo con la alimentación apagada; comprobar la salida del cable en la puerta de batería.
+- Según el plan, elegir batería nativa NP-FZ100 o adaptador 4253B, nunca ambos. Mantener cámara apagada y lámpara de acceso apagada al retirar batería.
+- Batería nativa: retención y cubierta bloqueada según Sony; adaptador: comprobar salida del cable en la puerta. Verificar acceso y ventilación con jaula.
 
 **Equilibrio:** Equilibrio inicial después de completar la carga móvil.
 
