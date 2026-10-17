@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "reviewed_on": "2026-10-08",
+  "reviewed_on": "2026-10-16",
   "status": "prototype_hardening_in_progress",
-  "progress_report": "docs/rigging-catalog.md",
-  "current_milestone": "Integración 2905B/4152 y recursos de montaje condicionados; continuar cadenas SmallRig/Tilta por lotes. Ensayos físicos, dispositivos reales y aceptación de beta pendientes.",
+  "progress_report": "docs/anchor-diagnostics.md",
+  "current_milestone": "Diagnóstico visible de anclajes y opciones bloqueadas sobre cadenas existentes; continuar después altas SmallRig/Tilta sin inferir compatibilidad. Ensayos físicos, dispositivos reales y aceptación de beta pendientes.",
   "user_decisions": [
     {
       "date": "2026-10-05",
@@ -41,6 +41,12 @@
     "product_thumbnails": 23
   },
   "findings": [
+    {
+      "id": "anchor-occupancy-diagnostics",
+      "status": "software_verified_observed_acceptance_pending",
+      "evidence": ["data/anchor-diagnostics-review.json", "data/planner-rules.json", "scripts/test-anchor-diagnostics.mjs", "docs/anchor-diagnostics-qa.md"],
+      "description": "Cinco anclajes de cadenas actuales con ocupación por selección y padre contextual; opciones listas/elegidas/bloqueadas explicadas. Sin nuevas capacidades ni compatibilidades. Pruebas remapeadas y 2048 subselecciones; aceptación real pendiente."
+    },
     {
       "id": "custom-vertical-monitor",
       "status": "corrected_software_pending_observed_acceptance",

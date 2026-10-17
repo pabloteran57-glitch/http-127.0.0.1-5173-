@@ -1,0 +1,20 @@
+.mount-resources,.attachment-diagnostics{grid-column:1/-1;min-width:0;margin:14px 0;border:1px solid var(--line);border-radius:9px;background:#202b2f;font-size:12px;line-height:1.6;overflow:hidden}
+.mount-resources>summary,.attachment-diagnostics>summary{padding:13px 14px;min-height:48px;font-size:13px;color:#e2e8e5}
+.mount-resources>summary>span,.attachment-diagnostics>summary>span{margin-left:9px;color:#b8cbbb;font:10px var(--mono)}
+.mount-resource-disclaimer{padding:0 14px;color:var(--muted);font-size:11px;margin-bottom:10px}
+.mount-resources>ul,.attachment-diagnostics>ul{list-style:none;padding:0 14px 12px;margin:0;display:grid;gap:10px}
+.mount-resources li,.attachment-diagnostics li{min-width:0;border-top:1px solid #405057;padding-top:12px;overflow-wrap:anywhere}
+.mount-resource-heading{display:flex;flex-direction:column;align-items:flex-start;gap:7px}
+.mount-resources li strong,.attachment-diagnostics li>strong{color:#e5e8e6;font-size:12px;font-weight:500}
+.attachment-diagnostics li>strong{display:block}
+.resource-state{display:inline-block;max-width:100%;padding:3px 7px;border:1px solid #59686c;border-radius:5px;font-size:10px;line-height:1.5;color:#c5d0d3;margin:4px 0}
+.resource-state.state-occupied{border-color:#55776a;color:#c0dfcf;background:#31483e}
+.resource-state.state-conflict,.resource-state.state-pending{border-color:#9d7850;color:#f0cea3;background:#473828}
+.resource-state.state-unavailable{border-color:#697277;color:#c2c8cc;background:#30383c}
+.mount-resources li p,.attachment-diagnostics li p{font-size:12px;color:#c3ccce;margin:7px 0 10px}
+.mount-resources li details{font-size:11px;color:var(--muted)}
+.mount-resources li details>summary{min-height:44px;display:flex;align-items:center;justify-content:space-between}
+.mount-resources li a{display:block;text-decoration:underline;text-underline-offset:3px;padding:10px 0;min-height:44px;color:#c4d8cf}
+.mount-resources>.quiet-button{margin:0 14px 14px;white-space:normal;text-align:left}
+html:has(.attachment-dialog[open]){overflow:hidden}
+.attachment-dialog,.attachment-content{scrollbar-color:#617477 #202b2f;scrollbar-width:thin}

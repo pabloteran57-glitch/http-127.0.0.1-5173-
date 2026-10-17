@@ -4,6 +4,60 @@
   "max_saved_rigs": 40,
   "catalog_revision": "fx3-rs4-2026-10-05",
   "default_context": "handheld",
+  "mount_resources": [
+    {
+      "id": "cage-nato",
+      "host_part_id": "smallrig-4770",
+      "label": "NATO superior de la jaula",
+      "interface": "Riel NATO desmontable",
+      "candidate_part_ids": ["smallrig-2906b", "smallrig-4152"],
+      "condition": {"not_context": "gimbal", "none": ["sony-xlr-h1"]},
+      "exclusive_group_id": "cage-top-nato",
+      "source_ids": ["audit-doc-smallrig-4770-manual"],
+      "note": "Asiento conservador del plan, no longitud útil medida del riel. Con XLR-H1 se retira; no se representa como anclaje disponible."
+    },
+    {
+      "id": "cage-shoe",
+      "host_part_id": "smallrig-4770",
+      "label": "Zapata inclinada de la jaula",
+      "interface": "Zapata sin contactos",
+      "candidate_part_ids": ["smallrig-2905b", "dji-mic-2-kit"],
+      "condition": {},
+      "exclusive_group_id": "cage-cold-shoe",
+      "source_ids": ["audit-doc-smallrig-4770-manual"],
+      "note": "Se representa sólo el RX de Mic 2. Con asa 4152, el 2905B sigue la zapata frontal del asa, no ésta. Retención y despejes reales pendientes."
+    },
+    {
+      "id": "handle-front-shoe",
+      "host_part_id": "smallrig-4152",
+      "label": "Zapata frontal del asa",
+      "interface": "Zapata sin contactos",
+      "candidate_part_ids": ["smallrig-2905b"],
+      "condition": {"not_context": "gimbal", "orientation": "landscape", "none": ["sony-xlr-h1"]},
+      "source_ids": ["src-smallrig-4152-manual"],
+      "note": "Sólo la zapata superior frontal de la cadena candidata actual. No ofrece las dos zapatas posteriores ni giro libre del asa."
+    },
+    {
+      "id": "xlr-extension-nato",
+      "host_part_id": "smallrig-4830",
+      "label": "NATO de la extensión XLR",
+      "interface": "Riel NATO de 4830",
+      "candidate_part_ids": ["smallrig-2906b"],
+      "condition": {"not_context": "gimbal", "all": ["sony-xlr-h1"]},
+      "source_ids": ["src-smallrig-4830-manual"],
+      "note": "Cadena alternativa sobre XLR-H1, no sobre el NATO superior retirado de la jaula. Encaje y despejes pendientes."
+    },
+    {
+      "id": "gimbal-monitor-side",
+      "host_part_id": "dji-rs4-pro-combo",
+      "label": "Monitor lateral fijo",
+      "interface": "Anclaje lateral de la cadena 3026B",
+      "candidate_part_ids": ["smallrig-3026b"],
+      "condition": {"context": "gimbal"},
+      "source_ids": ["audit-doc-smallrig-3026b-manual"],
+      "note": "Monitor fuera del núcleo móvil. El estado del plan no prueba acceso a manos, recorrido de ejes o seguridad dinámica."
+    }
+  ],
   "attachment_options": [
     {
       "id": "camera-cage",

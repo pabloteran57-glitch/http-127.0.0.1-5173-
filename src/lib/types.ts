@@ -225,6 +225,7 @@ export interface MonitorJoint {
 }
 
 export interface PlannerRules {
+  mount_resources?: MountResource[];
   default_context?: CustomRig["context"];
   attachment_options?: AttachmentOption[];
   planning_root_part_ids: string[];
@@ -260,6 +261,18 @@ export interface AttachmentOption {
   label: string;
   add_part_ids: string[];
   condition: RuleCondition;
+  source_ids: string[];
+  note: string;
+}
+
+export interface MountResource {
+  id: string;
+  host_part_id: string;
+  label: string;
+  interface: string;
+  candidate_part_ids: string[];
+  condition: RuleCondition;
+  exclusive_group_id?: string;
   source_ids: string[];
   note: string;
 }

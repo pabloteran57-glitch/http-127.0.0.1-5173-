@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "reviewed_on": "2026-10-16",
+  "status": "software_verified_observed_acceptance_pending",
+  "scope": "Diagnóstico de cadenas existentes, sin altas de productos o capacidades de carga nuevas.",
+  "phase_order": ["manifest", "layout", "cables_power", "assembly", "viewer", "variants"],
+  "phases": [
+    {"id": "manifest", "result": "Se conservan las 36 entradas, modelos, masas y fuentes canónicas. La revisión de 3011 y TA-15RH-NATO-B no autoriza altas: siguen pendientes parejas, retención o masa y cotas netas inequívocas."},
+    {"id": "layout", "result": "Cinco recursos describen sólo cadenas existentes en planner-rules.mount_resources. No contienen coordenadas nuevas. La ocupación se deriva del padre contextual y de las piezas elegidas y activas."},
+    {"id": "cables_power", "result": "Se conservan los 22 circuitos. El diagnóstico no crea puertos, fuentes, conectores o recorridos. Los extremos de un circuito siguen requiriendo piezas activas."},
+    {"id": "assembly", "result": "Se conserva la guía por selección y el orden de montaje. El diagnóstico no presenta piezas pendientes como instaladas ni habilita pasos ajenos."},
+    {"id": "viewer", "result": "Ficha y selector de accesorios distinguen anclajes sin uso en el plan, ocupados, pendientes, en conflicto o no disponibles; las opciones explican su bloqueo sin añadir piezas."},
+    {"id": "variants", "result": "Siete plantillas conservadas; sin migración de biblioteca, cambios implícitos o nuevas compatibilidades. Pruebas con ecosistema remapeado y 2048 subselecciones."}
+  ],
+  "authorities": ["parts-manifest.json", "planner-rules.json", "layout-manifest.json", "cables-manifest.json", "sources.json"],
+  "scripts": ["scripts/test-anchor-diagnostics.mjs", "scripts/test-mount-resources.mjs", "scripts/validate-data.mjs"],
+  "limitations": [
+    "Ocupación del plan, no comprobación de carga, antirrotación, longitud de tornillo o holguras.",
+    "Las condiciones y exclusividad siguen en las reglas; este diagnóstico no introduce una segunda política de compatibilidad.",
+    "La descripción de un anclaje no autoriza adaptadores ni nuevas revisiones de producto por analogía.",
+    "Aceptación con usuarios, teléfonos y rigs físicos sigue pendiente. Cuentas y nube aplazadas."
+  ],
+  "physical_validation": {"status": "pending", "observations": []}
+}

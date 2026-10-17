@@ -26,6 +26,8 @@ Vista de marca: `/brand/preview.html`. SVG reutilizables en `public/brand`; nomb
 
 ## Rigs Propios
 
+Versión 0.2.15: **Anclajes de esta pieza** describe la ocupación del plan y sus conflictos. **Añadir a esta pieza** distingue opciones listas, ya elegidas y bloqueadas con motivo. Cinco recursos existentes, sin nuevas piezas, coordenadas, cargas o compatibilidades. No se confunde «sin uso» con holgura física comprobada. [Alcance por fases](docs/anchor-diagnostics.md) y [verificación](docs/anchor-diagnostics-qa.md).
+
 Versión 0.2.14: **SmallRig 2905B** ofrece una cadena candidata por zapata inclinada de HawkLock 4770; **SmallRig 4152** ofrece asa NATO y zapata superior frontal para ese soporte. Con el asa, RX Mic 2 y monitor usan anclajes separados; sin ella, ambos no pueden ocupar la misma zapata. Sólo a mano/estático y horizontal con FX3; FX30 conserva su alcance a mano/horizontal. Sin XLR ni gimbal en estas cadenas nuevas. Ajustes de monitor ligados al 2905B, guía condicionada y dos mallas propias aproximadas; no son parejas certificadas ni ensayos físicos. [Altas y fuentes](docs/catalog-promotions.md), [ciclo de verificación](docs/shoe-monitor-qa.md).
 
 Versión 0.2.13: FE 35mm F1.8 **SEL35F18F**, no SEL35F18 OSS, elegible con FX3 o FX30 a mano/horizontal. Parejas oficiales Sony propias, guía de óptica seleccionada, miniatura y malla propias aproximadas. No añade parasol, adaptadores ni piezas implícitas; filtro 55 mm no acopla el 3645. [Altas aditivas](docs/catalog-promotions.md).

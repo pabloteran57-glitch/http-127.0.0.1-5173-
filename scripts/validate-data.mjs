@@ -177,6 +177,20 @@ for(const id of partIds)assert(planner.parked_part_ids.includes(id)||planner.pla
 assert.equal(new Set(planner.exclusive_selection_groups.map(g=>g.id)).size,planner.exclusive_selection_groups.length);
 for(const group of planner.exclusive_selection_groups)if(group.condition)checkCondition(group.condition);
 for(const group of planner.exclusive_selection_groups){assert(group.id&&group.message&&Number.isInteger(group.max_active)&&group.max_active>0);assert(group.part_ids.length);assert.equal(new Set(group.part_ids).size,group.part_ids.length);group.part_ids.forEach(id=>assert(partIds.has(id)));}
+assert.equal(new Set((planner.mount_resources??[]).map(r=>r.id)).size,(planner.mount_resources??[]).length);
+for(const resource of planner.mount_resources??[]){
+  assert(resource.id&&partIds.has(resource.host_part_id)&&resource.label&&resource.interface&&resource.note);
+  assert(resource.candidate_part_ids.length&&new Set(resource.candidate_part_ids).size===resource.candidate_part_ids.length);
+  resource.candidate_part_ids.forEach(id=>assert(partIds.has(id)&&id!==resource.host_part_id));
+  assert(resource.source_ids.length);resource.source_ids.forEach(id=>assert(sources.sources.some(s=>s.id===id&&s.type==="official"),"Anclaje sin fuente oficial: "+resource.id));
+  if(resource.exclusive_group_id){const group=planner.exclusive_selection_groups.find(g=>g.id===resource.exclusive_group_id);assert(group&&resource.candidate_part_ids.every(id=>group.part_ids.includes(id)),"Diagnóstico ajeno al grupo de montaje");}
+  checkCondition(resource.condition);
+}
+const anchorReview=JSON.parse(readFileSync(new URL("../data/anchor-diagnostics-review.json",import.meta.url),"utf8"));
+assert.deepEqual(anchorReview.phase_order,["manifest","layout","cables_power","assembly","viewer","variants"]);
+assert.deepEqual(anchorReview.phases.map(p=>p.id),anchorReview.phase_order);
+assert.equal(anchorReview.physical_validation.status,"pending");
+assert.deepEqual(anchorReview.physical_validation.observations,[]);
 assert(planner.viewer_routes.length);assert.equal(new Set(planner.viewer_routes.map(r=>r.id)).size,planner.viewer_routes.length);
 assert(["gimbal","handheld","static"].includes(planner.default_context));
 assert.equal(new Set(planner.attachment_options.map(option=>option.id)).size,planner.attachment_options.length);

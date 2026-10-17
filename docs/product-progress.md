@@ -2,6 +2,8 @@
 
 Fuente: `data/product-roadmap.json`. Estado: prototipo en curso. Ningún criterio externo se da por cumplido a partir de compilación.
 
+Hito actual: Diagnóstico visible de anclajes y opciones bloqueadas sobre cadenas existentes; continuar después altas SmallRig/Tilta sin inferir compatibilidad. Ensayos físicos, dispositivos reales y aceptación de beta pendientes. [Último bloque](anchor-diagnostics.md).
+
 | Fase | Estado de preparación | Evidencia y trabajo restante |
 |---|---|---|
 | 1. Rigs propios y montaje fiable | `in_progress` | [Documento](contextual-attachments-qa.md); Medición sostenida en dispositivos físicos de referencia; Comparación reproducible y objetivos de fluidez; Aceptación observada del editor directo y montaje con usuarios; Archivos exactos y derechos de terceros pendientes; 23 mallas y miniaturas propias aproximadas integradas |

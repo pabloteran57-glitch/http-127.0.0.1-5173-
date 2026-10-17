@@ -9,8 +9,10 @@ import ProductVisual, { officialVisualLink } from "./ProductVisual";
 import { approvedModelFor } from "../lib/model-assets";
 import PartModelLoader from "./PartModelLoader";
 import Icon from "./Icon";
+import MountResources from "./MountResources";
+import type {CustomRig} from "../lib/types";
 
-export default function PartInspector({ selectedId, variant, onAttach,onAdjust }: { selectedId: string; variant: Variant; onAttach?:()=>void;onAdjust?:()=>void }) {
+export default function PartInspector({ selectedId, variant, rig, onAttach,onAdjust,onReview }: { selectedId: string; variant: Variant; rig?:CustomRig;onAttach?:()=>void;onAdjust?:()=>void;onReview?:()=>void }) {
   const [detailId, setDetailId] = useState<string | null>(null);
   const part = partById[selectedId];
   const node = layoutForVariant(variant,layoutData).nodes.find(n => n.id === selectedId);
@@ -31,6 +33,7 @@ export default function PartInspector({ selectedId, variant, onAttach,onAdjust }
     {component&&<p className="dimension-note">{component.model}: sólo el receptor se representa sobre la jaula. Transmisores, lavalier y estuche fuera de cámara; batería interna del RX. Cable y retención pendientes de comprobar.</p>}
     {onAttach&&<button type="button" className="primary-button attach-piece-button" onClick={onAttach}><Icon name="plus"/>Añadir a esta pieza</button>}
     {onAdjust&&<button className="quiet-button inspect-model-button" onClick={onAdjust}><Icon name="settings"/>Ajustar posición</button>}
+    {rig&&<MountResources anchorId={selectedId} rig={rig} variant={variant} onReview={onReview}/>}
     {model&&<button className="quiet-button inspect-model-button" onClick={()=>setDetailId(selectedId)}>Examinar pieza en 3D</button>}
     {model&&<details className="inspector-details"><summary>Modelo 3D y atribución</summary><p>Reconstrucción propia aproximada, no escaneo ni CAD del fabricante. Si no se puede cargar, se conserva la forma de planificación. Puertos, soportes y pesos no se extraen de la malla.</p><p>{model.rights.attribution}</p><a href={model.source.url} target="_blank" rel="noreferrer">Origen de la malla</a><a href={model.rights.evidence_url} target="_blank" rel="noreferrer">Procedencia y permiso</a></details>}
     {node && <div className="mount-summary"><span className="eyebrow">{active?"MONTAJE CANDIDATO":"MONTAJE POR RESOLVER"}</span>{active&&node.parent_id && variant.active_part_ids.includes(node.parent_id) && <p className="mount-parent">Sobre {partName(node.parent_id)}</p>}<details><summary>Interfaz y orientación</summary><p>{node.mount}</p></details></div>}

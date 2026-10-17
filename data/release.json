@@ -1,12 +1,15 @@
 {
-  "version": "0.2.14",
-  "released_on": "2026-10-08",
+  "version": "0.2.15",
+  "released_on": "2026-10-16",
   "status": "engineering_prototype",
   "label": "Prototipo de ingeniería",
   "catalog_revision": "fx3-rs4-2026-10-05",
   "storage": "local_only",
   "account_sync": "deferred_by_user",
   "updates": [
+    "Ficha con anclajes y ocupación del plan: NATO de jaula, zapata inclinada, zapata frontal de asa, extensión XLR y monitor lateral fijo; sin afirmar espacio libre físico.",
+    "Añadir desde una pieza distingue opciones listas, ya elegidas y bloqueadas con motivo; no cambia elecciones ni instala adaptadores implícitos.",
+    "Diagnóstico declarativo probado en 2048 subselecciones y ecosistema remapeado. No incorpora nuevas piezas ni modifica plantillas, masas, poses o conexiones.",
     "SmallRig 2905B y asa NATO 4152 seleccionables con cadenas de zapata alternativas, miniaturas/mallas propias, guía dinámica y ajustes de monitor.",
     "Conflictos de asiento condicionados: una zapata no admite RX y monitor juntos; con asa 4152 el monitor frontal y RX en jaula usan recursos distintos.",
     "Añadir desde visor evalúa la selección propuesta completa, sin arrastrar soporte NATO de otra ruta ni sustituir tus elecciones.",
@@ -26,6 +29,7 @@
     "Monitor NATO, ajustes acoplados, selección desde visor y las cuatro tareas originales conservados"
   ],
   "limitations": [
+    "Sin uso, ocupado o en conflicto describen elecciones del plan, no un ensayo de encaje, carga o colisiones. Un anclaje sin accesorio no garantiza espacio físico libre.",
     "2905B/4152 son inferencias de interfaces oficiales, no parejas certificadas. 78 ±5 g y 236 ±5 g nominales; planificación usa 83/241 g. Pose, rosca, retención, palancas y manos por ensayar.",
     "2905B: ficha 170° frente a manual 180°. El control se limita a 170° ilustrativos; no prueba recorrido libre. Asa 4152 sólo pose superior fija en app, no giro habilitado.",
     "SEL35F18F sólo a mano/horizontal; filtro 55 mm no adapta el 3645. Holgura, retención y conjunto real por ensayar.",

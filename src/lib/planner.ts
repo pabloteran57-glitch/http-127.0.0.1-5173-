@@ -1,4 +1,4 @@
-import type { AttachmentOption, Cable, CompatibilityEvidence, CustomRig, PlannerRules, RigAdjustments, RuleCondition, Variant } from "./types";
+import type { AttachmentOption, Cable, CompatibilityEvidence, CustomRig, MountResource, PlannerRules, RigAdjustments, RuleCondition, Variant } from "./types";
 
 export interface RigIssue { id: string; part_id?: string; message: string; add_ids: string[] }
 export interface RigResolution { variant: Variant; issues: RigIssue[]; parked_ids: string[] }
@@ -49,21 +49,59 @@ function parseAdjustments(value:unknown,catalogIds:string[]):RigAdjustments|unde
 }
 
 export interface AttachmentCandidate { option:AttachmentOption; add_ids:string[] }
+export interface AttachmentDiagnostic extends AttachmentCandidate {state:"ready"|"selected"|"blocked";reason:string}
+export interface MountResourceState extends MountResource {state:"unused"|"occupied"|"pending"|"conflict"|"unavailable";selected_ids:string[];active_ids:string[]}
+
+export function visibleAttachmentDiagnostics(items:AttachmentDiagnostic[]):AttachmentDiagnostic[] {
+  const key=(item:AttachmentDiagnostic)=>JSON.stringify([...item.option.add_part_ids].sort());
+  const selected=new Set(items.filter(item=>item.state==="selected").map(key));
+  return items.filter(item=>item.state!=="blocked"||!selected.has(key(item)));
+}
+
+export function mountResourceStates(anchorId:string,rig:CustomRig,variant:Variant,rules:PlannerRules):MountResourceState[] {
+  if(!rig.part_ids.includes(anchorId))return [];
+  const chosen=new Set(rig.part_ids),active=new Set(variant.active_part_ids);
+  return (rules.mount_resources??[]).filter(resource=>resource.host_part_id===anchorId).map(resource=>{
+    const selected_ids=resource.candidate_part_ids.filter(id=>chosen.has(id)&&mountDependencies(id,rules,rig).includes(anchorId));
+    const active_ids=selected_ids.filter(id=>active.has(id));
+    const group=rules.exclusive_selection_groups?.find(group=>group.id===resource.exclusive_group_id);
+    const conflict=group&&conditionMatches(group.condition??{},chosen,rig)&&selected_ids.filter(id=>group.part_ids.includes(id)).length>group.max_active;
+    const state:MountResourceState["state"]=!active.has(anchorId)||!conditionMatches(resource.condition,chosen,rig)?"unavailable":conflict?"conflict":selected_ids.some(id=>!active.has(id))?"pending":active_ids.length?"occupied":"unused";
+    return {...resource,state,selected_ids,active_ids};
+  });
+}
+
+function attachmentConditionReason(condition:RuleCondition,rig:CustomRig,nameOf:(id:string)=>string):string {
+  const missing=(condition.all??[]).filter(id=>!rig.part_ids.includes(id));
+  if(missing.length)return `Requiere elegir: ${missing.map(nameOf).join(", ")}.`;
+  if(condition.any?.length&&!condition.any.some(id=>rig.part_ids.includes(id)))return `Requiere una de estas piezas: ${condition.any.map(nameOf).join(", ")}.`;
+  const excluded=(condition.none??[]).filter(id=>rig.part_ids.includes(id));
+  if(excluded.length)return `Esta opción excluye: ${excluded.map(nameOf).join(", ")}. Tus elecciones se conservan.`;
+  const contexts={gimbal:"con gimbal",handheld:"a mano",static:"con cámara estática"};
+  if(condition.context&&condition.context!==rig.context)return `Opción documentada sólo ${contexts[condition.context]}.`;
+  if(condition.not_context===rig.context)return `No corresponde al montaje ${contexts[rig.context]}.`;
+  if(condition.orientation&&condition.orientation!==rig.orientation)return `Requiere encuadre ${condition.orientation==="landscape"?"horizontal":"vertical"}.`;
+  return "Esta cadena no está documentada para la selección actual.";
+}
+
+export function attachmentDiagnostics(anchorId:string,rig:CustomRig,rules:PlannerRules,cables:Cable[],master:Variant,nameOf:(id:string)=>string=id=>id):AttachmentDiagnostic[] {
+  if(!rig.part_ids.includes(anchorId))return [];
+  const current=resolveRig(rig,rules,cables,master,nameOf);
+  return (rules.attachment_options??[]).filter(option=>option.anchor_part_id===anchorId).map(option=>{
+    const blocked=(reason:string):AttachmentDiagnostic=>({option,add_ids:[],state:"blocked",reason});
+    if(!option.source_ids.length)return blocked("La opción no tiene evidencia documental suficiente; no se ofrece un montaje.");
+    if(!current.variant.active_part_ids.includes(anchorId))return blocked(current.issues.find(issue=>issue.part_id===anchorId)?.message??"El anclaje elegido no tiene una cadena activa. Revisa primero su soporte.");
+    if(!conditionMatches(option.condition,new Set(rig.part_ids),rig))return blocked(attachmentConditionReason(option.condition,rig,nameOf));
+    const intended={...rig,part_ids:[...new Set([...rig.part_ids,...option.add_part_ids])]};
+    const closure=dependencyClosure(option.add_part_ids,rules,intended),additions=closure.filter(id=>!rig.part_ids.includes(id));
+    const proposal={...rig,part_ids:[...rig.part_ids,...additions]},result=resolveRig(proposal,rules,cables,master,nameOf);
+    if(![anchorId,...closure].every(id=>result.variant.active_part_ids.includes(id)))return blocked(result.issues.find(issue=>issue.part_id&&[anchorId,...closure].includes(issue.part_id))?.message??"La cadena propuesta deja piezas sin soporte activo. No se añaden automáticamente.");
+    return {option,add_ids:additions,state:additions.length?"ready":"selected",reason:additions.length?"Cadena candidata documentada; requiere comprobación física.":"Las piezas de esta opción ya están elegidas y tienen una cadena activa."};
+  });
+}
 
 export function attachmentCandidates(anchorId:string,rig:CustomRig,rules:PlannerRules,cables:Cable[],master:Variant):AttachmentCandidate[] {
-  if(!rig.part_ids.includes(anchorId))return [];
-  return (rules.attachment_options??[]).flatMap(option=>{
-    if(option.anchor_part_id!==anchorId||!option.source_ids.length||!conditionMatches(option.condition,new Set(rig.part_ids),rig))return [];
-    // Evaluar la cadena propuesta completa: un soporte nuevo puede cambiar dependencias.
-    const intended={...rig,part_ids:[...new Set([...rig.part_ids,...option.add_part_ids])]};
-    const closure=dependencyClosure(option.add_part_ids,rules,intended);
-    const additions=closure.filter(id=>!rig.part_ids.includes(id));
-    if(!additions.length)return [];
-    const proposal={...rig,part_ids:[...rig.part_ids,...additions]};
-    const result=resolveRig(proposal,rules,cables,master,id=>id);
-    if(![anchorId,...closure].every(id=>result.variant.active_part_ids.includes(id)))return [];
-    return [{option,add_ids:additions}];
-  });
+  return attachmentDiagnostics(anchorId,rig,rules,cables,master).filter(item=>item.state==="ready").map(({option,add_ids})=>({option,add_ids}));
 }
 
 export function applyAttachment(optionId:string,anchorId:string,rig:CustomRig,rules:PlannerRules,cables:Cable[],master:Variant):CustomRig|null {
