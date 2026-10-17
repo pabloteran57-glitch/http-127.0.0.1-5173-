@@ -2,6 +2,22 @@
 
 ## Estado Confirmado
 
+- Enlace público: [Takegrid 0.2.15](https://takegrid-rigs.pabloteran57.chatgpt.site).
+- Sites: `succeeded`, `2026-10-17T03:11:49.296640+00:00` (16 de octubre en Ecuador).
+- Versión guardada: `appgprj_6ac5ca6c160c819191d2bacd7366c426~appgver_6118b85b4ab48191b7c1f3f494992ec8` (versión 12 del proveedor).
+- Despliegue: `appgdep_6ad2e76d4804819195e86372f110d4fa`.
+- Código respaldado: `56afcbad12fea2260fcc0a4b8077a8326ef7c415`; fuente estática remota verificada: `49a59b74ad23b979747379cba132ad0519eb454f`.
+
+62 archivos de `dist-public`, 7137689 bytes, copiados y comparados byte por byte. Sites confirmó 63 archivos con configuración, 7188480 bytes de tar y `sha256:2c8d99218ee937a320cde9fced18b16d38fc09a924777410b99ec21168c80738`. Gzip local: 1772629 bytes, `sha256:e78a4ac3d42136d3ac336bf89d70af156f5e689582512fde2486231eb8c05aa3`.
+
+Diagnóstico de cinco anclajes de cadenas existentes y opciones listas/elegidas/bloqueadas explicadas. Sin altas: conserva 36 entradas, 23 mallas, 22 circuitos, siete plantillas y bibliotecas locales. 403 casos de software, incluidos 15 del diagnóstico y 2048 subselecciones de la familia existente. [Verificación](anchor-diagnostics-qa.md) y [avance](product-progress.md).
+
+El flujo oficial envió la nueva fuente; su empaquetador dependiente de Bash no arrancó en Windows. Se verificó el HEAD remoto mediante apertura oficial, se preparó el paquete con el validador estático del mismo plugin y se confirmó su igualdad con la compilación probada. `hosting/prepared-0215`, `hosting/package-0215`, capturas y gzip local quedan fuera del respaldo de código y de los recursos públicos.
+
+QA se realizó en la compilación pública local, escritorio y viewport 390 x 844, no en teléfono o rig físico. No se forzó recarga ni activación de service worker en pestañas del usuario. Sin medios del fabricante, notas privadas o bibliotecas en el paquete. Netlify permanece sin cambios.
+
+## Histórico 0.2.14
+
 - Enlace público: [Takegrid 0.2.14](https://takegrid-rigs.pabloteran57.chatgpt.site).
 - Confirmación de Sites: `succeeded`, `2026-10-08T17:17:31.072287+00:00`.
 - Versión guardada: `appgprj_6ac5ca6c160c819191d2bacd7366c426~appgver_c8c6d1c884c481918c96341bf939c821` (versión 11 del proveedor).

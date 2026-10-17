@@ -38,3 +38,7 @@ Capturas locales bajo `research/model-incoming/qa-0215`, excluidas de publicaci�
 «Sin uso» y «ocupado» son estados del plan, no pruebas de asiento, antirrotación, carga, manos o colisión. 3011 sigue pendiente de cadena exacta y revisión de retención; TA-15RH-NATO-B conserva ambigüedad de masa y dimensiones publicadas. No se promovieron por compartir rosca, NATO o diámetro. El catálogo permanece en 36 entradas.
 
 Fases 1 y 2 siguen abiertas para mediciones y aceptación reales. Después se continúa el lote de montaje SmallRig/Tilta con las mismas puertas de verificación. Los 26 candidatos, seis ópticas restantes, ensayos físicos, participantes, privacidad, soporte y financiación no se dan por completados. Cuentas y nube siguen aplazadas.
+
+## Publicación
+
+0.2.15 confirmada por Sites con estado `succeeded` el 2026-10-17T03:11:49.296640+00:00, 16 de octubre en Ecuador. Código `56afcbad12fea2260fcc0a4b8077a8326ef7c415`, copia estática `49a59b74ad23b979747379cba132ad0519eb454f`. [Registro](additional-hosting.md). La confirmación de alojamiento no se confunde con prueba física ni navegación de producción.
