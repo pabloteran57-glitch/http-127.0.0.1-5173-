@@ -2,6 +2,22 @@
 
 ## Estado Confirmado
 
+- Enlace público: [Takegrid 0.2.16](https://takegrid-rigs.pabloteran57.chatgpt.site).
+- Sites: `succeeded`, `2026-10-17T19:21:38.439223+00:00` (17 de octubre, 14:21 en Ecuador).
+- Versión guardada: `appgprj_6ac5ca6c160c819191d2bacd7366c426~appgver_0167155b1ef481919041be5e076fadc9` (versión 13 del proveedor).
+- Despliegue: `appgdep_6ad3caba727c819180431271f83ccf3b`.
+- Código respaldado: `090292f7ac15cf0f159808ec0a617c04044eaa53`; fuente estática remota verificada: `6264af8d79354b7bee68d21ed2a3ef48e10da67d`.
+
+62 archivos de `dist-public`, 7149131 bytes, comparados por huella SHA-256 entre compilación, repositorio estático, salida del validador oficial y paquete. Sites confirmó 63 archivos con configuración, 7198720 bytes de tar y `sha256:2f1a0ad3930b207e6baf4fc66685bfe37aed756185110c8ad65b982d2a8a5c72`. Gzip local: 1776708 bytes, `sha256:fe4deb40950fdcf1114b91df3a3c6007e586f2b0f40c73804f1b2153c4624bfa`.
+
+Unidades con identidad y etiquetas, repuestos explícitos, intercambio y listado individual. Biblioteca v3 y borradores v2 conservan formatos anteriores, historial, perfiles y detección entre pestañas. Validación completa, TypeScript y auditoría de paquete correctos; 21 pruebas nuevas. Revisión local de guardado/recarga, búsqueda por etiqueta, seis etapas pertinentes y ventana móvil sin desbordamiento. [Contrato, evidencia y límites](rig-units.md).
+
+Mantiene 36 entradas, 23 mallas propias, 22 circuitos y siete plantillas. Una unidad por SKU en las cadenas actuales; duplicados adicionales son repuestos sin pose instalada, circuito ni carga. Montaje simultáneo por instancia, nuevo lote SmallRig/Tilta, ensayos físicos y beta siguen pendientes.
+
+El flujo oficial envió la fuente y falló sólo al iniciar su preparación dependiente de Bash en Windows. Se confirmó de nuevo la revisión remota por apertura oficial y se empaquetó mediante el validador estático oficial y `tar.exe`. Fuente privada, fotos/manuales, capturas y bibliotecas no se publican. Sin cambios de Netlify, nube, acceso público, facturación ni recarga forzada del usuario.
+
+## Histórico 0.2.15
+
 - Enlace público: [Takegrid 0.2.15](https://takegrid-rigs.pabloteran57.chatgpt.site).
 - Sites: `succeeded`, `2026-10-17T03:11:49.296640+00:00` (16 de octubre en Ecuador).
 - Versión guardada: `appgprj_6ac5ca6c160c819191d2bacd7366c426~appgver_6118b85b4ab48191b7c1f3f494992ec8` (versión 12 del proveedor).
