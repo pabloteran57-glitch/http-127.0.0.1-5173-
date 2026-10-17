@@ -1,5 +1,6 @@
 import type { CustomRig } from "./types";
-export const DRAFT_PREFIX="takegrid.drafts.v1.";
+export const DRAFT_PREFIX="takegrid.drafts.v2.";
+export const LEGACY_DRAFT_PREFIX="takegrid.drafts.v1.";
 type DraftStorage=Pick<Storage,"getItem"|"setItem"|"removeItem"|"key"|"length">;
 export interface RecoverableDraft {key:string;raw:string;rig:CustomRig;tab_id:string;recorded_at:string}
 type RigParser=(value:unknown)=>CustomRig;
@@ -7,13 +8,14 @@ type RigParser=(value:unknown)=>CustomRig;
 export function readDrafts(storage:DraftStorage,parse:RigParser):{drafts:RecoverableDraft[];unreadable:number}{
   const drafts:RecoverableDraft[]=[];let unreadable=0;
   for(let i=0;i<storage.length;i++){
-    const key=storage.key(i);if(!key?.startsWith(DRAFT_PREFIX))continue;
+    const key=storage.key(i);if(!key||![DRAFT_PREFIX,LEGACY_DRAFT_PREFIX].some(prefix=>key.startsWith(prefix)))continue;
     const raw=storage.getItem(key);if(!raw)continue;
     try{
       const value=JSON.parse(raw);
       if(value.version!==1||typeof value.tab_id!=="string"||typeof value.recorded_at!=="string"||!Number.isFinite(Date.parse(value.recorded_at))||typeof value.rig?.name!=="string"||value.rig.name.length>80)throw new Error("Formato de borrador no compatible.");
       const rig={...parse({...value.rig,name:value.rig.name.trim()||"Rig sin nombre"}),name:value.rig.name};
-      if(key!==`${DRAFT_PREFIX}${value.tab_id}.${rig.id}`)throw new Error("Identidad de borrador no compatible.");
+      const prefix=key.startsWith(DRAFT_PREFIX)?DRAFT_PREFIX:LEGACY_DRAFT_PREFIX;
+      if(key!==`${prefix}${value.tab_id}.${rig.id}`)throw new Error("Identidad de borrador no compatible.");
       drafts.push({key,raw,rig,tab_id:value.tab_id,recorded_at:value.recorded_at});
     }catch{unreadable++;}
   }

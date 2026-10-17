@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "reviewed_on": "2026-10-16",
+  "reviewed_on": "2026-10-17",
   "status": "prototype_hardening_in_progress",
-  "progress_report": "docs/anchor-diagnostics.md",
-  "current_milestone": "Diagnóstico visible de anclajes y opciones bloqueadas sobre cadenas existentes; continuar después altas SmallRig/Tilta sin inferir compatibilidad. Ensayos físicos, dispositivos reales y aceptación de beta pendientes.",
+  "progress_report": "docs/rig-units.md",
+  "current_milestone": "Identidad por unidad y repuestos con transición local v3. Siguiente: asignaciones y conexiones por unidad/asiento antes de duplicar piezas montadas; después lotes SmallRig/Tilta verificados. Ensayos físicos, dispositivos reales y aceptación de beta pendientes.",
   "user_decisions": [
     {
       "date": "2026-10-05",
@@ -42,6 +42,12 @@
   },
   "findings": [
     {
+      "id": "independent-units-foundation",
+      "status": "identity_and_spares_implemented_multi_mount_pending",
+      "evidence": ["src/lib/planner.ts", "src/components/RigUnitEditor.tsx", "scripts/test-rig-units.mjs", "docs/rig-units.md"],
+      "description": "Unidades independientes por proyecto, etiquetas y repuestos; biblioteca v3 aislada de v1/v2 y borradores nuevos separados de antiguos. Una unidad por SKU en las cadenas actuales; asignación simultánea por asiento y puertos sigue pendiente, no se generan duplicados ficticios."
+    },
+    {
       "id": "anchor-occupancy-diagnostics",
       "status": "software_verified_observed_acceptance_pending",
       "evidence": ["data/anchor-diagnostics-review.json", "data/planner-rules.json", "scripts/test-anchor-diagnostics.mjs", "docs/anchor-diagnostics-qa.md"],
@@ -67,7 +73,7 @@
         "src/lib/inventory.ts",
         "docs/mobile-selection-qa.md"
       ],
-      "description": "El editor abre Catálogo sin asistente obligatorio; tarjeta completa añade/quita sin cambiar de vista. Jaulas separadas, Elegidas exactas y guardado desde cualquier vista. Revisión de ventanas móviles y escritorio, no hardware táctil físico."
+      "description": "El editor abre Catálogo sin asistente obligatorio; tarjeta añade sin cambiar de vista. Unidades elegidas se gestionan mediante acciones explícitas debajo de la tarjeta. Jaulas separadas, Elegidas exactas y guardado desde cualquier vista. No es aceptación observada en hardware táctil físico."
     },
     {
       "id": "audio-rx-visibility",

@@ -1,11 +1,59 @@
-import type { AttachmentOption, Cable, CompatibilityEvidence, CustomRig, MountResource, PlannerRules, RigAdjustments, RuleCondition, Variant } from "./types";
+import type { AttachmentOption, Cable, CompatibilityEvidence, CustomRig, MountResource, PlannerRules, RigAdjustments, RigUnit, RuleCondition, Variant } from "./types";
 
 export interface RigIssue { id: string; part_id?: string; message: string; add_ids: string[] }
 export interface RigResolution { variant: Variant; issues: RigIssue[]; parked_ids: string[] }
-export const LIBRARY_KEY = "takegrid.rigs.v2";
+export const LIBRARY_KEY = "takegrid.rigs.v3";
+export const PREVIOUS_LIBRARY_KEY = "takegrid.rigs.v2";
 export const LEGACY_LIBRARY_KEY = "takegrid.rigs.v1";
 export type RigLibrary = { version: 1; rigs: CustomRig[]; history?:Record<string,CustomRig[]> };
 export const CATALOG_REVISION = "fx3-rs4-2026-10-05";
+export const UNIT_LIMIT = 120;
+export const UNITS_PER_PART_LIMIT = 20;
+
+export function rigUnits(rig:CustomRig):RigUnit[] {
+  return rig.units ?? rig.part_ids.map(part_id=>({id:`unit-${part_id}-1`,part_id,label:"Unidad 1",role:"rig" as const}));
+}
+
+export function withRigUnits(rig:CustomRig):CustomRig {
+  const units=rigUnits(rig).filter(unit=>unit.role==="spare"||rig.part_ids.includes(unit.part_id));
+  for(const part_id of rig.part_ids)if(!units.some(unit=>unit.part_id===part_id&&unit.role==="rig")){
+    let index=1;while(units.some(unit=>unit.id===`unit-${part_id}-${index}`))index++;
+    units.push({id:`unit-${part_id}-${index}`,part_id,label:`Unidad ${index}`,role:"rig"});
+  }
+  return {...rig,schema_version:2,units};
+}
+
+export function setRigParts(rig:CustomRig,part_ids:string[]):CustomRig {
+  return withRigUnits({...rig,part_ids:[...part_ids]});
+}
+
+export function addSpareUnit(rig:CustomRig,partId:string):CustomRig {
+  const next=withRigUnits(rig),units=next.units!;
+  if(!units.some(unit=>unit.part_id===partId))throw new Error("Elige primero este producto para añadir un repuesto.");
+  if(units.length>=UNIT_LIMIT||units.filter(unit=>unit.part_id===partId).length>=UNITS_PER_PART_LIMIT)throw new Error(`Límite de planificación: ${UNIT_LIMIT} unidades por proyecto y ${UNITS_PER_PART_LIMIT} por producto.`);
+  let ordinal=1;while(units.some(unit=>unit.part_id===partId&&unit.label===`Unidad ${ordinal}`))ordinal++;
+  return {...next,units:[...units,{id:`unit-${crypto.randomUUID()}`,part_id:partId,label:`Unidad ${ordinal}`,role:"spare"}]};
+}
+
+export function updateRigUnit(rig:CustomRig,unitId:string,change:{label?:string;role?:RigUnit["role"]}):CustomRig {
+  const next=withRigUnits(rig),target=next.units!.find(unit=>unit.id===unitId);
+  if(!target)throw new Error("Unidad no disponible en este proyecto.");
+  if(change.label!==undefined&&(!change.label.trim()||change.label.length>40))throw new Error("Escribe una etiqueta de 1 a 40 caracteres.");
+  const units=next.units!.map(unit=>unit.id===unitId?{...unit,...change}:change.role==="rig"&&unit.part_id===target.part_id?{...unit,role:"spare" as const}:unit);
+  const inRig=new Set(units.filter(unit=>unit.role==="rig").map(unit=>unit.part_id));
+  const part_ids=[...next.part_ids.filter(id=>inRig.has(id)),...inRig].filter((id,index,ids)=>ids.indexOf(id)===index);
+  return {...next,units,part_ids};
+}
+
+export function removeRigUnit(rig:CustomRig,unitId:string):CustomRig {
+  const next=withRigUnits(rig),units=next.units!.filter(unit=>unit.id!==unitId);
+  return {...next,units,part_ids:next.part_ids.filter(id=>units.some(unit=>unit.part_id===id&&unit.role==="rig"))};
+}
+
+export function unitSummary(rig:CustomRig):string {
+  const units=rigUnits(rig),spares=units.filter(unit=>unit.role==="spare").length;
+  return `${units.length} ${units.length===1?"unidad":"unidades"}${spares?` · ${spares} ${spares===1?"repuesto":"repuestos"}`:""}`;
+}
 export function libraryFingerprint(raw:string|null):string {
   if(raw===null)return "none";
   let hash=2166136261;for(let i=0;i<raw.length;i++)hash=Math.imul(hash^raw.charCodeAt(i),16777619);
@@ -27,7 +75,8 @@ export function newRig(name = "Mi nuevo rig", template?: Variant, defaultContext
 }
 
 export function copyRig(rig:CustomRig,name:string):CustomRig {
-  return {...structuredClone(rig),...newRig(name),context:rig.context,orientation:rig.orientation,part_ids:[...rig.part_ids]};
+  const copy={...structuredClone(rig),...newRig(name),schema_version:rig.schema_version,context:rig.context,orientation:rig.orientation,part_ids:[...rig.part_ids]};
+  return rig.units?{...copy,units:rig.units.map(unit=>({...unit,id:`unit-${crypto.randomUUID()}`}))}:copy;
 }
 
 function parseAdjustments(value:unknown,catalogIds:string[]):RigAdjustments|undefined {
@@ -233,15 +282,28 @@ export function assemblyFrame(variant: Variant, step: number, rules: PlannerRule
 export function parseRig(value: unknown, catalogIds: string[]): CustomRig {
   if (!value || typeof value !== "object") throw new Error("Formato de rig no válido.");
   const r = value as Record<string,unknown>;
-  if (r.schema_version!==1||typeof r.id!=="string"||!/^rig-[\w-]{1,100}$/.test(r.id)||typeof r.name!=="string"||!r.name.trim()||r.name.length>80||!["gimbal","handheld","static"].includes(String(r.context))||!["landscape","vertical"].includes(String(r.orientation))||!Array.isArray(r.part_ids)||r.part_ids.length>catalogIds.length||r.part_ids.some(id=>typeof id!=="string"||!catalogIds.includes(id))||new Set(r.part_ids).size!==r.part_ids.length||typeof r.updated_at!=="string"||!Number.isFinite(Date.parse(r.updated_at))) throw new Error("Rig no válido o piezas fuera del catálogo actual. No se importaron datos.");
+  if (![1,2].includes(Number(r.schema_version))||typeof r.schema_version!=="number"||typeof r.id!=="string"||!/^rig-[\w-]{1,100}$/.test(r.id)||typeof r.name!=="string"||!r.name.trim()||r.name.length>80||!["gimbal","handheld","static"].includes(String(r.context))||!["landscape","vertical"].includes(String(r.orientation))||!Array.isArray(r.part_ids)||r.part_ids.length>catalogIds.length||r.part_ids.some(id=>typeof id!=="string"||!catalogIds.includes(id))||new Set(r.part_ids).size!==r.part_ids.length||typeof r.updated_at!=="string"||!Number.isFinite(Date.parse(r.updated_at))) throw new Error("Rig no válido o piezas fuera del catálogo actual. No se importaron datos.");
+  let units:RigUnit[]|undefined;
+  if(r.schema_version===2){
+    if(!Array.isArray(r.units)||r.units.length>UNIT_LIMIT)throw new Error("Lista de unidades no compatible. No se borraron datos.");
+    units=r.units.map((value:unknown)=>{
+      if(!value||typeof value!=="object"||Array.isArray(value))throw new Error("Unidad no válida.");
+      const unit=value as Record<string,unknown>;
+      if(Object.keys(unit).some(key=>!["id","part_id","label","role"].includes(key))||typeof unit.id!=="string"||!/^unit-[\w-]{1,120}$/.test(unit.id)||typeof unit.part_id!=="string"||!catalogIds.includes(unit.part_id)||typeof unit.label!=="string"||!unit.label.trim()||unit.label.length>40||typeof unit.role!=="string"||!["rig","spare"].includes(unit.role))throw new Error("Unidad no válida o montaje de unidad no documentado.");
+      return {id:unit.id,part_id:unit.part_id,label:unit.label,role:unit.role as RigUnit["role"]};
+    });
+    const planned=units.filter(unit=>unit.role==="rig"),partIds=r.part_ids as string[];
+    if(new Set(units.map(unit=>unit.id)).size!==units.length||planned.length!==partIds.length||new Set(planned.map(unit=>unit.part_id)).size!==planned.length||planned.some(unit=>!partIds.includes(unit.part_id))||units.some(unit=>units!.filter(other=>other.part_id===unit.part_id).length>UNITS_PER_PART_LIMIT))throw new Error("Unidades duplicadas o selección incoherente. No se asignó ningún montaje.");
+  }else if(r.units!==undefined)throw new Error("Unidades en formato anterior no compatibles. No se borraron datos.");
   const adjustments=parseAdjustments(r.adjustments,catalogIds);
-  return {schema_version:1,id:r.id,name:r.name.trim(),context:r.context as CustomRig["context"],orientation:r.orientation as CustomRig["orientation"],part_ids:[...r.part_ids] as string[],updated_at:r.updated_at,...(adjustments?{adjustments}:{})};
+  return {schema_version:r.schema_version as 1|2,id:r.id,name:r.name.trim(),context:r.context as CustomRig["context"],orientation:r.orientation as CustomRig["orientation"],part_ids:[...r.part_ids] as string[],updated_at:r.updated_at,...(units?{units}:{}),...(adjustments?{adjustments}:{})};
 }
 
 export function parseLibrary(raw: string | null, catalogIds: string[], limit: number): RigLibrary {
   if (!raw) return {version:1,rigs:[]};
   const value=JSON.parse(raw);
-  if(![1,2].includes(value.version)||(value.version===2&&value.catalog_revision!==CATALOG_REVISION)||!Array.isArray(value.rigs)||value.rigs.length>limit) throw new Error("Biblioteca no compatible. Los datos guardados no se han borrado.");
+  if(!value||![1,2,3].includes(value.version)||(value.version!==1&&value.catalog_revision!==CATALOG_REVISION)||!Array.isArray(value.rigs)||value.rigs.length>limit) throw new Error("Biblioteca no compatible. Los datos guardados no se han borrado.");
+  if(value.version!==3&&value.rigs.some((rig:CustomRig)=>rig.schema_version!==1))throw new Error("Las unidades requieren la biblioteca nueva. El original se conserva.");
   const rigs=value.rigs.map((r:unknown)=>parseRig(r,catalogIds));
   if(new Set(rigs.map((r:CustomRig)=>r.id)).size!==rigs.length) throw new Error("Biblioteca con identificadores duplicados.");
   let history:Record<string,CustomRig[]>|undefined;
@@ -257,12 +319,20 @@ export function parseLibrary(raw: string | null, catalogIds: string[], limit: nu
   return {version:1,rigs,...(history?{history}:{})};
 }
 
+export function loadRigLibrary(storage:Pick<Storage,"getItem">,catalogIds:string[],limit:number){
+  const raw=storage.getItem(LIBRARY_KEY),previousRaw=storage.getItem(PREVIOUS_LIBRARY_KEY),legacyRaw=storage.getItem(LEGACY_LIBRARY_KEY);
+  const library=parseLibrary(raw??previousRaw??legacyRaw,catalogIds,limit);
+  const source=raw??previousRaw,record=source?JSON.parse(source):null;
+  const legacyChanged=!!record&&(record.legacy_fingerprint!==libraryFingerprint(legacyRaw)||(!!raw&&record.previous_fingerprint!==libraryFingerprint(previousRaw)));
+  return {raw,previousRaw,legacyRaw,legacyChanged,rigs:library.rigs.map(withRigUnits),history:Object.fromEntries(Object.entries(library.history??{}).map(([id,entries])=>[id,entries.map(withRigUnits)]))};
+}
+
 export function writeLibrary(storage:Pick<Storage,"getItem"|"setItem">,expected:string|null,rigs:CustomRig[],catalogIds:string[],limit:number):string {
   if(rigs.length>limit)throw new Error(`Máximo ${limit} rigs guardados. Elimina uno que ya no necesites antes de continuar.`);
   const raw=storage.getItem(LIBRARY_KEY);
   if(raw!==expected)throw new Error("La biblioteca cambió en otra pestaña. Tu borrador sigue abierto; no se ha sobrescrito ningún rig. Revisa la biblioteca de esa pestaña antes de continuar.");
   let previous:RigLibrary={version:1,rigs:[]};
-  try{previous=parseLibrary(raw,catalogIds,limit);}catch{if(raw)storage.setItem(`${LIBRARY_KEY}.backup`,raw);}
+  try{previous=parseLibrary(raw??storage.getItem(PREVIOUS_LIBRARY_KEY)??storage.getItem(LEGACY_LIBRARY_KEY),catalogIds,limit);}catch{if(raw)storage.setItem(`${LIBRARY_KEY}.backup`,raw);else throw new Error("La biblioteca anterior no se pudo leer; se conserva sin reemplazar.");}
   const history:Record<string,CustomRig[]>={};
   for(const rig of rigs){
     const prior=previous.rigs.find(r=>r.id===rig.id);
@@ -270,7 +340,7 @@ export function writeLibrary(storage:Pick<Storage,"getItem"|"setItem">,expected:
     if(JSON.stringify(entries.at(-1))!==JSON.stringify(rig))entries.push(rig);
     history[rig.id]=entries.slice(-5);
   }
-  const serialized=JSON.stringify({version:2,catalog_revision:CATALOG_REVISION,legacy_fingerprint:libraryFingerprint(storage.getItem(LEGACY_LIBRARY_KEY)),rigs,history});
+  const serialized=JSON.stringify({version:3,catalog_revision:CATALOG_REVISION,legacy_fingerprint:libraryFingerprint(storage.getItem(LEGACY_LIBRARY_KEY)),previous_fingerprint:libraryFingerprint(storage.getItem(PREVIOUS_LIBRARY_KEY)),rigs,history});
   parseLibrary(serialized,catalogIds,limit);
   storage.setItem(LIBRARY_KEY,serialized);
   if(storage.getItem(LIBRARY_KEY)!==serialized)throw new Error("No se pudo confirmar el guardado local. Tu borrador sigue abierto.");

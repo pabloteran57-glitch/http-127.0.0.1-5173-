@@ -124,10 +124,10 @@ test("Una cámara sintética se configura por datos sin casos de modelo en el mo
  assert.deepEqual(result.variant.active_part_ids,["fixture-camera","fixture-lens"]);assert(!result.issues.length);
  assert(!resolveRig(rig(["fixture-lens"],"handheld"),customRules,[],master,id=>id).variant.active_part_ids.length);
 });
-test("Migración de biblioteca v1 a v2 mantiene orden y elecciones",()=>{
+test("Migración de biblioteca v1 a v3 mantiene orden y elecciones",()=>{
  const store=memory(),old=JSON.stringify({version:1,rigs:[rig(["sony-fx3","smallrig-vb99-pro"],"handheld")]});store.setItem(LIBRARY_KEY,old);
  const loaded=parseLibrary(old,catalog,40);const next=writeLibrary(store,old,loaded.rigs,catalog,40);
- assert.equal(JSON.parse(next).version,2);assert.equal(JSON.parse(next).catalog_revision,CATALOG_REVISION);assert.deepEqual(parseLibrary(next,catalog,40).rigs,loaded.rigs);
+ assert.equal(JSON.parse(next).version,3);assert.equal(JSON.parse(next).catalog_revision,CATALOG_REVISION);assert.deepEqual(parseLibrary(next,catalog,40).rigs,loaded.rigs);
  assert.throws(()=>parseLibrary(JSON.stringify({...JSON.parse(next),catalog_revision:"desconocida"}),catalog,40));
 });
 const {summarizeFrames}=await moduleOf("performance");

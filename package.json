@@ -1,6 +1,6 @@
 {
   "name": "rs4-pro-fx3-rig-planner",
-  "version": "0.2.15",
+  "version": "0.2.16",
   "private": true,
   "type": "module",
   "scripts": {
@@ -9,7 +9,7 @@
     "build:visuals": "node scripts/build-product-visuals.mjs",
     "build:pilot-models": "node scripts/build-pilot-models.mjs",
     "validate": "node scripts/validate-data.mjs && node scripts/audit-model-assets.mjs && npm run test:planner && npm run test:models && npm run test:catalog",
-    "test:planner": "node scripts/test-planner.mjs && node scripts/test-extensible-engineering.mjs && node scripts/test-attachments.mjs && node scripts/test-adjustments.mjs && node scripts/test-connections.mjs && node scripts/test-offline.mjs && node scripts/test-profiles.mjs && node scripts/test-mount-resources.mjs && node scripts/test-anchor-diagnostics.mjs",
+    "test:planner": "node scripts/test-planner.mjs && node scripts/test-extensible-engineering.mjs && node scripts/test-attachments.mjs && node scripts/test-adjustments.mjs && node scripts/test-connections.mjs && node scripts/test-offline.mjs && node scripts/test-profiles.mjs && node scripts/test-mount-resources.mjs && node scripts/test-anchor-diagnostics.mjs && node scripts/test-rig-units.mjs",
     "test:models": "node scripts/test-model-assets.mjs && node scripts/test-model-runtime.mjs && node scripts/test-authored-models.mjs && node scripts/test-product-visuals.mjs",
     "test:catalog": "node scripts/test-catalog-pilot.mjs && node scripts/test-pilot-models.mjs && node scripts/test-pilot-integration.mjs && node scripts/test-native-camera-power.mjs && node scripts/test-fx30-accessories.mjs && node scripts/test-sel35-integration.mjs && node scripts/test-rigging-intake.mjs && node scripts/test-shoe-monitor-integration.mjs",
     "check:catalog": "node scripts/check-catalog-pilot.mjs",

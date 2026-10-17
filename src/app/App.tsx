@@ -5,7 +5,7 @@ import RigBuilder from "../components/RigBuilder";
 import RigLibrary from "../components/RigLibrary";
 import LocalProfiles from "../components/LocalProfiles";
 import { ACTIVE_PROFILE_KEY, PROFILES_KEY, addProfile, initialProfile, parseProfiles, profileStorage, readActiveProfile, type LocalProfile, type ProfileStorage } from "../lib/profiles";
-import { LIBRARY_KEY, LEGACY_LIBRARY_KEY, applyAttachment, copyRig, libraryFingerprint, newRig, parseLibrary, parseRig, resolveRig, writeLibrary } from "../lib/planner";
+import { LIBRARY_KEY, LEGACY_LIBRARY_KEY, PREVIOUS_LIBRARY_KEY, applyAttachment, copyRig, loadRigLibrary, newRig, parseLibrary, parseRig, resolveRig, withRigUnits, writeLibrary } from "../lib/planner";
 import { partName } from "../lib/ui";
 import { DRAFT_PREFIX, clearConfirmedDraft, discardDraft, readDrafts, writeDraft, type RecoverableDraft } from "../lib/drafts";
 import type { CustomRig, RigAdjustments, Variant } from "../lib/types";
@@ -15,8 +15,8 @@ const catalogIds=partsData.parts.map(p=>p.id);
 const master=variantsData.variants.find(v=>v.id===variantsData.master_variant_id)!;
 function loadLibrary(localStorage:ProfileStorage){
  let raw:string|null=null;
- try{raw=localStorage.getItem(LIBRARY_KEY);const legacyRaw=localStorage.getItem(LEGACY_LIBRARY_KEY),library=parseLibrary(raw??legacyRaw,catalogIds,plannerData.max_saved_rigs),legacyChanged=!!raw&&JSON.parse(raw).legacy_fingerprint!==libraryFingerprint(legacyRaw);return {raw,legacyRaw,legacyChanged,rigs:library.rigs,history:library.history??{},warning:""};}
- catch{return {raw,legacyRaw:null as string|null,legacyChanged:false,rigs:[] as CustomRig[],history:{} as Record<string,CustomRig[]>,warning:"No se pudo leer la biblioteca local. No se ha borrado ningún dato. Comprueba los permisos y el almacenamiento del navegador."};}
+ try{raw=localStorage.getItem(LIBRARY_KEY);return {...loadRigLibrary(localStorage,catalogIds,plannerData.max_saved_rigs),warning:""};}
+ catch{return {raw,previousRaw:null as string|null,legacyRaw:null as string|null,legacyChanged:false,rigs:[] as CustomRig[],history:{} as Record<string,CustomRig[]>,warning:"No se pudo leer la biblioteca local. No se ha borrado ningún dato. Comprueba los permisos y el almacenamiento del navegador."};}
 }
 const browserStorage:ProfileStorage={getItem:key=>window.localStorage.getItem(key),setItem:(key,value)=>window.localStorage.setItem(key,value),removeItem:key=>window.localStorage.removeItem(key),get length(){return window.localStorage.length;},key:index=>window.localStorage.key(index)};
 function loadProfiles(){
@@ -59,6 +59,7 @@ function RigSession({profile,profilesOpen,onProfiles}:{profile:LocalProfile;prof
  const [initial]=useState(()=>loadLibrary(localStorage));
  const storedSnapshot=useRef(initial.raw);
  const legacySnapshot=useRef(initial.legacyRaw);
+ const previousSnapshot=useRef(initial.previousRaw);
  const legacyChanged=useRef(initial.legacyChanged);
  const [saved,setSaved]=useState(initial.rigs);const [rigs,setRigs]=useState(initial.rigs);
  const [history,setHistory]=useState(initial.history);
@@ -77,7 +78,7 @@ function RigSession({profile,profilesOpen,onProfiles}:{profile:LocalProfile;prof
  const variant=resolution?.variant??variantsData.variants.find(v=>v.id===variantId)??master;
  const dirty=!!custom&&JSON.stringify(custom)!==JSON.stringify(saved.find(r=>r.id===custom.id));
  const anyDirty=rigs.some(r=>JSON.stringify(r)!==JSON.stringify(saved.find(s=>s.id===r.id)));
- const parser=(value:unknown)=>parseRig(value,catalogIds);
+ const parser=(value:unknown)=>withRigUnits(parseRig(value,catalogIds));
  const refreshDrafts=()=>{try{const result=readDrafts(localStorage,parser);setRecoverable(result.drafts.filter(d=>d.tab_id!==tabId));if(result.unreadable)setMessage(`${result.unreadable} borradores no se pudieron leer; se conservan sin borrar.`);}catch{setMessage("No se pudieron consultar los borradores recuperables. Ningún dato se ha borrado.");}};
  useEffect(()=>{refreshDrafts();},[]);
  useEffect(()=>{
@@ -99,24 +100,27 @@ function RigSession({profile,profilesOpen,onProfiles}:{profile:LocalProfile;prof
   try{
    if(!navigator.locks)throw new Error("Este navegador no permite coordinar el guardado entre pestañas. Tu borrador sigue abierto y recuperable si el almacenamiento está disponible. Usa un navegador actualizado con HTTPS.");
    const expected=storedSnapshot.current;
-   const serialized=await navigator.locks.request(profile.id==="initial"?"takegrid-library-write":`takegrid-library-write:${profile.id}`,()=>{if(legacyChanged.current||localStorage.getItem(LEGACY_LIBRARY_KEY)!==legacySnapshot.current)throw new Error("La biblioteca de una versión anterior cambió. Revisa cambios de otra pestaña en Mis rigs; tus cambios siguen abiertos.");return writeLibrary(localStorage,expected,next,catalogIds,plannerData.max_saved_rigs);});storedSnapshot.current=serialized;setSaved(next);setHistory(parseLibrary(serialized,catalogIds,plannerData.max_saved_rigs).history??{});return true;
+   const serialized=await navigator.locks.request(profile.id==="initial"?"takegrid-library-write":`takegrid-library-write:${profile.id}`,()=>{if(legacyChanged.current||localStorage.getItem(LEGACY_LIBRARY_KEY)!==legacySnapshot.current||localStorage.getItem(PREVIOUS_LIBRARY_KEY)!==previousSnapshot.current)throw new Error("La biblioteca de una versión anterior cambió. Revisa cambios de otra pestaña en Mis rigs; tus cambios siguen abiertos.");return writeLibrary(localStorage,expected,next,catalogIds,plannerData.max_saved_rigs);});storedSnapshot.current=serialized;setSaved(next);setHistory(parseLibrary(serialized,catalogIds,plannerData.max_saved_rigs).history??{});return true;
   }catch(e){setMessage(e instanceof Error&&/^(Máximo|La biblioteca|Este navegador)/.test(e.message)?e.message:"No se pudo guardar. Tu borrador sigue abierto. Comprueba permisos y espacio del navegador antes de cerrar la página.");return false;}
   finally{saving.current=false;}
  };
- const create=(template?:Variant)=>{const rig=newRig(template?`${template.label} / personal`:undefined,template,plannerData.default_context);if(template?.id==="corporate-interview")rig.context="static";setRigs(previous=>[...previous,rig]);setVariantId(rig.id);setExploded(false);setLibraryOpen(false);setBuilderOpen(true);setMessage("");};
- const save=async()=>{const candidate=custom??newRig(`${variant.label} / personal`,variant);if(!custom&&variant.id==="corporate-interview")candidate.context="static";if(!candidate.name.trim()){setMessage("Escribe un nombre para guardar el rig.");setBuilderOpen(true);return;}const clean=parseRig({...candidate,name:candidate.name.trim()},catalogIds);if(await persist([...saved.filter(r=>r.id!==clean.id),clean])){setRigs(previous=>custom?previous.map(r=>r.id===clean.id?JSON.stringify(r)===JSON.stringify(candidate)?clean:r:r):[...previous,clean]);setVariantId(clean.id);try{if(clearConfirmedDraft(localStorage,tabId,candidate))draftSnapshot.current.delete(clean.id);}catch{/* El guardado confirmado permanece; sólo falla la limpieza del borrador. */}setMessage("Versión guardada con historial local. Si seguiste editando, esos cambios continúan como borrador.");}};
- const update=(rig:CustomRig)=>{setRigs(previous=>previous.map(r=>r.id===rig.id?{...rig,updated_at:new Date().toISOString()}:r));setMessage(previous=>previous.startsWith("Versión guardada")?"":previous);};
+ const create=(template?:Variant)=>{const rig=withRigUnits(newRig(template?`${template.label} / personal`:undefined,template,plannerData.default_context));if(template?.id==="corporate-interview")rig.context="static";setRigs(previous=>[...previous,rig]);setVariantId(rig.id);setExploded(false);setLibraryOpen(false);setBuilderOpen(true);setMessage("");};
+ const save=async()=>{const candidate=custom??withRigUnits(newRig(`${variant.label} / personal`,variant));if(!custom&&variant.id==="corporate-interview")candidate.context="static";if(!candidate.name.trim()){setMessage("Escribe un nombre para guardar el rig.");setBuilderOpen(true);return;}const clean=parseRig({...candidate,name:candidate.name.trim()},catalogIds);if(await persist([...saved.filter(r=>r.id!==clean.id),clean])){setRigs(previous=>custom?previous.map(r=>r.id===clean.id?JSON.stringify(r)===JSON.stringify(candidate)?clean:r:r):[...previous,clean]);setVariantId(clean.id);try{if(clearConfirmedDraft(localStorage,tabId,candidate))draftSnapshot.current.delete(clean.id);}catch{/* El guardado confirmado permanece; sólo falla la limpieza del borrador. */}setMessage("Versión guardada con historial local. Si seguiste editando, esos cambios continúan como borrador.");}};
+ const update=(rig:CustomRig)=>{
+  try{parseRig({...rig,name:rig.name.trim()||"Rig sin nombre"},catalogIds);}catch{setMessage("No se aplicó este cambio. Revisa la selección y el límite de 120 unidades por proyecto, 20 por producto. El borrador anterior sigue intacto.");return;}
+  setRigs(previous=>previous.map(r=>r.id===rig.id?{...rig,updated_at:new Date().toISOString()}:r));setMessage(previous=>previous.startsWith("Versión guardada")?"":previous);
+ };
  const attach=(anchorId:string,optionId:string)=>{
   const base=custom??newRig(`${variant.label} / personal`,variant);
   const next=applyAttachment(optionId,anchorId,base,plannerData,cablesData.cables,master);
   if(!next){setMessage("Esta opción ya está elegida o no corresponde al montaje actual. No se añadió ninguna pieza.");return;}
-  const candidate=parseRig({...next,updated_at:new Date().toISOString()},catalogIds);
+  const candidate=parseRig(withRigUnits({...next,updated_at:new Date().toISOString()}),catalogIds);
   setRigs(previous=>custom?previous.map(r=>r.id===candidate.id?candidate:r):[...previous,candidate]);setVariantId(candidate.id);
   setMessage("Accesorios añadidos al borrador. Revisa las conexiones y pulsa Guardar rig para conservarlo.");
  };
  const adjust=(adjustments:RigAdjustments)=>{
   const base=custom??newRig(`${variant.label} / personal`,variant);
-  const candidate=parseRig({...base,adjustments,updated_at:new Date().toISOString()},catalogIds);
+  const candidate=parseRig(withRigUnits({...base,adjustments,updated_at:new Date().toISOString()}),catalogIds);
   setRigs(previous=>custom?previous.map(r=>r.id===candidate.id?candidate:r):[...previous,candidate]);setVariantId(candidate.id);
   setMessage(previous=>previous.startsWith("Versión guardada")?"":previous);
  };
@@ -125,7 +129,24 @@ function RigSession({profile,profilesOpen,onProfiles}:{profile:LocalProfile;prof
  const duplicate=(rig:CustomRig)=>{const copy=copyRig(rig,`${rig.name} / copia`);setRigs(previous=>[...previous,copy]);open(copy.id);setBuilderOpen(true);};
  const recover=(draft:RecoverableDraft)=>{const copy=copyRig(draft.rig,`${draft.rig.name||"Rig"} / recuperado`);try{writeDraft(localStorage,tabId,copy,parser);}catch{setMessage("No se pudo asegurar una copia recuperable. El borrador original sigue intacto.");return;}setRigs(previous=>[...previous,copy]);setVariantId(copy.id);setBuilderOpen(true);setLibraryOpen(false);setMessage("Borrador abierto como copia. El original se conserva hasta que decidas descartarlo; guarda esta copia para confirmar el plan.");};
  const discard=(draft:RecoverableDraft)=>{try{discardDraft(localStorage,draft);refreshDrafts();}catch(e){setMessage(e instanceof Error?e.message:"No se pudo descartar el borrador.");}};
- const refreshLibrary=()=>{if(saving.current){setMessage("Espera a que termine el guardado antes de revisar la biblioteca.");return;}const loaded=loadLibrary(localStorage);if(loaded.warning){setMessage(loaded.warning);return;}let legacyCopies:CustomRig[]=[];try{if(loaded.raw&&loaded.legacyChanged)legacyCopies=parseLibrary(loaded.legacyRaw,catalogIds,plannerData.max_saved_rigs).rigs.filter(r=>JSON.stringify(r)!==JSON.stringify(loaded.rigs.find(s=>s.id===r.id))).map(r=>copyRig(r,`${r.name} / versión anterior`));}catch{setMessage("No se pudo leer la biblioteca anterior. Se conserva sin borrar; no se sustituyó la biblioteca actual.");return;}storedSnapshot.current=loaded.raw;legacySnapshot.current=loaded.legacyRaw;legacyChanged.current=false;setSaved(loaded.rigs);setHistory(loaded.history);setRigs(previous=>[...loaded.rigs,...legacyCopies,...previous.filter(r=>JSON.stringify(r)!==JSON.stringify(saved.find(s=>s.id===r.id))).map(r=>copyRig(r,`${r.name} / cambios locales`))]);setVariantId(master.id);setMessage("Biblioteca actualizada. Los cambios locales y de versiones anteriores se conservaron como copias; guarda las que necesites.");refreshDrafts();};
+ const refreshLibrary=()=>{
+  if(saving.current){setMessage("Espera a que termine el guardado antes de revisar la biblioteca.");return;}
+  const loaded=loadLibrary(localStorage);if(loaded.warning){setMessage(loaded.warning);return;}
+  const legacyCopies:CustomRig[]=[];
+  try{
+   if(loaded.legacyChanged){
+    const seen=new Set(loaded.rigs.map(r=>JSON.stringify(r)));
+    for(const raw of [loaded.previousRaw,loaded.legacyRaw])for(const old of parseLibrary(raw,catalogIds,plannerData.max_saved_rigs).rigs){
+     const rig=withRigUnits(old),signature=JSON.stringify(rig);
+     if(!seen.has(signature)){legacyCopies.push(copyRig(rig,`${rig.name} / versión anterior`));seen.add(signature);}
+    }
+   }
+  }catch{setMessage("No se pudo leer la biblioteca anterior. Se conserva sin borrar; no se sustituyó la biblioteca actual.");return;}
+  storedSnapshot.current=loaded.raw;legacySnapshot.current=loaded.legacyRaw;previousSnapshot.current=loaded.previousRaw;legacyChanged.current=false;
+  setSaved(loaded.rigs);setHistory(loaded.history);
+  setRigs(previous=>[...loaded.rigs,...legacyCopies,...previous.filter(r=>JSON.stringify(r)!==JSON.stringify(saved.find(s=>s.id===r.id))).map(r=>copyRig(r,`${r.name} / cambios locales`))]);
+  setVariantId(master.id);setMessage("Biblioteca actualizada. Los cambios locales y de versiones anteriores se conservaron como copias; guarda las que necesites.");refreshDrafts();
+ };
  const prepareProfileSwitch=()=>{
   if(saving.current)return "Espera a que termine el guardado antes de cambiar de perfil.";
   try{for(const rig of rigs){if(JSON.stringify(rig)!==JSON.stringify(saved.find(s=>s.id===rig.id)))writeDraft(localStorage,tabId,rig,parser);}return null;}

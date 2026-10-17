@@ -57,6 +57,8 @@
 
 ## Fidelidad y carga
 
+- Unidades 0.2.16: `CustomRig.schema_version: 2` con `units` y proyección `part_ids`. Una unidad `rig` por SKU; duplicados sólo `spare`, sin masa, cables o geometría instalada. Intercambio y retirada explícitos, sin promoción automática de repuestos. Biblioteca v3 aislada de v1/v2; borradores v2 leen también v1. Preservar huellas de ambas bibliotecas previas, historial y aislamiento por perfil. Límites de software 120/20, no capacidades mecánicas. Ejecutar `test-rig-units.mjs` incluido en `test:planner`; montaje simultáneo por instancia pendiente.
+
 - Una masa menor de 4.5 kg no demuestra equilibrio, inercia ni holgura.
 - El límite publicado de 1.5 kg del 3026B no certifica seguridad dinámica.
 - El manual 3203B, página 5, documenta abrazadera de varillas en el borde superior; no inventar adaptadores.

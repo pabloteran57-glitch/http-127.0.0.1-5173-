@@ -14,7 +14,7 @@ Versión 0.2.4: perfiles locales autorizados, sin contraseña ni nube. El botón
 
 ## Versiones y privacidad
 
-Biblioteca actual en `takegrid.rigs.v2`; el archivo histórico `takegrid.rigs.v1` se lee como origen de migración y no se sobrescribe. Se conserva para evitar que una pestaña antigua destruya datos nuevos. Si cambia, se ofrecen sus planes distintos como copias al revisar la biblioteca. La huella sólo detecta cambios; no es una firma de seguridad.
+Biblioteca actual en `takegrid.rigs.v3`, con unidades y repuestos. Los archivos históricos `takegrid.rigs.v2` y `takegrid.rigs.v1` se leen como origen de transición y no se sobrescriben. Se conservan para evitar que una pestaña antigua destruya datos nuevos. Si cambian, se ofrecen sus planes distintos como copias al revisar la biblioteca. Las huellas sólo detectan cambios; no son firmas de seguridad. Borradores nuevos `takegrid.drafts.v2.*`, con lectura recuperable de los anteriores. [Contrato y límites](rig-units.md).
 
 La copia heredada, respaldos y borradores anteriores pueden conservar datos de rigs eliminados de la biblioteca actual. El borrado completo requiere eliminar los datos del sitio en el navegador; no hay una cuenta ni una copia externa. El historial actual se elimina con su rig, pero no se borran sin autorización datos de otras sesiones.
 

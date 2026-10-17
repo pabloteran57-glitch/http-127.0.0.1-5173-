@@ -36,7 +36,7 @@ export function addProfile(storage: Pick<Storage, "getItem" | "setItem">, expect
   return { profiles: checked, raw, profile };
 }
 
-const ownKey = (key: string) => /^takegrid\.rigs\.v[12](?:\.backup)?$/.test(key) || key.startsWith("takegrid.drafts.v1.");
+const ownKey = (key: string) => /^takegrid\.rigs\.v[123](?:\.backup)?$/.test(key) || /^takegrid\.drafts\.v[12]\./.test(key);
 export function profileStorage(storage: ProfileStorage, id: string): ProfileStorage {
   if (!validId(id)) throw new Error("Identificador de perfil no válido.");
   const prefix = id === INITIAL_PROFILE_ID ? "" : `takegrid.profile.${id}.`;
@@ -54,7 +54,7 @@ export function profileStorage(storage: ProfileStorage, id: string): ProfileStor
     }
     return result;
   };
-  // El perfil inicial conserva las claves existentes: no hay copia, mezcla ni borrado de v1/v2.
+  // Las bibliotecas antiguas se leen en su lugar; v3 nunca las reemplaza.
   return {
     getItem: key => storage.getItem(physical(key)),
     setItem: (key, value) => storage.setItem(physical(key), value),

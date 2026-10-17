@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "release": "0.2.16",
+  "reviewed_on": "2026-10-17",
+  "status": "identity_and_spares_implemented_multi_mount_pending",
+  "scope": "Contrato de planificación de software; no especificaciones ni capacidades mecánicas nuevas.",
+  "rig_schema_version": 2,
+  "library_key": "takegrid.rigs.v3",
+  "preserved_library_keys": ["takegrid.rigs.v2", "takegrid.rigs.v1"],
+  "draft_prefix": "takegrid.drafts.v2.",
+  "preserved_draft_prefix": "takegrid.drafts.v1.",
+  "unit_fields": ["id", "part_id", "label", "role"],
+  "roles": {
+    "rig": "Unidad destinada al rig; todavía sujeta a las reglas y pendientes del producto.",
+    "spare": "Repuesto conservado en el proyecto, sin pose, montaje, circuito ni carga activa."
+  },
+  "projection": "part_ids contiene una sola entrada por producto con unidad rig; no contiene repuestos como piezas montadas.",
+  "implemented": [
+    "Identidad y etiqueta por unidad dentro de cada proyecto",
+    "Repuestos explícitos y lista individual con búsqueda por etiqueta",
+    "Intercambio explícito de la unidad del mismo SKU, sin cambiar productos",
+    "Retirada sin sustitución automática por repuestos",
+    "Transición aislada, historial, recuperación, perfiles y comparación entre pestañas"
+  ],
+  "pending_before_simultaneous_duplicate_mounts": [
+    "Asignación de unidad a asiento documentado con capacidad y exclusiones",
+    "Extremos de señal y alimentación por unidad y puerto",
+    "Ajustes, fotogramas, geometría y carga por instalación",
+    "Cadena física completa revisada y prueba de regresión, sin inventar adaptadores"
+  ],
+  "software_tests": "scripts/test-rig-units.mjs",
+  "documentation": "docs/rig-units.md",
+  "physical_validation": "pending",
+  "observed_user_acceptance": "pending",
+  "catalog_additions": []
+}

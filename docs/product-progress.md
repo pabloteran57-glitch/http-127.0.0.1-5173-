@@ -2,7 +2,7 @@
 
 Fuente: `data/product-roadmap.json`. Estado: prototipo en curso. Ningún criterio externo se da por cumplido a partir de compilación.
 
-Hito actual: Diagnóstico visible de anclajes y opciones bloqueadas sobre cadenas existentes; continuar después altas SmallRig/Tilta sin inferir compatibilidad. Ensayos físicos, dispositivos reales y aceptación de beta pendientes. [Último bloque](anchor-diagnostics.md).
+Hito actual: Identidad por unidad y repuestos con transición local v3. Siguiente: asignaciones y conexiones por unidad/asiento antes de duplicar piezas montadas; después lotes SmallRig/Tilta verificados. Ensayos físicos, dispositivos reales y aceptación de beta pendientes. [Último bloque](rig-units.md).
 
 | Fase | Estado de preparación | Evidencia y trabajo restante |
 |---|---|---|

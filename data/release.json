@@ -1,12 +1,14 @@
 {
-  "version": "0.2.15",
-  "released_on": "2026-10-16",
+  "version": "0.2.16",
+  "released_on": "2026-10-17",
   "status": "engineering_prototype",
   "label": "Prototipo de ingeniería",
   "catalog_revision": "fx3-rs4-2026-10-05",
   "storage": "local_only",
   "account_sync": "deferred_by_user",
   "updates": [
+    "Unidades con identidad y etiqueta propias, repuestos explícitos e intercambio de la unidad en rig; cada unidad aparece por separado en Mi equipo.",
+    "Biblioteca v3 y borradores v2 aislados: conserva bibliotecas v1/v2, historial y borradores antiguos, sin nube ni recarga forzada.",
     "Ficha con anclajes y ocupación del plan: NATO de jaula, zapata inclinada, zapata frontal de asa, extensión XLR y monitor lateral fijo; sin afirmar espacio libre físico.",
     "Añadir desde una pieza distingue opciones listas, ya elegidas y bloqueadas con motivo; no cambia elecciones ni instala adaptadores implícitos.",
     "Diagnóstico declarativo probado en 2048 subselecciones y ecosistema remapeado. No incorpora nuevas piezas ni modifica plantillas, masas, poses o conexiones.",
@@ -29,6 +31,8 @@
     "Monitor NATO, ajustes acoplados, selección desde visor y las cuatro tareas originales conservados"
   ],
   "limitations": [
+    "Sólo una unidad de cada SKU puede participar en las cadenas actuales. Las adicionales son repuestos: sin geometría instalada, cables ni carga; el montaje simultáneo duplicado sigue pendiente de reglas y evidencia por asiento.",
+    "Límites de software: 120 unidades por proyecto y 20 por producto. Etiquetas no son números de serie verificados ni inventario físico certificado.",
     "Sin uso, ocupado o en conflicto describen elecciones del plan, no un ensayo de encaje, carga o colisiones. Un anclaje sin accesorio no garantiza espacio físico libre.",
     "2905B/4152 son inferencias de interfaces oficiales, no parejas certificadas. 78 ±5 g y 236 ±5 g nominales; planificación usa 83/241 g. Pose, rosca, retención, palancas y manos por ensayar.",
     "2905B: ficha 170° frente a manual 180°. El control se limita a 170° ilustrativos; no prueba recorrido libre. Asa 4152 sólo pose superior fija en app, no giro habilitado.",

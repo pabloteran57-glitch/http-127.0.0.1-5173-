@@ -195,14 +195,21 @@ export interface VariantsManifest {
 }
 
 export interface CustomRig {
-  schema_version: 1;
+  schema_version: 1 | 2;
   id: string;
   name: string;
   context: "gimbal" | "handheld" | "static";
   orientation: "landscape" | "vertical";
   part_ids: string[];
+  units?: RigUnit[];
   updated_at: string;
   adjustments?: RigAdjustments;
+}
+export interface RigUnit {
+  id: string;
+  part_id: string;
+  label: string;
+  role: "rig" | "spare";
 }
 
 export interface RigAdjustments {
