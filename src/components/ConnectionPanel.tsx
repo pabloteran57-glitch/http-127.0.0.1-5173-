@@ -5,14 +5,17 @@ import type { Variant } from "../lib/types";
 import { connectionKind, connectionName, connectorName, partName } from "../lib/ui";
 import Icon from "./Icon";
 import { publicDemo } from "../lib/publication";
+import type { UnitGraph } from "../lib/unit-graph";
 export { connectionName } from "../lib/ui";
-export default function ConnectionPanel({variant,bench,selectedId,onSelect}:{variant:Variant;bench:boolean;selectedId:string;onSelect:(id:string)=>void}) {
+export default function ConnectionPanel({variant,bench,selectedId,onSelect,unitGraph}:{variant:Variant;bench:boolean;selectedId:string;onSelect:(id:string)=>void;unitGraph?:UnitGraph}) {
   const panel=useRef<HTMLElement>(null);
   const focus=useRef<HTMLDivElement>(null);
   const ids=bench?cablesData.profiles.requested_dual_feed_bench:variant.cable_profile_ids;
   const sourceCable=cableById[ids.includes(selectedId)?selectedId:ids[0]];
   const selected=sourceCable?(bench?sourceCable:cableForVariant(sourceCable,variant)):undefined;
   const review=selected?connectionAssessmentById[selected.cable_id]:null;
+  const binding=bench?undefined:unitGraph?.links.find(link=>link.cable_id===selected?.cable_id&&link.state==="candidate");
+  const fromUnit=binding&&unitGraph?.units.find(unit=>unit.id===binding.from.unit_id),toUnit=binding&&unitGraph?.units.find(unit=>unit.id===binding.to.unit_id),sourceUnit=binding&&unitGraph?.units.find(unit=>unit.id===binding.source_unit_id);
   const documentedCount=review?.checks.filter(check=>check.state==="documented").length??0;
   const hasVisualRoute=selected?.display_kind==="cable"&&[selected.from_port_id,selected.to_port_id].every(id=>portById[id].local_position_mm&&layoutData.nodes.some(n=>n.id===portById[id].part_id&&variant.active_part_ids.includes(n.id)));
   const choose=(id:string)=>{onSelect(id);requestAnimationFrame(()=>{if(window.matchMedia("(max-width:800px)").matches)focus.current?.scrollIntoView({block:"start"});else{panel.current?.scrollTo({top:0});document.getElementById("workspace")?.scrollIntoView({block:"start"});}focus.current?.focus({preventScroll:true});});};
@@ -21,8 +24,9 @@ export default function ConnectionPanel({variant,bench,selectedId,onSelect}:{var
     {selected&&<div ref={focus} tabIndex={-1} className="connection-focus" aria-live="polite">
       <p className="connection-category" style={{color:cablesData.color_coding[selected.type==="data"?"control":selected.type]}}>{connectionKind(selected.type)} <span>{selected.display_kind==="cable"?"Cable":selected.display_kind==="contacts"?"Contactos":"Batería interna"}</span></p>
       <h3>{connectionName(selected.cable_id)}</h3>
-      <div className="endpoint-card"><span className="endpoint-letter">A</span><div><strong>{partName(selected.from_part_id)}</strong><p>{portById[selected.from_port_id].label}</p><small>{connectorName(selected.connector_a)}</small></div></div>
-      <div className="endpoint-card"><span className="endpoint-letter">B</span><div><strong>{partName(selected.to_part_id)}</strong><p>{portById[selected.to_port_id].label}</p><small>{connectorName(selected.connector_b)}</small></div></div>
+      <div className="endpoint-card" data-endpoint="A" data-unit-id={fromUnit?.id}><span className="endpoint-letter">A</span><div><strong>{partName(selected.from_part_id)}</strong>{fromUnit&&<b className="connection-unit-label">{fromUnit.label}</b>}<p>{portById[selected.from_port_id].label}</p><small>{connectorName(selected.connector_a)}</small></div></div>
+      <div className="endpoint-card" data-endpoint="B" data-unit-id={toUnit?.id}><span className="endpoint-letter">B</span><div><strong>{partName(selected.to_part_id)}</strong>{toUnit&&<b className="connection-unit-label">{toUnit.label}</b>}<p>{portById[selected.to_port_id].label}</p><small>{connectorName(selected.connector_b)}</small></div></div>
+      {sourceUnit&&<p className="connection-unit-source" data-source-unit-id={sourceUnit.id}>Referencia elegida para este enlace: <b>{partName(sourceUnit.part_id)} / {sourceUnit.label}</b>. Revisa el cable físico; un cable incluido en un kit no se convierte en otra unidad de catálogo.</p>}
       {review&&<section className={`connection-review ${review.state}`} aria-label="Revisión de la conexión">
         <div className="review-heading"><strong>{review.state==="blocked"?"No conectar":review.reviewed?"Requiere comprobación":"Revisión pendiente"}</strong>{review.reviewed&&<span>{documentedCount} {documentedCount===1?"dato documentado":"datos documentados"}</span>}</div>
         <p>{review.action}</p>

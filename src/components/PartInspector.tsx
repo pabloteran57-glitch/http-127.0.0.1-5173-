@@ -11,8 +11,9 @@ import PartModelLoader from "./PartModelLoader";
 import Icon from "./Icon";
 import MountResources from "./MountResources";
 import type {CustomRig} from "../lib/types";
+import { plannedUnit, type UnitGraph } from "../lib/unit-graph";
 
-export default function PartInspector({ selectedId, variant, rig, onAttach,onAdjust,onReview }: { selectedId: string; variant: Variant; rig?:CustomRig;onAttach?:()=>void;onAdjust?:()=>void;onReview?:()=>void }) {
+export default function PartInspector({ selectedId, variant, rig, onAttach,onAdjust,onReview,unitGraph }: { selectedId: string; variant: Variant; rig?:CustomRig;onAttach?:()=>void;onAdjust?:()=>void;onReview?:()=>void;unitGraph?:UnitGraph }) {
   const [detailId, setDetailId] = useState<string | null>(null);
   const part = partById[selectedId];
   const node = layoutForVariant(variant,layoutData).nodes.find(n => n.id === selectedId);
@@ -23,17 +24,19 @@ export default function PartInspector({ selectedId, variant, rig, onAttach,onAdj
   const component=part.subcomponents?.find(c=>c.id===node?.subcomponent_id);
   const visualLink = officialVisualLink(part.id);
   const dimensions = component?.dimensions_lwh_mm??[part.verified_dimensions_mm.length,part.verified_dimensions_mm.width,part.verified_dimensions_mm.height];
+  const unit=rig&&unitGraph?plannedUnit(rig,selectedId):undefined;
   return <aside id="part-inspector" className="inspector" aria-label="Ficha de la pieza">
     <div className="inspector-top"><span className="eyebrow">PIEZA SELECCIONADA</span><span className={active ? "status active" : "status parked"}>{active ? "EN PLAN" : "MONTAJE PENDIENTE"}</span></div>
     <div className="product-reference">{publicDemo ? <><ProductVisual id={part.id}/><a className="official-reference-link" href={visualLink.href} target="_blank" rel="noreferrer">{visualLink.label}<Icon name="arrow"/></a></> : ref ? <a href={ref.display_image} target="_blank" rel="noreferrer" aria-label="Ampliar referencia oficial"><img src={ref.display_image} alt={partName(part.id) + ", referencia del fabricante"} /></a> : <ProductVisual id={part.id}/>}<span>{publicDemo || !ref ? "VISUAL DE PLANIFICACIÓN / NO ES CAD" : "REFERENCIA REAL / NO ES EL MODELO 3D"}</span></div>
     <p className="part-brand">{part.brand} / {part.model_number ?? "Fabricante"}</p><h2>{node?.label ?? partName(part.id)}</h2>
+    {unit&&<p className="inspector-unit" data-unit-id={unit.id}>Unidad de este plan: <b>{unit.label}</b></p>}
     <div className="spec-pair"><div><span>{component?"MASA PUBLICADA / SÓLO RX":"MASA PUBLICADA"}</span><strong>{component?`${formatNumber(component.weight_g)} g`:part.category==="software" ? "No aplica" : part.verified_weight_g.value===null ? "Pendiente" : `${part.verified_weight_g.approximate?"~ ":""}${formatNumber(part.verified_weight_g.value)} g`}</strong></div><div><span>DOMINIO DE CARGA</span><strong>{node ? node.mass_domain==="moving" ? "Cámara móvil" : "Base fija" : "No modelado"}</strong></div></div>
     <p className="dimension-note">{part.category==="software" ? "Sin geometría física" : dimensions.some(v=>v===null) ? "Dimensiones completas pendientes" : `${dimensions.map(v=>v===null?"?":formatNumber(v)).join(" × ")} mm${!component&&part.verified_dimensions_mm.approximate?" aprox.":""}`}<br />Envolvente publicada; forma y posición 3D aproximadas.</p>
     {!active&&<p className="piece-inspector-pending">Elegida y conservada en tu rig. El montaje actual no tiene una cadena activa; revisa soporte, contexto y pendientes antes de instalarla.</p>}
     {component&&<p className="dimension-note">{component.model}: sólo el receptor se representa sobre la jaula. Transmisores, lavalier y estuche fuera de cámara; batería interna del RX. Cable y retención pendientes de comprobar.</p>}
     {onAttach&&<button type="button" className="primary-button attach-piece-button" onClick={onAttach}><Icon name="plus"/>Añadir a esta pieza</button>}
     {onAdjust&&<button className="quiet-button inspect-model-button" onClick={onAdjust}><Icon name="settings"/>Ajustar posición</button>}
-    {rig&&<MountResources anchorId={selectedId} rig={rig} variant={variant} onReview={onReview}/>}
+    {rig&&<MountResources anchorId={selectedId} rig={rig} variant={variant} unitGraph={unitGraph} onReview={onReview}/>}
     {model&&<button className="quiet-button inspect-model-button" onClick={()=>setDetailId(selectedId)}>Examinar pieza en 3D</button>}
     {model&&<details className="inspector-details"><summary>Modelo 3D y atribución</summary><p>Reconstrucción propia aproximada, no escaneo ni CAD del fabricante. Si no se puede cargar, se conserva la forma de planificación. Puertos, soportes y pesos no se extraen de la malla.</p><p>{model.rights.attribution}</p><a href={model.source.url} target="_blank" rel="noreferrer">Origen de la malla</a><a href={model.rights.evidence_url} target="_blank" rel="noreferrer">Procedencia y permiso</a></details>}
     {node && <div className="mount-summary"><span className="eyebrow">{active?"MONTAJE CANDIDATO":"MONTAJE POR RESOLVER"}</span>{active&&node.parent_id && variant.active_part_ids.includes(node.parent_id) && <p className="mount-parent">Sobre {partName(node.parent_id)}</p>}<details><summary>Interfaz y orientación</summary><p>{node.mount}</p></details></div>}

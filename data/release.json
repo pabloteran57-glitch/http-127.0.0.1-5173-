@@ -1,5 +1,5 @@
 {
-  "version": "0.2.16",
+  "version": "0.2.17",
   "released_on": "2026-10-17",
   "status": "engineering_prototype",
   "label": "Prototipo de ingeniería",
@@ -7,6 +7,8 @@
   "storage": "local_only",
   "account_sync": "deferred_by_user",
   "updates": [
+    "Conexiones y anclajes identifican la unidad elegida y su etiqueta; puertos de otro modelo, dobles reclamos de conector y reutilización de cable independiente se bloquean sin añadir adaptadores.",
+    "La guía reinicia su revisión al sustituir una unidad o cambiar su pose; renombrar y añadir repuestos no cambia la revisión. Visor y guía muestran la identidad del plan sin duplicar mallas.",
     "Unidades con identidad y etiqueta propias, repuestos explícitos e intercambio de la unidad en rig; cada unidad aparece por separado en Mi equipo.",
     "Biblioteca v3 y borradores v2 aislados: conserva bibliotecas v1/v2, historial y borradores antiguos, sin nube ni recarga forzada.",
     "Ficha con anclajes y ocupación del plan: NATO de jaula, zapata inclinada, zapata frontal de asa, extensión XLR y monitor lateral fijo; sin afirmar espacio libre físico.",
@@ -31,6 +33,7 @@
     "Monitor NATO, ajustes acoplados, selección desde visor y las cuatro tareas originales conservados"
   ],
   "limitations": [
+    "Empuñaduras laterales y setups de hombro siguen en investigación, no seleccionables: seis candidatos con fuentes oficiales y lista de cobertura. No se presenta un contexto shoulder incompleto ni se heredan brazos de gimbal.",
     "Sólo una unidad de cada SKU puede participar en las cadenas actuales. Las adicionales son repuestos: sin geometría instalada, cables ni carga; el montaje simultáneo duplicado sigue pendiente de reglas y evidencia por asiento.",
     "Límites de software: 120 unidades por proyecto y 20 por producto. Etiquetas no son números de serie verificados ni inventario físico certificado.",
     "Sin uso, ocupado o en conflicto describen elecciones del plan, no un ensayo de encaje, carga o colisiones. Un anclaje sin accesorio no garantiza espacio físico libre.",

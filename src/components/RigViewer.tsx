@@ -25,6 +25,7 @@ interface Props {
   showLabels: boolean;
   variant: Variant;
   selectedId: string;
+  unitIdentities?:Record<string,{id:string;label:string}>;
   onSelect: (id: string) => void;
   angle: ViewAngle;
   selectedCableId: string | null;
@@ -164,7 +165,7 @@ function PortProjection({anchors,elements}:{anchors:{id:string;position:Vec3}[];
  useFrame(({camera,size})=>anchors.forEach(a=>{const el=elements.current[a.id];if(!el)return;point.set(...a.position).project(camera);el.style.transform=`translate(-50%,-50%) translate(${(point.x*.5+.5)*size.width}px,${(-point.y*.5+.5)*size.height}px)`;el.style.visibility=point.z>1||point.z< -1?"hidden":"visible";}));
  return null;
 }
-export default function RigViewer({exploded,showCables,showLabels,variant,selectedId,onSelect,angle,selectedCableId,resetKey,highlightIds=[],contextIds=[],reveal=false,framing,framingVariant,sceneKey,onSceneReady,onScenePreparing,onUnavailable,onInteract,performanceRun,onPerformanceResult}:Props){
+export default function RigViewer({exploded,showCables,showLabels,variant,selectedId,onSelect,angle,selectedCableId,resetKey,highlightIds=[],contextIds=[],reveal=false,framing,framingVariant,sceneKey,onSceneReady,onScenePreparing,onUnavailable,onInteract,performanceRun,onPerformanceResult,unitIdentities}:Props){
  const labels=useRef<Record<string,HTMLButtonElement|null>>({});const portLabels=useRef<Record<string,HTMLSpanElement|null>>({});
  const [attempt,setAttempt]=useState(0),[unavailable,setUnavailable]=useState(false);
  const [modelReports,setModelReports]=useState<ModelReports>({});
@@ -212,7 +213,7 @@ export default function RigViewer({exploded,showCables,showLabels,variant,select
    <CameraControls angle={angle} exploded={exploded} nodes={framingVariant?layoutForVariant(framingVariant,layoutData).nodes.filter(n=>framingVariant.active_part_ids.includes(n.id)):nodes} vertical={(framingVariant??variant).viewer.mode==="vertical"} resetKey={resetKey} onInteract={onInteract}/><LabelProjector nodes={nodes} exploded={exploded} vertical={vertical} elements={labels}/><PortProjection anchors={anchors} elements={portLabels}/><SceneReady sceneKey={`${session}:${attempt}`} settled={readiness.settled} onReady={onSceneReady} onPreparing={onScenePreparing}/>
    {performanceRun&&onPerformanceResult&&<PerformanceProbe key={performanceRun.id} run={performanceRun} onResult={onPerformanceResult}/>}
   </Canvas></Suspense></ViewerBoundary>
-  {!unavailable&&<div className="label-layer">{nodes.filter(n=>showLabels&&primaryKinds.has(n.kind)||(!selectedCableId&&n.id===selectedId)).map(n=><button key={n.id} ref={el=>{labels.current[n.id]=el}} className={n.id===selectedId?"part-label selected":"part-label"} onClick={()=>onSelect(n.id)}>{n.label}</button>)}
+  {!unavailable&&<div className="label-layer">{nodes.filter(n=>showLabels&&primaryKinds.has(n.kind)||(!selectedCableId&&n.id===selectedId)).map(n=><button key={n.id} ref={el=>{labels.current[n.id]=el}} data-unit-id={unitIdentities?.[n.id]?.id} className={n.id===selectedId?"part-label selected":"part-label"} onClick={()=>onSelect(n.id)}>{n.label}{unitIdentities?.[n.id]?` / ${unitIdentities[n.id].label}`:""}</button>)}
    {focus&&anchors.map((a,i)=><span key={a.id} ref={el=>{portLabels.current[a.id]=el}} className="port-marker"><b>{i?"B":"A"}</b>{portById[i?focus.cable.to_port_id:focus.cable.from_port_id].label}</span>)}
   </div>}
   {!unavailable&&modelEntries.length>0&&(readiness.loading.length>0||readiness.failed.length>0)&&<div className="model-load-status" role="status"><span>{readiness.loading.length>0?`Cargando ${readiness.loading.length} ${readiness.loading.length===1?"modelo":"modelos"}. Geometría aproximada de respaldo visible.`:`${readiness.failed.length} ${readiness.failed.length===1?"modelo no disponible":"modelos no disponibles"}. Mostrando geometría aproximada de respaldo.`}</span>{readiness.failed.length>0&&<button className="quiet-button" onClick={retry}>Reintentar modelos</button>}</div>}

@@ -8,6 +8,7 @@ import ui from "../../data/ui-content.json";
 import Icon, { type IconName } from "./Icon";
 import ProductVisual, { officialVisualLink } from "./ProductVisual";
 import RigUnitEditor from "./RigUnitEditor";
+import SetupChecklist from "./SetupChecklist";
 
 type BuilderView = "catalog" | "selected" | "settings";
 const modeledIds = layoutData.nodes.map(node => node.id);
@@ -87,6 +88,7 @@ export default function RigBuilder({open, onClose, rig, resolution, onChange, on
             return <details key={issue.id}><summary>{issue.part_id ? partName(issue.part_id) : issue.id === "monitor-power" ? "Alimentación del monitor" : issue.id === "vertical-monitor" ? "Monitor en vertical" : issue.id === "monitor-video" ? "Señal del monitor" : issue.message}</summary><p>{issue.message}</p>{suggestions.length > 0 && <><p>Añadirá: {suggestions.map(partName).join(", ")}.</p><button type="button" className="quiet-button" onClick={() => add(suggestions)}>Añadir estas piezas ({suggestions.length})</button></>}</details>;
           })}</div></details>
         </>}
+        {view==="selected"&&<SetupChecklist context={rig.context}/>}
         <details className="visual-policy"><summary>Sobre las imágenes y el catálogo</summary><p>{ui.builder.image_policy}</p><p>{partsData.parts.length} entradas, con alcance revisado por configuración. La selección no activa montajes no documentados.</p></details>
       </section>}
     </div>

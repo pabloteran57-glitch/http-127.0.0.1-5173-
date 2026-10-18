@@ -58,6 +58,8 @@
 ## Fidelidad y carga
 
 - Unidades 0.2.16: `CustomRig.schema_version: 2` con `units` y proyección `part_ids`. Una unidad `rig` por SKU; duplicados sólo `spare`, sin masa, cables o geometría instalada. Intercambio y retirada explícitos, sin promoción automática de repuestos. Biblioteca v3 aislada de v1/v2; borradores v2 leen también v1. Preservar huellas de ambas bibliotecas previas, historial y aislamiento por perfil. Límites de software 120/20, no capacidades mecánicas. Ejecutar `test-rig-units.mjs` incluido en `test:planner`; montaje simultáneo por instancia pendiente.
+- `unit-graph-policy.json` y `src/lib/unit-graph.ts`: proyección derivada de cadenas ya activas hacia unidad/anclaje/puerto. Bloquear propiedad de puerto incorrecta, dobles reclamos y cable independiente reutilizado. No asignar repuestos ni convertir capacidades desconocidas en uno/dos asientos. Revisión de lectura reinicia en sustitución, pose o topología; etiquetas y repuestos no la invalidan, volver atrás no restaura revisiones. `test-unit-graph.mjs`.
+- `data/support-intake.json` y `data/setup-coverage.json`: seis candidatos nuevos de agarres/hombro y doce familias de cobertura, no catálogo activo. 4346 manual propio y localización 1/4 lateral 4770; no confundir 4016 ARRI 3/8 ni asumir separación de 18 mm para 4015. 2896C incluye dos agarres, base y barras 400/300 mm; no duplicar 1674/8 pulgadas. VCT-14 no VCT-U14; masa TA-LSR-B 1.7 kg/7.7 lb en disputa. Shoulder sigue sin contexto activo hasta cadena completa, guía y representación revisadas. `test-setup-coverage.mjs`.
 
 - Una masa menor de 4.5 kg no demuestra equilibrio, inercia ni holgura.
 - El límite publicado de 1.5 kg del 3026B no certifica seguridad dinámica.

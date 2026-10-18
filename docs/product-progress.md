@@ -2,7 +2,7 @@
 
 Fuente: `data/product-roadmap.json`. Estado: prototipo en curso. Ningún criterio externo se da por cumplido a partir de compilación.
 
-Hito actual: Identidad por unidad y repuestos con transición local v3. Siguiente: asignaciones y conexiones por unidad/asiento antes de duplicar piezas montadas; después lotes SmallRig/Tilta verificados. Ensayos físicos, dispositivos reales y aceptación de beta pendientes. [Último bloque](rig-units.md).
+Hito actual: Cadenas actuales identifican unidades, puertos y recursos; revisión de guía invalida sustituciones y ajustes. Prioridad siguiente: empuñaduras laterales y hombro completos desde support-intake/setup-coverage. Duplicados montados, nuevas poses, ensayos físicos, usuarios y beta siguen pendientes. [Último bloque](unit-graph.md).
 
 | Fase | Estado de preparación | Evidencia y trabajo restante |
 |---|---|---|

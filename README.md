@@ -26,6 +26,8 @@ Vista de marca: `/brand/preview.html`. SVG reutilizables en `public/brand`; nomb
 
 ## Rigs Propios
 
+Versión 0.2.17: **anclajes y conexiones por unidad**: etiquetas en extremos A/B, recurso anfitrión y visor; bloqueo de conector/cable reclamado dos veces; revisión de guía reiniciada tras sustituir unidad o pose. Sin otra migración. [Alcance](docs/unit-graph.md). Sidehandles y hombro tienen [seis candidatos investigados](docs/support-intake.md) y [cobertura por setup](docs/setup-coverage.md), todavía no seleccionables.
+
 Versión 0.2.16: **unidades y repuestos** con identidad/etiqueta propias, intercambio explícito y listado individual en Mi equipo. Biblioteca v3 y borradores nuevos separados conservan v1/v2, historial y perfiles. Una unidad por SKU en las cadenas actuales; montaje simultáneo duplicado pendiente de asientos y circuitos por instancia. [Alcance y siguiente criterio](docs/rig-units.md).
 
 Versión 0.2.15: **Anclajes de esta pieza** describe la ocupación del plan y sus conflictos. **Añadir a esta pieza** distingue opciones listas, ya elegidas y bloqueadas con motivo. Cinco recursos existentes, sin nuevas piezas, coordenadas, cargas o compatibilidades. No se confunde «sin uso» con holgura física comprobada. [Alcance por fases](docs/anchor-diagnostics.md) y [verificación](docs/anchor-diagnostics-qa.md).

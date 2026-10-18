@@ -5,27 +5,30 @@ import { assemblyTimeline, nextPlaybackIndex } from "../lib/assembly";
 import { connectionName, partName } from "../lib/ui";
 import { publicDemo } from "../lib/publication";
 import type { Variant } from "../lib/types";
+import type { CustomRig } from "../lib/types";
+import { assemblyReviewRevision, unitIdentities } from "../lib/unit-graph";
 import type { ViewAngle } from "./RigViewer";
 import Icon from "./Icon";
 import RigViewer from "./RigViewerLoader";
 type Timeline = ReturnType<typeof assemblyTimeline>;
-interface Props { variant: Variant; chosenIds: string[]; active: boolean; onEdit: () => void }
+interface Props { variant: Variant; chosenIds: string[]; active: boolean; onEdit: () => void;rig?:CustomRig }
 
 export default function AssemblyWizard(props: Props) {
-  const revision = [props.variant.id, [...props.chosenIds].sort().join(","), [...props.variant.active_part_ids].sort().join(","), [...props.variant.cable_profile_ids].sort().join(","), props.variant.viewer.mode, props.variant.viewer.rig_context, props.variant.viewer.monitor_mount_route??"template"].join("|");
-  const [reviews, setReviews] = useState<Record<string, number[]>>({});
+  const revision = assemblyReviewRevision(props.variant,props.chosenIds,props.rig);
+  const [reviews, setReviews] = useState<{revision:string;steps:number[]}>({revision,steps:[]});
+  if(reviews.revision!==revision)setReviews({revision,steps:[]});
   const timeline = assemblyTimeline(props.variant, plannerData, cablesData.cables, assemblyContent);
-  const checks = reviews[revision] ?? [];
+  const checks = reviews.revision===revision?reviews.steps:[];
   const review = (number: number, checked: boolean) => setReviews(previous => {
-    const next = new Set(previous[revision] ?? []);
+    const next = new Set(previous.revision===revision?previous.steps:[]);
     checked ? next.add(number) : next.delete(number);
-    return { ...previous, [revision]: [...next] };
+    return {revision,steps:[...next]};
   });
   if (!timeline.length) return <section className="assembly-empty"><Icon name="assemble"/><h2>El montaje empieza con tu cámara</h2><p>Elige un núcleo montable. Los accesorios pendientes se conservan en tu lista, pero no se presentan como instalados.</p><button className="primary-button" onClick={props.onEdit}>Elegir mis piezas</button></section>;
   return <AssemblySession key={revision} {...props} timeline={timeline} checks={checks} onReview={review}/>;
 }
 
-function AssemblySession({ variant, chosenIds, active, onEdit, timeline, checks, onReview }: Props & { timeline: Timeline; checks: number[]; onReview: (number: number, checked: boolean) => void }) {
+function AssemblySession({ variant, chosenIds, active, onEdit, timeline, checks, onReview,rig }: Props & { timeline: Timeline; checks: number[]; onReview: (number: number, checked: boolean) => void }) {
   const [cursor, setCursor] = useState({ index: 0, epoch: 0, started: performance.now() });
   const [playing, setPlaying] = useState(false);
   const [speed, setSpeed] = useState(1);
@@ -48,6 +51,7 @@ function AssemblySession({ variant, chosenIds, active, onEdit, timeline, checks,
   const prepared = !visualCount || ready?.token === token;
   const next = nextPlaybackIndex(timeline, cursor.index);
   const completed = next === -1 && step.playable;
+  const identities=rig?unitIdentities(rig):undefined;
 
   const move = (index: number) => {
     setCursor(previous => ({ index, epoch: previous.epoch + 1, started: performance.now() }));
@@ -89,7 +93,7 @@ function AssemblySession({ variant, chosenIds, active, onEdit, timeline, checks,
     </aside>
     <div className="assembly-main"><section id="assembly-visual" className="assembly-visual" aria-label="Ensamblaje visual por etapas">
       <div className="assembly-view-toolbar"><span><b>{step.playable ? String(cursor.index + 1).padStart(2, "0") : "+"}</b>{step.title}</span><div><select aria-label="Vista del ensamblaje" value={angle} onChange={e => { setPlaying(false); setAngle(e.target.value as ViewAngle); }}><option value="iso">Vista 3/4</option><option value="side">Lateral</option><option value="front">Frontal</option></select><button className="icon-button" aria-label="Recentrar ensamblaje" onClick={() => { setPlaying(false); setResetKey(k => k + 1); }}><Icon name="reset"/></button></div></div>
-      {!active ? <div className="viewer-fallback">Visor en pausa mientras configuras el plan.</div> : visualCount ? <RigViewer loadingMessage="Preparando tu montaje..." variant={frame.variant} exploded={exploded} showLabels={false} showCables selectedId={focusId} onSelect={id => { setPlaying(false); setSelectedCableId(null); setSelectedId(id); }} angle={angle} selectedCableId={selectedCableId} resetKey={resetKey} highlightIds={frame.new_ids} contextIds={frame.context_ids} reveal framingVariant={step.number===plannerData.extraction_step?frame.variant:variant} framing={frame.variant.viewer.rig_context === "gimbal" ? "gimbal" : "handheld"} sceneKey={token} onScenePreparing={() => { setReady(null); setUnavailable(false); }} onSceneReady={() => { setUnavailable(false); setReady({ token, ms: Math.round(performance.now() - cursor.started) }); }} onUnavailable={() => { setUnavailable(true); setPlaying(false); }} onInteract={() => setPlaying(false)}/> : <div className="rig-empty-canvas"><Icon name="assemble"/><h3>Comprobación sin modelo adicional</h3><p>Esta etapa no añade geometría de accesorios no elegidos.</p></div>}
+      {!active ? <div className="viewer-fallback">Visor en pausa mientras configuras el plan.</div> : visualCount ? <RigViewer loadingMessage="Preparando tu montaje..." variant={frame.variant} unitIdentities={identities} exploded={exploded} showLabels={false} showCables selectedId={focusId} onSelect={id => { setPlaying(false); setSelectedCableId(null); setSelectedId(id); }} angle={angle} selectedCableId={selectedCableId} resetKey={resetKey} highlightIds={frame.new_ids} contextIds={frame.context_ids} reveal framingVariant={step.number===plannerData.extraction_step?frame.variant:variant} framing={frame.variant.viewer.rig_context === "gimbal" ? "gimbal" : "handheld"} sceneKey={token} onScenePreparing={() => { setReady(null); setUnavailable(false); }} onSceneReady={() => { setUnavailable(false); setReady({ token, ms: Math.round(performance.now() - cursor.started) }); }} onUnavailable={() => { setUnavailable(true); setPlaying(false); }} onInteract={() => setPlaying(false)}/> : <div className="rig-empty-canvas"><Icon name="assemble"/><h3>Comprobación sin modelo adicional</h3><p>Esta etapa no añade geometría de accesorios no elegidos.</p></div>}
       {nodes.some(node=>node.internal)&&<button className="quiet-button internal-part-toggle" aria-pressed={exploded} onClick={()=>{setPlaying(false);setExploded(value=>!value);}}>{exploded?"Volver al conjunto":"Ver batería interna en despiece"}</button>}
       <div className="assembly-stage-note"><span className="new-parts-dot"/>{newVisible ? "Nuevas piezas resaltadas" : step.cable_ids.length ? "Conexiones añadidas · elige una ruta para verla" : "Comprobación · sin añadir piezas"}{frame.context_ids.length > 0 && <span> · Soporte translúcido: sólo contexto</span>}<small>{visualCount} piezas representadas · Transición ilustrativa, no inserción física</small></div>
       <div className="assembly-playback"><button className="quiet-button" disabled={!active || cursor.index === 0} onClick={() => go(cursor.index - 1)}>Anterior</button><button className="primary-button playback-button" disabled={!active || unavailable} aria-pressed={playing} onClick={() => {
@@ -102,6 +106,7 @@ function AssemblySession({ variant, chosenIds, active, onEdit, timeline, checks,
     <article className="step-focus"><div className="assembly-progress"><span>{stageText}</span><span>{reviewed} / {playable.length} revisadas</span><div role="progressbar" aria-label="Etapas revisadas en este perfil" aria-valuemin={0} aria-valuemax={playable.length} aria-valuenow={reviewed}><i style={{ width: `${reviewed / playable.length * 100}%` }}/></div></div><h2>{step.title}</h2><p className="frame-note">{step.note}</p>
       <div className="step-part-chips">{step.part_ids.map(id => nodes.some(n => n.id === id) ? <button key={id} aria-pressed={focusId === id} onClick={() => { setPlaying(false); setSelectedCableId(null); setSelectedId(id); focusScene(); }}>{partName(id)}</button> : <span key={id} title="Sin modelo 3D de montaje">{partName(id)}</span>)}{step.cable_ids.map(id => <button key={id} className="cable-chip" aria-pressed={selectedCableId === id} onClick={() => { setPlaying(false); setSelectedCableId(id); focusScene(); }}>{connectionName(id)}</button>)}</div>
       <details className="assembly-mount-details"><summary>Ubicación y montaje</summary>{step.blocks.map((block, i) => <div className="step-location" key={i}><small>QUÉ PREPARAR</small><strong>{block.mount}</strong><small>DÓNDE</small><p>{block.where}</p></div>)}</details>
+      {identities&&<details className="assembly-unit-details"><summary>Unidades de esta etapa</summary><ul>{step.part_ids.filter(id=>identities[id]).map(id=><li key={identities[id].id} data-stage-unit-id={identities[id].id}>{partName(id)} / <b>{identities[id].label}</b></li>)}</ul><p>Cambiar una unidad o su pose reinicia la revisión de lectura. Renombrar o añadir repuestos no valida ni altera el montaje.</p></details>}
       <h3>Antes de continuar</h3><ul className="check-list">{[...new Set(step.blocks.flatMap(b => b.verify))].map(item => <li key={item}>{item}</li>)}</ul><p className="rebalance"><b>Equilibrio:</b> {step.rebalance}</p>
       {!publicDemo && manuals.map(reference => <img key={reference.document_id} className="assembly-reference" src={reference.image_path} alt={reference.alt}/>)}
       {(step.source_ids??[]).map(id=>{const source=sourcesData.sources.find(source=>source.id===id);return source?<a key={id} className="assembly-source" href={source.url} target="_blank" rel="noreferrer">Consultar fuente oficial · {source.brand}</a>:null;})}

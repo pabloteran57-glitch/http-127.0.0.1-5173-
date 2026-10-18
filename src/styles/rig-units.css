@@ -15,6 +15,13 @@
 .unit-note,.unit-error{font-size:11px;line-height:1.65;margin:12px 0 0;color:#aab9be}
 .unit-error{color:var(--amber);width:100%}
 .inventory-unit-label{display:block;font-size:12px;font-weight:500;color:var(--accent);margin:6px 0}
+.connection-unit-label{display:block;font-size:13px;font-weight:500;color:var(--accent);margin:7px 0;overflow-wrap:anywhere}
+.connection-unit-source,.inspector-unit{font-size:12px;color:#bacdcb;line-height:1.7;overflow-wrap:anywhere}
+.connection-unit-source{padding:12px;border:1px solid #374b4c;border-radius:5px}
+.assembly-unit-details{margin:18px 0;font-size:12px;color:#b4c8c5;line-height:1.8}
+.assembly-unit-details ul{padding-left:18px;overflow-wrap:anywhere}
+.assembly-unit-details p{font-size:11px;color:var(--muted)}
+.rig-stage .part-label{max-width:min(260px,70vw);white-space:normal;overflow-wrap:anywhere;line-height:1.5}
 .selection-spares{display:flex;align-items:center;gap:15px;flex-wrap:wrap;padding:14px;border:1px solid #425358;background:#1e292d;border-radius:5px;margin:14px 0}
 .selection-spares p{font-size:12px;color:#bbccce;line-height:1.65;flex:1;min-width:160px;margin:0;overflow-wrap:anywhere}
 @media(max-width:600px){.unit-editor{padding:12px}.unit-actions{width:100%}.unit-actions button{flex:1}.unit-identity{min-width:0;width:100%}}

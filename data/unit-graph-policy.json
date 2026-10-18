@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "release": "0.2.17",
+  "status": "existing_chains_projected_to_units",
+  "scope": "Asigna identidades a las cadenas canónicas existentes, no nuevas compatibilidades ni coordenadas.",
+  "authorities": ["parts-manifest.json", "planner-rules.json", "ports-manifest.json", "cables-manifest.json"],
+  "storage_change": false,
+  "bindings": "Derivadas del rig vigente. Una unidad rig por SKU; nunca se elige un repuesto automáticamente.",
+  "mounts": "Cada recurso se identifica por unidad anfitriona y recurso canónico. Grupos excluyentes siguen siendo autoridad; no se infiere capacidad de carga.",
+  "connections": "Origen, destino y referencia portadora apuntan a unidades activas; puertos deben pertenecer al modelo. Contactos y cables incluidos en kits no son unidades físicas adicionales.",
+  "conflicts": "Dos enlaces no pueden reclamar el mismo puerto de la misma unidad ni una unidad de cable independiente para dos circuitos. Bloqueo conservador, sin splitter, adaptador o reemplazo implícito.",
+  "assembly_review": "Se reinicia al cambiar identidad activa, selección, contexto, encuadre, ruta o ajustes; no por etiqueta, fecha de guardado ni repuestos. No restaura revisiones antiguas al regresar a una configuración.",
+  "simultaneous_duplicate_mounts": "pending",
+  "physical_validation": "pending",
+  "scripts": ["scripts/test-unit-graph.mjs", "scripts/test-rig-units.mjs"],
+  "documentation": "docs/unit-graph.md"
+}
