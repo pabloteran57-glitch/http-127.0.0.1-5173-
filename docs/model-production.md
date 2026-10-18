@@ -1,6 +1,6 @@
 # Producción de modelos realistas
 
-Fuentes canónicas: `data/model-production.json` y `data/model-assets.json`. Revisión 2026-10-06. Estado: `authored_approximate_batch_original_exact_assets_pending`. **23 mallas aprobadas. No se ha sustituido ninguna forma por un recurso sin auditar.**
+Fuentes canónicas: `data/model-production.json` y `data/model-assets.json`. Revisión 2026-10-06. Estado: `authored_approximate_batch_original_exact_assets_pending`. **25 mallas aprobadas. No se ha sustituido ninguna forma por un recurso sin auditar.**
 
 ## Acción por acción
 
@@ -43,6 +43,8 @@ Reconstrucciones propias aproximadas; no descargas de Sketchfab ni resultados de
 | FE 35mm F1.8 | `/models/sony-fe-35-f18-takegrid-v1.glb` | 5376 | 219020 | D 65.6 × L 73 mm publicados, filtro 55 mm. Cinco vistas propias y diagrama Sony de enfoque, botón y selector revisados. Sin anillo de apertura, parasol, tapas, contactos o bayoneta CAD. |
 | SmallRig 2905B · soporte de zapata | `/models/smallrig-2905b-takegrid-v1.glb` | 2604 | 122696 | Envolvente de planificación XYZ 52.6 × 45 × 30 mm; malla 44.30 × 45.00 × 30.60 mm. Cinco vistas propias cotejadas con manual oficial el 2026-10-08; detalles y asientos aproximados. No se autoriza CAD de fabricación. |
 | SmallRig 4152 · asa NATO | `/models/smallrig-4152-takegrid-v1.glb` | 7800 | 371012 | Envolvente de planificación XYZ 39.7 × 81.2 × 161.6 mm; malla 37.50 × 80.20 × 162.80 mm. Cinco vistas propias cotejadas con manual oficial el 2026-10-08; detalles y asientos aproximados. No se autoriza CAD de fabricación. |
+| 4346 · empuñadura lateral | `/models/smallrig-4346-takegrid-v1.glb` | 3832 | 176752 | Envolvente de planificación XYZ 80 ×105 ×68.5 mm; malla 80 ×105.10 ×68.50 mm. Cinco vistas cotejadas con manual páginas 3-5 el 2026-10-18. Curvas, rebajes y adaptador aproximados; pose de pines y rosca sin mecanizado ni holguras certificadas. |
+| 2896C · kit de hombro | `/models/smallrig-2896c-takegrid-v1.glb` | 12332 | 532536 | Envolvente publicada 510 ×300 ×180 mm, planificación XYZ 300 ×180 ×510; malla 300 ×180.05 ×498 mm. Diferencia longitudinal 12 mm explícita, no calibrada deformando. Barras de 400/300 mm y diámetro 15 mm, con base, conector, apoyo y dos agarres según manual páginas 2-6; separación y posiciones sólo estimadas. No LWS ni geometría corporal certificada. |
 
 | Orden | Producto | Subcomponente | Estado | Referencias necesarias |
 |---|---|---|---|---|

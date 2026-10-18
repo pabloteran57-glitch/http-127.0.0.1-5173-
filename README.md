@@ -20,13 +20,15 @@ En PowerShell usar `npm.cmd` si la política bloquea npm.ps1. Vite anuncia el pu
 
 Cuatro tareas: **Rig**, **Conexiones**, **Montaje** y **Piezas**. El visor abre sin cableado superpuesto; Conexiones activa las rutas y resalta un circuito con sus extremos A/B. En móvil, navegación inferior fija y selector de conexión junto al visor. El doble HDMI es un circuito de banco independiente del perfil, no un montaje aprobado en el rig.
 
-La ficha despliega medidas, materiales y restricciones bajo demanda. Montaje deriva las etapas pertinentes del perfil de cámara y separa las revisiones de lectura por configuración durante la sesión. Piezas abre **Mi equipo**, incluyendo elecciones pendientes; las 36 entradas se consultan en **Catálogo**. Detalles del perfil conserva siete plantillas, desglose de peso y pruebas pendientes. Los planes se guardan y abren dentro de la app, sin exportar archivos.
+La ficha despliega medidas, materiales y restricciones bajo demanda. Montaje deriva las etapas pertinentes del perfil de cámara/contexto y separa las revisiones de lectura por configuración durante la sesión. Piezas abre **Mi equipo**, incluyendo elecciones pendientes; las 38 entradas se consultan en **Catálogo**. Detalles del perfil conserva siete plantillas, desglose de peso y pruebas pendientes. Los planes se guardan y abren dentro de la app, sin exportar archivos.
 
 Vista de marca: `/brand/preview.html`. SVG reutilizables en `public/brand`; nombre en `data/brand.json`.
 
 ## Rigs Propios
 
-Versión 0.2.17: **anclajes y conexiones por unidad**: etiquetas en extremos A/B, recurso anfitrión y visor; bloqueo de conector/cable reclamado dos veces; revisión de guía reiniciada tras sustituir unidad o pose. Sin otra migración. [Alcance](docs/unit-graph.md). Sidehandles y hombro tienen [seis candidatos investigados](docs/support-intake.md) y [cobertura por setup](docs/setup-coverage.md), todavía no seleccionables.
+Versión 0.2.18: **empuñadura lateral 4346 y contexto Al hombro 2896C**. Cadenas candidatas acotadas, dos mallas/miniaturas propias aproximadas y guía contextual sin etapas del gimbal. El kit incluye base, barras y dos agarres, contados una vez. Propuesta de núcleo por elección explícita; monitor NATO/serie L y RX opcionales. Sin nueva migración ni cambio de las siete plantillas. [Alcance, fuentes y limitaciones](docs/support-integration.md). No certifica ergonomía, encaje o seguridad física.
+
+Versión 0.2.17: **anclajes y conexiones por unidad**: etiquetas en extremos A/B, recurso anfitrión y visor; bloqueo de conector/cable reclamado dos veces; revisión de guía reiniciada tras sustituir unidad o pose. Sin otra migración. [Alcance](docs/unit-graph.md). De [seis candidatos investigados](docs/support-intake.md), dos tienen altas separadas en 0.2.18; cuatro siguen pendientes.
 
 Versión 0.2.16: **unidades y repuestos** con identidad/etiqueta propias, intercambio explícito y listado individual en Mi equipo. Biblioteca v3 y borradores nuevos separados conservan v1/v2, historial y perfiles. Una unidad por SKU en las cadenas actuales; montaje simultáneo duplicado pendiente de asientos y circuitos por instancia. [Alcance y siguiente criterio](docs/rig-units.md).
 
@@ -72,7 +74,7 @@ Versión 0.2.10: **Crear rig** permite seleccionar FX30, FE 20mm F1.8 G y NP-FZ1
 
 Ruta hacia beta: [plan de avance](docs/beta-roadmap.md), con fases, criterios y diagnóstico. `data/product-roadmap.json` distingue correcciones implementadas de trabajo pendiente; no sustituye los manifiestos técnicos. Evidencia de esta iteración en [estabilización](docs/stabilization-qa.md).
 
-- `data/parts-manifest.json`: 36 entradas: 27 originales, tres accesorios de monitor, cuatro altas Sony y dos accesorios de montaje; fuentes y confianza por campo.
+- `data/parts-manifest.json`: 38 entradas: 27 originales, tres accesorios de monitor, cuatro altas Sony y cuatro accesorios de montaje/apoyo; fuentes y confianza por campo.
 - `data/layout-manifest.json`: envolventes XYZ, poses candidatas, soporte y pruebas pendientes.
 - `data/cables-manifest.json`, `data/ports-manifest.json`: 22 circuitos, puertos identificados, coordenadas aproximadas o pendientes.
 - `data/connection-reviews.json`: evidencia documental de ocho circuitos; rango, polaridad, firmware y límites visibles en Conexiones. Desconocido no equivale a compatible.
@@ -80,8 +82,8 @@ Ruta hacia beta: [plan de avance](docs/beta-roadmap.md), con fases, criterios y 
 - `data/assembly-profile-content.json`: bloques de instrucciones condicionados a las piezas y circuitos existentes; no añade especificaciones ni compatibilidades.
 - `data/engineering-manifest.json`: límites publicados y políticas de masa/centros ponderados.
 - `data/sources.json`, `data/geometry-references.json`, `data/geometry-audit.json`: atribución, descargas SHA-256 y referencias revisadas.
-- `data/model-production.json`, `data/model-assets.json`: trabajo de fidelidad y registro de 23 GLB propios aproximados auditados; las otras 13 entradas tienen alcance pendiente o no físico explícito. [Producción](docs/model-production.md) y [contrato](docs/model-asset-contract.md).
-- `data/product-visuals.json`: 23 miniaturas originales WebP vinculadas a huellas de malla y derechos revisados; nunca aprobación automática.
+- `data/model-production.json`, `data/model-assets.json`: trabajo de fidelidad y registro de 25 GLB propios aproximados auditados; las otras 13 entradas tienen alcance pendiente o no físico explícito. [Producción](docs/model-production.md) y [contrato](docs/model-asset-contract.md).
+- `data/product-visuals.json`: 25 miniaturas originales WebP vinculadas a huellas de malla y derechos revisados; nunca aprobación automática.
 - `data/ui-content.json`: nombres cortos y traducciones de presentación; no reemplaza especificaciones ni interfaces canónicas.
 - `data/planner-rules.json`: dependencias conservadoras del catálogo actual y fotogramas de montaje; no certifica compatibilidad universal.
 - `data/catalog-contract.json`: índice derivado de identidad, revisión, guía y geometría; se regenera, no es un segundo catálogo.

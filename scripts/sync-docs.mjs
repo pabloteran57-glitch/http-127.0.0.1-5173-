@@ -84,7 +84,7 @@ Generado desde data/catalog-promotions.json. Revisión ${promotions.reviewed_on}
 ${promotions.promotions.map(p=>`## ${p.part_ids.map(name).join("; ")}
 
 1. Manifiesto: ${p.part_ids.map(id=>{const item=parts.parts.find(part=>part.id===id);return `${item.model_number}: ${item.planning_weight_g} g aproximados; [fuente oficial](${item.primary_source_url})`;}).join("; ")}.
-2. Distribución: sólo ${p.contexts.join(", ")} / ${p.orientations.join(", ")}; poses aproximadas. ${p.part_ids.includes("sony-fe-35-f18")?"Filtro 55 mm no adapta automáticamente el 3645.":"No duplicar asiento NATO ni zapata; asa 4152 ofrece asiento frontal separado del RX en jaula."}
+2. Distribución: sólo ${p.contexts.map(context=>({handheld:"a mano",static:"estática",shoulder:"al hombro",gimbal:"gimbal"}[context]??context)).join(", ")} / ${p.orientations.map(orientation=>orientation==="landscape"?"horizontal":"vertical").join(", ")}; poses aproximadas. ${p.layout??(p.part_ids.includes("sony-fe-35-f18")?"Filtro 55 mm no adapta automáticamente el 3645.":"No duplicar asiento NATO ni zapata; asa 4152 ofrece asiento frontal separado del RX en jaula.")}
 3. Conexiones: ${p.connections}
 4. Guía: ${p.assembly}
 5. Visor: ${p.viewer}

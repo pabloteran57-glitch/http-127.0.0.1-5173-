@@ -1,7 +1,7 @@
 {
   "build_id": "rs4-pro-fx3-master-kit",
   "build_name": "Sistema de rig DJI RS 4 Pro + Sony FX3 para un solo operador",
-  "verified_on": "2026-04-10",
+  "verified_on": "2026-10-18",
   "engineering_audit_on": "2026-10-06",
   "release_status": "planning_candidate_not_field_certified",
   "notes": [
@@ -1420,6 +1420,107 @@
       "primary_source_url": "https://static.smallrig.com/mall/img/public/yq5buifh3ha-1742372936152_.pdf",
       "secondary_source_url": null,
       "confidence_level": "medium"
+    },
+    {
+      "brand": "SmallRig",
+      "mandatory_or_optional": "optional",
+      "secondary_source_url": null,
+      "confidence_level": "medium",
+      "id": "smallrig-4346",
+      "exact_product_name": "SmallRig Side Handle with Two-in-One Locating Screw",
+      "model_number": "4346",
+      "category": "side handle",
+      "verified_dimensions_mm": {
+        "length": 68.5,
+        "width": 80,
+        "height": 105,
+        "approximate": false,
+        "note": "Manual página 5: dimensiones del producto, no embalaje. Correspondencia XYZ y asiento estimados."
+      },
+      "verified_weight_g": {
+        "value": 208,
+        "approximate": false,
+        "note": "208 ±5 g de producto completo; masa instalada no medida.",
+        "source_url": "https://static.smallrig.com/mall/img/public/6hzivt5lbfr-1751252249527_.pdf",
+        "checked_on": "2026-10-18"
+      },
+      "planning_weight_g": 213,
+      "ports_interfaces": [
+        "Tornillo convertible de localización 1/4-20 o ARRI 3/8-16",
+        "Adaptador reversible para mano izquierda/derecha",
+        "Ajuste vertical publicado de 36 mm",
+        "Zapata fría, roscas y paso de correa"
+      ],
+      "mounting_method": "Adaptador incluido configurado en localización 1/4-20 sobre lateral 4770, manual de jaula página 4, llamada 2. No usa NATO ni un receptor ARRI lateral inventado.",
+      "likely_material": "Aleación de aluminio, acero inoxidable y silicona; manual página 5.",
+      "rig_role": "Empuñadura lateral candidata para cámara a mano o estática horizontal. No añade monitor ni micrófono sobre sus interfaces auxiliares.",
+      "physical_constraints": [
+        "Inferencia documental de interfaces separadas, no pareja certificada por fabricante. Verificar asiento de pines, profundidad útil del tornillo y apriete sin inventar par.",
+        "Una única pose lateral ilustrativa; no habilita giro, deslizamiento de 36 mm ni dos empuñaduras simultáneas.",
+        "Confirmar mano, pantalla, puertas HDMI/MIC y salida de cables antes de sujetar el conjunto. No transportar por un agarre sin verificar retención.",
+        "No revisada en gimbal, vertical, hombro o con XLR-H1. Elecciones fuera de alcance se conservan pendientes.",
+        "Adaptador incluido: no añadir otro SKU ni contar su masa dos veces. Límite comercial no certifica seguridad dinámica."
+      ],
+      "primary_source_url": "https://static.smallrig.com/mall/img/public/6hzivt5lbfr-1751252249527_.pdf",
+      "bundle_includes": [
+        "Empuñadura ×1",
+        "Adaptador de empuñadura ×1"
+      ]
+    },
+    {
+      "brand": "SmallRig",
+      "mandatory_or_optional": "optional",
+      "secondary_source_url": null,
+      "confidence_level": "medium",
+      "id": "smallrig-2896c",
+      "exact_product_name": "SmallRig Basic Shoulder Rig Kit",
+      "model_number": "2896C",
+      "category": "shoulder support",
+      "verified_dimensions_mm": {
+        "length": 510,
+        "width": 300,
+        "height": 180,
+        "approximate": false,
+        "note": "Manual página 6: envolvente ensamblada publicada. Subpiezas y posiciones ajustables no acotadas; no CAD."
+      },
+      "verified_weight_g": {
+        "value": 1260,
+        "approximate": false,
+        "note": "1260 ±5 g del kit completo; no sumar otra vez sus agarres, base o barras.",
+        "source_url": "https://static.smallrig.com/mall/img/public/1718071886940_.pdf",
+        "checked_on": "2026-10-18"
+      },
+      "planning_weight_g": 1265,
+      "ports_interfaces": [
+        "Placa inferior con tornillos 1/4-20 y 3/8-16 documentados en instalación",
+        "Abrazaderas y varillas de 15 mm",
+        "Conector de agarres sobre varilla transversal de 300 mm",
+        "Almohadilla de hombro sobre las dos varillas longitudinales de 400 mm"
+      ],
+      "mounting_method": "Placa incluida atornillada en rosca inferior 1/4-20 de 4770; se usa sólo el tornillo que corresponde al receptor. Varillas, apoyo y agarres según manual páginas 4-5. No receptor Arca ni liberación rápida implícitos.",
+      "likely_material": "Aleación de aluminio, acero inoxidable, silicona y EVA; manual página 6.",
+      "rig_role": "Primer apoyo de hombro candidato con FX3, 4770, 16-35 GM y batería interna elegidos; monitor NATO/serie L y RX opcionales.",
+      "physical_constraints": [
+        "Cámara, jaula, óptica, monitor y baterías no incluidos. Kit incluye base, dos agarres, dos barras de 400 mm y una transversal de 300 mm.",
+        "No apilar 1674 ni barras de ocho pulgadas: alcance actual sin combinación con esas bases, V-mount, XLR, gimbal o enfoque externo.",
+        "No inferir separación LWS ni altura de eje de 85 mm del diámetro de varilla. Espaciado de la malla es sólo estimado desde el diagrama.",
+        "Posición del hombro, centro de masa real, postura, línea de visión del monitor y acceso a controles deben medirse con el operador. No se simula cuerpo ni equilibrio.",
+        "Guía separada: montar accesorios sobre varillas antes de cerrar ambos extremos. Apoyar el rig antes de aflojar tornillos o retirar cámara.",
+        "No extracción en un clic: la cámara/jaula se retira desatornillando placa con el conjunto apoyado. Mantener asa, manos y cables fuera de la cara.",
+        "Sólo planificación horizontal FX3 con batería nativa; otros cuerpos y configuraciones se conservan pendientes."
+      ],
+      "primary_source_url": "https://static.smallrig.com/mall/img/public/1718071886940_.pdf",
+      "bundle_includes": [
+        "Empuñadura ×2",
+        "Conector de agarres ×1",
+        "Almohadilla de hombro ×1",
+        "Base con doble abrazadera 15 mm ×1",
+        "Varilla 15 mm ×400 mm ×2",
+        "Varilla 15 mm ×300 mm ×1",
+        "Tapón de varilla ×2",
+        "Tornillo 1/4-20 ×2",
+        "Llave hexagonal ×2"
+      ]
     }
   ]
 }

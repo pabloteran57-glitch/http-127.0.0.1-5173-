@@ -4,7 +4,7 @@ Generado desde data/fx30-accessories-review.json y autoridades canónicas. Estad
 
 ## 1. Manifiesto
 
-Productos existentes, no altas implícitas. Soporte NATO de monitor 2906B; Indie 7; HDMI Kondor Blue; Batería Sony NP-F970/PRO; Mic 2; SmallRig 2905B · soporte de zapata; SmallRig 4152 · asa NATO. Identidad, masa y cotas siguen en parts-manifest; sólo RX representa el kit Mic 2 en el rig.
+Productos existentes, no altas implícitas. Soporte NATO de monitor 2906B; Indie 7; HDMI Kondor Blue; Batería Sony NP-F970/PRO; Mic 2; SmallRig 2905B · soporte de zapata; SmallRig 4152 · asa NATO; 4346 · empuñadura lateral. Identidad, masa y cotas siguen en parts-manifest; sólo RX representa el kit Mic 2 en el rig.
 
 ## 2. Distribución
 

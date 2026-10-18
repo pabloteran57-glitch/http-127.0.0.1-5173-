@@ -41,7 +41,14 @@
       "assembly_steps": [
         1
       ],
-      "assembly_profiles": [],
+      "assembly_profiles": [
+        {
+          "id": "fx3-shoulder-2896c",
+          "steps": [
+            1
+          ]
+        }
+      ],
       "release_status": "planning_candidate",
       "physically_tested": false
     },
@@ -69,7 +76,14 @@
       "assembly_steps": [
         1
       ],
-      "assembly_profiles": [],
+      "assembly_profiles": [
+        {
+          "id": "fx3-shoulder-2896c",
+          "steps": [
+            1
+          ]
+        }
+      ],
       "release_status": "planning_candidate",
       "physically_tested": false
     },
@@ -84,6 +98,12 @@
         2
       ],
       "assembly_profiles": [
+        {
+          "id": "fx3-shoulder-2896c",
+          "steps": [
+            2
+          ]
+        },
         {
           "id": "fx30-handheld-prime",
           "steps": [
@@ -161,6 +181,12 @@
         6
       ],
       "assembly_profiles": [
+        {
+          "id": "fx3-shoulder-2896c",
+          "steps": [
+            4
+          ]
+        },
         {
           "id": "fx30-handheld-prime",
           "steps": [
@@ -261,6 +287,12 @@
       ],
       "assembly_profiles": [
         {
+          "id": "fx3-shoulder-2896c",
+          "steps": [
+            6
+          ]
+        },
+        {
           "id": "fx30-handheld-prime",
           "steps": [
             7
@@ -306,7 +338,14 @@
       "assembly_steps": [
         9
       ],
-      "assembly_profiles": [],
+      "assembly_profiles": [
+        {
+          "id": "fx3-shoulder-2896c",
+          "steps": [
+            7
+          ]
+        }
+      ],
       "release_status": "planning_candidate",
       "physically_tested": false
     },
@@ -402,6 +441,12 @@
       ],
       "assembly_profiles": [
         {
+          "id": "fx3-shoulder-2896c",
+          "steps": [
+            4
+          ]
+        },
+        {
           "id": "fx30-handheld-prime",
           "steps": [
             5
@@ -436,6 +481,12 @@
         11
       ],
       "assembly_profiles": [
+        {
+          "id": "fx3-shoulder-2896c",
+          "steps": [
+            5
+          ]
+        },
         {
           "id": "fx30-handheld-prime",
           "steps": [
@@ -495,6 +546,12 @@
         1
       ],
       "assembly_profiles": [
+        {
+          "id": "fx3-shoulder-2896c",
+          "steps": [
+            1
+          ]
+        },
         {
           "id": "fx30-handheld-prime",
           "steps": [
@@ -562,6 +619,46 @@
           "id": "fx30-handheld-prime",
           "steps": [
             2
+          ]
+        }
+      ],
+      "release_status": "planning_candidate",
+      "physically_tested": false
+    },
+    {
+      "part_id": "smallrig-4346",
+      "record_revision": "fx3-rs4-2026-10-05",
+      "model_number": "4346",
+      "identity_source_url": "https://static.smallrig.com/mall/img/public/6hzivt5lbfr-1751252249527_.pdf",
+      "geometry_profile_id": "smallrig-4346",
+      "geometry_status": "approximate",
+      "assembly_steps": [
+        2
+      ],
+      "assembly_profiles": [
+        {
+          "id": "fx30-handheld-prime",
+          "steps": [
+            2
+          ]
+        }
+      ],
+      "release_status": "planning_candidate",
+      "physically_tested": false
+    },
+    {
+      "part_id": "smallrig-2896c",
+      "record_revision": "fx3-rs4-2026-10-05",
+      "model_number": "2896C",
+      "identity_source_url": "https://static.smallrig.com/mall/img/public/1718071886940_.pdf",
+      "geometry_profile_id": "smallrig-2896c",
+      "geometry_status": "approximate",
+      "assembly_steps": [],
+      "assembly_profiles": [
+        {
+          "id": "fx3-shoulder-2896c",
+          "steps": [
+            3
           ]
         }
       ],

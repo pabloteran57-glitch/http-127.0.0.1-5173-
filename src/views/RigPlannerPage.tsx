@@ -1,4 +1,4 @@
-import { useRef, useState, type KeyboardEvent } from "react";
+import { useLayoutEffect, useRef, useState, type KeyboardEvent } from "react";
 import { cablesData, layoutData, partById, plannerData, portsData, referencesData, variantsData } from "../data";
 import { layoutForVariant, movingMass, nodeWeight, preferredPartId } from "../lib/viewer";
 import type { CustomRig, RigAdjustments, Variant } from "../lib/types";
@@ -39,6 +39,13 @@ export default function RigPlannerPage({profileName,onProfiles,exploded,onExplod
  const [attachmentAnchor,setAttachmentAnchor]=useState("");
  const [adjustmentPart,setAdjustmentPart]=useState("");
  const profileDialog=useRef<HTMLDialogElement>(null);
+ const previousTask=useRef(tab);
+ useLayoutEffect(()=>{
+  if(previousTask.current===tab)return;
+  previousTask.current=tab;
+  if(window.matchMedia("(max-width:600px)").matches)window.scrollTo({top:0,behavior:"auto"});
+  else{const panel=document.getElementById("task-panel");if(panel)window.scrollTo({top:Math.max(0,window.scrollY+panel.getBoundingClientRect().top-90),behavior:"auto"});}
+ },[tab]);
  const mass=movingMass(variant,layoutData,partById);
  const nodes=layoutForVariant(variant,layoutData).nodes.filter(n=>variant.active_part_ids.includes(n.id));
  const chosenIds=customRig?.part_ids??variant.active_part_ids;
@@ -49,7 +56,7 @@ export default function RigPlannerPage({profileName,onProfiles,exploded,onExplod
  const ids=bench?cablesData.profiles.requested_dual_feed_bench:variant.cable_profile_ids;
  const selectedCable=ids.includes(cableId)?cableId:ids[0]??"";
  const switchVariant=(id:string)=>{onVariantChange(id);setSelectedId("");setCableId("");setAdjustmentPart("");setAttachmentAnchor("");onExplodedChange(false);setBench(false);setResetKey(k=>k+1);};
- const switchTab=(id:Tab)=>{setTab(id);if(id==="connect"){onShowCablesChange(true);onShowLabelsChange(false);}if(id==="design"){setBench(false);onShowCablesChange(false);}if(window.matchMedia("(max-width:600px)").matches)requestAnimationFrame(()=>window.scrollTo({top:0,behavior:"auto"}));};
+ const switchTab=(id:Tab)=>{setTab(id);if(id==="connect"){onShowCablesChange(true);onShowLabelsChange(false);}if(id==="design"){setBench(false);onShowCablesChange(false);}};
  const tabKey=(event:KeyboardEvent<HTMLButtonElement>,index:number)=>{if(!["ArrowLeft","ArrowRight","Home","End"].includes(event.key))return;event.preventDefault();const next=event.key==="Home"?0:event.key==="End"?3:(index+(event.key==="ArrowRight"?1:3))%4;switchTab(tabs[next].id);document.getElementById(`tab-${tabs[next].id}`)?.focus();};
  const inspect=(id:string)=>{setSelectedId(id);switchTab("design");requestAnimationFrame(()=>document.getElementById("workspace")?.scrollIntoView({block:"start"}));};
  const profileHints:Record<string,string>=ui.profile_hints;

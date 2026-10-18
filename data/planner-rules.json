@@ -10,10 +10,20 @@
       "host_part_id": "smallrig-4770",
       "label": "NATO superior de la jaula",
       "interface": "Riel NATO desmontable",
-      "candidate_part_ids": ["smallrig-2906b", "smallrig-4152"],
-      "condition": {"not_context": "gimbal", "none": ["sony-xlr-h1"]},
+      "candidate_part_ids": [
+        "smallrig-2906b",
+        "smallrig-4152"
+      ],
+      "condition": {
+        "not_context": "gimbal",
+        "none": [
+          "sony-xlr-h1"
+        ]
+      },
       "exclusive_group_id": "cage-top-nato",
-      "source_ids": ["audit-doc-smallrig-4770-manual"],
+      "source_ids": [
+        "audit-doc-smallrig-4770-manual"
+      ],
       "note": "Asiento conservador del plan, no longitud útil medida del riel. Con XLR-H1 se retira; no se representa como anclaje disponible."
     },
     {
@@ -21,10 +31,15 @@
       "host_part_id": "smallrig-4770",
       "label": "Zapata inclinada de la jaula",
       "interface": "Zapata sin contactos",
-      "candidate_part_ids": ["smallrig-2905b", "dji-mic-2-kit"],
+      "candidate_part_ids": [
+        "smallrig-2905b",
+        "dji-mic-2-kit"
+      ],
       "condition": {},
       "exclusive_group_id": "cage-cold-shoe",
-      "source_ids": ["audit-doc-smallrig-4770-manual"],
+      "source_ids": [
+        "audit-doc-smallrig-4770-manual"
+      ],
       "note": "Se representa sólo el RX de Mic 2. Con asa 4152, el 2905B sigue la zapata frontal del asa, no ésta. Retención y despejes reales pendientes."
     },
     {
@@ -32,9 +47,19 @@
       "host_part_id": "smallrig-4152",
       "label": "Zapata frontal del asa",
       "interface": "Zapata sin contactos",
-      "candidate_part_ids": ["smallrig-2905b"],
-      "condition": {"not_context": "gimbal", "orientation": "landscape", "none": ["sony-xlr-h1"]},
-      "source_ids": ["src-smallrig-4152-manual"],
+      "candidate_part_ids": [
+        "smallrig-2905b"
+      ],
+      "condition": {
+        "not_context": "gimbal",
+        "orientation": "landscape",
+        "none": [
+          "sony-xlr-h1"
+        ]
+      },
+      "source_ids": [
+        "src-smallrig-4152-manual"
+      ],
       "note": "Sólo la zapata superior frontal de la cadena candidata actual. No ofrece las dos zapatas posteriores ni giro libre del asa."
     },
     {
@@ -42,9 +67,18 @@
       "host_part_id": "smallrig-4830",
       "label": "NATO de la extensión XLR",
       "interface": "Riel NATO de 4830",
-      "candidate_part_ids": ["smallrig-2906b"],
-      "condition": {"not_context": "gimbal", "all": ["sony-xlr-h1"]},
-      "source_ids": ["src-smallrig-4830-manual"],
+      "candidate_part_ids": [
+        "smallrig-2906b"
+      ],
+      "condition": {
+        "not_context": "gimbal",
+        "all": [
+          "sony-xlr-h1"
+        ]
+      },
+      "source_ids": [
+        "src-smallrig-4830-manual"
+      ],
       "note": "Cadena alternativa sobre XLR-H1, no sobre el NATO superior retirado de la jaula. Encaje y despejes pendientes."
     },
     {
@@ -52,10 +86,55 @@
       "host_part_id": "dji-rs4-pro-combo",
       "label": "Monitor lateral fijo",
       "interface": "Anclaje lateral de la cadena 3026B",
-      "candidate_part_ids": ["smallrig-3026b"],
-      "condition": {"context": "gimbal"},
-      "source_ids": ["audit-doc-smallrig-3026b-manual"],
+      "candidate_part_ids": [
+        "smallrig-3026b"
+      ],
+      "condition": {
+        "context": "gimbal"
+      },
+      "source_ids": [
+        "audit-doc-smallrig-3026b-manual"
+      ],
       "note": "Monitor fuera del núcleo móvil. El estado del plan no prueba acceso a manos, recorrido de ejes o seguridad dinámica."
+    },
+    {
+      "id": "cage-side-locating",
+      "host_part_id": "smallrig-4770",
+      "label": "Localización lateral 1/4-20",
+      "interface": "Rosca 1/4-20 y orificios de localización",
+      "candidate_part_ids": [
+        "smallrig-4346"
+      ],
+      "condition": {
+        "not_context": "gimbal",
+        "orientation": "landscape",
+        "none": [
+          "sony-xlr-h1"
+        ]
+      },
+      "source_ids": [
+        "audit-doc-smallrig-4770-manual",
+        "src-support-smallrig-4346-manual"
+      ],
+      "note": "Sólo la pose candidata 4346. No es NATO, ARRI 3/8 ni patrón dimensional verificado; retención, mano y puertos por comprobar."
+    },
+    {
+      "id": "cage-bottom-shoulder",
+      "host_part_id": "smallrig-4770",
+      "label": "Fijación inferior para placa 2896C",
+      "interface": "Rosca inferior 1/4-20 y tornillo de placa incluido",
+      "candidate_part_ids": [
+        "smallrig-2896c"
+      ],
+      "condition": {
+        "context": "shoulder",
+        "orientation": "landscape"
+      },
+      "source_ids": [
+        "audit-doc-smallrig-4770-manual",
+        "src-support-smallrig-2896c-manual"
+      ],
+      "note": "Asiento candidato único del plan. Profundidad y resistencia antitorsión no medidas. No receptor Arca ni doble tornillo 3/8 añadido al 1/4."
     }
   ],
   "attachment_options": [
@@ -491,6 +570,47 @@
         "audit-doc-dji-mic2-manual"
       ],
       "note": "Monitor sobre asa 4152, RX sobre zapata 4770: dos asientos distintos. TX y estuche fuera del rig; sin alimentación por zapata pasiva."
+    },
+    {
+      "id": "cage-side-4346",
+      "anchor_part_id": "smallrig-4770",
+      "label": "Empuñadura lateral 4346",
+      "add_part_ids": [
+        "smallrig-4346"
+      ],
+      "condition": {
+        "not_context": "gimbal",
+        "orientation": "landscape",
+        "none": [
+          "sony-xlr-h1",
+          "smallrig-2896c"
+        ]
+      },
+      "source_ids": [
+        "audit-doc-smallrig-4770-manual",
+        "src-support-smallrig-4346-manual"
+      ],
+      "note": "Adaptador incluido en configuración 1/4-20. Añade sólo la empuñadura; no sus accesorios ni otra unidad. Verificar mano, pines, tornillo y cables."
+    },
+    {
+      "id": "cage-shoulder-2896c",
+      "anchor_part_id": "smallrig-4770",
+      "label": "Kit de hombro 2896C",
+      "add_part_ids": [
+        "smallrig-2896c"
+      ],
+      "condition": {
+        "context": "shoulder",
+        "orientation": "landscape",
+        "all": [
+          "sony-fx3"
+        ]
+      },
+      "source_ids": [
+        "audit-doc-smallrig-4770-manual",
+        "src-support-smallrig-2896c-manual"
+      ],
+      "note": "Incluye base, apoyo, varillas y dos agarres. La propuesta no agrega óptica o batería; elegirlas explícitamente. Sin 1674 ni extracción rápida inventada."
     }
   ],
   "camera_part_ids": [
@@ -838,6 +958,39 @@
         ]
       },
       "message": "Cadena candidata: comprobar asiento NATO/zapata, rosca, agarre, carga con batería y cable. Límite del soporte no certifica retención del conjunto; no hay ensayo físico registrado."
+    },
+    {
+      "id": "side-handle-preflight",
+      "condition": {
+        "all": [
+          "smallrig-4346"
+        ]
+      },
+      "message": "4346: verificar encaje de pines 1/4-20, tornillo, retención, mano, pantalla y HDMI/MIC con los cables reales. Pareja candidata, sin ensayo físico."
+    },
+    {
+      "id": "shoulder-support",
+      "condition": {
+        "context": "shoulder"
+      },
+      "required_all": [
+        "smallrig-2896c",
+        "smallrig-4770",
+        "sony-fx3",
+        "sony-fe-16-35-gm",
+        "sony-np-fz100"
+      ],
+      "message": "Completa el primer rig al hombro: FX3, 16-35 GM, jaula 4770, kit 2896C y NP-FZ100. El kit ya incluye base, varillas y dos agarres."
+    },
+    {
+      "id": "shoulder-preflight",
+      "condition": {
+        "all": [
+          "smallrig-2896c"
+        ],
+        "context": "shoulder"
+      },
+      "message": "Apoyar y asegurar antes de montar al hombro. Medir balance, postura, línea de visión, rostro, manos, ajuste de tornillos y tendido real; la app no certifica ergonomía o retención."
     }
   ],
   "cable_exclusions": [
@@ -942,6 +1095,12 @@
     ],
     "smallrig-4152": [
       "smallrig-4770"
+    ],
+    "smallrig-4346": [
+      "smallrig-4770"
+    ],
+    "smallrig-2896c": [
+      "smallrig-4770"
     ]
   },
   "gimbal_only_part_ids": [
@@ -1009,15 +1168,17 @@
         "smallrig-2906b",
         "smallrig-4830",
         "smallrig-2905b",
-        "smallrig-4152"
+        "smallrig-4152",
+        "smallrig-4346"
       ]
     },
     {
       "id": "support",
-      "label": "Estabilización",
+      "label": "Soportes y estabilización",
       "part_ids": [
         "dji-rs4-pro-combo",
-        "dji-rs-bg70"
+        "dji-rs-bg70",
+        "smallrig-2896c"
       ]
     },
     {
@@ -1086,7 +1247,8 @@
         "dji-mic-2-kit",
         "dji-lavalier",
         "smallrig-4830",
-        "smallrig-4152"
+        "smallrig-4152",
+        "smallrig-4346"
       ],
       "add_cable_ids": [
         "audio-rx-to-fx3",
@@ -1225,7 +1387,8 @@
     "sony-monitor-control-app",
     "sony-np-fz100",
     "sony-fe-35-f18",
-    "smallrig-4152"
+    "smallrig-4152",
+    "smallrig-4346"
   ],
   "dynamic_mount_dependencies": [
     {
@@ -1395,6 +1558,31 @@
         "landscape"
       ],
       "message": "Cadena candidata sólo a mano/estática y horizontal; otros montajes conservan la elección pendiente. Retención, cargas y manos por comprobar."
+    },
+    {
+      "part_ids": [
+        "smallrig-4346"
+      ],
+      "contexts": [
+        "handheld",
+        "static"
+      ],
+      "orientations": [
+        "landscape"
+      ],
+      "message": "4346 revisada sólo como candidata lateral de 4770 a mano/estática horizontal; otras posiciones, hombro y XLR siguen pendientes."
+    },
+    {
+      "part_ids": [
+        "smallrig-2896c"
+      ],
+      "contexts": [
+        "shoulder"
+      ],
+      "orientations": [
+        "landscape"
+      ],
+      "message": "2896C revisado sólo en el contexto Al hombro horizontal, con FX3/4770 y fuente nativa. No se adapta a gimbal por compartir varillas."
     }
   ],
   "selection_scopes": [
@@ -1417,7 +1605,8 @@
         "dji-mic-2-kit",
         "sony-fe-35-f18",
         "smallrig-2905b",
-        "smallrig-4152"
+        "smallrig-4152",
+        "smallrig-4346"
       ],
       "message": "Accesorio fuera de las cadenas FX30 revisadas: núcleo, monitor NATO con serie L y RX en zapata. Otros soportes, fuentes y contextos siguen elegidos pendientes, sin heredar FX3."
     },
@@ -1465,9 +1654,130 @@
         "sony-fe-35-f18"
       ],
       "message": "4152/2905B con XLR-H1 no revisados: conservar en reserva. XLR requiere retirar NATO superior 4770; no apilar interfaces."
+    },
+    {
+      "id": "shoulder-2896c-scope",
+      "condition": {
+        "context": "shoulder"
+      },
+      "allowed_part_ids": [
+        "sony-fx3",
+        "sony-fe-16-35-gm",
+        "smallrig-4770",
+        "smallrig-2896c",
+        "sony-np-fz100",
+        "smallrig-2906b",
+        "smallhd-indie-7",
+        "sony-np-f970-pro",
+        "kondor-blue-hdmi-aa",
+        "dji-mic-2-kit"
+      ],
+      "message": "Primer alcance al hombro: FX3/16-35 GM/4770/2896C y NP-FZ100; opcionales monitor NATO con serie L y RX. No se heredan base/varillas de ocho pulgadas, V-mount, XLR, gimbal u otras ópticas."
     }
   ],
   "assembly_profiles": [
+    {
+      "id": "fx3-shoulder-2896c",
+      "camera_part_id": "sony-fx3",
+      "context": "shoulder",
+      "frames": [
+        {
+          "step": 1,
+          "add_part_ids": [
+            "sony-fx3",
+            "sony-fe-16-35-gm",
+            "sony-np-fz100"
+          ],
+          "add_cable_ids": [
+            "pwr-npfz100-to-fx3-contacts"
+          ],
+          "context_part_ids": [],
+          "note": "Rig al hombro candidato; poses y transiciones ilustrativas, no trayectorias físicas ni equilibrio medido."
+        },
+        {
+          "step": 2,
+          "add_part_ids": [
+            "smallrig-4770"
+          ],
+          "add_cable_ids": [],
+          "context_part_ids": [],
+          "note": "Rig al hombro candidato; poses y transiciones ilustrativas, no trayectorias físicas ni equilibrio medido."
+        },
+        {
+          "step": 3,
+          "add_part_ids": [
+            "smallrig-2896c"
+          ],
+          "add_cable_ids": [],
+          "context_part_ids": [],
+          "note": "Rig al hombro candidato; poses y transiciones ilustrativas, no trayectorias físicas ni equilibrio medido."
+        },
+        {
+          "step": 4,
+          "add_part_ids": [
+            "smallrig-2906b",
+            "smallhd-indie-7"
+          ],
+          "add_cable_ids": [],
+          "context_part_ids": [],
+          "note": "Rig al hombro candidato; poses y transiciones ilustrativas, no trayectorias físicas ni equilibrio medido."
+        },
+        {
+          "step": 5,
+          "add_part_ids": [
+            "sony-np-f970-pro"
+          ],
+          "add_cable_ids": [
+            "pwr-npf-to-smallhd-contacts"
+          ],
+          "context_part_ids": [],
+          "note": "Rig al hombro candidato; poses y transiciones ilustrativas, no trayectorias físicas ni equilibrio medido."
+        },
+        {
+          "step": 6,
+          "add_part_ids": [
+            "dji-mic-2-kit"
+          ],
+          "add_cable_ids": [],
+          "context_part_ids": [],
+          "note": "Rig al hombro candidato; poses y transiciones ilustrativas, no trayectorias físicas ni equilibrio medido."
+        },
+        {
+          "step": 7,
+          "add_part_ids": [
+            "kondor-blue-hdmi-aa"
+          ],
+          "add_cable_ids": [
+            "vid-fx3-to-smallhd"
+          ],
+          "context_part_ids": [],
+          "note": "Rig al hombro candidato; poses y transiciones ilustrativas, no trayectorias físicas ni equilibrio medido."
+        },
+        {
+          "step": 8,
+          "add_part_ids": [],
+          "add_cable_ids": [
+            "audio-rx-to-fx3"
+          ],
+          "context_part_ids": [],
+          "note": "Rig al hombro candidato; poses y transiciones ilustrativas, no trayectorias físicas ni equilibrio medido."
+        },
+        {
+          "step": 9,
+          "add_part_ids": [],
+          "add_cable_ids": [],
+          "context_part_ids": [],
+          "note": "Rig al hombro candidato; poses y transiciones ilustrativas, no trayectorias físicas ni equilibrio medido."
+        },
+        {
+          "step": 10,
+          "add_part_ids": [],
+          "add_cable_ids": [],
+          "context_part_ids": [],
+          "note": "Rig al hombro candidato; poses y transiciones ilustrativas, no trayectorias físicas ni equilibrio medido."
+        }
+      ]
+    },
     {
       "id": "fx30-handheld-prime",
       "camera_part_id": "sony-fx30",
@@ -1485,7 +1795,8 @@
           "step": 2,
           "add_part_ids": [
             "smallrig-4770",
-            "smallrig-4152"
+            "smallrig-4152",
+            "smallrig-4346"
           ],
           "add_cable_ids": [],
           "context_part_ids": [],

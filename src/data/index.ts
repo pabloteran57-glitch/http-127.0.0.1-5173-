@@ -28,6 +28,7 @@ import type {
   ConnectionReviewManifest,
   ConnectionCheck,
   ElectricalProperties,
+  CustomRig,
 } from "../lib/types";
 
 export const partsData = partsManifest as PartsManifest;
@@ -48,7 +49,7 @@ const vector = (values: number[]): Vec3 => {
   if (values.length !== 3 || !values.every(Number.isFinite)) throw new Error("Invalid layout vector");
   return [values[0], values[1], values[2]];
 };
-const kinds: LayoutNode["kind"][] = ["camera", "lens", "cage", "baseplate", "rods", "matte", "batteryPlate", "battery", "gimbal", "grip", "monitorMount", "monitor", "handle", "audioReceiver", "compactMonitorMount", "handleExtension", "monitorBattery", "nativeBattery"];
+const kinds: LayoutNode["kind"][] = ["camera", "lens", "cage", "baseplate", "rods", "matte", "batteryPlate", "battery", "gimbal", "grip", "monitorMount", "monitor", "handle", "audioReceiver", "compactMonitorMount", "handleExtension", "monitorBattery", "nativeBattery", "sideHandle", "shoulderSupport"];
 function layoutOverride(raw:{position_mm?:number[];rotation_deg?:number[];parent_id?:string;mass_domain?:string;mount?:string;placement?:string;orientation?:string;rationale?:string;rejected?:string}):Partial<LayoutNode>{
   return {...(raw.position_mm?{position_mm:vector(raw.position_mm)}:{}),...(raw.rotation_deg?{rotation_deg:vector(raw.rotation_deg)}:{}),...(raw.parent_id?{parent_id:raw.parent_id}:{}),...(raw.mass_domain?{mass_domain:raw.mass_domain==="fixed"?"fixed":"moving"}:{}),...(raw.mount?{mount:raw.mount}:{}),...(raw.placement?{placement:raw.placement}:{}),...(raw.orientation?{orientation:raw.orientation}:{}),...(raw.rationale?{rationale:raw.rationale}:{}),...(raw.rejected?{rejected:raw.rejected}:{})};
 }
@@ -58,6 +59,7 @@ export const layoutData: LayoutManifest = {
   monitor_joints: Object.fromEntries(Object.entries(layoutManifest.monitor_joints).map(([id,joint])=>[id,{...joint,tilt_range_deg:[joint.tilt_range_deg[0],joint.tilt_range_deg[1]] as [number,number],swivel_range_deg:[joint.swivel_range_deg[0],joint.swivel_range_deg[1]] as [number,number],tilt_pivot_local_mm:vector(joint.tilt_pivot_local_mm),swivel_pivot_local_mm:vector(joint.swivel_pivot_local_mm)} satisfies MonitorJoint])),
   monitor_mount_routes: Object.fromEntries(Object.entries(layoutManifest.monitor_mount_routes).map(([id,route])=>[id,{label:route.label,overrides:Object.fromEntries(Object.entries(route.overrides).map(([partId,override])=>[partId,layoutOverride(override)]))}])),
   camera_layout_profiles: layoutManifest.camera_layout_profiles.map(profile=>({...profile,overrides:Object.fromEntries(Object.entries(profile.overrides).map(([id,override])=>[id,layoutOverride(override??{})]))})),
+  context_layout_profiles: layoutManifest.context_layout_profiles.map(profile=>({...profile,context:profile.context as CustomRig["context"],overrides:Object.fromEntries(Object.entries(profile.overrides).map(([id,override])=>[id,layoutOverride(override)]))})),
   nodes: layoutManifest.nodes.map(node => {
     const kind = kinds.find(kind => kind === node.kind);
     if (!kind) throw new Error(`Invalid layout kind: ${node.kind}`);

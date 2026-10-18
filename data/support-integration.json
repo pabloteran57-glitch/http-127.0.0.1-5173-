@@ -1,0 +1,125 @@
+{
+  "version": 1,
+  "reviewed_on": "2026-10-18",
+  "status": "planning_candidate",
+  "phase_order": [
+    "manifest",
+    "layout",
+    "cables_power",
+    "assembly",
+    "viewer",
+    "variants"
+  ],
+  "active_part_ids": [
+    "smallrig-4346",
+    "smallrig-2896c"
+  ],
+  "mount_methods": {
+    "smallrig-4346": "documented_interfaces_inference",
+    "smallrig-2896c": "documented_interfaces_inference"
+  },
+  "side_handle": {
+    "allowed_contexts": [
+      "handheld",
+      "static"
+    ],
+    "orientation": "landscape",
+    "host_part_id": "smallrig-4770",
+    "interface": "1/4-20 locating",
+    "published_adjustment_mm": 36,
+    "adjustment_enabled": false,
+    "simultaneous_instances": false
+  },
+  "shoulder": {
+    "context": "shoulder",
+    "orientation": "landscape",
+    "profile_id": "fx3-shoulder-2896c",
+    "required_part_ids": [
+      "sony-fx3",
+      "sony-fe-16-35-gm",
+      "smallrig-4770",
+      "smallrig-2896c",
+      "sony-np-fz100"
+    ],
+    "optional_part_ids": [
+      "smallrig-2906b",
+      "smallhd-indie-7",
+      "sony-np-f970-pro",
+      "kondor-blue-hdmi-aa",
+      "dji-mic-2-kit"
+    ],
+    "included_parts_are_separate_skus": false,
+    "quick_release": false,
+    "new_cable_ids": [],
+    "rod_spacing_mm": null,
+    "optical_height_mm": null,
+    "operator_geometry": null,
+    "adjustment_enabled": false
+  },
+  "examples": [
+    {
+      "id": "fx3-handheld-side-monitor",
+      "context": "handheld",
+      "orientation": "landscape",
+      "part_ids": [
+        "sony-fx3",
+        "sony-fe-16-35-gm",
+        "smallrig-4770",
+        "smallrig-4346",
+        "sony-np-fz100",
+        "smallrig-2906b",
+        "smallhd-indie-7",
+        "sony-np-f970-pro",
+        "kondor-blue-hdmi-aa",
+        "dji-mic-2-kit"
+      ]
+    },
+    {
+      "id": "fx30-handheld-side",
+      "context": "handheld",
+      "orientation": "landscape",
+      "part_ids": [
+        "sony-fx30",
+        "sony-fe-20-f18-g",
+        "smallrig-4770",
+        "smallrig-4346",
+        "sony-np-fz100"
+      ]
+    },
+    {
+      "id": "fx3-shoulder-monitor-audio",
+      "context": "shoulder",
+      "orientation": "landscape",
+      "part_ids": [
+        "sony-fx3",
+        "sony-fe-16-35-gm",
+        "smallrig-4770",
+        "smallrig-2896c",
+        "sony-np-fz100",
+        "smallrig-2906b",
+        "smallhd-indie-7",
+        "sony-np-f970-pro",
+        "kondor-blue-hdmi-aa",
+        "dji-mic-2-kit"
+      ]
+    }
+  ],
+  "physical_validation": {
+    "status": "pending",
+    "observations": []
+  },
+  "visual_review": {
+    "status": "reviewed_approximate",
+    "reviewed_on": "2026-10-18",
+    "geometry": "own_approximate",
+    "views_per_product": 5,
+    "private_evidence": "research/model-incoming/support-0218/model-review.png",
+    "discrepancies": [
+      "2896C: longitud visual 498 mm frente a envolvente publicada 510 mm, poses ajustables sin medir.",
+      "4346: eje de dimensiones reasignado para planificación, asiento de pines y rosca sólo ilustrativos."
+    ]
+  },
+  "templates_changed": false,
+  "library_migration": false,
+  "mass_authority": "parts-manifest.json; kit completo una vez, RX por subcomponente"
+}

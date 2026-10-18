@@ -36,7 +36,9 @@
     "sony-np-fz100": "Sony NP-FZ100",
     "sony-fe-35-f18": "FE 35mm F1.8",
     "smallrig-2905b": "SmallRig 2905B · soporte de zapata",
-    "smallrig-4152": "SmallRig 4152 · asa NATO"
+    "smallrig-4152": "SmallRig 4152 · asa NATO",
+    "smallrig-4346": "4346 · empuñadura lateral",
+    "smallrig-2896c": "2896C · kit de hombro"
   },
   "profile_hints": {
     "documentary-one-man-film": "Cámara, monitor lateral y audio para un solo operador.",
@@ -185,6 +187,12 @@
         "label": "Cámara estática",
         "detail": "El soporte de trípode queda por documentar.",
         "icon": "inventory"
+      },
+      {
+        "id": "shoulder",
+        "label": "Al hombro",
+        "detail": "Primera cadena FX3/4770/2896C; ergonomía por comprobar.",
+        "icon": "assemble"
       }
     ],
     "roles": {
@@ -223,7 +231,9 @@
       "sony-np-fz100": "Batería interna nativa · FX3 y piloto FX30",
       "sony-fe-35-f18": "Óptica fija · FX3/FX30 a mano",
       "smallrig-2905b": "Monitor en zapata libre de jaula o asa",
-      "smallrig-4152": "Agarre superior y zapata frontal para monitor"
+      "smallrig-4152": "Agarre superior y zapata frontal para monitor",
+      "smallrig-4346": "Agarre lateral con adaptador incluido",
+      "smallrig-2896c": "Base, apoyo, varillas y dos agarres incluidos"
     }
   },
   "language": "es"

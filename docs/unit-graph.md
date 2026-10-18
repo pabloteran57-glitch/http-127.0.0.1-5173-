@@ -31,7 +31,7 @@ Compilación pública completa superada al repetir fuera del entorno restringido
 
 ## Siguiente lote
 
-[Agarres y hombro](support-intake.md): seis candidatos con fuentes separadas y discrepancias explícitas. [Cobertura de setups](setup-coverage.md) exige doce familias, incluyendo toda fijación, alimentación, señal, mano y extracción. No se activa un contexto de hombro heredando el brazo del gimbal o las varillas cortas del rig maestro.
+[Agarres y hombro](support-intake.md): seis fichas con fuentes separadas. 4346 y 2896C tienen altas candidatas separadas en [0.2.18](support-integration.md); cuatro siguen en investigación. [Cobertura](setup-coverage.md) exige doce familias. El nuevo hombro tiene alcance y guía propios, sin brazo de gimbal o varillas cortas heredados.
 
 Publicación 0.2.17 confirmada `succeeded` el 17 de octubre de 2026 a las 22:28 de Ecuador en el [mismo enlace Takegrid](https://takegrid-rigs.pabloteran57.chatgpt.site). [Revisiones y huellas](additional-hosting.md).
 

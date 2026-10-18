@@ -1,11 +1,15 @@
 {
   "version": 1,
-  "reviewed_on": "2026-10-17",
+  "reviewed_on": "2026-10-18",
   "status": "prototype_hardening_in_progress",
-  "progress_report": "docs/unit-graph.md",
-  "current_milestone": "Cadenas actuales identifican unidades, puertos y recursos; revisión de guía invalida sustituciones y ajustes. Prioridad siguiente: empuñaduras laterales y hombro completos desde support-intake/setup-coverage. Duplicados montados, nuevas poses, ensayos físicos, usuarios y beta siguen pendientes.",
+  "progress_report": "docs/support-integration.md",
+  "current_milestone": "4346 y primer contexto Al hombro 2896C integrados como candidatos con cadenas, guía y geometría aproximada. Continuar soporte estático completo, cuatro candidatos restantes, asientos múltiples, dispositivos, ensayos físicos y beta; no afirmar plan terminado.",
   "user_decisions": [
-    {"date":"2026-10-17","decision":"Incluir sidehandles, rigs al hombro y todas las piezas necesarias por setup","effect":"Priorizar seis candidatos de agarre/apoyo y cobertura explícita de doce familias. No insertar piezas, elegir una interfaz por el usuario ni activar un montaje sin cadena revisada."},
+    {
+      "date": "2026-10-17",
+      "decision": "Incluir sidehandles, rigs al hombro y todas las piezas necesarias por setup",
+      "effect": "Priorizar seis candidatos de agarre/apoyo y cobertura explícita de doce familias. No insertar piezas, elegir una interfaz por el usuario ni activar un montaje sin cadena revisada."
+    },
     {
       "date": "2026-10-05",
       "decision": "Mantener guardado local por ahora",
@@ -32,38 +36,61 @@
     "Fuentes oficiales, derechos de uso y aproximaciones explícitas"
   ],
   "baseline": {
-    "part_entries": 36,
-    "geometry_nodes": 23,
+    "part_entries": 38,
+    "geometry_nodes": 25,
     "canonical_assembly_steps": 13,
     "templates": 7,
     "storage": "Local al navegador y origen; no sincronizado",
     "performance": "Laboratorio optativo de reposo/giro y demanda/continuo. Intervalos de render JavaScript; dispositivos físicos de referencia y objetivos pendientes.",
     "assessment": "Prototipo funcional; no liberado como beta de uso profesional",
-    "product_thumbnails": 23
+    "product_thumbnails": 25
   },
   "findings": [
     {
-      "id":"per-unit-binding-and-review",
-      "status":"software_verified_observed_acceptance_pending",
-      "evidence":["data/unit-graph-policy.json","src/lib/unit-graph.ts","scripts/test-unit-graph.mjs","docs/unit-graph.md"],
-      "description":"Anclajes y extremos identifican unidades concretas; repuestos fuera de la asignación. Revisiones de lectura no sobreviven a sustituciones o ajustes ni reaparecen al volver atrás. 18 pruebas, 1000 subselecciones y recorrido local de intercambio/renombrado/recarga; sin ensayo físico."
+      "id": "per-unit-binding-and-review",
+      "status": "software_verified_observed_acceptance_pending",
+      "evidence": [
+        "data/unit-graph-policy.json",
+        "src/lib/unit-graph.ts",
+        "scripts/test-unit-graph.mjs",
+        "docs/unit-graph.md"
+      ],
+      "description": "Anclajes y extremos identifican unidades concretas; repuestos fuera de la asignación. Revisiones de lectura no sobreviven a sustituciones o ajustes ni reaparecen al volver atrás. 18 pruebas, 1000 subselecciones y recorrido local de intercambio/renombrado/recarga; sin ensayo físico."
     },
     {
-      "id":"side-handles-and-shoulder-coverage",
-      "status":"research_only_complete_chain_pending",
-      "evidence":["data/support-intake.json","data/setup-coverage.json","scripts/test-setup-coverage.mjs","docs/support-intake.md"],
-      "description":"Tres empuñaduras laterales y tres kits de hombro investigados; 4346/2896C con manuales visualmente revisados. Discrepancias y parejas pendientes explícitas. Lista de doce áreas en el editor; no nuevos productos ni contexto shoulder activados."
+      "id": "side-handles-and-shoulder-coverage",
+      "status": "planning_candidates_software_implemented_physical_and_observed_tests_pending",
+      "evidence": [
+        "data/support-intake.json",
+        "data/setup-coverage.json",
+        "scripts/test-setup-coverage.mjs",
+        "docs/support-intake.md",
+        "data/support-integration.json",
+        "scripts/test-support-integration.mjs",
+        "docs/support-integration.md"
+      ],
+      "description": "4346 y primer contexto Al hombro 2896C integrados como candidatos con cadenas, guía y geometría aproximada. Continuar soporte estático completo, cuatro candidatos restantes, asientos múltiples, dispositivos, ensayos físicos y beta; no afirmar plan terminado."
     },
     {
       "id": "independent-units-foundation",
       "status": "identity_and_spares_implemented_multi_mount_pending",
-      "evidence": ["src/lib/planner.ts", "src/components/RigUnitEditor.tsx", "scripts/test-rig-units.mjs", "docs/rig-units.md"],
+      "evidence": [
+        "src/lib/planner.ts",
+        "src/components/RigUnitEditor.tsx",
+        "scripts/test-rig-units.mjs",
+        "docs/rig-units.md"
+      ],
       "description": "Unidades independientes por proyecto, etiquetas y repuestos; biblioteca v3 aislada de v1/v2 y borradores nuevos separados de antiguos. Una unidad por SKU en las cadenas actuales; asignación simultánea por asiento y puertos sigue pendiente, no se generan duplicados ficticios."
     },
     {
       "id": "anchor-occupancy-diagnostics",
       "status": "software_verified_observed_acceptance_pending",
-      "evidence": ["data/anchor-diagnostics-review.json", "data/planner-rules.json", "scripts/test-anchor-diagnostics.mjs", "docs/anchor-diagnostics-qa.md"],
+      "evidence": [
+        "data/anchor-diagnostics-review.json",
+        "data/planner-rules.json",
+        "scripts/test-anchor-diagnostics.mjs",
+        "docs/anchor-diagnostics-qa.md"
+      ],
       "description": "Cinco anclajes de cadenas actuales con ocupación por selección y padre contextual; opciones listas/elegidas/bloqueadas explicadas. Sin nuevas capacidades ni compatibilidades. Pruebas remapeadas y 2048 subselecciones; aceptación real pendiente."
     },
     {

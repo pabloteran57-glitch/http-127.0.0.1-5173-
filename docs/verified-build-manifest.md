@@ -1,6 +1,6 @@
 # Manifiesto verificado de piezas
 
-Generado desde `data/parts-manifest.json`. Auditoría 2026-10-06. 25 productos solicitados y 2 componentes del Combo conservados, más 3 accesorios de monitor y 6 altas acotadas: 36 entradas.
+Generado desde `data/parts-manifest.json`. Auditoría 2026-10-06. 25 productos solicitados y 2 componentes del Combo conservados, más 3 accesorios de monitor y 8 altas acotadas: 38 entradas.
 
 Plan de ingeniería, no montaje certificado. Medidas publicadas no prueban forma exacta, enganche de tornillos, equilibrio, rigidez, holguras ni compatibilidad de toda la pila. Fotos y geometría aproximada no son CAD calibrado.
 
@@ -687,3 +687,41 @@ Plan de ingeniería, no montaje certificado. Medidas publicadas no prueban forma
 - Restricciones: Manual páginas 3-5: comprobar NATO existente, deslizar y cerrar; sostener cámara antes de liberar giro.; Ocupa el NATO superior reservado también al 2906B: esas dos cadenas no se instalan simultáneamente en el mismo asiento representado.; No junto a XLR-H1: éste requiere retirar el NATO superior 4770. Gimbal y vertical no revisados.; Las dos zapatas posteriores no se usan simultáneamente; no se ofrecen como dos recursos libres. Se representa sólo la zapata superior frontal.; 15 kg publicado en ficha, no certificación dinámica del conjunto, profundidad de tornillos, manos ni carga de la zapata.
 - Confianza: Media.
 - [Fuente principal](https://static.smallrig.com/mall/img/public/yq5buifh3ha-1742372936152_.pdf)
+
+## 4346 · empuñadura lateral
+
+- ID: `smallrig-4346`
+- Nombre oficial del fabricante: SmallRig Side Handle with Two-in-One Locating Screw.
+- Modelo: 4346; fabricante: SmallRig; categoría: side handle.
+- Medidas publicadas L/W/H: 68.5 / 80 / 105 mm. Aproximadas/incompletas: no.
+- Nota de dimensiones: Manual página 5: dimensiones del producto, no embalaje. Correspondencia XYZ y asiento estimados.
+- Masa publicada: 208 g. Aproximada: no.
+- Nota de masa: 208 ±5 g de producto completo; masa instalada no medida.
+- Fuente de masa: [SmallRig](https://static.smallrig.com/mall/img/public/6hzivt5lbfr-1751252249527_.pdf).
+- Masa de planificación: 213 g; no sustituye pesaje del subconjunto instalado.
+- Interfaces: Tornillo convertible de localización 1/4-20 o ARRI 3/8-16; Adaptador reversible para mano izquierda/derecha; Ajuste vertical publicado de 36 mm; Zapata fría, roscas y paso de correa
+- Montaje: Adaptador incluido configurado en localización 1/4-20 sobre lateral 4770, manual de jaula página 4, llamada 2. No usa NATO ni un receptor ARRI lateral inventado.
+- Material: Aleación de aluminio, acero inoxidable y silicona; manual página 5.
+- Obligatorio/opcional: Opcional; función: Empuñadura lateral candidata para cámara a mano o estática horizontal. No añade monitor ni micrófono sobre sus interfaces auxiliares..
+- Restricciones: Inferencia documental de interfaces separadas, no pareja certificada por fabricante. Verificar asiento de pines, profundidad útil del tornillo y apriete sin inventar par.; Una única pose lateral ilustrativa; no habilita giro, deslizamiento de 36 mm ni dos empuñaduras simultáneas.; Confirmar mano, pantalla, puertas HDMI/MIC y salida de cables antes de sujetar el conjunto. No transportar por un agarre sin verificar retención.; No revisada en gimbal, vertical, hombro o con XLR-H1. Elecciones fuera de alcance se conservan pendientes.; Adaptador incluido: no añadir otro SKU ni contar su masa dos veces. Límite comercial no certifica seguridad dinámica.
+- Confianza: Media.
+- [Fuente principal](https://static.smallrig.com/mall/img/public/6hzivt5lbfr-1751252249527_.pdf)
+
+## 2896C · kit de hombro
+
+- ID: `smallrig-2896c`
+- Nombre oficial del fabricante: SmallRig Basic Shoulder Rig Kit.
+- Modelo: 2896C; fabricante: SmallRig; categoría: shoulder support.
+- Medidas publicadas L/W/H: 510 / 300 / 180 mm. Aproximadas/incompletas: no.
+- Nota de dimensiones: Manual página 6: envolvente ensamblada publicada. Subpiezas y posiciones ajustables no acotadas; no CAD.
+- Masa publicada: 1260 g. Aproximada: no.
+- Nota de masa: 1260 ±5 g del kit completo; no sumar otra vez sus agarres, base o barras.
+- Fuente de masa: [SmallRig](https://static.smallrig.com/mall/img/public/1718071886940_.pdf).
+- Masa de planificación: 1265 g; no sustituye pesaje del subconjunto instalado.
+- Interfaces: Placa inferior con tornillos 1/4-20 y 3/8-16 documentados en instalación; Abrazaderas y varillas de 15 mm; Conector de agarres sobre varilla transversal de 300 mm; Almohadilla de hombro sobre las dos varillas longitudinales de 400 mm
+- Montaje: Placa incluida atornillada en rosca inferior 1/4-20 de 4770; se usa sólo el tornillo que corresponde al receptor. Varillas, apoyo y agarres según manual páginas 4-5. No receptor Arca ni liberación rápida implícitos.
+- Material: Aleación de aluminio, acero inoxidable, silicona y EVA; manual página 6.
+- Obligatorio/opcional: Opcional; función: Primer apoyo de hombro candidato con FX3, 4770, 16-35 GM y batería interna elegidos; monitor NATO/serie L y RX opcionales..
+- Restricciones: Cámara, jaula, óptica, monitor y baterías no incluidos. Kit incluye base, dos agarres, dos barras de 400 mm y una transversal de 300 mm.; No apilar 1674 ni barras de ocho pulgadas: alcance actual sin combinación con esas bases, V-mount, XLR, gimbal o enfoque externo.; No inferir separación LWS ni altura de eje de 85 mm del diámetro de varilla. Espaciado de la malla es sólo estimado desde el diagrama.; Posición del hombro, centro de masa real, postura, línea de visión del monitor y acceso a controles deben medirse con el operador. No se simula cuerpo ni equilibrio.; Guía separada: montar accesorios sobre varillas antes de cerrar ambos extremos. Apoyar el rig antes de aflojar tornillos o retirar cámara.; No extracción en un clic: la cámara/jaula se retira desatornillando placa con el conjunto apoyado. Mantener asa, manos y cables fuera de la cara.; Sólo planificación horizontal FX3 con batería nativa; otros cuerpos y configuraciones se conservan pendientes.
+- Confianza: Media.
+- [Fuente principal](https://static.smallrig.com/mall/img/public/1718071886940_.pdf)

@@ -1,27 +1,102 @@
 {
   "schema_version": 1,
-  "reviewed_on": "2026-10-17",
+  "reviewed_on": "2026-10-18",
   "scope": "Cobertura exigida para nuevas configuraciones; no una lista de compras ni compatibilidad automática.",
   "policy": "Toda pieza necesaria debe estar elegida o señalada como pendiente. Ofrecer adiciones explícitas y registrar tornillería incluida sin duplicar masa.",
   "families": [
-    {"id": "camera_core", "label":"Cámara y óptica", "required_check": "Cuerpo, óptica, montura exacta, batería y acceso a tarjeta/ventilación."},
-    {"id": "cage_and_fasteners", "label":"Jaula y tornillería", "required_check": "Jaula/receptor exactos, tornillos incluidos o adicionales, paso, longitud útil, antirrotación, profundidad y apriete. Un tornillo incluido no es otro producto instalado."},
-    {"id": "primary_support", "label":"Soporte principal", "required_check": "Gimbal y empuñadura, trípode/cabezal/placa o apoyo de hombro según uso. El contexto estático actual no certifica trípode completo."},
-    {"id": "grips_and_human_clearance", "label":"Agarres y manos", "required_check": "Agarre nativo, empuñadura lateral o brazos/agarres de hombro; interfaz exacta, orientación, alcance, retención y manos."},
-    {"id": "rods_and_extensions", "label":"Varillas y extensiones", "required_check": "Diámetro, longitud, separación publicada, abrazaderas, rosca interna si se extienden y componentes ya incluidos en el kit."},
-    {"id": "lens_accessories", "label":"Accesorios de óptica", "required_check": "Filtro/parasol, anillos, diámetro frontal, soporte si corresponde y recorrido de óptica; no exigirlos si no se eligieron."},
-    {"id": "monitoring", "label":"Monitor y línea de visión", "required_check": "Monitor opcional, soporte y asiento, alimentación, entrada de señal, línea de visión y recorrido de inclinación sin ocupar el asiento de otro accesorio."},
-    {"id": "power", "label":"Alimentación", "required_check": "Fuente, regulación, tensión, corriente, polaridad, contactos/conectores y autonomía por comprobar. No usar un contrapeso como alimentación implícita."},
-    {"id": "signal_and_control", "label":"Señal y control", "required_check": "Salidas reales, unidad de cable, protocolo, extremos y distribución si hay más destinos. Una salida HDMI no se divide sin dispositivo."},
-    {"id": "audio", "label":"Audio elegido", "required_check": "Sólo si se elige: RX/micrófono, soporte, interfaces, energía y cable correcto. TX/estuche no se cuentan sobre cámara."},
-    {"id": "focus", "label":"Enfoque elegido", "required_check": "Sólo si se elige: motor, abrazadera, engranaje/anillo, módulo, energía, mando y calibración. Rosca compartida no prueba alcance."},
-    {"id": "routing_and_release", "label":"Cableado y extracción", "required_check": "Alivio de tensión, bucles, movimiento, puertos accesibles, desconexión apagada y extracción sin estirar cables."}
+    {
+      "id": "camera_core",
+      "label": "Cámara y óptica",
+      "required_check": "Cuerpo, óptica, montura exacta, batería y acceso a tarjeta/ventilación."
+    },
+    {
+      "id": "cage_and_fasteners",
+      "label": "Jaula y tornillería",
+      "required_check": "Jaula/receptor exactos, tornillos incluidos o adicionales, paso, longitud útil, antirrotación, profundidad y apriete. Un tornillo incluido no es otro producto instalado."
+    },
+    {
+      "id": "primary_support",
+      "label": "Soporte principal",
+      "required_check": "Gimbal y empuñadura, trípode/cabezal/placa o apoyo de hombro según uso. El contexto estático actual no certifica trípode completo."
+    },
+    {
+      "id": "grips_and_human_clearance",
+      "label": "Agarres y manos",
+      "required_check": "Agarre nativo, empuñadura lateral o brazos/agarres de hombro; interfaz exacta, orientación, alcance, retención y manos."
+    },
+    {
+      "id": "rods_and_extensions",
+      "label": "Varillas y extensiones",
+      "required_check": "Diámetro, longitud, separación publicada, abrazaderas, rosca interna si se extienden y componentes ya incluidos en el kit."
+    },
+    {
+      "id": "lens_accessories",
+      "label": "Accesorios de óptica",
+      "required_check": "Filtro/parasol, anillos, diámetro frontal, soporte si corresponde y recorrido de óptica; no exigirlos si no se eligieron."
+    },
+    {
+      "id": "monitoring",
+      "label": "Monitor y línea de visión",
+      "required_check": "Monitor opcional, soporte y asiento, alimentación, entrada de señal, línea de visión y recorrido de inclinación sin ocupar el asiento de otro accesorio."
+    },
+    {
+      "id": "power",
+      "label": "Alimentación",
+      "required_check": "Fuente, regulación, tensión, corriente, polaridad, contactos/conectores y autonomía por comprobar. No usar un contrapeso como alimentación implícita."
+    },
+    {
+      "id": "signal_and_control",
+      "label": "Señal y control",
+      "required_check": "Salidas reales, unidad de cable, protocolo, extremos y distribución si hay más destinos. Una salida HDMI no se divide sin dispositivo."
+    },
+    {
+      "id": "audio",
+      "label": "Audio elegido",
+      "required_check": "Sólo si se elige: RX/micrófono, soporte, interfaces, energía y cable correcto. TX/estuche no se cuentan sobre cámara."
+    },
+    {
+      "id": "focus",
+      "label": "Enfoque elegido",
+      "required_check": "Sólo si se elige: motor, abrazadera, engranaje/anillo, módulo, energía, mando y calibración. Rosca compartida no prueba alcance."
+    },
+    {
+      "id": "routing_and_release",
+      "label": "Cableado y extracción",
+      "required_check": "Alivio de tensión, bucles, movimiento, puertos accesibles, desconexión apagada y extracción sin estirar cables."
+    }
   ],
   "setup_targets": [
-    {"id": "handheld", "status": "existing_core_side_handles_pending", "native_grip_is_valid": true, "pending_intake_ids": ["support-smallrig-4346", "support-smallrig-4015", "support-smallrig-4016"], "note": "No imponer empuñadura adicional a toda cámara a mano. Ofrecerla con soporte lateral real cuando se revise."},
-    {"id": "shoulder", "status": "new_context_not_active", "pending_intake_ids": ["support-smallrig-2896c", "support-smallrig-4274b", "support-tilta-ta-lsr-b"], "note": "Requiere base, apoyo, dos agarres y conexiones revisados como cadena completa. No heredar contexto handheld, brazos de gimbal, varillas de 8 pulgadas ni posición del monitor."},
-    {"id": "gimbal", "status": "existing_documented_candidates_physical_checks_pending", "pending_intake_ids": [], "note": "BG70 y monitor lateral, ejes/manos/bucles y balance físico; masa menor al límite no basta."},
-    {"id": "static", "status": "camera_accessories_only_complete_tripod_chain_pending", "pending_intake_ids": [], "note": "Añadir en lote propio patas, cabezal, receptor y placa exacta; no dibujar trípode implícito."}
+    {
+      "id": "handheld",
+      "status": "side_handle_4346_candidate_physical_checks_pending",
+      "native_grip_is_valid": true,
+      "pending_intake_ids": [
+        "support-smallrig-4015",
+        "support-smallrig-4016"
+      ],
+      "note": "Agarre nativo válido sin accesorio. 4346 lateral de 4770 candidata a mano/estático horizontal; verificar mano, pines y cableado reales."
+    },
+    {
+      "id": "shoulder",
+      "status": "fx3_2896c_planning_candidate_physical_checks_pending",
+      "pending_intake_ids": [
+        "support-smallrig-4274b",
+        "support-tilta-ta-lsr-b"
+      ],
+      "note": "Primer contexto Al hombro: FX3/16-35 GM/4770/2896C/NP-FZ100. Kit completo, monitor NATO y RX opcionales elegidos. Sin base corta, V-mount, gimbal ni postura certificada."
+    },
+    {
+      "id": "gimbal",
+      "status": "existing_documented_candidates_physical_checks_pending",
+      "pending_intake_ids": [],
+      "note": "BG70 y monitor lateral, ejes/manos/bucles y balance físico; masa menor al límite no basta."
+    },
+    {
+      "id": "static",
+      "status": "camera_accessories_only_complete_tripod_chain_pending",
+      "pending_intake_ids": [],
+      "note": "Añadir en lote propio patas, cabezal, receptor y placa exacta; no dibujar trípode implícito."
+    }
   ],
   "catalog_complete": false,
   "universal_compatibility": false,

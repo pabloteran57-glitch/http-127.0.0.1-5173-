@@ -357,7 +357,54 @@ function natoTopHandle(g) {
   shoe(g,[0,24.6,-79],[Math.PI/2,0,0],24,18);
 }
 
-export const productAuthors = { sel35f18f, coldShoeMonitorMount, natoTopHandle };
+function locatingSideHandle(g) {
+  const outline=new Shape();
+  outline.moveTo(-31,-52.5);outline.quadraticCurveTo(-40,-52.5,-40,-44);
+  outline.quadraticCurveTo(-29,0,-40,44);outline.quadraticCurveTo(-40,52.5,-31,52.5);
+  outline.lineTo(-12,52.5);outline.quadraticCurveTo(-4,52.5,-4,44);
+  outline.quadraticCurveTo(-12,0,-4,-44);outline.quadraticCurveTo(-4,-52.5,-12,-52.5);outline.closePath();
+  const gripGeometry=new ExtrudeGeometry(outline,{depth:68.5,bevelEnabled:false,curveSegments:12});gripGeometry.translate(0,0,-34.25);
+  add(g,"Agarre ergonómico / curva ilustrativa no corporal",gripGeometry,[0,0,0],"dark");
+  block(g,"Almohadilla de silicona",[3,70,61],[-34,0,0],"rubber",5);
+  for(const y of [-27,27])block(g,"Rebaje lateral del agarre",[2,17,35],[-3.5,y,0],"black",4);
+  plate(g,"Adaptador incluido / corredera no animada",16,67,16,[0,0,0],[],"alloy");
+  block(g,"Brazo hacia localización 1/4",[30,16,17],[15,0,0],"dark",2);
+  block(g,"Asiento de localización aproximado",[8,24,24],[34,0,0],"alloy",2);
+  cylinder(g,"Tornillo 1/4 ilustrativo / sin paso mecanizado",3,4,[38,0,0],"steel","x",16);
+  for(const z of [-8,8])cylinder(g,"Pin / cota aproximada",1.4,2,[39,0,z],"steel","x",12);
+  cylinder(g,"Mando de ajuste / sin giro habilitado",7,4,[10,0,0],"steel","x",24);
+  shoe(g,[-22,49.5,0],[0,0,0],27,34);
+  for(const z of [-25,25])jack(g,"Rosca auxiliar no habilitada",[-22,52.4,z],2.6,"y");
+}
+
+function basicShoulderKit(g) {
+  block(g,"Placa de cámara incluida / asiento aproximado",[66,12,100],[0,84,45],"dark",3);
+  for(const x of [-22,22])block(g,"Apoyo antideslizante",[10,1,66],[x,89,45],"rubber",1);
+  screw(g,[0,89.5,45],"y",3);
+  // Separación visual estimada, no se publica como LWS ni altura óptica verificada.
+  for(const x of [-30,30]) {
+    ring(g,"Varilla incluida 15 x400 / sin rosca inferida",7.5,5.4,400,[x,55,-10],"alloy");
+    ring(g,"Abrazadera base / asiento ilustrativo",12,7.5,25,[x,55,45],"dark");
+    block(g,"Soporte de placa",[12,24,25],[x,68,45],"dark",1);
+    lever(g,[x+Math.sign(x)*13,55,45]);
+    ring(g,"Abrazadera de apoyo trasero",12,7.5,26,[x,55,-195],"dark");
+    cylinder(g,"Tapón incluido",7.5,3,[x,55,-211.5],"black");
+    ring(g,"Abrazadera frontal del conector",12,7.5,25,[x,55,165],"dark");
+  }
+  block(g,"Almohadilla EVA / forma no corporal",[100,36,120],[0,28,-195],"rubber",10);
+  block(g,"Base del apoyo",[90,8,80],[0,49,-195],"dark",2);
+  block(g,"Conector de agarres incluido",[90,15,65],[0,45,190],"dark",2);
+  ring(g,"Barra transversal incluida 15 x300",7.5,5.4,300,[0,40,220],"alloy","x");
+  for(const x of [-125,125]) {
+    ring(g,"Abrazadera de agarre",12,7.5,25,[x,40,220],"dark","x");
+    block(g,"Unión del agarre",[18,23,24],[x,23,220],"dark",2);
+    cylinder(g,"Agarre incluido / dos unidades del kit",17,112,[x,-34,220],"rubber","y",24);
+    for(const y of [-72,-52,-32,-12,8])ring(g,"Anillo de agarre ilustrativo",17.4,16.8,2,[x,y,220],"dark","y");
+    lever(g,[x,40,239],"z");
+  }
+}
+
+export const productAuthors = { sel35f18f, coldShoeMonitorMount, natoTopHandle, locatingSideHandle, basicShoulderKit };
 
 export function visualAuthor(node) {
   if (node.model_authoring && node.model_authoring !== "pilot") {
@@ -387,7 +434,7 @@ export function finalizeVisual(g, node) {
     if (!geom) throw new Error("No se pudo consolidar " + node.id);
     geom.deleteAttribute("uv"); geom.normalizeNormals();
     // Las mallas nuevas no usan texturas: soldar duplicados de UV conserva caras y normales.
-    if (["coldShoeMonitorMount", "natoTopHandle"].includes(node.model_authoring)) {
+    if (["coldShoeMonitorMount", "natoTopHandle", "locatingSideHandle", "basicShoulderKit"].includes(node.model_authoring)) {
       const welded = mergeVertices(geom, 1e-8); geom.dispose(); geom = welded;
     }
     const mesh = new Mesh(geom, materials[key.split("/").at(-1)]); mesh.name = node.id + "/" + key; out.add(mesh);

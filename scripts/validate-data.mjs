@@ -163,7 +163,7 @@ assert.equal(planner.version,1);
 assert(planner.selection_checks.length);
 const checkCondition=condition=>{
   for(const id of [...(condition.all??[]),...(condition.any??[]),...(condition.none??[])])assert(partIds.has(id));
-  for(const key of ["context","not_context"])if(condition[key])assert(["gimbal","handheld","static"].includes(condition[key]));
+  for(const key of ["context","not_context"])if(condition[key])assert(["gimbal","handheld","static","shoulder"].includes(condition[key]));
   if(condition.orientation)assert(["landscape","vertical"].includes(condition.orientation));
 };
 assert.equal(new Set(planner.selection_checks.map(c=>c.id)).size,planner.selection_checks.length);
@@ -266,9 +266,18 @@ assert.deepEqual(integration.contexts,["handheld"]);assert.deepEqual(integration
 assert.equal(integration.physical_validation.status,"pending");assert.deepEqual(integration.physical_validation.observations,[]);
 for(const profile of planner.assembly_profiles??[]){
   assert(planner.camera_part_ids.includes(profile.camera_part_id));
+  if(profile.context)assert(["gimbal","handheld","static","shoulder"].includes(profile.context));
   const guide=profileContent.profiles?.find(item=>item.id===profile.id);
   assert(guide&&profile.frames.length===guide.steps.length,"Guía y fotogramas del piloto diferentes");
   profile.frames.forEach((frame,index)=>{assert.equal(frame.step,index+1);frame.add_part_ids.forEach(id=>assert(partIds.has(id)));frame.add_cable_ids.forEach(id=>assert(cableIds.has(id)));assert.equal(guide.steps[index].number,frame.step);});
+}
+for(const profile of layout.context_layout_profiles??[]){
+  assert(profile.id&&["gimbal","handheld","static","shoulder"].includes(profile.context));
+  assert(profile.require_all.length);profile.require_all.forEach(id=>assert(partIds.has(id)));
+  for(const [id,override]of Object.entries(profile.overrides)){
+    assert(layout.nodes.some(node=>node.id===id));
+    if(override.parent_id)assert(layout.nodes.some(node=>node.id===override.parent_id));
+  }
 }
 for(const product of intake.products){assert(!partIds.has(product.id)||[...integration.promoted_part_ids,...laterPromoted].includes(product.id),"Una alta sin promoción explícita no debe activarse");assert.equal(product.release_status,"research_only");assert(/^https:\/\/www\.sony\.(com|co\.uk)\//.test(product.source_url));assert(product.model_number&&product.dimensions.note&&Number.isFinite(product.weight_g));}
 assert.equal(new Set((intake.manifest_reviews??[]).map(review=>review.part_id)).size,(intake.manifest_reviews??[]).length);
@@ -296,7 +305,7 @@ assert.equal(new Set(reviews.reviews.map(r=>r.cable_id)).size,reviews.reviews.le
 const sourceById=new Map(sources.sources.map(s=>[s.id,s]));
 assert.deepEqual(new Set(Object.keys(ui.builder.roles)),partIds,"Las tarjetas deben identificar todas las piezas, sin catálogo paralelo");
 assert.deepEqual(ui.builder.views.map(view=>view.id),["catalog","selected","settings"]);
-assert.deepEqual(ui.builder.contexts.map(c=>c.id),["gimbal","handheld","static"]);
+assert.deepEqual(ui.builder.contexts.map(c=>c.id),["gimbal","handheld","static","shoulder"]);
 ui.builder.contexts.forEach(c=>assert(["design","assemble","inventory"].includes(c.icon)));
 const verticalReview=planner.vertical_monitor_review;
 assert(verticalReview.reviewed_on&&verticalReview.rationale&&verticalReview.pending);

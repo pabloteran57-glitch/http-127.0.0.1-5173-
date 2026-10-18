@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { assemblyContent, cablesData, layoutData, plannerData, referencesData, sourcesData } from "../data";
 import { assemblyFrame } from "../lib/planner";
 import { assemblyTimeline, nextPlaybackIndex } from "../lib/assembly";
@@ -59,7 +59,18 @@ function AssemblySession({ variant, chosenIds, active, onEdit, timeline, checks,
     setSelectedCableId(null);
     setExploded(false);
   };
-  const focusScene = () => requestAnimationFrame(() => document.getElementById("assembly-visual")?.scrollIntoView({ block: "start", behavior: "auto" }));
+  const focusRequest=useRef<number|null>(null);
+  const activeTask=useRef(active);
+  activeTask.current=active;
+  const focusScene = () => {
+    if(focusRequest.current!==null)cancelAnimationFrame(focusRequest.current);
+    focusRequest.current=requestAnimationFrame(()=>{
+      focusRequest.current=null;
+      const visual=document.getElementById("assembly-visual");
+      if(activeTask.current&&visual?.getClientRects().length)visual.scrollIntoView({block:"start",behavior:"auto"});
+    });
+  };
+  useEffect(()=>()=>{if(focusRequest.current!==null)cancelAnimationFrame(focusRequest.current);},[]);
   const go = (index: number) => { setPlaying(false); move(index); focusScene(); };
   useEffect(() => {
     if (!active) { setPlaying(false); setReady(null); }

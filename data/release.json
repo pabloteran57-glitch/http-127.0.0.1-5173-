@@ -1,12 +1,14 @@
 {
-  "version": "0.2.17",
-  "released_on": "2026-10-17",
+  "version": "0.2.18",
+  "released_on": "2026-10-18",
   "status": "engineering_prototype",
   "label": "Prototipo de ingeniería",
   "catalog_revision": "fx3-rs4-2026-10-05",
   "storage": "local_only",
   "account_sync": "deferred_by_user",
   "updates": [
+    "4346 lateral seleccionable con 4770 para cámara a mano/estática horizontal; recurso propio, guía FX3/FX30 y malla aproximada.",
+    "Nuevo contexto Al hombro: FX3/4770/2896C con batería nativa. Kit completo con dos agarres, base y barras; guía independiente, monitor NATO/serie L y RX opcionales.",
     "Conexiones y anclajes identifican la unidad elegida y su etiqueta; puertos de otro modelo, dobles reclamos de conector y reutilización de cable independiente se bloquean sin añadir adaptadores.",
     "La guía reinicia su revisión al sustituir una unidad o cambiar su pose; renombrar y añadir repuestos no cambia la revisión. Visor y guía muestran la identidad del plan sin duplicar mallas.",
     "Unidades con identidad y etiqueta propias, repuestos explícitos e intercambio de la unidad en rig; cada unidad aparece por separado en Mi equipo.",
@@ -33,7 +35,9 @@
     "Monitor NATO, ajustes acoplados, selección desde visor y las cuatro tareas originales conservados"
   ],
   "limitations": [
-    "Empuñaduras laterales y setups de hombro siguen en investigación, no seleccionables: seis candidatos con fuentes oficiales y lista de cobertura. No se presenta un contexto shoulder incompleto ni se heredan brazos de gimbal.",
+    "4346/2896C son candidatos por inferencia de interfaces, no parejas certificadas. Medir pines, tornillos, manos, postura, línea de visión y balance antes de usar.",
+    "25 mallas propias aproximadas, no CAD ni resultados Meshy/Sketchfab. 2896C: malla longitudinal 498 mm frente a 510 mm publicados; asientos y separación de varillas sin medir.",
+    "Al hombro sólo FX3/16-35 GM/4770/2896C/NP-FZ100 y accesorios acotados. Sin V-mount, XLR, gimbal, FX30, ajuste libre o extracción rápida implícitos. Otros cuatro candidatos de apoyo siguen sin activar.",
     "Sólo una unidad de cada SKU puede participar en las cadenas actuales. Las adicionales son repuestos: sin geometría instalada, cables ni carga; el montaje simultáneo duplicado sigue pendiente de reglas y evidencia por asiento.",
     "Límites de software: 120 unidades por proyecto y 20 por producto. Etiquetas no son números de serie verificados ni inventario físico certificado.",
     "Sin uso, ocupado o en conflicto describen elecciones del plan, no un ensayo de encaje, carga o colisiones. Un anclaje sin accesorio no garantiza espacio físico libre.",
@@ -43,7 +47,6 @@
     "Montaje SmallRig/Tilta: inventario parcial, compatibilidades desconocidas, cobertura total sin determinar; ningún SKU de investigación se activa por compartir rosca.",
     "Batería nativa FX3: identidad documental, pose interna aproximada y 83 g contados una sola vez. Retención, cubierta, acceso y ventilación con jaula no ensayados.",
     "Piloto FX30 sólo a mano y horizontal: núcleo, monitor NATO o zapata/serie L y audio TRS de RX son candidatos documentales. Gimbal, asa XLR, fuentes externas y otros objetivos fuera de las altas acotadas siguen pendientes. Formato/ganancia, retención y holguras no ensayados.",
-    "23 mallas propias aproximadas; no CAD oficiales, modelos exactos, escaneos de Sketchfab ni resultados Meshy. Batería interna y poses visuales no certifican encajes.",
     "Seis candidatos restantes del lote documental no se activan; tarjetas, cargadores y parasol del piloto no se añaden automáticamente.",
     "Pivotes y ceros angulares aproximados. Los rangos publicados del soporte no certifican recorrido libre del rig completo; no hay detección automática de colisiones ni equilibrio. Traslación V-mount depende de medición del usuario.",
     "13 entradas restantes del catálogo no tienen malla de producto: cables, software y accesorios en reserva requieren distinto alcance",

@@ -1268,15 +1268,88 @@
         "smallrig-2905b"
       ],
       "notes": "Descripción oficial indexada menciona 2905B en zapata y 15 kg del asa; no prueba par exacto con Indie 7 ni 4770."
+    },
+    {
+      "id": "src-support-smallrig-4346-manual",
+      "brand": "SmallRig",
+      "type": "official",
+      "url": "https://static.smallrig.com/mall/img/public/6hzivt5lbfr-1751252249527_.pdf",
+      "checked_on": "2026-10-18",
+      "sha256": "55248adbd6f2fbf78bfd96341c81267ad96c5451735486948d40ba9d7aa1c497",
+      "review_subject_part_ids": [
+        "support-smallrig-4346",
+        "smallrig-4346"
+      ],
+      "notes": "Manual exacto 4346 descargado para investigación, páginas 3-5 revisadas visualmente. Interfaz convertible, componentes, cotas de producto y 208 ±5 g. Pareja con 4770 pendiente; no archivo público ni permiso de redistribución. Alta separada 0.2.18: inferencia de interfaces con 4770, no pareja certificada ni ensayo físico."
+    },
+    {
+      "id": "src-support-smallrig-4015-page",
+      "brand": "SmallRig",
+      "type": "official",
+      "url": "https://www.smallrig.com/eu/SmallRig-Side-Handle-4015.html?noRedirect=1&skuId=1700092317959065602",
+      "checked_on": "2026-10-17",
+      "review_subject_part_ids": [
+        "support-smallrig-4015"
+      ],
+      "notes": "Ficha oficial indexada: dos tornillos 1/4-20, separación de 18 mm, 71.5 ×105 ×68.5 mm, 205 ±5 g. No demuestra separación útil de la jaula 4770 ni pareja instalada."
+    },
+    {
+      "id": "src-support-smallrig-4016-page",
+      "brand": "SmallRig",
+      "type": "official",
+      "url": "https://www.smallrig.com/SmallRig-ARRI-Locating-Side-Handle-4016.html?skuId=1664196629684674562",
+      "checked_on": "2026-10-17",
+      "review_subject_part_ids": [
+        "support-smallrig-4016"
+      ],
+      "notes": "Respuesta directa parcial; identidad e interfaz ARRI 3/8-16 publicadas. Masa, cotas completas y manual por revisar; no equiparar con localización 1/4-20 lateral de 4770."
+    },
+    {
+      "id": "src-support-smallrig-2896c-manual",
+      "brand": "SmallRig",
+      "type": "official",
+      "url": "https://static.smallrig.com/mall/img/public/1718071886940_.pdf",
+      "checked_on": "2026-10-18",
+      "sha256": "19ffbb3204151eaf00d2d0ae01bbeedddd45a146bd8994a701d7a43d472db671",
+      "review_subject_part_ids": [
+        "support-smallrig-2896c",
+        "smallrig-2896c"
+      ],
+      "notes": "Manual 2896C descargado y páginas 2, 3, 5 y 6 revisadas visualmente. Lista completa, varillas 400/300 mm, apoyo trasero, 510 ×300 ×180 mm y 1260 ±5 g. Cámara, jaula y óptica fuera del kit. No activa contexto de hombro ni autoriza CAD/fotos públicos. Alta separada 0.2.18: cadena candidata de hombro FX3/4770 por fijación inferior 1/4-20; soporte, línea de visión y retención físicos pendientes."
+    },
+    {
+      "id": "src-support-smallrig-4274b-page",
+      "brand": "SmallRig",
+      "type": "official",
+      "url": "https://www.smallrig.com/uk/Shoulder-Rig-Kit-Pro-4274B.html?noRedirect=1&skuId=1968992967409340417",
+      "checked_on": "2026-10-17",
+      "review_subject_part_ids": [
+        "support-smallrig-4274b"
+      ],
+      "notes": "Ficha indexada extensa frente a respuesta directa parcial. VCT-14 y brazos/agarres publicados; no adoptar cotas/masa antes de revisar manual y distinguir VCT-U14. No alta seleccionable."
+    },
+    {
+      "id": "src-support-tilta-ta-lsr-b-page",
+      "brand": "Tilta",
+      "type": "official",
+      "url": "https://tilta.com/shop/tiltaing-lightweight-shoulder-rig-black/",
+      "checked_on": "2026-10-17",
+      "review_subject_part_ids": [
+        "support-tilta-ta-lsr-b"
+      ],
+      "notes": "Ficha oficial: kit, dos TA-LSR-RH-B, base TA-SR-BSP-B y estuche; placa incluida propia, no garantía universal Arca/Manfrotto. Cotas/peso de producto versus kit por resolver. No añadir varillas/baterías por fotos."
+    },
+    {
+      "id": "src-support-tilta-2023-brochure",
+      "brand": "Tilta",
+      "type": "official",
+      "url": "https://tilta.com/wp-content/uploads/2023/04/Tilta-Camera-Cages.pdf",
+      "checked_on": "2026-10-17",
+      "review_subject_part_ids": [
+        "support-tilta-ta-lsr-b"
+      ],
+      "notes": "Folleto oficial 2023 con 1.7 kg para TA-LSR-B frente a 7.7 lb en web. Discrepancia de revisión/alcance por resolver; masa y cotas netas no adoptadas para geometría. No permiso de reproducción de imágenes."
     }
-    ,
-    {"id":"src-support-smallrig-4346-manual","brand":"SmallRig","type":"official","url":"https://static.smallrig.com/mall/img/public/6hzivt5lbfr-1751252249527_.pdf","checked_on":"2026-10-17","sha256":"55248adbd6f2fbf78bfd96341c81267ad96c5451735486948d40ba9d7aa1c497","review_subject_part_ids":["support-smallrig-4346"],"notes":"Manual exacto 4346 descargado para investigación, páginas 3-5 revisadas visualmente. Interfaz convertible, componentes, cotas de producto y 208 ±5 g. Pareja con 4770 pendiente; no archivo público ni permiso de redistribución."},
-    {"id":"src-support-smallrig-4015-page","brand":"SmallRig","type":"official","url":"https://www.smallrig.com/eu/SmallRig-Side-Handle-4015.html?noRedirect=1&skuId=1700092317959065602","checked_on":"2026-10-17","review_subject_part_ids":["support-smallrig-4015"],"notes":"Ficha oficial indexada: dos tornillos 1/4-20, separación de 18 mm, 71.5 ×105 ×68.5 mm, 205 ±5 g. No demuestra separación útil de la jaula 4770 ni pareja instalada."},
-    {"id":"src-support-smallrig-4016-page","brand":"SmallRig","type":"official","url":"https://www.smallrig.com/SmallRig-ARRI-Locating-Side-Handle-4016.html?skuId=1664196629684674562","checked_on":"2026-10-17","review_subject_part_ids":["support-smallrig-4016"],"notes":"Respuesta directa parcial; identidad e interfaz ARRI 3/8-16 publicadas. Masa, cotas completas y manual por revisar; no equiparar con localización 1/4-20 lateral de 4770."},
-    {"id":"src-support-smallrig-2896c-manual","brand":"SmallRig","type":"official","url":"https://static.smallrig.com/mall/img/public/1718071886940_.pdf","checked_on":"2026-10-17","sha256":"19ffbb3204151eaf00d2d0ae01bbeedddd45a146bd8994a701d7a43d472db671","review_subject_part_ids":["support-smallrig-2896c"],"notes":"Manual 2896C descargado y páginas 2, 3, 5 y 6 revisadas visualmente. Lista completa, varillas 400/300 mm, apoyo trasero, 510 ×300 ×180 mm y 1260 ±5 g. Cámara, jaula y óptica fuera del kit. No activa contexto de hombro ni autoriza CAD/fotos públicos."},
-    {"id":"src-support-smallrig-4274b-page","brand":"SmallRig","type":"official","url":"https://www.smallrig.com/uk/Shoulder-Rig-Kit-Pro-4274B.html?noRedirect=1&skuId=1968992967409340417","checked_on":"2026-10-17","review_subject_part_ids":["support-smallrig-4274b"],"notes":"Ficha indexada extensa frente a respuesta directa parcial. VCT-14 y brazos/agarres publicados; no adoptar cotas/masa antes de revisar manual y distinguir VCT-U14. No alta seleccionable."},
-    {"id":"src-support-tilta-ta-lsr-b-page","brand":"Tilta","type":"official","url":"https://tilta.com/shop/tiltaing-lightweight-shoulder-rig-black/","checked_on":"2026-10-17","review_subject_part_ids":["support-tilta-ta-lsr-b"],"notes":"Ficha oficial: kit, dos TA-LSR-RH-B, base TA-SR-BSP-B y estuche; placa incluida propia, no garantía universal Arca/Manfrotto. Cotas/peso de producto versus kit por resolver. No añadir varillas/baterías por fotos."},
-    {"id":"src-support-tilta-2023-brochure","brand":"Tilta","type":"official","url":"https://tilta.com/wp-content/uploads/2023/04/Tilta-Camera-Cages.pdf","checked_on":"2026-10-17","review_subject_part_ids":["support-tilta-ta-lsr-b"],"notes":"Folleto oficial 2023 con 1.7 kg para TA-LSR-B frente a 7.7 lb en web. Discrepancia de revisión/alcance por resolver; masa y cotas netas no adoptadas para geometría. No permiso de reproducción de imágenes."}
   ],
   "audit_on": "2026-10-17"
 }

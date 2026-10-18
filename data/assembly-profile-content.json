@@ -146,6 +146,25 @@
             "Comprobar cierre, topes, retención y acceso al agarre. No interpretar 15 kg como seguridad dinámica del rig.",
             "Para liberar giro, sostener cámara; las dos zapatas posteriores no se usan simultáneamente. La app representa sólo pose superior neutra."
           ]
+        },
+        {
+          "part_ids": [
+            "smallrig-4346"
+          ],
+          "require_all": [
+            "smallrig-4770"
+          ],
+          "source_ids": [
+            "src-support-smallrig-4346-manual",
+            "audit-doc-smallrig-4770-manual"
+          ],
+          "mount": "Configurar el adaptador incluido como localización 1/4-20, alinear pines y apretar en el receptor lateral documentado sin forzar.",
+          "where": "Lateral de 4770, no NATO superior ni ARRI 3/8. Cambiar de lado sólo con el conjunto apoyado según manual.",
+          "verify": [
+            "Comprobar longitud útil, asiento de pines y apriete sin inventar par; no sujetar el peso antes de verificar retención.",
+            "Abrir pantalla y puertas, conectar HDMI/MIC y comprobar agarre con ambas manos. Si interfiere, no usar esa pose; la vista no certifica despeje.",
+            "Los 36 mm publicados no se animan como recorrido libre; no habilita accesorios sobre la empuñadura ni dos unidades simultáneas."
+          ]
         }
       ]
     },
@@ -709,6 +728,25 @@
                 "Comprobar cierre, topes, retención y acceso al agarre. No interpretar 15 kg como seguridad dinámica del rig.",
                 "Para liberar giro, sostener cámara; las dos zapatas posteriores no se usan simultáneamente. La app representa sólo pose superior neutra."
               ]
+            },
+            {
+              "part_ids": [
+                "smallrig-4346"
+              ],
+              "require_all": [
+                "smallrig-4770"
+              ],
+              "source_ids": [
+                "src-support-smallrig-4346-manual",
+                "audit-doc-smallrig-4770-manual"
+              ],
+              "mount": "Configurar el adaptador incluido como localización 1/4-20, alinear pines y apretar en el receptor lateral documentado sin forzar.",
+              "where": "Lateral de 4770, no NATO superior ni ARRI 3/8. Cambiar de lado sólo con el conjunto apoyado según manual.",
+              "verify": [
+                "Comprobar longitud útil, asiento de pines y apriete sin inventar par; no sujetar el peso antes de verificar retención.",
+                "Abrir pantalla y puertas, conectar HDMI/MIC y comprobar agarre con ambas manos. Si interfiere, no usar esa pose; la vista no certifica despeje.",
+                "Los 36 mm publicados no se animan como recorrido libre; no habilita accesorios sobre la empuñadura ni dos unidades simultáneas."
+              ]
             }
           ]
         },
@@ -1066,6 +1104,278 @@
               "verify": [
                 "Escuchar toma reproducida y comprobar niveles/canales sin saturación.",
                 "Apagar antes de cambiar conexiones; no usar modo S&Q como prueba de captura de audio."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fx3-shoulder-2896c",
+      "steps": [
+        {
+          "number": 1,
+          "title": "Preparar FX3, óptica y batería",
+          "kind": "mount",
+          "requires_any": [],
+          "note": "Guía propia del kit 2896C. Sólo piezas elegidas, no pasos del gimbal.",
+          "rebalance": "Revisar equilibrio al hombro y retención tras cualquier cambio de carga o posición; sin autoajuste de motores.",
+          "blocks": [
+            {
+              "part_ids": [
+                "sony-fx3"
+              ],
+              "mount": "Preparar el cuerpo elegido.",
+              "where": "Núcleo de cámara.",
+              "verify": [
+                "Revisar firmware, tarjetas y modo de grabación."
+              ]
+            },
+            {
+              "part_ids": [
+                "sony-np-fz100"
+              ],
+              "require_all": [
+                "sony-fx3"
+              ],
+              "unless_any": [
+                "smallrig-4253b"
+              ],
+              "mount": "Insertar la batería nativa elegida y previamente cargada contra la palanca de retención; cerrar cubierta y bloquear según Sony.",
+              "where": "Compartimento interno FX3; sin cable externo.",
+              "verify": [
+                "Cámara apagada y lámpara de acceso apagada antes de retirar batería",
+                "Comprobar retención, cierre, ventilación y acceso con la jaula real",
+                "No instalar simultáneamente el adaptador 4253B; la vista en despiece no es una trayectoria de inserción"
+              ]
+            },
+            {
+              "part_ids": [
+                "sony-fe-16-35-gm"
+              ],
+              "mount": "Instalar la óptica elegida.",
+              "where": "Montura Sony E del cuerpo.",
+              "verify": [
+                "Comprobar el bloqueo de la bayoneta y el recorrido del zoom."
+              ]
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "title": "Fijar la jaula HawkLock",
+          "kind": "mount",
+          "requires_any": [],
+          "note": "Guía propia del kit 2896C. Sólo piezas elegidas, no pasos del gimbal.",
+          "rebalance": "Revisar equilibrio al hombro y retención tras cualquier cambio de carga o posición; sin autoajuste de motores.",
+          "blocks": [
+            {
+              "part_ids": [
+                "smallrig-4770"
+              ],
+              "mount": "Fijar la jaula elegida.",
+              "where": "Anclajes de cámara y anti-giro documentados por el fabricante.",
+              "verify": [
+                "Seguir el manual sin inventar pares de apriete; comprobar fijaciones y abrazadera HDMI."
+              ]
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "title": "Montar el kit de hombro",
+          "kind": "mount",
+          "requires_any": [],
+          "note": "Guía propia del kit 2896C. Sólo piezas elegidas, no pasos del gimbal.",
+          "rebalance": "Revisar equilibrio al hombro y retención tras cualquier cambio de carga o posición; sin autoajuste de motores.",
+          "blocks": [
+            {
+              "part_ids": [
+                "smallrig-2896c"
+              ],
+              "require_all": [
+                "smallrig-4770"
+              ],
+              "source_ids": [
+                "src-support-smallrig-2896c-manual",
+                "audit-doc-smallrig-4770-manual"
+              ],
+              "mount": "Con la cámara apoyada, fijar la placa incluida bajo 4770 usando sólo el tornillo 1/4-20 correspondiente. Insertar las dos barras longitudinales de 400 mm y cerrar sus abrazaderas.",
+              "where": "Placa bajo jaula. No usar 1674, barras de ocho pulgadas, receptor Arca ni tornillo 3/8 en receptor 1/4.",
+              "verify": [
+                "Seguir manual 2896C páginas 4-5; herramienta plana para tornillo aportada por usuario. Comprobar enganche y antitorsión sin par inventado.",
+                "Antes de cerrar extremos, colocar apoyo, conector frontal, barra transversal 300 mm y los dos agarres incluidos. Apretar y verificar cada abrazadera y tapón.",
+                "La visualización agrupa el kit completo en una etapa: sus piezas no son productos añadidos ni se cuentan otra vez en la masa."
+              ]
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "title": "Añadir el monitor elegido",
+          "kind": "mount",
+          "requires_any": [],
+          "note": "Guía propia del kit 2896C. Sólo piezas elegidas, no pasos del gimbal.",
+          "rebalance": "Revisar equilibrio al hombro y retención tras cualquier cambio de carga o posición; sin autoajuste de motores.",
+          "blocks": [
+            {
+              "part_ids": [
+                "smallrig-2906b",
+                "smallhd-indie-7"
+              ],
+              "require_all": [
+                "smallrig-2906b",
+                "smallhd-indie-7",
+                "smallrig-4770"
+              ],
+              "source_ids": [
+                "src-smallrig-2906b-manual"
+              ],
+              "mount": "Bloquear 2906B en NATO superior 4770 y fijar Indie 7 mediante su rosca inferior.",
+              "where": "Cadena NATO de la jaula, no brazo de gimbal ni varilla transversal de agarres.",
+              "verify": [
+                "Ajustar línea de visión con operador y batería del monitor presentes; si fuerza cuello o invade rostro/manos, no usar esta pose.",
+                "No inventar visor, extensión o articulación para resolver una holgura. Comprobar carga, topes y retención."
+              ]
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "title": "Alimentar el monitor elegido",
+          "kind": "mount",
+          "requires_any": [],
+          "note": "Guía propia del kit 2896C. Sólo piezas elegidas, no pasos del gimbal.",
+          "rebalance": "Revisar equilibrio al hombro y retención tras cualquier cambio de carga o posición; sin autoajuste de motores.",
+          "blocks": [
+            {
+              "part_ids": [
+                "sony-np-f970-pro"
+              ],
+              "require_all": [
+                "smallhd-indie-7"
+              ],
+              "mount": "Instalar la batería serie L elegida en la placa nativa del Indie 7 con equipos apagados.",
+              "where": "Contactos del monitor; no cable D-Tap ni barril DC.",
+              "verify": [
+                "Verificar retención y carga con la batería colocada. Cargador externo requerido; autonomía real pendiente."
+              ]
+            }
+          ]
+        },
+        {
+          "number": 6,
+          "title": "Colocar el receptor elegido",
+          "kind": "mount",
+          "requires_any": [],
+          "note": "Guía propia del kit 2896C. Sólo piezas elegidas, no pasos del gimbal.",
+          "rebalance": "Revisar equilibrio al hombro y retención tras cualquier cambio de carga o posición; sin autoajuste de motores.",
+          "blocks": [
+            {
+              "part_ids": [
+                "dji-mic-2-kit"
+              ],
+              "require_all": [
+                "smallrig-4770"
+              ],
+              "mount": "Instalar sólo RX Mic 2 en zapata inclinada de 4770.",
+              "where": "Asiento independiente del NATO del monitor. TX y estuche fuera del rig.",
+              "verify": [
+                "Verificar retención, pantalla, antenas, rostro y acceso del operador. RX publicado 28 g, no masa del kit."
+              ]
+            }
+          ]
+        },
+        {
+          "number": 7,
+          "title": "Conectar vídeo",
+          "kind": "mount",
+          "requires_any": [],
+          "note": "Guía propia del kit 2896C. Sólo piezas elegidas, no pasos del gimbal.",
+          "rebalance": "Revisar equilibrio al hombro y retención tras cualquier cambio de carga o posición; sin autoajuste de motores.",
+          "blocks": [
+            {
+              "part_ids": [
+                "kondor-blue-hdmi-aa"
+              ],
+              "cable_ids": [
+                "vid-fx3-to-smallhd"
+              ],
+              "mount": "Conectar HDMI A de FX3 a HDMI IN del Indie 7; asegurar la abrazadera de cámara sin comprimir el cable.",
+              "where": "Lateral del núcleo hacia el monitor, holgura local antes de cada conector.",
+              "verify": [
+                "Una sola salida HDMI FX3; no segundo destino implícito. Probar formato no RAW compatible.",
+                "Mantener bucle fuera de cara, manos y botones; curva y longitud del visor son aproximadas."
+              ]
+            }
+          ]
+        },
+        {
+          "number": 8,
+          "title": "Conectar y probar audio",
+          "kind": "mount",
+          "requires_any": [],
+          "note": "Guía propia del kit 2896C. Sólo piezas elegidas, no pasos del gimbal.",
+          "rebalance": "Revisar equilibrio al hombro y retención tras cualquier cambio de carga o posición; sin autoajuste de motores.",
+          "blocks": [
+            {
+              "part_ids": [
+                "dji-mic-2-kit"
+              ],
+              "cable_ids": [
+                "audio-rx-to-fx3"
+              ],
+              "mount": "Conectar OUT del RX a MIC FX3 mediante TRS 3.5 mm incluido.",
+              "where": "Bucle local junto al cuerpo, no al INPUT3 de un asa ausente.",
+              "verify": [
+                "Escuchar, comprobar ambos canales y niveles. Probar retención sin tensar al mover pantalla o monitor."
+              ]
+            }
+          ]
+        },
+        {
+          "number": 9,
+          "title": "Ajustar apoyo, agarres y línea de visión",
+          "kind": "check",
+          "requires_any": [
+            "smallrig-2896c"
+          ],
+          "note": "Guía propia del kit 2896C. Sólo piezas elegidas, no pasos del gimbal.",
+          "rebalance": "Revisar equilibrio al hombro y retención tras cualquier cambio de carga o posición; sin autoajuste de motores.",
+          "blocks": [
+            {
+              "part_ids": [
+                "smallrig-2896c"
+              ],
+              "mount": "Apoyar el conjunto en superficie estable antes de aflojar. Ajustar apoyo y agarres conforme al manual, bloquear y volver a comprobar.",
+              "where": "Operador real; posiciones de visor sólo ilustrativas.",
+              "verify": [
+                "Comprobar equilibrio con todas las piezas y cables instalados; 1265 g de planificación del kit no predicen el centro de gravedad real.",
+                "Confirmar postura, manos, pantalla visible, rostro despejado y cámara retenida. Ensayo físico del conjunto pendiente.",
+                "No se ofrece ajuste libre del kit ni se añade un contrapeso para ocultar desequilibrio."
+              ]
+            }
+          ]
+        },
+        {
+          "number": 10,
+          "title": "Retirada segura para cámara a mano",
+          "kind": "optional",
+          "requires_any": [
+            "smallrig-2896c"
+          ],
+          "note": "Guía propia del kit 2896C. Sólo piezas elegidas, no pasos del gimbal.",
+          "rebalance": "Revisar equilibrio al hombro y retención tras cualquier cambio de carga o posición; sin autoajuste de motores.",
+          "blocks": [
+            {
+              "part_ids": [
+                "smallrig-2896c"
+              ],
+              "mount": "Apoyar el rig, apagar cámara/monitor, soltar cableado que impida retirada y sostener cámara/jaula mientras se desatornilla la placa del kit.",
+              "where": "Mesa o apoyo estable. No retirar la cámara mientras descansa sobre el hombro.",
+              "verify": [
+                "No es una liberación rápida de un clic ni el paso de extracción del gimbal.",
+                "Revisar nuevamente soporte, cableado y agarre del rig a mano; no conservar revisiones como prueba de seguridad."
               ]
             }
           ]

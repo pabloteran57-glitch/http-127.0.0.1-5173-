@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "reviewed_on": "2026-10-07",
+  "reviewed_on": "2026-10-18",
   "scope": "20 modelos propios aproximados para planificación: 17 originales y 3 del piloto FX30. Revisión visual no implica CAD, tolerancias, encaje ni ensayo físico. Los puertos y relaciones proceden de manifiestos canónicos.",
   "assets": [
     {
@@ -1379,6 +1379,126 @@
         "views": true,
         "interfaces": true,
         "evidence": "Cinco vistas propias de smallrig-4152 revisadas contra páginas 2-6 del manual. Envolvente del GLB registrada; controles, roscas y retención estimados. No ensayo físico.",
+        "mechanical_accuracy": "approximate",
+        "ports_authority": "ports-manifest.json"
+      }
+    },
+    {
+      "id": "smallrig-4346-takegrid-v1",
+      "part_id": "smallrig-4346",
+      "subcomponent_id": null,
+      "exact_product_name": "SmallRig Side Handle with Two-in-One Locating Screw",
+      "model_number": "4346",
+      "status": "approved",
+      "source": {
+        "method": "manual",
+        "url": "https://github.com/pabloteran57-glitch/http-127.0.0.1-5173-/blob/main/scripts/lib/authored-models.mjs",
+        "author": "Takegrid / reconstrucción propia en código"
+      },
+      "rights": {
+        "license": "custom-reviewed",
+        "evidence_url": "https://github.com/pabloteran57-glitch/http-127.0.0.1-5173-/blob/main/docs/authored-model-rights.md",
+        "reviewed_on": "2026-10-18",
+        "commercial": true,
+        "redistribution": true,
+        "modification": true,
+        "source_images_authorized": false,
+        "source_images_evidence": "No usa imágenes, texturas ni archivos ajenos en el GLB; referencias de fabricante consultadas localmente, no cargadas a IA ni redistribuidas.",
+        "attribution": "4346: reconstrucción propia Takegrid, 2026; geometría y materiales aproximados, sin CAD ni respaldo del fabricante."
+      },
+      "artifact": {
+        "path": "/models/smallrig-4346-takegrid-v1.glb",
+        "sha256": "1a7ac8aad440f3a5a2cc7dd94d98ecc19efce0ad80d35155246d0d44d905ad8d",
+        "bytes": 176752,
+        "triangles": 3832
+      },
+      "calibration": {
+        "units": "metres",
+        "uniform_scale": 1,
+        "offset_mm": [
+          0,
+          0,
+          0
+        ],
+        "rotation_deg": [
+          0,
+          0,
+          0
+        ],
+        "bounds_mm": [
+          79.99999821186066,
+          105.09999841451645,
+          68.49999725818634
+        ],
+        "reference_url": "https://static.smallrig.com/mall/img/public/6hzivt5lbfr-1751252249527_.pdf",
+        "reference_basis": "Envolvente de planificación XYZ 80 ×105 ×68.5 mm; malla 80 ×105.10 ×68.50 mm. Cinco vistas cotejadas con manual páginas 3-5 el 2026-10-18. Curvas, rebajes y adaptador aproximados; pose de pines y rosca sin mecanizado ni holguras certificadas."
+      },
+      "review": {
+        "identity": true,
+        "scale": true,
+        "views": true,
+        "interfaces": true,
+        "evidence": "Cinco vistas propias cotejadas con manual oficial, 2026-10-18. Silueta, alcance del kit y escala visual revisados; asientos, tornillos, manos, separación de varillas y retención no medidos. Sin ensayo físico.",
+        "mechanical_accuracy": "approximate",
+        "ports_authority": "ports-manifest.json"
+      }
+    },
+    {
+      "id": "smallrig-2896c-takegrid-v1",
+      "part_id": "smallrig-2896c",
+      "subcomponent_id": null,
+      "exact_product_name": "SmallRig Basic Shoulder Rig Kit",
+      "model_number": "2896C",
+      "status": "approved",
+      "source": {
+        "method": "manual",
+        "url": "https://github.com/pabloteran57-glitch/http-127.0.0.1-5173-/blob/main/scripts/lib/authored-models.mjs",
+        "author": "Takegrid / reconstrucción propia en código"
+      },
+      "rights": {
+        "license": "custom-reviewed",
+        "evidence_url": "https://github.com/pabloteran57-glitch/http-127.0.0.1-5173-/blob/main/docs/authored-model-rights.md",
+        "reviewed_on": "2026-10-18",
+        "commercial": true,
+        "redistribution": true,
+        "modification": true,
+        "source_images_authorized": false,
+        "source_images_evidence": "No usa imágenes, texturas ni archivos ajenos en el GLB; referencias de fabricante consultadas localmente, no cargadas a IA ni redistribuidas.",
+        "attribution": "2896C: reconstrucción propia Takegrid, 2026; geometría y materiales aproximados, sin CAD ni respaldo del fabricante."
+      },
+      "artifact": {
+        "path": "/models/smallrig-2896c-takegrid-v1.glb",
+        "sha256": "4ebcc8cb7d4c721e96e7c3a69b53978b8a9966a6b302360538e7f88137704349",
+        "bytes": 532536,
+        "triangles": 12332
+      },
+      "calibration": {
+        "units": "metres",
+        "uniform_scale": 1,
+        "offset_mm": [
+          0,
+          0,
+          0
+        ],
+        "rotation_deg": [
+          0,
+          0,
+          0
+        ],
+        "bounds_mm": [
+          300.00001192092896,
+          180.05000799894333,
+          497.99999594688416
+        ],
+        "reference_url": "https://static.smallrig.com/mall/img/public/1718071886940_.pdf",
+        "reference_basis": "Envolvente publicada 510 ×300 ×180 mm, planificación XYZ 300 ×180 ×510; malla 300 ×180.05 ×498 mm. Diferencia longitudinal 12 mm explícita, no calibrada deformando. Barras de 400/300 mm y diámetro 15 mm, con base, conector, apoyo y dos agarres según manual páginas 2-6; separación y posiciones sólo estimadas. No LWS ni geometría corporal certificada."
+      },
+      "review": {
+        "identity": true,
+        "scale": true,
+        "views": true,
+        "interfaces": true,
+        "evidence": "Cinco vistas propias cotejadas con manual oficial, 2026-10-18. Silueta, alcance del kit y escala visual revisados; asientos, tornillos, manos, separación de varillas y retención no medidos. Sin ensayo físico.",
         "mechanical_accuracy": "approximate",
         "ports_authority": "ports-manifest.json"
       }

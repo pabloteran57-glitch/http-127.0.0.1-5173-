@@ -2,7 +2,7 @@
 
 Fuente: `data/product-roadmap.json`. Estado: prototipo en curso. Ningún criterio externo se da por cumplido a partir de compilación.
 
-Hito actual: Cadenas actuales identifican unidades, puertos y recursos; revisión de guía invalida sustituciones y ajustes. Prioridad siguiente: empuñaduras laterales y hombro completos desde support-intake/setup-coverage. Duplicados montados, nuevas poses, ensayos físicos, usuarios y beta siguen pendientes. [Último bloque](unit-graph.md).
+Hito actual: 4346 y primer contexto Al hombro 2896C integrados como candidatos con cadenas, guía y geometría aproximada. Continuar soporte estático completo, cuatro candidatos restantes, asientos múltiples, dispositivos, ensayos físicos y beta; no afirmar plan terminado. [Último bloque](support-integration.md).
 
 | Fase | Estado de preparación | Evidencia y trabajo restante |
 |---|---|---|

@@ -322,6 +322,30 @@ En gimbal conservar 3026B lateral fijo. A mano/estática usar 2906B sobre NATO 4
 - Rechazado: Montaje en gimbal, palancas libres no medidas y dos piezas en un mismo asiento.
 - [Referencia de medidas](https://static.smallrig.com/mall/img/public/yq5buifh3ha-1742372936152_.pdf)
 
+## 4346 · empuñadura lateral
+
+- Posición candidata XYZ: -120 / -4 / 5 mm; rotación XYZ: 0 / 0 / 0 grados.
+- Envolvente XYZ: 80 / 105 / 68.5 mm; estado: Medidas exteriores publicadas. Una envolvente publicada no verifica los detalles internos.
+- Dominio de carga: Carga móvil; soporte candidato: Jaula HawkLock.
+- Colocación: Lateral de la jaula; comprobar apertura de pantalla, puertas y conectores. Sin giro o recorrido libre habilitados.
+- Orientación: Pose final ilustrativa; asientos y ceros no medidos.
+- Montaje: Localización 1/4-20 lateral; adaptador incluido. Pose izquierda de planificación aproximada.
+- Motivo: Agarre separado del NATO superior y de la zapata RX, sin brazo de gimbal.
+- Rechazado: ARRI 3/8 lateral inexistente, NATO ocupado sin riel y empuñaduras duplicadas en un asiento.
+- [Referencia de medidas](https://static.smallrig.com/mall/img/public/6hzivt5lbfr-1751252249527_.pdf)
+
+## 2896C · kit de hombro
+
+- Posición candidata XYZ: 0 / -140.6 / -45 mm; rotación XYZ: 0 / 0 / 0 grados.
+- Envolvente XYZ: 300 / 180 / 510 mm; estado: Medidas exteriores publicadas. Una envolvente publicada no verifica los detalles internos.
+- Dominio de carga: Carga móvil; soporte candidato: raíz/sujeción externa no modelada.
+- Colocación: Placa bajo cámara, apoyo hacia atrás y dos agarres hacia delante. No posición corporal validada.
+- Orientación: Pose final ilustrativa; asientos y ceros no medidos.
+- Montaje: Placa del kit al 1/4-20 inferior de jaula; barras y agarres propios incluidos.
+- Motivo: Cadena completa del manual sin sumar base ni varillas cortas del gimbal.
+- Rechazado: Apilar 1674, duplicar la masa de barras/agarres o usar batería como contrapeso sin evidencia.
+- [Referencia de medidas](https://static.smallrig.com/mall/img/public/1718071886940_.pdf)
+
 
 ## Componentes sin montaje 3D habilitado
 

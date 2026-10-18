@@ -1095,6 +1095,80 @@
           "note": "Manual página 2, llamada 1: zapata superior frontal. Cotas y posición estimadas; no se ofrecen las dos zapatas posteriores simultáneas."
         }
       ]
+    },
+    {
+      "envelope": "verified",
+      "mass_domain": "moving",
+      "vertical_frame": "camera",
+      "pose_status": "approximate_not_clearance_checked",
+      "rotation_deg": [
+        0,
+        0,
+        0
+      ],
+      "orientation": "Pose final ilustrativa; asientos y ceros no medidos.",
+      "id": "smallrig-4346",
+      "label": "4346 · empuñadura lateral",
+      "kind": "sideHandle",
+      "model_authoring": "locatingSideHandle",
+      "position_mm": [
+        -120,
+        -4,
+        5
+      ],
+      "size_xyz_mm": [
+        80,
+        105,
+        68.5
+      ],
+      "explode_mm": [
+        -170,
+        50,
+        0
+      ],
+      "parent_id": "smallrig-4770",
+      "dimension_source_url": "https://static.smallrig.com/mall/img/public/6hzivt5lbfr-1751252249527_.pdf",
+      "mount": "Localización 1/4-20 lateral; adaptador incluido. Pose izquierda de planificación aproximada.",
+      "placement": "Lateral de la jaula; comprobar apertura de pantalla, puertas y conectores. Sin giro o recorrido libre habilitados.",
+      "rationale": "Agarre separado del NATO superior y de la zapata RX, sin brazo de gimbal.",
+      "rejected": "ARRI 3/8 lateral inexistente, NATO ocupado sin riel y empuñaduras duplicadas en un asiento."
+    },
+    {
+      "envelope": "verified",
+      "mass_domain": "moving",
+      "vertical_frame": "camera",
+      "pose_status": "approximate_not_clearance_checked",
+      "rotation_deg": [
+        0,
+        0,
+        0
+      ],
+      "orientation": "Pose final ilustrativa; asientos y ceros no medidos.",
+      "id": "smallrig-2896c",
+      "label": "2896C · kit de hombro",
+      "kind": "shoulderSupport",
+      "model_authoring": "basicShoulderKit",
+      "position_mm": [
+        0,
+        -140.6,
+        -45
+      ],
+      "size_xyz_mm": [
+        300,
+        180,
+        510
+      ],
+      "explode_mm": [
+        0,
+        -170,
+        -90
+      ],
+      "parent_id": null,
+      "dimension_source_url": "https://static.smallrig.com/mall/img/public/1718071886940_.pdf",
+      "mount": "Placa del kit al 1/4-20 inferior de jaula; barras y agarres propios incluidos.",
+      "placement": "Placa bajo cámara, apoyo hacia atrás y dos agarres hacia delante. No posición corporal validada.",
+      "rationale": "Cadena completa del manual sin sumar base ni varillas cortas del gimbal.",
+      "rejected": "Apilar 1674, duplicar la masa de barras/agarres o usar batería como contrapeso sin evidencia."
     }
   ],
   "clearance_gates": [
@@ -1386,6 +1460,22 @@
           "orientation": "Índices alineados y retención según Sony; orientación de controles ilustrativa.",
           "rationale": "Par exacto documentado, sin adaptador ni cables externos.",
           "rejected": "Heredar parasol, apertura o patrón de contactos de otro objetivo."
+        }
+      }
+    }
+  ],
+  "context_layout_profiles": [
+    {
+      "id": "fx3-shoulder-2896c",
+      "context": "shoulder",
+      "require_all": [
+        "smallrig-2896c",
+        "smallrig-4770",
+        "sony-fx3"
+      ],
+      "overrides": {
+        "smallrig-4770": {
+          "parent_id": "smallrig-2896c"
         }
       }
     }

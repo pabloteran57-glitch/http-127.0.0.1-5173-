@@ -19,8 +19,8 @@ La revisión de cada nueva cadena debe cubrir: núcleo de cámara; jaula y fijac
 
 ## Pendientes por orden
 
-1. Cerrar pareja lateral 4770/4346 y alternativas con su asiento propio, guía, carga y modelo auditado.
-2. Completar primer setup de hombro 2896C con núcleo FX3 exacto y sin duplicar piezas incluidas. Monitor, cables, manos y apoyo por comprobar.
+1. 4346 y 2896C integrados como candidatos de planificación en 0.2.18; verificar físicamente pines, tornillos, manos, monitor y apoyo. [Alcance](support-integration.md).
+2. Completar las otras empuñaduras y soporte estático exacto; no heredar asientos, pasos de tornillos o liberaciones rápidas.
 3. Revisar 4274B/Tilta con manual, placa y alcance de masa inequívocos; no sustituir el primero por parecido.
 4. Extender a brazos/rosetas, varillas, contrapesos y follow focus por cadena verificada; después nuevos cuerpos y ópticas.
 5. Ensayos físicos, mediciones en dispositivos, usuarios, soporte y financiación siguen en el plan beta; no se cierran con una compilación.

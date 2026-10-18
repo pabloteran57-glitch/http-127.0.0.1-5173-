@@ -126,7 +126,7 @@ function attachmentConditionReason(condition:RuleCondition,rig:CustomRig,nameOf:
   if(condition.any?.length&&!condition.any.some(id=>rig.part_ids.includes(id)))return `Requiere una de estas piezas: ${condition.any.map(nameOf).join(", ")}.`;
   const excluded=(condition.none??[]).filter(id=>rig.part_ids.includes(id));
   if(excluded.length)return `Esta opción excluye: ${excluded.map(nameOf).join(", ")}. Tus elecciones se conservan.`;
-  const contexts={gimbal:"con gimbal",handheld:"a mano",static:"con cámara estática"};
+  const contexts={gimbal:"con gimbal",handheld:"a mano",static:"con cámara estática",shoulder:"al hombro"};
   if(condition.context&&condition.context!==rig.context)return `Opción documentada sólo ${contexts[condition.context]}.`;
   if(condition.not_context===rig.context)return `No corresponde al montaje ${contexts[rig.context]}.`;
   if(condition.orientation&&condition.orientation!==rig.orientation)return `Requiere encuadre ${condition.orientation==="landscape"?"horizontal":"vertical"}.`;
@@ -264,7 +264,7 @@ export function resolveRig(rig: CustomRig, rules: PlannerRules, cables: Cable[],
 }
 
 export function assemblyFrame(variant: Variant, step: number, rules: PlannerRules, cables: Cable[]) {
-  const profile=rules.assembly_profiles?.find(profile=>variant.active_part_ids.includes(profile.camera_part_id));
+  const profile=rules.assembly_profiles?.find(profile=>variant.active_part_ids.includes(profile.camera_part_id)&&(!profile.context||profile.context===variant.viewer.rig_context));
   const frames=profile?.frames??rules.assembly_frames;
   const frame = frames.find(frame=>frame.step===step);
   if(!frame)throw new Error("Etapa fuera del perfil de montaje seleccionado.");
@@ -282,7 +282,7 @@ export function assemblyFrame(variant: Variant, step: number, rules: PlannerRule
 export function parseRig(value: unknown, catalogIds: string[]): CustomRig {
   if (!value || typeof value !== "object") throw new Error("Formato de rig no válido.");
   const r = value as Record<string,unknown>;
-  if (![1,2].includes(Number(r.schema_version))||typeof r.schema_version!=="number"||typeof r.id!=="string"||!/^rig-[\w-]{1,100}$/.test(r.id)||typeof r.name!=="string"||!r.name.trim()||r.name.length>80||!["gimbal","handheld","static"].includes(String(r.context))||!["landscape","vertical"].includes(String(r.orientation))||!Array.isArray(r.part_ids)||r.part_ids.length>catalogIds.length||r.part_ids.some(id=>typeof id!=="string"||!catalogIds.includes(id))||new Set(r.part_ids).size!==r.part_ids.length||typeof r.updated_at!=="string"||!Number.isFinite(Date.parse(r.updated_at))) throw new Error("Rig no válido o piezas fuera del catálogo actual. No se importaron datos.");
+  if (![1,2].includes(Number(r.schema_version))||typeof r.schema_version!=="number"||typeof r.id!=="string"||!/^rig-[\w-]{1,100}$/.test(r.id)||typeof r.name!=="string"||!r.name.trim()||r.name.length>80||!["gimbal","handheld","static","shoulder"].includes(String(r.context))||!["landscape","vertical"].includes(String(r.orientation))||!Array.isArray(r.part_ids)||r.part_ids.length>catalogIds.length||r.part_ids.some(id=>typeof id!=="string"||!catalogIds.includes(id))||new Set(r.part_ids).size!==r.part_ids.length||typeof r.updated_at!=="string"||!Number.isFinite(Date.parse(r.updated_at))) throw new Error("Rig no válido o piezas fuera del catálogo actual. No se importaron datos.");
   let units:RigUnit[]|undefined;
   if(r.schema_version===2){
     if(!Array.isArray(r.units)||r.units.length>UNIT_LIMIT)throw new Error("Lista de unidades no compatible. No se borraron datos.");

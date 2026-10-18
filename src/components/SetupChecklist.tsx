@@ -7,7 +7,7 @@ export default function SetupChecklist({context}:{context:CustomRig["context"]})
     <div className="review-checks"><p>Lista de comprobación, no aprobación automática. Los pendientes de tus piezas se muestran en «Revisar montaje y conexiones».</p>
       {target&&<p>{target.note}</p>}
       {coverage.families.map(family=><details key={family.id}><summary>{family.label}</summary><p>{family.required_check}</p></details>)}
-      <p>Empuñaduras laterales y setups de hombro están en verificación. Aún no son piezas o montajes seleccionables; no se sustituyen por brazos de gimbal.</p>
+      <p>4346 lateral y kit de hombro 2896C tienen cadenas candidatas acotadas. No son montajes universales ni ensayos físicos; otros agarres y apoyos siguen en investigación.</p>
     </div>
   </details>;
 }

@@ -1,9 +1,20 @@
 {
   "schema_version": 1,
-  "reviewed_on": "2026-10-17",
+  "reviewed_on": "2026-10-18",
   "status": "research_only",
-  "scope": "Empuñaduras laterales y bases de hombro solicitadas. Investigación separada del selector y de las 36 entradas activas.",
-  "selectable_promotions": [],
+  "scope": "Seis fichas de investigación conservadas. Dos altas separadas y acotadas en support-integration/catalog-promotions; no aprobación física ni catálogo universal.",
+  "selectable_promotions": [
+    {
+      "intake_id": "support-smallrig-4346",
+      "part_id": "smallrig-4346",
+      "promotion_id": "locating-side-handle-4346"
+    },
+    {
+      "intake_id": "support-smallrig-2896c",
+      "part_id": "smallrig-2896c",
+      "promotion_id": "shoulder-kit-2896c"
+    }
+  ],
   "products": [
     {
       "id": "support-smallrig-4346",
@@ -14,14 +25,49 @@
       "status": "research_only",
       "selectable": false,
       "primary_source_id": "src-support-smallrig-4346-manual",
-      "dimensions_mm": {"value": [68.5, 80, 105], "basis": "product_dimensions_not_axis_calibration", "source_locator": "Manual, página 5, Specifications"},
-      "weight_g": {"value": 208, "tolerance": 5, "basis": "product_not_package", "source_locator": "Manual, página 5"},
-      "interfaces": ["Localización 1/4-20 con tornillo convertible", "Localización ARRI 3/8-16", "Zapata fría y roscas auxiliares"],
+      "dimensions_mm": {
+        "value": [
+          68.5,
+          80,
+          105
+        ],
+        "basis": "product_dimensions_not_axis_calibration",
+        "source_locator": "Manual, página 5, Specifications"
+      },
+      "weight_g": {
+        "value": 208,
+        "tolerance": 5,
+        "basis": "product_not_package",
+        "source_locator": "Manual, página 5"
+      },
+      "interfaces": [
+        "Localización 1/4-20 con tornillo convertible",
+        "Localización ARRI 3/8-16",
+        "Zapata fría y roscas auxiliares"
+      ],
       "adjustment": "El manual publica 36 mm verticales; sin pivote de giro ni recorrido libre del conjunto verificados.",
-      "included": [{"item": "Empuñadura", "quantity": 1}, {"item": "Adaptador de empuñadura", "quantity": 1}],
+      "included": [
+        {
+          "item": "Empuñadura",
+          "quantity": 1
+        },
+        {
+          "item": "Adaptador de empuñadura",
+          "quantity": 1
+        }
+      ],
       "candidate_relation": "4770 tiene localización lateral 1/4-20 en la página 4 de su manual. Inferencia de interfaces, no pareja certificada. No usar el ARRI 3/8 superior como lateral ni ocupar su NATO por analogía.",
-      "relation_source_ids": ["src-support-smallrig-4346-manual", "audit-doc-smallrig-4770-manual"],
-      "pending": ["Asiento lateral concreto y antirrotación", "Retención, profundidad útil y apriete", "Acceso a HDMI, pantalla y mano", "Pose y malla propia revisadas", "Integración de etapas y carga"],
+      "relation_source_ids": [
+        "src-support-smallrig-4346-manual",
+        "audit-doc-smallrig-4770-manual"
+      ],
+      "pending": [
+        "Asiento lateral concreto y antirrotación",
+        "Retención, profundidad útil y apriete",
+        "Acceso a HDMI, pantalla y mano",
+        "Pose y malla propia revisadas",
+        "Integración de etapas y carga"
+      ],
       "confidence_level": "documentary_product_verified_pair_pending"
     },
     {
@@ -33,11 +79,40 @@
       "status": "research_only",
       "selectable": false,
       "primary_source_id": "src-support-smallrig-4015-page",
-      "dimensions_mm": {"value": [71.5, 105, 68.5], "basis": "published_product_dimensions", "source_locator": "Specifications de la ficha oficial indexada"},
-      "weight_g": {"value": 205, "tolerance": 5, "basis": "product_not_package", "source_locator": "Specifications de la ficha oficial indexada"},
-      "interfaces": ["Dos tornillos 1/4-20 con paso entre centros de 18 mm"],
-      "included": [{"item": "Empuñadura", "quantity": 1}, {"item": "Adaptador", "quantity": 1}],
-      "pending": ["Confirmar 18 mm útiles en el receptor exacto; no medir por apariencia del dibujo 4770", "Longitud y profundidad útil de tornillos", "Holguras y montaje por lado", "Malla, guía y masa instalada"],
+      "dimensions_mm": {
+        "value": [
+          71.5,
+          105,
+          68.5
+        ],
+        "basis": "published_product_dimensions",
+        "source_locator": "Specifications de la ficha oficial indexada"
+      },
+      "weight_g": {
+        "value": 205,
+        "tolerance": 5,
+        "basis": "product_not_package",
+        "source_locator": "Specifications de la ficha oficial indexada"
+      },
+      "interfaces": [
+        "Dos tornillos 1/4-20 con paso entre centros de 18 mm"
+      ],
+      "included": [
+        {
+          "item": "Empuñadura",
+          "quantity": 1
+        },
+        {
+          "item": "Adaptador",
+          "quantity": 1
+        }
+      ],
+      "pending": [
+        "Confirmar 18 mm útiles en el receptor exacto; no medir por apariencia del dibujo 4770",
+        "Longitud y profundidad útil de tornillos",
+        "Holguras y montaje por lado",
+        "Malla, guía y masa instalada"
+      ],
       "confidence_level": "documentary_product_pair_pending"
     },
     {
@@ -51,9 +126,15 @@
       "primary_source_id": "src-support-smallrig-4016-page",
       "dimensions_mm": null,
       "weight_g": null,
-      "interfaces": ["Localización ARRI 3/8-16"],
+      "interfaces": [
+        "Localización ARRI 3/8-16"
+      ],
       "included": [],
-      "pending": ["La página directa mostró sólo parte de la ficha; completar revisión del manual exacto", "No confundir 1/4-20 lateral 4770 con ARRI 3/8 superior", "Verificar receptor lateral exacto y montaje completo antes de proponerla"],
+      "pending": [
+        "La página directa mostró sólo parte de la ficha; completar revisión del manual exacto",
+        "No confundir 1/4-20 lateral 4770 con ARRI 3/8 superior",
+        "Verificar receptor lateral exacto y montaje completo antes de proponerla"
+      ],
       "confidence_level": "partial_documentary_access"
     },
     {
@@ -65,11 +146,71 @@
       "status": "research_only",
       "selectable": false,
       "primary_source_id": "src-support-smallrig-2896c-manual",
-      "dimensions_mm": {"value": [510, 300, 180], "basis": "published_assembled_envelope_not_joint_coordinates", "source_locator": "Manual, página 6, Specifications"},
-      "weight_g": {"value": 1260, "tolerance": 5, "basis": "complete_product_not_package", "source_locator": "Manual, página 6"},
-      "interfaces": ["Base con tornillo 1/4-20", "Abrazaderas para varillas de 15 mm", "Conector transversal y agarres de varilla"],
-      "included": [{"item": "Empuñadura", "quantity": 2}, {"item": "Conector de agarres", "quantity": 1}, {"item": "Almohadilla de hombro", "quantity": 1}, {"item": "Base con abrazadera doble de 15 mm", "quantity": 1}, {"item": "Varilla de 15 mm y 400 mm", "quantity": 2}, {"item": "Varilla de 15 mm y 300 mm", "quantity": 1}, {"item": "Tapón de varilla", "quantity": 2}, {"item": "Tornillo 1/4-20", "quantity": 2}, {"item": "Llave hexagonal", "quantity": 2}],
-      "pending": ["Pareja exacta cámara/jaula/base y retención", "Posición del apoyo respecto al hombro y centro de masa medido", "Monitor en línea de visión sin bloquear manos", "Recorridos, malla, etapas y contexto shoulder propios", "No sumar también 1674 y varillas de 8 pulgadas como si el kit no tuviera base y barras"],
+      "dimensions_mm": {
+        "value": [
+          510,
+          300,
+          180
+        ],
+        "basis": "published_assembled_envelope_not_joint_coordinates",
+        "source_locator": "Manual, página 6, Specifications"
+      },
+      "weight_g": {
+        "value": 1260,
+        "tolerance": 5,
+        "basis": "complete_product_not_package",
+        "source_locator": "Manual, página 6"
+      },
+      "interfaces": [
+        "Base con tornillo 1/4-20",
+        "Abrazaderas para varillas de 15 mm",
+        "Conector transversal y agarres de varilla"
+      ],
+      "included": [
+        {
+          "item": "Empuñadura",
+          "quantity": 2
+        },
+        {
+          "item": "Conector de agarres",
+          "quantity": 1
+        },
+        {
+          "item": "Almohadilla de hombro",
+          "quantity": 1
+        },
+        {
+          "item": "Base con abrazadera doble de 15 mm",
+          "quantity": 1
+        },
+        {
+          "item": "Varilla de 15 mm y 400 mm",
+          "quantity": 2
+        },
+        {
+          "item": "Varilla de 15 mm y 300 mm",
+          "quantity": 1
+        },
+        {
+          "item": "Tapón de varilla",
+          "quantity": 2
+        },
+        {
+          "item": "Tornillo 1/4-20",
+          "quantity": 2
+        },
+        {
+          "item": "Llave hexagonal",
+          "quantity": 2
+        }
+      ],
+      "pending": [
+        "Pareja exacta cámara/jaula/base y retención",
+        "Posición del apoyo respecto al hombro y centro de masa medido",
+        "Monitor en línea de visión sin bloquear manos",
+        "Recorridos, malla, etapas y contexto shoulder propios",
+        "No sumar también 1674 y varillas de 8 pulgadas como si el kit no tuviera base y barras"
+      ],
       "confidence_level": "documentary_kit_verified_camera_integration_pending"
     },
     {
@@ -83,9 +224,17 @@
       "primary_source_id": "src-support-smallrig-4274b-page",
       "dimensions_mm": null,
       "weight_g": null,
-      "interfaces": ["VCT-14 publicado; no VCT-U14", "Rosetas ARRI y abrazadera frontal para varillas de 15 mm"],
+      "interfaces": [
+        "VCT-14 publicado; no VCT-U14",
+        "Rosetas ARRI y abrazadera frontal para varillas de 15 mm"
+      ],
       "included": [],
-      "pending": ["La ficha indexada mostró más datos que la respuesta directa; confirmar revisión 4274B y manual antes de fijar masa y cotas", "No confundir embalaje con producto ni VCT-U14 con VCT-14", "Verificar lista completa, placa de cámara y monitor", "No dar por incluidas varillas o contrapesos sin comprobación"],
+      "pending": [
+        "La ficha indexada mostró más datos que la respuesta directa; confirmar revisión 4274B y manual antes de fijar masa y cotas",
+        "No confundir embalaje con producto ni VCT-U14 con VCT-14",
+        "Verificar lista completa, placa de cámara y monitor",
+        "No dar por incluidas varillas o contrapesos sin comprobación"
+      ],
       "confidence_level": "partial_documentary_access"
     },
     {
@@ -99,13 +248,47 @@
       "primary_source_id": "src-support-tilta-ta-lsr-b-page",
       "dimensions_mm": null,
       "weight_g": null,
-      "interfaces": ["Receptor dual Manfrotto/ARCA para placa Tilta incluida", "Rosetas ARRI", "Abrazadera trasera 15 mm LWS", "NATO trasero para adaptador"],
-      "included": [{"item": "Conjunto de hombro TA-LSR-B", "quantity": 1}, {"item": "Rosette Handgrip TA-LSR-RH-B", "quantity": 2}, {"item": "Dual Baseplate TA-SR-BSP-B", "quantity": 1}, {"item": "Estuche TA-LSR-SCC", "quantity": 1}],
-      "pending": ["Peso web 7.7 lb frente a 1.7 kg en folleto oficial de 2023; alcance producto/kit/embalaje por resolver", "Cotas netas y revisión actual", "Tilta sólo garantiza su placa incluida, no cualquier Arca/Manfrotto", "Cámara/jaula, base, línea de visión y ajustes propios", "Varillas, batería y contrapesos no se añaden por apariencia de fotos"],
+      "interfaces": [
+        "Receptor dual Manfrotto/ARCA para placa Tilta incluida",
+        "Rosetas ARRI",
+        "Abrazadera trasera 15 mm LWS",
+        "NATO trasero para adaptador"
+      ],
+      "included": [
+        {
+          "item": "Conjunto de hombro TA-LSR-B",
+          "quantity": 1
+        },
+        {
+          "item": "Rosette Handgrip TA-LSR-RH-B",
+          "quantity": 2
+        },
+        {
+          "item": "Dual Baseplate TA-SR-BSP-B",
+          "quantity": 1
+        },
+        {
+          "item": "Estuche TA-LSR-SCC",
+          "quantity": 1
+        }
+      ],
+      "pending": [
+        "Peso web 7.7 lb frente a 1.7 kg en folleto oficial de 2023; alcance producto/kit/embalaje por resolver",
+        "Cotas netas y revisión actual",
+        "Tilta sólo garantiza su placa incluida, no cualquier Arca/Manfrotto",
+        "Cámara/jaula, base, línea de visión y ajustes propios",
+        "Varillas, batería y contrapesos no se añaden por apariencia de fotos"
+      ],
       "confidence_level": "documentary_structure_mass_scope_disputed"
     }
   ],
-  "physical_validation": {"status": "pending", "observations": []},
-  "geometry": {"status": "not_authored", "manufacturer_media_redistribution": false},
-  "next_gate": "Completar cadena y revisión de representación antes de alta; no activar shoulder ni empuñaduras por añadir una ficha."
+  "physical_validation": {
+    "status": "pending",
+    "observations": []
+  },
+  "geometry": {
+    "status": "not_authored",
+    "manufacturer_media_redistribution": false
+  },
+  "next_gate": "Continuar receptores/agarres restantes y pruebas físicas. No activar las cuatro fichas restantes por analogía."
 }

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "reviewed_on": "2026-10-08",
+  "reviewed_on": "2026-10-18",
   "scope": "Altas aditivas posteriores al piloto. No sustituye partes, reglas, distribución ni conexiones. Sin ensayos físicos; no modifica plantillas o bibliotecas.",
   "promotions": [
     {
@@ -313,6 +313,184 @@
       "regression_scripts": [
         "scripts/test-mount-resources.mjs",
         "scripts/test-shoe-monitor-integration.mjs"
+      ]
+    },
+    {
+      "id": "locating-side-handle-4346",
+      "part_ids": [
+        "smallrig-4346"
+      ],
+      "status": "planning_candidate",
+      "contexts": [
+        "handheld",
+        "static"
+      ],
+      "orientations": [
+        "landscape"
+      ],
+      "source_ids": [
+        "src-support-smallrig-4346-manual",
+        "audit-doc-smallrig-4770-manual"
+      ],
+      "claims": [
+        {
+          "id": "locating-side-handle-4346-4770",
+          "part_ids": [
+            "smallrig-4770",
+            "smallrig-4346"
+          ],
+          "model_numbers": [
+            "4770",
+            "4346"
+          ],
+          "source_id": "src-support-smallrig-4346-manual",
+          "method": "documented_interfaces_inference",
+          "status": "candidate_not_manufacturer_pair",
+          "locator": "Manual 4346 páginas 3-5.",
+          "limitation": "Inferencia de interfaces documentadas, no pareja certificada ni ensayo físico. Retención, profundidad, antirrotación y holguras pendientes.",
+          "interface_citations": [
+            {
+              "part_id": "smallrig-4770",
+              "source_id": "audit-doc-smallrig-4770-manual",
+              "interface": "Localización lateral 1/4-20",
+              "locator": "Manual 4770 página 4; llamada 2 lateral o llamada 1 inferior."
+            },
+            {
+              "part_id": "smallrig-4346",
+              "source_id": "src-support-smallrig-4346-manual",
+              "interface": "Adaptador incluido en localización 1/4-20",
+              "locator": "Manual 4346 páginas 3-5."
+            }
+          ]
+        }
+      ],
+      "physical_validation": {
+        "status": "pending",
+        "observations": []
+      },
+      "examples": [
+        {
+          "id": "fx3-handheld-side-monitor",
+          "context": "handheld",
+          "orientation": "landscape",
+          "part_ids": [
+            "sony-fx3",
+            "sony-fe-16-35-gm",
+            "smallrig-4770",
+            "smallrig-4346",
+            "sony-np-fz100",
+            "smallrig-2906b",
+            "smallhd-indie-7",
+            "sony-np-f970-pro",
+            "kondor-blue-hdmi-aa",
+            "dji-mic-2-kit"
+          ],
+          "note": "Selección explícita de ejemplo, no plantilla nueva ni certificación física."
+        },
+        {
+          "id": "fx30-handheld-side",
+          "context": "handheld",
+          "orientation": "landscape",
+          "part_ids": [
+            "sony-fx30",
+            "sony-fe-20-f18-g",
+            "smallrig-4770",
+            "smallrig-4346",
+            "sony-np-fz100"
+          ],
+          "note": "Selección explícita de ejemplo, no plantilla nueva ni certificación física."
+        }
+      ],
+      "layout": "Localización lateral de 4770; sin consumir NATO superior ni zapata RX. Pose aproximada, sin ajuste libre.",
+      "assembly": "Bloque en etapa de accesorios FX3 y FX30; revisar asiento y cables.",
+      "connections": "No añade puertos ni circuitos. Cámara usa sus contactos nativos; monitor serie L y RX opcionales conservan HDMI/TRS propios FX3 o FX30 según alcance.",
+      "viewer": "Malla y miniatura propias aproximadas; cinco vistas cotejadas con manual exacto. No CAD, fotos ni IA ajenos.",
+      "variants": "Ejemplos del usuario, siete plantillas originales intactas. Guardado local y unidades actuales sin nueva migración.",
+      "regression_scripts": [
+        "scripts/test-support-integration.mjs",
+        "scripts/test-setup-coverage.mjs"
+      ]
+    },
+    {
+      "id": "shoulder-kit-2896c",
+      "part_ids": [
+        "smallrig-2896c"
+      ],
+      "status": "planning_candidate",
+      "contexts": [
+        "shoulder"
+      ],
+      "orientations": [
+        "landscape"
+      ],
+      "source_ids": [
+        "src-support-smallrig-2896c-manual",
+        "audit-doc-smallrig-4770-manual"
+      ],
+      "claims": [
+        {
+          "id": "shoulder-kit-2896c-4770",
+          "part_ids": [
+            "smallrig-4770",
+            "smallrig-2896c"
+          ],
+          "model_numbers": [
+            "4770",
+            "2896C"
+          ],
+          "source_id": "src-support-smallrig-2896c-manual",
+          "method": "documented_interfaces_inference",
+          "status": "candidate_not_manufacturer_pair",
+          "locator": "Manual 2896C páginas 3-6.",
+          "limitation": "Inferencia de interfaces documentadas, no pareja certificada ni ensayo físico. Retención, profundidad, antirrotación y holguras pendientes.",
+          "interface_citations": [
+            {
+              "part_id": "smallrig-4770",
+              "source_id": "audit-doc-smallrig-4770-manual",
+              "interface": "Rosca inferior 1/4-20",
+              "locator": "Manual 4770 página 4; llamada 2 lateral o llamada 1 inferior."
+            },
+            {
+              "part_id": "smallrig-2896c",
+              "source_id": "src-support-smallrig-2896c-manual",
+              "interface": "Tornillo de placa 1/4-20 y kit de varillas/agarres incluido",
+              "locator": "Manual 2896C páginas 3-6."
+            }
+          ]
+        }
+      ],
+      "physical_validation": {
+        "status": "pending",
+        "observations": []
+      },
+      "examples": [
+        {
+          "id": "fx3-shoulder-monitor-audio",
+          "context": "shoulder",
+          "orientation": "landscape",
+          "part_ids": [
+            "sony-fx3",
+            "sony-fe-16-35-gm",
+            "smallrig-4770",
+            "smallrig-2896c",
+            "sony-np-fz100",
+            "smallrig-2906b",
+            "smallhd-indie-7",
+            "sony-np-f970-pro",
+            "kondor-blue-hdmi-aa",
+            "dji-mic-2-kit"
+          ],
+          "note": "Selección explícita de ejemplo, no plantilla nueva ni certificación física."
+        }
+      ],
+      "layout": "Kit 2896C bajo jaula y apoyo trasero; base, barras y dos agarres incluidos. Separación LWS, altura óptica y línea de visión sin certificar.",
+      "assembly": "Perfil propio de diez etapas, dos opcionales según selección; retirada final opcional con rig apoyado y desatornillado, no extracción gimbal.",
+      "connections": "No añade puertos ni circuitos. Cámara usa sus contactos nativos; monitor serie L y RX opcionales conservan HDMI/TRS propios FX3 o FX30 según alcance.",
+      "viewer": "Malla y miniatura propias aproximadas; cinco vistas cotejadas con manual exacto. No CAD, fotos ni IA ajenos.",
+      "variants": "Ejemplos del usuario, siete plantillas originales intactas. Guardado local y unidades actuales sin nueva migración.",
+      "regression_scripts": [
+        "scripts/test-support-integration.mjs",
+        "scripts/test-setup-coverage.mjs"
       ]
     }
   ],
