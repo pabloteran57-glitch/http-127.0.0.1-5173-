@@ -32,3 +32,7 @@ Compilación pública completa superada al repetir fuera del entorno restringido
 ## Siguiente lote
 
 [Agarres y hombro](support-intake.md): seis candidatos con fuentes separadas y discrepancias explícitas. [Cobertura de setups](setup-coverage.md) exige doce familias, incluyendo toda fijación, alimentación, señal, mano y extracción. No se activa un contexto de hombro heredando el brazo del gimbal o las varillas cortas del rig maestro.
+
+Publicación 0.2.17 confirmada `succeeded` el 17 de octubre de 2026 a las 22:28 de Ecuador en el [mismo enlace Takegrid](https://takegrid-rigs.pabloteran57.chatgpt.site). [Revisiones y huellas](additional-hosting.md).
+
+La comprobación beta mantiene pendientes: participantes observados (0 de mínimo propuesto 10), tasa de tareas aún no calculable, dispositivos de referencia, ensayos físicos, revisión de privacidad, soporte y presupuesto/elegibilidad de financiación. Además siguen sin implementar los nuevos montajes de sidehandles/hombro, duplicados simultáneos y expansión restante. No se declara terminado el plan completo por esta publicación.

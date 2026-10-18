@@ -2,6 +2,22 @@
 
 ## Estado Confirmado
 
+- Enlace público: [Takegrid 0.2.17](https://takegrid-rigs.pabloteran57.chatgpt.site).
+- Sites: `succeeded`, `2026-10-18T03:28:18.389981+00:00` (17 de octubre, 22:28 en Ecuador).
+- Versión guardada: `appgprj_6ac5ca6c160c819191d2bacd7366c426~appgver_16072de1f2d481918ee89ca78fcab113` (versión 14 del proveedor).
+- Despliegue: `appgdep_6ad43cc9e30881919ceb237a2aecd875`.
+- Código respaldado: `30f424e86f97f54ee0e55f57cb9cc8fc8635dbf5`; fuente estática remota verificada: `c7d5db52e7f033d08ae7837770fe8eda814d6a92`.
+
+62 recursos de `dist-public`, 7164202 bytes, comparados por SHA-256 entre compilación, fuente estática, validador oficial y paquete. Sites confirmó 63 archivos con configuración, tar de 7219200 bytes y `sha256:621c9090af58182af418e41a2b4b5a2c04070d7bbfab28c59ec145466ae3494d`. Gzip local: 1781878 bytes, `sha256:d15fd740a1fc543a04504e234b9cd0b8f2477dc86b52dccb8c5072448779b6c9`.
+
+Anclajes y circuitos por unidad; etiquetas concretas en ficha, visor y extremos A/B. Guía reinicia lectura tras sustitución o ajuste, no tras renombrado/guardado; no revive casillas antiguas al regresar. Lista de preparación de doce áreas en Elegidas. 18 regresiones nuevas de grafo con 1000 subselecciones, ocho controles nuevos de investigación y recorrido local de escritorio/móvil, sin nuevas compatibilidades o migración. [Evidencia](unit-graph.md).
+
+Seis candidatos de agarres/hombro documentados separadamente; no son altas ni un modo shoulder listo. Se mantienen 36 entradas, 23 mallas y siete plantillas. [Cobertura y pendientes](setup-coverage.md). La compilación completa pasó al repetirse fuera del entorno restringido tras un cierre nativo de V8; comprobaciones finales y auditoría correctas, sin ocultar el primer registro.
+
+El empaquetador del flujo oficial no pudo arrancar su preparación dependiente de Bash en Windows después de enviar la fuente. Apertura oficial confirmó el HEAD nuevo; validador estático oficial y `tar.exe` prepararon la copia idéntica. Capturas, PDF, imágenes, bibliotecas y credenciales excluidos. Sin cambios en Netlify, acceso público, facturación o nube; sin recarga forzada del usuario. La confirmación de Sites acredita despliegue, no ensayo de rig ni teléfono físico.
+
+## Histórico 0.2.16
+
 - Enlace público: [Takegrid 0.2.16](https://takegrid-rigs.pabloteran57.chatgpt.site).
 - Sites: `succeeded`, `2026-10-17T19:21:38.439223+00:00` (17 de octubre, 14:21 en Ecuador).
 - Versión guardada: `appgprj_6ac5ca6c160c819191d2bacd7366c426~appgver_0167155b1ef481919041be5e076fadc9` (versión 13 del proveedor).
