@@ -2,6 +2,20 @@
 
 ## Estado Confirmado
 
+- Enlace público: [Takegrid 0.2.18](https://takegrid-rigs.pabloteran57.chatgpt.site).
+- Sites: `succeeded`, `2026-10-18T05:35:34.789759+00:00` (18 de octubre, 00:35 en Ecuador).
+- Versión guardada: `appgprj_6ac5ca6c160c819191d2bacd7366c426~appgver_79814cd150f08191b3f589306ec73952` (versión 15 del proveedor).
+- Despliegue: `appgdep_6ad45a98f30c8191b967bfdee9242bed`.
+- Código respaldado: `21c62dc9a2c4350a3c859c13a77cd92897c66597`; fuente estática remota: `a449ff4c36beb0c7c16a96d9522dcf1be32502cf`.
+
+66 recursos propios, 7921233 bytes, idénticos entre compilación, fuente estática, validador y paquete. Gzip de 1953932 bytes, `sha256:5d6ee1e16f15c248463dd87c7b70c1eb523b756992bb9b760bc8abb992feee59`. Sites confirmó 67 archivos con configuración, tar de 7976960 bytes y `sha256:10948830902397a3471a657607aa1da0a5f9c63ab41cf5aaa88be270d60a7865`.
+
+38 entradas, 25 mallas propias aproximadas, 22 circuitos y siete plantillas conservadas. Alta candidata 4346 lateral y primer contexto al hombro 2896C con kit completo, núcleo explícito, monitor/audio opcionales y guía independiente. [Fuentes, pruebas y límites](support-integration.md). No se anuncian CAD exactos, catálogo completo ni ensayos físicos.
+
+Compilación pública completa, validación final, TypeScript y auditoría correctos. Revisión local de creación, diez elecciones, montaje 9/9, conexiones, guardado/recarga, móvil 390 ×844 y empuñadura pendiente sin jaula; sin errores de consola observados. El empaquetador oficial falló al iniciar su preparación en Windows después del envío; apertura oficial verificó el HEAD remoto, validador estático oficial y `tar.exe` prepararon la misma compilación. Sin fotografías/manuales, capturas, bibliotecas o credenciales públicas; sin cambios de Netlify, nube, acceso o facturación. No se recargaron pestañas del usuario ni se forzó el service worker.
+
+## Histórico 0.2.17
+
 - Enlace público: [Takegrid 0.2.17](https://takegrid-rigs.pabloteran57.chatgpt.site).
 - Sites: `succeeded`, `2026-10-18T03:28:18.389981+00:00` (17 de octubre, 22:28 en Ecuador).
 - Versión guardada: `appgprj_6ac5ca6c160c819191d2bacd7366c426~appgver_16072de1f2d481918ee89ca78fcab113` (versión 14 del proveedor).
