@@ -1,5 +1,5 @@
 {
-  "version": "0.2.21",
+  "version": "0.2.22",
   "released_on": "2026-10-22",
   "status": "engineering_prototype",
   "label": "Prototipo de ingeniería",
@@ -7,6 +7,9 @@
   "storage": "local_only",
   "account_sync": "deferred_by_user",
   "updates": [
+    "FX3 con jaula: acceso directo a preparar trípode desde la jaula; permite añadir sólo AD-01 con su placa, sin óptica ni batería implícita.",
+    "Un trípode elegido pendiente fuera de modo estático ya no desactiva óptica o accesorios del montaje actual.",
+    "Preparación de trípode visible en Catálogo y Elegidas: contexto, soporte y conjunto de referencia separados; extras sólo pasan a repuestos tras confirmación explícita.",
     "Recordatorios por pieza y propuestas explícitas en editor/ficha: soporte, vídeo y energía aunque la pieza siga pendiente.",
     "Trípode 3751B: contenido de kit visible, cambio a contexto estático explícito y núcleo faltante separado de placa/tornillos ya incluidos.",
     "Comprobar el plan en Conexiones revisa selección, soportes, unidades/puertos, revisiones, montaje y despiece; sin certificar el equipo real.",

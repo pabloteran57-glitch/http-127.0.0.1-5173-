@@ -24,9 +24,11 @@ import PlanStatus from "../components/PlanStatus";
 import {applicableClearanceGates} from "../lib/plan-status";
 import {dependencyReport} from "../lib/dependencies";
 import {validateSetup} from "../lib/setup-validation";
+import TripodStatus from "../components/TripodStatus";
 interface Props {
  onAttach:(anchorId:string,optionId:string)=>void;
  onDependencyChoice:(id:string)=>void;
+ onPrepareTripod:()=>void;
  onAdjust:(adjustments:RigAdjustments)=>void;
  profileName:string;onProfiles:()=>void;
  libraryNotice?:string;
@@ -36,7 +38,7 @@ interface Props {
 const names:Record<string,string>={"documentary-one-man-film":"Documental / solo","commercial-solo-gimbal":"Comercial","handheld-quick-release":"A mano","lower-budget-stripped-down":"Esencial","vertical-916-creator-mode":"Vertical 9:16","corporate-interview":"Entrevista","cinema-narrative":"Cine / narrativa"};
 const tabs=[{id:"design",label:"Rig",icon:"design"},{id:"connect",label:"Conexiones",icon:"connect"},{id:"assemble",label:"Montaje",icon:"assemble"},{id:"inventory",label:"Piezas",icon:"inventory"}] as const;
 type Tab=typeof tabs[number]["id"];
-export default function RigPlannerPage({profileName,onProfiles,libraryNotice,exploded,onExplodedChange,onShowCablesChange,onShowLabelsChange,onVariantChange,showCables,showLabels,variant:sourceVariant,customRig,resolution,savedRigs,dirty,message,recoveryStatus,viewerPaused,onHelp,onDismissMessage,onNewRig,onLibrary,onEditRig,onSaveRig,onAttach,onAdjust,onDependencyChoice}:Props){
+export default function RigPlannerPage({profileName,onProfiles,libraryNotice,exploded,onExplodedChange,onShowCablesChange,onShowLabelsChange,onVariantChange,showCables,showLabels,variant:sourceVariant,customRig,resolution,savedRigs,dirty,message,recoveryStatus,viewerPaused,onHelp,onDismissMessage,onNewRig,onLibrary,onEditRig,onSaveRig,onAttach,onAdjust,onDependencyChoice,onPrepareTripod}:Props){
  const unitGraph=customRig?projectUnitGraph(customRig,sourceVariant,plannerData,cablesData.cables,portsData):undefined;
  const variant=unitGraph?{...sourceVariant,cable_profile_ids:unitGraph.links.filter(link=>link.state==="candidate").map(link=>link.cable_id),...(unitGraph.issues.some(issue=>issue.id==="unit-identity")?{active_part_ids:[]}: {})}:sourceVariant;
  const identities=customRig?unitIdentities(customRig):undefined;
@@ -77,6 +79,8 @@ export default function RigPlannerPage({profileName,onProfiles,libraryNotice,exp
   {libraryNotice&&<div className="library-change-notice" role="status"><Icon name="info"/><p>{libraryNotice}</p><button type="button" className="quiet-button" onClick={onLibrary}>Revisar biblioteca</button></div>}
   <div className="project-bar"><div className="project-title"><p className="eyebrow">TU EQUIPO / {plannerData.camera_part_ids.some(id=>chosenIds.includes(id))?partName(preferredPartId(chosenIds,layoutData)):"MI SELECCIÓN"}</p><h1>{customRig?customRig.name||"Rig sin nombre":"Mi rig"}</h1><p className="profile-intent">{customRig?`${unitSummary(customRig)} · ${dirty?"Borrador sin guardar":"Guardado en este navegador"}`:profileHints[variant.id]}</p></div><div className="build-controls"><label htmlFor="variant">Perfil</label><select id="variant" value={variant.id} onChange={e=>switchVariant(e.target.value)}><optgroup label="Plantillas">{variantsData.variants.map(v=><option value={v.id} key={v.id}>{names[v.id]}</option>)}</optgroup>{savedRigs.length>0&&<optgroup label="Mis rigs">{savedRigs.map(r=><option key={r.id} value={r.id}>{r.name||"Rig sin nombre"}</option>)}</optgroup>}</select><button className="profile-settings" aria-label="Detalles del perfil" onClick={()=>profileDialog.current?.showModal()}><Icon name="settings"/>Detalles del perfil</button></div></div>
   <div className="rig-action-bar"><span className={customRig?"custom-profile-tag":"template-profile-tag"}>{customRig?"PERFIL PROPIO":"PLANTILLA / COPIA EDITABLE"}</span><div><button className="quiet-button" onClick={onEditRig}><Icon name="settings"/>{customRig?"Editar piezas":"Personalizar"}</button><button className="primary-button" disabled={!!customRig&&!dirty} onClick={onSaveRig}><Icon name="check"/>{customRig&&!dirty?"Guardado":"Guardar rig"}</button></div></div>
+  {customRig&&<p className="rig-context-label">{ui.builder.contexts.find(item=>item.id===customRig.context)?.label} · {customRig.orientation==="landscape"?"Horizontal":"Vertical 9:16"}</p>}
+  {customRig&&<TripodStatus rig={customRig} onEdit={onEditRig}/>}
   <PlanStatus issues={resolution?.issues??[]} report={dependencies} onChoose={onDependencyChoice} onEdit={onEditRig}/>
   {!!unitGraph?.issues.length&&<details className="plan-pending"><summary><Icon name="info"/>Revisar asignaciones de unidades</summary><ul>{unitGraph.issues.map(issue=><li key={issue.id}>{issue.message}</li>)}</ul><button className="quiet-button" onClick={onEditRig}>Revisar unidades</button></details>}
   <div className="navigation-row"><nav className="app-navigation" role="tablist" aria-label="Tareas del rig">{tabs.map((t,i)=><button key={t.id} role="tab" id={`tab-${t.id}`} aria-controls="task-panel" aria-selected={tab===t.id} tabIndex={tab===t.id?0:-1} onKeyDown={e=>tabKey(e,i)} onClick={()=>switchTab(t.id)}><Icon name={t.icon}/><span>{t.label}</span></button>)}</nav><button className="planning-state" onClick={()=>profileDialog.current?.showModal()}><i/>Revisión física pendiente<Icon name="info"/></button></div>
@@ -99,7 +103,7 @@ export default function RigPlannerPage({profileName,onProfiles,libraryNotice,exp
   {tab==="inventory"&&<div className="inventory-workspace"><div className="panel-heading"><h2>Equipo del proyecto</h2><p>{customRig?unitSummary(customRig):`${chosenIds.length} elementos elegidos`}</p></div><PartsTable key={variant.id} variant={variant} chosenIds={chosenIds} rig={customRig} selectedId={selectedId} onSelect={inspect} onEdit={onEditRig}/></div>}
   </section>
   <footer className="app-footer"><span>{brand.name.toUpperCase()} / PLANIFICACIÓN DE RODAJE</span><p>Fuentes verificadas. Geometría aproximada, no CAD certificado.</p><button className="quiet-button" onClick={onHelp}>Ayuda y versión</button></footer>
-  {attachmentAnchor&&<AttachmentPicker key={`${variant.id}:${attachmentAnchor}`} anchorId={attachmentAnchor} rig={attachmentRig} onClose={()=>setAttachmentAnchor("")} onAdd={optionId=>{onAttach(attachmentAnchor,optionId);setAttachmentAnchor("");}} onCatalog={()=>{setAttachmentAnchor("");onEditRig();}}/>}
+  {attachmentAnchor&&<AttachmentPicker key={`${variant.id}:${attachmentAnchor}`} anchorId={attachmentAnchor} rig={attachmentRig} onClose={()=>setAttachmentAnchor("")} onAdd={optionId=>{onAttach(attachmentAnchor,optionId);setAttachmentAnchor("");}} onCatalog={()=>{setAttachmentAnchor("");onEditRig();}} onPrepareTripod={()=>{setAttachmentAnchor("");onPrepareTripod();}}/>}
   {adjustmentPart&&adjustablePart(adjustmentPart,variant)&&<PartAdjustments key={adjustmentPart} partId={adjustmentPart} variant={variant} onChange={onAdjust} onClose={()=>setAdjustmentPart("")}/>}
   <dialog ref={profileDialog} className="profile-dialog" aria-labelledby="profile-title"><div className="dialog-heading"><div><p className="eyebrow">TU PERFIL / CRITERIOS DE MONTAJE</p><h2 id="profile-title">{names[variant.id]??variant.label}</h2></div><button className="icon-button" aria-label="Cerrar detalles del perfil" onClick={()=>profileDialog.current?.close()}><Icon name="close"/></button></div>
    <div className="dialog-content"><p className="dialog-intro">{variant.workflow_impact}</p><div className="profile-pills">{variantsData.variants.map(v=><button key={v.id} aria-pressed={v.id===variant.id} onClick={()=>switchVariant(v.id)}>{names[v.id]}</button>)}</div>

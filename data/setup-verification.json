@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "release": "0.2.21",
+  "release": "0.2.22",
   "scope": "Cobertura finita de software; no todas las 2^39 selecciones ni ensayos físicos.",
-  "input_sha256": "7e8a3de9a47bf3df417b1d7cae0df98d15ffb76fa3760bd454de9a6f5bbd5dc4",
+  "input_sha256": "28b97399bee711ead909b93e74a7376fd519f2662a64c06102b676f975edc93a",
   "status": "verified_software_only",
   "checks": 21,
   "cases": 8507,
-  "explicit_actions": 1274,
+  "explicit_actions": 1296,
   "catalog_entries": 39,
   "part_ids": [
     "dji-focus-pro-lidar",

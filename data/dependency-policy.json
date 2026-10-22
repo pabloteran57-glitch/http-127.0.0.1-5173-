@@ -26,7 +26,7 @@
     "vertical-support": "Orientación pendiente de revisión"
   },
   "bundle_reminders": ["smallrig-3751b", "smallrig-2896c"],
-  "context_labels": {"gimbal":"Con gimbal","handheld":"A mano","static":"Cámara estática","shoulder":"Al hombro"},
+  "context_labels": {"gimbal":"Con gimbal","handheld":"A mano","static":"Trípode / estática","shoulder":"Al hombro"},
   "policy": [
     "Evaluar recordatorios sobre elecciones, aunque una pieza no tenga soporte activo.",
     "Mostrar todas las alternativas declaradas de una necesidad, sin escoger batería, óptica o cámara por el usuario.",

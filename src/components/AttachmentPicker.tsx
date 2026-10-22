@@ -7,7 +7,7 @@ import ProductVisual from "./ProductVisual";
 import Icon from "./Icon";
 import MountResources from "./MountResources";
 
-export default function AttachmentPicker({anchorId,rig,onClose,onAdd,onCatalog}:{anchorId:string;rig:CustomRig;onClose:()=>void;onAdd:(optionId:string)=>void;onCatalog:()=>void}) {
+export default function AttachmentPicker({anchorId,rig,onClose,onAdd,onCatalog,onPrepareTripod}:{anchorId:string;rig:CustomRig;onClose:()=>void;onAdd:(optionId:string)=>void;onCatalog:()=>void;onPrepareTripod:()=>void}) {
   const dialog=useRef<HTMLDialogElement>(null);
   const master=variantsData.variants.find(variant=>variant.id===variantsData.master_variant_id)!;
   const diagnostics=visibleAttachmentDiagnostics(attachmentDiagnostics(anchorId,rig,plannerData,cablesData.cables,master,partName));
@@ -17,6 +17,7 @@ export default function AttachmentPicker({anchorId,rig,onClose,onAdd,onCatalog}:
   return <dialog ref={dialog} className="attachment-dialog" aria-labelledby="attachment-title" onCancel={onClose} onClose={onClose}>
     <div className="dialog-heading"><div><p className="eyebrow">AÑADIR DESDE EL RIG</p><h2 id="attachment-title">Sobre {partName(anchorId)}</h2></div><button type="button" className="icon-button" aria-label="Cerrar accesorios compatibles" onClick={onClose}><Icon name="close"/></button></div>
     <div className="attachment-content"><p className="attachment-intro">Opciones con interfaces documentadas para este montaje. Revisa las piezas antes de añadirlas; el encaje físico sigue pendiente.</p>
+      {anchorId==="smallrig-4770"&&rig.part_ids.includes("sony-fx3")&&(rig.context!=="static"||rig.orientation!=="landscape")&&<section className="setup-starter" aria-label="Cambiar a montaje con trípode"><strong>¿Quieres montar la FX3 y su jaula en trípode?</strong><p>Prepara cámara estática horizontal y elige el AD-01 con su placa incluida. Conserva todas tus unidades; otros accesorios pueden quedar pendientes. No se añade óptica ni batería con este cambio.</p><button type="button" className="quiet-button" onClick={onPrepareTripod}>Preparar montaje en trípode</button></section>}
       <MountResources anchorId={anchorId} rig={rig} variant={variant} onReview={onCatalog}/>
       <div className="attachment-options">{candidates.map(({option,add_ids})=><article key={option.id} data-attachment-option={option.id}>
         <h3>{option.label}</h3><div className="attachment-pieces">{add_ids.map(id=><div key={id}><ProductVisual id={id}/><span>{partName(id)}</span></div>)}</div>

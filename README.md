@@ -28,7 +28,7 @@ Vista de marca: `/brand/preview.html`. SVG reutilizables en `public/brand`; nomb
 
 ## Rigs Propios
 
-Versión 0.2.21: **recordatorios por pieza y comprobación de conjuntos**. El editor/ficha explica soporte, señal y energía incluso con piezas pendientes; muestra contenidos de kits y permite cambiar contexto explícitamente. Conexiones incorpora seis controles de coherencia. Matriz de 39 piezas, siete plantillas, omisiones y parejas; circuitos de banco siguen en reserva. [Alcance y verificación](docs/continuation-0221.md).
+Versión 0.2.22: **creación con trípode corregida**. FX3 con jaula puede añadir sólo AD-01 con su placa, sin imponer óptica ni batería como adaptadores. El trípode pendiente no desactiva el rig a mano; preparación accesible desde jaula y en Catálogo/Elegidas. Extras a repuestos sólo con confirmación explícita. [Alcance y verificación](docs/tripod-flow-0222.md). Se conservan los [recordatorios y comprobaciones de 0.2.21](docs/continuation-0221.md).
 
 Versión 0.2.20: **estabilización de software del núcleo**. Revisión distingue faltantes de selección y pruebas físicas; preflight contextual, aviso de cambios de otra pestaña, actualización sin duplicar borradores y recuperación de contexto 3D sin recargar el plan. Fuentes de óptica/batería condicionadas a la elección. No modifica catálogo, plantillas ni bibliotecas. [Verificación y límites](docs/core-acceptance-0220.md), [criterios estructurados](data/core-acceptance.json).
 

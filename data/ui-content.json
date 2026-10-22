@@ -185,8 +185,8 @@
       },
       {
         "id": "static",
-        "label": "Cámara estática",
-        "detail": "El soporte de trípode queda por documentar.",
+        "label": "Trípode / estática",
+        "detail": "Elige el soporte de trípode y revisa su cadena de montaje.",
         "icon": "inventory"
       },
       {

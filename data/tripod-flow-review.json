@@ -1,0 +1,27 @@
+{
+  "release":"0.2.22",
+  "reviewed_on":"2026-10-22",
+  "status":"software_and_browser_verified_publication_pending",
+  "scope":"Corrección de selección y contexto; no amplía compatibilidad mecánica, puertos, geometría o circuitos.",
+  "regression_script":"scripts/test-tripod-flow.mjs",
+  "regression_checks":13,
+  "matrix_report":"data/setup-verification.json",
+  "browser":{
+    "surface":"Edge",
+    "mobile_viewport":[390,844],
+    "physical_phone":false,
+    "partial_support_choices":["sony-fx3","smallrig-4770","smallrig-3751b"],
+    "implicit_lens_or_power_added":false,
+    "reference_core_choices":5,
+    "monitor_audio_choices":10,
+    "independent_links_checked":4,
+    "playback_end":"9/9; pausa al final, sin retirada opcional automática",
+    "reserve_confirmation_checked":true,
+    "recovered_units":11,
+    "recovered_spares":1,
+    "recovered_missing_needs":0,
+    "user_production_library_changed":false
+  },
+  "physical_validation":"pending",
+  "publication":{"status":"pending"}
+}

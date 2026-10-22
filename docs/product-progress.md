@@ -2,7 +2,7 @@
 
 Fuente: `data/product-roadmap.json`. Estado: prototipo en curso. Ningún criterio externo se da por cumplido a partir de compilación.
 
-Hito actual: Dos etapas de software cerradas y publicadas en 0.2.21: recordatorios de dependencias por pieza y matriz de conjuntos/puertos/montaje/despiece. 39 productos, 8507 casos, siete plantillas y 22 revisiones; interfaz móvil/escritorio y versión pública comprobadas. Sin compatibilidad universal ni beta profesional aprobada. [Último bloque](continuation-0221.md).
+Hito actual: Corrección del flujo de trípode 0.2.22: FX3 con jaula monta sólo el soporte, sin óptica/batería implícitas; contexto y alcance revisado separados. 13 regresiones nuevas y matriz general de 8507 casos. Recorrido móvil del soporte, monitor/audio y guardado verificado; publicación en cierre. Sin compatibilidad universal ni beta profesional aprobada. [Último bloque](tripod-flow-0222.md).
 
 | Fase | Estado de preparación | Evidencia y trabajo restante |
 |---|---|---|

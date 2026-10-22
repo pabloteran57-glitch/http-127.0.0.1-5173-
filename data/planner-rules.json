@@ -1781,6 +1781,7 @@
     {
       "id": "static-3751b-scope",
       "condition": {
+        "context": "static",
         "all": [
           "smallrig-3751b"
         ]
