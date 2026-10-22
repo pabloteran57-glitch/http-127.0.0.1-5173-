@@ -2,6 +2,18 @@
 
 ## Estado Confirmado
 
+- Enlace público: [Takegrid 0.2.19](https://takegrid-rigs.pabloteran57.chatgpt.site).
+- Sites: `succeeded`, `2026-10-22T01:36:49.942277+00:00` (21 de octubre, 20:36 en Ecuador).
+- Versión guardada: `appgprj_6ac5ca6c160c819191d2bacd7366c426~appgver_3a28cf050b98819199ceb1ca82f48330` (versión 16 del proveedor).
+- Despliegue: `appgdep_6ad968a7f7488191a075d7ae3cc38fa6`.
+- Código respaldado: `82cc6845080c73b258a0ce98a930df6696a89427`; fuente estática: `f4dd8218e143e41499d9a596f91e6e697438bc47`.
+
+68 recursos propios, 8 302 907 bytes, comparados entre compilación y fuente estática. El flujo oficial de Sites completó envío y empaquetado en Windows. Gzip: 2 054 694 bytes, `sha256:2e0bc8762a676ca3d3b08c7c4c8c9c6da0797e86e5a72acf3b9ae99623654735`. Sites confirmó 69 archivos incluyendo configuración, tar de 8 366 080 bytes y `sha256:cdaee42d02b97c3b309c8762f4c391bd437a02bd5888bbc10e24b0d324c83455`.
+
+39 entradas, 26 mallas/miniaturas propias aproximadas y 22 revisiones documentales de circuitos. AD-01 3751B con cadena estática acotada, guía filtrada, encuadre de cámara/soporte y carga superior separada del trípode. [Entrega, verificación y pendientes](continuation-0219.md). Guardado local, perfiles y siete plantillas conservados. Sin imágenes/manuales de fabricantes, notas privadas, credenciales, cuentas, cambios de audiencia o gastos; sin recarga forzada ni activación del service worker sobre pestañas del usuario. La confirmación remota acredita publicación, no beta ni ensayo físico.
+
+## Histórico 0.2.18
+
 - Enlace público: [Takegrid 0.2.18](https://takegrid-rigs.pabloteran57.chatgpt.site).
 - Sites: `succeeded`, `2026-10-18T05:35:34.789759+00:00` (18 de octubre, 00:35 en Ecuador).
 - Versión guardada: `appgprj_6ac5ca6c160c819191d2bacd7366c426~appgver_79814cd150f08191b3f589306ec73952` (versión 15 del proveedor).

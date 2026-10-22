@@ -21,6 +21,8 @@ Compilación pública completa y TypeScript correctos; 68 archivos permitidos, a
 
 ## Plan Restante
 
+Publicación confirmada `succeeded` el 21 de octubre de 2026 a las 20:36 de Ecuador en [el mismo enlace de Takegrid](https://takegrid-rigs.pabloteran57.chatgpt.site). Fuente respaldada `82cc6845080c73b258a0ce98a930df6696a89427`. Versiones anteriores conservadas para recuperación; [registro del despliegue](additional-hosting.md).
+
 - Continuar cuatro candidatos de agarres/apoyo aún no activados y el inventario inicial de 26 accesorios SmallRig/Tilta, por cadenas completas. Cobertura total desconocida: no es el catálogo completo de ambas marcas.
 - Ampliar montajes simultáneos de unidades sólo con asientos y puertos independientes documentados; repuestos actuales no se convierten en carga instalada.
 - Conseguir recursos exactos autorizados o mediciones propias. Las 26 reconstrucciones son aproximadas, no equivalentes a CAD de fabricación.
