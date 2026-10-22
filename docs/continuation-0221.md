@@ -23,4 +23,12 @@ Los cuatro enlaces se seleccionaron en móvil y cada ficha mostró los extremos 
 
 FX30 a mano con nueve elecciones: etapa 8 muestra HDMI Kondor Blue y su circuito FX30, no una ruta FX3. Recorridas las cuatro tareas de cada una de las siete plantillas; inventario coincidió con la selección (19/17/7/9/8/6/18), sin errores de consola observados. Sin desbordamiento de documento a 390 ×844 o 320 ×568. Son viewports emulados, no teléfonos físicos. Escritorio restaurado a su tamaño habitual; captura privada del trípode completo y su kit en `research/model-incoming/qa-0221/tripode-completo-escritorio.png`.
 
-Las propuestas no confirman compras, retención, compatibilidad universal o alimentación real. No se atribuyen a usuarios ni equipos físicos los casos automatizados. La aprobación de beta profesional sigue separada de este cierre de software. Publicación y huellas se registran sólo después de la confirmación remota.
+Las propuestas no confirman compras, retención, compatibilidad universal o alimentación real. No se atribuyen a usuarios ni equipos físicos los casos automatizados. La aprobación de beta profesional sigue separada de este cierre de software.
+
+## Publicación Confirmada
+
+[Takegrid 0.2.21](https://takegrid-rigs.pabloteran57.chatgpt.site/) quedó confirmado `succeeded` a las `2026-10-22T05:36:53.634033+00:00` (22 de octubre, 00:36 en Ecuador). Versión 18 del proveedor y despliegue `appgdep_6ad9a0ed777481919fced4256895d6be`. Fuente respaldada `2b4e4a3578fcc35a7eeeb2b89093cc9538a8a7ce`; fuente estática `01915713b60ef23350b373071381353d5b3e120e`.
+
+Los 68 recursos propios (8 320 685 bytes) coinciden por huella con la compilación probada. El dominio devolvió HTTP 200; entrada `/assets/index-CH1Gt1Cz.js` cotejada por SHA-256 y Ayuda mostró 0.2.21. Sin errores de consola observados en esta comprobación. [Procedencia y recuperación](additional-hosting.md), [registro estructurado](../data/dependency-acceptance.json).
+
+Se cierran ambas etapas de software, sin modificar bibliotecas, perfiles, plantillas, audiencia, facturación o nube. No se forzó recarga ni activación del service worker en pestañas del usuario. Siguen pendientes los ensayos físicos, teléfonos reales, pruebas observadas de beta y la ampliación documental del catálogo; no se afirma cobertura de todas las combinaciones posibles.

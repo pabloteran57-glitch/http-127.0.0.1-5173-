@@ -3,7 +3,7 @@
   "reviewed_on": "2026-10-22",
   "status": "prototype_hardening_in_progress",
   "progress_report": "docs/continuation-0221.md",
-  "current_milestone": "Dos etapas de software encadenadas: recordatorios de dependencias por pieza y matriz de conjuntos/puertos/montaje/despiece. 39 productos, 8507 casos, siete plantillas y 22 revisiones; publicación y prueba de interfaz en cierre. Sin compatibilidad universal ni beta profesional aprobada.",
+  "current_milestone": "Dos etapas de software cerradas y publicadas en 0.2.21: recordatorios de dependencias por pieza y matriz de conjuntos/puertos/montaje/despiece. 39 productos, 8507 casos, siete plantillas y 22 revisiones; interfaz móvil/escritorio y versión pública comprobadas. Sin compatibilidad universal ni beta profesional aprobada.",
   "user_decisions": [
     {
       "date": "2026-10-17",
@@ -48,7 +48,7 @@
   "findings": [
     {
       "id": "dependency-advisor-and-setup-matrix",
-      "status": "software_verified_browser_release_in_progress",
+      "status": "software_and_browser_verified_published",
       "evidence": [
         "data/dependency-policy.json",
         "data/setup-verification.json",

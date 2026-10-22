@@ -2,7 +2,7 @@
 
 Fuente: `data/product-roadmap.json`. Estado: prototipo en curso. Ningún criterio externo se da por cumplido a partir de compilación.
 
-Hito actual: Dos etapas de software encadenadas: recordatorios de dependencias por pieza y matriz de conjuntos/puertos/montaje/despiece. 39 productos, 8507 casos, siete plantillas y 22 revisiones; publicación y prueba de interfaz en cierre. Sin compatibilidad universal ni beta profesional aprobada. [Último bloque](continuation-0221.md).
+Hito actual: Dos etapas de software cerradas y publicadas en 0.2.21: recordatorios de dependencias por pieza y matriz de conjuntos/puertos/montaje/despiece. 39 productos, 8507 casos, siete plantillas y 22 revisiones; interfaz móvil/escritorio y versión pública comprobadas. Sin compatibilidad universal ni beta profesional aprobada. [Último bloque](continuation-0221.md).
 
 | Fase | Estado de preparación | Evidencia y trabajo restante |
 |---|---|---|

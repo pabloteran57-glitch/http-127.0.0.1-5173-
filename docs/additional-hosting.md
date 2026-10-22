@@ -2,8 +2,8 @@
 
 ## Estado Confirmado
 
-- [Takegrid 0.2.20](https://takegrid-rigs.pabloteran57.chatgpt.site/): versión 17, `succeeded` el 21 de octubre a las 21:27 de Ecuador. Entrada pública cotejada por SHA-256 y versión comprobada en Ayuda.
-- Etapa de estabilización de software cerrada: [resultados y límites](core-acceptance-0220.md). Procedencia, huellas y recuperación en la sección «Publicación 0.2.20» de este documento.
+- [Takegrid 0.2.21](https://takegrid-rigs.pabloteran57.chatgpt.site/): versión 18, `succeeded` el 22 de octubre a las 00:36 de Ecuador. Entrada pública cotejada por SHA-256 y versión comprobada en Ayuda.
+- Dos etapas de software cerradas: [dependencias y verificación de conjuntos](continuation-0221.md). Procedencia, huellas y recuperación en la sección «Publicación 0.2.21» de este documento. La estabilización [0.2.20](core-acceptance-0220.md) se conserva como antecedente.
 
 ## Histórico 0.2.19
 
@@ -193,6 +193,20 @@ Etapa de estabilización del núcleo confirmada `succeeded` el 21 de octubre de 
 
 Fuente estática preparada y archivada con el helper oficial Sites 1.1.1 en Windows. Sin fotos, manuales, notas de reunión, bibliotecas, recursos en cuarentena ni credenciales en el paquete. Se conservan catálogo, siete plantillas, perfiles y datos locales. [Evidencia de la etapa](core-acceptance-0220.md). Las versiones 0.2.19 y anteriores siguen recuperables; la publicación no libera beta profesional.
 
+## Publicación 0.2.21
+
+Confirmación `succeeded`: `2026-10-22T05:36:53.634033+00:00`, 22 de octubre a las 00:36 de Ecuador.
+
+- Versión 18: `appgprj_6ac5ca6c160c819191d2bacd7366c426~appgver_6e992940a3748191a5c85ccbac1245d2`.
+- Despliegue: `appgdep_6ad9a0ed777481919fced4256895d6be`.
+- Fuente respaldada: `2b4e4a3578fcc35a7eeeb2b89093cc9538a8a7ce`; revisión estática: `01915713b60ef23350b373071381353d5b3e120e`.
+- Paquete público: 68 recursos, 8 320 685 bytes. Tar: 69 archivos incluida configuración, 8 376 320 bytes, `sha256:1f7b8f77c6fa625b86a73ad0baba4e3238dcd3520f7061885182090f2c8a18e4`. Gzip: 2 060 237 bytes, `sha256:8a1cbaad797e5c3ab517dfea2938f3aa39ce0bbfeb49b6d333b6762a02ff5414`.
+- Entrada `/assets/index-CH1Gt1Cz.js`: `sha256:e5969f937f6d2d384112d746829f29e48e1369ef0a806f60b535f3d0e14b96c3`, cotejada con el dominio público; HTTP 200 y Ayuda 0.2.21. Sin errores de consola observados.
+
+Empaquetado y envío completados con el flujo oficial Sites 1.1.1 en Windows; Node instalado 24.14.1. No se publicó la salida fallida del runtime integrado. 39 piezas, 26 mallas propias aproximadas, 22 circuitos y siete plantillas conservados. Matriz de 8507 casos, revisión de las cuatro tareas de las siete plantillas, trípode con monitor/audio y montaje FX30 comprobados en la compilación pública local. No equivalen a ensayos físicos ni de teléfono real. Bibliotecas del usuario no usadas como datos de prueba. [Cierre y límites](continuation-0221.md).
+
+Sin fotos/manuales de fabricantes, notas privadas, capturas, bibliotecas ni credenciales en el paquete. Sin cambio de audiencia, planes de pago, nube, Netlify o recarga forzada. Versión 17 y anteriores conservadas para recuperación.
+
 ## Actualizar Sin Duplicar
 
 1. Mantener el código principal y los datos canónicos en el proyecto y repositorio existentes. Ejecutar sus validaciones, pruebas y `npm run build:public`.
@@ -203,8 +217,8 @@ Fuente estática preparada y archivada con el helper oficial Sites 1.1.1 en Wind
 
 El directorio `hosting/sites-public/` está excluido del repositorio principal: su Git es independiente y contiene sólo la copia estática pública y su procedencia. Nunca guardar credenciales del proveedor en ese directorio, documentos, argumentos de shell ni historial.
 
-El flujo de Sites completó y verificó el envío del código, pero su empaquetador Bash no estaba disponible en este Windows. Se utilizó el mismo validador estático oficial `prepare-site-build.cjs` y `tar.exe` para empaquetar sin modificar la fuente enviada. El manifiesto y todos los recursos fueron incluidos en el guardado nativo de versión. Los staging y archivos de transporte permanecen en directorios locales ignorados, fuera de la publicación.
+En las publicaciones históricas que así lo indican, el empaquetador Bash no estaba disponible en este Windows y se usó el validador estático oficial con `tar.exe`. El flujo oficial Sites 1.1.1 completó el empaquetado de 0.2.19, 0.2.20 y 0.2.21 sin ese recurso alternativo. Los staging y archivos de transporte permanecen en directorios locales ignorados, fuera de los recursos públicos.
 
 ## Límites Pendientes
 
-La publicación no libera beta ni certifica mecánica, electricidad, fluidez, permisos comerciales adicionales o modelos exactos. Continúan las solicitudes de archivos autorizados FX3/RS 4 Pro, la cobertura restante del catálogo y las pruebas con usuarios/rig físico. En 0.2.20 se comprobó carga del dominio público y versión en Ayuda, además de los recorridos de interfaz/persistencia en la compilación local y la finalización remota por el proveedor. No se usaron bibliotecas del usuario como datos de prueba.
+La publicación no libera beta ni certifica mecánica, electricidad, fluidez, permisos comerciales adicionales o modelos exactos. Continúan las solicitudes de archivos autorizados FX3/RS 4 Pro, la cobertura restante del catálogo y las pruebas con usuarios/rig físico. En 0.2.21 se comprobó carga del dominio público y versión en Ayuda, además de los recorridos de interfaz/persistencia en la compilación local y la finalización remota por el proveedor. No se usaron bibliotecas del usuario como datos de prueba.

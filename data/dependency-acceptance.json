@@ -2,10 +2,10 @@
   "version": 1,
   "release": "0.2.21",
   "reviewed_on": "2026-10-22",
-  "scope": "Dos etapas de software completadas y verificadas localmente; publicación en cierre. No certifica montaje físico ni libera beta profesional.",
+  "scope": "Dos etapas de software completadas, verificadas en navegador y publicadas. No certifica montaje físico ni libera beta profesional.",
   "stages": [
-    {"id":"dependency-advisor","status":"software_and_browser_verified","evidence":["docs/dependency-advisor.md","docs/continuation-0221.md","scripts/test-setup-matrix.mjs"]},
-    {"id":"setup-validation","status":"software_and_browser_verified","evidence":["data/setup-verification.json","docs/setup-matrix-qa.md","docs/continuation-0221.md"]}
+    {"id":"dependency-advisor","status":"software_and_browser_verified_published","evidence":["docs/dependency-advisor.md","docs/continuation-0221.md","scripts/test-setup-matrix.mjs"]},
+    {"id":"setup-validation","status":"software_and_browser_verified_published","evidence":["data/setup-verification.json","docs/setup-matrix-qa.md","docs/continuation-0221.md"]}
   ],
   "browser": {
     "surface": "Edge",
@@ -25,5 +25,27 @@
   },
   "toolchain": {"verified_node":"24.14.1","integrated_node_24_19":"fallos nativos de runtime y empaquetado; salida no publicada","matrix_flag":"--no-opt sólo proceso local, no navegador"},
   "physical_validation": "pending",
-  "publication": {"status":"pending"}
+  "publication": {
+    "status":"succeeded",
+    "url":"https://takegrid-rigs.pabloteran57.chatgpt.site/",
+    "confirmed_at":"2026-10-22T05:36:53.634033+00:00",
+    "version_id":"appgprj_6ac5ca6c160c819191d2bacd7366c426~appgver_6e992940a3748191a5c85ccbac1245d2",
+    "provider_version":18,
+    "deployment_id":"appgdep_6ad9a0ed777481919fced4256895d6be",
+    "source_commit":"2b4e4a3578fcc35a7eeeb2b89093cc9538a8a7ce",
+    "static_commit":"01915713b60ef23350b373071381353d5b3e120e",
+    "public_files":68,
+    "public_bytes":8320685,
+    "archive_files":69,
+    "archive_bytes":8376320,
+    "archive_sha256":"1f7b8f77c6fa625b86a73ad0baba4e3238dcd3520f7061885182090f2c8a18e4",
+    "gzip_bytes":2060237,
+    "gzip_sha256":"8a1cbaad797e5c3ab517dfea2938f3aa39ce0bbfeb49b6d333b6762a02ff5414",
+    "public_entry":"/assets/index-CH1Gt1Cz.js",
+    "public_entry_sha256":"e5969f937f6d2d384112d746829f29e48e1369ef0a806f60b535f3d0e14b96c3",
+    "http_status":200,
+    "help_version":"0.2.21",
+    "console_errors_observed":[],
+    "private_evidence":"research/model-incoming/qa-0221/version-publicada.png"
+  }
 }
