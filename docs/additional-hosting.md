@@ -2,8 +2,8 @@
 
 ## Estado Confirmado
 
-- [Takegrid 0.2.21](https://takegrid-rigs.pabloteran57.chatgpt.site/): versión 18, `succeeded` el 22 de octubre a las 00:36 de Ecuador. Entrada pública cotejada por SHA-256 y versión comprobada en Ayuda.
-- Dos etapas de software cerradas: [dependencias y verificación de conjuntos](continuation-0221.md). Procedencia, huellas y recuperación en la sección «Publicación 0.2.21» de este documento. La estabilización [0.2.20](core-acceptance-0220.md) se conserva como antecedente.
+- [Takegrid 0.2.22](https://takegrid-rigs.pabloteran57.chatgpt.site/): versión 19, `succeeded` el 22 de octubre a las 08:53 de Ecuador. Entrada pública cotejada por SHA-256 y versión comprobada en Ayuda.
+- [Corrección del flujo de trípode](tripod-flow-0222.md) completada y publicada. Procedencia, huellas y recuperación en «Publicación 0.2.22». Se conservan los cierres [0.2.21](continuation-0221.md) y [0.2.20](core-acceptance-0220.md).
 
 ## Histórico 0.2.19
 
@@ -206,6 +206,20 @@ Confirmación `succeeded`: `2026-10-22T05:36:53.634033+00:00`, 22 de octubre a l
 Empaquetado y envío completados con el flujo oficial Sites 1.1.1 en Windows; Node instalado 24.14.1. No se publicó la salida fallida del runtime integrado. 39 piezas, 26 mallas propias aproximadas, 22 circuitos y siete plantillas conservados. Matriz de 8507 casos, revisión de las cuatro tareas de las siete plantillas, trípode con monitor/audio y montaje FX30 comprobados en la compilación pública local. No equivalen a ensayos físicos ni de teléfono real. Bibliotecas del usuario no usadas como datos de prueba. [Cierre y límites](continuation-0221.md).
 
 Sin fotos/manuales de fabricantes, notas privadas, capturas, bibliotecas ni credenciales en el paquete. Sin cambio de audiencia, planes de pago, nube, Netlify o recarga forzada. Versión 17 y anteriores conservadas para recuperación.
+
+## Publicación 0.2.22
+
+Confirmación `succeeded`: `2026-10-22T13:53:22.016381+00:00`, 22 de octubre a las 08:53 de Ecuador.
+
+- Versión 19: `appgprj_6ac5ca6c160c819191d2bacd7366c426~appgver_37c1c25e03988191aca5891b15fdabb9`.
+- Despliegue: `appgdep_6ada154974a08191b905051f9de4fefe`.
+- Fuente respaldada: `da8c0f04836b995af79a299ebf164466abc5cfa8`; estática: `d71fbf30d66fa2642bb67d8d1db07cd28f020019`.
+- 68 recursos públicos, 8 330 517 bytes. Tar: 69 archivos, 8 386 560 bytes, `sha256:8dc4ec2ffad9fa440f80d41d865f6ae22319ab6a91dfe143aa26de1e06a46185`. Gzip: 2 063 056 bytes, `sha256:eacc8dfb0edb111842d9c9dccafccd7d6ed63535b954d414896af6007f339080`.
+- Entrada `/assets/index-gX8bSrZV.js`: `sha256:6611dfc53b6335052569e16b9ea77cc27879a4bd93a1230a86226f49e833ee5d`, cotejada con HTTP 200; Ayuda pública 0.2.22 y sin errores de consola observados.
+
+Flujo oficial Sites 1.1.1 en Windows. Compilación pública completa y 13 regresiones nuevas, además de la matriz de 8507 casos; conserva 39 registros, 26 mallas, 22 circuitos y siete plantillas. Se conserva el registro de una interrupción nativa del proceso local: repetición aislada y compilación completa posterior correctas, sin omitir controles. [Detalles y límites](tripod-flow-0222.md). No se incorpora hardware ni certifica compatibilidad universal o ensayos físicos.
+
+Sin medios del fabricante, investigación privada, capturas, bibliotecas o credenciales en el paquete. Versiones anteriores recuperables; sin cambio de audiencia, nube, Netlify, facturación ni recarga forzada.
 
 ## Actualizar Sin Duplicar
 

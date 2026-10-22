@@ -1,14 +1,14 @@
 {
   "release":"0.2.22",
   "reviewed_on":"2026-10-22",
-  "status":"software_and_browser_verified_publication_pending",
+  "status":"software_and_browser_verified_published",
   "scope":"Corrección de selección y contexto; no amplía compatibilidad mecánica, puertos, geometría o circuitos.",
   "regression_script":"scripts/test-tripod-flow.mjs",
   "regression_checks":13,
   "matrix_report":"data/setup-verification.json",
   "browser":{
     "surface":"Edge",
-    "mobile_viewport":[390,844],
+    "mobile_viewports":[[390,844],[320,568]],
     "physical_phone":false,
     "partial_support_choices":["sony-fx3","smallrig-4770","smallrig-3751b"],
     "implicit_lens_or_power_added":false,
@@ -20,8 +20,38 @@
     "recovered_units":11,
     "recovered_spares":1,
     "recovered_missing_needs":0,
-    "user_production_library_changed":false
+    "user_production_library_changed":false,
+    "private_evidence":"research/model-incoming/qa-0222/editor-tripode-movil.png"
   },
   "physical_validation":"pending",
-  "publication":{"status":"pending"}
+  "toolchain":{
+    "node":"24.14.1",
+    "final_log":"research/model-incoming/build-0222-final-retry.log",
+    "prior_interrupted_log":"research/model-incoming/build-0222-final.log",
+    "prior_interruption":"fallo nativo de proceso en matriz, código -1073741819; repetición aislada y compilación completa posteriores correctas",
+    "matrix_flag":"--no-opt sólo proceso local; no modifica el navegador"
+  },
+  "publication":{
+    "status":"succeeded",
+    "url":"https://takegrid-rigs.pabloteran57.chatgpt.site/",
+    "confirmed_at":"2026-10-22T13:53:22.016381+00:00",
+    "version_id":"appgprj_6ac5ca6c160c819191d2bacd7366c426~appgver_37c1c25e03988191aca5891b15fdabb9",
+    "provider_version":19,
+    "deployment_id":"appgdep_6ada154974a08191b905051f9de4fefe",
+    "source_commit":"da8c0f04836b995af79a299ebf164466abc5cfa8",
+    "static_commit":"d71fbf30d66fa2642bb67d8d1db07cd28f020019",
+    "public_files":68,
+    "public_bytes":8330517,
+    "archive_files":69,
+    "archive_bytes":8386560,
+    "archive_sha256":"8dc4ec2ffad9fa440f80d41d865f6ae22319ab6a91dfe143aa26de1e06a46185",
+    "gzip_bytes":2063056,
+    "gzip_sha256":"eacc8dfb0edb111842d9c9dccafccd7d6ed63535b954d414896af6007f339080",
+    "entry":"/assets/index-gX8bSrZV.js",
+    "entry_sha256":"6611dfc53b6335052569e16b9ea77cc27879a4bd93a1230a86226f49e833ee5d",
+    "http_status":200,
+    "help_version":"0.2.22",
+    "console_errors_observed":[],
+    "private_evidence":"research/model-incoming/qa-0222/version-publicada.png"
+  }
 }

@@ -26,4 +26,14 @@ Compilación pública completa correcta con Node instalado 24.14.1. Mantiene 68 
 
 Interfaz Edge a 390 ×844: crear FX3 y jaula a mano, elegir la jaula, preparar trípode desde accesorios, añadir únicamente AD-01 y verificar las tres piezas en visor. Después completar óptica/batería nativa, guardar y recuperar las cinco elecciones. Monitor NATO/serie L y receptor Mic 2 añadidos desde jaula; diez elecciones, cuatro enlaces con extremos A/B correctos y reproducción final 9/9, sin retirada opcional automática. Se añadió una FE 35mm como extra: no se sustituyó por inferencia; sólo pasó a repuesto tras marcar confirmación y ejecutar la acción. Guardar/recargar conservó once unidades, un repuesto y diez elecciones sin faltantes detectados.
 
-La publicación y sus huellas se registran tras confirmación remota. Los ensayos físicos siguen pendientes. No se afirma funcionamiento perfecto ni cobertura de todas las combinaciones posibles. La biblioteca de producción del usuario se leyó para diagnóstico, pero no se modificó ni se usó para las pruebas de escritura.
+La confirmación actualizada se repitió sobre el paquete final: botón de pasar a repuestos desactivado antes de marcar la casilla; guardar/recargar conserva las unidades. Editor revisado también a 320 ×568. Evidencia privada: `research/model-incoming/qa-0222/editor-tripode-movil.png`. El viewport se restauró; son pruebas emuladas, no teléfonos reales.
+
+Una repetición de la compilación se interrumpió con fallo nativo del proceso local durante la matriz (`-1073741819`). Se conserva `build-0222-final.log`; matriz aislada repetida correctamente y compilación completa posterior con salida 0 en `research/model-incoming/build-0222-final-retry.log`. No se omitieron pruebas ni se publicó una salida incompleta. La opción local `--no-opt` no afecta al navegador ni mide FPS.
+
+Los ensayos físicos siguen pendientes. No se afirma funcionamiento perfecto ni cobertura de todas las combinaciones posibles. La biblioteca de producción del usuario se leyó para diagnóstico, pero no se modificó ni se usó para las pruebas de escritura.
+
+## Publicación Confirmada
+
+[Takegrid 0.2.22](https://takegrid-rigs.pabloteran57.chatgpt.site/) confirmó `succeeded` a las `2026-10-22T13:53:22.016381+00:00`, 22 de octubre a las 08:53 de Ecuador. Versión 19 del proveedor; despliegue `appgdep_6ada154974a08191b905051f9de4fefe`. Fuente respaldada `da8c0f04836b995af79a299ebf164466abc5cfa8`; estática `d71fbf30d66fa2642bb67d8d1db07cd28f020019`.
+
+68 recursos propios, 8 330 517 bytes, cotejados entre compilación y fuente estática. HTTP 200, entrada `/assets/index-gX8bSrZV.js` coincidente por SHA-256 y Ayuda pública mostró 0.2.22; sin errores de consola observados. [Huellas y recuperación](additional-hosting.md), [registro estructurado](../data/tripod-flow-review.json). Sin cambio de acceso público, facturación, nube, biblioteca o recarga forzada de pestañas del usuario.

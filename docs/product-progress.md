@@ -2,7 +2,7 @@
 
 Fuente: `data/product-roadmap.json`. Estado: prototipo en curso. Ningún criterio externo se da por cumplido a partir de compilación.
 
-Hito actual: Corrección del flujo de trípode 0.2.22: FX3 con jaula monta sólo el soporte, sin óptica/batería implícitas; contexto y alcance revisado separados. 13 regresiones nuevas y matriz general de 8507 casos. Recorrido móvil del soporte, monitor/audio y guardado verificado; publicación en cierre. Sin compatibilidad universal ni beta profesional aprobada. [Último bloque](tripod-flow-0222.md).
+Hito actual: Corrección del flujo de trípode 0.2.22 publicada: FX3 con jaula monta sólo el soporte, sin óptica/batería implícitas; contexto y alcance revisado separados. 13 regresiones nuevas y matriz general de 8507 casos. Recorrido móvil, monitor/audio, guardado y versión pública verificados. Sin compatibilidad universal ni beta profesional aprobada. [Último bloque](tripod-flow-0222.md).
 
 | Fase | Estado de preparación | Evidencia y trabajo restante |
 |---|---|---|

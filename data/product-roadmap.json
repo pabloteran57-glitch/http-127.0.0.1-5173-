@@ -3,7 +3,7 @@
   "reviewed_on": "2026-10-22",
   "status": "prototype_hardening_in_progress",
   "progress_report": "docs/tripod-flow-0222.md",
-  "current_milestone": "Corrección del flujo de trípode 0.2.22: FX3 con jaula monta sólo el soporte, sin óptica/batería implícitas; contexto y alcance revisado separados. 13 regresiones nuevas y matriz general de 8507 casos. Recorrido móvil del soporte, monitor/audio y guardado verificado; publicación en cierre. Sin compatibilidad universal ni beta profesional aprobada.",
+  "current_milestone": "Corrección del flujo de trípode 0.2.22 publicada: FX3 con jaula monta sólo el soporte, sin óptica/batería implícitas; contexto y alcance revisado separados. 13 regresiones nuevas y matriz general de 8507 casos. Recorrido móvil, monitor/audio, guardado y versión pública verificados. Sin compatibilidad universal ni beta profesional aprobada.",
   "user_decisions": [
     {
       "date": "2026-10-17",
@@ -48,7 +48,7 @@
   "findings": [
     {
       "id": "tripod-creation-flow",
-      "status": "software_and_browser_verified_publication_pending",
+      "status": "software_and_browser_verified_published",
       "evidence": ["docs/tripod-flow-0222.md","data/tripod-flow-review.json","scripts/test-tripod-flow.mjs"],
       "description": "Un trípode pendiente ya no impone el alcance estático sobre rigs a mano/gimbal. Acceso desde jaula, selección de sólo el soporte, texto estático actualizado y reserva confirmada de extras sin pérdida de unidades. No amplía el conjunto documental a otros cuerpos, ópticas o soportes."
     },
