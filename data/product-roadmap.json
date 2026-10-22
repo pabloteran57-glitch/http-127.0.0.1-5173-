@@ -3,7 +3,7 @@
   "reviewed_on": "2026-10-21",
   "status": "prototype_hardening_in_progress",
   "progress_report": "docs/core-acceptance-0220.md",
-  "current_milestone": "Etapa de estabilización de software 0.2.20 comprobada: selección, montaje, bibliotecas/perfiles, concurrencia y recuperación del visor. Publicación en cierre. Beta profesional y financiación requieren ensayos físicos, dispositivos y usuarios. La expansión continúa por cadenas completas, no importación masiva sin verificar.",
+  "current_milestone": "Etapa de estabilización de software 0.2.20 cerrada y publicada en el mismo enlace: selección, montaje, bibliotecas/perfiles, concurrencia y recuperación del visor. Beta profesional y financiación requieren ensayos físicos, dispositivos y usuarios. La expansión continúa por cadenas completas, no importación masiva sin verificar.",
   "user_decisions": [
     {
       "date": "2026-10-17",

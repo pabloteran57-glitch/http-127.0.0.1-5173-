@@ -35,6 +35,14 @@ Capturas y registros permanecen fuera del repositorio público bajo `research/mo
 
 Se corrigió durante el recorrido una referencia de SEL35F18F que aparecía con el zoom: ahora las fuentes de óptica y batería pertenecen a sus bloques elegidos. Regresión positiva/negativa incluida.
 
+## Cierre
+
+Etapa de software cerrada y publicada: 0.2.20, versión de alojamiento 17, confirmada `succeeded` el 21 de octubre de 2026 a las 21:27 de Ecuador. HTTP 200 y huella del módulo de entrada iguales al paquete probado; Ayuda del enlace público mostró 0.2.20. [Sitio publicado](https://takegrid-rigs.pabloteran57.chatgpt.site/) y [procedencia recuperable](additional-hosting.md).
+
+Validación completa, TypeScript y compilación pública correctos. Dieciocho nuevas comprobaciones y las suites anteriores ejecutadas. Paquete: 68 archivos propios, 8 309 193 bytes, sin fotos/manuales de fabricantes ni investigación privada. Se conservan dos módulos mayores de 500 kB; no demuestra fluidez GPU. La consulta opcional a npm sobre vulnerabilidades no respondió y fue interrumpida sin resultado: no se presenta como auditoría aprobada.
+
+La fuente de aplicación está respaldada en `ea31285c7b8b6b8cfd2bfafcbef1579adea50ceb`; los documentos de cierre se respaldan después del despliegue. Las versiones anteriores permanecen disponibles. No se forzó recarga o activación del worker en pestañas del usuario.
+
 ## Límites
 
 Siguen pendientes ensayos físicos de retención, carga, señal, alimentación y holguras; mediciones en dispositivos de referencia; aceptación observada con usuarios; derechos de recursos exactos de terceros y requisitos operativos de beta/financiación. La separación visual de estados no declara listo para producción un montaje. Los perfiles son locales, sin autenticación ni sincronización.

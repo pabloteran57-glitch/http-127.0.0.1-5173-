@@ -2,6 +2,11 @@
 
 ## Estado Confirmado
 
+- [Takegrid 0.2.20](https://takegrid-rigs.pabloteran57.chatgpt.site/): versión 17, `succeeded` el 21 de octubre a las 21:27 de Ecuador. Entrada pública cotejada por SHA-256 y versión comprobada en Ayuda.
+- Etapa de estabilización de software cerrada: [resultados y límites](core-acceptance-0220.md). Procedencia, huellas y recuperación en la sección «Publicación 0.2.20» de este documento.
+
+## Histórico 0.2.19
+
 - Enlace público: [Takegrid 0.2.19](https://takegrid-rigs.pabloteran57.chatgpt.site).
 - Sites: `succeeded`, `2026-10-22T01:36:49.942277+00:00` (21 de octubre, 20:36 en Ecuador).
 - Versión guardada: `appgprj_6ac5ca6c160c819191d2bacd7366c426~appgver_3a28cf050b98819199ceb1ca82f48330` (versión 16 del proveedor).
@@ -176,6 +181,18 @@ Histórico 0.2.6: despliegue `appgdep_6ac63a2b2cd08191b8d4175b94fc5d5d`, versió
 
 Los perfiles, borradores e historiales se guardan en el navegador del dominio donde se usaron. Cambiar de dominio, navegador o dispositivo no transfiere esos datos. No se borró ni sobrescribió ninguna biblioteca de Netlify. El enlace compartido no contiene los rigs personales ni permite edición conjunta sincronizada. No se añadió exportación a la interfaz.
 
+## Publicación 0.2.20
+
+Etapa de estabilización del núcleo confirmada `succeeded` el 21 de octubre de 2026 a las 21:27 de Ecuador, `2026-10-22T02:27:38.671329+00:00`. Se mantiene [el enlace de Takegrid](https://takegrid-rigs.pabloteran57.chatgpt.site/).
+
+- Versión 17: `appgprj_6ac5ca6c160c819191d2bacd7366c426~appgver_a196096310d081919edd282f1418140e`.
+- Despliegue: `appgdep_6ad97491d1b08191adb88df0f745b14b`.
+- Fuente respaldada: `ea31285c7b8b6b8cfd2bfafcbef1579adea50ceb`; revisión estática exacta: `af28fd16d5111c6d5db95ba1e1b425c1d6cc31ec`.
+- Paquete público: 68 archivos, 8 309 193 bytes sin comprimir. Tar: 69 archivos, 8 366 080 bytes, `sha256:09c647c779d4b553c113262acd47fbfd0624bcaae77eeeaba725b42bb4e8e596`. Gzip local: 2 056 450 bytes, `sha256:d1d03dc17b8db9cb048e88a2a91bbc25c9353a85d0ec2cea18b6fd04e308f800`.
+- Entrada `/assets/index-2m2AE091.js`: `sha256:34edf1e4b5173a2fa6c674a31be4c176c856bfb8770f0bf8376b8747438c9f34`, cotejada contra el enlace público con HTTP 200. Ayuda del sitio mostró 0.2.20; sin errores de consola observados en esta comprobación.
+
+Fuente estática preparada y archivada con el helper oficial Sites 1.1.1 en Windows. Sin fotos, manuales, notas de reunión, bibliotecas, recursos en cuarentena ni credenciales en el paquete. Se conservan catálogo, siete plantillas, perfiles y datos locales. [Evidencia de la etapa](core-acceptance-0220.md). Las versiones 0.2.19 y anteriores siguen recuperables; la publicación no libera beta profesional.
+
 ## Actualizar Sin Duplicar
 
 1. Mantener el código principal y los datos canónicos en el proyecto y repositorio existentes. Ejecutar sus validaciones, pruebas y `npm run build:public`.
@@ -190,4 +207,4 @@ El flujo de Sites completó y verificó el envío del código, pero su empaqueta
 
 ## Límites Pendientes
 
-La publicación no libera beta ni certifica mecánica, electricidad, fluidez, permisos comerciales adicionales o modelos exactos. Continúan las solicitudes de archivos autorizados FX3/RS 4 Pro, la cobertura restante del catálogo y las pruebas con usuarios/rig físico. No se ha comprobado navegación en el nuevo dominio; sí la interfaz y persistencia en la compilación pública local y la finalización remota por el proveedor.
+La publicación no libera beta ni certifica mecánica, electricidad, fluidez, permisos comerciales adicionales o modelos exactos. Continúan las solicitudes de archivos autorizados FX3/RS 4 Pro, la cobertura restante del catálogo y las pruebas con usuarios/rig físico. En 0.2.20 se comprobó carga del dominio público y versión en Ayuda, además de los recorridos de interfaz/persistencia en la compilación local y la finalización remota por el proveedor. No se usaron bibliotecas del usuario como datos de prueba.

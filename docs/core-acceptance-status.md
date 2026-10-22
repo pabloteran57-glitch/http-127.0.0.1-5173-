@@ -2,7 +2,7 @@
 
 Generado desde data/core-acceptance.json. Cierre de estabilización de software del núcleo, no liberación de beta profesional ni certificación física.
 
-Estado: software_verified_publication_pending. Sin cambios de catálogo, plantillas o migración de biblioteca en esta etapa.
+Estado: software_stage_complete. Sin cambios de catálogo, plantillas o migración de biblioteca en esta etapa.
 
 | Criterio | Estado |
 | --- | --- |
@@ -13,7 +13,7 @@ Estado: software_verified_publication_pending. Sin cambios de catálogo, plantil
 | Recuperación de visor sin perder el plan | verified_software_only |
 | Editor directo, navegación y estados vacíos en móvil/escritorio | verified_software_only |
 | Worker y fallo de almacenamiento tratados sin falso guardado | verified_software_only |
-| Compilación, recursos auditados y publicación respaldada | publication_pending |
+| Compilación, recursos auditados y publicación respaldada | verified_release |
 
 ## Evidencia de software
 
@@ -22,6 +22,7 @@ Estado: software_verified_publication_pending. Sin cambios de catálogo, plantil
 - mobile: passed. Emulación de viewport, no teléfono físico ni prueba GPU. El override del navegador integrado no cambió sus 1280 px: no se contó como prueba móvil.
 - viewer-recovery: passed. No se provoca fallo real de GPU; laboratorio sólo en desarrollo.
 - offline: passed. No se certifica operación en dispositivo físico sin red ni precarga GLB.
+- publication: passed. No se recargaron pestañas del usuario ni se modificaron sus bibliotecas.
 
 ## Condiciones externas aún pendientes
 

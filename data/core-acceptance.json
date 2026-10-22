@@ -2,7 +2,7 @@
   "version": 1,
   "release": "0.2.20",
   "scope": "Cierre de estabilización de software del núcleo, no liberación de beta profesional ni certificación física.",
-  "status": "software_verified_publication_pending",
+  "status": "software_stage_complete",
   "baseline": "0.2.19",
   "catalog_changes": false,
   "template_changes": false,
@@ -74,7 +74,7 @@
     {
       "id": "release",
       "label": "Compilación, recursos auditados y publicación respaldada",
-      "status": "publication_pending",
+      "status": "verified_release",
       "evidence_paths": [
         "scripts/test-core-acceptance.mjs",
         "docs/core-acceptance-0220.md"
@@ -177,6 +177,42 @@
         "Suite de worker y fallos de almacenamiento previa conservada"
       ],
       "limits": "No se certifica operación en dispositivo físico sin red ni precarga GLB."
+    },
+    {
+      "id": "publication",
+      "kind": "deployment_and_browser",
+      "result": "passed",
+      "tasks": [
+        "Proveedor confirmó succeeded",
+        "HTTP 200; entrada JS del sitio coincide por SHA-256 con dist-public",
+        "Ayuda del sitio público muestra Takegrid 0.2.20; consola sin errores en la comprobación"
+      ],
+      "private_evidence": [
+        "research/model-incoming/core-0220/version-publicada.png"
+      ],
+      "limits": "No se recargaron pestañas del usuario ni se modificaron sus bibliotecas."
     }
+  ],
+  "publication": {
+    "url": "https://takegrid-rigs.pabloteran57.chatgpt.site/",
+    "version_number": 17,
+    "status": "succeeded",
+    "confirmed_at": "2026-10-22T02:27:38.671329+00:00",
+    "version_id": "appgprj_6ac5ca6c160c819191d2bacd7366c426~appgver_a196096310d081919edd282f1418140e",
+    "deployment_id": "appgdep_6ad97491d1b08191adb88df0f745b14b",
+    "static_commit": "af28fd16d5111c6d5db95ba1e1b425c1d6cc31ec",
+    "source_backup_commit": "ea31285c7b8b6b8cfd2bfafcbef1579adea50ceb",
+    "public_files": 68,
+    "public_bytes": 8309193,
+    "entry": "/assets/index-2m2AE091.js",
+    "entry_sha256": "34edf1e4b5173a2fa6c674a31be4c176c856bfb8770f0bf8376b8747438c9f34",
+    "tar_sha256": "09c647c779d4b553c113262acd47fbfd0624bcaae77eeeaba725b42bb4e8e596",
+    "tar_bytes": 8366080,
+    "gzip_sha256": "d1d03dc17b8db9cb048e88a2a91bbc25c9353a85d0ec2cea18b6fd04e308f800",
+    "gzip_bytes": 2056450
+  },
+  "remaining_software_risks": [
+    "Dos módulos públicos superan 500 kB: no se acredita mejora de GPU o FPS.",
+    "Consulta opcional de vulnerabilidades npm sin respuesta; interrumpida sin resultado. No equivale a auditoría de seguridad aprobada."
   ]
 }
