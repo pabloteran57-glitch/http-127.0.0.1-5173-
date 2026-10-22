@@ -9,6 +9,7 @@ import { LIBRARY_KEY, LEGACY_LIBRARY_KEY, PREVIOUS_LIBRARY_KEY, applyAttachment,
 import { partName } from "../lib/ui";
 import { DRAFT_PREFIX, clearConfirmedDraft, discardDraft, readDrafts, writeDraft, type RecoverableDraft } from "../lib/drafts";
 import type { CustomRig, RigAdjustments, Variant } from "../lib/types";
+import {libraryChanged,sameLibrarySnapshot} from "../lib/library-status";
 const HelpCenter=lazy(()=>import("../components/HelpCenter"));
 
 const catalogIds=partsData.parts.map(p=>p.id);
@@ -66,6 +67,7 @@ function RigSession({profile,profilesOpen,onProfiles}:{profile:LocalProfile;prof
  const [tabId]=useState(()=>crypto.randomUUID());
  const [recoverable,setRecoverable]=useState<RecoverableDraft[]>([]);
  const [draftStatus,setDraftStatus]=useState("");
+ const [libraryNotice,setLibraryNotice]=useState("");
  const draftSnapshot=useRef(new Map<string,string>());
  const saving=useRef(false);
  const [variantId,setVariantId]=useState(initial.rigs[initial.rigs.length-1]?.id??variantsData.master_variant_id);
@@ -81,6 +83,11 @@ function RigSession({profile,profilesOpen,onProfiles}:{profile:LocalProfile;prof
  const parser=(value:unknown)=>withRigUnits(parseRig(value,catalogIds));
  const refreshDrafts=()=>{try{const result=readDrafts(localStorage,parser);setRecoverable(result.drafts.filter(d=>d.tab_id!==tabId));if(result.unreadable)setMessage(`${result.unreadable} borradores no se pudieron leer; se conservan sin borrar.`);}catch{setMessage("No se pudieron consultar los borradores recuperables. Ningún dato se ha borrado.");}};
  useEffect(()=>{refreshDrafts();},[]);
+ useEffect(()=>{
+  const check=()=>{try{setLibraryNotice(libraryChanged(localStorage,{current:storedSnapshot.current,previous:previousSnapshot.current,legacy:legacySnapshot.current},{current:LIBRARY_KEY,previous:PREVIOUS_LIBRARY_KEY,legacy:LEGACY_LIBRARY_KEY})?"Hay cambios guardados en otra pestaña. Tu borrador sigue abierto; revisa la biblioteca antes de guardar.":"");}catch{setLibraryNotice("No se pudo comprobar la biblioteca. Tu selección sigue abierta; revisa el almacenamiento antes de cerrar.");}};
+  window.addEventListener("storage",check);window.addEventListener("focus",check);
+  return()=>{window.removeEventListener("storage",check);window.removeEventListener("focus",check);};
+ },[localStorage]);
  useEffect(()=>{
   if(!anyDirty){setDraftStatus("");return;}
   setDraftStatus("Preparando recuperación local…");
@@ -100,7 +107,7 @@ function RigSession({profile,profilesOpen,onProfiles}:{profile:LocalProfile;prof
   try{
    if(!navigator.locks)throw new Error("Este navegador no permite coordinar el guardado entre pestañas. Tu borrador sigue abierto y recuperable si el almacenamiento está disponible. Usa un navegador actualizado con HTTPS.");
    const expected=storedSnapshot.current;
-   const serialized=await navigator.locks.request(profile.id==="initial"?"takegrid-library-write":`takegrid-library-write:${profile.id}`,()=>{if(legacyChanged.current||localStorage.getItem(LEGACY_LIBRARY_KEY)!==legacySnapshot.current||localStorage.getItem(PREVIOUS_LIBRARY_KEY)!==previousSnapshot.current)throw new Error("La biblioteca de una versión anterior cambió. Revisa cambios de otra pestaña en Mis rigs; tus cambios siguen abiertos.");return writeLibrary(localStorage,expected,next,catalogIds,plannerData.max_saved_rigs);});storedSnapshot.current=serialized;setSaved(next);setHistory(parseLibrary(serialized,catalogIds,plannerData.max_saved_rigs).history??{});return true;
+   const serialized=await navigator.locks.request(profile.id==="initial"?"takegrid-library-write":`takegrid-library-write:${profile.id}`,()=>{if(legacyChanged.current||localStorage.getItem(LEGACY_LIBRARY_KEY)!==legacySnapshot.current||localStorage.getItem(PREVIOUS_LIBRARY_KEY)!==previousSnapshot.current)throw new Error("La biblioteca de una versión anterior cambió. Revisa cambios de otra pestaña en Mis rigs; tus cambios siguen abiertos.");return writeLibrary(localStorage,expected,next,catalogIds,plannerData.max_saved_rigs);});storedSnapshot.current=serialized;setSaved(next);setHistory(parseLibrary(serialized,catalogIds,plannerData.max_saved_rigs).history??{});setLibraryNotice("");return true;
   }catch(e){setMessage(e instanceof Error&&/^(Máximo|La biblioteca|Este navegador)/.test(e.message)?e.message:"No se pudo guardar. Tu borrador sigue abierto. Comprueba permisos y espacio del navegador antes de cerrar la página.");return false;}
   finally{saving.current=false;}
  };
@@ -132,6 +139,9 @@ function RigSession({profile,profilesOpen,onProfiles}:{profile:LocalProfile;prof
  const refreshLibrary=()=>{
   if(saving.current){setMessage("Espera a que termine el guardado antes de revisar la biblioteca.");return;}
   const loaded=loadLibrary(localStorage);if(loaded.warning){setMessage(loaded.warning);return;}
+  if(!loaded.legacyChanged&&sameLibrarySnapshot({current:loaded.raw,previous:loaded.previousRaw,legacy:loaded.legacyRaw},{current:storedSnapshot.current,previous:previousSnapshot.current,legacy:legacySnapshot.current})){
+   setLibraryNotice("");setMessage("Tu biblioteca ya está al día. Los borradores abiertos se conservan sin duplicarlos.");refreshDrafts();return;
+  }
   const legacyCopies:CustomRig[]=[];
   try{
    if(loaded.legacyChanged){
@@ -143,6 +153,7 @@ function RigSession({profile,profilesOpen,onProfiles}:{profile:LocalProfile;prof
    }
   }catch{setMessage("No se pudo leer la biblioteca anterior. Se conserva sin borrar; no se sustituyó la biblioteca actual.");return;}
   storedSnapshot.current=loaded.raw;legacySnapshot.current=loaded.legacyRaw;previousSnapshot.current=loaded.previousRaw;legacyChanged.current=false;
+  setLibraryNotice("");
   setSaved(loaded.rigs);setHistory(loaded.history);
   setRigs(previous=>[...loaded.rigs,...legacyCopies,...previous.filter(r=>JSON.stringify(r)!==JSON.stringify(saved.find(s=>s.id===r.id))).map(r=>copyRig(r,`${r.name} / cambios locales`))]);
   setVariantId(master.id);setMessage("Biblioteca actualizada. Los cambios locales y de versiones anteriores se conservaron como copias; guarda las que necesites.");refreshDrafts();
@@ -153,7 +164,7 @@ function RigSession({profile,profilesOpen,onProfiles}:{profile:LocalProfile;prof
   catch{return "No se pudieron confirmar tus borradores. Sigues en el mismo perfil; guarda o recupera el almacenamiento antes de cambiar.";}
  };
  return <>
-  <RigPlannerPage profileName={profile.name} onProfiles={()=>{if(saving.current){setMessage("Espera a que termine el guardado antes de abrir perfiles.");return;}onProfiles(prepareProfileSwitch);}} variant={variant} customRig={custom??null} resolution={resolution} savedRigs={rigs} dirty={dirty} message={message} recoveryStatus={dirty?draftStatus:""} viewerPaused={builderOpen||libraryOpen||helpOpen||profilesOpen} onHelp={()=>setHelpOpen(true)} onDismissMessage={()=>setMessage("")} onNewRig={()=>create()} onLibrary={()=>{refreshDrafts();setLibraryOpen(true);}} onEditRig={()=>custom?setBuilderOpen(true):create(variant)} onSaveRig={save} onAttach={attach} onAdjust={adjust} exploded={exploded} onExplodedChange={setExploded} showLabels={showLabels} onShowLabelsChange={setShowLabels} onShowCablesChange={setShowCables} showCables={showCables} onVariantChange={open}/>
+  <RigPlannerPage profileName={profile.name} libraryNotice={libraryNotice} onProfiles={()=>{if(saving.current){setMessage("Espera a que termine el guardado antes de abrir perfiles.");return;}onProfiles(prepareProfileSwitch);}} variant={variant} customRig={custom??null} resolution={resolution} savedRigs={rigs} dirty={dirty} message={message} recoveryStatus={dirty?draftStatus:""} viewerPaused={builderOpen||libraryOpen||helpOpen||profilesOpen} onHelp={()=>setHelpOpen(true)} onDismissMessage={()=>setMessage("")} onNewRig={()=>create()} onLibrary={()=>{refreshDrafts();setLibraryOpen(true);}} onEditRig={()=>custom?setBuilderOpen(true):create(variant)} onSaveRig={save} onAttach={attach} onAdjust={adjust} exploded={exploded} onExplodedChange={setExploded} showLabels={showLabels} onShowLabelsChange={setShowLabels} onShowCablesChange={setShowCables} showCables={showCables} onVariantChange={open}/>
   <RigLibrary profileName={profile.name} open={libraryOpen} onClose={()=>setLibraryOpen(false)} rigs={rigs} saved={saved} history={history} recoverable={recoverable} onRecover={recover} onDiscard={discard} onRefresh={refreshLibrary} onOpen={open} onCreate={()=>create()} onTemplate={create} onDuplicate={duplicate} onDelete={remove}/>
   {custom&&resolution&&<RigBuilder key={custom.id} open={builderOpen} onClose={()=>setBuilderOpen(false)} rig={custom} resolution={resolution} onChange={update} onSave={save} dirty={dirty} message={message}/>}
   {helpOpen&&<Suspense fallback={<div role="status" className="app-message">Abriendo ayuda…</div>}><HelpCenter onClose={()=>setHelpOpen(false)} onNew={()=>create()} onLibrary={()=>{refreshDrafts();setLibraryOpen(true);}}/></Suspense>}

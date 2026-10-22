@@ -385,7 +385,7 @@ Incluye masas de planificación aproximadas, especialmente varillas y parasol, y
 
 ### Receptor Mic 2 y zapata HawkLock
 
-Verificar asiento y retención del RX en la zapata inclinada 4770, acceso a MIC/HDMI, pantalla y holgura en todos los ejes con motores apagados. Pesar el cable TRS y rebalancear con RX instalado; no inferir holgura por los 28 g publicados.
+Verificar asiento y retención del RX en zapata inclinada 4770, acceso a MIC/HDMI y pantalla. Con gimbal, comprobar barrido con motores apagados y volver a equilibrar; en otros contextos comprobar agarres y movimiento del monitor. Pesar el cable TRS; los 28 g publicados no prueban holgura.
 
 Estado: Prueba física pendiente.
 
@@ -397,7 +397,7 @@ Estado: Prueba física pendiente.
 
 ### Espacio para las manos
 
-Gimbal: ajustar monitor en 3026B, sin obstaculizar empuñadura. A mano/estático: medir acceso al asa y mandos con 2906B, incluyendo 4830 si hay XLR-H1. Usar guantes sin tocar pantalla, batería ni soporte; no se da por validado por la pose.
+Comprobar manos, pantalla, mandos, soportes y cableado del conjunto elegido. Con gimbal, no bloquear grip; a mano comprobar agarre; al hombro postura y rostro; estático, acceso y palanca de cabezal. La pose del visor no es una prueba.
 
 Estado: Prueba física pendiente.
 

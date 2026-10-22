@@ -1210,44 +1210,91 @@
     {
       "id": "rx-shoe-clearance",
       "title": "Receptor Mic 2 y zapata HawkLock",
-      "detail": "Verificar asiento y retención del RX en la zapata inclinada 4770, acceso a MIC/HDMI, pantalla y holgura en todos los ejes con motores apagados. Pesar el cable TRS y rebalancear con RX instalado; no inferir holgura por los 28 g publicados.",
-      "status": "bench_required"
+      "detail": "Verificar asiento y retención del RX en zapata inclinada 4770, acceso a MIC/HDMI y pantalla. Con gimbal, comprobar barrido con motores apagados y volver a equilibrar; en otros contextos comprobar agarres y movimiento del monitor. Pesar el cable TRS; los 28 g publicados no prueban holgura.",
+      "status": "bench_required",
+      "condition": {
+        "any": [
+          "dji-mic-2-kit"
+        ]
+      }
     },
     {
       "id": "battery-sweep",
       "title": "Batería y recorrido de motores",
       "detail": "Abrazadera superior 3203B documentada en manual, página 5. Placa bajo varillas cerca del motor de giro. Con motores apagados, medir la holgura mínima en extremos de inclinación/rotación. No operar hasta superar la prueba.",
-      "status": "bench_required"
+      "status": "bench_required",
+      "condition": {
+        "all": [
+          "smallrig-3203b"
+        ],
+        "context": "gimbal"
+      }
     },
     {
       "id": "hand-zone",
       "title": "Espacio para las manos",
-      "detail": "Gimbal: ajustar monitor en 3026B, sin obstaculizar empuñadura. A mano/estático: medir acceso al asa y mandos con 2906B, incluyendo 4830 si hay XLR-H1. Usar guantes sin tocar pantalla, batería ni soporte; no se da por validado por la pose.",
-      "status": "bench_required"
+      "detail": "Comprobar manos, pantalla, mandos, soportes y cableado del conjunto elegido. Con gimbal, no bloquear grip; a mano comprobar agarre; al hombro postura y rostro; estático, acceso y palanca de cabezal. La pose del visor no es una prueba.",
+      "status": "bench_required",
+      "condition": {
+        "any": [
+          "smallhd-indie-7",
+          "smallrig-4346",
+          "smallrig-2896c",
+          "smallrig-3751b",
+          "dji-rs4-pro-combo"
+        ]
+      }
     },
     {
       "id": "motion-boundary",
       "title": "Cables entre partes móviles y fijas",
       "detail": "En gimbal HDMI y D-Tap cruzan de móvil a fijo y requieren bucles medidos; batería serie L no añade cable de potencia. A mano/estático ambos extremos HDMI/D-Tap siguen el núcleo y deben dejar holgura para monitor y agarre. No se promete giro ilimitado.",
-      "status": "bench_required"
+      "status": "bench_required",
+      "condition": {
+        "any": [
+          "kondor-blue-hdmi-aa",
+          "smallhd-dtap-to-2mm-barrel",
+          "dji-r-usbc-control",
+          "dji-mic-2-kit"
+        ]
+      }
     },
     {
       "id": "quick-release",
       "title": "Interfaz de extracción",
       "detail": "1674 está atornillada. HawkLock no garantiza extracción de cámara por sí sola a través de la pila. Desconectar todos los cables que cruzan partes móviles/fijas, liberar la placa DJI y retirar las varillas si hace falta.",
-      "status": "bench_required"
+      "status": "bench_required",
+      "condition": {
+        "all": [
+          "dji-rs4-pro-combo"
+        ],
+        "context": "gimbal"
+      }
     },
     {
       "id": "dual-video",
       "title": "Doble salida HDMI",
       "detail": "StarTech y RavenEye quedan en reserva para gimbal. Circuito completo de banco hasta verificar soporte, alimentación de 5 V y negociación EDID.",
-      "status": "conditional"
+      "status": "conditional",
+      "condition": {
+        "any": [
+          "startech-st122hd4ku",
+          "dji-ronin-image-transmitter"
+        ]
+      }
     },
     {
       "id": "focus-calibration",
       "title": "Calibración LiDAR y objetivo",
       "detail": "No se ha demostrado calibración del motor con SEL1635GM. Sensor/motor Focus Pro y hub Transmission se conservan en inventario, sin simularlos operativos.",
-      "status": "conditional"
+      "status": "conditional",
+      "condition": {
+        "any": [
+          "dji-focus-pro-lidar",
+          "dji-focus-pro-motor",
+          "dji-lidar-transmission-hub"
+        ]
+      }
     }
   ],
   "support_graph_note": "parent_id representa la cadena candidata de soporte mecánico, no una jerarquía de transformaciones. En cámara a mano se omiten soportes inactivos; no se inventan manos o soportes externos. Medir la pila de jaula, base y placa DJI.",

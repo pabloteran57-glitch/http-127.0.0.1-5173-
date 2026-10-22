@@ -151,7 +151,7 @@ export interface LayoutManifest {
   monitor_mount_routes?: Record<string, {label:string; overrides:Record<string, Partial<LayoutNode>>}>;
   camera_layout_profiles?: {id:string;camera_part_id:string;overrides:Record<string,Partial<LayoutNode>>}[];
   context_layout_profiles?: {id:string;context:CustomRig["context"];require_all:string[];overrides:Record<string,Partial<LayoutNode>>}[];
-  clearance_gates: { id: string; title: string; detail: string; status: string }[];
+  clearance_gates: { id: string; title: string; detail: string; status: string; condition?: RuleCondition }[];
 }
 export interface AssemblyStep {
   applies_if_any_part_ids: string[];
@@ -259,7 +259,7 @@ export interface PlannerRules {
   assembly_frames: {step: number; add_part_ids: string[]; add_cable_ids: string[]; context_part_ids: string[]; note: string}[];
   extraction_keep_part_ids: string[];
   camera_part_ids: string[];
-  selection_checks: {id:string; condition:RuleCondition; message:string; required_all?:string[]; required_any?:string[]; suggest_ids?:string[]}[];
+  selection_checks: {id:string; condition:RuleCondition; message:string; review_kind?:"selection"|"physical"; required_all?:string[]; required_any?:string[]; suggest_ids?:string[]}[];
   cable_exclusions: {cable_id:string;condition:RuleCondition}[];
 }
 

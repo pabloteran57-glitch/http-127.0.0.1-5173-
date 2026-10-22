@@ -1,6 +1,6 @@
 import type { AttachmentOption, Cable, CompatibilityEvidence, CustomRig, MountResource, PlannerRules, RigAdjustments, RigUnit, RuleCondition, Variant } from "./types";
 
-export interface RigIssue { id: string; part_id?: string; message: string; add_ids: string[] }
+export interface RigIssue { id: string; part_id?: string; message: string; add_ids: string[]; review_kind?:"selection"|"physical" }
 export interface RigResolution { variant: Variant; issues: RigIssue[]; parked_ids: string[] }
 export const LIBRARY_KEY = "takegrid.rigs.v3";
 export const PREVIOUS_LIBRARY_KEY = "takegrid.rigs.v2";
@@ -255,7 +255,7 @@ export function resolveRig(rig: CustomRig, rules: PlannerRules, cables: Cable[],
     const missing=all.filter(id=>!active.has(id));
     if(any.length&&!any.some(id=>active.has(id)))missing.push(...(check.suggest_ids??any.slice(0,1)));
     if((all.length||any.length)&&!missing.length)continue;
-    issues.push({id:check.id,message:check.message,add_ids:dependencyClosure(missing,rules,rig).filter(id=>!selected.has(id))});
+    issues.push({id:check.id,message:check.message,review_kind:missing.length?"selection":check.review_kind??"selection",add_ids:dependencyClosure(missing,rules,rig).filter(id=>!selected.has(id))});
   }
   const cableIds = cables.filter(c => c.status === "candidate" && active.has(c.source_part_id) && [c.from_part_id,c.to_part_id].every(p => p === null || active.has(p)) && !rules.cable_exclusions.some(rule=>rule.cable_id===c.cable_id&&conditionMatches(rule.condition,active,rig))).map(c => c.cable_id);
   const ids = rig.part_ids.filter(id => active.has(id));

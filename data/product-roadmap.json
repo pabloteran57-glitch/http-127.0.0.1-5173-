@@ -2,8 +2,8 @@
   "version": 1,
   "reviewed_on": "2026-10-21",
   "status": "prototype_hardening_in_progress",
-  "progress_report": "docs/continuation-0219.md",
-  "current_milestone": "Soporte estático 3751B y 22 revisiones de circuitos integrados para planificación. Próximo lote: restantes cuatro candidatos de agarres/apoyo y 26 expedientes de montaje; ensayos físicos, dispositivos y beta requieren evidencia externa.",
+  "progress_report": "docs/core-acceptance-0220.md",
+  "current_milestone": "Etapa de estabilización de software 0.2.20 comprobada: selección, montaje, bibliotecas/perfiles, concurrencia y recuperación del visor. Publicación en cierre. Beta profesional y financiación requieren ensayos físicos, dispositivos y usuarios. La expansión continúa por cadenas completas, no importación masiva sin verificar.",
   "user_decisions": [
     {
       "date": "2026-10-17",
@@ -212,8 +212,8 @@
       "id": "stabilize-core",
       "order": 1,
       "title": "Rigs propios y montaje fiable",
-      "status": "in_progress",
-      "verification_report": "docs/contextual-attachments-qa.md",
+      "status": "software_verified_observed_acceptance_pending",
+      "verification_report": "docs/core-acceptance-0220.md",
       "remaining": [
         "Medición sostenida en dispositivos físicos de referencia",
         "Comparación reproducible y objetivos de fluidez",
@@ -233,7 +233,8 @@
         "Las siete plantillas y los rigs guardados mantienen sus elecciones",
         "Reproducción, pausa, fin y navegación son coherentes al cambiar configuración o pestaña",
         "Sin incidencias críticas de datos, seguridad de representación o navegación"
-      ]
+      ],
+      "software_acceptance": "data/core-acceptance.json"
     },
     {
       "id": "extensible-engineering",

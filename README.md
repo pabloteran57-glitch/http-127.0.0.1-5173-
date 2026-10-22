@@ -26,6 +26,8 @@ Vista de marca: `/brand/preview.html`. SVG reutilizables en `public/brand`; nomb
 
 ## Rigs Propios
 
+Versión 0.2.20: **estabilización de software del núcleo**. Revisión distingue faltantes de selección y pruebas físicas; preflight contextual, aviso de cambios de otra pestaña, actualización sin duplicar borradores y recuperación de contexto 3D sin recargar el plan. Fuentes de óptica/batería condicionadas a la elección. No modifica catálogo, plantillas ni bibliotecas. [Verificación y límites](docs/core-acceptance-0220.md), [criterios estructurados](data/core-acceptance.json).
+
 Versión 0.2.19: **AD-01 3751B para primer rig estático FX3** con placa/tornillo incluidos, guía propia, monitor NATO/serie L y RX opcionales. Detalle de cámara o vista de trípode completo. 26 mallas/miniaturas propias aproximadas; huella y montaje no certificados. Las **22 conexiones** tienen revisión documental vinculada a sus modelos y puertos; las pruebas operativas continúan pendientes. INPUT3 Sony depende de selector/modo, no siempre CH3/4. [Entrega y plan restante](docs/continuation-0219.md).
 
 Versión 0.2.18: **empuñadura lateral 4346 y contexto Al hombro 2896C**. Cadenas candidatas acotadas, dos mallas/miniaturas propias aproximadas y guía contextual sin etapas del gimbal. El kit incluye base, barras y dos agarres, contados una vez. Propuesta de núcleo por elección explícita; monitor NATO/serie L y RX opcionales. Sin nueva migración ni cambio de las siete plantillas. [Alcance, fuentes y limitaciones](docs/support-integration.md). No certifica ergonomía, encaje o seguridad física.

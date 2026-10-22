@@ -1,5 +1,7 @@
 # AGENTS
 
+- Estabilización 0.2.20: `data/core-acceptance.json` registra evidencia de software separada de beta/ensayos. `selection_checks.review_kind` distingue selección de comprobaciones físicas; un faltante conserva categoría de selección. `clearance_gates.condition` filtra inspecciones sin cambiar piezas ni aprobar montajes. Avisos de otra pestaña son sólo informativos; bloqueo y comparación de biblioteca siguen siendo autoridad. Revisión sin cambios no duplica borradores. Pérdida de contexto 3D pausa montaje y permite reiniciar sólo el visor. Ejecutar `test-core-acceptance.mjs` incluido en `test:planner`; laboratorio de interrupción sintética sólo en desarrollo.
+
 ## Reglas de trabajo
 
 1. Verificar antes de representar.

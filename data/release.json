@@ -1,5 +1,5 @@
 {
-  "version": "0.2.19",
+  "version": "0.2.20",
   "released_on": "2026-10-21",
   "status": "engineering_prototype",
   "label": "Prototipo de ingeniería",
@@ -7,6 +7,9 @@
   "storage": "local_only",
   "account_sync": "deferred_by_user",
   "updates": [
+    "Revisión del plan separa faltantes de selección y comprobaciones físicas; inspecciones de holgura filtradas por equipo elegido y contexto.",
+    "Cambios de biblioteca entre pestañas visibles sin sobrescritura automática; actualizar sin cambios conserva borradores sin duplicarlos.",
+    "Interrupción del contexto 3D contenida con reintento del visor, sin recargar la página ni perder la selección.",
     "AD-01 3751B seleccionable para primer rig estático FX3/16-35 GM/4770/NP-FZ100; placa y tornillo incluidos, monitor NATO/serie L y RX opcionales.",
     "Guía estática propia filtrada; encuadres de cámara y trípode completo, malla y miniatura propias aproximadas.",
     "22 de 22 circuitos tienen revisión ampliada vinculada a modelo/puerto. No aprueba retención, señal o alimentación del conjunto sin prueba real.",

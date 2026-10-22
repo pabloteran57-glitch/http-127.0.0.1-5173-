@@ -29,6 +29,7 @@ import type {
   ConnectionCheck,
   ElectricalProperties,
   CustomRig,
+  RuleCondition,
 } from "../lib/types";
 
 export const partsData = partsManifest as PartsManifest;
@@ -55,6 +56,7 @@ function layoutOverride(raw:{position_mm?:number[];rotation_deg?:number[];parent
 }
 export const layoutData: LayoutManifest = {
   ...layoutManifest,
+  clearance_gates:layoutManifest.clearance_gates.map(gate=>({...gate,condition:gate.condition as RuleCondition})),
   battery_plate_slide:{...layoutManifest.battery_plate_slide,rod_axis_local:vector(layoutManifest.battery_plate_slide.rod_axis_local)},
   monitor_joints: Object.fromEntries(Object.entries(layoutManifest.monitor_joints).map(([id,joint])=>[id,{...joint,tilt_range_deg:[joint.tilt_range_deg[0],joint.tilt_range_deg[1]] as [number,number],swivel_range_deg:[joint.swivel_range_deg[0],joint.swivel_range_deg[1]] as [number,number],tilt_pivot_local_mm:vector(joint.tilt_pivot_local_mm),swivel_pivot_local_mm:vector(joint.swivel_pivot_local_mm)} satisfies MonitorJoint])),
   monitor_mount_routes: Object.fromEntries(Object.entries(layoutManifest.monitor_mount_routes).map(([id,route])=>[id,{label:route.label,overrides:Object.fromEntries(Object.entries(route.overrides).map(([partId,override])=>[partId,layoutOverride(override)]))}])),

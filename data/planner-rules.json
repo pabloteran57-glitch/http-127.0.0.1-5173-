@@ -824,7 +824,8 @@
         "sony-fx3",
         "sony-fx30"
       ],
-      "message": "Elige una cámara para iniciar el rig."
+      "message": "Elige una cámara para iniciar el rig.",
+      "review_kind": "selection"
     },
     {
       "id": "lens",
@@ -837,7 +838,8 @@
         "sony-fe-16-35-gm",
         "sony-fe-35-f18"
       ],
-      "message": "Falta una óptica para completar el núcleo de cámara."
+      "message": "Falta una óptica para completar el núcleo de cámara.",
+      "review_kind": "selection"
     },
     {
       "id": "gimbal",
@@ -848,7 +850,8 @@
         "dji-rs4-pro-combo",
         "dji-rs-bg70"
       ],
-      "message": "Este perfil necesita RS 4 Pro y BG70. La capacidad nominal no certifica equilibrio."
+      "message": "Este perfil necesita RS 4 Pro y BG70. La capacidad nominal no certifica equilibrio.",
+      "review_kind": "selection"
     },
     {
       "id": "monitor-video",
@@ -860,7 +863,8 @@
       "required_all": [
         "kondor-blue-hdmi-aa"
       ],
-      "message": "Monitor sin enlace de vídeo seleccionado."
+      "message": "Monitor sin enlace de vídeo seleccionado.",
+      "review_kind": "selection"
     },
     {
       "id": "monitor-power",
@@ -876,7 +880,8 @@
       ],
       "suggest_ids": [
         "sony-np-f970-pro"
-      ]
+      ],
+      "review_kind": "selection"
     },
     {
       "id": "vertical-monitor",
@@ -887,7 +892,8 @@
         "context": "gimbal",
         "orientation": "vertical"
       },
-      "message": "Monitor lateral fijo y alimentación serie L disponibles en vertical. Medir manos, retención y bucle HDMI; V-mount vertical sigue en reserva."
+      "message": "Monitor lateral fijo y alimentación serie L disponibles en vertical. Medir manos, retención y bucle HDMI; V-mount vertical sigue en reserva.",
+      "review_kind": "physical"
     },
     {
       "id": "camera-power",
@@ -903,7 +909,8 @@
       "required_all": [
         "smallrig-4253b"
       ],
-      "message": "Elige alimentación nativa NP-FZ100 o adaptador regulado 4253B para la FX3. La V-mount puede alimentar sólo el monitor."
+      "message": "Elige alimentación nativa NP-FZ100 o adaptador regulado 4253B para la FX3. La V-mount puede alimentar sólo el monitor.",
+      "review_kind": "selection"
     },
     {
       "id": "internal-battery",
@@ -918,7 +925,8 @@
       "required_all": [
         "sony-np-fz100"
       ],
-      "message": "La FX3 necesita una fuente elegida: NP-FZ100 nativa cargada o adaptador regulado 4253B. No se instala una batería implícita."
+      "message": "La FX3 necesita una fuente elegida: NP-FZ100 nativa cargada o adaptador regulado 4253B. No se instala una batería implícita.",
+      "review_kind": "selection"
     },
     {
       "id": "rx-mount",
@@ -927,7 +935,8 @@
           "dji-mic-2-kit"
         ]
       },
-      "message": "RX Mic 2 en zapata inclinada HawkLock: interfaz documentada y 28 g publicados, posición aproximada. Probar retención, bucle TRS y barrido de motores; TX y estuche fuera del rig."
+      "message": "RX Mic 2 en zapata inclinada HawkLock: interfaz documentada y 28 g publicados, posición aproximada. Probar retención, bucle TRS y barrido de motores; TX y estuche fuera del rig.",
+      "review_kind": "physical"
     },
     {
       "id": "static-support",
@@ -937,7 +946,8 @@
           "smallrig-3751b"
         ]
       },
-      "message": "Soporte estático por elegir. AD-01 3751B tiene una primera cadena acotada; no se inserta automáticamente ni se certifica estabilidad."
+      "message": "Soporte estático por elegir. AD-01 3751B tiene una primera cadena acotada; no se inserta automáticamente ni se certifica estabilidad.",
+      "review_kind": "selection"
     },
     {
       "id": "vertical-support",
@@ -945,7 +955,8 @@
         "orientation": "vertical",
         "not_context": "gimbal"
       },
-      "message": "Montaje vertical fuera del RS 4 Pro no documentado. El visor conserva orientación horizontal."
+      "message": "Montaje vertical fuera del RS 4 Pro no documentado. El visor conserva orientación horizontal.",
+      "review_kind": "selection"
     },
     {
       "id": "monitor-local-power",
@@ -954,7 +965,8 @@
           "sony-np-f970-pro"
         ]
       },
-      "message": "NP-F970/PRO: una batería de 300 g aproximados en placa nativa serie L; cargador externo requerido. Comprobar retención y autonomía real. No conectar 7.2 V al barril DC."
+      "message": "NP-F970/PRO: una batería de 300 g aproximados en placa nativa serie L; cargador externo requerido. Comprobar retención y autonomía real. No conectar 7.2 V al barril DC.",
+      "review_kind": "physical"
     },
     {
       "id": "fx30-lens",
@@ -967,7 +979,8 @@
       "required_any": [
         "sony-fe-20-f18-g",
         "sony-fe-35-f18"
-      ]
+      ],
+      "review_kind": "selection"
     },
     {
       "id": "fx30-native-power",
@@ -979,7 +992,8 @@
       "required_all": [
         "sony-np-fz100"
       ],
-      "message": "El piloto FX30 utiliza la batería nativa NP-FZ100 elegida. No se añade por defecto ni se hereda el adaptador de batería FX3."
+      "message": "El piloto FX30 utiliza la batería nativa NP-FZ100 elegida. No se añade por defecto ni se hereda el adaptador de batería FX3.",
+      "review_kind": "selection"
     },
     {
       "id": "fx30-preflight",
@@ -988,7 +1002,8 @@
           "sony-fx30"
         ]
       },
-      "message": "Piloto de planificación: tarjeta, ventilación, masa real, retención con jaula y firmware requieren comprobación. No hay ensayo físico registrado."
+      "message": "Piloto de planificación: tarjeta, ventilación, masa real, retención con jaula y firmware requieren comprobación. No hay ensayo físico registrado.",
+      "review_kind": "physical"
     },
     {
       "id": "shoe-chain-preflight",
@@ -998,7 +1013,8 @@
           "smallrig-4152"
         ]
       },
-      "message": "Cadena candidata: comprobar asiento NATO/zapata, rosca, agarre, carga con batería y cable. Límite del soporte no certifica retención del conjunto; no hay ensayo físico registrado."
+      "message": "Cadena candidata: comprobar asiento NATO/zapata, rosca, agarre, carga con batería y cable. Límite del soporte no certifica retención del conjunto; no hay ensayo físico registrado.",
+      "review_kind": "physical"
     },
     {
       "id": "side-handle-preflight",
@@ -1007,7 +1023,8 @@
           "smallrig-4346"
         ]
       },
-      "message": "4346: verificar encaje de pines 1/4-20, tornillo, retención, mano, pantalla y HDMI/MIC con los cables reales. Pareja candidata, sin ensayo físico."
+      "message": "4346: verificar encaje de pines 1/4-20, tornillo, retención, mano, pantalla y HDMI/MIC con los cables reales. Pareja candidata, sin ensayo físico.",
+      "review_kind": "physical"
     },
     {
       "id": "shoulder-support",
@@ -1021,7 +1038,8 @@
         "sony-fe-16-35-gm",
         "sony-np-fz100"
       ],
-      "message": "Completa el primer rig al hombro: FX3, 16-35 GM, jaula 4770, kit 2896C y NP-FZ100. El kit ya incluye base, varillas y dos agarres."
+      "message": "Completa el primer rig al hombro: FX3, 16-35 GM, jaula 4770, kit 2896C y NP-FZ100. El kit ya incluye base, varillas y dos agarres.",
+      "review_kind": "selection"
     },
     {
       "id": "shoulder-preflight",
@@ -1031,7 +1049,8 @@
         ],
         "context": "shoulder"
       },
-      "message": "Apoyar y asegurar antes de montar al hombro. Medir balance, postura, línea de visión, rostro, manos, ajuste de tornillos y tendido real; la app no certifica ergonomía o retención."
+      "message": "Apoyar y asegurar antes de montar al hombro. Medir balance, postura, línea de visión, rostro, manos, ajuste de tornillos y tendido real; la app no certifica ergonomía o retención.",
+      "review_kind": "physical"
     },
     {
       "id": "static-3751b-core",
@@ -1048,7 +1067,8 @@
         "smallrig-3751b",
         "sony-np-fz100"
       ],
-      "message": "Completa el núcleo estático revisado: FX3, 16-35 GM, 4770, AD-01 3751B y NP-FZ100. Sin sustituir tus elecciones."
+      "message": "Completa el núcleo estático revisado: FX3, 16-35 GM, 4770, AD-01 3751B y NP-FZ100. Sin sustituir tus elecciones.",
+      "review_kind": "selection"
     },
     {
       "id": "static-3751b-preflight",
@@ -1057,7 +1077,8 @@
           "smallrig-3751b"
         ]
       },
-      "message": "Verificar suelo, cierres, nivelación, placa, seguro, carga sobre cabezal y recorrido de cables. Patas 8 kg, cabezal 6 kg; estar por debajo no prueba estabilidad. No hay ensayo físico del conjunto."
+      "message": "Verificar suelo, cierres, nivelación, placa, seguro, carga sobre cabezal y recorrido de cables. Patas 8 kg, cabezal 6 kg; estar por debajo no prueba estabilidad. No hay ensayo físico del conjunto.",
+      "review_kind": "physical"
     }
   ],
   "cable_exclusions": [

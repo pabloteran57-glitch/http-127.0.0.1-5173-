@@ -9,11 +9,6 @@
       "requires_any": [],
       "note": "Posiciones finales aproximadas, no una trayectoria de acople medida.",
       "rebalance": "El equilibrio inicial se comprueba después de completar la carga móvil.",
-      "source_ids": [
-        "src-sony-fx3-battery-install",
-        "src-sony-fx3-sel35f18f-pair",
-        "src-sony-sel35f18f-features"
-      ],
       "blocks": [
         {
           "part_ids": [
@@ -29,6 +24,7 @@
           "part_ids": [
             "sony-np-fz100"
           ],
+          "source_ids": ["src-sony-fx3-battery-install"],
           "require_all": [
             "sony-fx3"
           ],
@@ -57,6 +53,7 @@
           "part_ids": [
             "sony-fe-35-f18"
           ],
+          "source_ids": ["src-sony-fx3-sel35f18f-pair", "src-sony-sel35f18f-features"],
           "require_all": [
             "sony-fx3"
           ],

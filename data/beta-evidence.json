@@ -1,12 +1,28 @@
 {
   "version": 1,
   "release_status": "engineering_prototype",
-  "software_reports": ["docs/stabilization-qa.md", "docs/iteration-qa.md", "docs/viewer-profiles-qa.md", "docs/monitor-mount-qa.md", "docs/extensible-engineering-qa.md", "docs/contextual-attachments-qa.md"],
+  "software_reports": [
+    "docs/stabilization-qa.md",
+    "docs/iteration-qa.md",
+    "docs/viewer-profiles-qa.md",
+    "docs/monitor-mount-qa.md",
+    "docs/extensible-engineering-qa.md",
+    "docs/contextual-attachments-qa.md",
+    "docs/core-acceptance-0220.md"
+  ],
   "observations": [],
   "physical_trials": [],
   "reference_devices": [],
   "issues": [],
-  "privacy_review": {"status":"pending","evidence_paths":[]},
-  "support_setup": {"status":"pending","channel":null,"responsible":null,"evidence_paths":[]},
+  "privacy_review": {
+    "status": "pending",
+    "evidence_paths": []
+  },
+  "support_setup": {
+    "status": "pending",
+    "channel": null,
+    "responsible": null,
+    "evidence_paths": []
+  },
   "note": "Un registro vacío no significa cero errores observados ni validación aprobada. No hay usuarios reclutados ni ensayos físicos registrados."
 }

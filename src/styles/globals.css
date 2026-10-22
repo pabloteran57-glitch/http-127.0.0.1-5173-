@@ -389,3 +389,11 @@ html:has(.direct-builder[open]){overflow:hidden}
 .support-framing {position:absolute;z-index:4;top:58px;left:18px;display:flex;gap:6px;flex-wrap:wrap;max-width:calc(100% - 36px)}
 .support-framing button {background:#172024e8;font-size:11px;padding:7px 10px}
 .support-framing button[aria-pressed="true"] {color:#c9eedf;border-color:#6ca98d}
+.plan-pending.selection-resolved {border-color:#455951;background:#26342f45}
+.plan-pending section {padding:0 16px 14px}
+.plan-pending section h3 {font-size:13px;margin:12px 0 8px}
+.plan-pending>p {font-size:11px;line-height:1.6;color:var(--muted);padding:0 16px 10px}
+.library-change-notice {display:flex;align-items:center;gap:12px;padding:12px 15px;margin-top:12px;border:1px solid #8b713e;border-radius:6px;background:#322b1e}
+.library-change-notice>svg {width:18px;flex-shrink:0}
+.library-change-notice p {margin:0;font-size:12px;line-height:1.6;flex:1}
+@media(max-width:600px){.library-change-notice {flex-wrap:wrap}.library-change-notice button{margin-left:auto}.plan-pending summary>span {white-space:normal;text-align:right;line-height:1.5}}

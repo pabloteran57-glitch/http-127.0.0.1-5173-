@@ -1,0 +1,182 @@
+{
+  "version": 1,
+  "release": "0.2.20",
+  "scope": "Cierre de estabilización de software del núcleo, no liberación de beta profesional ni certificación física.",
+  "status": "software_verified_publication_pending",
+  "baseline": "0.2.19",
+  "catalog_changes": false,
+  "template_changes": false,
+  "library_migration": false,
+  "criteria": [
+    {
+      "id": "selection",
+      "label": "Selección exacta y estados claros",
+      "status": "verified_software_only",
+      "evidence_paths": [
+        "scripts/test-core-acceptance.mjs",
+        "docs/core-acceptance-0220.md"
+      ]
+    },
+    {
+      "id": "assembly",
+      "label": "Montaje filtrado y transporte de reproducción",
+      "status": "verified_software_only",
+      "evidence_paths": [
+        "scripts/test-core-acceptance.mjs",
+        "docs/core-acceptance-0220.md"
+      ]
+    },
+    {
+      "id": "persistence",
+      "label": "Guardar, recargar, historial y conflicto entre pestañas",
+      "status": "verified_software_only",
+      "evidence_paths": [
+        "scripts/test-core-acceptance.mjs",
+        "docs/core-acceptance-0220.md"
+      ]
+    },
+    {
+      "id": "profiles",
+      "label": "Perfiles locales y recuperación aislados",
+      "status": "verified_software_only",
+      "evidence_paths": [
+        "scripts/test-core-acceptance.mjs",
+        "docs/core-acceptance-0220.md"
+      ]
+    },
+    {
+      "id": "viewer-recovery",
+      "label": "Recuperación de visor sin perder el plan",
+      "status": "verified_software_only",
+      "evidence_paths": [
+        "scripts/test-core-acceptance.mjs",
+        "docs/core-acceptance-0220.md"
+      ]
+    },
+    {
+      "id": "responsive",
+      "label": "Editor directo, navegación y estados vacíos en móvil/escritorio",
+      "status": "verified_software_only",
+      "evidence_paths": [
+        "scripts/test-core-acceptance.mjs",
+        "docs/core-acceptance-0220.md"
+      ]
+    },
+    {
+      "id": "offline",
+      "label": "Worker y fallo de almacenamiento tratados sin falso guardado",
+      "status": "verified_software_only",
+      "evidence_paths": [
+        "scripts/test-core-acceptance.mjs",
+        "docs/core-acceptance-0220.md"
+      ]
+    },
+    {
+      "id": "release",
+      "label": "Compilación, recursos auditados y publicación respaldada",
+      "status": "publication_pending",
+      "evidence_paths": [
+        "scripts/test-core-acceptance.mjs",
+        "docs/core-acceptance-0220.md"
+      ]
+    }
+  ],
+  "external_gates": [
+    "Ensayos de rigs físicos",
+    "Mediciones en dispositivos físicos de referencia",
+    "Cohorte observada y aceptación de usuarios",
+    "Derechos de modelos exactos de terceros",
+    "Privacidad, soporte, presupuesto y elegibilidad de financiación"
+  ],
+  "evidence": [
+    {
+      "id": "automated",
+      "kind": "software",
+      "result": "passed",
+      "checks": 18,
+      "subselections": 1500,
+      "scope": "Nueva suite; además se ejecutan completas las regresiones previas. Sin usuarios ni hardware físicos.",
+      "paths": [
+        "scripts/test-core-acceptance.mjs"
+      ]
+    },
+    {
+      "id": "desktop",
+      "kind": "browser",
+      "result": "passed",
+      "surface": "Navegador integrado",
+      "viewport": [
+        1280,
+        720
+      ],
+      "tasks": [
+        "Crear desde cero nueve elecciones a mano con monitor NATO, serie L, HDMI y RX",
+        "Guardar, renombrar y recargar las mismas nueve piezas",
+        "Historial abierto como copia, sin sustituir original",
+        "Crear perfil vacío sin rigs ni borradores del inicial; volver y recuperar un borrador como copia",
+        "Dos pestañas: guardado concurrente rechazado, aviso persistente y conservación de remoto y cambios locales",
+        "Actualizar de nuevo sin cambios conserva dos tarjetas, sin duplicados"
+      ],
+      "private_evidence": [
+        "research/model-incoming/core-0220/conflicto-conservado.png"
+      ]
+    },
+    {
+      "id": "mobile",
+      "kind": "browser_emulation",
+      "result": "passed",
+      "surface": "Edge",
+      "viewports": [
+        [
+          390,
+          844
+        ],
+        [
+          320,
+          568
+        ],
+        [
+          568,
+          320
+        ]
+      ],
+      "tasks": [
+        "Editor directo con once elecciones verticales, sin avanzar a manual",
+        "Monitor y RX representados; cadena lateral fija y batería serie L",
+        "Reproducción a 2x termina en etapa 8/8, sin extracción opcional automática",
+        "Recorrido manual de siete plantillas; extracción opcional diferenciada",
+        "Búsqueda sin resultados y regreso a catálogo",
+        "Núcleos estático y al hombro, monitor/audio elegidos y nueve etapas pertinentes más retirada opcional",
+        "Sin desbordamiento horizontal de documento en los tamaños comprobados"
+      ],
+      "private_evidence": [
+        "research/model-incoming/core-0220/editor-movil-edge.png"
+      ],
+      "limits": "Emulación de viewport, no teléfono físico ni prueba GPU. El override del navegador integrado no cambió sus 1280 px: no se contó como prueba móvil."
+    },
+    {
+      "id": "viewer-recovery",
+      "kind": "synthetic_browser_test",
+      "result": "passed",
+      "tasks": [
+        "Carga de módulo falla una vez, reintento correcto",
+        "Evento webglcontextlost sintético presenta recuperación",
+        "Reiniciar visor 3D vuelve al canvas sin recargar ni cambiar siete piezas de plantilla"
+      ],
+      "private_evidence": [
+        "research/model-incoming/core-0220/visor-recuperado.png"
+      ],
+      "limits": "No se provoca fallo real de GPU; laboratorio sólo en desarrollo."
+    },
+    {
+      "id": "offline",
+      "kind": "software_and_browser",
+      "result": "passed",
+      "tasks": [
+        "Preparación de recursos propios confirmada desde Ayuda",
+        "Suite de worker y fallos de almacenamiento previa conservada"
+      ],
+      "limits": "No se certifica operación en dispositivo físico sin red ni precarga GLB."
+    }
+  ]
+}

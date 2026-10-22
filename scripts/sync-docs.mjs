@@ -1,6 +1,8 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { validateCatalogPilot } from "./lib/catalog-pilot.mjs";
 const read=name=>JSON.parse(readFileSync(new URL(`../data/${name}.json`,import.meta.url),"utf8"));
+const coreAcceptance=read("core-acceptance");
+writeFileSync(new URL("../docs/core-acceptance-status.md",import.meta.url),`# Criterios del núcleo ${coreAcceptance.release}\n\nGenerado desde data/core-acceptance.json. ${coreAcceptance.scope}\n\nEstado: ${coreAcceptance.status}. Sin cambios de catálogo, plantillas o migración de biblioteca en esta etapa.\n\n| Criterio | Estado |\n| --- | --- |\n${coreAcceptance.criteria.map(c=>`| ${c.label} | ${c.status} |`).join("\n")}\n\n## Evidencia de software\n\n${coreAcceptance.evidence.map(e=>`- ${e.id}: ${e.result}. ${e.scope??e.limits??"Recorrido de interfaz registrado; no ensayo físico."}`).join("\n")}\n\n## Condiciones externas aún pendientes\n\n${coreAcceptance.external_gates.map(g=>`- ${g}`).join("\n")}\n\nProtocolo y resultados: [revisión de software](core-acceptance-0220.md). Publicación: [alojamiento](additional-hosting.md).\n`);
 const parts=read("parts-manifest"),layout=read("layout-manifest"),cables=read("cables-manifest"),ports=read("ports-manifest"),assembly=read("assembly-guide"),variants=read("variants"),refs=read("geometry-references"),audit=read("geometry-audit");
 const ui=read("ui-content");
 const planner=read("planner-rules"),intake=read("catalog-intake");

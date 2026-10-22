@@ -10,6 +10,7 @@ import ProductVisual, { officialVisualLink } from "./ProductVisual";
 import RigUnitEditor from "./RigUnitEditor";
 import SetupChecklist from "./SetupChecklist";
 import SetupStarter from "./SetupStarter";
+import { planIssueGroups } from "../lib/plan-status";
 
 type BuilderView = "catalog" | "selected" | "settings";
 const modeledIds = layoutData.nodes.map(node => node.id);
@@ -44,6 +45,7 @@ export default function RigBuilder({open, onClose, rig, resolution, onChange, on
   const stateById = Object.fromEntries(rows.map(row => [row.id, row.state]));
   const visibleCount = rows.filter(row => row.state === "visual").length;
   const listCount = rows.filter(row => row.state === "list").length;
+  const issueGroups = planIssueGroups(resolution.issues);
 
   const renderCard = (id: string) => {
     const part = partById[id], chosen = allChosenIds.includes(id),planned=rig.part_ids.includes(id),state = stateById[id];
@@ -85,10 +87,10 @@ export default function RigBuilder({open, onClose, rig, resolution, onChange, on
         <div className="piece-grid">{entries.map(part => renderCard(part.id))}</div>
         {entries.length === 0 && <div className="empty-state"><p>{query ? "No hay coincidencias en esta vista." : "Aún no has elegido piezas."}</p><button type="button" className="quiet-button" onClick={() => {switchView("catalog"); setCategory("all");}}>Ver todas las piezas</button></div>}
         {view === "selected" && <>
-          <details className="selection-review"><summary>Revisar montaje y conexiones <span>{resolution.issues.length} pendientes</span></summary><div className="selection-totals"><strong>{visibleCount}<span>Con modelo en visor</span></strong><strong>{listCount}<span>Sólo en tu lista</span></strong><strong>{resolution.parked_ids.length}<span>Sin soporte activo</span></strong></div><div className="review-checks"><h3>Antes de rodar</h3><p>Guardar no valida el montaje. Comprueba soportes, alimentación y holguras reales antes de encender.</p>{resolution.issues.map(issue => {
+          <details className="selection-review"><summary>Revisar montaje y conexiones <span>{issueGroups.selection.length ? `${issueGroups.selection.length} por resolver` : "Sin faltantes detectados"}</span></summary><div className="selection-totals"><strong>{visibleCount}<span>Con modelo en visor</span></strong><strong>{listCount}<span>Sólo en tu lista</span></strong><strong>{resolution.parked_ids.length}<span>Sin soporte activo</span></strong></div><div className="review-checks"><h3>Resolver en tu plan</h3><p>Guardar no valida el montaje. Las comprobaciones físicas se muestran aparte.</p>{!issueGroups.selection.length && <p>No se detectan faltantes en las reglas disponibles. Esto no certifica compatibilidad ni seguridad.</p>}{issueGroups.selection.map(issue => {
             const suggestions = availableSupportIds(issue.add_ids, rig, plannerData);
             return <details key={issue.id}><summary>{issue.part_id ? partName(issue.part_id) : issue.id === "monitor-power" ? "Alimentación del monitor" : issue.id === "vertical-monitor" ? "Monitor en vertical" : issue.id === "monitor-video" ? "Señal del monitor" : issue.message}</summary><p>{issue.message}</p>{suggestions.length > 0 && <><p>Añadirá: {suggestions.map(partName).join(", ")}.</p><button type="button" className="quiet-button" onClick={() => add(suggestions)}>Añadir estas piezas ({suggestions.length})</button></>}</details>;
-          })}</div></details>
+          })}<h3>Comprobar con el equipo real</h3><p>Verifica retención, alimentación, equilibrio y holguras antes de encender.</p>{issueGroups.physical.map(issue => <details key={issue.id}><summary>{issue.part_id ? partName(issue.part_id) : issue.message}</summary><p>{issue.message}</p></details>)}</div></details>
         </>}
         {view==="selected"&&<SetupChecklist context={rig.context}/>}
         <details className="visual-policy"><summary>Sobre las imágenes y el catálogo</summary><p>{ui.builder.image_policy}</p><p>{partsData.parts.length} entradas, con alcance revisado por configuración. La selección no activa montajes no documentados.</p></details>
