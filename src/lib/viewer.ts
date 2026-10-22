@@ -47,7 +47,7 @@ export function layoutForVariant(variant:Variant,layout:LayoutManifest):LayoutMa
   const overrides=(route?layout.monitor_mount_routes?.[route]?.overrides:undefined)??{};
   const profiles=(layout.camera_layout_profiles??[]).filter(profile=>variant.active_part_ids.includes(profile.camera_part_id));
   const cameraOverrides=profiles.length===1?profiles[0].overrides:{};
-  const contexts=(layout.context_layout_profiles??[]).filter(profile=>profile.context===variant.viewer.rig_context&&profile.require_all.every(id=>variant.active_part_ids.includes(id)));
+  const contexts=(layout.context_layout_profiles??[]).filter(profile=>profile.context===variant.viewer.rig_context&&profile.require_all.every(id=>variant.active_part_ids.includes(id))&&!(profile.unless_any??[]).some(id=>variant.active_part_ids.includes(id)));
   const contextOverrides=contexts.length===1?contexts[0].overrides:{};
   const nodes=layout.nodes.map(node=>({...node,...cameraOverrides[node.id],...overrides[node.id],...contextOverrides[node.id]}));
   const joint=monitorJoint(variant,layout),transforms=monitorTransforms(variant,layout);

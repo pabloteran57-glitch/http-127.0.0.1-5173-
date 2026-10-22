@@ -1,5 +1,5 @@
 {
-  "version": "0.2.22",
+  "version": "0.2.23",
   "released_on": "2026-10-22",
   "status": "engineering_prototype",
   "label": "Prototipo de ingeniería",
@@ -7,6 +7,9 @@
   "storage": "local_only",
   "account_sync": "deferred_by_user",
   "updates": [
+    "Trípode con V-mount: placa AD-01 bajo 1674 documentada desde roscas inferiores oficiales; se conservan varillas, batería, XLR/4830, parasol y conexiones de la selección revisada de 17 piezas.",
+    "4253B con fuente V-mount activa sustituye la NP-FZ100 de referencia; no se exigen dos fuentes en el mismo compartimento ni otra placa de trípode.",
+    "Guía propia con base y varillas: doce etapas reproducibles y retirada opcional; cinco circuitos revisados y holgura batería/cabezal como inspección física pendiente.",
     "FX3 con jaula: acceso directo a preparar trípode desde la jaula; permite añadir sólo AD-01 con su placa, sin óptica ni batería implícita.",
     "Un trípode elegido pendiente fuera de modo estático ya no desactiva óptica o accesorios del montaje actual.",
     "Preparación de trípode visible en Catálogo y Elegidas: contexto, soporte y conjunto de referencia separados; extras sólo pasan a repuestos tras confirmación explícita.",

@@ -150,7 +150,7 @@ export interface LayoutManifest {
   nodes: LayoutNode[];
   monitor_mount_routes?: Record<string, {label:string; overrides:Record<string, Partial<LayoutNode>>}>;
   camera_layout_profiles?: {id:string;camera_part_id:string;overrides:Record<string,Partial<LayoutNode>>}[];
-  context_layout_profiles?: {id:string;context:CustomRig["context"];require_all:string[];overrides:Record<string,Partial<LayoutNode>>}[];
+  context_layout_profiles?: {id:string;context:CustomRig["context"];require_all:string[];unless_any?:string[];overrides:Record<string,Partial<LayoutNode>>}[];
   clearance_gates: { id: string; title: string; detail: string; status: string; condition?: RuleCondition }[];
 }
 export interface AssemblyStep {
@@ -245,7 +245,7 @@ export interface PlannerRules {
   camera_internal_power_part_ids?: string[];
   part_context_constraints?: {part_ids:string[];contexts:CustomRig["context"][];orientations:CustomRig["orientation"][];message:string}[];
   selection_scopes?: {id:string;condition:RuleCondition;allowed_part_ids:string[];message:string}[];
-  assembly_profiles?: {id:string;camera_part_id:string;context?:CustomRig["context"];require_all?:string[];frames:PlannerRules["assembly_frames"]}[];
+  assembly_profiles?: {id:string;camera_part_id:string;context?:CustomRig["context"];require_all?:string[];unless_any?:string[];frames:PlannerRules["assembly_frames"]}[];
   extraction_step?: number;
   version: number;
   max_saved_rigs: number;

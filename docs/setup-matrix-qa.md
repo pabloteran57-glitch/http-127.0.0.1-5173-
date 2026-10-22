@@ -1,8 +1,8 @@
-# Matriz de conjuntos 0.2.22
+# Matriz de conjuntos 0.2.23
 
 Generado desde data/setup-verification.json. Estado: verified_software_only. Cobertura finita de software; no todas las 2^39 selecciones ni ensayos físicos.
 
-21 comprobaciones; 8507 casos y 1296 propuestas explícitas conservan elecciones. 39 piezas, 14 circuitos candidatos con escenarios positivos y 8 de banco/condicionales sin activar. Huella de entradas: 28b97399bee711ead909b93e74a7376fd519f2662a64c06102b676f975edc93a.
+21 comprobaciones; 8525 casos y 1365 propuestas explícitas conservan elecciones. 39 piezas, 14 circuitos candidatos con escenarios positivos y 8 de banco/condicionales sin activar. Huella de entradas: 606c72f9cde0f0ec975c3ea6d2051525189ef375ec22307bdf8df4a61a83f605.
 
 ## Cobertura
 

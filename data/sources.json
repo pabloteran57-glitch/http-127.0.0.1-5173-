@@ -1432,6 +1432,13 @@
       ],
       "sha256": "12ff71c2a57c7c474a39119ccc693dc0c50e106ce31f6cdc90fa2b24b157b422",
       "notes": "PDF 22 páginas revisado visualmente: 12-13 identidad/componentes, 14 apertura, 18 tornillos de placa, 19 seguro, 20 paneo/inclinación, 21 modo RS2. Copia privada; sin redistribución. No CAD."
+    },
+    {
+      "id": "review-static-1674-bottom-0223",
+      "brand": "SmallRig",
+      "type": "official",
+      "url": "https://static.smallrig.com/mall/img/public/vcqnxceuxol-1747621696364_.pdf",
+      "notes": "Revisión 2026-10-22: página 2 conexión a trípode; página 3 diagrama inferior con dos roscas 1/4-20 y una 3/8-16; página 6 envolvente 80x80x26 mm. No verifica profundidades o asiento con AD-01."
     }
   ],
   "audit_on": "2026-10-17"

@@ -2,8 +2,20 @@
 
 ## Estado Confirmado
 
-- [Takegrid 0.2.22](https://takegrid-rigs.pabloteran57.chatgpt.site/): versión 19, `succeeded` el 22 de octubre a las 08:53 de Ecuador. Entrada pública cotejada por SHA-256 y versión comprobada en Ayuda.
-- [Corrección del flujo de trípode](tripod-flow-0222.md) completada y publicada. Procedencia, huellas y recuperación en «Publicación 0.2.22». Se conservan los cierres [0.2.21](continuation-0221.md) y [0.2.20](core-acceptance-0220.md).
+- [Takegrid 0.2.23](https://takegrid-rigs.pabloteran57.chatgpt.site/): versión 20, `succeeded` el 22 de octubre a las 11:32 de Ecuador. Entrada pública cotejada por SHA-256 y versión comprobada en Ayuda.
+- [Trípode con varillas, V-mount y XLR](static-vmount-0223.md) corregido y publicado. Conserva las 17 elecciones del caso reproducido, cinco circuitos y doce etapas. Se conserva el cierre anterior [0.2.22](tripod-flow-0222.md), que sólo cubría el núcleo básico.
+
+## Publicación 0.2.23
+
+- Versión: `appgprj_6ac5ca6c160c819191d2bacd7366c426~appgver_4dcf0b8c91bc8191ae29be37ac8b3379`.
+- Despliegue: `appgdep_6ada3a7bf50c8191ab4e3e3badb942ff`, `succeeded`, `2026-10-22T16:32:07.597848+00:00`.
+- Fuente estática: `bf915b0bfa9fe45199f25a6169be168a7146bf39`.
+- Paquete aceptado: 69 archivos con configuración, tar 8 417 280 bytes, `sha256:df531ad8faa0019df9c419d082a50ea49f7e1ac2c5d5bd0696e399dc3a67e9e0`.
+- Entrada: `assets/index-D3Q9Oq7U.js`, `sha256:4f3214eece8707e446db36f0662728f085571f78b1ee5cbd5df313af2daa1117`, cotejada con HTTP 200.
+
+68 recursos propios, 8 354 241 bytes, idénticos entre compilación y fuente estática. Flujo oficial de Sites completado en Windows; audiencia pública conservada. Pruebas completas y recorrido de navegador de las 17 elecciones, guardado/recarga, cinco conexiones, doce etapas y retirada opcional; escritorio y ventanas móviles 390 x 844 y 320 x 740. Sin errores de consola observados. Dos módulos JavaScript mayores de 500 kB permanecen como advertencia. Registro estructurado en `data/static-vmount-review.json`.
+
+Sin fotografías/manuales de fabricantes, notas de reunión, capturas, credenciales o bibliotecas privadas en el paquete o respaldo público. Sin cuentas, nube, gastos, cambio de audiencia ni recarga forzada del usuario. Unidades en repuesto no se promueven automáticamente. Holgura batería/cabezal/palanca, asiento/retención y estabilidad siguen pendientes de ensayo físico; la publicación no convierte el prototipo en beta profesional ni certifica todos los setups.
 
 ## Histórico 0.2.19
 

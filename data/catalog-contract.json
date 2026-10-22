@@ -43,6 +43,12 @@
       ],
       "assembly_profiles": [
         {
+          "id": "fx3-static-3751b-rods",
+          "steps": [
+            1
+          ]
+        },
+        {
           "id": "fx3-static-3751b",
           "steps": [
             1
@@ -68,7 +74,20 @@
       "assembly_steps": [
         2
       ],
-      "assembly_profiles": [],
+      "assembly_profiles": [
+        {
+          "id": "fx3-static-3751b-rods",
+          "steps": [
+            2
+          ]
+        },
+        {
+          "id": "fx3-static-3751b",
+          "steps": [
+            2
+          ]
+        }
+      ],
       "release_status": "planning_candidate",
       "physically_tested": false
     },
@@ -83,6 +102,12 @@
         1
       ],
       "assembly_profiles": [
+        {
+          "id": "fx3-static-3751b-rods",
+          "steps": [
+            1
+          ]
+        },
         {
           "id": "fx3-static-3751b",
           "steps": [
@@ -110,6 +135,12 @@
         2
       ],
       "assembly_profiles": [
+        {
+          "id": "fx3-static-3751b-rods",
+          "steps": [
+            2
+          ]
+        },
         {
           "id": "fx3-static-3751b",
           "steps": [
@@ -142,7 +173,14 @@
       "assembly_steps": [
         3
       ],
-      "assembly_profiles": [],
+      "assembly_profiles": [
+        {
+          "id": "fx3-static-3751b-rods",
+          "steps": [
+            3
+          ]
+        }
+      ],
       "release_status": "planning_candidate",
       "physically_tested": false
     },
@@ -156,7 +194,14 @@
       "assembly_steps": [
         3
       ],
-      "assembly_profiles": [],
+      "assembly_profiles": [
+        {
+          "id": "fx3-static-3751b-rods",
+          "steps": [
+            3
+          ]
+        }
+      ],
       "release_status": "planning_candidate",
       "physically_tested": false
     },
@@ -170,7 +215,20 @@
       "assembly_steps": [
         4
       ],
-      "assembly_profiles": [],
+      "assembly_profiles": [
+        {
+          "id": "fx3-static-3751b-rods",
+          "steps": [
+            4
+          ]
+        },
+        {
+          "id": "fx3-static-3751b",
+          "steps": [
+            3
+          ]
+        }
+      ],
       "release_status": "planning_candidate",
       "physically_tested": false
     },
@@ -199,6 +257,12 @@
         6
       ],
       "assembly_profiles": [
+        {
+          "id": "fx3-static-3751b-rods",
+          "steps": [
+            7
+          ]
+        },
         {
           "id": "fx3-static-3751b",
           "steps": [
@@ -231,7 +295,14 @@
       "assembly_steps": [
         5
       ],
-      "assembly_profiles": [],
+      "assembly_profiles": [
+        {
+          "id": "fx3-static-3751b-rods",
+          "steps": [
+            5
+          ]
+        }
+      ],
       "release_status": "planning_candidate",
       "physically_tested": false
     },
@@ -245,7 +316,14 @@
       "assembly_steps": [
         5
       ],
-      "assembly_profiles": [],
+      "assembly_profiles": [
+        {
+          "id": "fx3-static-3751b-rods",
+          "steps": [
+            5
+          ]
+        }
+      ],
       "release_status": "planning_candidate",
       "physically_tested": false
     },
@@ -259,7 +337,14 @@
       "assembly_steps": [
         5
       ],
-      "assembly_profiles": [],
+      "assembly_profiles": [
+        {
+          "id": "fx3-static-3751b-rods",
+          "steps": [
+            10
+          ]
+        }
+      ],
       "release_status": "planning_candidate",
       "physically_tested": false
     },
@@ -310,6 +395,12 @@
         2
       ],
       "assembly_profiles": [
+        {
+          "id": "fx3-static-3751b-rods",
+          "steps": [
+            8
+          ]
+        },
         {
           "id": "fx3-static-3751b",
           "steps": [
@@ -370,6 +461,12 @@
       ],
       "assembly_profiles": [
         {
+          "id": "fx3-static-3751b-rods",
+          "steps": [
+            9
+          ]
+        },
+        {
           "id": "fx3-static-3751b",
           "steps": [
             7
@@ -427,7 +524,14 @@
       "assembly_steps": [
         11
       ],
-      "assembly_profiles": [],
+      "assembly_profiles": [
+        {
+          "id": "fx3-static-3751b-rods",
+          "steps": [
+            10
+          ]
+        }
+      ],
       "release_status": "planning_candidate",
       "physically_tested": false
     },
@@ -483,6 +587,12 @@
       ],
       "assembly_profiles": [
         {
+          "id": "fx3-static-3751b-rods",
+          "steps": [
+            7
+          ]
+        },
+        {
           "id": "fx3-static-3751b",
           "steps": [
             4
@@ -514,7 +624,20 @@
       "assembly_steps": [
         2
       ],
-      "assembly_profiles": [],
+      "assembly_profiles": [
+        {
+          "id": "fx3-static-3751b-rods",
+          "steps": [
+            2
+          ]
+        },
+        {
+          "id": "fx3-static-3751b",
+          "steps": [
+            2
+          ]
+        }
+      ],
       "release_status": "planning_candidate",
       "physically_tested": false
     },
@@ -529,6 +652,12 @@
         11
       ],
       "assembly_profiles": [
+        {
+          "id": "fx3-static-3751b-rods",
+          "steps": [
+            10
+          ]
+        },
         {
           "id": "fx3-static-3751b",
           "steps": [
@@ -600,6 +729,12 @@
         1
       ],
       "assembly_profiles": [
+        {
+          "id": "fx3-static-3751b-rods",
+          "steps": [
+            1
+          ]
+        },
         {
           "id": "fx3-static-3751b",
           "steps": [
@@ -734,6 +869,12 @@
       "geometry_status": "approximate",
       "assembly_steps": [],
       "assembly_profiles": [
+        {
+          "id": "fx3-static-3751b-rods",
+          "steps": [
+            6
+          ]
+        },
         {
           "id": "fx3-static-3751b",
           "steps": [

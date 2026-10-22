@@ -24,7 +24,9 @@
           "part_ids": [
             "sony-np-fz100"
           ],
-          "source_ids": ["src-sony-fx3-battery-install"],
+          "source_ids": [
+            "src-sony-fx3-battery-install"
+          ],
           "require_all": [
             "sony-fx3"
           ],
@@ -53,7 +55,10 @@
           "part_ids": [
             "sony-fe-35-f18"
           ],
-          "source_ids": ["src-sony-fx3-sel35f18f-pair", "src-sony-sel35f18f-features"],
+          "source_ids": [
+            "src-sony-fx3-sel35f18f-pair",
+            "src-sony-sel35f18f-features"
+          ],
           "require_all": [
             "sony-fx3"
           ],
@@ -1447,6 +1452,36 @@
               "verify": [
                 "Seguir el manual sin inventar pares de apriete; comprobar fijaciones y abrazadera HDMI."
               ]
+            },
+            {
+              "part_ids": [
+                "sony-xlr-h1"
+              ],
+              "source_ids": [
+                "audit-doc-smallrig-4770-manual",
+                "src-sony-xlr-h1"
+              ],
+              "mount": "Retirar el riel NATO superior desmontable de 4770 y fijar XLR-H1 a Multi Interface y tornillos propios.",
+              "where": "Sobre cámara/jaula, sin apilar NATO 4770 y asa XLR.",
+              "verify": [
+                "Cámara apagada, contactos y tornillos correctos. No inventar par de apriete."
+              ]
+            },
+            {
+              "part_ids": [
+                "smallrig-4830"
+              ],
+              "require_all": [
+                "sony-xlr-h1"
+              ],
+              "source_ids": [
+                "src-smallrig-4830-manual"
+              ],
+              "mount": "Instalar extensión, bloqueo y riel NATO del kit 4830 siguiendo su manual.",
+              "where": "Asa XLR-H1, usando fijaciones M4 incluidas.",
+              "verify": [
+                "Comprobar que no impide el agarre, conectores de audio o tornillos del asa."
+              ]
             }
           ]
         },
@@ -1475,6 +1510,19 @@
                 "Manual 3751B páginas 14 y 18-19. Verificar profundidad útil, asiento y antitorsión; no usar tornillo 3/8 en receptor 1/4.",
                 "Confirmar cierres de patas, separador y nivel de cazoleta. No usar sin asegurar placa y seguro.",
                 "Carga de cabezal publicada 6 kg, patas 8 kg; masa de soporte 4 kg fuera de la carga superior. No prueba estabilidad lateral."
+              ]
+            },
+            {
+              "part_ids": [
+                "smallrig-3645"
+              ],
+              "mount": "Fijar el kit 3645 al anillo 82-95 mm del 16-35 GM conforme a su manual.",
+              "where": "Frontal del objetivo; no se representa soporte de varillas sin medir su alcance.",
+              "verify": [
+                "Comprobar carga del anclaje a lente, zoom, viñeteo y patrón VND a 16 mm."
+              ],
+              "source_ids": [
+                "src-smallrig-3645"
               ]
             }
           ]
@@ -1505,7 +1553,33 @@
               "verify": [
                 "Monitor hacia operador, sin invadir asa de paneo ni acceso a controles. Comprobar retención con batería y cables.",
                 "NATO 2906B sólo; no añadir brazo de gimbal. Pose aproximada y carga/rosca requieren ensayo."
+              ],
+              "unless_any": [
+                "sony-xlr-h1"
               ]
+            },
+            {
+              "part_ids": [
+                "smallrig-2906b",
+                "smallhd-indie-7"
+              ],
+              "require_all": [
+                "smallrig-2906b",
+                "smallhd-indie-7",
+                "sony-xlr-h1",
+                "smallrig-4830"
+              ],
+              "source_ids": [
+                "src-smallrig-4830-manual",
+                "src-smallrig-2906b-manual"
+              ],
+              "mount": "Cerrar 2906B sobre el riel NATO 4830 del asa XLR y fijar Indie 7 por su rosca inferior.",
+              "where": "4830 sobre XLR-H1; el NATO superior 4770 permanece retirado.",
+              "verify": [
+                "Monitor hacia operador, sin invadir asa de paneo ni acceso a controles. Comprobar retención con batería y cables.",
+                "NATO 2906B sólo; no añadir brazo de gimbal. Pose aproximada y carga/rosca requieren ensayo."
+              ],
+              "unless_any": []
             }
           ]
         },
@@ -1598,6 +1672,30 @@
               "where": "Bucle local junto al cuerpo, no al INPUT3 de un asa ausente.",
               "verify": [
                 "Escuchar, comprobar ambos canales y niveles. Probar retención sin tensar al mover pantalla o monitor."
+              ],
+              "unless_any": [
+                "sony-xlr-h1"
+              ]
+            },
+            {
+              "part_ids": [
+                "dji-mic-2-kit"
+              ],
+              "require_all": [
+                "sony-xlr-h1"
+              ],
+              "cable_ids": [
+                "audio-rx-to-xlrhandle"
+              ],
+              "source_ids": [
+                "src-dji-mic-2",
+                "src-sony-xlr-h1"
+              ],
+              "mount": "Conectar OUT del RX Mic 2 a INPUT3 del XLR-H1 con el TRS incluido.",
+              "where": "Bucle local de RX a asa, sin conectar también MIC del cuerpo.",
+              "verify": [
+                "Ajustar INPUT SELECT y formato; INPUT3 no corresponde siempre a CH3/4. Conectar MIC del cuerpo desactiva audio del asa.",
+                "Probar niveles, ambos canales y escucha con una toma real."
               ]
             }
           ]
@@ -1651,6 +1749,495 @@
               "verify": [
                 "No implica intercambio rápido con RS 4 Pro ni HawkLock. Revisar el montaje siguiente por separado.",
                 "Si se retira la placa de la jaula, sostener el conjunto y desatornillar con apoyo estable."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fx3-static-3751b-rods",
+      "steps": [
+        {
+          "number": 1,
+          "title": "Preparar cámara y óptica elegidas",
+          "kind": "mount",
+          "requires_any": [],
+          "note": "Cadena documental candidata; inspeccionar el rig real antes de encender.",
+          "rebalance": "Sostener y apoyar el conjunto. Reajustar placa y cabezal tras cada cambio de carga; la masa calculada no prueba estabilidad ni contrabalance.",
+          "blocks": [
+            {
+              "part_ids": [
+                "sony-fx3"
+              ],
+              "mount": "Preparar el cuerpo elegido.",
+              "where": "Núcleo de cámara.",
+              "verify": [
+                "Revisar firmware, tarjetas y modo de grabación."
+              ]
+            },
+            {
+              "part_ids": [
+                "sony-np-fz100"
+              ],
+              "require_all": [
+                "sony-fx3"
+              ],
+              "unless_any": [
+                "smallrig-4253b"
+              ],
+              "mount": "Insertar la batería nativa elegida y previamente cargada contra la palanca de retención; cerrar cubierta y bloquear según Sony.",
+              "where": "Compartimento interno FX3; sin cable externo.",
+              "verify": [
+                "Cámara apagada y lámpara de acceso apagada antes de retirar batería",
+                "Comprobar retención, cierre, ventilación y acceso con la jaula real",
+                "No instalar simultáneamente el adaptador 4253B; la vista en despiece no es una trayectoria de inserción"
+              ]
+            },
+            {
+              "part_ids": [
+                "sony-fe-16-35-gm"
+              ],
+              "mount": "Instalar la óptica elegida.",
+              "where": "Montura Sony E del cuerpo.",
+              "verify": [
+                "Comprobar el bloqueo de la bayoneta y el recorrido del zoom."
+              ]
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "title": "Fijar jaula y asa elegida",
+          "kind": "mount",
+          "requires_any": [],
+          "note": "Cadena documental candidata; inspeccionar el rig real antes de encender.",
+          "rebalance": "Sostener y apoyar el conjunto. Reajustar placa y cabezal tras cada cambio de carga; la masa calculada no prueba estabilidad ni contrabalance.",
+          "blocks": [
+            {
+              "part_ids": [
+                "smallrig-4770"
+              ],
+              "mount": "Fijar la jaula elegida.",
+              "where": "Anclajes de cámara y anti-giro documentados por el fabricante.",
+              "verify": [
+                "Seguir el manual sin inventar pares de apriete; comprobar fijaciones y abrazadera HDMI."
+              ]
+            },
+            {
+              "part_ids": [
+                "sony-xlr-h1"
+              ],
+              "source_ids": [
+                "audit-doc-smallrig-4770-manual",
+                "src-sony-xlr-h1"
+              ],
+              "mount": "Retirar el riel NATO superior desmontable de 4770 y fijar XLR-H1 a Multi Interface y tornillos propios.",
+              "where": "Sobre cámara/jaula, sin apilar NATO 4770 y asa XLR.",
+              "verify": [
+                "Cámara apagada, contactos y tornillos correctos. No inventar par de apriete."
+              ]
+            },
+            {
+              "part_ids": [
+                "smallrig-4830"
+              ],
+              "require_all": [
+                "sony-xlr-h1"
+              ],
+              "source_ids": [
+                "src-smallrig-4830-manual"
+              ],
+              "mount": "Instalar extensión, bloqueo y riel NATO del kit 4830 siguiendo su manual.",
+              "where": "Asa XLR-H1, usando fijaciones M4 incluidas.",
+              "verify": [
+                "Comprobar que no impide el agarre, conectores de audio o tornillos del asa."
+              ]
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "title": "Fijar base 1674 y varillas",
+          "kind": "mount",
+          "requires_any": [],
+          "note": "Cadena documental candidata; inspeccionar el rig real antes de encender.",
+          "rebalance": "Sostener y apoyar el conjunto. Reajustar placa y cabezal tras cada cambio de carga; la masa calculada no prueba estabilidad ni contrabalance.",
+          "blocks": [
+            {
+              "part_ids": [
+                "smallrig-1674"
+              ],
+              "mount": "Atornillar 1674 bajo la jaula con la fijación superior correspondiente; conservar libres las roscas inferiores para placa AD-01.",
+              "where": "Entre jaula y placa de trípode, no directamente sobre otra base.",
+              "verify": [
+                "Manual 1674 páginas 2-3. Verificar asiento, profundidad y antitorsión con el rig apoyado."
+              ],
+              "source_ids": [
+                "review-static-1674-bottom-0223",
+                "audit-doc-smallrig-4770-manual"
+              ]
+            },
+            {
+              "part_ids": [
+                "smallrig-rods-8in"
+              ],
+              "mount": "Introducir el par de varillas de 15 mm en 1674 y bloquear las abrazaderas.",
+              "where": "Asientos dobles de 1674; separación publicada 60 mm.",
+              "verify": [
+                "Medir alcance útil con las abrazaderas y accesorios reales; no asumir que 8 pulgadas cubren a la vez parasol delantero y batería trasera."
+              ],
+              "require_all": [
+                "smallrig-1674"
+              ],
+              "source_ids": [
+                "review-static-1674-bottom-0223"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "title": "Colocar el parasol elegido",
+          "kind": "mount",
+          "requires_any": [],
+          "note": "Cadena documental candidata; inspeccionar el rig real antes de encender.",
+          "rebalance": "Sostener y apoyar el conjunto. Reajustar placa y cabezal tras cada cambio de carga; la masa calculada no prueba estabilidad ni contrabalance.",
+          "blocks": [
+            {
+              "part_ids": [
+                "smallrig-3645"
+              ],
+              "mount": "Fijar el kit 3645 al anillo 82-95 mm del 16-35 GM conforme a su manual.",
+              "where": "Frontal del objetivo; no se representa soporte de varillas sin medir su alcance.",
+              "verify": [
+                "Comprobar carga del anclaje a lente, zoom, viñeteo y patrón VND a 16 mm."
+              ],
+              "source_ids": [
+                "src-smallrig-3645"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "title": "Montar placa y batería V-mount",
+          "kind": "mount",
+          "requires_any": [],
+          "note": "Cadena documental candidata; inspeccionar el rig real antes de encender.",
+          "rebalance": "Sostener y apoyar el conjunto. Reajustar placa y cabezal tras cada cambio de carga; la masa calculada no prueba estabilidad ni contrabalance.",
+          "blocks": [
+            {
+              "part_ids": [
+                "smallrig-3203b"
+              ],
+              "mount": "Fijar la abrazadera doble incluida al borde superior según manual y sujetarla a las varillas; placa baja, sin bisagra inventada.",
+              "where": "Tramo trasero de varillas, sin asumir un recorrido axial libre.",
+              "verify": [
+                "Manual 3203B página 5, diagrama izquierdo. Comprobar acceso a palancas y holgura con cabezal y patas reales."
+              ],
+              "require_all": [
+                "smallrig-rods-8in"
+              ],
+              "source_ids": [
+                "audit-doc-smallrig-3203b-manual"
+              ]
+            },
+            {
+              "part_ids": [
+                "smallrig-vb99-pro"
+              ],
+              "mount": "Deslizar y bloquear VB99 Pro en la placa V-mount elegida con equipos apagados.",
+              "where": "Detrás de 3203B, baja y próxima al núcleo; no sobre el asa.",
+              "verify": [
+                "Verificar bloqueo, polaridad y que el puerto D-Tap propio y el de la placa no se confunden. No se añade un duplicador."
+              ],
+              "require_all": [
+                "smallrig-3203b"
+              ],
+              "source_ids": [
+                "audit-doc-smallrig-vb99-manual"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 6,
+          "title": "Fijar el conjunto al trípode",
+          "kind": "mount",
+          "requires_any": [],
+          "note": "Cadena documental candidata; inspeccionar el rig real antes de encender.",
+          "rebalance": "Sostener y apoyar el conjunto. Reajustar placa y cabezal tras cada cambio de carga; la masa calculada no prueba estabilidad ni contrabalance.",
+          "blocks": [
+            {
+              "part_ids": [
+                "smallrig-3751b"
+              ],
+              "mount": "Abrir, bloquear y nivelar el trípode. Retirar su placa y fijarla bajo 1674 con un tornillo compatible 1/4-20 o 3/8-16 incluido. Sostener la carga al bloquear placa y seguro.",
+              "where": "Cadena: cabezal AD-01 → placa incluida → base 1674 → jaula/cámara. No otra placa implícita.",
+              "verify": [
+                "Comprobar profundidad útil, superficie de apoyo y antitorsión; nunca forzar rosca ni instalar ambos tornillos sin verificar el patrón real.",
+                "Pesar toda la carga. Cabezal 6 kg y patas 8 kg publicados no certifican estabilidad, contrabalance ni holgura."
+              ],
+              "require_all": [
+                "smallrig-1674"
+              ],
+              "source_ids": [
+                "review-static-1674-bottom-0223",
+                "src-smallrig-3751b-manual"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 7,
+          "title": "Añadir monitor y su soporte",
+          "kind": "mount",
+          "requires_any": [],
+          "note": "Cadena documental candidata; inspeccionar el rig real antes de encender.",
+          "rebalance": "Sostener y apoyar el conjunto. Reajustar placa y cabezal tras cada cambio de carga; la masa calculada no prueba estabilidad ni contrabalance.",
+          "blocks": [
+            {
+              "part_ids": [
+                "smallrig-2906b",
+                "smallhd-indie-7"
+              ],
+              "require_all": [
+                "smallrig-2906b",
+                "smallhd-indie-7",
+                "smallrig-4770"
+              ],
+              "source_ids": [
+                "src-smallrig-2906b-manual"
+              ],
+              "mount": "Bloquear 2906B en NATO superior 4770 y fijar Indie 7 mediante su rosca inferior.",
+              "where": "Cadena NATO de la jaula, no brazo de gimbal ni varilla transversal de agarres.",
+              "verify": [
+                "Monitor hacia operador, sin invadir asa de paneo ni acceso a controles. Comprobar retención con batería y cables.",
+                "NATO 2906B sólo; no añadir brazo de gimbal. Pose aproximada y carga/rosca requieren ensayo."
+              ],
+              "unless_any": [
+                "sony-xlr-h1"
+              ]
+            },
+            {
+              "part_ids": [
+                "smallrig-2906b",
+                "smallhd-indie-7"
+              ],
+              "require_all": [
+                "smallrig-2906b",
+                "smallhd-indie-7",
+                "sony-xlr-h1",
+                "smallrig-4830"
+              ],
+              "source_ids": [
+                "src-smallrig-4830-manual",
+                "src-smallrig-2906b-manual"
+              ],
+              "mount": "Cerrar 2906B sobre el riel NATO 4830 del asa XLR y fijar Indie 7 por su rosca inferior.",
+              "where": "4830 sobre XLR-H1; el NATO superior 4770 permanece retirado.",
+              "verify": [
+                "Monitor hacia operador, sin invadir asa de paneo ni acceso a controles. Comprobar retención con batería y cables.",
+                "NATO 2906B sólo; no añadir brazo de gimbal. Pose aproximada y carga/rosca requieren ensayo."
+              ],
+              "unless_any": []
+            }
+          ]
+        },
+        {
+          "number": 8,
+          "title": "Colocar el receptor de audio",
+          "kind": "mount",
+          "requires_any": [],
+          "note": "Cadena documental candidata; inspeccionar el rig real antes de encender.",
+          "rebalance": "Sostener y apoyar el conjunto. Reajustar placa y cabezal tras cada cambio de carga; la masa calculada no prueba estabilidad ni contrabalance.",
+          "blocks": [
+            {
+              "part_ids": [
+                "dji-mic-2-kit"
+              ],
+              "require_all": [
+                "smallrig-4770"
+              ],
+              "mount": "Instalar sólo RX Mic 2 en zapata inclinada de 4770.",
+              "where": "Asiento independiente del NATO del monitor. TX y estuche fuera del rig.",
+              "verify": [
+                "Verificar retención, pantalla, antenas, rostro y acceso del operador. RX publicado 28 g, no masa del kit."
+              ]
+            }
+          ]
+        },
+        {
+          "number": 9,
+          "title": "Conectar vídeo al monitor",
+          "kind": "mount",
+          "requires_any": [],
+          "note": "Cadena documental candidata; inspeccionar el rig real antes de encender.",
+          "rebalance": "Sostener y apoyar el conjunto. Reajustar placa y cabezal tras cada cambio de carga; la masa calculada no prueba estabilidad ni contrabalance.",
+          "blocks": [
+            {
+              "part_ids": [
+                "kondor-blue-hdmi-aa"
+              ],
+              "cable_ids": [
+                "vid-fx3-to-smallhd"
+              ],
+              "mount": "Conectar HDMI A de FX3 a HDMI IN del Indie 7; asegurar la abrazadera de cámara sin comprimir el cable.",
+              "where": "Lateral del núcleo hacia el monitor, holgura local antes de cada conector.",
+              "verify": [
+                "Una sola salida HDMI FX3; no segundo destino implícito. Probar formato no RAW compatible.",
+                "Mantener bucle fuera de cara, manos y botones; curva y longitud del visor son aproximadas."
+              ]
+            }
+          ]
+        },
+        {
+          "number": 10,
+          "title": "Conectar alimentación elegida",
+          "kind": "mount",
+          "requires_any": [],
+          "note": "Cadena documental candidata; inspeccionar el rig real antes de encender.",
+          "rebalance": "Sostener y apoyar el conjunto. Reajustar placa y cabezal tras cada cambio de carga; la masa calculada no prueba estabilidad ni contrabalance.",
+          "blocks": [
+            {
+              "part_ids": [
+                "smallrig-4253b"
+              ],
+              "mount": "Con equipos apagados, insertar el dummy regulado 4253B y sacar su cable por la salida de puerta; conectar su D-Tap a VB99 Pro.",
+              "where": "VB99 Pro → 4253B → alojamiento FX3; no batería nativa simultánea.",
+              "verify": [
+                "Entrada publicada 9.6-20 V, salida regulada 8.0-8.4 V y límite continuo 2 A. Verificar polaridad, puerta, regulación y demanda antes de energizar."
+              ],
+              "cable_ids": [
+                "pwr-vmount-to-fx3-dummy"
+              ],
+              "source_ids": [
+                "audit-doc-smallrig-4253b-manual"
+              ]
+            },
+            {
+              "part_ids": [
+                "smallhd-dtap-to-2mm-barrel"
+              ],
+              "mount": "Conectar el cable SmallHD elegido desde D-Tap de 3203B a DC IN de Indie 7.",
+              "where": "Placa → monitor sobre jaula o asa; bucle local y retención.",
+              "verify": [
+                "No ocupar la misma salida D-Tap de VB99 con dos cables. Diámetro interior y ajuste del cable siguen pendientes; comprobar tensión, polaridad y retención real."
+              ],
+              "cable_ids": [
+                "pwr-plate-to-smallhd"
+              ]
+            },
+            {
+              "part_ids": [
+                "sony-np-f970-pro"
+              ],
+              "require_all": [
+                "smallhd-indie-7"
+              ],
+              "mount": "Instalar la batería serie L elegida en la placa nativa del Indie 7 con equipos apagados.",
+              "where": "Contactos del monitor; no cable D-Tap ni barril DC.",
+              "verify": [
+                "Verificar retención y carga con la batería colocada. Cargador externo requerido; autonomía real pendiente."
+              ]
+            }
+          ]
+        },
+        {
+          "number": 11,
+          "title": "Conectar y probar audio",
+          "kind": "mount",
+          "requires_any": [],
+          "note": "Cadena documental candidata; inspeccionar el rig real antes de encender.",
+          "rebalance": "Sostener y apoyar el conjunto. Reajustar placa y cabezal tras cada cambio de carga; la masa calculada no prueba estabilidad ni contrabalance.",
+          "blocks": [
+            {
+              "part_ids": [
+                "dji-mic-2-kit"
+              ],
+              "cable_ids": [
+                "audio-rx-to-fx3"
+              ],
+              "mount": "Conectar OUT del RX a MIC FX3 mediante TRS 3.5 mm incluido.",
+              "where": "Bucle local junto al cuerpo, no al INPUT3 de un asa ausente.",
+              "verify": [
+                "Escuchar, comprobar ambos canales y niveles. Probar retención sin tensar al mover pantalla o monitor."
+              ],
+              "unless_any": [
+                "sony-xlr-h1"
+              ]
+            },
+            {
+              "part_ids": [
+                "dji-mic-2-kit"
+              ],
+              "require_all": [
+                "sony-xlr-h1"
+              ],
+              "cable_ids": [
+                "audio-rx-to-xlrhandle"
+              ],
+              "source_ids": [
+                "src-dji-mic-2",
+                "src-sony-xlr-h1"
+              ],
+              "mount": "Conectar OUT del RX Mic 2 a INPUT3 del XLR-H1 con el TRS incluido.",
+              "where": "Bucle local de RX a asa, sin conectar también MIC del cuerpo.",
+              "verify": [
+                "Ajustar INPUT SELECT y formato; INPUT3 no corresponde siempre a CH3/4. Conectar MIC del cuerpo desactiva audio del asa.",
+                "Probar niveles, ambos canales y escucha con una toma real."
+              ]
+            }
+          ]
+        },
+        {
+          "number": 12,
+          "title": "Comprobar carga, cables y holgura",
+          "kind": "check",
+          "requires_any": [
+            "smallrig-3751b"
+          ],
+          "note": "Cadena documental candidata; inspeccionar el rig real antes de encender.",
+          "rebalance": "Sostener y apoyar el conjunto. Reajustar placa y cabezal tras cada cambio de carga; la masa calculada no prueba estabilidad ni contrabalance.",
+          "blocks": [
+            {
+              "part_ids": [
+                "smallrig-3751b"
+              ],
+              "mount": "Con cámara sujeta, comprobar balance de placa, bloqueos y movimientos lentos permitidos por el equipo real.",
+              "where": "Cabezal, batería/placa baja, varillas, palanca de paneo, operador y suelo.",
+              "verify": [
+                "Verificar que batería y placa no chocan con cabezal o palanca; que varillas y cables no rozan patas en pan/tilt.",
+                "No soltar el rig con cierres flojos. Repetir pesaje y equilibrio tras cada accesorio; no es un cálculo de vuelco ni de CG medido."
+              ],
+              "source_ids": [
+                "src-smallrig-3751b-manual"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 13,
+          "title": "Retirar el conjunto con apoyo",
+          "kind": "optional",
+          "requires_any": [
+            "smallrig-3751b"
+          ],
+          "note": "Cadena documental candidata; inspeccionar el rig real antes de encender.",
+          "rebalance": "Sostener y apoyar el conjunto. Reajustar placa y cabezal tras cada cambio de carga; la masa calculada no prueba estabilidad ni contrabalance.",
+          "blocks": [
+            {
+              "part_ids": [
+                "smallrig-3751b"
+              ],
+              "mount": "Apoyar, apagar y sujetar todo el rig; soltar bloqueo y seguro de placa según manual y retirar con apoyo.",
+              "where": "Placa AD-01 bajo 1674; no liberación garantizada hacia RS4.",
+              "verify": [
+                "No retirar batería o base sin sostener la carga. Revisar el siguiente soporte por separado."
+              ],
+              "source_ids": [
+                "src-smallrig-3751b-manual"
               ]
             }
           ]

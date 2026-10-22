@@ -272,9 +272,10 @@
       "ports_interfaces": [
         "Abrazadera doble para varillas de 15 mm",
         "Ranura de montaje 1/4\"-20",
-        "Ranura de montaje 3/8\"-16"
+        "Ranura de montaje 3/8\"-16",
+        "Parte inferior: dos roscas 1/4-20 y una 3/8-16 para placa de trípode"
       ],
-      "mounting_method": "Atornillada debajo de la cámara con jaula; fija el par de varillas de 15 mm.",
+      "mounting_method": "Atornillada bajo la jaula mediante fijación superior; sus roscas inferiores 1/4-20 o 3/8-16 reciben el tornillo correspondiente de una placa de trípode. Manual 1674 páginas 2-3; asiento, profundidad y antitorsión reales por comprobar.",
       "likely_material": "Aleación de aluminio y caucho, según el manual oficial",
       "mandatory_or_optional": "mandatory",
       "rig_role": "Anclaje de las varillas para parasol y placa de batería",
@@ -1548,17 +1549,17 @@
         "Bloqueo y seguro de placa; cabezal de paneo e inclinación",
         "Cazoleta y nivelación del conjunto según manual; diámetro de asiento no usado para añadir adaptadores"
       ],
-      "mounting_method": "Placa incluida atornillada a la rosca inferior 1/4-20 de 4770, con kit apoyado; bloquear placa y seguro según manual páginas 18-19. Inferencia de interfaces separadas, no pareja certificada.",
+      "mounting_method": "Placa incluida a rosca inferior 1/4-20 de 4770, o bajo base 1674 mediante una rosca 1/4-20 o 3/8-16 documentada. Usar sólo el tornillo que corresponda y verificar asiento/profundidad; bloquear placa y seguro según manual 3751B páginas 18-19. Inferencia de interfaces, no ensayo del conjunto.",
       "likely_material": "Aleación de aluminio publicada; elastómeros y subcomponentes de la reconstrucción sólo aproximados.",
       "mandatory_or_optional": "optional",
       "rig_role": "Primer soporte estático candidato FX3/16-35 GM/4770 y NP-FZ100. Kit completo contado una vez.",
       "physical_constraints": [
         "Ficha: patas 8 kg y cabezal 6 kg. Planificar con el límite inferior de 6 kg sin inferir estabilidad, contrabalance ni seguridad por masa.",
-        "Sólo horizontal/estático con núcleo y accesorios acotados. Sin 1674, barras, V-mount, XLR-H1, gimbal, hombro u otros cuerpos/ópticas en esta primera revisión.",
         "Manual páginas 18-21: placa, seguro, paneo e inclinación. RS 2 y Manfrotto no prueban intercambio rápido con RS 4 Pro ni Arca/HawkLock.",
         "Huella abierta, posición de tornillo, profundidad y antitorsión sin medir. Modelo a altura ilustrativa de 850 mm con apertura estimada, no topes, carga lateral o colisiones certificadas.",
         "La ficha publica 4 kg, +90/-60 grados; artículos comerciales de la marca muestran cifras distintas. No fusionar 3751/3751B/5523 ni habilitar movimiento de cabezal a partir de esas discrepancias.",
-        "Comprobar suelo, cierres de cada sección, separador, nivelación, seguro, contrabalance y todo el recorrido de cables con cámara sujeta. No dejar sin supervisión."
+        "Comprobar suelo, cierres de cada sección, separador, nivelación, seguro, contrabalance y todo el recorrido de cables con cámara sujeta. No dejar sin supervisión.",
+        "Con base 1674, varillas y V-mount: pesar toda la carga, comprobar profundidad del tornillo, antitorsión y barrido de batería/placa contra cabezal y palanca. Una masa inferior a 6 kg no prueba estabilidad ni holgura."
       ],
       "primary_source_url": "https://static.smallrig.com/mall/img/public/1728961635390_.pdf",
       "secondary_source_url": null,

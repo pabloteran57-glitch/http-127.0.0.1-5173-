@@ -28,6 +28,8 @@ Vista de marca: `/brand/preview.html`. SVG reutilizables en `public/brand`; nomb
 
 ## Rigs Propios
 
+Versión 0.2.23: **trípode con base, varillas y V-mount**. Unión AD-01/1674 revisada en el manual, XLR/4830 y alimentación 4253B conservados en la selección de 17 piezas. No impone batería nativa adicional ni aparta V-mount como remedio. Guía contextual de doce etapas y comprobación física de holguras/carga pendiente. [Fuentes, cadena y pruebas](docs/static-vmount-0223.md).
+
 Versión 0.2.22: **creación con trípode corregida**. FX3 con jaula puede añadir sólo AD-01 con su placa, sin imponer óptica ni batería como adaptadores. El trípode pendiente no desactiva el rig a mano; preparación accesible desde jaula y en Catálogo/Elegidas. Extras a repuestos sólo con confirmación explícita. [Alcance y verificación](docs/tripod-flow-0222.md). Se conservan los [recordatorios y comprobaciones de 0.2.21](docs/continuation-0221.md).
 
 Versión 0.2.20: **estabilización de software del núcleo**. Revisión distingue faltantes de selección y pruebas físicas; preflight contextual, aviso de cambios de otra pestaña, actualización sin duplicar borradores y recuperación de contexto 3D sin recargar el plan. Fuentes de óptica/batería condicionadas a la elección. No modifica catálogo, plantillas ni bibliotecas. [Verificación y límites](docs/core-acceptance-0220.md), [criterios estructurados](data/core-acceptance.json).

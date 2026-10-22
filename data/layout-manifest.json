@@ -1573,6 +1573,34 @@
         "smallrig-4770": {
           "parent_id": "smallrig-3751b"
         }
+      },
+      "unless_any": [
+        "smallrig-1674"
+      ]
+    },
+    {
+      "id": "fx3-static-3751b-rods",
+      "context": "static",
+      "require_all": [
+        "sony-fx3",
+        "smallrig-4770",
+        "smallrig-1674",
+        "smallrig-3751b"
+      ],
+      "overrides": {
+        "smallrig-4770": {
+          "parent_id": "smallrig-1674"
+        },
+        "smallrig-1674": {
+          "parent_id": "smallrig-3751b"
+        },
+        "smallrig-3751b": {
+          "position_mm": [
+            0,
+            -499,
+            0
+          ]
+        }
       }
     }
   ]

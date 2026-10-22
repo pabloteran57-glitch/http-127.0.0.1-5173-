@@ -1,6 +1,6 @@
 {
-  "version": 1,
-  "reviewed_on": "2026-10-21",
+  "version": 2,
+  "reviewed_on": "2026-10-22",
   "status": "planning_candidate",
   "phase_order": [
     "manifest",
@@ -25,12 +25,25 @@
     "smallhd-indie-7",
     "sony-np-f970-pro",
     "kondor-blue-hdmi-aa",
-    "dji-mic-2-kit"
+    "dji-mic-2-kit",
+    "smallrig-1674",
+    "smallrig-rods-8in",
+    "smallrig-3645",
+    "smallrig-vb99-pro",
+    "smallrig-3203b",
+    "smallrig-4253b",
+    "smallhd-dtap-to-2mm-barrel",
+    "sony-xlr-h1",
+    "smallrig-4830"
   ],
   "source_ids": [
     "src-smallrig-3751b",
     "src-smallrig-3751b-manual",
-    "audit-doc-smallrig-4770-manual"
+    "audit-doc-smallrig-4770-manual",
+    "review-static-1674-bottom-0223",
+    "audit-doc-smallrig-3203b-manual",
+    "audit-doc-smallrig-4253b-manual",
+    "src-smallrig-4830-manual"
   ],
   "mount_method": "documented_interfaces_inference",
   "published_limits": {
@@ -80,6 +93,59 @@
         "kondor-blue-hdmi-aa",
         "dji-mic-2-kit"
       ]
+    },
+    {
+      "id": "fx3-static-vmount-xlr-user",
+      "context": "static",
+      "orientation": "landscape",
+      "part_ids": [
+        "sony-fx3",
+        "sony-xlr-h1",
+        "sony-fe-16-35-gm",
+        "smallrig-4770",
+        "smallrig-1674",
+        "smallrig-rods-8in",
+        "smallrig-3645",
+        "smallhd-indie-7",
+        "smallrig-vb99-pro",
+        "smallrig-3203b",
+        "smallrig-4253b",
+        "dji-mic-2-kit",
+        "kondor-blue-hdmi-aa",
+        "smallhd-dtap-to-2mm-barrel",
+        "smallrig-2906b",
+        "smallrig-4830",
+        "smallrig-3751b"
+      ]
     }
-  ]
+  ],
+  "reference_power_substitution": {
+    "part_id": "sony-np-fz100",
+    "alternative_part_ids": [
+      "smallrig-4253b"
+    ],
+    "note": "4253B elegido con cadena V-mount activa sustituye la fuente nativa de referencia; nunca se exigen ambos en el mismo compartimento."
+  },
+  "extension_review": {
+    "release": "0.2.23",
+    "method": "documented_interfaces_inference",
+    "source_ids": [
+      "review-static-1674-bottom-0223",
+      "src-smallrig-3751b-manual",
+      "audit-doc-smallrig-3203b-manual"
+    ],
+    "locators": [
+      "1674 páginas 2-3: interfaces inferiores para trípode",
+      "3751B páginas 18-19: tornillos incluidos, placa y seguro",
+      "3203B página 5: abrazadera superior sobre varillas"
+    ],
+    "physical_status": "pending",
+    "unknowns": [
+      "Profundidad útil y contacto de superficies de placa con 1674",
+      "Antitorsión y deslizamiento longitudinal real",
+      "Holgura entre V-mount baja, cabezal, palanca y patas en pan/tilt",
+      "Masa completa, centro de gravedad, contrabalance y estabilidad"
+    ],
+    "layout_note": "La envolvente publicada de 1674 aporta 26 mm de pila ilustrativa; no es una cota de asiento medida."
+  }
 }

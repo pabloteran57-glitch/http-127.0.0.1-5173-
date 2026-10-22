@@ -146,13 +146,34 @@
       ],
       "condition": {
         "context": "static",
-        "orientation": "landscape"
+        "orientation": "landscape",
+        "none": [
+          "smallrig-1674"
+        ]
       },
       "source_ids": [
         "audit-doc-smallrig-4770-manual",
         "src-smallrig-3751b-manual"
       ],
       "note": "Sólo la cadena 3751B acotada. No receptor Arca/HawkLock ni doble fijación; profundidad, antitorsión y retención pendientes."
+    },
+    {
+      "id": "base-bottom-static",
+      "host_part_id": "smallrig-1674",
+      "label": "Rosca inferior para placa AD-01",
+      "interface": "Rosca 1/4-20 o 3/8-16 y tornillo correspondiente de placa",
+      "candidate_part_ids": [
+        "smallrig-3751b"
+      ],
+      "condition": {
+        "context": "static",
+        "orientation": "landscape"
+      },
+      "source_ids": [
+        "review-static-1674-bottom-0223",
+        "src-smallrig-3751b-manual"
+      ],
+      "note": "Un asiento candidato del plan; no dos fijaciones simultáneas ni capacidad medida. Profundidad, antitorsión y bloqueo de placa pendientes de inspección física."
     }
   ],
   "attachment_options": [
@@ -642,6 +663,9 @@
         "orientation": "landscape",
         "all": [
           "sony-fx3"
+        ],
+        "none": [
+          "smallrig-1674"
         ]
       },
       "source_ids": [
@@ -649,6 +673,27 @@
         "src-smallrig-3751b-manual"
       ],
       "note": "Añade sólo el kit elegido. Usa placa/tornillo incluidos; no instala batería, óptica, monitor ni otro adaptador."
+    },
+    {
+      "id": "baseplate-static-3751b",
+      "anchor_part_id": "smallrig-1674",
+      "label": "Trípode AD-01 bajo base 1674",
+      "add_part_ids": [
+        "smallrig-3751b"
+      ],
+      "condition": {
+        "context": "static",
+        "orientation": "landscape",
+        "all": [
+          "sony-fx3",
+          "smallrig-4770"
+        ]
+      },
+      "source_ids": [
+        "review-static-1674-bottom-0223",
+        "src-smallrig-3751b-manual"
+      ],
+      "note": "Atornillar la placa incluida bajo 1674 usando la rosca correspondiente; no apilar otra placa ni retirar las varillas/V-mount. Verificar asiento, profundidad, antitorsión, carga y holguras reales."
     }
   ],
   "camera_part_ids": [
@@ -1064,10 +1109,9 @@
         "sony-fx3",
         "sony-fe-16-35-gm",
         "smallrig-4770",
-        "smallrig-3751b",
-        "sony-np-fz100"
+        "smallrig-3751b"
       ],
-      "message": "Completa el núcleo estático revisado: FX3, 16-35 GM, 4770, AD-01 3751B y NP-FZ100. Sin sustituir tus elecciones.",
+      "message": "Completa cámara FX3, óptica revisada, jaula y trípode. Alimentación nativa o 4253B con cadena V-mount se revisa aparte; no exige otra placa ni dos fuentes en el compartimento.",
       "review_kind": "selection"
     },
     {
@@ -1078,6 +1122,19 @@
         ]
       },
       "message": "Verificar suelo, cierres, nivelación, placa, seguro, carga sobre cabezal y recorrido de cables. Patas 8 kg, cabezal 6 kg; estar por debajo no prueba estabilidad. No hay ensayo físico del conjunto.",
+      "review_kind": "physical"
+    },
+    {
+      "id": "static-rods-clearance",
+      "condition": {
+        "context": "static",
+        "all": [
+          "smallrig-3751b",
+          "smallrig-1674",
+          "smallrig-3203b"
+        ]
+      },
+      "message": "Con V-mount sobre varillas: comprobar batería/placa contra cabezal y palanca en todo pan/tilt permitido, además de extremos de varillas, tornillo y antitorsión. Medir alcance frontal antes de apoyar el parasol en barras de 8 pulgadas. La app no aprueba holguras, contrabalance ni estabilidad.",
       "review_kind": "physical"
     }
   ],
@@ -1593,6 +1650,18 @@
       "required_all": [
         "smallrig-4152"
       ]
+    },
+    {
+      "part_id": "smallrig-3751b",
+      "condition": {
+        "context": "static",
+        "all": [
+          "smallrig-1674"
+        ]
+      },
+      "required_all": [
+        "smallrig-1674"
+      ]
     }
   ],
   "catalog_additions_revision": "monitor-chains-2026-10-07",
@@ -1686,7 +1755,7 @@
       "orientations": [
         "landscape"
       ],
-      "message": "3751B candidato sólo estático horizontal con FX3/16-35 GM/4770/NP-FZ100; otros montajes quedan elegidos pendientes."
+      "message": "3751B candidato sólo estático horizontal con FX3/4770, directo o bajo base 1674; nativa NP-FZ100 o 4253B con cadena V-mount. Otros contextos siguen pendientes."
     }
   ],
   "selection_scopes": [
@@ -1755,9 +1824,10 @@
         "sony-fx30",
         "sony-fe-20-f18-g",
         "sony-np-fz100",
-        "sony-fe-35-f18"
+        "sony-fe-35-f18",
+        "smallrig-3751b"
       ],
-      "message": "4152/2905B con XLR-H1 no revisados: conservar en reserva. XLR requiere retirar NATO superior 4770; no apilar interfaces."
+      "message": "4152/2905B/4346 con XLR-H1 no revisados: conservar pendientes. XLR requiere retirar el NATO superior 4770; 3751B utiliza la fijación inferior, no la zapata."
     },
     {
       "id": "shoulder-2896c-scope",
@@ -1796,12 +1866,165 @@
         "smallhd-indie-7",
         "sony-np-f970-pro",
         "kondor-blue-hdmi-aa",
-        "dji-mic-2-kit"
+        "dji-mic-2-kit",
+        "smallrig-1674",
+        "smallrig-rods-8in",
+        "smallrig-3645",
+        "smallrig-vb99-pro",
+        "smallrig-3203b",
+        "smallrig-4253b",
+        "smallhd-dtap-to-2mm-barrel",
+        "sony-xlr-h1",
+        "smallrig-4830"
       ],
-      "message": "AD-01 3751B: primera cadena estática acotada a FX3/16-35 GM/4770/NP-FZ100; monitor NATO con serie L y RX opcionales. Otros elementos no heredan montaje."
+      "message": "Trípode FX3 horizontal: montaje directo bajo jaula o bajo base 1674 con varillas y V-mount revisadas como candidatas; asa XLR/4830 y monitor NATO opcionales. Otros cuerpos y accesorios no heredan compatibilidad."
     }
   ],
   "assembly_profiles": [
+    {
+      "id": "fx3-static-3751b-rods",
+      "camera_part_id": "sony-fx3",
+      "context": "static",
+      "require_all": [
+        "smallrig-3751b",
+        "smallrig-1674"
+      ],
+      "frames": [
+        {
+          "step": 1,
+          "add_part_ids": [
+            "sony-fx3",
+            "sony-fe-16-35-gm",
+            "sony-np-fz100"
+          ],
+          "add_cable_ids": [
+            "pwr-npfz100-to-fx3-contacts"
+          ],
+          "context_part_ids": [],
+          "note": "Montaje estático con base 1674: posiciones/transiciones ilustrativas, no trayectorias verificadas."
+        },
+        {
+          "step": 2,
+          "add_part_ids": [
+            "smallrig-4770",
+            "sony-xlr-h1",
+            "smallrig-4830"
+          ],
+          "add_cable_ids": [],
+          "context_part_ids": [],
+          "note": "Montaje estático con base 1674: posiciones/transiciones ilustrativas, no trayectorias verificadas."
+        },
+        {
+          "step": 3,
+          "add_part_ids": [
+            "smallrig-1674",
+            "smallrig-rods-8in"
+          ],
+          "add_cable_ids": [],
+          "context_part_ids": [],
+          "note": "Montaje estático con base 1674: posiciones/transiciones ilustrativas, no trayectorias verificadas."
+        },
+        {
+          "step": 4,
+          "add_part_ids": [
+            "smallrig-3645"
+          ],
+          "add_cable_ids": [],
+          "context_part_ids": [],
+          "note": "Montaje estático con base 1674: posiciones/transiciones ilustrativas, no trayectorias verificadas."
+        },
+        {
+          "step": 5,
+          "add_part_ids": [
+            "smallrig-3203b",
+            "smallrig-vb99-pro"
+          ],
+          "add_cable_ids": [
+            "pwr-vmount-to-plate-contacts"
+          ],
+          "context_part_ids": [],
+          "note": "Montaje estático con base 1674: posiciones/transiciones ilustrativas, no trayectorias verificadas."
+        },
+        {
+          "step": 6,
+          "add_part_ids": [
+            "smallrig-3751b"
+          ],
+          "add_cable_ids": [],
+          "context_part_ids": [],
+          "note": "Montaje estático con base 1674: posiciones/transiciones ilustrativas, no trayectorias verificadas."
+        },
+        {
+          "step": 7,
+          "add_part_ids": [
+            "smallrig-2906b",
+            "smallhd-indie-7"
+          ],
+          "add_cable_ids": [],
+          "context_part_ids": [],
+          "note": "Montaje estático con base 1674: posiciones/transiciones ilustrativas, no trayectorias verificadas."
+        },
+        {
+          "step": 8,
+          "add_part_ids": [
+            "dji-mic-2-kit"
+          ],
+          "add_cable_ids": [],
+          "context_part_ids": [],
+          "note": "Montaje estático con base 1674: posiciones/transiciones ilustrativas, no trayectorias verificadas."
+        },
+        {
+          "step": 9,
+          "add_part_ids": [
+            "kondor-blue-hdmi-aa"
+          ],
+          "add_cable_ids": [
+            "vid-fx3-to-smallhd"
+          ],
+          "context_part_ids": [],
+          "note": "Montaje estático con base 1674: posiciones/transiciones ilustrativas, no trayectorias verificadas."
+        },
+        {
+          "step": 10,
+          "add_part_ids": [
+            "smallrig-4253b",
+            "smallhd-dtap-to-2mm-barrel",
+            "sony-np-f970-pro"
+          ],
+          "add_cable_ids": [
+            "pwr-vmount-to-fx3-dummy",
+            "pwr-plate-to-smallhd",
+            "pwr-npf-to-smallhd-contacts"
+          ],
+          "context_part_ids": [],
+          "note": "Montaje estático con base 1674: posiciones/transiciones ilustrativas, no trayectorias verificadas."
+        },
+        {
+          "step": 11,
+          "add_part_ids": [],
+          "add_cable_ids": [
+            "audio-rx-to-fx3",
+            "audio-rx-to-xlrhandle"
+          ],
+          "context_part_ids": [],
+          "note": "Montaje estático con base 1674: posiciones/transiciones ilustrativas, no trayectorias verificadas."
+        },
+        {
+          "step": 12,
+          "add_part_ids": [],
+          "add_cable_ids": [],
+          "context_part_ids": [],
+          "note": "Montaje estático con base 1674: posiciones/transiciones ilustrativas, no trayectorias verificadas."
+        },
+        {
+          "step": 13,
+          "add_part_ids": [],
+          "add_cable_ids": [],
+          "context_part_ids": [],
+          "note": "Montaje estático con base 1674: posiciones/transiciones ilustrativas, no trayectorias verificadas."
+        }
+      ]
+    },
     {
       "id": "fx3-static-3751b",
       "camera_part_id": "sony-fx3",
@@ -1826,7 +2049,9 @@
         {
           "step": 2,
           "add_part_ids": [
-            "smallrig-4770"
+            "smallrig-4770",
+            "sony-xlr-h1",
+            "smallrig-4830"
           ],
           "add_cable_ids": [],
           "context_part_ids": [],
@@ -1835,7 +2060,8 @@
         {
           "step": 3,
           "add_part_ids": [
-            "smallrig-3751b"
+            "smallrig-3751b",
+            "smallrig-3645"
           ],
           "add_cable_ids": [],
           "context_part_ids": [],
@@ -1886,7 +2112,8 @@
           "step": 8,
           "add_part_ids": [],
           "add_cable_ids": [
-            "audio-rx-to-fx3"
+            "audio-rx-to-fx3",
+            "audio-rx-to-xlrhandle"
           ],
           "context_part_ids": [],
           "note": "Estático 3751B: animación ilustrativa, no acople ni ensayo físico."
@@ -1905,6 +2132,9 @@
           "context_part_ids": [],
           "note": "Estático 3751B: animación ilustrativa, no acople ni ensayo físico."
         }
+      ],
+      "unless_any": [
+        "smallrig-1674"
       ]
     },
     {

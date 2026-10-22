@@ -21,6 +21,7 @@ Generado desde planner-rules.mount_resources y data/anchor-diagnostics-review.js
 - **Localización lateral 1/4-20**, sobre Jaula HawkLock: Rosca 1/4-20 y orificios de localización. Sólo la pose candidata 4346. No es NATO, ARRI 3/8 ni patrón dimensional verificado; retención, mano y puertos por comprobar.
 - **Fijación inferior para placa 2896C**, sobre Jaula HawkLock: Rosca inferior 1/4-20 y tornillo de placa incluido. Asiento candidato único del plan. Profundidad y resistencia antitorsión no medidas. No receptor Arca ni doble tornillo 3/8 añadido al 1/4.
 - **Fijación inferior para placa AD-01**, sobre Jaula HawkLock: Rosca inferior 1/4-20 y tornillo incluido. Sólo la cadena 3751B acotada. No receptor Arca/HawkLock ni doble fijación; profundidad, antitorsión y retención pendientes.
+- **Rosca inferior para placa AD-01**, sobre Base 1674: Rosca 1/4-20 o 3/8-16 y tornillo correspondiente de placa. Un asiento candidato del plan; no dos fijaciones simultáneas ni capacidad medida. Profundidad, antitorsión y bloqueo de placa pendientes de inspección física.
 
 ## Límites
 
