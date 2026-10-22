@@ -10,6 +10,7 @@
 - Versión: `appgprj_6ac5ca6c160c819191d2bacd7366c426~appgver_4dcf0b8c91bc8191ae29be37ac8b3379`.
 - Despliegue: `appgdep_6ada3a7bf50c8191ab4e3e3badb942ff`, `succeeded`, `2026-10-22T16:32:07.597848+00:00`.
 - Fuente estática: `bf915b0bfa9fe45199f25a6169be168a7146bf39`.
+- Código 0.2.23 respaldado: `e0da313a19d39fd1f689188e867fd90d16971de2`; excluye investigación, capturas y medios de fabricantes.
 - Paquete aceptado: 69 archivos con configuración, tar 8 417 280 bytes, `sha256:df531ad8faa0019df9c419d082a50ea49f7e1ac2c5d5bd0696e399dc3a67e9e0`.
 - Entrada: `assets/index-D3Q9Oq7U.js`, `sha256:4f3214eece8707e446db36f0662728f085571f78b1ee5cbd5df313af2daa1117`, cotejada con HTTP 200.
 
