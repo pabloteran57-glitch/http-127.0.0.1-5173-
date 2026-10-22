@@ -1,6 +1,6 @@
 import { useDeferredValue, useEffect, useRef, useState } from "react";
-import { layoutData, partById, partsData, plannerData } from "../data";
-import { availableSupportIds, completionIds, mountDependencies, rigUnits, setRigParts, selectionConflictProblem, selectionPresentation, selectionScopeProblem, unitSummary, type RigResolution } from "../lib/planner";
+import { cablesData, dependencyData, layoutData, partById, partsData, plannerData, variantsData } from "../data";
+import { rigUnits, setRigParts, selectionPresentation, selectionScopeProblem, unitSummary, type RigResolution } from "../lib/planner";
 import type { CustomRig } from "../lib/types";
 import { partName } from "../lib/ui";
 import { builderEntries } from "../lib/inventory";
@@ -11,6 +11,8 @@ import RigUnitEditor from "./RigUnitEditor";
 import SetupChecklist from "./SetupChecklist";
 import SetupStarter from "./SetupStarter";
 import { planIssueGroups } from "../lib/plan-status";
+import {applyDependencyChoice,dependencyReport} from "../lib/dependencies";
+import DependencyNeeds,{DependencyContent} from "./DependencyNeeds";
 
 type BuilderView = "catalog" | "selected" | "settings";
 const modeledIds = layoutData.nodes.map(node => node.id);
@@ -46,13 +48,14 @@ export default function RigBuilder({open, onClose, rig, resolution, onChange, on
   const visibleCount = rows.filter(row => row.state === "visual").length;
   const listCount = rows.filter(row => row.state === "list").length;
   const issueGroups = planIssueGroups(resolution.issues);
+  const master=variantsData.variants.find(v=>v.id===variantsData.master_variant_id)!;
+  const dependencies=dependencyReport(rig,plannerData,cablesData.cables,master,dependencyData,partName);
+  const chooseDependency=(id:string)=>{const next=applyDependencyChoice(rig,id,plannerData,cablesData.cables,master,dependencyData);if(next)onChange(next);};
 
   const renderCard = (id: string) => {
     const part = partById[id], chosen = allChosenIds.includes(id),planned=rig.part_ids.includes(id),state = stateById[id];
-    const supports = selectionConflictProblem(id,rig,plannerData) ? [] : availableSupportIds(mountDependencies(id,plannerData,rig), rig, plannerData);
     const reference = officialVisualLink(id);
     const completion=selectionScopeProblem(id,rig,plannerData)?undefined:plannerData.completion_rules?.[id];
-    const completionParts=completionIds(id,rig,plannerData,resolution.variant.cable_profile_ids);
     const monitorRoute=layoutData.monitor_mount_routes?.[resolution.variant.viewer?.monitor_mount_route??""];
     return <article key={id} className={`piece-card ${chosen ? "is-chosen" : ""} ${state === "pending" ? "is-pending" : ""}`} data-builder-part={id} data-selection-state={state ?? "unchosen"}>
       <button type="button" className="piece-choice" aria-label={`${chosen ? "Gestionar unidades de" : "Añadir"} ${partName(id)}`} aria-pressed={chosen} onClick={() => chosen?document.getElementById(`units-${id}`)?.focus():add([id])}>
@@ -62,9 +65,8 @@ export default function RigBuilder({open, onClose, rig, resolution, onChange, on
       </button>
       <div className="piece-card-footer"><a href={reference.href} target="_blank" rel="noreferrer" aria-label={`${reference.label}: ${partName(id)}`}>{reference.label}<Icon name="arrow"/></a>{chosen && <span className="piece-selection-state">{planned?stateNames[state]:"Sólo repuestos"}</span>}</div>
       {chosen&&<RigUnitEditor partId={id} rig={rig} pending={state==="pending"} repeatable={part.category!=="software"} onChange={onChange}/>}
+      {planned&&<DependencyNeeds report={dependencies} partId={id} onChoose={chooseDependency}/>}
       {planned&&completion&&<div className="monitor-placement"><strong>¿Dónde irá el monitor?</strong><label>Montaje<select aria-label={`Montaje de ${partName(id)}`} value={rig.context} onChange={e=>onChange({...rig,context:e.target.value as CustomRig["context"]})}>{ui.builder.contexts.map(context=><option key={context.id} value={context.id}>{context.label}</option>)}</select></label><p>{state==="visual"&&monitorRoute?`Cadena candidata: ${monitorRoute.label}.`:"Elige un soporte para este montaje en Jaulas y accesorios. Revisa los pendientes antes de usarlo."}</p><small>Cambiar el montaje conserva todas tus elecciones; las que no correspondan quedan pendientes.</small></div>}
-      {planned&&completionParts.length>0&&<div className="piece-pending"><p>Para completar esta pieza: {completionParts.map(partName).join(", ")}.</p><button type="button" className="quiet-button" onClick={()=>add(completionParts)}>{completion?.label} ({completionParts.length})</button></div>}
-      {chosen && state === "pending" && <div className="piece-pending"><p>{resolution.issues.find(issue => issue.part_id === id)?.message}</p>{supports.length > 0 && !completion && <><p>Añadirá: {supports.map(partName).join(", ")}.</p><button type="button" className="quiet-button" onClick={() => add(supports)}>Añadir soporte ({supports.length})</button></>}</div>}
     </article>;
   };
 
@@ -87,10 +89,7 @@ export default function RigBuilder({open, onClose, rig, resolution, onChange, on
         <div className="piece-grid">{entries.map(part => renderCard(part.id))}</div>
         {entries.length === 0 && <div className="empty-state"><p>{query ? "No hay coincidencias en esta vista." : "Aún no has elegido piezas."}</p><button type="button" className="quiet-button" onClick={() => {switchView("catalog"); setCategory("all");}}>Ver todas las piezas</button></div>}
         {view === "selected" && <>
-          <details className="selection-review"><summary>Revisar montaje y conexiones <span>{issueGroups.selection.length ? `${issueGroups.selection.length} por resolver` : "Sin faltantes detectados"}</span></summary><div className="selection-totals"><strong>{visibleCount}<span>Con modelo en visor</span></strong><strong>{listCount}<span>Sólo en tu lista</span></strong><strong>{resolution.parked_ids.length}<span>Sin soporte activo</span></strong></div><div className="review-checks"><h3>Resolver en tu plan</h3><p>Guardar no valida el montaje. Las comprobaciones físicas se muestran aparte.</p>{!issueGroups.selection.length && <p>No se detectan faltantes en las reglas disponibles. Esto no certifica compatibilidad ni seguridad.</p>}{issueGroups.selection.map(issue => {
-            const suggestions = availableSupportIds(issue.add_ids, rig, plannerData);
-            return <details key={issue.id}><summary>{issue.part_id ? partName(issue.part_id) : issue.id === "monitor-power" ? "Alimentación del monitor" : issue.id === "vertical-monitor" ? "Monitor en vertical" : issue.id === "monitor-video" ? "Señal del monitor" : issue.message}</summary><p>{issue.message}</p>{suggestions.length > 0 && <><p>Añadirá: {suggestions.map(partName).join(", ")}.</p><button type="button" className="quiet-button" onClick={() => add(suggestions)}>Añadir estas piezas ({suggestions.length})</button></>}</details>;
-          })}<h3>Comprobar con el equipo real</h3><p>Verifica retención, alimentación, equilibrio y holguras antes de encender.</p>{issueGroups.physical.map(issue => <details key={issue.id}><summary>{issue.part_id ? partName(issue.part_id) : issue.message}</summary><p>{issue.message}</p></details>)}</div></details>
+          <details className="selection-review"><summary>Revisar montaje y conexiones <span>{dependencies.needs.length ? `${dependencies.needs.length} por resolver` : "Sin faltantes detectados"}</span></summary><div className="selection-totals"><strong>{visibleCount}<span>Con modelo en visor</span></strong><strong>{listCount}<span>Sólo en tu lista</span></strong><strong>{resolution.parked_ids.length}<span>Sin soporte activo</span></strong></div><div className="review-checks"><h3>Resolver en tu plan</h3><p>Guardar no valida el montaje. Las comprobaciones físicas se muestran aparte.</p>{!dependencies.needs.length && <p>No se detectan faltantes en las reglas disponibles. Esto no certifica compatibilidad ni seguridad.</p>}<DependencyContent report={dependencies} onChoose={chooseDependency}/><h3>Comprobar con el equipo real</h3><p>Verifica retención, alimentación, equilibrio y holguras antes de encender.</p>{issueGroups.physical.map(issue => <details key={issue.id}><summary>{issue.part_id ? partName(issue.part_id) : issue.message}</summary><p>{issue.message}</p></details>)}</div></details>
         </>}
         {view==="selected"&&<SetupChecklist context={rig.context}/>}
         <details className="visual-policy"><summary>Sobre las imágenes y el catálogo</summary><p>{ui.builder.image_policy}</p><p>{partsData.parts.length} entradas, con alcance revisado por configuración. La selección no activa montajes no documentados.</p></details>

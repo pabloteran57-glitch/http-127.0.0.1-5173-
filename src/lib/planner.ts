@@ -275,7 +275,7 @@ export function assemblyFrame(variant: Variant, step: number, rules: PlannerRule
   const contextIds = frame.context_part_ids.filter(id=>variant.active_part_ids.includes(id)&&!ids.includes(id));
   const visible = new Set([...ids,...contextIds]);
   const available = new Set(frames.filter(f=>f.step<=step).flatMap(f=>f.add_cable_ids));
-  const cableIds = variant.cable_profile_ids.filter(id=>available.has(id)&&cables.some(c=>c.cable_id===id&&[c.from_part_id,c.to_part_id].every(p=>p===null||ids.includes(p))));
+  const cableIds = variant.cable_profile_ids.filter(id=>available.has(id)&&cables.some(c=>c.cable_id===id&&[c.source_part_id,c.from_part_id,c.to_part_id].every(p=>p===null||ids.includes(p))));
   return {variant:{...variant,active_part_ids:[...visible],cable_profile_ids:cableIds,viewer:{...variant.viewer,mode:extraction?"assembled" as const:variant.viewer.mode,rig_context:extraction?"handheld":variant.viewer.rig_context}},new_ids:frame.add_part_ids.filter(id=>ids.includes(id)),context_ids:contextIds,note:frame.note};
 }
 

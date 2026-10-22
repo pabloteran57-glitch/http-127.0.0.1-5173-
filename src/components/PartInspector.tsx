@@ -12,8 +12,10 @@ import Icon from "./Icon";
 import MountResources from "./MountResources";
 import type {CustomRig} from "../lib/types";
 import { plannedUnit, type UnitGraph } from "../lib/unit-graph";
+import DependencyNeeds from "./DependencyNeeds";
+import type {DependencyReport} from "../lib/dependencies";
 
-export default function PartInspector({ selectedId, variant, rig, onAttach,onAdjust,onReview,unitGraph }: { selectedId: string; variant: Variant; rig?:CustomRig;onAttach?:()=>void;onAdjust?:()=>void;onReview?:()=>void;unitGraph?:UnitGraph }) {
+export default function PartInspector({ selectedId, variant, rig, onAttach,onAdjust,onReview,unitGraph,dependencies,onDependencyChoice }: { selectedId: string; variant: Variant; rig?:CustomRig;onAttach?:()=>void;onAdjust?:()=>void;onReview?:()=>void;unitGraph?:UnitGraph;dependencies?:DependencyReport;onDependencyChoice?:(id:string)=>void }) {
   const [detailId, setDetailId] = useState<string | null>(null);
   const part = partById[selectedId];
   const node = layoutForVariant(variant,layoutData).nodes.find(n => n.id === selectedId);
@@ -33,6 +35,7 @@ export default function PartInspector({ selectedId, variant, rig, onAttach,onAdj
     <div className="spec-pair"><div><span>{component?"MASA PUBLICADA / SÓLO RX":"MASA PUBLICADA"}</span><strong>{component?`${formatNumber(component.weight_g)} g`:part.category==="software" ? "No aplica" : part.verified_weight_g.value===null ? "Pendiente" : `${part.verified_weight_g.approximate?"~ ":""}${formatNumber(part.verified_weight_g.value)} g`}</strong></div><div><span>DOMINIO DE CARGA</span><strong>{node ? node.mass_domain==="moving" ? "Cámara móvil" : "Base fija" : "No modelado"}</strong></div></div>
     <p className="dimension-note">{part.category==="software" ? "Sin geometría física" : dimensions.some(v=>v===null) ? "Dimensiones completas pendientes" : `${dimensions.map(v=>v===null?"?":formatNumber(v)).join(" × ")} mm${!component&&part.verified_dimensions_mm.approximate?" aprox.":""}`}<br />Envolvente publicada; forma y posición 3D aproximadas.</p>
     {!active&&<p className="piece-inspector-pending">Elegida y conservada en tu rig. El montaje actual no tiene una cadena activa; revisa soporte, contexto y pendientes antes de instalarla.</p>}
+    {dependencies&&<DependencyNeeds report={dependencies} partId={selectedId} onChoose={onDependencyChoice}/>}
     {component&&<p className="dimension-note">{component.model}: sólo el receptor se representa sobre la jaula. Transmisores, lavalier y estuche fuera de cámara; batería interna del RX. Cable y retención pendientes de comprobar.</p>}
     {onAttach&&<button type="button" className="primary-button attach-piece-button" onClick={onAttach}><Icon name="plus"/>Añadir a esta pieza</button>}
     {onAdjust&&<button className="quiet-button inspect-model-button" onClick={onAdjust}><Icon name="settings"/>Ajustar posición</button>}

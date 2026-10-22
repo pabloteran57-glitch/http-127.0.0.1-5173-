@@ -16,6 +16,8 @@ npm run build
 
 En PowerShell usar `npm.cmd` si la política bloquea npm.ps1. Vite anuncia el puerto real; no asumir otro. El visor se carga como módulo separado.
 
+Verificación 0.2.21 realizada con el Node instalado 24.14.1. El runtime integrado 24.19 presentó cierres nativos y un fallo de empaquetado; no se publica su salida. La matriz usa `--no-opt` sólo en el proceso local de pruebas, sin modificar el navegador ni atribuir una mejora de rendimiento.
+
 ## Flujo de la aplicación
 
 Cuatro tareas: **Rig**, **Conexiones**, **Montaje** y **Piezas**. El visor abre sin cableado superpuesto; Conexiones activa las rutas y resalta un circuito con sus extremos A/B. En móvil, navegación inferior fija y selector de conexión junto al visor. El doble HDMI es un circuito de banco independiente del perfil, no un montaje aprobado en el rig.
@@ -25,6 +27,8 @@ La ficha despliega medidas, materiales y restricciones bajo demanda. Montaje der
 Vista de marca: `/brand/preview.html`. SVG reutilizables en `public/brand`; nombre en `data/brand.json`.
 
 ## Rigs Propios
+
+Versión 0.2.21: **recordatorios por pieza y comprobación de conjuntos**. El editor/ficha explica soporte, señal y energía incluso con piezas pendientes; muestra contenidos de kits y permite cambiar contexto explícitamente. Conexiones incorpora seis controles de coherencia. Matriz de 39 piezas, siete plantillas, omisiones y parejas; circuitos de banco siguen en reserva. [Alcance y verificación](docs/continuation-0221.md).
 
 Versión 0.2.20: **estabilización de software del núcleo**. Revisión distingue faltantes de selección y pruebas físicas; preflight contextual, aviso de cambios de otra pestaña, actualización sin duplicar borradores y recuperación de contexto 3D sin recargar el plan. Fuentes de óptica/batería condicionadas a la elección. No modifica catálogo, plantillas ni bibliotecas. [Verificación y límites](docs/core-acceptance-0220.md), [criterios estructurados](data/core-acceptance.json).
 

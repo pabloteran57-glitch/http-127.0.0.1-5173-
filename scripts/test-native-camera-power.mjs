@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import ts from "typescript";
+import {loadTsModule} from "./lib/load-ts-module.mjs";
 
 const read = name => JSON.parse(readFileSync(new URL(`../data/${name}.json`, import.meta.url), "utf8"));
 const load = async name => {
@@ -10,6 +11,7 @@ const load = async name => {
   return import(`data:text/javascript;base64,${Buffer.from(code).toString("base64")}`);
 };
 const planner = await load("planner"), assembly = await load("assembly"), viewer = await load("viewer"), connections = await load("connections");
+const dependencies=await loadTsModule("dependencies"),dependencyPolicy=read("dependency-policy");
 const rules = read("planner-rules"), cables = read("cables-manifest").cables, parts = read("parts-manifest").parts;
 const layout = read("layout-manifest"), ports = read("ports-manifest").ports, sources = read("sources").sources;
 const content = read("assembly-profile-content"), templates = read("variants"), reviews = read("connection-reviews");
@@ -54,7 +56,9 @@ test("Conflictos excluyentes no proponen una fuente ni soportes para instalarla"
   assert(planner.selectionConflictProblem(battery, input, rules));
   assert.deepEqual(planner.availableSupportIds([battery], rig(master.active_part_ids, "gimbal"), rules), []);
   const builder = readFileSync(new URL("../src/components/RigBuilder.tsx", import.meta.url), "utf8");
-  assert(builder.includes("selectionConflictProblem(id,rig,plannerData) ? [] : availableSupportIds"));
+  assert(builder.includes("applyDependencyChoice(rig,id,plannerData"));
+  const report=dependencies.dependencyReport(input,rules,cables,master,dependencyPolicy);
+  for(const choice of report.needs.flatMap(need=>need.choices).filter(choice=>choice.ready))assert(!choice.add_ids.some(id=>[dummy,battery].includes(id)));
 });
 test("V-mount para monitor no impone adaptador de cámara con fuente nativa", () => {
   const result = resolve(rig([...master.active_part_ids.filter(id => id !== dummy), battery], "gimbal"));

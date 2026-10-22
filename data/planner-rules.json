@@ -2086,7 +2086,9 @@
         },
         {
           "step": 8,
-          "add_part_ids": [],
+          "add_part_ids": [
+            "kondor-blue-hdmi-aa"
+          ],
           "add_cable_ids": [
             "vid-fx30-to-smallhd"
           ],

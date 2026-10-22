@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "release": "0.2.21",
+  "scope": "Auditoría de coherencia de software del plan, no prueba mecánica, eléctrica ni de funcionamiento real.",
+  "checks": [
+    {"id":"selection","label":"Elecciones y dependencias"},
+    {"id":"mounts","label":"Cadenas de soporte"},
+    {"id":"ports","label":"Unidades y conectores"},
+    {"id":"reviews","label":"Revisión documental de circuitos"},
+    {"id":"assembly","label":"Cobertura del montaje"},
+    {"id":"geometry","label":"Ensamble y despiece ilustrativos"}
+  ],
+  "physical_status": "pending",
+  "limits": "Una comprobación correcta sólo confirma coherencia entre datos y software. No mide retención, colisiones, equilibrio, señal, autonomía ni GPU.",
+  "templates_changed": false,
+  "library_migration": false
+}

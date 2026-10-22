@@ -11,6 +11,8 @@ import plannerRules from "../../data/planner-rules.json";
 import assemblyProfileContent from "../../data/assembly-profile-content.json";
 import connectionReviewManifest from "../../data/connection-reviews.json";
 import modelAssetManifest from "../../data/model-assets.json";
+import dependencyPolicy from "../../data/dependency-policy.json";
+import type {DependencyPolicy} from "../lib/dependencies";
 import type { ModelAsset } from "../lib/model-assets";
 import { assessConnection } from "../lib/connections";
 import type {
@@ -35,6 +37,7 @@ import type {
 export const partsData = partsManifest as PartsManifest;
 export const modelAssets = modelAssetManifest.assets as ModelAsset[];
 export const plannerData = plannerRules as PlannerRules;
+export const dependencyData = dependencyPolicy as DependencyPolicy;
 export const assemblyContent = assemblyProfileContent as AssemblyProfileContent;
 export const cablesData = cablesManifest as CablesManifest;
 export const variantsData = variantsManifest as VariantsManifest;

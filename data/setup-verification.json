@@ -1,0 +1,128 @@
+{
+  "version": 1,
+  "release": "0.2.21",
+  "scope": "Cobertura finita de software; no todas las 2^39 selecciones ni ensayos físicos.",
+  "input_sha256": "7e8a3de9a47bf3df417b1d7cae0df98d15ffb76fa3760bd454de9a6f5bbd5dc4",
+  "status": "verified_software_only",
+  "checks": 21,
+  "cases": 8507,
+  "explicit_actions": 1274,
+  "catalog_entries": 39,
+  "part_ids": [
+    "dji-focus-pro-lidar",
+    "dji-focus-pro-motor",
+    "dji-hdmi-a-to-c",
+    "dji-lavalier",
+    "dji-lidar-transmission-hub",
+    "dji-mic-2-kit",
+    "dji-r-usbc-control",
+    "dji-ronin-app",
+    "dji-ronin-image-transmitter",
+    "dji-rs-bg70",
+    "dji-rs4-pro-combo",
+    "kondor-blue-hdmi-aa",
+    "smallhd-dtap-to-2mm-barrel",
+    "smallhd-indie-7",
+    "smallrig-1674",
+    "smallrig-2896c",
+    "smallrig-2905b",
+    "smallrig-2906b",
+    "smallrig-3026b",
+    "smallrig-3203b",
+    "smallrig-3645",
+    "smallrig-3751b",
+    "smallrig-4152",
+    "smallrig-4253b",
+    "smallrig-4346",
+    "smallrig-4770",
+    "smallrig-4830",
+    "smallrig-rods-8in",
+    "smallrig-vb99-pro",
+    "sony-fe-16-35-gm",
+    "sony-fe-20-f18-g",
+    "sony-fe-35-f18",
+    "sony-fx3",
+    "sony-fx30",
+    "sony-monitor-control-app",
+    "sony-np-f970-pro",
+    "sony-np-fz100",
+    "sony-xlr-h1",
+    "startech-st122hd4ku"
+  ],
+  "candidate_circuit_ids": [
+    "audio-lav-to-tx",
+    "audio-rx-to-fx3",
+    "audio-rx-to-fx30",
+    "audio-rx-to-xlrhandle",
+    "ctrl-rs4-to-fx3-usbc",
+    "pilot-pwr-npfz100-fx30",
+    "pwr-bg70-to-rs4",
+    "pwr-npf-to-smallhd-contacts",
+    "pwr-npfz100-to-fx3-contacts",
+    "pwr-plate-to-smallhd",
+    "pwr-vmount-to-fx3-dummy",
+    "pwr-vmount-to-plate-contacts",
+    "vid-fx3-to-smallhd",
+    "vid-fx30-to-smallhd"
+  ],
+  "reserve_circuit_ids": [
+    "vid-smallhd-to-ronin-transmitter",
+    "vid-fx3-to-startech-splitter",
+    "vid-splitter-to-smallhd",
+    "vid-splitter-to-raveneye",
+    "pwr-ac-to-splitter",
+    "focus-rs4-to-lidar",
+    "focus-rs4-to-motor",
+    "pwr-raveneye-internal"
+  ],
+  "templates": [
+    {
+      "id": "documentary-one-man-film",
+      "selected": 19,
+      "pending_needs": 0,
+      "assembly_steps": 13
+    },
+    {
+      "id": "commercial-solo-gimbal",
+      "selected": 17,
+      "pending_needs": 0,
+      "assembly_steps": 13
+    },
+    {
+      "id": "handheld-quick-release",
+      "selected": 7,
+      "pending_needs": 1,
+      "assembly_steps": 4
+    },
+    {
+      "id": "lower-budget-stripped-down",
+      "selected": 9,
+      "pending_needs": 1,
+      "assembly_steps": 8
+    },
+    {
+      "id": "vertical-916-creator-mode",
+      "selected": 8,
+      "pending_needs": 1,
+      "assembly_steps": 8
+    },
+    {
+      "id": "corporate-interview",
+      "selected": 6,
+      "pending_needs": 1,
+      "assembly_steps": 4
+    },
+    {
+      "id": "cinema-narrative",
+      "selected": 18,
+      "pending_needs": 0,
+      "assembly_steps": 13
+    }
+  ],
+  "limits": [
+    "Sin teléfono o rig físico",
+    "Sin encaje, retención, equilibrio, carga, señal o autonomía medidos",
+    "Matrices de casos no prueban compatibilidad universal",
+    "Placas y tornillos incluidos no son otras unidades de catálogo"
+  ]
+}

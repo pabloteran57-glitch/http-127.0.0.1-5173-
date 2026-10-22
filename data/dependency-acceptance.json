@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "release": "0.2.21",
+  "reviewed_on": "2026-10-22",
+  "scope": "Dos etapas de software completadas y verificadas localmente; publicación en cierre. No certifica montaje físico ni libera beta profesional.",
+  "stages": [
+    {"id":"dependency-advisor","status":"software_and_browser_verified","evidence":["docs/dependency-advisor.md","docs/continuation-0221.md","scripts/test-setup-matrix.mjs"]},
+    {"id":"setup-validation","status":"software_and_browser_verified","evidence":["data/setup-verification.json","docs/setup-matrix-qa.md","docs/continuation-0221.md"]}
+  ],
+  "browser": {
+    "surface": "Edge",
+    "mobile_viewports": [[390,844],[320,568]],
+    "physical_device": false,
+    "tripod_core_choices": 5,
+    "tripod_monitor_audio_choices": 10,
+    "tripod_links": 4,
+    "tripod_playback_end": "9/9; retirada opcional no automática",
+    "fx30_choices": 9,
+    "fx30_video_step": 8,
+    "templates_four_tasks_checked": 7,
+    "inventory_counts": [19,17,7,9,8,6,18],
+    "horizontal_document_overflow_observed": false,
+    "console_errors_observed": [],
+    "private_evidence": ["research/model-incoming/qa-0221/tripode-dependencias-movil.png","research/model-incoming/qa-0221/tripode-completo-escritorio.png"]
+  },
+  "toolchain": {"verified_node":"24.14.1","integrated_node_24_19":"fallos nativos de runtime y empaquetado; salida no publicada","matrix_flag":"--no-opt sólo proceso local, no navegador"},
+  "physical_validation": "pending",
+  "publication": {"status":"pending"}
+}

@@ -380,6 +380,12 @@
           "steps": [
             7
           ]
+        },
+        {
+          "id": "fx30-handheld-prime",
+          "steps": [
+            8
+          ]
         }
       ],
       "release_status": "planning_candidate",

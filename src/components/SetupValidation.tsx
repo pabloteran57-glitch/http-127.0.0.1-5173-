@@ -1,0 +1,5 @@
+import type {SetupValidation as Result} from "../lib/setup-validation";
+import policy from "../../data/setup-validation-policy.json";
+export default function SetupValidation({result,onReview}:{result:Result;onReview:()=>void}) {
+  return <details className="setup-validation"><summary>Comprobar el plan <span>{result.attention?`${result.attention} ${result.attention===1?"área":"áreas"} por revisar`:"Datos coherentes"}</span></summary><p>Revisión automática de datos. No equivale a probar el equipo real ni autoriza encenderlo.</p><ul>{result.checks.map(check=><li key={check.id} data-setup-check={check.id}><div><strong>{policy.checks.find(item=>item.id===check.id)?.label??check.id}</strong><span>{check.state==="attention"?"Revisar":check.state==="pending"?"Prueba real pendiente":"Coherente en software"}</span></div>{check.details.map((detail,index)=><p key={index}>{detail}</p>)}</li>)}</ul>{result.attention>0&&<button className="quiet-button" onClick={onReview}>Revisar piezas del plan</button>}<p>{policy.limits}</p></details>;
+}

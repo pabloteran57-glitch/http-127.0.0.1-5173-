@@ -1,4 +1,3 @@
-import { useRef } from "react";
 import { cableById, cablesData, portById, partById, layoutData, connectionAssessmentById, connectionReviewsData } from "../data";
 import { cableForVariant } from "../lib/viewer";
 import type { Variant } from "../lib/types";
@@ -6,10 +5,10 @@ import { connectionKind, connectionName, connectorName, partName } from "../lib/
 import Icon from "./Icon";
 import { publicDemo } from "../lib/publication";
 import type { UnitGraph } from "../lib/unit-graph";
+import SetupValidation from "./SetupValidation";
+import type {SetupValidation as ValidationResult} from "../lib/setup-validation";
 export { connectionName } from "../lib/ui";
-export default function ConnectionPanel({variant,bench,selectedId,onSelect,unitGraph}:{variant:Variant;bench:boolean;selectedId:string;onSelect:(id:string)=>void;unitGraph?:UnitGraph}) {
-  const panel=useRef<HTMLElement>(null);
-  const focus=useRef<HTMLDivElement>(null);
+export default function ConnectionPanel({variant,bench,selectedId,onSelect,unitGraph,validation,onReview}:{variant:Variant;bench:boolean;selectedId:string;onSelect:(id:string)=>void;unitGraph?:UnitGraph;validation?:ValidationResult;onReview?:()=>void}) {
   const ids=bench?cablesData.profiles.requested_dual_feed_bench:variant.cable_profile_ids;
   const sourceCable=cableById[ids.includes(selectedId)?selectedId:ids[0]];
   const selected=sourceCable?(bench?sourceCable:cableForVariant(sourceCable,variant)):undefined;
@@ -18,10 +17,17 @@ export default function ConnectionPanel({variant,bench,selectedId,onSelect,unitG
   const fromUnit=binding&&unitGraph?.units.find(unit=>unit.id===binding.from.unit_id),toUnit=binding&&unitGraph?.units.find(unit=>unit.id===binding.to.unit_id),sourceUnit=binding&&unitGraph?.units.find(unit=>unit.id===binding.source_unit_id);
   const documentedCount=review?.checks.filter(check=>check.state==="documented").length??0;
   const hasVisualRoute=selected?.display_kind==="cable"&&[selected.from_port_id,selected.to_port_id].every(id=>portById[id].local_position_mm&&layoutData.nodes.some(n=>n.id===portById[id].part_id&&variant.active_part_ids.includes(n.id)));
-  const choose=(id:string)=>{onSelect(id);requestAnimationFrame(()=>{if(window.matchMedia("(max-width:800px)").matches)focus.current?.scrollIntoView({block:"start"});else{panel.current?.scrollTo({top:0});document.getElementById("workspace")?.scrollIntoView({block:"start"});}focus.current?.focus({preventScroll:true});});};
-  return <aside ref={panel} className="connection-panel" aria-label="Conexiones del perfil">
+  const choose=(id:string)=>onSelect(id);
+  return <aside className="connection-panel" aria-label="Conexiones del perfil">
     <div className="panel-heading"><h2>{bench?"Doble HDMI":"Conexiones"}</h2><span className="mono">{ids.length} enlaces</span></div>
-    {selected&&<div ref={focus} tabIndex={-1} className="connection-focus" aria-live="polite">
+    {!bench&&validation&&onReview&&<SetupValidation result={validation} onReview={onReview}/>}
+    {ids.length>0&&<><p className="connection-list-heading">Elegir conexión</p><div className="connection-list">{ids.map(id=>{
+      const c=cableById[id];const color=cablesData.color_coding[c.type==="data"?"control":c.type];
+      return <button key={id} className={selected?.cable_id===id?"connection-choice chosen":"connection-choice"} onClick={()=>choose(id)} aria-pressed={selected?.cable_id===id} style={{borderLeftColor:color}}>
+        <small>{connectionKind(c.type)}{c.display_kind!=="cable"?" · Sin cable externo":""}</small><strong>{connectionName(id)}</strong>
+      </button>;
+    })}</div></>}
+    {selected&&<div tabIndex={-1} className="connection-focus" aria-live="polite">
       <p className="connection-category" style={{color:cablesData.color_coding[selected.type==="data"?"control":selected.type]}}>{connectionKind(selected.type)} <span>{selected.display_kind==="cable"?"Cable":selected.display_kind==="contacts"?"Contactos":"Batería interna"}</span></p>
       <h3>{connectionName(selected.cable_id)}</h3>
       <div className="endpoint-card" data-endpoint="A" data-unit-id={fromUnit?.id}><span className="endpoint-letter">A</span><div><strong>{partName(selected.from_part_id)}</strong>{fromUnit&&<b className="connection-unit-label">{fromUnit.label}</b>}<p>{portById[selected.from_port_id].label}</p><small>{connectorName(selected.connector_a)}</small></div></div>
@@ -42,13 +48,7 @@ export default function ConnectionPanel({variant,bench,selectedId,onSelect,unitG
       {!bench&&hasVisualRoute&&<button className="show-route-button" onClick={()=>document.querySelector(".rig-stage")?.scrollIntoView({block:"start"})}>Ver ruta en el rig<Icon name="arrow"/></button>}
       <details><summary>Especificaciones y seguridad</summary><p><b>Señal / tensión:</b> {selected.voltage_or_signal_standard}</p><p><b>Longitud:</b> {selected.ideal_length_estimate}</p><p><b>Recorrido:</b> {selected.routing_path}</p><p><b>Alivio de tensión:</b> {selected.strain_relief_requirement}</p><p className="risk-text">{selected.risk_notes.join(" ")}</p><a href={partById[selected.source_part_id].primary_source_url} target="_blank" rel="noreferrer">Referencia de fabricante</a></details>
     </div>}
-    {ids.length===0?<div className="connection-empty"><Icon name="connect"/><h3>Aún no hay conexiones</h3><p>Elige componentes y sus cables en Editar piezas. Sólo aparecen circuitos con ambos extremos disponibles.</p></div>:<p className="connection-list-heading">Elegir otra conexión</p>}
-    <div className="connection-list">{ids.map(id=>{
-      const c=cableById[id];const color=cablesData.color_coding[c.type==="data"?"control":c.type];
-      return <button key={id} className={selected?.cable_id===id?"connection-choice chosen":"connection-choice"} onClick={()=>choose(id)} aria-pressed={selected?.cable_id===id} style={{borderLeftColor:color}}>
-        <small>{connectionKind(c.type)}{c.display_kind!=="cable"?" · Sin cable externo":""}</small><strong>{connectionName(id)}</strong>
-      </button>;
-    })}</div>
+    {ids.length===0&&<div className="connection-empty"><Icon name="connect"/><h3>Aún no hay conexiones</h3><p>Elige componentes y sus cables en Editar piezas. Sólo aparecen circuitos con ambos extremos disponibles.</p></div>}
     <p className="panel-footnote">{bench?"Circuito estático. Distribuidor con fuente 5 V / 2 A. No hay soporte validado en el rig.":`Puertos identificados; geometría y curvas aproximadas. ${connectionReviewsData.reviews.length} circuitos con revisión ampliada; no certifica el conjunto.`}</p>
   </aside>;
 }

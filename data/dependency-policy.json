@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "release": "0.2.21",
+  "scope": "Orquestación de recordatorios desde reglas, piezas y circuitos canónicos. No añade compatibilidad, productos, medidas, placas ni cables.",
+  "check_subjects": {
+    "camera": [],
+    "gimbal": ["dji-rs4-pro-combo"],
+    "static-support": ["smallrig-3751b"],
+    "shoulder-support": ["smallrig-2896c"],
+    "static-3751b-core": ["smallrig-3751b"]
+  },
+  "check_suggestions": {"static-support": ["smallrig-3751b"]},
+  "check_titles": {
+    "camera": "Elige el cuerpo",
+    "lens": "Óptica de la FX3",
+    "fx30-lens": "Óptica de la FX30",
+    "gimbal": "Estabilizador y empuñadura",
+    "monitor-video": "Vídeo del monitor",
+    "monitor-power": "Alimentación del monitor",
+    "camera-power": "Alimentación de la FX3",
+    "internal-battery": "Alimentación de la FX3",
+    "fx30-native-power": "Alimentación de la FX30",
+    "static-support": "Soporte estático",
+    "shoulder-support": "Núcleo al hombro",
+    "static-3751b-core": "Núcleo del trípode",
+    "vertical-support": "Orientación pendiente de revisión"
+  },
+  "bundle_reminders": ["smallrig-3751b", "smallrig-2896c"],
+  "context_labels": {"gimbal":"Con gimbal","handheld":"A mano","static":"Cámara estática","shoulder":"Al hombro"},
+  "policy": [
+    "Evaluar recordatorios sobre elecciones, aunque una pieza no tenga soporte activo.",
+    "Mostrar todas las alternativas declaradas de una necesidad, sin escoger batería, óptica o cámara por el usuario.",
+    "La propuesta enumera cada adición y se vuelve a evaluar al pulsar; nunca retira, sustituye ni promueve un repuesto.",
+    "No completar un soporte eligiendo un cuerpo implícito.",
+    "El cambio de contexto es explícito y conserva todas las piezas, incluidas las que queden pendientes.",
+    "Los contenidos del kit se leen de bundle_includes, sin crear unidades o masa duplicada."
+  ]
+}

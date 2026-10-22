@@ -1,12 +1,16 @@
 {
-  "version": "0.2.20",
-  "released_on": "2026-10-21",
+  "version": "0.2.21",
+  "released_on": "2026-10-22",
   "status": "engineering_prototype",
   "label": "Prototipo de ingeniería",
   "catalog_revision": "fx3-rs4-2026-10-05",
   "storage": "local_only",
   "account_sync": "deferred_by_user",
   "updates": [
+    "Recordatorios por pieza y propuestas explícitas en editor/ficha: soporte, vídeo y energía aunque la pieza siga pendiente.",
+    "Trípode 3751B: contenido de kit visible, cambio a contexto estático explícito y núcleo faltante separado de placa/tornillos ya incluidos.",
+    "Comprobar el plan en Conexiones revisa selección, soportes, unidades/puertos, revisiones, montaje y despiece; sin certificar el equipo real.",
+    "Montaje FX30 declara su cable HDMI en la etapa de vídeo; ningún circuito aparece sin ambos extremos y su referencia elegida.",
     "Revisión del plan separa faltantes de selección y comprobaciones físicas; inspecciones de holgura filtradas por equipo elegido y contexto.",
     "Cambios de biblioteca entre pestañas visibles sin sobrescritura automática; actualizar sin cambios conserva borradores sin duplicarlos.",
     "Interrupción del contexto 3D contenida con reintento del visor, sin recargar la página ni perder la selección.",

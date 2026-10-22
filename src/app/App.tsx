@@ -1,5 +1,5 @@
 import { lazy, Suspense, useEffect, useRef, useState } from "react";
-import { cablesData, partsData, plannerData, variantsData } from "../data";
+import { cablesData, dependencyData, partsData, plannerData, variantsData } from "../data";
 import RigPlannerPage from "../views/RigPlannerPage";
 import RigBuilder from "../components/RigBuilder";
 import RigLibrary from "../components/RigLibrary";
@@ -10,6 +10,7 @@ import { partName } from "../lib/ui";
 import { DRAFT_PREFIX, clearConfirmedDraft, discardDraft, readDrafts, writeDraft, type RecoverableDraft } from "../lib/drafts";
 import type { CustomRig, RigAdjustments, Variant } from "../lib/types";
 import {libraryChanged,sameLibrarySnapshot} from "../lib/library-status";
+import {applyDependencyChoice} from "../lib/dependencies";
 const HelpCenter=lazy(()=>import("../components/HelpCenter"));
 
 const catalogIds=partsData.parts.map(p=>p.id);
@@ -131,6 +132,14 @@ function RigSession({profile,profilesOpen,onProfiles}:{profile:LocalProfile;prof
   setRigs(previous=>custom?previous.map(r=>r.id===candidate.id?candidate:r):[...previous,candidate]);setVariantId(candidate.id);
   setMessage(previous=>previous.startsWith("Versión guardada")?"":previous);
  };
+ const repairDependency=(choiceId:string)=>{
+  const base=custom??newRig(`${variant.label} / personal`,variant);
+  const next=applyDependencyChoice(base,choiceId,plannerData,cablesData.cables,master,dependencyData);
+  if(!next){setMessage("La propuesta ya no corresponde a tu selección. Revisa los pendientes; no se cambió ninguna pieza.");return;}
+  const candidate=parseRig(withRigUnits({...next,updated_at:new Date().toISOString()}),catalogIds);
+  setRigs(previous=>custom?previous.map(r=>r.id===candidate.id?candidate:r):[...previous,candidate]);setVariantId(candidate.id);setExploded(false);
+  setMessage("Propuesta aplicada al borrador sin retirar tus elecciones. Revisa los pendientes restantes y guarda el rig para confirmarlo.");
+ };
  const open=(id:string)=>{setVariantId(id);setExploded(false);setLibraryOpen(false);setMessage("");};
  const remove=async(id:string)=>{if(saved.some(r=>r.id===id)&&!await persist(saved.filter(r=>r.id!==id)))return;setRigs(previous=>previous.filter(r=>r.id!==id));try{localStorage.removeItem(`${DRAFT_PREFIX}${tabId}.${id}`);draftSnapshot.current.delete(id);}catch{setMessage("Rig retirado de la sesión; no se pudo limpiar su borrador local.");}if(variantId===id)setVariantId(master.id);};
  const duplicate=(rig:CustomRig)=>{const copy=copyRig(rig,`${rig.name} / copia`);setRigs(previous=>[...previous,copy]);open(copy.id);setBuilderOpen(true);};
@@ -164,7 +173,7 @@ function RigSession({profile,profilesOpen,onProfiles}:{profile:LocalProfile;prof
   catch{return "No se pudieron confirmar tus borradores. Sigues en el mismo perfil; guarda o recupera el almacenamiento antes de cambiar.";}
  };
  return <>
-  <RigPlannerPage profileName={profile.name} libraryNotice={libraryNotice} onProfiles={()=>{if(saving.current){setMessage("Espera a que termine el guardado antes de abrir perfiles.");return;}onProfiles(prepareProfileSwitch);}} variant={variant} customRig={custom??null} resolution={resolution} savedRigs={rigs} dirty={dirty} message={message} recoveryStatus={dirty?draftStatus:""} viewerPaused={builderOpen||libraryOpen||helpOpen||profilesOpen} onHelp={()=>setHelpOpen(true)} onDismissMessage={()=>setMessage("")} onNewRig={()=>create()} onLibrary={()=>{refreshDrafts();setLibraryOpen(true);}} onEditRig={()=>custom?setBuilderOpen(true):create(variant)} onSaveRig={save} onAttach={attach} onAdjust={adjust} exploded={exploded} onExplodedChange={setExploded} showLabels={showLabels} onShowLabelsChange={setShowLabels} onShowCablesChange={setShowCables} showCables={showCables} onVariantChange={open}/>
+  <RigPlannerPage profileName={profile.name} libraryNotice={libraryNotice} onProfiles={()=>{if(saving.current){setMessage("Espera a que termine el guardado antes de abrir perfiles.");return;}onProfiles(prepareProfileSwitch);}} variant={variant} customRig={custom??null} resolution={resolution} savedRigs={rigs} dirty={dirty} message={message} recoveryStatus={dirty?draftStatus:""} viewerPaused={builderOpen||libraryOpen||helpOpen||profilesOpen} onHelp={()=>setHelpOpen(true)} onDismissMessage={()=>setMessage("")} onNewRig={()=>create()} onLibrary={()=>{refreshDrafts();setLibraryOpen(true);}} onEditRig={()=>custom?setBuilderOpen(true):create(variant)} onSaveRig={save} onAttach={attach} onAdjust={adjust} onDependencyChoice={repairDependency} exploded={exploded} onExplodedChange={setExploded} showLabels={showLabels} onShowLabelsChange={setShowLabels} onShowCablesChange={setShowCables} showCables={showCables} onVariantChange={open}/>
   <RigLibrary profileName={profile.name} open={libraryOpen} onClose={()=>setLibraryOpen(false)} rigs={rigs} saved={saved} history={history} recoverable={recoverable} onRecover={recover} onDiscard={discard} onRefresh={refreshLibrary} onOpen={open} onCreate={()=>create()} onTemplate={create} onDuplicate={duplicate} onDelete={remove}/>
   {custom&&resolution&&<RigBuilder key={custom.id} open={builderOpen} onClose={()=>setBuilderOpen(false)} rig={custom} resolution={resolution} onChange={update} onSave={save} dirty={dirty} message={message}/>}
   {helpOpen&&<Suspense fallback={<div role="status" className="app-message">Abriendo ayuda…</div>}><HelpCenter onClose={()=>setHelpOpen(false)} onNew={()=>create()} onLibrary={()=>{refreshDrafts();setLibraryOpen(true);}}/></Suspense>}

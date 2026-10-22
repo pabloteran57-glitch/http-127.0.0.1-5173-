@@ -2,7 +2,7 @@
 
 Fuente: `data/product-roadmap.json`. Estado: prototipo en curso. Ningún criterio externo se da por cumplido a partir de compilación.
 
-Hito actual: Etapa de estabilización de software 0.2.20 cerrada y publicada en el mismo enlace: selección, montaje, bibliotecas/perfiles, concurrencia y recuperación del visor. Beta profesional y financiación requieren ensayos físicos, dispositivos y usuarios. La expansión continúa por cadenas completas, no importación masiva sin verificar. [Último bloque](core-acceptance-0220.md).
+Hito actual: Dos etapas de software encadenadas: recordatorios de dependencias por pieza y matriz de conjuntos/puertos/montaje/despiece. 39 productos, 8507 casos, siete plantillas y 22 revisiones; publicación y prueba de interfaz en cierre. Sin compatibilidad universal ni beta profesional aprobada. [Último bloque](continuation-0221.md).
 
 | Fase | Estado de preparación | Evidencia y trabajo restante |
 |---|---|---|
