@@ -705,13 +705,14 @@
       "connector_a": "TRS de 3.5 mm macho",
       "connector_b": "TRS de 3.5 mm macho",
       "type": "data",
-      "voltage_or_signal_standard": "Audio analógico al asa Sony; confirmar canales 3/4.",
+      "voltage_or_signal_standard": "Audio analógico a INPUT3 del asa Sony; asignación CH1/2 o CH3/4 según INPUT SELECT y modo de grabación.",
       "ideal_length_estimate": "Cable de audio incluido; longitud exacta por confirmar.",
       "routing_path": "En estático o a mano: RX en zapata inclinada 4770 -> OUT TRS -> INPUT3 del XLR-H1, no a la entrada del cuerpo. Bucle local y acceso al asa por comprobar físicamente.",
       "strain_relief_requirement": "Sujetar ambos extremos sin cargar los conectores; probar holgura y radio mínimo de curvatura.",
       "risk_notes": [
         "No asumir grabación simultánea de entrada del cuerpo y del asa MI.",
-        "Comprobar asignación de canales y ganancia."
+        "Comprobar asignación de canales y ganancia.",
+        "INPUT3 no corresponde siempre a CH3/4. Conectar MIC del cuerpo desactiva audio del asa; comprobar selector, formato y toma real."
       ],
       "mandatory_or_optional": "mandatory",
       "source_part_id": "dji-mic-2-kit",

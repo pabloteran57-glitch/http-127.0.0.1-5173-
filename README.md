@@ -20,11 +20,13 @@ En PowerShell usar `npm.cmd` si la política bloquea npm.ps1. Vite anuncia el pu
 
 Cuatro tareas: **Rig**, **Conexiones**, **Montaje** y **Piezas**. El visor abre sin cableado superpuesto; Conexiones activa las rutas y resalta un circuito con sus extremos A/B. En móvil, navegación inferior fija y selector de conexión junto al visor. El doble HDMI es un circuito de banco independiente del perfil, no un montaje aprobado en el rig.
 
-La ficha despliega medidas, materiales y restricciones bajo demanda. Montaje deriva las etapas pertinentes del perfil de cámara/contexto y separa las revisiones de lectura por configuración durante la sesión. Piezas abre **Mi equipo**, incluyendo elecciones pendientes; las 38 entradas se consultan en **Catálogo**. Detalles del perfil conserva siete plantillas, desglose de peso y pruebas pendientes. Los planes se guardan y abren dentro de la app, sin exportar archivos.
+La ficha despliega medidas, materiales y restricciones bajo demanda. Montaje deriva las etapas pertinentes del perfil de cámara/contexto y separa las revisiones de lectura por configuración durante la sesión. Piezas abre **Mi equipo**, incluyendo elecciones pendientes; las 39 entradas se consultan en **Catálogo**. Detalles del perfil conserva siete plantillas, desglose de peso y pruebas pendientes. Los planes se guardan y abren dentro de la app, sin exportar archivos.
 
 Vista de marca: `/brand/preview.html`. SVG reutilizables en `public/brand`; nombre en `data/brand.json`.
 
 ## Rigs Propios
+
+Versión 0.2.19: **AD-01 3751B para primer rig estático FX3** con placa/tornillo incluidos, guía propia, monitor NATO/serie L y RX opcionales. Detalle de cámara o vista de trípode completo. 26 mallas/miniaturas propias aproximadas; huella y montaje no certificados. Las **22 conexiones** tienen revisión documental vinculada a sus modelos y puertos; las pruebas operativas continúan pendientes. INPUT3 Sony depende de selector/modo, no siempre CH3/4. [Entrega y plan restante](docs/continuation-0219.md).
 
 Versión 0.2.18: **empuñadura lateral 4346 y contexto Al hombro 2896C**. Cadenas candidatas acotadas, dos mallas/miniaturas propias aproximadas y guía contextual sin etapas del gimbal. El kit incluye base, barras y dos agarres, contados una vez. Propuesta de núcleo por elección explícita; monitor NATO/serie L y RX opcionales. Sin nueva migración ni cambio de las siete plantillas. [Alcance, fuentes y limitaciones](docs/support-integration.md). No certifica ergonomía, encaje o seguridad física.
 

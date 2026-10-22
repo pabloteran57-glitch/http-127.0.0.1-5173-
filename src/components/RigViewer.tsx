@@ -168,8 +168,12 @@ function PortProjection({anchors,elements}:{anchors:{id:string;position:Vec3}[];
 export default function RigViewer({exploded,showCables,showLabels,variant,selectedId,onSelect,angle,selectedCableId,resetKey,highlightIds=[],contextIds=[],reveal=false,framing,framingVariant,sceneKey,onSceneReady,onScenePreparing,onUnavailable,onInteract,performanceRun,onPerformanceResult,unitIdentities}:Props){
  const labels=useRef<Record<string,HTMLButtonElement|null>>({});const portLabels=useRef<Record<string,HTMLSpanElement|null>>({});
  const [attempt,setAttempt]=useState(0),[unavailable,setUnavailable]=useState(false);
+ const [wholeSupport,setWholeSupport]=useState(false);
  const [modelReports,setModelReports]=useState<ModelReports>({});
  const nodes=layoutForVariant(variant,layoutData).nodes.filter(n=>variant.active_part_ids.includes(n.id));
+ const frameNodes=framingVariant?layoutForVariant(framingVariant,layoutData).nodes.filter(n=>framingVariant.active_part_ids.includes(n.id)):nodes;
+ const tripod=frameNodes.find(n=>n.kind==="tripodSupport");
+ const framingNodes=tripod&&!wholeSupport?frameNodes.filter(n=>n.kind!=="tripodSupport"):frameNodes;
  const joint=monitorJoint(variant,layoutData),jointTransforms=monitorTransforms(variant,layoutData);
  const objectTransforms=(node:LayoutNode):Record<string,JointTransform[]>=>node.id===joint?.mount_id?{[joint.head_object_name]:jointTransforms,...(joint.swivel_object_name?{[joint.swivel_object_name]:jointTransforms.slice(1)}:{})}:{};
  const session=sceneKey??`${variant.id}:${nodes.map(n=>n.id).join(",")}`;
@@ -195,9 +199,10 @@ export default function RigViewer({exploded,showCables,showLabels,variant,select
  const route=cableById[selectedCableId??""];
  return <div className="rig-stage" aria-label="Visor 3D del rig, geometría aproximada" data-visible-parts={nodes.map(n=>n.id).join(",")} data-visible-cables={visibleIds.join(",")} data-context-parts={contextIds.join(",")} data-models-loading={readiness.loading.length} data-models-failed={readiness.failed.length} data-viewer-unavailable={unavailable}>
   <div className="stage-corner">MODELO DE PLANIFICACIÓN <span>Geometría aproximada</span></div>
+  {tripod&&<div className="support-framing" role="group" aria-label="Encuadre del soporte"><button type="button" className="quiet-button" aria-pressed={!wholeSupport} onClick={()=>{onInteract?.();setWholeSupport(false);}}>Detalle de cámara</button><button type="button" className="quiet-button" aria-pressed={wholeSupport} onClick={()=>{onInteract?.();setWholeSupport(true);}}>Ver trípode completo</button></div>}
   <ViewerBoundary key={attempt} onRetry={retry} onUnavailable={()=>{setUnavailable(true);onUnavailable?.();}}><Suspense fallback={<div className="viewer-fallback">Iniciando visor...</div>}><Canvas frameloop={performanceRun?.policy??"demand"} camera={{position:[-6,2.2,-7.5],fov:36}} dpr={[1,1.5]} gl={{antialias:true,alpha:true}}>
    <ambientLight intensity={1.6}/><directionalLight position={[-3,7,-6]} intensity={4.5} color="#f1f2ff"/><directionalLight position={[5,3,5]} intensity={3} color="#aec3d8"/><pointLight position={[-3,-2,-3]} intensity={14} color="#7cacae"/>
-   <gridHelper args={[20,40,"#3d434c","#242933"]} position={[0,handheld?-.8:-3.6,0]}/>
+   <gridHelper args={[20,40,"#3d434c","#242933"]} position={[0,tripod?scale(tripod.position_mm[1]-tripod.size_xyz_mm[1]/2):handheld?-.8:-3.6,0]}/>
    {nodes.map(n=><AnimatedNode key={n.id} node={n} exploded={exploded} vertical={variant.viewer.mode==="vertical"} selected={(selectedId===n.id&&!selectedCableId)||highlightIds.includes(n.id)} onSelect={onSelect} context={contextIds.includes(n.id)} reveal={reveal} attempt={attempt} scene={session} onModelReport={reportModel} hiddenObjectNames={hiddenSubassemblies(n,variant)} objectTransforms={objectTransforms(n)}/>)}
    {visibleLinks.map(({cable:c,a,b})=>{
     const focused=c.cable_id===selectedCableId;const color=cablesData.color_coding[c.type==="data"?"control":c.type];
@@ -210,7 +215,7 @@ export default function RigViewer({exploded,showCables,showLabels,variant,select
      {(focused||!selectedCableId)&&[a!,b!].map((point,i)=><mesh key={i} position={point}><sphereGeometry args={[focused ? .04 : .025,20,16]}/><meshBasicMaterial color={color} depthTest={false}/></mesh>)}
     </group>;
    })}
-   <CameraControls angle={angle} exploded={exploded} nodes={framingVariant?layoutForVariant(framingVariant,layoutData).nodes.filter(n=>framingVariant.active_part_ids.includes(n.id)):nodes} vertical={(framingVariant??variant).viewer.mode==="vertical"} resetKey={resetKey} onInteract={onInteract}/><LabelProjector nodes={nodes} exploded={exploded} vertical={vertical} elements={labels}/><PortProjection anchors={anchors} elements={portLabels}/><SceneReady sceneKey={`${session}:${attempt}`} settled={readiness.settled} onReady={onSceneReady} onPreparing={onScenePreparing}/>
+   <CameraControls angle={angle} exploded={exploded} nodes={framingNodes} vertical={(framingVariant??variant).viewer.mode==="vertical"} resetKey={resetKey} onInteract={onInteract}/><LabelProjector nodes={nodes} exploded={exploded} vertical={vertical} elements={labels}/><PortProjection anchors={anchors} elements={portLabels}/><SceneReady sceneKey={`${session}:${attempt}`} settled={readiness.settled} onReady={onSceneReady} onPreparing={onScenePreparing}/>
    {performanceRun&&onPerformanceResult&&<PerformanceProbe key={performanceRun.id} run={performanceRun} onResult={onPerformanceResult}/>}
   </Canvas></Suspense></ViewerBoundary>
   {!unavailable&&<div className="label-layer">{nodes.filter(n=>showLabels&&primaryKinds.has(n.kind)||(!selectedCableId&&n.id===selectedId)).map(n=><button key={n.id} ref={el=>{labels.current[n.id]=el}} data-unit-id={unitIdentities?.[n.id]?.id} className={n.id===selectedId?"part-label selected":"part-label"} onClick={()=>onSelect(n.id)}>{n.label}{unitIdentities?.[n.id]?` / ${unitIdentities[n.id].label}`:""}</button>)}

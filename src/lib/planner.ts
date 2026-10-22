@@ -264,7 +264,7 @@ export function resolveRig(rig: CustomRig, rules: PlannerRules, cables: Cable[],
 }
 
 export function assemblyFrame(variant: Variant, step: number, rules: PlannerRules, cables: Cable[]) {
-  const profile=rules.assembly_profiles?.find(profile=>variant.active_part_ids.includes(profile.camera_part_id)&&(!profile.context||profile.context===variant.viewer.rig_context));
+  const profile=rules.assembly_profiles?.find(profile=>variant.active_part_ids.includes(profile.camera_part_id)&&(!profile.context||profile.context===variant.viewer.rig_context)&&(profile.require_all??[]).every(id=>variant.active_part_ids.includes(id)));
   const frames=profile?.frames??rules.assembly_frames;
   const frame = frames.find(frame=>frame.step===step);
   if(!frame)throw new Error("Etapa fuera del perfil de montaje seleccionado.");

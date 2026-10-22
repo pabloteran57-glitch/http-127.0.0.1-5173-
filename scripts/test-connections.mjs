@@ -17,7 +17,23 @@ let count = 0;
 function test(name, run) { run(); count++; console.log(`CORRECTO: ${name}`); }
 
 test("Todas las revisiones mantienen pendientes y no autorizan uso", () => {
+  assert.equal(manifest.reviews.length,22);
+  assert.deepEqual(new Set(manifest.reviews.map(r=>r.cable_id)),new Set(cables.map(c=>c.cable_id)));
   for (const id of manifest.reviews.map(r=>r.cable_id)) { const r = assess(id); assert(r.reviewed); assert.equal(r.state, "pending"); assert(r.checks.some(check => check.state === "documented")); assert(r.checks.some(check => check.state === "pending")); }
+});
+
+test("Ninguna revisión se reutiliza tras cambiar un extremo o un modelo",()=>{
+  for(const cable of cables){
+    const wrong=clone(cable);wrong.to_port_id+="-otro";assert.equal(assessConnection(wrong,manifest,context).reviewed,false);
+    const c=clone(context);c.parts.find(p=>p.id===cable.source_part_id).model_number="otra-revision";assert.equal(assess(cable.cable_id,manifest,c).reviewed,false);
+  }
+});
+
+test("INPUT3 no fija CH3/4 ni admite mezclar MIC del cuerpo",()=>{
+  const cable=cables.find(c=>c.cable_id==="audio-rx-to-xlrhandle"),review=assess(cable.cable_id);
+  assert(cable.voltage_or_signal_standard.includes("CH1/2 o CH3/4"));
+  assert(review.action.includes("INPUT SELECT"));
+  assert(review.checks.some(c=>c.state==="pending"&&c.detail.includes("MIC del cuerpo")));
 });
 test("La batería nativa no extrapola su tensión nominal a rango ni al barril",()=>{
   const r=assess("pwr-npf-to-smallhd-contacts");assert.equal(check(r,"npf-nominal").state,"documented");assert.equal(check(r,"monitor-native-plate").state,"documented");assert.equal(check(r,"npf-full-range").state,"pending");

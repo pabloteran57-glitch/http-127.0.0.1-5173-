@@ -404,7 +404,34 @@ function basicShoulderKit(g) {
   }
 }
 
-export const productAuthors = { sel35f18f, coldShoeMonitorMount, natoTopHandle, locatingSideHandle, basicShoulderKit };
+function fluidTripod(g) {
+  // Altura ilustrativa 850 mm; huella, secciones y pivotes estimados, no cotas de fabricación.
+  cylinder(g,"Cazoleta / forma aproximada",42,35,[0,307,0],"dark","y",24);
+  cylinder(g,"Base de paneo",38,15,[0,332,0],"alloy","y",24);
+  block(g,"Cabezal fluido / sin cinemática",[80,50,110],[0,365,0],"dark",5);
+  for(const x of [-45,45])cylinder(g,"Mando de inclinación",23,10,[x,366,0],"rubber","x",24);
+  block(g,"Receptor de placa con seguro",[78,16,125],[0,398,0],"alloy",3);
+  plate(g,"Placa incluida / fijación 1/4 ilustrativa",60,125,10,[0,414,0],[],"dark",[Math.PI/2,0,0]);
+  for(const x of [-20,20])block(g,"Apoyo de placa",[10,2,90],[x,420,0],"rubber",1);
+  screw(g,[0,422,0],"y",3);lever(g,[48,398,-20],"x");
+  const arm=beam(g,[43,363,-35],[95,300,-275],8,8,"dark");arm.name="Palanca de paneo / pose aproximada";
+  beam(g,[95,300,-275],[110,287,-325],18,18,"rubber").name="Agarre de palanca";
+  for(let i=0;i<3;i++){
+    const angle=i*2*Math.PI/3+Math.PI/2,radial=r=>[Math.cos(angle)*r,Math.sin(angle)*r];
+    const point=(r,y,offset=0)=>{const [x,z]=radial(r);return[x+Math.cos(angle+Math.PI/2)*offset,y,z+Math.sin(angle+Math.PI/2)*offset];};
+    for(const offset of [-13,13]){
+      const a=point(45,300,offset),b=point(220,-155,offset),c=point(290,-400,offset);
+      beam(g,a,b,14,14,"alloy").name="Tubo doble superior / cota aproximada";
+      beam(g,b,c,10,10,"alloy").name="Sección telescópica / no ajuste habilitado";
+    }
+    const lower=point(260,-295);block(g,"Cierre de sección",[44,17,30],lower,"dark",2,[0,-angle,0]);
+    cylinder(g,"Pie antideslizante / apoyo no certificado",22,24,point(295,-413),"rubber","y",16);
+    beam(g,point(10,-230),point(242,-230),10,12,"dark").name="Separador medio incluido";
+  }
+  cylinder(g,"Centro del separador",22,18,[0,-230,0],"dark","y",16);
+}
+
+export const productAuthors = { sel35f18f, coldShoeMonitorMount, natoTopHandle, locatingSideHandle, basicShoulderKit, fluidTripod };
 
 export function visualAuthor(node) {
   if (node.model_authoring && node.model_authoring !== "pilot") {
@@ -434,7 +461,7 @@ export function finalizeVisual(g, node) {
     if (!geom) throw new Error("No se pudo consolidar " + node.id);
     geom.deleteAttribute("uv"); geom.normalizeNormals();
     // Las mallas nuevas no usan texturas: soldar duplicados de UV conserva caras y normales.
-    if (["coldShoeMonitorMount", "natoTopHandle", "locatingSideHandle", "basicShoulderKit"].includes(node.model_authoring)) {
+    if (["coldShoeMonitorMount", "natoTopHandle", "locatingSideHandle", "basicShoulderKit", "fluidTripod"].includes(node.model_authoring)) {
       const welded = mergeVertices(geom, 1e-8); geom.dispose(); geom = welded;
     }
     const mesh = new Mesh(geom, materials[key.split("/").at(-1)]); mesh.name = node.id + "/" + key; out.add(mesh);

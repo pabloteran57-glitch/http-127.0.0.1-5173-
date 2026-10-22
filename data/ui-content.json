@@ -38,7 +38,8 @@
     "smallrig-2905b": "SmallRig 2905B · soporte de zapata",
     "smallrig-4152": "SmallRig 4152 · asa NATO",
     "smallrig-4346": "4346 · empuñadura lateral",
-    "smallrig-2896c": "2896C · kit de hombro"
+    "smallrig-2896c": "2896C · kit de hombro",
+    "smallrig-3751b": "AD-01 3751B · trípode"
   },
   "profile_hints": {
     "documentary-one-man-film": "Cámara, monitor lateral y audio para un solo operador.",
@@ -233,7 +234,8 @@
       "smallrig-2905b": "Monitor en zapata libre de jaula o asa",
       "smallrig-4152": "Agarre superior y zapata frontal para monitor",
       "smallrig-4346": "Agarre lateral con adaptador incluido",
-      "smallrig-2896c": "Base, apoyo, varillas y dos agarres incluidos"
+      "smallrig-2896c": "Base, apoyo, varillas y dos agarres incluidos",
+      "smallrig-3751b": "Trípode, cabezal y placa incluidos. Primera cadena estática FX3 horizontal; no brazo de gimbal."
     }
   },
   "language": "es"

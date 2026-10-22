@@ -1169,6 +1169,41 @@
       "placement": "Placa bajo cámara, apoyo hacia atrás y dos agarres hacia delante. No posición corporal validada.",
       "rationale": "Cadena completa del manual sin sumar base ni varillas cortas del gimbal.",
       "rejected": "Apilar 1674, duplicar la masa de barras/agarres o usar batería como contrapeso sin evidencia."
+    },
+    {
+      "id": "smallrig-3751b",
+      "label": "AD-01 3751B · soporte estático",
+      "kind": "tripodSupport",
+      "model_authoring": "fluidTripod",
+      "rotation_deg": [
+        0,
+        0,
+        0
+      ],
+      "parent_id": null,
+      "dimension_source_url": "https://www.smallrig.com/smallrig-heavy-duty-fluid-head-tripod-ad-01-3751b.html?sku=3751B&skuId=1711937306631409666",
+      "position_mm": [
+        0,
+        -473,
+        0
+      ],
+      "size_xyz_mm": [
+        680,
+        850,
+        680
+      ],
+      "explode_mm": [
+        0,
+        -200,
+        0
+      ],
+      "envelope": "approximate",
+      "mass_domain": "fixed",
+      "mount": "Placa y tornillo 1/4-20 incluidos bajo 4770; seguro y bloqueo del cabezal según manual.",
+      "placement": "Debajo del núcleo; apoyo superior visual cerca de -51 mm, alineado aproximadamente con cara inferior de jaula. Altura ilustrativa 850 mm; suelo y huella estimados, no coordenadas mecánicas.",
+      "orientation": "Cabezal nivelado con cámara horizontal; palanca hacia operador. Apertura de patas estimada, sin ajuste libre.",
+      "rationale": "Kit estático completo contado una sola vez; no depende del brazo de gimbal ni de otra placa implícita.",
+      "rejected": "Usar masa de 4 kg como carga sobre cabezal, asumir retención RS4/Arca o representar huella plegada como abierta."
     }
   ],
   "clearance_gates": [
@@ -1476,6 +1511,20 @@
       "overrides": {
         "smallrig-4770": {
           "parent_id": "smallrig-2896c"
+        }
+      }
+    },
+    {
+      "id": "fx3-static-3751b",
+      "context": "static",
+      "require_all": [
+        "smallrig-3751b",
+        "smallrig-4770",
+        "sony-fx3"
+      ],
+      "overrides": {
+        "smallrig-4770": {
+          "parent_id": "smallrig-3751b"
         }
       }
     }

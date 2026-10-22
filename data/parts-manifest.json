@@ -1521,6 +1521,54 @@
         "Tornillo 1/4-20 ×2",
         "Llave hexagonal ×2"
       ]
+    },
+    {
+      "id": "smallrig-3751b",
+      "exact_product_name": "SmallRig Heavy-Duty Fluid Head Tripod AD-01",
+      "model_number": "3751B",
+      "brand": "SmallRig",
+      "category": "tripod support",
+      "verified_dimensions_mm": {
+        "length": null,
+        "width": null,
+        "height": null,
+        "approximate": true,
+        "note": "Altura de trabajo publicada 850-1860 mm, no dimensiones de envolvente. Huella abierta, placa y cabezal sin cotas verificadas; no usar dimensiones plegadas como huella."
+      },
+      "verified_weight_g": {
+        "value": 4000,
+        "approximate": false,
+        "note": "Masa neta del kit en la ficha 3751B. No masa de carga sobre el cabezal ni pesaje instalado.",
+        "source_url": "https://www.smallrig.com/smallrig-heavy-duty-fluid-head-tripod-ad-01-3751b.html?sku=3751B&skuId=1711937306631409666",
+        "checked_on": "2026-10-21"
+      },
+      "planning_weight_g": 4000,
+      "ports_interfaces": [
+        "Placa incluida con tornillos 1/4-20 y 3/8-16; usar sólo el correspondiente al receptor",
+        "Bloqueo y seguro de placa; cabezal de paneo e inclinación",
+        "Cazoleta y nivelación del conjunto según manual; diámetro de asiento no usado para añadir adaptadores"
+      ],
+      "mounting_method": "Placa incluida atornillada a la rosca inferior 1/4-20 de 4770, con kit apoyado; bloquear placa y seguro según manual páginas 18-19. Inferencia de interfaces separadas, no pareja certificada.",
+      "likely_material": "Aleación de aluminio publicada; elastómeros y subcomponentes de la reconstrucción sólo aproximados.",
+      "mandatory_or_optional": "optional",
+      "rig_role": "Primer soporte estático candidato FX3/16-35 GM/4770 y NP-FZ100. Kit completo contado una vez.",
+      "physical_constraints": [
+        "Ficha: patas 8 kg y cabezal 6 kg. Planificar con el límite inferior de 6 kg sin inferir estabilidad, contrabalance ni seguridad por masa.",
+        "Sólo horizontal/estático con núcleo y accesorios acotados. Sin 1674, barras, V-mount, XLR-H1, gimbal, hombro u otros cuerpos/ópticas en esta primera revisión.",
+        "Manual páginas 18-21: placa, seguro, paneo e inclinación. RS 2 y Manfrotto no prueban intercambio rápido con RS 4 Pro ni Arca/HawkLock.",
+        "Huella abierta, posición de tornillo, profundidad y antitorsión sin medir. Modelo a altura ilustrativa de 850 mm con apertura estimada, no topes, carga lateral o colisiones certificadas.",
+        "La ficha publica 4 kg, +90/-60 grados; artículos comerciales de la marca muestran cifras distintas. No fusionar 3751/3751B/5523 ni habilitar movimiento de cabezal a partir de esas discrepancias.",
+        "Comprobar suelo, cierres de cada sección, separador, nivelación, seguro, contrabalance y todo el recorrido de cables con cámara sujeta. No dejar sin supervisión."
+      ],
+      "primary_source_url": "https://static.smallrig.com/mall/img/public/1728961635390_.pdf",
+      "secondary_source_url": null,
+      "confidence_level": "medium",
+      "bundle_includes": [
+        "Trípode con cabezal y placa ×1",
+        "Tornillo 1/4-20 y tornillo 3/8-16 de placa; usar sólo el adecuado",
+        "Palanca de paneo; separador y cierres según manual",
+        "Bolsa y herramienta incluidas según ficha; no se representan como carga instalada"
+      ]
     }
   ]
 }

@@ -9,6 +9,7 @@ Inventario inicial de montaje SmallRig/Tilta; no catálogo completo ni piezas se
 - SmallRig 2905B · soporte de zapata; SmallRig 4152 · asa NATO: selección, soporte, conexiones, guía y mallas propias integrados como candidatos de planificación. No ensayo físico ni catálogo completo. [Expediente](catalog-promotions.md).
 - 4346 · empuñadura lateral: selección, soporte, conexiones, guía y mallas propias integrados como candidatos de planificación. No ensayo físico ni catálogo completo. [Expediente](catalog-promotions.md).
 - 2896C · kit de hombro: selección, soporte, conexiones, guía y mallas propias integrados como candidatos de planificación. No ensayo físico ni catálogo completo. [Expediente](catalog-promotions.md).
+- AD-01 3751B · trípode: selección, soporte, conexiones, guía y mallas propias integrados como candidatos de planificación. No ensayo físico ni catálogo completo. [Expediente](catalog-promotions.md).
 
 ## Prioridad y cobertura
 

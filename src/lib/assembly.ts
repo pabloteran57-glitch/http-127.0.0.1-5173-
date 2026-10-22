@@ -4,7 +4,7 @@ export function assemblyTimeline(variant: Variant, rules: PlannerRules, cables: 
   const active = new Set(variant.active_part_ids);
   const circuits = new Set(variant.cable_profile_ids);
   if (!rules.camera_part_ids.some(id => active.has(id))) return [];
-  const profile=rules.assembly_profiles?.find(profile=>active.has(profile.camera_part_id)&&(!profile.context||profile.context===variant.viewer.rig_context));
+  const profile=rules.assembly_profiles?.find(profile=>active.has(profile.camera_part_id)&&(!profile.context||profile.context===variant.viewer.rig_context)&&(profile.require_all??[]).every(id=>active.has(id)));
   const steps=profile?content.profiles?.find(item=>item.id===profile.id)?.steps:content.steps;
   const frames=profile?.frames??rules.assembly_frames;
   if(!steps)return [];

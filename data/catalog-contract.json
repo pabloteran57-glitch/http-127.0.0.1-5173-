@@ -43,6 +43,12 @@
       ],
       "assembly_profiles": [
         {
+          "id": "fx3-static-3751b",
+          "steps": [
+            1
+          ]
+        },
+        {
           "id": "fx3-shoulder-2896c",
           "steps": [
             1
@@ -78,6 +84,12 @@
       ],
       "assembly_profiles": [
         {
+          "id": "fx3-static-3751b",
+          "steps": [
+            1
+          ]
+        },
+        {
           "id": "fx3-shoulder-2896c",
           "steps": [
             1
@@ -98,6 +110,12 @@
         2
       ],
       "assembly_profiles": [
+        {
+          "id": "fx3-static-3751b",
+          "steps": [
+            2
+          ]
+        },
         {
           "id": "fx3-shoulder-2896c",
           "steps": [
@@ -181,6 +199,12 @@
         6
       ],
       "assembly_profiles": [
+        {
+          "id": "fx3-static-3751b",
+          "steps": [
+            4
+          ]
+        },
         {
           "id": "fx3-shoulder-2896c",
           "steps": [
@@ -287,6 +311,12 @@
       ],
       "assembly_profiles": [
         {
+          "id": "fx3-static-3751b",
+          "steps": [
+            6
+          ]
+        },
+        {
           "id": "fx3-shoulder-2896c",
           "steps": [
             6
@@ -339,6 +369,12 @@
         9
       ],
       "assembly_profiles": [
+        {
+          "id": "fx3-static-3751b",
+          "steps": [
+            7
+          ]
+        },
         {
           "id": "fx3-shoulder-2896c",
           "steps": [
@@ -441,6 +477,12 @@
       ],
       "assembly_profiles": [
         {
+          "id": "fx3-static-3751b",
+          "steps": [
+            4
+          ]
+        },
+        {
           "id": "fx3-shoulder-2896c",
           "steps": [
             4
@@ -481,6 +523,12 @@
         11
       ],
       "assembly_profiles": [
+        {
+          "id": "fx3-static-3751b",
+          "steps": [
+            5
+          ]
+        },
         {
           "id": "fx3-shoulder-2896c",
           "steps": [
@@ -546,6 +594,12 @@
         1
       ],
       "assembly_profiles": [
+        {
+          "id": "fx3-static-3751b",
+          "steps": [
+            1
+          ]
+        },
         {
           "id": "fx3-shoulder-2896c",
           "steps": [
@@ -657,6 +711,25 @@
       "assembly_profiles": [
         {
           "id": "fx3-shoulder-2896c",
+          "steps": [
+            3
+          ]
+        }
+      ],
+      "release_status": "planning_candidate",
+      "physically_tested": false
+    },
+    {
+      "part_id": "smallrig-3751b",
+      "record_revision": "fx3-rs4-2026-10-05",
+      "model_number": "3751B",
+      "identity_source_url": "https://static.smallrig.com/mall/img/public/1728961635390_.pdf",
+      "geometry_profile_id": "smallrig-3751b",
+      "geometry_status": "approximate",
+      "assembly_steps": [],
+      "assembly_profiles": [
+        {
+          "id": "fx3-static-3751b",
           "steps": [
             3
           ]

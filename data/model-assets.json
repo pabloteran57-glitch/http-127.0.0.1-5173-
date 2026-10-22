@@ -1502,6 +1502,66 @@
         "mechanical_accuracy": "approximate",
         "ports_authority": "ports-manifest.json"
       }
+    },
+    {
+      "id": "smallrig-3751b-takegrid-v1",
+      "part_id": "smallrig-3751b",
+      "subcomponent_id": null,
+      "exact_product_name": "SmallRig Heavy-Duty Fluid Head Tripod AD-01",
+      "model_number": "3751B",
+      "status": "approved",
+      "source": {
+        "method": "manual",
+        "url": "https://github.com/pabloteran57-glitch/http-127.0.0.1-5173-/blob/main/scripts/lib/authored-models.mjs",
+        "author": "Takegrid / reconstrucción propia en código"
+      },
+      "rights": {
+        "license": "custom-reviewed",
+        "evidence_url": "https://github.com/pabloteran57-glitch/http-127.0.0.1-5173-/blob/main/docs/authored-model-rights.md",
+        "reviewed_on": "2026-10-21",
+        "commercial": true,
+        "redistribution": true,
+        "modification": true,
+        "source_images_authorized": false,
+        "source_images_evidence": "No usa imágenes, texturas ni archivos ajenos en el GLB; referencias de fabricante consultadas localmente, no cargadas a IA ni redistribuidas.",
+        "attribution": "3751B: reconstrucción propia Takegrid, 2026; altura ilustrativa y huella aproximada, no CAD ni respaldo del fabricante."
+      },
+      "artifact": {
+        "path": "/models/smallrig-3751b-takegrid-v1.glb",
+        "sha256": "cfa3c423bcbf9f34b54a84693ae460a5c9a9c2063d8d59ce16883cdee2f26885",
+        "bytes": 315208,
+        "triangles": 6676
+      },
+      "calibration": {
+        "units": "metres",
+        "uniform_scale": 1,
+        "offset_mm": [
+          0,
+          0,
+          0
+        ],
+        "rotation_deg": [
+          0,
+          0,
+          0
+        ],
+        "bounds_mm": [
+          554.955005645752,
+          847.5500047206879,
+          645.5679535865784
+        ],
+        "reference_url": "https://static.smallrig.com/mall/img/public/1728961635390_.pdf",
+        "reference_basis": "Cinco vistas cotejadas visualmente con manual 3751B páginas 12-21 el 2026-10-21. Altura ilustrativa 850 mm; malla 554.96 ×847.55 ×645.57 mm. Huella, palanca, placa, cazoleta, secciones y asientos estimados; no escala mecánica abierta verificada. No usa dimensiones plegadas ni de embalaje."
+      },
+      "review": {
+        "identity": true,
+        "scale": true,
+        "views": true,
+        "interfaces": true,
+        "evidence": "Cinco vistas propias en research/model-incoming/static-0219/model-review.png: tres patas dobles, separador medio, cabezal, placa y palanca. Cotas de detalles, cierre, seguridad, retención, huella y pivotes aproximados; sin ensayo físico.",
+        "mechanical_accuracy": "approximate",
+        "ports_authority": "ports-manifest.json"
+      }
     }
   ]
 }

@@ -57,7 +57,12 @@
       "brand": "DJI",
       "type": "official",
       "url": "https://store.dji.com/product/dji-rs-bg70-high-capacity-battery-grip",
-      "notes": "Autonomía, rango de tensión, energía y salida USB-C de accesorios del BG70."
+      "notes": "Autonomía, rango de tensión, energía y salida USB-C de accesorios del BG70.",
+      "review_subject_part_ids": [
+        "dji-rs-bg70",
+        "dji-rs4-pro-combo"
+      ],
+      "checked_on": "2026-10-21"
     },
     {
       "id": "src-dji-lidar",
@@ -85,7 +90,12 @@
       "brand": "DJI",
       "type": "official",
       "url": "https://store.dji.com/product/dji-lavalier-mic",
-      "notes": "Confirma compatibilidad con DJI Mic 2."
+      "notes": "Confirma compatibilidad con DJI Mic 2.",
+      "review_subject_part_ids": [
+        "dji-lavalier",
+        "dji-mic-2-kit"
+      ],
+      "checked_on": "2026-10-21"
     },
     {
       "id": "src-dji-ronin-app",
@@ -254,8 +264,11 @@
       "brand": "StarTech",
       "type": "official",
       "url": "https://media.startech.com/cms/pdfs/st122hd4ku_datasheet.pdf",
-      "checked_on": "2026-10-05",
-      "notes": "Producto de 72 g, entrada HDMI cautiva, dos salidas y alimentación de 5 V. Los 620 mm incluyen el cable, no sólo la carcasa."
+      "checked_on": "2026-10-21",
+      "notes": "Producto de 72 g, entrada HDMI cautiva, dos salidas y alimentación de 5 V. Los 620 mm incluyen el cable, no sólo la carcasa.",
+      "review_subject_part_ids": [
+        "startech-st122hd4ku"
+      ]
     },
     {
       "id": "src-smallhd-cable-bh",
@@ -278,8 +291,11 @@
       "brand": "DJI",
       "type": "official",
       "url": "https://repair.dji.com/help/content?customId=en-us03400007678&lang=en&re=US&spaceId=34",
-      "checked_on": "2026-10-05",
-      "notes": "Entrada de transmisor 1080p/720p, no 1080i. Probar frecuencia progresiva y EDID."
+      "checked_on": "2026-10-21",
+      "notes": "Entrada de transmisor 1080p/720p, no 1080i. Probar frecuencia progresiva y EDID.",
+      "review_subject_part_ids": [
+        "dji-ronin-image-transmitter"
+      ]
     },
     {
       "id": "src-mic2-manual",
@@ -392,14 +408,22 @@
       "brand": "DJI",
       "type": "official",
       "url": "https://www.dji.com/focus-pro/specs",
-      "notes": "Revisión de identidad y especificaciones; confianza y datos pendientes registrados por pieza."
+      "notes": "Revisión de identidad y especificaciones; confianza y datos pendientes registrados por pieza.",
+      "review_subject_part_ids": [
+        "dji-focus-pro-lidar"
+      ],
+      "checked_on": "2026-10-21"
     },
     {
       "id": "audit-dji-focus-pro-motor",
       "brand": "DJI",
       "type": "official",
       "url": "https://www.dji.com/focus-pro/specs",
-      "notes": "Revisión de identidad y especificaciones; confianza y datos pendientes registrados por pieza."
+      "notes": "Revisión de identidad y especificaciones; confianza y datos pendientes registrados por pieza.",
+      "review_subject_part_ids": [
+        "dji-focus-pro-motor"
+      ],
+      "checked_on": "2026-10-21"
     },
     {
       "id": "audit-dji-lidar-transmission-hub",
@@ -1349,6 +1373,65 @@
         "support-tilta-ta-lsr-b"
       ],
       "notes": "Folleto oficial 2023 con 1.7 kg para TA-LSR-B frente a 7.7 lb en web. Discrepancia de revisión/alcance por resolver; masa y cotas netas no adoptadas para geometría. No permiso de reproducción de imágenes."
+    },
+    {
+      "id": "src-sony-fx3-av-guide",
+      "brand": "Sony",
+      "type": "official",
+      "url": "https://helpguide.sony.net/ilc/2210/v1/en/print.pdf",
+      "review_subject_part_ids": [
+        "sony-fx3",
+        "sony-xlr-h1"
+      ],
+      "checked_on": "2026-10-21",
+      "notes": "Guía FX3 Ver.2 o posterior: Sides, XLR handle unit, Recording audio using the XLR adaptor y Specifications. INPUT3 cambia de canales según INPUT SELECT; conectar MIC del cuerpo desactiva audio del asa. Sin ensayo ni coordenadas nuevas."
+    },
+    {
+      "id": "src-dji-rs4-accessory-ports",
+      "brand": "DJI",
+      "type": "official",
+      "url": "https://www.dji.com/rs-4-pro/specs",
+      "review_subject_part_ids": [
+        "dji-rs4-pro-combo",
+        "dji-ronin-image-transmitter"
+      ],
+      "checked_on": "2026-10-21",
+      "notes": "Puertos de accesorios RS 4 Pro y tabla específica del Ronin Image Transmitter: Mini HDMI y batería interna. No usar tensión de batería como pinout de USB-C."
+    },
+    {
+      "id": "src-dji-raveneye-store",
+      "brand": "DJI",
+      "type": "official",
+      "url": "https://store.dji.com/product/ronin-raveneye-image-transmission-system",
+      "review_subject_part_ids": [
+        "dji-ronin-image-transmitter",
+        "dji-hdmi-a-to-c"
+      ],
+      "checked_on": "2026-10-21",
+      "notes": "In The Box: cable Mini-HDMI a HDMI de 20 cm. No es cable USB-C ni prueba de recorrido sobre un rig."
+    },
+    {
+      "id": "src-smallrig-3751b",
+      "brand": "SmallRig",
+      "type": "official",
+      "url": "https://www.smallrig.com/smallrig-heavy-duty-fluid-head-tripod-ad-01-3751b.html?sku=3751B&skuId=1711937306631409666",
+      "checked_on": "2026-10-21",
+      "review_subject_part_ids": [
+        "smallrig-3751b"
+      ],
+      "notes": "Ficha exacta 3751B: masa neta 4 kg, patas 8 kg, cabezal 6 kg, aluminio, altura de trabajo 850-1860 mm. Huella abierta sin cotas. Discrepancias comerciales preservadas, no promediar."
+    },
+    {
+      "id": "src-smallrig-3751b-manual",
+      "brand": "SmallRig",
+      "type": "official",
+      "url": "https://static.smallrig.com/mall/img/public/1728961635390_.pdf",
+      "checked_on": "2026-10-21",
+      "review_subject_part_ids": [
+        "smallrig-3751b"
+      ],
+      "sha256": "12ff71c2a57c7c474a39119ccc693dc0c50e106ce31f6cdc90fa2b24b157b422",
+      "notes": "PDF 22 páginas revisado visualmente: 12-13 identidad/componentes, 14 apertura, 18 tornillos de placa, 19 seguro, 20 paneo/inclinación, 21 modo RS2. Copia privada; sin redistribución. No CAD."
     }
   ],
   "audit_on": "2026-10-17"

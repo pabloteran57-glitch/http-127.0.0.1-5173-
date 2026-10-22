@@ -1,6 +1,6 @@
 # Manifiesto verificado de piezas
 
-Generado desde `data/parts-manifest.json`. Auditoría 2026-10-06. 25 productos solicitados y 2 componentes del Combo conservados, más 3 accesorios de monitor y 8 altas acotadas: 38 entradas.
+Generado desde `data/parts-manifest.json`. Auditoría 2026-10-06. 25 productos solicitados y 2 componentes del Combo conservados, más 3 accesorios de monitor y 9 altas acotadas: 39 entradas.
 
 Plan de ingeniería, no montaje certificado. Medidas publicadas no prueban forma exacta, enganche de tornillos, equilibrio, rigidez, holguras ni compatibilidad de toda la pila. Fotos y geometría aproximada no son CAD calibrado.
 
@@ -725,3 +725,22 @@ Plan de ingeniería, no montaje certificado. Medidas publicadas no prueban forma
 - Restricciones: Cámara, jaula, óptica, monitor y baterías no incluidos. Kit incluye base, dos agarres, dos barras de 400 mm y una transversal de 300 mm.; No apilar 1674 ni barras de ocho pulgadas: alcance actual sin combinación con esas bases, V-mount, XLR, gimbal o enfoque externo.; No inferir separación LWS ni altura de eje de 85 mm del diámetro de varilla. Espaciado de la malla es sólo estimado desde el diagrama.; Posición del hombro, centro de masa real, postura, línea de visión del monitor y acceso a controles deben medirse con el operador. No se simula cuerpo ni equilibrio.; Guía separada: montar accesorios sobre varillas antes de cerrar ambos extremos. Apoyar el rig antes de aflojar tornillos o retirar cámara.; No extracción en un clic: la cámara/jaula se retira desatornillando placa con el conjunto apoyado. Mantener asa, manos y cables fuera de la cara.; Sólo planificación horizontal FX3 con batería nativa; otros cuerpos y configuraciones se conservan pendientes.
 - Confianza: Media.
 - [Fuente principal](https://static.smallrig.com/mall/img/public/1718071886940_.pdf)
+
+## AD-01 3751B · trípode
+
+- ID: `smallrig-3751b`
+- Nombre oficial del fabricante: SmallRig Heavy-Duty Fluid Head Tripod AD-01.
+- Modelo: 3751B; fabricante: SmallRig; categoría: tripod support.
+- Medidas publicadas L/W/H: pendiente / pendiente / pendiente mm. Aproximadas/incompletas: sí.
+- Nota de dimensiones: Altura de trabajo publicada 850-1860 mm, no dimensiones de envolvente. Huella abierta, placa y cabezal sin cotas verificadas; no usar dimensiones plegadas como huella.
+- Masa publicada: 4000 g. Aproximada: no.
+- Nota de masa: Masa neta del kit en la ficha 3751B. No masa de carga sobre el cabezal ni pesaje instalado.
+- Fuente de masa: [SmallRig](https://www.smallrig.com/smallrig-heavy-duty-fluid-head-tripod-ad-01-3751b.html?sku=3751B&skuId=1711937306631409666).
+- Masa de planificación: 4000 g; no sustituye pesaje del subconjunto instalado.
+- Interfaces: Placa incluida con tornillos 1/4-20 y 3/8-16; usar sólo el correspondiente al receptor; Bloqueo y seguro de placa; cabezal de paneo e inclinación; Cazoleta y nivelación del conjunto según manual; diámetro de asiento no usado para añadir adaptadores
+- Montaje: Placa incluida atornillada a la rosca inferior 1/4-20 de 4770, con kit apoyado; bloquear placa y seguro según manual páginas 18-19. Inferencia de interfaces separadas, no pareja certificada.
+- Material: Aleación de aluminio publicada; elastómeros y subcomponentes de la reconstrucción sólo aproximados.
+- Obligatorio/opcional: Opcional; función: Primer soporte estático candidato FX3/16-35 GM/4770 y NP-FZ100. Kit completo contado una vez..
+- Restricciones: Ficha: patas 8 kg y cabezal 6 kg. Planificar con el límite inferior de 6 kg sin inferir estabilidad, contrabalance ni seguridad por masa.; Sólo horizontal/estático con núcleo y accesorios acotados. Sin 1674, barras, V-mount, XLR-H1, gimbal, hombro u otros cuerpos/ópticas en esta primera revisión.; Manual páginas 18-21: placa, seguro, paneo e inclinación. RS 2 y Manfrotto no prueban intercambio rápido con RS 4 Pro ni Arca/HawkLock.; Huella abierta, posición de tornillo, profundidad y antitorsión sin medir. Modelo a altura ilustrativa de 850 mm con apertura estimada, no topes, carga lateral o colisiones certificadas.; La ficha publica 4 kg, +90/-60 grados; artículos comerciales de la marca muestran cifras distintas. No fusionar 3751/3751B/5523 ni habilitar movimiento de cabezal a partir de esas discrepancias.; Comprobar suelo, cierres de cada sección, separador, nivelación, seguro, contrabalance y todo el recorrido de cables con cámara sujeta. No dejar sin supervisión.
+- Confianza: Media.
+- [Fuente principal](https://static.smallrig.com/mall/img/public/1728961635390_.pdf)

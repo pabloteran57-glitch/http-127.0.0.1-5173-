@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "reviewed_on": "2026-10-18",
+  "reviewed_on": "2026-10-21",
   "scope": "Altas aditivas posteriores al piloto. No sustituye partes, reglas, distribución ni conexiones. Sin ensayos físicos; no modifica plantillas o bibliotecas.",
   "promotions": [
     {
@@ -491,6 +491,98 @@
       "regression_scripts": [
         "scripts/test-support-integration.mjs",
         "scripts/test-setup-coverage.mjs"
+      ]
+    },
+    {
+      "id": "static-support-0219",
+      "version": "0.2.19",
+      "part_ids": [
+        "smallrig-3751b"
+      ],
+      "reviewed_on": "2026-10-21",
+      "status": "planning_candidate",
+      "phase_order": [
+        "manifest",
+        "layout",
+        "cables_power",
+        "assembly",
+        "viewer",
+        "variants"
+      ],
+      "source_ids": [
+        "src-smallrig-3751b",
+        "src-smallrig-3751b-manual",
+        "audit-doc-smallrig-4770-manual"
+      ],
+      "physical_validation": {
+        "status": "pending",
+        "observations": []
+      },
+      "examples": [
+        {
+          "id": "fx3-static-monitor-audio",
+          "context": "static",
+          "orientation": "landscape",
+          "part_ids": [
+            "sony-fx3",
+            "sony-fe-16-35-gm",
+            "smallrig-4770",
+            "smallrig-3751b",
+            "sony-np-fz100",
+            "smallrig-2906b",
+            "smallhd-indie-7",
+            "sony-np-f970-pro",
+            "kondor-blue-hdmi-aa",
+            "dji-mic-2-kit"
+          ],
+          "note": "Selección explícita de ejemplo; no plantilla nueva ni prueba física."
+        }
+      ],
+      "layout": "Soporte estático bajo jaula, huella y pivotes aproximados.",
+      "assembly": "Diez etapas propias filtradas; retirada opcional sin garantía RS4.",
+      "connections": "Sin nuevos puertos ni circuitos; batería nativa y monitor/RX optativos.",
+      "viewer": "Reconstrucción propia aproximada, revisión visual requerida antes de publicación.",
+      "variants": "No altera las siete plantillas ni bibliotecas.",
+      "regression_scripts": [
+        "scripts/test-static-support.mjs"
+      ],
+      "contexts": [
+        "static"
+      ],
+      "orientations": [
+        "landscape"
+      ],
+      "claims": [
+        {
+          "id": "3751b-interface-0",
+          "part_ids": [
+            "smallrig-4770",
+            "smallrig-3751b"
+          ],
+          "model_numbers": [
+            "4770",
+            "3751B"
+          ],
+          "source_id": "src-smallrig-3751b-manual",
+          "method": "documented_interfaces_inference",
+          "status": "candidate_not_manufacturer_pair",
+          "locator": "Manual 3751B páginas 18-19; manual 4770 página 4 inferior.",
+          "limitation": "Retención, profundidad y antitorsión pendientes; no par certificado.",
+          "interface_citations": [
+            {
+              "part_id": "smallrig-4770",
+              "source_id": "audit-doc-smallrig-4770-manual",
+              "interface": "Rosca inferior 1/4-20",
+              "locator": "Página 4, llamada inferior 1."
+            },
+            {
+              "part_id": "smallrig-3751b",
+              "source_id": "src-smallrig-3751b-manual",
+              "interface": "Tornillo 1/4-20 en placa incluida",
+              "locator": "Página 18."
+            }
+          ]
+        }
       ]
     }
   ],

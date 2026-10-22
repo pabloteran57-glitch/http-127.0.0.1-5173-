@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "reviewed_on": "2026-10-18",
+  "reviewed_on": "2026-10-21",
   "scope": "Cobertura exigida para nuevas configuraciones; no una lista de compras ni compatibilidad automática.",
   "policy": "Toda pieza necesaria debe estar elegida o señalada como pendiente. Ofrecer adiciones explícitas y registrar tornillería incluida sin duplicar masa.",
   "families": [
@@ -17,7 +17,7 @@
     {
       "id": "primary_support",
       "label": "Soporte principal",
-      "required_check": "Gimbal y empuñadura, trípode/cabezal/placa o apoyo de hombro según uso. El contexto estático actual no certifica trípode completo."
+      "required_check": "Gimbal y empuñadura, trípode/cabezal/placa o apoyo de hombro según uso. 3751B tiene una cadena estática candidata acotada; no certifica estabilidad."
     },
     {
       "id": "grips_and_human_clearance",
@@ -93,9 +93,9 @@
     },
     {
       "id": "static",
-      "status": "camera_accessories_only_complete_tripod_chain_pending",
+      "status": "fx3_3751b_planning_candidate_physical_checks_pending",
       "pending_intake_ids": [],
-      "note": "Añadir en lote propio patas, cabezal, receptor y placa exacta; no dibujar trípode implícito."
+      "note": "Primer conjunto estático FX3/16-35 GM/4770/3751B/NP-FZ100: kit completo elegido explícitamente. Monitor NATO/serie L y RX opcionales; otros montajes pendientes, sin estabilidad certificada."
     }
   ],
   "catalog_complete": false,

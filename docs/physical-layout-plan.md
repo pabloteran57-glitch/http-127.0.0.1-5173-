@@ -346,6 +346,18 @@ En gimbal conservar 3026B lateral fijo. A mano/estática usar 2906B sobre NATO 4
 - Rechazado: Apilar 1674, duplicar la masa de barras/agarres o usar batería como contrapeso sin evidencia.
 - [Referencia de medidas](https://static.smallrig.com/mall/img/public/1718071886940_.pdf)
 
+## AD-01 3751B · soporte estático
+
+- Posición candidata XYZ: 0 / -473 / 0 mm; rotación XYZ: 0 / 0 / 0 grados.
+- Envolvente XYZ: 680 / 850 / 680 mm; estado: Medidas aproximadas. Una envolvente publicada no verifica los detalles internos.
+- Dominio de carga: Carga fija; soporte candidato: raíz/sujeción externa no modelada.
+- Colocación: Debajo del núcleo; apoyo superior visual cerca de -51 mm, alineado aproximadamente con cara inferior de jaula. Altura ilustrativa 850 mm; suelo y huella estimados, no coordenadas mecánicas.
+- Orientación: Cabezal nivelado con cámara horizontal; palanca hacia operador. Apertura de patas estimada, sin ajuste libre.
+- Montaje: Placa y tornillo 1/4-20 incluidos bajo 4770; seguro y bloqueo del cabezal según manual.
+- Motivo: Kit estático completo contado una sola vez; no depende del brazo de gimbal ni de otra placa implícita.
+- Rechazado: Usar masa de 4 kg como carga sobre cabezal, asumir retención RS4/Arca o representar huella plegada como abierta.
+- [Referencia de medidas](https://www.smallrig.com/smallrig-heavy-duty-fluid-head-tripod-ad-01-3751b.html?sku=3751B&skuId=1711937306631409666)
+
 
 ## Componentes sin montaje 3D habilitado
 

@@ -386,3 +386,6 @@ html:has(.direct-builder[open]){overflow:hidden}
 .travel-fields input { width:100%; min-height:44px; margin-top:7px; padding:8px; background:#142024; color:#fff; border:1px solid #456166; border-radius:8px; }
 .measured-travel .inline-check { align-items:flex-start; font-size:12px; line-height:1.5; margin-bottom:16px; }
 @media(max-width:600px) { .adjustment-dialog { inset:auto 8px 8px 8px; width:auto; max-width:none; max-height:54svh; padding:16px; } .adjustment-dialog .dialog-heading { margin-bottom:10px; } .adjustment-slider { margin:12px 0; } }
+.support-framing {position:absolute;z-index:4;top:58px;left:18px;display:flex;gap:6px;flex-wrap:wrap;max-width:calc(100% - 36px)}
+.support-framing button {background:#172024e8;font-size:11px;padding:7px 10px}
+.support-framing button[aria-pressed="true"] {color:#c9eedf;border-color:#6ca98d}

@@ -1381,6 +1381,284 @@
           ]
         }
       ]
+    },
+    {
+      "id": "fx3-static-3751b",
+      "steps": [
+        {
+          "number": 1,
+          "title": "Preparar FX3, óptica y batería",
+          "kind": "mount",
+          "requires_any": [],
+          "note": "Guía estática 3751B; piezas y transiciones aproximadas, no trayectoria de acople.",
+          "rebalance": "Apoyar y sujetar cámara antes de cambiar carga. Reajustar placa/cabezal y comprobar estabilidad y retención con todas las piezas presentes.",
+          "blocks": [
+            {
+              "part_ids": [
+                "sony-fx3"
+              ],
+              "mount": "Preparar el cuerpo elegido.",
+              "where": "Núcleo de cámara.",
+              "verify": [
+                "Revisar firmware, tarjetas y modo de grabación."
+              ]
+            },
+            {
+              "part_ids": [
+                "sony-np-fz100"
+              ],
+              "require_all": [
+                "sony-fx3"
+              ],
+              "unless_any": [
+                "smallrig-4253b"
+              ],
+              "mount": "Insertar la batería nativa elegida y previamente cargada contra la palanca de retención; cerrar cubierta y bloquear según Sony.",
+              "where": "Compartimento interno FX3; sin cable externo.",
+              "verify": [
+                "Cámara apagada y lámpara de acceso apagada antes de retirar batería",
+                "Comprobar retención, cierre, ventilación y acceso con la jaula real",
+                "No instalar simultáneamente el adaptador 4253B; la vista en despiece no es una trayectoria de inserción"
+              ]
+            },
+            {
+              "part_ids": [
+                "sony-fe-16-35-gm"
+              ],
+              "mount": "Instalar la óptica elegida.",
+              "where": "Montura Sony E del cuerpo.",
+              "verify": [
+                "Comprobar el bloqueo de la bayoneta y el recorrido del zoom."
+              ]
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "title": "Fijar la jaula HawkLock",
+          "kind": "mount",
+          "requires_any": [],
+          "note": "Guía estática 3751B; piezas y transiciones aproximadas, no trayectoria de acople.",
+          "rebalance": "Apoyar y sujetar cámara antes de cambiar carga. Reajustar placa/cabezal y comprobar estabilidad y retención con todas las piezas presentes.",
+          "blocks": [
+            {
+              "part_ids": [
+                "smallrig-4770"
+              ],
+              "mount": "Fijar la jaula elegida.",
+              "where": "Anclajes de cámara y anti-giro documentados por el fabricante.",
+              "verify": [
+                "Seguir el manual sin inventar pares de apriete; comprobar fijaciones y abrazadera HDMI."
+              ]
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "title": "Preparar trípode y fijar la placa",
+          "kind": "mount",
+          "requires_any": [],
+          "note": "Guía estática 3751B; piezas y transiciones aproximadas, no trayectoria de acople.",
+          "rebalance": "Apoyar y sujetar cámara antes de cambiar carga. Reajustar placa/cabezal y comprobar estabilidad y retención con todas las piezas presentes.",
+          "blocks": [
+            {
+              "part_ids": [
+                "smallrig-3751b"
+              ],
+              "require_all": [
+                "smallrig-4770"
+              ],
+              "source_ids": [
+                "src-smallrig-3751b-manual",
+                "audit-doc-smallrig-4770-manual"
+              ],
+              "mount": "Abrir patas y separador sobre suelo estable, bloquear secciones y nivelar. Retirar la placa con el conjunto apoyado; fijar su tornillo 1/4-20 bajo 4770. Sujetar cámara al insertar y bloquear placa y seguro.",
+              "where": "Placa incluida entre jaula y cabezal. No apilar 1674, Arca o plato de gimbal por parecido.",
+              "verify": [
+                "Manual 3751B páginas 14 y 18-19. Verificar profundidad útil, asiento y antitorsión; no usar tornillo 3/8 en receptor 1/4.",
+                "Confirmar cierres de patas, separador y nivel de cazoleta. No usar sin asegurar placa y seguro.",
+                "Carga de cabezal publicada 6 kg, patas 8 kg; masa de soporte 4 kg fuera de la carga superior. No prueba estabilidad lateral."
+              ]
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "title": "Añadir el monitor elegido",
+          "kind": "mount",
+          "requires_any": [],
+          "note": "Guía estática 3751B; piezas y transiciones aproximadas, no trayectoria de acople.",
+          "rebalance": "Apoyar y sujetar cámara antes de cambiar carga. Reajustar placa/cabezal y comprobar estabilidad y retención con todas las piezas presentes.",
+          "blocks": [
+            {
+              "part_ids": [
+                "smallrig-2906b",
+                "smallhd-indie-7"
+              ],
+              "require_all": [
+                "smallrig-2906b",
+                "smallhd-indie-7",
+                "smallrig-4770"
+              ],
+              "source_ids": [
+                "src-smallrig-2906b-manual"
+              ],
+              "mount": "Bloquear 2906B en NATO superior 4770 y fijar Indie 7 mediante su rosca inferior.",
+              "where": "Cadena NATO de la jaula, no brazo de gimbal ni varilla transversal de agarres.",
+              "verify": [
+                "Monitor hacia operador, sin invadir asa de paneo ni acceso a controles. Comprobar retención con batería y cables.",
+                "NATO 2906B sólo; no añadir brazo de gimbal. Pose aproximada y carga/rosca requieren ensayo."
+              ]
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "title": "Alimentar el monitor elegido",
+          "kind": "mount",
+          "requires_any": [],
+          "note": "Guía estática 3751B; piezas y transiciones aproximadas, no trayectoria de acople.",
+          "rebalance": "Apoyar y sujetar cámara antes de cambiar carga. Reajustar placa/cabezal y comprobar estabilidad y retención con todas las piezas presentes.",
+          "blocks": [
+            {
+              "part_ids": [
+                "sony-np-f970-pro"
+              ],
+              "require_all": [
+                "smallhd-indie-7"
+              ],
+              "mount": "Instalar la batería serie L elegida en la placa nativa del Indie 7 con equipos apagados.",
+              "where": "Contactos del monitor; no cable D-Tap ni barril DC.",
+              "verify": [
+                "Verificar retención y carga con la batería colocada. Cargador externo requerido; autonomía real pendiente."
+              ]
+            }
+          ]
+        },
+        {
+          "number": 6,
+          "title": "Colocar el receptor elegido",
+          "kind": "mount",
+          "requires_any": [],
+          "note": "Guía estática 3751B; piezas y transiciones aproximadas, no trayectoria de acople.",
+          "rebalance": "Apoyar y sujetar cámara antes de cambiar carga. Reajustar placa/cabezal y comprobar estabilidad y retención con todas las piezas presentes.",
+          "blocks": [
+            {
+              "part_ids": [
+                "dji-mic-2-kit"
+              ],
+              "require_all": [
+                "smallrig-4770"
+              ],
+              "mount": "Instalar sólo RX Mic 2 en zapata inclinada de 4770.",
+              "where": "Asiento independiente del NATO del monitor. TX y estuche fuera del rig.",
+              "verify": [
+                "Verificar retención, pantalla, antenas, rostro y acceso del operador. RX publicado 28 g, no masa del kit."
+              ]
+            }
+          ]
+        },
+        {
+          "number": 7,
+          "title": "Conectar vídeo",
+          "kind": "mount",
+          "requires_any": [],
+          "note": "Guía estática 3751B; piezas y transiciones aproximadas, no trayectoria de acople.",
+          "rebalance": "Apoyar y sujetar cámara antes de cambiar carga. Reajustar placa/cabezal y comprobar estabilidad y retención con todas las piezas presentes.",
+          "blocks": [
+            {
+              "part_ids": [
+                "kondor-blue-hdmi-aa"
+              ],
+              "cable_ids": [
+                "vid-fx3-to-smallhd"
+              ],
+              "mount": "Conectar HDMI A de FX3 a HDMI IN del Indie 7; asegurar la abrazadera de cámara sin comprimir el cable.",
+              "where": "Lateral del núcleo hacia el monitor, holgura local antes de cada conector.",
+              "verify": [
+                "Una sola salida HDMI FX3; no segundo destino implícito. Probar formato no RAW compatible.",
+                "Mantener bucle fuera de cara, manos y botones; curva y longitud del visor son aproximadas."
+              ]
+            }
+          ]
+        },
+        {
+          "number": 8,
+          "title": "Conectar y probar audio",
+          "kind": "mount",
+          "requires_any": [],
+          "note": "Guía estática 3751B; piezas y transiciones aproximadas, no trayectoria de acople.",
+          "rebalance": "Apoyar y sujetar cámara antes de cambiar carga. Reajustar placa/cabezal y comprobar estabilidad y retención con todas las piezas presentes.",
+          "blocks": [
+            {
+              "part_ids": [
+                "dji-mic-2-kit"
+              ],
+              "cable_ids": [
+                "audio-rx-to-fx3"
+              ],
+              "mount": "Conectar OUT del RX a MIC FX3 mediante TRS 3.5 mm incluido.",
+              "where": "Bucle local junto al cuerpo, no al INPUT3 de un asa ausente.",
+              "verify": [
+                "Escuchar, comprobar ambos canales y niveles. Probar retención sin tensar al mover pantalla o monitor."
+              ]
+            }
+          ]
+        },
+        {
+          "number": 9,
+          "title": "Comprobar estabilidad y movimiento",
+          "kind": "check",
+          "requires_any": [
+            "smallrig-3751b"
+          ],
+          "note": "Guía estática 3751B; piezas y transiciones aproximadas, no trayectoria de acople.",
+          "rebalance": "Apoyar y sujetar cámara antes de cambiar carga. Reajustar placa/cabezal y comprobar estabilidad y retención con todas las piezas presentes.",
+          "blocks": [
+            {
+              "part_ids": [
+                "smallrig-3751b"
+              ],
+              "source_ids": [
+                "src-smallrig-3751b-manual"
+              ],
+              "mount": "Con la cámara sujeta, ajustar placa y resistencia de cabezal según manual; bloquear de nuevo y ensayar movimientos lentos en recorrido libre real.",
+              "where": "Trípode sobre suelo estable; espacio de patas, operador y palanca comprobado físicamente.",
+              "verify": [
+                "Comprobar pan/tilt con HDMI/TRS conectados; sin tirones, tropiezos ni cable alrededor de patas. La app no predice vuelco ni topes.",
+                "No soltar cámara con bloqueos flojos. Cambiar óptica, monitor o batería exige repetir balance de placa, retención y estabilidad.",
+                "No se habilita inclinación libre del trípode en el visor; apertura y pivotes son ilustrativos."
+              ]
+            }
+          ]
+        },
+        {
+          "number": 10,
+          "title": "Retirar cámara con apoyo",
+          "kind": "optional",
+          "requires_any": [
+            "smallrig-3751b"
+          ],
+          "note": "Guía estática 3751B; piezas y transiciones aproximadas, no trayectoria de acople.",
+          "rebalance": "Apoyar y sujetar cámara antes de cambiar carga. Reajustar placa/cabezal y comprobar estabilidad y retención con todas las piezas presentes.",
+          "blocks": [
+            {
+              "part_ids": [
+                "smallrig-3751b"
+              ],
+              "source_ids": [
+                "src-smallrig-3751b-manual"
+              ],
+              "mount": "Apoyar, apagar y sujetar cámara; desconectar cables que impidan la retirada. Soltar bloqueo y seguro de placa siguiendo el manual, sin abandonar el trípode con cargas inestables.",
+              "where": "Placa incluida del AD-01; retirada manual con cámara sostenida, no transición RS4 garantizada.",
+              "verify": [
+                "No implica intercambio rápido con RS 4 Pro ni HawkLock. Revisar el montaje siguiente por separado.",
+                "Si se retira la placa de la jaula, sostener el conjunto y desatornillar con apoyo estable."
+              ]
+            }
+          ]
+        }
+      ]
     }
   ]
 }

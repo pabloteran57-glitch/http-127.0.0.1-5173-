@@ -1,12 +1,21 @@
 {
   "audit_on": "2026-10-05",
   "release_status": "planning_only",
-  "profile_limit_part_ids": ["dji-rs4-pro-combo", "smallrig-3026b", "smallrig-2906b", "smallrig-3203b", "smallrig-vb99-pro"],
+  "profile_limit_part_ids": [
+    "dji-rs4-pro-combo",
+    "smallrig-3026b",
+    "smallrig-2906b",
+    "smallrig-3203b",
+    "smallrig-vb99-pro"
+  ],
   "limits": {
     "rs4_pro_tested_payload_g": 4500,
     "rs4_source_url": "https://www.dji.com/rs-4-pro/specs",
     "3026b_supported_load_g": 1500,
-    "3026b_source_url": "https://static.smallrig.com/mall/img/public/m1twezvd88j-1751250182064_.pdf"
+    "3026b_source_url": "https://static.smallrig.com/mall/img/public/m1twezvd88j-1751250182064_.pdf",
+    "static_3751b_head_payload_g": 6000,
+    "static_3751b_leg_payload_g": 8000,
+    "static_3751b_source_url": "https://www.smallrig.com/smallrig-heavy-duty-fluid-head-tripod-ad-01-3751b.html?sku=3751B&skuId=1711937306631409666"
   },
   "mass_policy": "Separar piezas móviles de accesorios fijos del lado de la empuñadura. No sumar empuñadura estándar del Combo al BG70 ni kit completo Mic 2 a cámara. Masas desconocidas pendientes; las de planificación no son pesajes de laboratorio.",
   "centroid_policy": "Centros de envolventes ponderados por masa con posiciones aproximadas. NO son centros de gravedad internos medidos ni ajustes de equilibrio del gimbal. No calcular par sobre pivote o factor de seguridad sin medir ejes y centros de gravedad.",
@@ -19,6 +28,7 @@
     "Posiciones de ejes de motores, rango de ajuste y holgura de barrido",
     "Interior del barril del cable CBL-PWR-DTAP-BAR-36, ajuste físico y pinout detallado pendientes. Entrada Indie 7 de 2.0 mm interior / 5.5 mm exterior y centro positivo documentados por SmallHD; salientes HDMI/DC y radios de curvatura sin medir",
     "Retención y holgura física del RX Mic 2 en zapata inclinada HawkLock 4770; 28 g publicados incluidos en la carga modelada, masa del cableado pendiente",
-    "Masa total transportada con BG70, monitor fijo, accesorios y cables"
+    "Masa total transportada con BG70, monitor fijo, accesorios y cables",
+    "3751B: huella, topes, profundidad de tornillo, antitorsión, contrabalance, centro de gravedad y estabilidad del conjunto sin medir; límite de cabezal 6 kg no certifica uso."
   ]
 }

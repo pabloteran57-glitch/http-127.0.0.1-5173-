@@ -1,0 +1,85 @@
+{
+  "version": 1,
+  "reviewed_on": "2026-10-21",
+  "status": "planning_candidate",
+  "phase_order": [
+    "manifest",
+    "layout",
+    "cables_power",
+    "assembly",
+    "viewer",
+    "variants"
+  ],
+  "part_id": "smallrig-3751b",
+  "context": "static",
+  "orientation": "landscape",
+  "required_part_ids": [
+    "sony-fx3",
+    "sony-fe-16-35-gm",
+    "smallrig-4770",
+    "smallrig-3751b",
+    "sony-np-fz100"
+  ],
+  "optional_part_ids": [
+    "smallrig-2906b",
+    "smallhd-indie-7",
+    "sony-np-f970-pro",
+    "kondor-blue-hdmi-aa",
+    "dji-mic-2-kit"
+  ],
+  "source_ids": [
+    "src-smallrig-3751b",
+    "src-smallrig-3751b-manual",
+    "audit-doc-smallrig-4770-manual"
+  ],
+  "mount_method": "documented_interfaces_inference",
+  "published_limits": {
+    "head_g": 6000,
+    "legs_g": 8000,
+    "source_id": "src-smallrig-3751b"
+  },
+  "unknowns": [
+    "Huella abierta y pose real",
+    "Cotas de cabezal y placa",
+    "Profundidad y antitorsión",
+    "Contrabalance, centro de gravedad y estabilidad real"
+  ],
+  "new_cable_ids": [],
+  "templates_changed": false,
+  "library_migration": false,
+  "physical_validation": {
+    "status": "pending",
+    "observations": []
+  },
+  "visual_review": {
+    "status": "reviewed_approximate",
+    "geometry": "own_approximate",
+    "reviewed_on": "2026-10-21",
+    "private_evidence": "research/model-incoming/static-0219/model-review.png",
+    "views": 5,
+    "mesh_sha256": "cfa3c423bcbf9f34b54a84693ae460a5c9a9c2063d8d59ce16883cdee2f26885",
+    "discrepancies": [
+      "Altura visual 847.55 mm frente a pose ilustrativa de 850 mm; no deformada.",
+      "Huella y piezas de cabezal no medidas; no cotas para fabricar, comprar un adaptador ni ensayar estabilidad."
+    ]
+  },
+  "examples": [
+    {
+      "id": "fx3-static-monitor-audio",
+      "context": "static",
+      "orientation": "landscape",
+      "part_ids": [
+        "sony-fx3",
+        "sony-fe-16-35-gm",
+        "smallrig-4770",
+        "smallrig-3751b",
+        "sony-np-fz100",
+        "smallrig-2906b",
+        "smallhd-indie-7",
+        "sony-np-f970-pro",
+        "kondor-blue-hdmi-aa",
+        "dji-mic-2-kit"
+      ]
+    }
+  ]
+}

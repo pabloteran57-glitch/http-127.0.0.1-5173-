@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "reviewed_on": "2026-10-06",
+  "reviewed_on": "2026-10-21",
   "status": "authored_approximate_batch_original_exact_assets_pending",
-  "scope": "Catálogo original y tres accesorios verificados para cadenas de monitor; recursos exactos y accesorios en reserva siguen pendientes.",
+  "scope": "26 reconstrucciones propias aproximadas del catálogo actual; 13 entradas sin malla con alcance separado. Originales exactos y derechos de terceros aún pendientes.",
   "authority": {
     "identity_dimensions_mass": "parts-manifest.json",
     "pose_envelope_support": "layout-manifest.json",

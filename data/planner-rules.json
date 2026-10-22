@@ -135,6 +135,24 @@
         "src-support-smallrig-2896c-manual"
       ],
       "note": "Asiento candidato único del plan. Profundidad y resistencia antitorsión no medidas. No receptor Arca ni doble tornillo 3/8 añadido al 1/4."
+    },
+    {
+      "id": "cage-bottom-static",
+      "host_part_id": "smallrig-4770",
+      "label": "Fijación inferior para placa AD-01",
+      "interface": "Rosca inferior 1/4-20 y tornillo incluido",
+      "candidate_part_ids": [
+        "smallrig-3751b"
+      ],
+      "condition": {
+        "context": "static",
+        "orientation": "landscape"
+      },
+      "source_ids": [
+        "audit-doc-smallrig-4770-manual",
+        "src-smallrig-3751b-manual"
+      ],
+      "note": "Sólo la cadena 3751B acotada. No receptor Arca/HawkLock ni doble fijación; profundidad, antitorsión y retención pendientes."
     }
   ],
   "attachment_options": [
@@ -611,6 +629,26 @@
         "src-support-smallrig-2896c-manual"
       ],
       "note": "Incluye base, apoyo, varillas y dos agarres. La propuesta no agrega óptica o batería; elegirlas explícitamente. Sin 1674 ni extracción rápida inventada."
+    },
+    {
+      "id": "cage-static-3751b",
+      "anchor_part_id": "smallrig-4770",
+      "label": "Trípode AD-01 3751B",
+      "add_part_ids": [
+        "smallrig-3751b"
+      ],
+      "condition": {
+        "context": "static",
+        "orientation": "landscape",
+        "all": [
+          "sony-fx3"
+        ]
+      },
+      "source_ids": [
+        "audit-doc-smallrig-4770-manual",
+        "src-smallrig-3751b-manual"
+      ],
+      "note": "Añade sólo el kit elegido. Usa placa/tornillo incluidos; no instala batería, óptica, monitor ni otro adaptador."
     }
   ],
   "camera_part_ids": [
@@ -894,9 +932,12 @@
     {
       "id": "static-support",
       "condition": {
-        "context": "static"
+        "context": "static",
+        "none": [
+          "smallrig-3751b"
+        ]
       },
-      "message": "Soporte estático real por seleccionar. No se representa un trípode ni se certifica estabilidad."
+      "message": "Soporte estático por elegir. AD-01 3751B tiene una primera cadena acotada; no se inserta automáticamente ni se certifica estabilidad."
     },
     {
       "id": "vertical-support",
@@ -991,6 +1032,32 @@
         "context": "shoulder"
       },
       "message": "Apoyar y asegurar antes de montar al hombro. Medir balance, postura, línea de visión, rostro, manos, ajuste de tornillos y tendido real; la app no certifica ergonomía o retención."
+    },
+    {
+      "id": "static-3751b-core",
+      "condition": {
+        "all": [
+          "smallrig-3751b"
+        ],
+        "context": "static"
+      },
+      "required_all": [
+        "sony-fx3",
+        "sony-fe-16-35-gm",
+        "smallrig-4770",
+        "smallrig-3751b",
+        "sony-np-fz100"
+      ],
+      "message": "Completa el núcleo estático revisado: FX3, 16-35 GM, 4770, AD-01 3751B y NP-FZ100. Sin sustituir tus elecciones."
+    },
+    {
+      "id": "static-3751b-preflight",
+      "condition": {
+        "all": [
+          "smallrig-3751b"
+        ]
+      },
+      "message": "Verificar suelo, cierres, nivelación, placa, seguro, carga sobre cabezal y recorrido de cables. Patas 8 kg, cabezal 6 kg; estar por debajo no prueba estabilidad. No hay ensayo físico del conjunto."
     }
   ],
   "cable_exclusions": [
@@ -1101,6 +1168,9 @@
     ],
     "smallrig-2896c": [
       "smallrig-4770"
+    ],
+    "smallrig-3751b": [
+      "smallrig-4770"
     ]
   },
   "gimbal_only_part_ids": [
@@ -1178,7 +1248,8 @@
       "part_ids": [
         "dji-rs4-pro-combo",
         "dji-rs-bg70",
-        "smallrig-2896c"
+        "smallrig-2896c",
+        "smallrig-3751b"
       ]
     },
     {
@@ -1583,6 +1654,18 @@
         "landscape"
       ],
       "message": "2896C revisado sólo en el contexto Al hombro horizontal, con FX3/4770 y fuente nativa. No se adapta a gimbal por compartir varillas."
+    },
+    {
+      "part_ids": [
+        "smallrig-3751b"
+      ],
+      "contexts": [
+        "static"
+      ],
+      "orientations": [
+        "landscape"
+      ],
+      "message": "3751B candidato sólo estático horizontal con FX3/16-35 GM/4770/NP-FZ100; otros montajes quedan elegidos pendientes."
     }
   ],
   "selection_scopes": [
@@ -1673,9 +1756,135 @@
         "dji-mic-2-kit"
       ],
       "message": "Primer alcance al hombro: FX3/16-35 GM/4770/2896C y NP-FZ100; opcionales monitor NATO con serie L y RX. No se heredan base/varillas de ocho pulgadas, V-mount, XLR, gimbal u otras ópticas."
+    },
+    {
+      "id": "static-3751b-scope",
+      "condition": {
+        "all": [
+          "smallrig-3751b"
+        ]
+      },
+      "allowed_part_ids": [
+        "sony-fx3",
+        "sony-fe-16-35-gm",
+        "smallrig-4770",
+        "smallrig-3751b",
+        "sony-np-fz100",
+        "smallrig-2906b",
+        "smallhd-indie-7",
+        "sony-np-f970-pro",
+        "kondor-blue-hdmi-aa",
+        "dji-mic-2-kit"
+      ],
+      "message": "AD-01 3751B: primera cadena estática acotada a FX3/16-35 GM/4770/NP-FZ100; monitor NATO con serie L y RX opcionales. Otros elementos no heredan montaje."
     }
   ],
   "assembly_profiles": [
+    {
+      "id": "fx3-static-3751b",
+      "camera_part_id": "sony-fx3",
+      "context": "static",
+      "require_all": [
+        "smallrig-3751b"
+      ],
+      "frames": [
+        {
+          "step": 1,
+          "add_part_ids": [
+            "sony-fx3",
+            "sony-fe-16-35-gm",
+            "sony-np-fz100"
+          ],
+          "add_cable_ids": [
+            "pwr-npfz100-to-fx3-contacts"
+          ],
+          "context_part_ids": [],
+          "note": "Estático 3751B: animación ilustrativa, no acople ni ensayo físico."
+        },
+        {
+          "step": 2,
+          "add_part_ids": [
+            "smallrig-4770"
+          ],
+          "add_cable_ids": [],
+          "context_part_ids": [],
+          "note": "Estático 3751B: animación ilustrativa, no acople ni ensayo físico."
+        },
+        {
+          "step": 3,
+          "add_part_ids": [
+            "smallrig-3751b"
+          ],
+          "add_cable_ids": [],
+          "context_part_ids": [],
+          "note": "Estático 3751B: animación ilustrativa, no acople ni ensayo físico."
+        },
+        {
+          "step": 4,
+          "add_part_ids": [
+            "smallrig-2906b",
+            "smallhd-indie-7"
+          ],
+          "add_cable_ids": [],
+          "context_part_ids": [],
+          "note": "Estático 3751B: animación ilustrativa, no acople ni ensayo físico."
+        },
+        {
+          "step": 5,
+          "add_part_ids": [
+            "sony-np-f970-pro"
+          ],
+          "add_cable_ids": [
+            "pwr-npf-to-smallhd-contacts"
+          ],
+          "context_part_ids": [],
+          "note": "Estático 3751B: animación ilustrativa, no acople ni ensayo físico."
+        },
+        {
+          "step": 6,
+          "add_part_ids": [
+            "dji-mic-2-kit"
+          ],
+          "add_cable_ids": [],
+          "context_part_ids": [],
+          "note": "Estático 3751B: animación ilustrativa, no acople ni ensayo físico."
+        },
+        {
+          "step": 7,
+          "add_part_ids": [
+            "kondor-blue-hdmi-aa"
+          ],
+          "add_cable_ids": [
+            "vid-fx3-to-smallhd"
+          ],
+          "context_part_ids": [],
+          "note": "Estático 3751B: animación ilustrativa, no acople ni ensayo físico."
+        },
+        {
+          "step": 8,
+          "add_part_ids": [],
+          "add_cable_ids": [
+            "audio-rx-to-fx3"
+          ],
+          "context_part_ids": [],
+          "note": "Estático 3751B: animación ilustrativa, no acople ni ensayo físico."
+        },
+        {
+          "step": 9,
+          "add_part_ids": [],
+          "add_cable_ids": [],
+          "context_part_ids": [],
+          "note": "Estático 3751B: animación ilustrativa, no acople ni ensayo físico."
+        },
+        {
+          "step": 10,
+          "add_part_ids": [],
+          "add_cable_ids": [],
+          "context_part_ids": [],
+          "note": "Estático 3751B: animación ilustrativa, no acople ni ensayo físico."
+        }
+      ]
+    },
     {
       "id": "fx3-shoulder-2896c",
       "camera_part_id": "sony-fx3",

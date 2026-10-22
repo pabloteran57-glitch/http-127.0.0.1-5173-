@@ -1,6 +1,6 @@
 # Altas aditivas de planificación
 
-Generado desde data/catalog-promotions.json. Revisión 2026-10-18. Datos canónicos en manifiestos; sin ensayo físico ni cambios automáticos de biblioteca.
+Generado desde data/catalog-promotions.json. Revisión 2026-10-21. Datos canónicos en manifiestos; sin ensayo físico ni cambios automáticos de biblioteca.
 
 ## FE 35mm F1.8
 
@@ -74,6 +74,22 @@ Ejemplos, no plantillas añadidas:
 - fx3-shoulder-monitor-audio: FX3; 16-35 mm GM; Jaula HawkLock; 2896C · kit de hombro; Sony NP-FZ100; Soporte NATO de monitor 2906B; Indie 7; Batería Sony NP-F970/PRO; HDMI Kondor Blue; Mic 2. Selección explícita de ejemplo, no plantilla nueva ni certificación física.
 
 Física pendiente. Regresiones: scripts/test-support-integration.mjs, scripts/test-setup-coverage.mjs. No cambian las siete plantillas ni la revisión de biblioteca.
+
+## AD-01 3751B · trípode
+
+1. Manifiesto: 3751B: 4000 g aproximados; [fuente oficial](https://static.smallrig.com/mall/img/public/1728961635390_.pdf).
+2. Distribución: sólo estática / horizontal; poses aproximadas. Soporte estático bajo jaula, huella y pivotes aproximados.
+3. Conexiones: Sin nuevos puertos ni circuitos; batería nativa y monitor/RX optativos.
+4. Guía: Diez etapas propias filtradas; retirada opcional sin garantía RS4.
+5. Visor: Reconstrucción propia aproximada, revisión visual requerida antes de publicación.
+6. Variantes: No altera las siete plantillas ni bibliotecas.
+
+- Par 4770 + 3751B: [fuente oficial](https://static.smallrig.com/mall/img/public/1728961635390_.pdf); Manual 3751B páginas 18-19; manual 4770 página 4 inferior. Retención, profundidad y antitorsión pendientes; no par certificado. Interfaces: [Rosca inferior 1/4-20](https://static.smallrig.com/mall/img/public/1725874097334_.pdf); [Tornillo 1/4-20 en placa incluida](https://static.smallrig.com/mall/img/public/1728961635390_.pdf).
+
+Ejemplos, no plantillas añadidas:
+- fx3-static-monitor-audio: FX3; 16-35 mm GM; Jaula HawkLock; AD-01 3751B · trípode; Sony NP-FZ100; Soporte NATO de monitor 2906B; Indie 7; Batería Sony NP-F970/PRO; HDMI Kondor Blue; Mic 2. Selección explícita de ejemplo; no plantilla nueva ni prueba física.
+
+Física pendiente. Regresiones: scripts/test-static-support.mjs. No cambian las siete plantillas ni la revisión de biblioteca.
 
 ## Prioridad siguiente
 

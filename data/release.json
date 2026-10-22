@@ -1,12 +1,16 @@
 {
-  "version": "0.2.18",
-  "released_on": "2026-10-18",
+  "version": "0.2.19",
+  "released_on": "2026-10-21",
   "status": "engineering_prototype",
   "label": "Prototipo de ingeniería",
   "catalog_revision": "fx3-rs4-2026-10-05",
   "storage": "local_only",
   "account_sync": "deferred_by_user",
   "updates": [
+    "AD-01 3751B seleccionable para primer rig estático FX3/16-35 GM/4770/NP-FZ100; placa y tornillo incluidos, monitor NATO/serie L y RX opcionales.",
+    "Guía estática propia filtrada; encuadres de cámara y trípode completo, malla y miniatura propias aproximadas.",
+    "22 de 22 circuitos tienen revisión ampliada vinculada a modelo/puerto. No aprueba retención, señal o alimentación del conjunto sin prueba real.",
+    "INPUT3 del asa Sony: canales dependen de INPUT SELECT y modo; MIC del cuerpo desactiva audio del asa.",
     "4346 lateral seleccionable con 4770 para cámara a mano/estática horizontal; recurso propio, guía FX3/FX30 y malla aproximada.",
     "Nuevo contexto Al hombro: FX3/4770/2896C con batería nativa. Kit completo con dos agarres, base y barras; guía independiente, monitor NATO/serie L y RX opcionales.",
     "Conexiones y anclajes identifican la unidad elegida y su etiqueta; puertos de otro modelo, dobles reclamos de conector y reutilización de cable independiente se bloquean sin añadir adaptadores.",
@@ -35,8 +39,9 @@
     "Monitor NATO, ajustes acoplados, selección desde visor y las cuatro tareas originales conservados"
   ],
   "limitations": [
+    "3751B: masa neta 4 kg separada de carga superior; cabezal 6 kg y patas 8 kg no prueban estabilidad. Huella, cabezal, tornillo y apertura aproximados; sin ensayo físico ni intercambio RS4 garantizado.",
     "4346/2896C son candidatos por inferencia de interfaces, no parejas certificadas. Medir pines, tornillos, manos, postura, línea de visión y balance antes de usar.",
-    "25 mallas propias aproximadas, no CAD ni resultados Meshy/Sketchfab. 2896C: malla longitudinal 498 mm frente a 510 mm publicados; asientos y separación de varillas sin medir.",
+    "26 mallas propias aproximadas, no CAD ni resultados Meshy/Sketchfab. 2896C: malla longitudinal 498 mm frente a 510 mm publicados; asientos y separación de varillas sin medir.",
     "Al hombro sólo FX3/16-35 GM/4770/2896C/NP-FZ100 y accesorios acotados. Sin V-mount, XLR, gimbal, FX30, ajuste libre o extracción rápida implícitos. Otros cuatro candidatos de apoyo siguen sin activar.",
     "Sólo una unidad de cada SKU puede participar en las cadenas actuales. Las adicionales son repuestos: sin geometría instalada, cables ni carga; el montaje simultáneo duplicado sigue pendiente de reglas y evidencia por asiento.",
     "Límites de software: 120 unidades por proyecto y 20 por producto. Etiquetas no son números de serie verificados ni inventario físico certificado.",

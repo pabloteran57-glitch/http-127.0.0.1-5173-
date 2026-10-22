@@ -15,7 +15,7 @@ Canónicos: `data/cables-manifest.json` y `data/ports-manifest.json`. 22 circuit
 
 **Corrección eléctrica:** Cable CBL-PWR-DTAP-BAR-36: exterior 5.5 mm y centro positivo publicados, interior del cable por confirmar. Fuente independiente SmallHD, tabla técnica Power: entrada del Indie 7 de 2.0 mm interior / 5.5 mm exterior y centro positivo, DC 10–34 V; terminales batería 6.0–16.8 V. El ID histórico del cable no es prueba de conector. 4253B: entrada 9.6–20 V / mínimo 2 A, salida 8.0–8.4 V / máximo continuo 2 A. Todas las cargas y ajustes reales siguen pendientes.
 
-Revisión por circuito y fuentes: [comprobaciones de conexiones](connection-reviews.md). 8 enlaces revisados documentalmente; los demás no se dan por compatibles por tener puertos identificados.
+Revisión por circuito y fuentes: [comprobaciones de conexiones](connection-reviews.md). 22 enlaces revisados documentalmente; los demás no se dan por compatibles por tener puertos identificados.
 
 ## Colores
 
@@ -219,11 +219,11 @@ Revisión por circuito y fuentes: [comprobaciones de conexiones](connection-revi
 - Origen: Salida de 3.5 mm del receptor Mic 2; puerto `mic2-rx-out`.
 - Destino: Entrada de 3.5 mm del XLR-H1; puerto `xlrh1-input3`.
 - Conector A: TRS de 3.5 mm macho; conector B: TRS de 3.5 mm macho.
-- Tipo: Datos/control; estándar/tensión: Audio analógico al asa Sony; confirmar canales 3/4..
+- Tipo: Datos/control; estándar/tensión: Audio analógico a INPUT3 del asa Sony; asignación CH1/2 o CH3/4 según INPUT SELECT y modo de grabación..
 - Longitud estimada: Cable de audio incluido; longitud exacta por confirmar.
 - Ruta candidata: En estático o a mano: RX en zapata inclinada 4770 -> OUT TRS -> INPUT3 del XLR-H1, no a la entrada del cuerpo. Bucle local y acceso al asa por comprobar físicamente.
 - Alivio de tensión: Sujetar ambos extremos sin cargar los conectores; probar holgura y radio mínimo de curvatura.
-- Riesgos: No asumir grabación simultánea de entrada del cuerpo y del asa MI.; Comprobar asignación de canales y ganancia.
+- Riesgos: No asumir grabación simultánea de entrada del cuerpo y del asa MI.; Comprobar asignación de canales y ganancia.; INPUT3 no corresponde siempre a CH3/4. Conectar MIC del cuerpo desactiva audio del asa; comprobar selector, formato y toma real.
 - Obligatorio/opcional: Obligatorio; estado: Candidato; visualización: Cable.
 - Cruce de movimiento: Dentro del mismo subconjunto; geometría: Esquema, no CAD de puertos.
 

@@ -425,6 +425,23 @@
       },
       "caption": "Modelo aproximado",
       "reviewed_on": "2026-10-18"
+    },
+    {
+      "id": "smallrig-3751b-takegrid-v1",
+      "part_id": "smallrig-3751b",
+      "subcomponent_id": null,
+      "model_sha256": "cfa3c423bcbf9f34b54a84693ae460a5c9a9c2063d8d59ce16883cdee2f26885",
+      "status": "approved",
+      "method": "rendered_approved_mesh",
+      "image": {
+        "path": "/product-visuals/smallrig-3751b-takegrid-v1.webp",
+        "sha256": "d15f17b50e548273af5a1b25fb595e23fa7f40bbaa038294789b714d0f5f61c2",
+        "bytes": 5716,
+        "width": 400,
+        "height": 280
+      },
+      "caption": "Modelo aproximado",
+      "reviewed_on": "2026-10-21"
     }
   ],
   "scope": "Miniaturas de mallas propias revisadas, aproximadas y encuadradas por pieza. No fotos oficiales, CAD ni comparación de escala entre tarjetas."
